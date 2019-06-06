@@ -2,20 +2,20 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Ange det ClaimsSchema elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721743"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511855"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,7 +42,7 @@ Den **ClaimsSchema** elementet definierar vilka anspråkstyper som kan referera 
 
 Den **ClaimType** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för Anspråkstypen. Andra element kan använda den här identifieraren i principen. |
 
@@ -50,10 +50,10 @@ Den **ClaimType** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Rubriken som visas för användarna på olika skärmar. Värdet kan vara [lokaliserade](localization.md). |
+| displayName | 0:1 | Rubriken som visas för användarna på olika skärmar. Värdet kan vara [lokaliserade](localization.md). |
 | Datatyp | 0:1 | Typ av anspråket. Datatyperna för booleskt värde, datum, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection kan användas. |
 | DefaultPartnerClaimTypes | 0:1 | Partner-standard anspråkstyper ska användas för ett angivet protokoll. Värdet kan åsidosättas i den **PartnerClaimType** anges i den **InputClaim** eller **OutputClaim** element. Använd det här elementet för att ange standardnamnet för ett protokoll.  |
-| Mask | 0:1 | En valfri sträng med maskering av tecken som kan användas vid visning av anspråket. Till exempel ska phone nummer 324-232-4343 maskeras som XXX-XXX-4343. |
+| mask | 0:1 | En valfri sträng med maskering av tecken som kan användas vid visning av anspråket. Till exempel ska phone nummer 324-232-4343 maskeras som XXX-XXX-4343. |
 | UserHelpText | 0:1 | En beskrivning av Anspråkstypen som kan vara till hjälp för användarna att förstå dess syfte. Värdet kan vara [lokaliserade](localization.md). |
 | UserInputType | 0:1 | Typ av kontrollen som ska vara tillgängligt för användaren när du manuellt anger informationen som anspråk för Anspråkstypen. Se indatatyper för användare som definieras senare i den här sidan. |
 | Begränsning | 0:1 | Begränsningar för värdet för det här anspråket, till exempel ett reguljärt uttryck (Regex) eller en lista över godkända värden. Värdet kan vara [lokaliserade](localization.md). |
@@ -65,11 +65,11 @@ Den **DefaultPartnerClaimTypes** kan innehålla följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Protokoll | 0: n | Lista över protokoll med respektive standard-partner anspråk typnamn. |
+| Protocol | 0: n | Lista över protokoll med respektive standard-partner anspråk typnamn. |
 
 Den **protokollet** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
 | PartnerClaimType | Ja | Anspråk typnamn som ska användas. |
@@ -100,11 +100,11 @@ Därför JWT-token som utfärdas av Azure AD B2C genererar den `family_name` i s
 }
 ```
 
-### <a name="mask"></a>Mask
+### <a name="mask"></a>mask
 
 Den **Mask** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av anspråk masken. Möjliga värden: `Simple` eller `Regex`. Den `Simple` värdet anger att en enkel text mask tillämpas på den ledande delen av ett sträng-anspråk. Den `Regex` värdet anger att ett reguljärt uttryck används till sträng anspråk som helhet.  Om den `Regex` värde har angetts, ett valfritt attribut måste också ha definierats med reguljära uttrycket som ska användas. |
 | `Regex` | Nej | Om **`Type`** är inställd på `Regex`, ange det reguljära uttrycket att använda.
@@ -144,7 +144,7 @@ Den Identitetsramverk återges endast den första bokstaven i e-postadressen och
 
 Den **begränsning** element kan innehålla följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | MergeBehavior | Nej | Den metod som används för att slå samman uppräkningsvärdena med en ClaimType i en överordnad-princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som angetts i basprincipen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. Den `Append` värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. Den `Prepend` värdet är en samling data som ska läggas till innan den samling som anges i den överordnade principen. Den `ReplaceAll` värdet är en samling data som anges i den överordnade-princip som ska ignoreras. |
 
@@ -159,7 +159,7 @@ Den **begränsning** elementet innehåller följande element:
 
 Den **uppräkning** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Visningssträngen som visas för användaren i användargränssnittet för det här alternativet. |
 |Värde | Ja | Anspråkets värde som är associerad med det här alternativet. |
@@ -188,7 +188,7 @@ Stad listruta med ett standardvärde som angetts till New York:
 
 Den **mönstret** element kan innehålla följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltiga. |
 | HelpText | Nej | Mönster eller reguljärt uttryck för denna begäran. |
@@ -354,7 +354,7 @@ Den **Readonly** typ av användarindata som används för att tillhandahålla et
 ```
 
 
-### <a name="paragraph"></a>Stycke
+### <a name="paragraph"></a>Punkt
 
 Den **punkt** typ av användarindata som används för att tillhandahålla ett fält som visar text endast i en styckestagg. Till exempel &lt;p&gt;text&lt;/p&gt;.
 

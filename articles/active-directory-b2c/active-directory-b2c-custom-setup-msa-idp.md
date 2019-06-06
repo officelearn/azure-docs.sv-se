@@ -2,20 +2,20 @@
 title: Lägg till Microsoft-konto (MSA) som en identitetsprovider med anpassade principer i Azure Active Directory B2C | Microsoft Docs
 description: Exempel med hjälp av Microsoft som identitetsprovider med OpenID Connect (OIDC)-protokollet.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 983b90af4aafe158bf32290b1e4a2092acc47b17
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d4b1f65daf271de88ce7167da6866e1890602fd4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706487"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510330"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Microsoft-konto med hjälp av anpassade principer i Azure Active Directory B2C
 

@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925868"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730452"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -56,7 +56,7 @@ För nivåerna Basic och Standard Meddelandehubbar kan korrekt konfigurerade pro
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur jag för att uppgradera eller nedgradera min hubb eller namnområdet till en annan nivå?
 
-Gå till den  **[Azure Portal]** > **Notification Hubs-Namnrymder** eller **Meddelandehubbar**. Välj den resurs som du vill uppdatera och gå till **prisnivå**. Observera följande krav:
+Gå till den  **[Azure Portal]**  > **Notification Hubs-Namnrymder** eller **Meddelandehubbar**. Välj den resurs som du vill uppdatera och gå till **prisnivå**. Observera följande krav:
 
 * Uppdaterade prisnivån gäller *alla* hubs i namnområdet som du arbetar med.
 * Om din enhetsantal överskrider gränsen på den nivå som du nedgradering till, måste du ta bort enheterna innan du börjar Nedgradera.
@@ -69,13 +69,13 @@ Server-SDK: er är tillgängliga för .NET, Java, Node.js, PHP och Python. Notif
 
 ### <a name="which-client-platforms-do-you-support"></a>Vilka klientplattformar stöder ni?
 
-Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Kina (Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, [Chrome-appar](notification-hubs-chrome-push-notifications-get-started.md), och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
+Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Kina (Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Har du stöd för SMS, e-post eller webb-meddelanden?
 
 Meddelandehubbar är primärt utformat för att skicka meddelanden till mobila appar. Det ger inte e-post eller SMS-funktioner. Men från tredje part-plattformar som innehåller dessa funktioner kan integreras med Notification Hubs för att skicka systemspecifika push-meddelanden med hjälp av [Mobile Apps].
 
-Meddelandehubbar ger också inte en i webbläsaren push leverans meddelandetjänst direkt ur lådan. Kunder kan implementera den här funktionen med SignalR ovanpå plattformarna som stöds från serversidan. Om du vill skicka meddelanden till webbläsarbaserade appar i sandlådan Chrome finns i den [Självstudier för Chrome].
+Meddelandehubbar ger också inte en i webbläsaren push leverans meddelandetjänst direkt ur lådan. Kunder kan implementera den här funktionen med SignalR ovanpå plattformarna som stöds från serversidan. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Hur är Mobile Apps och Azure Notification Hubs relaterade och när ska jag använda dem?
 
@@ -210,7 +210,6 @@ Du kan även programmässigt komma åt mätvärden. Mer information finns i föl
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hub REST API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs komma igång-Självstudier]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Självstudier för Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Vägledning för backend-registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Registrering av backend-vägledning 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

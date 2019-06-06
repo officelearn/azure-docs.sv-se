@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2af8ef7d29d1ac506ddca654544bc938758aa0d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66149901"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479443"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -40,7 +40,7 @@ Det första steget är att skapa ett automation-konto och konfigurera den med Az
 Följ stegen nedan för att skapa Azure Automation-konto via metoden för att välja och konfigurera Automation-app från Marketplace:
 
 - Logga in på Azure portal
-- Klicka på ”**+ skapa en resurs**” i det övre vänstra hörnet
+- Klicka på ” **+ skapa en resurs**” i det övre vänstra hörnet
 - Sök efter ”**Automation**” (tryck på RETUR)
 - Klicka på appen Automation i sökresultaten
 
@@ -59,14 +59,9 @@ Om du har flera Azure-prenumerationer som du vill skapa samma automatisering kan
 
 ## <a name="update-azure-automation-modules"></a>Uppdatera Azure Automation-moduler
 
-PowerShell-skript för att hämta automatiska justeringen rekommendation använder [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) och [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) kommandon som uppdateringshantering för Azure-moduler till version 4 och senare krävs.
+PowerShell-skript för att hämta automatiska justeringen rekommendation använder [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) och [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) -kommandon för vilka Azure-modulen version 4 och senare krävs.
 
-Följ dessa steg om du vill uppdatera Azure PowerShell-moduler:
-
-- Öppnar du fönstret för Automation-appen och välj ”**moduler**” på menyn till vänster (Rulla nedåt som menyobjektet är under delade resurser).
-- I fönstret moduler klickar du på ”**uppdatera Azure-moduler**” högst upp och vänta tills meddelandet ”Azure-moduler har uppdaterats” visas. Den här processen kan ta ett par minuter att slutföra.
-
-![Uppdatera Azure automationsmoduler](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
+- Om dina Azure-moduler behöver uppdateras, se [Az modulen stöd i Azure Automation](../automation/az-modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Skapa Azure Automation-Runbook
 
@@ -76,7 +71,7 @@ Följ stegen nedan för att skapa en ny Azure Automation-runbook:
 
 - Åtkomst till Azure Automation-kontot som du skapade i föregående steg
 - En gång i fönstret automation-konto klickar du på den ”**Runbooks**” menyobjekt på vänster sida för att skapa en ny Azure Automation-runbook med PowerShell-skriptet. Mer information om hur du skapar automation-runbooks finns [skapa en ny runbook](../automation/manage-runbooks.md#create-a-runbook).
-- Lägg till en ny runbook genom att klicka på den ”**+ Lägg till en runbook**” menyalternativet och sedan klicka på den ”**snabbt skapa – skapa en ny runbook**”.
+- Lägg till en ny runbook genom att klicka på den ” **+ Lägg till en runbook**” menyalternativet och sedan klicka på den ”**snabbt skapa – skapa en ny runbook**”.
 - I Runbook-rutan skriver du namnet på din runbook (i det här exemplet ”**AutomaticTuningEmailAutomation**” används), Välj typ av runbook som **PowerShell** och skriva en beskrivning av Denna runbook för att beskriva syftet.
 - Klicka på den **skapa** knappen för att skapa en ny runbook
 
@@ -199,7 +194,7 @@ Mer information om funktionerna i Microsoft Flow finns [komma igång med Microso
 Krav för det här steget är att registrera dig för [Microsoft Flow](https://flow.microsoft.com) konto och logga in. En gång i lösningen, följer du dessa steg för att ställa in en **nytt flöde**:
 
 - Åtkomst ”**Mina flöden**”-menyn
-- I Mina flöden, Välj den ”**+ skapa från tom**” längst upp på sidan
+- I Mina flöden, Välj den ” **+ skapa från tom**” längst upp på sidan
 - Klicka på länken ”**Sök efter hundratals kopplingar och utlösare**” längst ned på sidan
 - I fältet söktyp ”**upprepning**”, och välj ”**schema – återkommande**” från sökresultaten att schemalägga att e-delivery-jobbet ska köras.
 - I fönstret upprepning i fältet frekvens väljer du schemaläggning frekvensen för det här flödet att köra, t.ex. skicka automatiserade e-post varje minut, timme, dag, vecka, osv.
@@ -208,14 +203,14 @@ Nästa steg är att lägga till tre jobb (skapa, är get-utdata och skicka e-pos
 
 1. Skapa åtgärd för att köra PowerShell-skript för att hämta justeringsrekommendationer
 
-   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - Välj ” **+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
    - I fältet söktyp ”**automation**” och välj ”**Azure Automation – skapa jobb**” från sökresultaten
    - Konfigurera jobbegenskaper för i fönstret Skapa jobbet. För den här konfigurationen behöver du information om dina Azure-prenumeration-ID, resursgrupp och ett Automation-konto **tidigare inspelade** på den **Automation-konto fönstret**. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation - skapa jobbet](https://docs.microsoft.com/connectors/azureautomation/#create-job).
    - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
 
 2. Skapa åtgärd för att hämta utdata från utförda PowerShell-skript
 
-   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - Välj ” **+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
    - I rutan Sök datatyper ”**automation**” och välj ”**Azure Automation – Get-jobbutdata**” från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation – Get-jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
    - Fyll i fälten obligatoriskt (liknar skapar det föregående jobbet) – Fyll i din Azure-prenumeration-ID, resursgrupp och ett Automation-konto (som angetts i fönstret Automation-konto)
    - Klicka i fältet ”**jobb-ID**” för den ”**dynamiskt innehåll**” menyn visas. Från den här menyn väljer alternativet ”**jobb-ID**”.
@@ -223,7 +218,7 @@ Nästa steg är att lägga till tre jobb (skapa, är get-utdata och skicka e-pos
 
 3. Skapa åtgärder för att skicka e-postmeddelande med hjälp av Office 365-integration
 
-   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - Välj ” **+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
    - I rutan Sök datatyper ”**skicka ett e-postmeddelande**” och välj ”**Office 365 Outlook – skicka ett e-postmeddelande**” från sökresultaten
    - I den ”**till**” fälttyp den e-postadress som du behöver skicka e-postmeddelandet
    - I den ”**ämne**” fälttyp i din e-postmeddelandets ämne, till exempel ”automatiska justeringsrekommendationer för e-postavisering”

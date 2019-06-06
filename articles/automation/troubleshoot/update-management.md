@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474564"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -40,7 +40,7 @@ Det här felet kan orsakas av följande orsaker:
 1. Kommunikation till Automation-kontot blockeras.
 2. Den virtuella datorn som det gäller kanske har kommit från en klonad dator som inte är Sysprep med Microsoft Monitoring Agent installerad.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 1. Besök, [nätverksplanering](../automation-hybrid-runbook-worker.md#network-planning) att lära dig om vilka adresser och portar måste vara tillgängliga för hantering av uppdateringar ska fungera.
 2. Om du använder en klonade avbildningen:
@@ -63,7 +63,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Det här felet uppstår när du skapar en distribution som har Azure-datorer i en annan klient som ingår i en uppdateringsdistribution.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Du måste använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet och skicka den datorer i den andra klienten till den `-NonAzureComputer` parametern. I följande exempel visar ett exempel på hur du gör detta:
@@ -78,19 +78,48 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Azure Monitor-loggar för en dator
+### <a name="nologs"></a>Scenario: Datorer som inte visas i portalen under hantering av uppdateringar
 
 #### <a name="issue"></a>Problem
 
-Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Azure Monitor-loggar för Hybrid Runbook Worker men inte hantering av uppdateringar.
+Du kan köra i följande scenarier:
+
+* Din dator visar **inte konfigurerad** från vyn hantering av uppdateringar av en virtuell dator
+
+* Dina datorer saknas i vyn hantering av uppdateringar för ditt Automation-konto
+
+* Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Azure Monitor-loggar för Hybrid Runbook Worker men inte hantering av uppdateringar.
 
 #### <a name="cause"></a>Orsak
 
+Detta kan orsakas av potentiella konfigurationsproblem på lokala eller av felaktigt konfigurerade Omfattningskonfigurationen.
+
 Hybrid Runbook Worker kan behöva registreras igen och ominstalleras.
 
-#### <a name="resolution"></a>Matchning
+Du har definierat en kvot på din arbetsyta som har nått och stoppar data lagras.
 
-Följ stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker för Windows eller [distribuera en Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) för Linux.
+#### <a name="resolution"></a>Lösning
+
+* Se till att datorn rapporterar till rätt arbetsyta. Kontrollera vilka datorn rapporterar till arbetsytan. Anvisningar för hur detta kontrolleras finns i [verifiera agentanslutning till Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Kontrollera sedan att det här är den arbetsyta som är kopplat till ditt Azure Automation-konto. För att bekräfta detta, navigera till ditt Automation-konto och klicka på **länkade arbetsytan** under **relaterade resurser**.
+
+* Kontrollera datorerna som visas i Log Analytics-arbetsytan. Kör följande fråga i Log Analytics-arbetsytan som är kopplad till ditt Automation-konto. Om du inte ser din dator i frågeresultatet är din dator inte pulsslag, vilket innebär att det troligen ett problem med lokal. Du kan köra felsökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline) beroende på Operativsystemet och du kan [ominstallera agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Om din dator som visas i resultatet av frågan, så du behöver mycket omfattningskonfigurationen som anges i följande punktlista.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Sök efter omfång konfigurationsproblem. [Scopekonfiguration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer få konfigurerats för lösningen. Om din dator visas i din arbetsyta men inte är visas du behöver du konfigurera scope-konfiguration för att rikta in datorerna. Information om hur du gör detta finns i [publicera datorer i arbetsytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* Om stegen ovan inte löser problemet, följer du stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker för Windows eller [distribuera en Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) för Linux.
+
+* Kör följande fråga i din arbetsyta. Om du ser resultatet `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` du har en kvot som definierats på din arbetsyta som har uppnåtts och har stoppats data sparas. På arbetsytan och gå till **användning och uppskattade kostnader** > **Datavolymhantering** och kontrollera din kvot eller ta bort kvoten som du har.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
 
 ## <a name="windows"></a>Windows
 
@@ -112,7 +141,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Datorn har redan publicerats till en annan arbetsyta för uppdateringshantering.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Rensa gamla artefakter på datorn genom att [tar bort hybridrunbookgruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) och försök igen.
 
@@ -138,7 +167,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 Det kan finnas en gateway, en proxy eller en brandvägg som blockerar nätverkskommunikation.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Granska dina nätverk och se till att lämpliga portar och adresser tillåts. Se [krav på](../automation-hybrid-runbook-worker.md#network-planning), en lista över portar och adresser som krävs av hantering av uppdateringar och Hybrid Runbook Worker.
 
@@ -156,7 +185,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
 
@@ -180,7 +209,7 @@ Det här felet kan bero på något av följande orsaker:
 * Det uppstod en uppdatering av Microsoft Monitoring Agent som ändrats i SourceComputerId
 * Uppdateringskörningen kanske har begränsats om du har nått gränsen för 2 000 samtidiga jobb i ett Automation-konto. Varje distributionen betraktas som ett jobb och varje dator i ett uppdateringsvärde för distribution som ett jobb. Alla andra automation-jobb eller uppdatera distributioner för närvarande körs i ditt Automation-konto antal mot gränsen för antal samtidiga jobb.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 När tillämpligt Använd [dynamiska grupper](../automation-update-management.md#using-dynamic-groups) för dina distributioner.
 
@@ -202,7 +231,7 @@ Du har datorer som visas som **ej utvärderat** under **efterlevnad**, och du se
 
 Windows Update eller WSUS är inte korrekt konfigurerad på datorn. Uppdateringshantering förlitar sig av Windows Update eller WSUS för att tillhandahålla uppdateringar som behövs, status för uppdateringen och resultatet av korrigeringar som distribueras. Utan den här informationen kan hantering av uppdateringar inte korrekt rapport om de korrigeringar som krävs eller installerad.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Dubbelklicka på undantaget som visas i rött att se hela Undantagsmeddelandet. Kontrollera i följande tabell för möjliga lösningar eller åtgärder som ska vidtas:
 
@@ -235,7 +264,7 @@ En uppdatering körs kunde inte starta på en Linux-dator.
 
 Linux Hybrid Worker är felfri.
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Skapa en kopia av följande loggfiler och bevara i felsökningssyfte:
 
@@ -257,7 +286,7 @@ Möjliga orsaker kan vara följande:
 * Specifika paket kan störa molnbaserad korrigeringar
 * Andra orsaker
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Om fel uppstår under en uppdatering som körs när den har startats på Linux loggen det utdata från den berörda datorn i körningen. Du kanske felmeddelanden från din dator Pakethanteraren som du kan undersöka och vidta åtgärder för. Hantering av uppdateringar kräver Pakethanteraren felfria för lyckade distributioner.
 

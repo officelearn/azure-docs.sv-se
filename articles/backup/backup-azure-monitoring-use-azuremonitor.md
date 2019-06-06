@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics; Azure Backup; Aviseringar; Diagnostikinställningar; Åtgärdsgrupper
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190511"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734865"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -46,7 +46,7 @@ Du kan välja en LA-arbetsyta från en annan prenumeration som mål. *Du kan öv
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Distribuera lösningen till Log Analytics-arbetsyta
 
-När data finns i LA arbetsytan [distribuera en mall för github](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) till LA att visualisera data. Kontrollera att du ger samma resursgrupp, namn på arbetsyta och arbetsytan, position för att korrekt identifiera arbetsytan och sedan installera den här mallen på den.
+När data finns i LA arbetsytan [distribuera en mall för GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) till LA att visualisera data. Kontrollera att du ger samma resursgrupp, namn på arbetsyta och arbetsytan, position för att korrekt identifiera arbetsytan och sedan installera den här mallen på den.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Visa Azure Backup-data med hjälp av Log Analytics (LA)
 
@@ -242,13 +242,13 @@ Använda filter som visas i följande bild för att kontrollera om du tar emot a
 
 ![Aktivitetsloggar för Virtuella Azure-säkerhetskopieringar](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Du kan klicka på ”JSON” segment för att få mer information och visa det genom att kopiera klistra in den till en textredigerare. Bör visas information för valvet och de objekt som utlöste aktiviteten Logga det vill säga säkerhetskopieringsobjektet.
+Klicka på åtgärdens namn visas igen och relevant information.
 
-Klicka på ”Lägg till aktivitetsloggavisering” genererar aviseringar för alla loggar.
+![Ny aviseringsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Du kan klicka på ”Lägg till aktivitetsloggavisering” ovan så öppnas skärmen skapande av varning som liknar skärmen för skapande av varning [enligt beskrivningen ovan](#create-alerts-using-log-analytics).
+Klicka på **ny aviseringsregel** att öppna den **skapa regeln** skärmen här kan du skapa avisering med hjälp av stegen som beskrivs i det här [artikeln](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Resursen är här RS valvet själva och därför måste du upprepa samma åtgärd för alla valv som du vill att avisering via aktivitetsloggar. Villkoret har inte någon tröskelvärdet, period, frekvens eftersom det är en händelsebaserad avisering. Aviseringen utlöses när relevanta aktivitetsloggen genereras.
+Resursen är här det Recovery Service-valvet och därför måste du upprepa samma åtgärd för alla valv som du vill att avisering via aktivitetsloggar. Villkoret har inte någon tröskelvärdet, period, frekvens eftersom det är en händelsebaserad avisering. Aviseringen utlöses när relevanta aktivitetsloggen genereras.
 
 ## <a name="recommendation"></a>Rekommendation
 

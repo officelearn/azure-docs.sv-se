@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Multi-Geo-funktioner i Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Konfigurera önskad Dataplats för Office 365-resurser'
 description: Beskriver hur du lägger till dina resurser för användare av Office 365 nära användaren med Azure Active Directory Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348247"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473021"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -137,9 +137,9 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 5. Behåll den **Scoping filter** tom ska innehålla alla objekt. Du kan behöva justera Omfångsfilter enligt din Azure AD Connect-distribution.
 6. Gå till den **omvandling fliken**, och implementera följande omvandlingsregeln:
 
-    | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | Source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Välj attribut för datakälla | Alternativet är avmarkerat | Uppdatering |
+    |Direct | preferredDataLocation | Välj attribut för datakälla | Alternativet är avmarkerat | Uppdatera |
 
 7. Om du vill skapa den inkommande regeln, Välj **Lägg till**.
 
@@ -174,9 +174,9 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
 6. Gå till den **omvandling** fliken och implementera följande omvandlingsregeln:
 
-    | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | Source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Alternativet är avmarkerat | Uppdatering |
+    | Direct | preferredDataLocation | preferredDataLocation | Alternativet är avmarkerat | Uppdatera |
 
 7. Stäng **Lägg till** att skapa regel för utgående trafik.
 

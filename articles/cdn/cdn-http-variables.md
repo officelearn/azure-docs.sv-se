@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475202"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN regelmotor
 HTTP-variabler innehåller innebär genom vilka du kan hämta metadata för HTTP-begäranden och svar. Dessa metadata kan sedan användas för att ändra dynamiskt en begäran eller ett svar. Användning av HTTP-variabler är begränsat till följande regler motorn funktioner:
 
-- [Cache-Key Rewrite](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Ändra begärandehuvud i klienten](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Ändra klienten svarshuvud](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL-omdirigering](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL-omskrivning](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Ändra begärandehuvud i klienten](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Ändra klienten svarshuvud](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL-omdirigering](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL-omskrivning](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definitioner
 I följande tabell beskrivs de HTTP-variablerna. Ett tomt värde returneras när GEO-metadata (till exempel postnummer) är inte tillgänglig för en viss begäran.
@@ -62,7 +62,7 @@ I följande tabell beskrivs de HTTP-variablerna. Ett tomt värde returneras när
 | Begäran-schema | %{scheme} | Anger schemat för begäran. |http |
 | Begärande-URI (relativ) | %{request_uri} | Anger den relativa sökvägen, inklusive frågesträngen som definierats i begärande-URI. | /Marketing/foo.js?loggedin=true |
 | Begärande-URI (relativ utan frågesträng) | % {URI: n} | Anger den relativa sökvägen till det begärda innehållet. <br /><br/>Viktig information:<br />– I den här relativa sökvägen utesluter frågesträngen.<br />– I den här relativa sökvägen återspeglar URL omskrivningar. En URL kommer skrivas på följande villkor:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL omskrivning funktion: Den här funktionen skriver om den relativa sökvägen som definierats i begärande-URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: Den här typen av begäran om att motsvarande CDN-URL. |/800001/corigin/rewrittendir/foo.js |
-| Förfrågans URI | % {begäran} | Beskriver begäran. <br />Syntax: &lt;HTTP-metoden&gt; &lt;relativ sökväg&gt; &lt;HTTP-protokollet&gt; | Hämta /marketing/foo.js?loggedin=true HTTP/1.1 |
+| Begärande-URI | % {begäran} | Beskriver begäran. <br />Syntax: &lt;HTTP-metoden&gt; &lt;relativ sökväg&gt; &lt;HTTP-protokollet&gt; | Hämta /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Svaret huvudvärde | % {resp_&lt;ResponseHeader&gt;} | Returnerar värdet för rubriken identifieras av den &lt;ResponseHeader&gt; termen. <br /><br />Om namnet på svarshuvudet innehåller ett bindestreck (till exempel användar-Agent) kan du ersätta det med ett understreck (till exempel User_Agent). | Exempel: % {resp_Content_Length}<br /><br />Exempelvärde: 100 |
 
 ## <a name="usage"></a>Användning
@@ -102,7 +102,7 @@ Avgränsare beskrivs i följande tabell.
 | / | Avgränsar en HTTP-variabel eller ett mönster. |
 | // | Sök och Ersätt alla förekomster av det angivna mönstret. |
 | /= | Hitta, kopiera och skriva om alla förekomster av det angivna mönstret. |
-| ,  | Konvertera värdet som associeras med HTTP-variabel till gemener. |
+| , | Konvertera värdet som associeras med HTTP-variabel till gemener. |
 | ^ | Konvertera värdet som associeras med HTTP-variabel till versaler. |
 | ,, | Konvertera alla förekomster av det angivna tecknet i värdet som associeras med HTTP-variabel till gemener. |
 | ^^ | Konvertera alla förekomster av det angivna tecknet i värdet som associeras med HTTP-variabel till versaler. |
@@ -113,7 +113,7 @@ I följande tabell beskrivs omständigheter som den angivna texten inte behandla
 | Tillstånd | Beskrivning | Exempel |
 | --------- | ----------- | --------|
 | Undantagstecken % symbol | Symbolen procent kan undantas genom att använda ett omvänt snedstreck. <br />Exempelvärde till höger behandlas som ett exakt värde och inte som en HTTP-variabel.| \%{host} |
-| Okänd variabler | En tom sträng returneras alltid för okänd variabler. | % {unknownvariable} |
+| Okänd variabler | En tom sträng returneras alltid för okänd variabler. | % {unknown_variable} |
 | Ogiltiga tecken eller syntax | Variabler som innehåller ogiltiga tecken eller syntax behandlas som exakta värden. <br /><br />Exempel #1: Det angivna värdet innehåller ett ogiltigt tecken (till exempel-). <br /><br />Exempel #2: Det angivna värdet innehåller en dubbel uppsättning av klammerparenteser. <br /><br />Exempel #3: Det angivna värdet saknar avslutande klammerparentes.<br /> | Exempel #1: % {resp_user-agent} <br /><br />Exempel #2: % {{värden}} <br /><br />Exempel #3: % {värden |
 | Variabelnamnet som saknas | Ett NULL-värde returneras alltid när en variabel inte har angetts. | %{} |
 | Överskridande tecken | Tecken som löper en variabel behandlas som exakta värden. <br />Exempelvärde till höger innehåller en avslutande klammerparentes som kommer att behandlas som ett literalvärde. | %{host}} |
@@ -127,9 +127,9 @@ I följande tabell beskrivs hur du definierar ett standardvärde.
 
 | Tillstånd | Syntax | Exempel | Beskrivning |
 | --------- | ------ | --------| ----------- |
-| Ange en rubrik till ett standardvärde när den uppfyller något av följande villkor: <br /><br />-Huvud saknas <br /><br />-Huvudets värde anges till NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | Referer-rubrik kommer endast anges till *Ospecificerad* när den är saknas eller är inställd på NULL. Ingen åtgärd ska ske om den har ställts in. |
-| Ange en rubrik till ett standardvärde när det saknas. | %{Variable=Value} | %{http_referer=unspecified} | Referer-rubrik kommer endast anges till *Ospecificerad* när det saknas. Ingen åtgärd ska ske om den har ställts in. |
-| Ange rubriken till ett standardvärde när den inte uppfyller något av följande villkor: <br /><br />-Saknas<br /><br /> -Värdet NULL. | %{Variable:+Value} | % {http_referer: + Ospecificerad} | Referer-rubrik kommer endast anges till *Ospecificerad* när ett värde har tilldelats till den. Ingen åtgärd utförs om den saknas eller null. |
+| Ange en rubrik till ett standardvärde när den uppfyller något av följande villkor: <br /><br />-Huvud saknas <br /><br />-Huvudets värde anges till NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | Referent-huvudet kan endast anges till *Ospecificerad* när den är saknas eller är inställd på NULL. Ingen åtgärd ska ske om den har ställts in. |
+| Ange en rubrik till ett standardvärde när det saknas. | %{Variable=Value} | %{http_referrer=unspecified} | Referent-huvudet kan endast anges till *Ospecificerad* när det saknas. Ingen åtgärd ska ske om den har ställts in. |
+| Ange rubriken till ett standardvärde när den inte uppfyller något av följande villkor: <br /><br />-Saknas<br /><br /> -Värdet NULL. | %{Variable:+Value} | % {http_referrer: + Ospecificerad} | Referent-huvudet kan endast anges till *Ospecificerad* när ett värde har tilldelats till den. Ingen åtgärd utförs om den saknas eller null. |
 
 ## <a name="manipulating-variables"></a>Ändra variabler
 Variabler kan hanteras på följande sätt:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506948"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742793"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -69,6 +69,7 @@ Funktionen för virtuella noder är kraftigt beroende på ACIS funktionsuppsätt
 * [Alias för värd](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribuerar inte poddar till virtuell nod
+* [Windows Server-noder (för närvarande i förhandsversion i AKS)](windows-container-cli.md) stöds inte och virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan behov av Windows Server-noder i ett AKS-kluster.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -280,7 +281,7 @@ Installera `curl` i en pod med hjälp av `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Nu komma åt adressen för din pod med hjälp av `curl`, till exempel *http://10.241.0.4*. Ange din egen interna IP-adress som visas i föregående `kubectl get pods` kommando:
+Nu komma åt adressen för din pod med hjälp av `curl`, till exempel *http://10.241.0.4* . Ange din egen interna IP-adress som visas i föregående `kubectl get pods` kommando:
 
 ```console
 curl -L http://10.241.0.4

@@ -56,7 +56,7 @@ Händelser som skickas av IoT-objekt (till exempel enheter och sensorer) ska bea
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
 
 Mer information om Event Grid-Händelseschema:
 

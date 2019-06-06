@@ -1,22 +1,22 @@
 ---
-title: 'Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)'
-description: I den här snabbstarten lär du dig att mata in (läsa in) data i Azure-datautforskaren med hjälp av .NET Standard SDK.
+title: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
+description: I den här artikeln får lära du att mata in (load) data i Datautforskaren i Azure med hjälp av SDK för .NET Standard.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/18/2018
-ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827212"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496878"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
 
-Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här snabbstarten skapar du först en tabell och datamappning i ett testkluster. Sedan köar du en inmatning till klustret och verifierar resultatet.
+Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln får skapa du först en tabell och datamappning av i ett testkluster. Sedan köar du en inmatning till klustret och verifierar resultatet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -226,7 +226,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
+Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
@@ -234,5 +234,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+* [Skriv frågor](write-queries.md)

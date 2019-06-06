@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023615"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428431"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kompetens med hjälp av översätta Text-API
 
-I det här exemplet lär du dig hur du skapar ett web API anpassade färdigheter som accepterar text på valfritt språk och översätts till engelska. I exemplet används en [Azure Function](https://azure.microsoft.com/services/functions/) du omsluter den [översätta Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) så att den implementerar gränssnittet anpassade färdigheter.
+Lär dig hur du skapar ett web API anpassade färdighet i det här exemplet. Kompetensen ska ta emot SMS på valfritt språk och översätts till engelska. I exemplet används en [Azure Function](https://azure.microsoft.com/services/functions/) du omsluter den [översätta Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) så att den implementerar gränssnittet anpassade färdigheter.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -27,19 +27,19 @@ I det här exemplet lär du dig hur du skapar ett web API anpassade färdigheter
 
 + [Registrera dig för Translator Text API](../cognitive-services/translator/translator-text-how-to-signup.md), och få en API-nyckel för att använda den.
 
-+ Installera [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) eller senare, inklusive arbetsbelastningen Azure development.
++ Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) eller senare, inklusive arbetsbelastningen Azure development.
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-Även om det här exemplet används en Azure-funktion som värd för ett webb-API, är det inte krävs.  Förutsatt att du uppfyller de [gränssnitt för en kognitiva kunskaper](cognitive-search-custom-skill-interface.md), den metod som du använder är utan betydelse. Azure Functions kan dock göra det enkelt att skapa en anpassad kunskap.
+Även om det här exemplet använder en Azure-funktion som värd för ett webb-API kan det inte krävs.  Förutsatt att du uppfyller de [gränssnitt för en kognitiva kunskaper](cognitive-search-custom-skill-interface.md), den metod som du använder är utan betydelse. Azure Functions kan dock göra det enkelt att skapa en anpassad kunskap.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 1. I Visual Studio väljer **New** > **projekt** från menyn Arkiv.
 
-1. I dialogrutan Nytt projekt väljer **installerad**, expandera **Visual C#** > **molnet**väljer **Azure Functions**, ange ett Namn för projektet och välj **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
+1. I dialogrutan Nytt projekt väljer **installerad**, expandera **Visual C#**  > **molnet**väljer **Azure Functions**, ange ett Namn för projektet och välj **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-1. Välj **v2 för Azure Functions (.NET Core)**. Du kan också göra det med version 1, men den kod som skrivs nedan baseras på v2-mall.
+1. Välj **v2 för Azure Functions (.NET Core)** . Du kan också göra det med version 1, men den kod som skrivs nedan baseras på v2-mall.
 
 1. Välj den typ som ska vara **HTTP-utlösare**
 
@@ -235,7 +235,7 @@ Du bör se ett svar som liknar följande exempel:
 
 ## <a name="publish-the-function-to-azure"></a>Publicera funktionen till Azure
 
-När du är nöjd med funktionsbeteende, kan du publicera den.
+När du är nöjd med funktionen beteendet kan publicera du den.
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **skapa en ny** > **publicera**.
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Detta bör ge liknande resultat som du såg tidigare när du kör funktionen i den lokala miljön.
+Det här exemplet ska generera ett liknande resultat som du såg tidigare när du kör funktionen i den lokala miljön.
 
 ## <a name="connect-to-your-pipeline"></a>Ansluta till din pipeline
 Nu när du har en ny anpassad kunskap kan du lägga till det din kompetens. Exemplet nedan visar hur du anropar färdigheten. Eftersom färdigheten kan inte hantera batchar, lägger du till en instruktion om att Maximal batchstorlek ska bara ```1``` att skicka dokument i taget.

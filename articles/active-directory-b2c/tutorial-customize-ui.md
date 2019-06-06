@@ -2,20 +2,20 @@
 title: Självstudiekurs – anpassa gränssnittet användarupplevelser – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du anpassar användargränssnittet i dina program i Azure Active Directory B2C med Azure portal.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702553"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512086"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudier: Anpassa gränssnittet användarupplevelser i Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Du skapar ett Azure storage-konto och en behållare och placera grundläggande H
 ### <a name="create-a-container"></a>Skapa en container
 
 1. På översiktssidan för lagringskontot väljer **Blobar**.
-2. Välj **behållare**, ange ett namn för behållaren, Välj **Blob (anonym läsåtkomst endast för blobbar)**, och klicka sedan på **OK**.
+2. Välj **behållare**, ange ett namn för behållaren, Välj **Blob (anonym läsåtkomst endast för blobbar)** , och klicka sedan på **OK**.
 
 ### <a name="enable-cors"></a>Aktivera CORS
 
@@ -138,7 +138,7 @@ I den här självstudien får lagra du de filer som du skapade i storage-konto s
 ## <a name="update-the-user-flow"></a>Uppdatera användarflödet
 
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-2. Välj **användarflöden (principer)**, och välj sedan den *B2C_1_signupsignin1* användarflödet.
+2. Välj **användarflöden (principer)** , och välj sedan den *B2C_1_signupsignin1* användarflödet.
 3. Välj **sidan layouter**, och sedan under **enhetliga sidan för registrering eller inloggning**, klickar du på **Ja** för **Använd anpassat sidinnehåll**.
 4. I **anpassad sida URI**, anger du URI för den *anpassade ui.html* -fil som du antecknade tidigare.
 5. Längst ned på sidan Välj **spara**.

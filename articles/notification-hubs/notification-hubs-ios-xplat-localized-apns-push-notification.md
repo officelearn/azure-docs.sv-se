@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560513"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428454"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till iOS-enheter med Azure Notification Hubs
 
@@ -49,7 +49,7 @@ I [använda Notification Hubs för att skicka de senaste nyheterna], du har skap
 > [!NOTE]
 > Ett sätt att skicka lokaliserade meddelanden är att skapa flera versioner av varje tagg. Till exempel för att stödja engelska, franska och Mandarin, behöver du tre olika taggar för världsnyheter: ”world_en”, ”world_fr” och ”world_ch”. Du sedan måste skicka en översatt version av världsnyheter till var och en av dessa taggar. I det här avsnittet använder du mallar för att undvika ökningen av taggar och krav på flera meddelanden.
 
-Mallar är ett sätt att ange hur en specifik enhet bör få ett meddelande på en hög nivå. Mallen anger det exakta nyttolastformatet genom att referera till egenskaper som ingår i meddelandet som skickas av appserverdelen. I ditt fall skickar du ett språk-oberoende meddelande som innehåller alla språk som stöds:
+Mallar är ett sätt att ange hur en specifik enhet bör få ett meddelande. Mallen anger det exakta nyttolastformatet genom att referera till egenskaper som ingår i meddelandet som skickas av appserverdelen. I ditt fall skickar du ett språk-oberoende meddelande som innehåller alla språk som stöds:
 
 ```json
 {
@@ -74,7 +74,7 @@ Mer information om mallar finns i [mallar](notification-hubs-templates-cross-pla
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför den [Push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) självstudiekursen och har du koden som är tillgängliga, eftersom den här självstudien bygger direkt på den koden.
-* Visual Studio 2017 är valfritt.
+* Visual Studio-2019 är valfritt.
 
 ## <a name="update-the-app-user-interface"></a>Uppdatera app-användargränssnittet
 
@@ -90,7 +90,7 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
 
 ## <a name="build-the-ios-app"></a>Skapa iOS-app
 
-1. I din `Notification.h` lägga till den `retrieveLocale` metoden och ändra arkivet och prenumerera på metoder som visas i följande kod:
+1. I din `Notification.h`, lägga till den `retrieveLocale` metoden och ändra arkivet och prenumerera på metoder som visas i följande kod:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989500"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472796"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -78,7 +78,7 @@ Om du vill publicera din egen lokala program:
 1. Om du inte gjort i det sista avsnittet loggar du in den [Azure Active Directory-portalen](https://aad.portal.azure.com/) som programadministratör.
 2. Välj **företagsprogram** > **nytt program** > **lokala program**. Den **lägga till dina egna lokala program** visas.
 
-   ![Lägg till ditt egen lokala program](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+   ![Lägg till din egen lokala program](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 3. Fyll i de obligatoriska fälten med information om det nya programmet. Använda riktlinjerna nedan för inställningar.
 
    > [!NOTE]
@@ -124,11 +124,11 @@ Slutligen, Ställ in ditt lokala program så att användarna har läsbehörighet
 
 1. Från den **appregistreringar** sidopanelen för ditt program, Välj **API-behörigheter** > **lägga till en behörighet**  >   **Microsoft API: er** > **Microsoft Graph**. Den **begär API-behörigheter** för **Microsoft Graph** visas, som innehåller API: er för Windows Azure Active Directory.
 
-   ![Begär API-behörigheter](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   ![API-behörigheter för begäran](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 2. Välj **delegerade behörigheter** > **användaren** > **User.Read**.
 3. Välj **programbehörigheter** > **programmet** > **Application.ReadWrite.All**.
 4. Välj **Lägg till behörigheter**.
-5. I den **API-behörigheter** väljer **bevilja administratörens godkännande för \<directory-namn >**.
+5. I den **API-behörigheter** väljer **bevilja administratörens godkännande för \<directory-namn >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Samla in information för PingAccess-steg
 
@@ -158,9 +158,9 @@ Att samla in den här informationen:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Uppdatera GraphAPI för att skicka anpassade fält (valfritt)
 
-En lista över säkerhetstoken som Azure AD skickar för autentisering, se [ID-token för Microsoft identity-plattformen](../develop/id-tokens.md). Om du behöver ett anpassat anspråk som skickar andra token, ange den `acceptMappedClaims` fält för programmet att `True`. Du kan använda Graph-testaren eller programmanifestet för Azure AD-portalen för att göra ändringen.
+Om du behöver ett anpassat anspråk som skickar andra token i access_token används av PingAccess genom att ange den `acceptMappedClaims` fält för programmet att `True`. Du kan använda Graph-testaren eller programmanifestet för Azure AD-portalen för att göra ändringen.
 
-Det här exemplet använder Graph-testaren:
+**Det här exemplet använder Graph-testaren:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Det här exemplet används den [Azure Active Directory-portalen](https://aad.portal.azure.com/) att uppdatera den `acceptMappedClaims` fält:
+**Det här exemplet används den [Azure Active Directory-portalen](https://aad.portal.azure.com/) att uppdatera den `acceptMappedClaims` fält:**
 
 1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/) som programadministratör.
 2. Välj **Azure Active Directory** > **appregistreringar**. En lista över program visas.
@@ -179,7 +179,28 @@ Det här exemplet används den [Azure Active Directory-portalen](https://aad.por
 5. Sök efter den `acceptMappedClaims` fältet och ändra värdet till `True`.
 6. Välj **Spara**.
 
-### <a name="use-a-custom-claim-optional"></a>Använd ett anpassat anspråk (valfritt)
+
+### <a name="use-of-optional-claims-optional"></a>Användning av valfria anspråk (valfritt)
+Valfria anspråk kan du lägga till standard-but-not-included-by-default anspråk med varje användar- och klientuppgifter. Du kan konfigurera valfria anspråk för ditt program genom att ändra programmanifestet. Mer information finns i den [förstå Azure AD application manifest artikeln](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Exempel för att inkludera e-postadress i access_token som använder PingAccess:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Användning av Anspråksmappning principen (tillval)
+[Anspråk mappning princip (förhandsversion)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) för attribut som inte finns i AzureAD. Anspråksmappning kan du migrera den gamla lokala appar till molnet genom att lägga till ytterligare anpassade anspråk som backas upp av din AD FS eller användarobjekt
 
 För att göra ditt program använder ett anpassat anspråk och ta med ytterligare fält, vara säker på att du har också [skapas en anpassad princip för Anspråksmappning och den tilldelas programmet](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ För att göra ditt program använder ett anpassat anspråk och ta med ytterliga
 > Om du vill använda ett anpassat anspråk måste du också ha en anpassad princip definieras och tilldelas programmet. Den här principen ska inkludera alla nödvändiga anpassade attribut.
 >
 > Du kan göra principdefinitionen och tilldelas med PowerShell, Azure AD Graph Explorer eller Microsoft Graph. Om du gör dem i PowerShell, kan du behöva använda först `New-AzureADPolicy` och tilldela den till programmet med `Add-AzureADServicePrincipalPolicy`. Mer information finns i [anspråk mappning principtilldelning](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Exempel:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Aktivera PingAccess att använda anpassade anspråk (valfritt men krävs om du förväntar dig programmet för att använda ytterligare anspråk)
+När du vill konfigurera PingAccess i följande steg, webbsessionen skapar du (Inställningar -> åtkomst -> besök) måste ha **begär profil** avmarkerat och **uppdatera användarattribut** Ange **Nej**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Hämta PingAccess och konfigurera ditt program
 

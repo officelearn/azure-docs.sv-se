@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b39001481764eb955ab4535e8c6ea1752e0c012
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239029"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475723"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägg till en konsumentgrupp till din event hub
 
-Program använda konsumentgrupper att hämta data från Azure Event Hubs. Ange en dedikerad konsumentgrupp för används bara av den här Time Series Insights-miljön, att på ett tillförlitligt sätt läsa data från din event hub.
+Program använda konsumentgrupper att hämta data från Azure Event Hubs. För att på ett tillförlitligt sätt läsa data från din händelsehubb, ger en dedikerad konsumentgrupp som bara används av den här Time Series Insights-miljön.
 
 Så här lägger du till en ny konsumentgrupp i din event hub
 
@@ -64,38 +64,40 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 1. Välj lämpliga värden för **importalternativ**:
    - Om du har en befintlig händelsehubb i en av dina prenumerationer, väljer **Använd Event Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
-   - Om event hub är extern till dina prenumerationer eller om du vill välja avancerade alternativ väljer **ange Event Hub-inställningar manuellt**.
 
-   [![I den nya event källa, kan du ange värden för de första tre parametrarna](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+       [![I den nya event källa, kan du ange värden för de första tre parametrarna](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. I följande tabell beskrivs de nödvändiga egenskaperna för den **Använd Event Hub från tillgängliga prenumerationer** alternativet:
 
-   [![Prenumeration och event hub-information](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Prenumeration och event hub-information](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Egenskap | Beskrivning |
-   | --- | --- |
-   | Prenumeration-ID | Välj den prenumeration som den här händelsehubben skapades.
-   | service bus namnrymd | Välj det Azure Service Bus-namnområde som innehåller event hub.
-   | Namn på händelsehubb | Välj namnet på händelsehubben.
-   | Principnamn för Event hub | Välj princip för delad åtkomst. Du kan skapa princip för delad åtkomst i event hub **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter.
-   | Principnyckel för Event hub | Nyckelvärdet kan fylls i automatiskt.
-   | Händelsehubbkonsumentgrupp | Konsumentgruppen som läser händelser från event hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla. |
-   | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till händelsehubben. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+     I följande tabell beskrivs de nödvändiga egenskaperna för den **Använd Event Hub från tillgängliga prenumerationer** alternativet:
 
-1. I följande tabell beskrivs de nödvändiga egenskaperna för den **ange Event Hub-inställningar manuellt** alternativet:
+     | Egenskap | Beskrivning |
+     | --- | --- |
+     | Prenumerations-ID:t | Välj den prenumeration som den här händelsehubben skapades.
+     | Service Bus-namnområde | Välj det Azure Service Bus-namnområde som innehåller event hub.
+     | Namn på händelsehubb | Välj namnet på händelsehubben.
+     | Principnamn för Event hub | Välj princip för delad åtkomst. Du kan skapa princip för delad åtkomst i event hub **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter.
+     | Principnyckel för Event hub | Nyckelvärdet kan fylls i automatiskt.
+     | Händelsehubbkonsumentgrupp | Konsumentgruppen som läser händelser från event hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla. |
+     | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inte kan läsas. |
+     | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till händelsehubben. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
-   | Egenskap | Beskrivning |
-   | --- | --- |
-   | Prenumeration-ID | Den prenumeration som den här händelsehubben skapades.
-   | Resursgrupp | Den resursgrupp som den här händelsehubben skapades.
-   | service bus namnrymd | Ett Service Bus-namnområde är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny händelsehubb, skapade du även en Service Bus-namnrymd.
-   | Namn på händelsehubb | Namnet på din event hub. När du skapade din event hub gav du den även ett specifikt namn.
-   | Principnamn för Event hub | Princip för delad åtkomst. Du kan skapa en princip för delad åtkomst i event hub **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter.
-   | Principnyckel för Event hub | Den delade åtkomstnyckeln som används för att autentisera åtkomsten till Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här.
-   | Händelsehubbkonsumentgrupp | Konsumentgruppen som läser händelser från event hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
-   | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till händelsehubben. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+    - Om event hub är extern till dina prenumerationer eller om du vill välja avancerade alternativ väljer **ange Event Hub-inställningar manuellt**.
+
+      I följande tabell beskrivs de nödvändiga egenskaperna för den **ange Event Hub-inställningar manuellt** alternativet:
+ 
+      | Egenskap | Beskrivning |
+      | --- | --- |
+      | Prenumerations-ID:t | Den prenumeration som den här händelsehubben skapades.
+      | Resursgrupp | Den resursgrupp som den här händelsehubben skapades.
+      | Service Bus-namnområde | Ett Service Bus-namnområde är en behållare för en uppsättning meddelandeentiteter. När du har skapat en ny händelsehubb, skapade du även en Service Bus-namnrymd.
+      | Namn på händelsehubb | Namnet på din event hub. När du skapade din event hub gav du den även ett specifikt namn.
+      | Principnamn för Event hub | Princip för delad åtkomst. Du kan skapa en princip för delad åtkomst i event hub **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter.
+      | Principnyckel för Event hub | Den delade åtkomstnyckeln som används för att autentisera åtkomsten till Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här.
+      | Händelsehubbkonsumentgrupp | Konsumentgruppen som läser händelser från event hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
+      | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inte kan läsas. |
+      | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till händelsehubben. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
 1. Lägg till dedikerade Time Series Insights konsument gruppnamnet som du lade till din event hub.
 

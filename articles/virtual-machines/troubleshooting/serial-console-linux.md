@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389027"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735247"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure Seriekonsol för Linux
 
@@ -47,6 +47,7 @@ Seriekonsol dokumentation för Windows finns i [Seriell konsol för Windows](../
 
 - Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
+- Din skala virtuell dator eller virtuell dator set-instans måste konfigureras för seriell utdata på `ttys0`. Detta är standardinställningen för Azure-avbildningar, men du kan kontrollera detta på anpassade avbildningar. Information om [nedan](#custom-linux-images).
 
 
 ## <a name="get-started-with-the-serial-console"></a>Kom igång med Seriekonsolen
@@ -84,6 +85,9 @@ Seriell konsol är tillgänglig på basis av per instans för skalningsuppsättn
 ## <a name="serial-console-linux-distribution-availability"></a>Seriell konsol Linux distribution tillgänglighet
 Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsolen ska fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att välja **seriekonsolen** i den **Support och felsökning** på Azure portal ger åtkomst till seriekonsol.
 
+> [!NOTE]
+> Om du inte ser något i seriekonsolen, se till att startdiagnostik har aktiverats på den virtuella datorn. Träffa **RETUR** kommer ofta åtgärda problem där ingenting visas i seriekonsolen.
+
 Distribution      | Åtkomst via seriekonsol
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Seriell konsolåtkomst aktiverat som standard.
@@ -92,10 +96,13 @@ Ubuntu      | Seriell konsolåtkomst aktiverat som standard.
 CoreOS      | Seriell konsolåtkomst aktiverat som standard.
 SUSE        | Nyare SLES-avbildningar på Azure har seriell konsolåtkomst aktiverat som standard. Om du använder äldre versioner (10 eller tidigare) av SLES på Azure kan du läsa den [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol.
 Oracle Linux        | Seriell konsolåtkomst aktiverat som standard.
-Anpassade Linux-avbildningar     | Aktivera seriekonsol för en anpassad Linux VM-avbildning genom att aktivera åtkomst till konsolen i filen */etc/inittab* att köra en terminal på `ttyS0`. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd). Om du skapar en anpassad kernel, Överväg att aktivera dessa kernel-flaggor: `CONFIG_SERIAL_8250=y` och `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Konfigurationsfilen finns vanligtvis under den */boot/* sökväg.
 
-> [!NOTE]
-> Om du inte ser något i seriekonsolen, se till att startdiagnostik har aktiverats på den virtuella datorn. Träffa **RETUR** kommer ofta åtgärda problem där ingenting visas i seriekonsolen.
+### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
+Aktivera seriekonsol för en anpassad Linux VM-avbildning genom att aktivera åtkomst till konsolen i filen */etc/inittab* att köra en terminal på `ttyS0`. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+
+Du bör även att lägga till ttys0 som mål för seriell utdata. Mer information om hur du konfigurerar en anpassad avbildning att arbeta med seriekonsolen finns i allmän systemkraven på [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+
+Om du skapar en anpassad kernel, Överväg att aktivera dessa kernel-flaggor: `CONFIG_SERIAL_8250=y` och `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Konfigurationsfilen finns vanligtvis under den */boot/* sökväg. |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för att komma åt Seriekonsolen
 
@@ -201,6 +208,7 @@ Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använd
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
 Seriell konsol fungerar inte med en brandvägg för storage-konto. | Seriell konsol avsiktligt fungerar inte med storage-konto brandväggar aktiverad på startdiagnostiklagringskonto.
 Seriell konsol fungerar inte med ett lagringskonto med Azure Data Lake Storage Gen2 med hierarkisk namnområden. | Det här är ett känt problem med hierarkisk namnområden. För att lösa, kontrollera att den Virtuella datorns lagringskonto för startdiagnostik inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagringskontot har skapats. Du kan behöva skapa en separat startdiagnostik storage-konto utan Azure Data Lake Storage Gen2 aktiverat för att åtgärda problemet.
+Underligt tangentbordet i SLES BYOS bilder. Tangentbordsinmatning känns endast sporadiskt. | Det här är ett problem med paketet Plymouth. Plymouth ska inte köras i Azure som du behöver inte en välkomstskärm och Plymouth stör plattform möjligheten att använda Seriekonsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel branschspecifika GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [redigera startposten när datorn startas](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera raden GRUB_CMDLINE_LINUX i `/etc/default/grub`, återskapande GRUB med `grub2-mkconfig -o /boot/grub2/grub.cfg`, och sedan starta om.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar

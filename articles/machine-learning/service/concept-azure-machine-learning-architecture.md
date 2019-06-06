@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242431"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480051"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -162,6 +162,9 @@ När du startar en utbildning som kör där källkatalogen är en lokal Git-lagr
 ## <a name="snapshot"></a>Ögonblicksbild
 
 När du skickar en körning komprimerar katalogen som innehåller skriptet som en zip-fil och skickar dem till beräkningsmål-i Azure Machine Learning. Zip-filen hämtas sedan och skriptet körs det. Azure Machine Learning lagrar också zip-filen som en ögonblicksbild som en del av den kör posten. Alla som har åtkomst till arbetsytan kan bläddra en kör post och ladda ned ögonblicksbilden.
+
+> [!NOTE]
+> Skapa en Ignorera-fil (.gitignore eller .amlignore) för att förhindra att onödiga filer inkluderas i ögonblicksbilden. Placera filen i katalogen ögonblicksbild och Lägg till filnamnen som bör ignoreras i den. Filen .amlignore använder samma [syntax och mönster som .gitignore-fil](https://git-scm.com/docs/gitignore). Om båda filerna finns företräde filen .amlignore.
 
 ## <a name="activity"></a>Aktivitet
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238225"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735975"
 ---
 I följande tabell visas kvoter och gränser specifika för [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om priser för Event Hubs finns i [priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,11 +39,11 @@ Event Hubs Dedicated erbjudandet debiteras enligt ett fast pris per månad, med 
 | --- | ---|
 | Bandbredd |  20 Cu: er |
 | Namnområden | 50 per Kapacitetsenhet |
-| Event Hubs |  Ingen gräns event hubs/ämnen |
+| Event Hubs |  1 000 per namnområde |
 | Ingångshändelser | Ingår |
 | Meddelandestorlek | 1 miljon byte |
 | Partitioner | 2000 per Kapacitetsenhet |
 | Konsumentgrupper | Ingen gräns per Kapacitetsenhet, 1 000 per händelsehubb |
 | Brokered Connections | 100 K ingår |
-| Meddelandelagring | 90 dagar, 10 TB som ingår per Kapacitetsenhet |
+| Meddelandelagring | Upp till 7 dagar (90-dagars kvarhållning kommer snart), ingår 10 TB per Kapacitetsenhet |
 | Capture | Ingår |

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385150"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688644"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -36,11 +36,18 @@ Mer information finns i [riktlinjer för att flytta från Media Services v2 till
 
 ## <a name="may-2019"></a>Maj 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 och högre stöd i dynamisk paketering 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor-stöd för Media Services-diagnostikloggar och mått
 
-Lagt till HLS (version 4 eller senare) har stöd för i dynamisk paketering för tillgångar som har flera ljudspår med flera codec och språk.
+Du kan nu använda Azure Monitor för att visa telemetri data emmited av Media Services.
 
-Mer information finns i [dynamisk paketering](dynamic-packaging-overview.md).
+* Använda diagnostikloggar för Azure Monitor för att övervaka förfrågningar som skickas av Media Services-nyckel Delivery-slutpunkten. 
+* Övervaka mått som genereras av Media Services [Strömningsslutpunkter](streaming-endpoint-concept.md).   
+
+Mer information finns i [övervaka Media Services-mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Stöd för flera ljudspår i dynamisk paketering 
+
+Vid direktuppspelning tillgångar som har flera ljudspår med flera codec och språk, [dynamisk paketering](dynamic-packaging-overview.md) multi ljudspår har nu stöd för HLS-utdata (version 4 eller senare).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regionala par är öppen för Media Services 
 

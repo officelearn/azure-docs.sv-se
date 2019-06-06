@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728019"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428474"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -111,7 +111,7 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 --- | --- | ---
 *.portal.azure.com | Gäller för Azure-Global. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
 *.portal.azure.us | Gäller endast för Azure Government. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er måste anges.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du behöver installera modulen manuellt i en dator som är ansluten till internet och sedan kopiera modulerna till installationen. [Lär dig mer genom att gå till steg 4 i den här felsökningsguiden](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er måste anges.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du behöver installera modulen manuellt i en dator som är ansluten till internet och sedan kopiera modulerna till installationen. [Lär dig mer genom att gå till steg 4 i den här felsökningsguiden](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installera VMware PowerCLI-modulen manuellt
@@ -120,7 +120,7 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 2. Om VM-insamlaren är offline och installera om modulen på en annan dator med Internetåtkomst, som du behöver kopiera VMware.* filerna från den datorn för VM-insamlaren.
 3. Efter installationen kan du starta om förhandskontroller för att bekräfta att PowerCLI har installerats.
 
-### <a name="connect-to-vcenter-server"></a>Anslut till vCenter Server
+### <a name="connect-to-vcenter-server"></a>Ansluta till vCenter Server
 
 Insamlaren ansluter till vCenter-servern och frågar om VM-metadata och prestandaräknare. Här är vad du behöver för anslutningen.
 
@@ -184,7 +184,7 @@ Den fullständiga listan med VMware prestandaräknare som samlas in av Azure Mig
 
 **Kategori** |  **Metadata** | **vCenter datapoint**
 --- | --- | ---
-Information om dator | ID för virtuell dator | vm.Config.InstanceUuid
+Information om dator | ID FÖR VIRTUELL DATOR | vm.Config.InstanceUuid
 Information om dator | VM-namn | vm.Config.Name
 Information om dator | vCenter Server-ID | VMwareClient.InstanceUuid
 Information om dator |  Beskrivning av virtuell dator |  vm.Summary.Config.Annotation
@@ -197,7 +197,7 @@ Information om dator | Megabyte minne | vm.Config.Hardware.MemoryMB
 Information om dator | Antal diskar | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll(x => x is VirtualDisk).count
 Information om dator | Disklista storlek | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll (x = > x är VirtualDisk)
 Information om dator | Listan över nätverkskort | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll (x = > x är VirtualEthernetCard)
-Information om dator | Processoranvändning | cpu.usage.average
+Information om dator | CPU-användning | cpu.usage.average
 Information om dator | Minnesanvändning | mem.usage.average
 Diskinformation (per disk) | Värdet för disk-nyckeln | disk. Nyckel
 Diskinformation (per disk) | Disk-enhetsnummer | disk.UnitNumber
@@ -210,7 +210,7 @@ Diskinformation (per disk) | MB per sekund läsningsgenomströmning | virtualDis
 Diskinformation (per disk) | MB per sekund genomströmning för skrivning | virtualDisk.write.average
 Information om nätverkskort (per nätverkskort) | Nätverkskortets namn | nic.Key
 Information om nätverkskort (per nätverkskort) | MAC-adress | ((VirtualEthernetCard)nic).MacAddress
-Information om nätverkskort (per nätverkskort) | IPv4-adresser | vm.Guest.Net
+Information om nätverkskort (per nätverkskort) | IPv4 Addresses | vm.Guest.Net
 Information om nätverkskort (per nätverkskort) | IPv6-adresser | vm.Guest.Net
 Information om nätverkskort (per nätverkskort) | MB per sekund läsningsgenomströmning | net.received.average
 Information om nätverkskort (per nätverkskort) | MB per sekund genomströmning för skrivning | net.transmitted.average

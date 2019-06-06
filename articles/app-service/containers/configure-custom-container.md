@@ -1,5 +1,5 @@
 ---
-title: Konfigurera kund - behållare i Azure App Service | Microsoft Docs
+title: Konfigurera anpassade behållare – Azure App Service | Microsoft Docs
 description: Lär dig att konfigurera Node.js-appar att fungera i Azure App Service
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919719"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430926"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -28,7 +28,7 @@ Den här guiden innehåller huvudbegrepp och instruktioner för skapande av Linu
 
 ## <a name="configure-port-number"></a>Konfigurera portnummer
 
-Webbservern i den anpassade avbildningen kan använda en annan port än 80. Du kan informera Azure om den port som används av din anpassade med hjälp av den `WEBSITES_PORT` appinställningen. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
+Webbservern i den anpassade avbildningen kan använda en annan port än 80. Du kan informera Azure om den port som används av den anpassade behållaren med hjälp av den `WEBSITES_PORT` appinställningen. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000

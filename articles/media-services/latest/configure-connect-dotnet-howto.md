@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736147"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428482"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3-API – .NET
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK me
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto
-- Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller du kan använda en annan Kodredigerare.
+- Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller du kan använda en annan Kodredigerare.
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 

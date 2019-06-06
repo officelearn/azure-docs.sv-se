@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 24e0b61dfd9950a5c5990f8341e32d048453c5d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6e0192029decef95dcaecc0c60dce5fd5b6f99ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689571"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479900"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -53,7 +53,7 @@ HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslut
 
 Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Storage. Syntax:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Här är några saker att tänka på när du använder Azure Storage-konton med HDInsight-kluster.
 
@@ -96,10 +96,10 @@ Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen 
 Följande URI-schema används för att komma åt filer i Azure Storage från HDInsight:
 
 ```config
-wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-URI-schemat ger okrypterad åtkomst (med prefixet *wasb:*) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
+URI-schemat ger okrypterad åtkomst (med prefixet *wasb:* ) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
 Den `<BlobStorageContainerName>` identifierar namnet på blob-behållare i Azure storage.
 Den `<StorageAccountName>` identifierar namnet på Azure Storage-kontot. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
@@ -137,7 +137,7 @@ Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik
 
 Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
-| Verktyg | Linux | OS X | Windows |
+| Verktyget | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |

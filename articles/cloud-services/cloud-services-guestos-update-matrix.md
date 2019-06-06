@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 71f66129aeec4f4c8b470a421caade22960d2d64
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473204"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743018"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updates] ut.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="june-6-2019"></a>**6 juni 2019**
+Gästoperativsystemet kan har publicerat.
 
 ###### <a name="may-7-2019"></a>**Den 7 maj 2019**
 Gäst-OS April har publicerat.
@@ -92,8 +95,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
 | WA-GUEST-OS-6.6_201904-01 |Den 7 maj 2019 |Post 6.8 |
-| WA-GUEST-OS-6.5_201903-01 |26 mars 2019 |Post 6.7 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 januari 2019 |Den 12 mars 2019 |
@@ -111,8 +115,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5.33 |
 | WA-GUEST-OS-5.30_201904-01 |Den 7 maj 2019 |Post 5.32 |
-| WA-GUEST-OS-5.29_201903-01 |26 mars 2019 |Post 5.31 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
@@ -127,8 +132,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4.68 |
 | WA-GUEST-OS-4.65_201904-01 |Den 7 maj 2019 |Post 4,67 |
-| WA-GUEST-OS-4.64_201903-01 |26 mars 2019 |Post 4,66 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
@@ -143,8 +149,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-3.73_201905-01 |Juni 67, 2019 |Post 3,75 |
 | WA-GUEST-OS-3.72_201904-01 |Den 7 maj 2019 |Post 3.74 |
-| WA-GUEST-OS-3.71_201903-01 |26 mars 2019 |Post 3,73 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
@@ -159,8 +166,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
 | WA-GUEST-OS-2.85_201904-01 |Den 7 maj 2019 |Post 2.87 |
-| WA-GUEST-OS-2.84_201903-01 |26 mars 2019 |Post 2.86 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |

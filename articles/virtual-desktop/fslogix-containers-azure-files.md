@@ -7,24 +7,24 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307279"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497524"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
-Tjänsten Windows Virtual Desktop förhandsversion rekommenderar FSLogix profil behållare som en lösning för användarens profil. FSLogix har utformats för att flytta profiler i remote datormiljöer, till exempel virtuella Windows-skrivbordet. En fullständig profil lagras i en enskild behållare. Vid inloggning, är behållaren dynamiskt kopplat till alla datorer i nätverket med hjälp av inbyggda, på gäster virtuell hårddisk (VHD) och Hyper-V Virtual Hard disk (VHDX) Microsoft-tjänster. Användarprofilen är omedelbart tillgängligt och visas i systemet precis som en intern användarprofil.
+Tjänsten Windows Virtual Desktop förhandsversion rekommenderar FSLogix profil behållare som en lösning för användarens profil. FSLogix har utformats för att flytta profiler i remote datormiljöer, till exempel virtuella Windows-skrivbordet. En fullständig profil lagras i en enskild behållare. Vid inloggning bifogas den här behållaren dynamiskt datormiljön med inbyggt stöd virtuella hårddisk (VHD) och Hyper-V Virtual Hard disk (VHDX). Användarprofilen är omedelbart tillgängligt och visas i systemet precis som en intern användarprofil.
 
 I den här artikeln beskriver vi FSLogix profil behållare som används med Azure Files. Informationen är i samband med virtuella Windows-skrivbordet, som var [visats på 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
 ## <a name="user-profiles"></a>Användarprofiler
 
-En användarprofil innehåller dataelement om en individ, inklusive konfigurationsinformation, till exempel inställningar för stationära datorer, beständiga nätverksanslutningar och programinställningar. Som standard skapar en lokal användarprofil som är nära integrerad med operativsystemet i Windows.
+En användarprofil innehåller dataelement om en individ, inklusive konfigurationsinformation som inställningarna för skrivbordet, beständiga nätverksanslutningar och programinställningar. Som standard skapar en lokal användarprofil som är nära integrerad med operativsystemet i Windows.
 
-En fjärranvändarprofil innehåller en partition mellan användardata och operativsystemet. Det gör att operativsystemet bytas ut eller ändras utan att påverkar användarens data. I Remote värd för fjärrskrivbordssession (RDSH) och infrastrukturer VDI (Virtual Desktop) ersättas operativsystemet av följande skäl:
+En fjärranvändarprofil innehåller en partition mellan användardata och operativsystemet. Det gör att ersättas eller ändrats utan att påverka användarens data. I Remote värd för fjärrskrivbordssession (RDSH) och infrastrukturer VDI (Virtual Desktop) ersättas operativsystemet av följande skäl:
 
 - En uppgradering av operativsystemet
 - En ersättning för en befintlig virtuell dator (VM)
@@ -67,7 +67,7 @@ S2D-kluster kräver ett operativsystem som är uppdaterad, uppdateras och hanter
 
 ## <a name="fslogix-profile-containers"></a>FSLogix profil behållare
 
-19 November 2018 [Microsoft har förvärvat FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix adresser många profil behållare utmaningar, viktiga mellan dem är:
+19 November 2018 [Microsoft har förvärvat FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix löser många profil behållare utmaningar. Nyckel mellan dem är:
 
 - **Prestanda:** Den [FSLogix profil behållare](https://fslogix.com/products/profile-containers) är med höga prestanda och Lös prestandaproblem som tidigare har blockerat cachelagrat exchange-läge.
 - **OneDrive:** Utan FSLogix profil behållare stöds OneDrive för företag inte i icke-beständiga RDSH eller VDI-miljöer. [OneDrive för företag och FSLogix metodtips](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) beskriver hur de samverkar. Mer information finns i [använda Synkroniseringsklienten på virtuella skrivbord](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

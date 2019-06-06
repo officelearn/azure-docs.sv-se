@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786399"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475625"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -136,6 +136,24 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Felsöka
+
+Autentiseringsuppgifter för tjänstens huvudnamn för ett AKS-kluster cachelagras av Azure CLI. Om de här autentiseringsuppgifterna har upphört att gälla, får du fel när du distribuerar AKS-kluster. Följande felmeddelande när du kör [az aks skapa] [ az-aks-create] kan tyda på ett problem med cachelagrade autentiseringsuppgifterna för tjänstobjektet:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Kontrollera ålder på filen med autentiseringsuppgifter med hjälp av följande kommando:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+Standard förfallotid för autentiseringsuppgifter för tjänstens huvudnamn är ett år. Om din *aksServicePrincipal.json* är äldre än ett år, ta bort filen och försök att distribuera ett AKS-kluster igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

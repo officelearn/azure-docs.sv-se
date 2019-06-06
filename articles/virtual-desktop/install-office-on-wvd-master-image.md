@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827326"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742550"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
@@ -29,7 +29,9 @@ Den här artikeln förutsätts även att du har haft utökade åtkomst på den v
 
 Aktivering av delade datorer kan du distribuera Office 365 ProPlus till en dator i din organisation som används av flera användare. Mer information om aktivering av delade datorer finns i [översikt över delad aktivering för Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Använd den [distributionsverktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117) att installera Office. Windows 10 Enterprise flera session stöder endast Office 365 ProPlus.
+Använd den [distributionsverktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117) att installera Office. Windows 10 Enterprise flera session stöder endast följande versioner av Office:
+- Office 365 ProPlus
+- Office 365 Business som levereras med en prenumeration för Microsoft 365 Business
 
 Distributionsverktyget för Office kräver en XML-konfigurationsfilen. Om du vill anpassa följande exempel finns i den [konfigurationsalternativ för distributionsverktyget för Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -132,7 +134,7 @@ Här är hur du installerar OneDrive i per dator-läge:
 
 2. Hämta OneDriveSetup.exe att den mellanlagrade platsen med den här länken: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Om du har installerat office med OneDrive genom att utelämna  **\<ExcludeApp ID = ”OneDrive” /\>**, avinstallera alla befintliga OneDrive användarspecifika installationer från en upphöjd kommandotolk genom att köra följande kommandot:
+3. Om du har installerat office med OneDrive genom att utelämna  **\<ExcludeApp ID = ”OneDrive” /\>** , avinstallera alla befintliga OneDrive användarspecifika installationer från en upphöjd kommandotolk genom att köra följande kommandot:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236330"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735017"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -28,7 +28,7 @@ AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar o
 
 ## <a name="download-azcopy"></a>Ladda ned AzCopy
 
-Ladda ned den körbara filen med AzCopy V10 först till valfri mapp på datorn. Överväg att lägga till mappen AzCopy systemsökvägen för enkel användning av praktiska skäl.
+Ladda ned den körbara filen med AzCopy V10 först till valfri katalog på datorn. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -39,13 +39,15 @@ Ladda ned den körbara filen med AzCopy V10 först till valfri mapp på datorn. 
 
 ## <a name="run-azcopy"></a>Kör AzCopy
 
-Gå till katalogen där du hämtade filen från en kommandotolk.
+Överväg att lägga till katalogplatsen av AzCopy körbara systemsökvägen för enkel användning av praktiska skäl. På så sätt kan du skriva `azcopy` från en katalog på datorn.
 
-Om du vill visa en lista över AzCopy-kommandon skriver `azCopy`, och tryck sedan på RETUR-tangenten.
+Om du väljer att inte lägga till AzCopy-katalogen till sökvägen, måste du ändra sökvägen till platsen för ditt AzCopy körbar fil och ange `azcopy` eller `.\azcopy` i Windows PowerShell-Kommandotolken.
 
-Mer information om ett visst kommando skriver `azCopy` följt av namnet på kommandot.
+Om du vill se en lista över kommandon skriver `azcopy -h` och tryck sedan på RETUR-tangenten.
 
-Till exempel vill veta mer om den `copy` kommandot, skriver `azcopy copy`, och tryck sedan på RETUR-tangenten.
+Om du vill veta mer om ett visst kommando kan bara innehålla namnet på kommandot (till exempel: `azcopy list -h`).
+
+![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Innan du kan göra något beskrivande med AzCopy, måste du bestämma hur du anger autentiseringsuppgifter till storage-tjänsten.
 
@@ -81,7 +83,7 @@ Dessa roller kan tilldelas till din identitet i någon av dessa scope:
 
 Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för den målbehållare eller mappen. I ACL måste din identitet skrivbehörighet i målmappen och körbehörighet för behållare samt alla överordnade mappar.
+Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för målbehållare eller katalog. I ACL måste din identitet skrivbehörighet för målkatalogen och körbehörighet på behållaren och alla överordnade kataloger.
 
 Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -102,7 +104,7 @@ Dessa roller kan tilldelas till din identitet i någon av dessa scope:
 
 Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för den målbehållare eller mappen. I ACL måste din identitet läsbehörighet på målmappen och körbehörighet för behållare samt alla överordnade mappar.
+Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för målbehållare eller katalog. I ACL måste din identitet läsbehörighet målkatalogen och körbehörighet på behållaren och alla överordnade kataloger.
 
 Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 

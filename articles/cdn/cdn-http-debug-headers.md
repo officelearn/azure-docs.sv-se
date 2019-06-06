@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736980"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475280"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EG-Debug HTTP-huvuden för Azure CDN regelmotor
 Begärandehuvudet för debug cache `X-EC-Debug`, tillhandahåller ytterligare information om den princip som tillämpas på den begärda tillgången. Dessa huvuden är specifika för **Azure CDN Premium från Verizon** produkter.
@@ -27,7 +27,7 @@ Begärandehuvudet för debug cache `X-EC-Debug`, tillhandahåller ytterligare in
 ## <a name="usage"></a>Användning
 Svaret skickas från POP-servrar till en användare innehåller den `X-EC-Debug` rubrik endast när följande villkor är uppfyllda:
 
-- Den [felsöka Cache svarshuvuden funktionen](cdn-rules-engine-reference-features.md#debug-cache-response-headers) har aktiverats på regelmotor för den angivna begäran.
+- Den [felsöka Cache svarshuvuden funktionen](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) har aktiverats på regelmotor för den angivna begäran.
 - Den angivna begäran definierar de svarshuvuden för debug cache som kommer att inkluderas i svaret.
 
 ## <a name="requesting-debug-cache-information"></a>Begär felsökningsinformation om cachelagring
@@ -107,7 +107,7 @@ Värde  | Beskrivning
 -------| --------
 JA    | Anger att det begärda innehållet berättigade för cachelagring.
 NO     | Anger att det begärda innehållet har inte berättigade för cachelagring. Den här statusen kan vara något av följande orsaker: <br /> -Kundspecifika konfiguration: En konfiguration som är specifika för ditt konto kan hindra pop-servrar från cachelagring av en tillgång. Regelmotor kan till exempel förhindra att en tillgång att cachelagras genom att aktivera funktionen kringgå Cache för kvalificerade begäranden.<br /> -Cachelagra svarshuvuden: Den begärda tillgången Cache-Control och Expires-huvuden kan förhindra att POP-servrar från cachelagringen.
-OKÄNT | Anger att servrarna inte gick att utvärdera om den begärda tillgången har komma. Den här statusen visas normalt när begäran nekas på grund av tokenbaserad autentisering.
+OKÄND | Anger att servrarna inte gick att utvärdera om den begärda tillgången har komma. Den här statusen visas normalt när begäran nekas på grund av tokenbaserad autentisering.
 
 ### <a name="sample-response-header"></a>Exempel-svarshuvud
 
@@ -118,7 +118,7 @@ Följande exempel svarshuvudet anger om det begärda innehållet kan cachelagrad
 ## <a name="cache-key-response-header"></a>Cachenyckel svarshuvud
 Den `X-EC-Debug: x-ec-cache-key` svarshuvud anger fysiska cache-nyckel som är associerade med det begärda innehållet. En fysisk cachenyckel består av en sökväg som identifierar en tillgång för cachelagring. Med andra ord kontrollerar servrar för en cachelagrad version av en tillgång enligt dess sökväg som definieras av dess cachenyckel.
 
-Den här fysiska cachenyckel börjar med dubbla snedstreck (/ /) följt av det protokoll som används för att begära innehåll (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda tillgången som börjar med den innehåll åtkomstpunkten (till exempel _/000001/_).
+Den här fysiska cachenyckel börjar med dubbla snedstreck (/ /) följt av det protokoll som används för att begära innehåll (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda tillgången som börjar med den innehåll åtkomstpunkten (till exempel _/000001/_ ).
 
 Som standard HTTP plattformar är konfigurerade för att använda *standard-cache*, vilket innebär att frågesträngar ignoreras av mekanismen för cachelagring. Den här typen av konfiguration förhindrar att cache-nyckeln, inklusive fråga strängdata.
 
@@ -151,7 +151,7 @@ De termer som används i ovanstående svar rubrik syntax definieras enligt följ
 
 - MATimePeriod: Konverterar max-age-värde (det vill säga MASeconds) till det ungefärliga motsvarande en större enhet (till exempel, dagar). 
 
-- UnixTime: Anger cache-tidsstämpel för det begärda innehållet i Unix-tiden (alias) POSIX tid eller Unix epoch). Cache-tidsstämpeln visar från datum/tid som en tillgång TTL ska beräknas. 
+- UnixTime: Anger cache-tidsstämpel för det begärda innehållet i Unix-tiden (även kallat POSIX tid eller Unix epoch). Cache-tidsstämpeln visar från datum/tid som en tillgång TTL ska beräknas. 
 
     Om ursprungsservern inte att använda en tredje parts HTTP cachelagring server eller om servern inte returnerar svarshuvudet ålder, blir datum och tid när tillgången har hämtats eller verifiera om alltid i cache-tidsstämpel. I annat fall använder POP-servrar fältet ålder för att beräkna tillgångens TTL på följande sätt: Hämtning av filer/RevalidateDateTime - ålder.
 

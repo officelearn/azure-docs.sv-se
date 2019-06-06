@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1aba0ab7083c437210166d2d5a2d77e7a657afe9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259261"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474596"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends-API: er version 2 
 
@@ -774,26 +774,35 @@ Utgivare måste implementera en webhook i den här SaaS tjänsten för att proak
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
-
 Där åtgärden kan vara något av följande: 
-- `Subscribe`  (När resursen har aktiverats)
-- `Unsubscribe` (När resursen har tagits bort)
-- `ChangePlan` (När ändringen plan åtgärden har slutförts)
-- `ChangeQuantity` (När ändringen kvantitet åtgärden har slutförts)
-- `Suspend` (När resursen har pausats)
-- `Reinstate` (När resursen har tagits giltigt först när inaktivering)
+- `Subscribe`, (När resursen har aktiverats)
+- `Unsubscribe`, (När resursen har tagits bort)
+- `ChangePlan`, (När ändringen plan åtgärden har slutförts)
+- `ChangeQuantity`, (När åtgärd för lösenordsbyte kvantitet är klar)
+- `Suspend`, (När resursen har pausats)
+- `Reinstate`, (När resursen har tagits giltigt först när inaktivering)
 
+Där status kan vara något av följande: <br>
+        -Ej startad, <br>
+        -InProgress, <br>
+        -Lyckades, <br>
+        -Misslyckades <br>
+        -Konflikt <br>
+
+Användbara statusar är lyckades och misslyckades i ett webhook-meddelande. Livscykeln för en åtgärd är från NotStarted till ett avslutat tillstånd som lyckades/misslyckades/konflikt. Om du får inte startats eller pågår, Fortsätt att begära status för via åtgärd för hämtning av API: et tills åtgärden har nått avslutat tillstånd innan du vidtar åtgärder. 
 
 ## <a name="mock-api"></a>Fingera API
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306880"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428109"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -38,7 +38,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En utvecklingsdator som kör:
-  * Visual Studio 2015 eller Visual Studio 2017.
+  * Visual Studio 2015 eller Visual Studio 2019.
   * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
   *  Docker för Windows. [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
 
@@ -482,7 +482,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server-behållare är inte kompatibla i alla versioner av värdens operativsystem. Exempel:
  
 - Windows Server-behållare som skapats med hjälp av Windows Server version 1709 fungerar inte på en värd som kör Windows Server version 2016. 
-- Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar i Hyper-v-isoleringsläget endast på en värd som kör Windows Server version 1709. 
+- Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar i Hyper-V-isoleringsläget endast på en värd som kör Windows Server version 1709. 
 - Med Windows Server-behållare som har skapats med hjälp av Windows Server 2016 kan det vara nödvändigt att säkerställa att ändringen av OS-behållare och värdoperativsystemet är samma vid körning i isoleringsläge på en värd som kör Windows Server 2016.
  
 Mer information finns i [versionskompatibilitet för Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).

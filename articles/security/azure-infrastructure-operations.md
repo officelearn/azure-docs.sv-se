@@ -1,8 +1,8 @@
 ---
-title: Azure produktionsåtgärder och hantering
-description: Den här artikeln innehåller en allmän beskrivning av hanteringen och driften av Azure-produktionsnätverket.
+title: Hantering av Azure-produktionsnätverket – Microsoft Azure
+description: Den här artikeln beskriver hur Microsoft hanterar och fungerar Azure-produktionsnätverket om du vill skydda Azure-datacenter.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591478"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428261"
 ---
-# <a name="azure-production-operations-and-management"></a>Azure produktionsåtgärder och hantering    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Hantering och driften av Azure-produktionsnätverket    
+Den här artikeln beskriver hur Microsoft hanterar och fungerar Azure-produktionsnätverket om du vill skydda Azure-datacenter.
+
+## <a name="monitor-log-and-report"></a>Övervaka, log och rapportera
+
 Hantering och driften av Azure-produktionsnätverket är koordinera driftteam av Azure och Azure SQL Database. Hur team flera system och övervakning av programprestanda hanteringsverktygen i miljön. Och de använder lämpliga verktyg för att övervaka nätverksenheter, servrar, tjänster och program bearbetar.
 
 För att säkerställa säker körning av tjänster som körs i Azure-miljön måste implementera driftteam flera nivåer av övervakning, loggning och rapportering, bland annat följande:

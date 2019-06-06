@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957349"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729471"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -110,7 +110,7 @@ I JavaScript, [bindningar](functions-triggers-bindings.md) konfigureras och defi
 
 ### <a name="inputs"></a>Indata
 Indata är indelade i två kategorier i Azure Functions: en är indata för arbetsflödesutlösaren och den andra är ytterligare indata. Utlösare och andra indata Bindningar (bindningarna för `direction === "in"`) kan läsas av en funktion på tre sätt:
- - **_(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
+ - ** _(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Utdata (bindningarna för `direction === "out"`) kan skrivas till av en funktion
 
 Du kan tilldela data till utdatabindningar i något av följande sätt (inte kombinera dessa metoderna):
 
-- **_(Rekommenderas för flera utdata)_  Returnerar ett objekt.** Om du använder en asynkron/löftet som returnerar funktionen, kan du returnera ett objekt med tilldelade utdata. I exemplet nedan visas utdatabindningar namnges ”httpResponse” och ”queueOutput” i *function.json*.
+- ** _(Rekommenderas för flera utdata)_  Returnerar ett objekt.** Om du använder en asynkron/löftet som returnerar funktionen, kan du returnera ett objekt med tilldelade utdata. I exemplet nedan visas utdatabindningar namnges ”httpResponse” och ”queueOutput” i *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Du kan tilldela data till utdatabindningar i något av följande sätt (inte kom
   ```
 
   Om du använder en synkron funktion kan du gå tillbaka det här objektet med [ `context.done` ](#contextdone-method) (se exemplet).
-- **_(Rekommenderas för enkel utdata)_  Returnera ett värde direkt och använda bindningsnamn $return.** Detta fungerar endast för asynkrona/löftet returnerar funktioner. Se exemplet i [exporterar en async-funktion](#exporting-an-async-function). 
+- ** _(Rekommenderas för enkel utdata)_  Returnera ett värde direkt och använda bindningsnamn $return.** Detta fungerar endast för asynkrona/löftet returnerar funktioner. Se exemplet i [exporterar en async-funktion](#exporting-an-async-function). 
 - **Tilldela värden till `context.bindings`**  du kan tilldela värden direkt till context.bindings.
 
   ```javascript
@@ -350,7 +350,7 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Den `context.req` (begäran) objekt har följande egenskaper:
 
-| Egenskap       | Beskrivning                                                    |
+| Egenskap      | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Ett objekt som innehåller brödtext för begäran.               |
 | _headers_     | Ett objekt som innehåller de begärda rubrikerna.                   |
@@ -365,7 +365,7 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 
 Den `context.res` ()-svarsobjekt har följande egenskaper:
 
-| Egenskap   | Beskrivning                                               |
+| Egenskap  | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Ett objekt som innehåller brödtexten i svaret.         |
 | _headers_ | Ett objekt som innehåller svarshuvuden.             |
@@ -397,9 +397,9 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Endast svar]_  Genom att anropa `context.res.send(body?: any)`.** Ett HTTP-svar skapas med indata `body` som svarstexten. `context.done()` anropas implicit.
++ ** _[Endast svar]_  Genom att anropa `context.res.send(body?: any)`.** Ett HTTP-svar skapas med indata `body` som svarstexten. `context.done()` anropas implicit.
 
-+ **_[Endast svar]_  Genom att anropa `context.done()`.** En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
++ ** _[Endast svar]_  Genom att anropa `context.done()`.** En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
 
     ```json
     {
@@ -465,23 +465,16 @@ Det finns två sätt att installera paket på din Funktionsapp:
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-I funktioner, [appinställningar](functions-app-settings.md), till exempel tjänstanslutning strängar, visas som miljövariabler under körning. Du kan komma åt de här inställningarna med hjälp av `process.env`, vilket visas här i den `GetEnvironmentVariable` funktionen:
+I funktioner, [appinställningar](functions-app-settings.md), till exempel tjänstanslutning strängar, visas som miljövariabler under körning. Du kan komma åt de här inställningarna med hjälp av `process.env`, som visas här i andra och tredje anrop till `context.log()` där vi loggar den `AzureWebJobsStorage` och `WEBSITE_SITE_NAME` miljövariabler:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -579,7 +572,7 @@ TypeScript-filer (TS) är transpiled i JavaScript-filer (.js) i den `dist` utdat
 
 Det sätt som du utvecklar lokalt och distribuera från en TypeScript-projektet beror på din utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Den [Azure Functions för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) tillägg kan du utveckla dina funktioner med TypeScript. De viktigaste verktygen är ett krav för Azure Functions-tillägget.
 

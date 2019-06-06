@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253049"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474780"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Använd Visual Studio 2019 att utveckla och felsöka moduler för Azure IoT Edge (förhandsversion)
 
@@ -95,20 +95,19 @@ När din Visual Studio-2019 är klar, behöver du följande verktyg och komponen
 
 Azure IoT Edge-projektmallen i Visual Studio skapar ett projekt som kan distribueras till Azure IoT Edge-enheter i Azure IoT Hub. Först skapar du en Azure IoT Edge-lösning och sedan skapa den första modulen i lösningen. Varje IoT Edge-lösning kan innehålla mer än en modul.
 
-1. I Visual Studio dialogrutan Nytt projekt, Sök och välj **Azure IoT Edge**, ange ett namn för ditt projekt och ange platsen och välj sedan **OK**. Standardnamnet för projektet är **AzureIoTEdgeApp1**.
+1. I Visual Studio dialogrutan Nytt projekt, Sök och välj **Azure IoT Edge** projektet och klicka på **nästa**. Ange ett namn för ditt projekt i konfigurationsfönstret i projektet, och ange platsen och välj sedan **skapa**. Standardnamnet för projektet är **AzureIoTEdgeApp1**.
 
-1. I den **Lägg till IoT Edge-program och -modulen** väljer **Linux Amd64**, **Windows Amd64**, eller båda som plattformen. Om du väljer både skapar du en lösning med två projekt att var och en hänvisar till kodmodulen standard.
+   ![Skapa nytt projekt](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   > [!TIP]
-   > Azure IoT Edge-tillägget för Visual Studio stöder inte för närvarande skapa projekt för ARM-plattformen. Se den här [IoT Developer blogginlägg](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) ett exempel på hur du använder Visual Studio Code för att utveckla en lösning för ARM32v7/armhf.
+1. I den **Lägg till IoT Edge-program och -modulen** fönstret väljer du antingen  **C# modulen** eller **C modulen** och sedan ange din Modulnamn och modulen avbildningslagringsplatsen. Visual Studio autopopulates modulen namnet med **localhost:5000 / < din Modulnamn\>** . Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver * **\<registernamn\>*. azurecr.io**. Endast ersätta den **localhost:5000** en del av strängen, så att slutresultatet ser ut som * *\<* registernamn *\>.azurecr.io/* \<din Modulnamn\>***. Standardnamnet för modulen är **IoTEdgeModule1**
 
-1. Välj antingen  **C# modulen** eller **C modulen** och sedan ange din Modulnamn och modulen avbildningslagringsplatsen. Visual Studio autopopulates modulen namnet med **localhost:5000 / < din Modulnamn\>** . Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver * **\<registernamn\>*. azurecr.io**. Endast ersätta den **localhost:5000** en del av strängen, så att slutresultatet ser ut som * *\<* registernamn *\>.azurecr.io/* \<din Modulnamn\>***. Standardnamnet för modulen är **IoTEdgeModule1**
+   ![Lägg till program och -modulen](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. Välj **OK** att skapa Azure IoT Edge-lösning med en modul som använder antingen C# eller C.
 
-Nu har en **AzureIoTEdgeApp1.Linux.Amd64** projekt eller en **AzureIoTEdgeApp1.Windows.Amd64** projekt eller båda, och även ett **IoTEdgeModule1** projekt i din lösning. Varje **AzureIoTEdgeApp1** projektet har en `deployment.template.json` -fil som definierar de moduler som du vill skapa och distribuera för din IoT Edge-lösning, och definierar också rutter mellan moduler. Standardlösningen har en **tempSensor** modulen och en **IoTEdgeModule1** modulen. Den **tempSensor** modulen genererar simulerade data till den **IoTEdgeModule1** modulen, samtidigt som standardkoden i den **IoTEdgeModule1** modulen direkt pipes togs emot meddelanden till Azure IoT Hub.
+Nu har en **AzureIoTEdgeApp1.Linux.Amd64** projekt eller en **AzureIoTEdgeApp1.Windows.Amd64** projektet, och även ett **IoTEdgeModule1** projekt i din lösning. Varje **AzureIoTEdgeApp1** projektet har en `deployment.template.json` -fil som definierar de moduler som du vill skapa och distribuera för din IoT Edge-lösning, och definierar också rutter mellan moduler. Standardlösningen har en **tempSensor** modulen och en **IoTEdgeModule1** modulen. Den **tempSensor** modulen genererar simulerade data till den **IoTEdgeModule1** modulen, samtidigt som standardkoden i den **IoTEdgeModule1** modulen direkt pipes togs emot meddelanden till Azure IoT Hub.
 
-Den **IoTEdgeModule1** project är ett konsolprogram med .NET Core 2.1. Den innehåller filer som krävs Docker du behöver för din IoT Edge-enhet med en behållare för Windows eller Linux-behållare. Den `module.json` filen beskriver metadata för en modul. Den faktiska modul kod som tar Azure IoT Device SDK som ett beroende finns i den `Program.cs` eller `main.c` fil.
+Den **IoTEdgeModule1** project är ett konsolprogram med .NET Core 2.1 om det är en C# modulen. Den innehåller filer som krävs Docker du behöver för din IoT Edge-enhet med en behållare för Windows eller Linux-behållare. Den `module.json` filen beskriver metadata för en modul. Den faktiska modul kod som tar Azure IoT Device SDK som ett beroende finns i den `Program.cs` eller `main.c` fil.
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
@@ -122,7 +121,7 @@ När du är redo att anpassa mallen modulen med din egen kod kan använda den [A
 
    ![Kopiera anslutningssträngen för Edge-enhet](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Gå till **verktyg** > **Azure IoT Edge Tools** > **installationsprogrammet IoT Edge-simulatorn**, pasten anslutningssträngen och klickar på **OK** .
+1. Gå till **verktyg** > **Azure IoT Edge Tools** > **installationsprogrammet IoT Edge-simulatorn**, klistra in anslutningssträngen och klickar på **OK**.
 
    ![Öppna Set Edge-Anslutningsfönster sträng](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 

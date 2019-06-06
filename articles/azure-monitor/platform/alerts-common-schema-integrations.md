@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394138"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734894"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Hur du integrerar det gemensamma schemat för aviseringar med Logic Apps
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du skapar en logikapp som använder det gemensamma s
 
 ## <a name="overview"></a>Översikt
 
-Den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs) ger en standardiserad och utökningsbar JSON-schema i alla olika aviseringstyper. Det gemensamma schemat för aviseringen är mest användbara när utnyttjas programmässigt – via webhooks, runbooks och logic apps. I den här artikeln visar hur en enkel logikapp kan skapas för att hantera alla aviseringar. Samma principer kan tillämpas på andra programmeringsmetoder. Logikappen som beskrivs i den här artikeln skapar väldefinierade variablerna för den [”grundläggande” fält](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), och beskriver också hur du kan hantera [aviseringstyp]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specifik logik.
+Den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs) ger en standardiserad och utökningsbar JSON-schema i alla olika aviseringstyper. Det gemensamma schemat för aviseringen är mest användbara när utnyttjas programmässigt – via webhooks, runbooks och logic apps. I den här artikeln visar hur en enkel logikapp kan skapas för att hantera alla aviseringar. Samma principer kan tillämpas på andra programmeringsmetoder. Logikappen som beskrivs i den här artikeln skapar väldefinierade variablerna för den [”grundläggande” fält](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), och beskriver också hur du kan hantera [aviseringstyp](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) specifik logik.
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter 
@@ -125,7 +125,7 @@ Den här artikeln förutsätter att läsaren är bekant med
 
     ![Logic app uttryck](media/alerts-common-schema-integrations/logic-app-expressions.png "Logic app-uttryck")
     
-     Den ['monitoringService' fältet]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') kan du identifiera typ av avisering baserat på vilket du kan skapa villkorslogik.
+     Den ['monitoringService' fältet](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) kan du identifiera typ av avisering baserat på vilket du kan skapa villkorslogik.
 
     
     Till exempel den kontrollerar om aviseringen är en avisering om Application Insights baserat loggen och fall i så skriver du ut sökresultaten nedan fragment. Annars den skriver ut ”NA”.

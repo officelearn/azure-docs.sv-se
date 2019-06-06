@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398533"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430866"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpretability med Azure Machine Learning-tjänsten
 
@@ -462,7 +462,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
 
 Automatiserad maskininlärning innehåller paket för att tolka funktionen betydelse i auto-utbildade modeller. Dessutom kan klassificering scenarier du hämta klassnivå funktionen prioritet. Det finns två metoder för att aktivera det här beteendet i automatiserade maskininlärning:
 
-* Om du vill aktivera funktionen betydelse för en tränad ensemble modell, använda den [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
+* Om du vill aktivera funktionen betydelse för en tränad ensemble modell, använda den [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ Automatiserad maskininlärning innehåller paket för att tolka funktionen betyd
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* Om du vill aktivera funktionen vikten för varje enskild innan utbildning, ange den `model_explainability` parameter `True` i den `AutoMLConfig` objekt, tillsammans med tillhandahåller verifieringsdata för. Använd sedan den [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
+* Om du vill aktivera funktionen vikten för varje enskild innan utbildning, ange den `model_explainability` parameter `True` i den `AutoMLConfig` objekt, tillsammans med tillhandahåller verifieringsdata för. Använd sedan den [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

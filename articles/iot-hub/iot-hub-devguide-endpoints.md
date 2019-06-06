@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925888"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477986"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
@@ -75,20 +75,20 @@ Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT hub s�
 
 IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutpunkter:
 
-* Azure Storage-containrar
+* Azure Storage-behållare
 * Event Hubs
 * Service Bus-köer
 * Avsnitt om Service Bus
 
 Gränser för antalet slutpunkter som du kan lägga till, se [kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
 
-Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta hälsostatus för slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad.
+Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta hälsostatus för slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad, vilket vi förväntar oss svarstid blir högre när slutpunkten är i något av dessa tillstånd.
 
 |Hälsostatus|Beskrivning|
 |---|---|
-|felfri|Slutpunkten som tar emot meddelanden som förväntat.|
+|Felfria|Slutpunkten som tar emot meddelanden som förväntat.|
 |Feltillstånd|Slutpunkten tar inte emot meddelanden som förväntat och IoT-hubben försöker på nytt för att skicka data till den här slutpunkten. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.|
-|okänt|IoT Hub har inte upprätta en anslutning med slutpunkten. Inga meddelanden har levereras till eller avvisas från den här slutpunkten.|
+|Okänd|IoT Hub har inte upprätta en anslutning med slutpunkten. Inga meddelanden har levereras till eller avvisas från den här slutpunkten.|
 |dead|Slutpunkten är inte ta emot meddelanden, efter att IoT Hub göras skicka meddelanden under retrial.|
 
 ## <a name="field-gateways"></a>Fält-gateways

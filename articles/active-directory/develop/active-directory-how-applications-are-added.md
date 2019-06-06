@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc9d0a951ac6f7ed18ad6558ae9edb2d1f9c8f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544615"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688751"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 
@@ -32,9 +32,9 @@ Det finns två representationer av program i Azure AD:
 * [Tjänsthuvudnamn](app-objects-and-service-principals.md#service-principal-object) -kan betraktas som en instans av ett program. Tjänstens huvudnamn Allmänt refererar ett programobjekt och ett programobjekt kan refereras av flera tjänstens huvudnamn i kataloger.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är programobjekt och de varifrån kommer?
-Du kan hantera [programobjekt](app-objects-and-service-principals.md#application-object) i Azure-portalen via den [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) upplevelse. Programobjekt beskriver programmet till Azure AD och kan ses definitionen av programmet, vilket gör att tjänsten att se hur du utfärda token till appen baserat på dess inställningar. Programobjektet finns bara i sin hemkatalog, även om det är ett program för flera innehavare som stöd för tjänstens huvudnamn i andra kataloger. Programobjektet kan vara något av följande (som även följande ytterligare information som inte anges här):
+Du kan hantera [programobjekt](app-objects-and-service-principals.md#application-object) i Azure-portalen via den [Appregistreringar](https://aka.ms/appregistrations) upplevelse. Programobjekt beskriver programmet till Azure AD och kan ses definitionen av programmet, vilket gör att tjänsten att se hur du utfärda token till appen baserat på dess inställningar. Programobjektet finns bara i sin hemkatalog, även om det är ett program för flera innehavare som stöd för tjänstens huvudnamn i andra kataloger. Programobjektet kan vara något av följande (som även följande ytterligare information som inte anges här):
 * Namn, logotyp och utgivare
-* Svars-URL:er
+* Omdirigerings-URI: er
 * Hemligheter (symmetriska och/eller asymmetriska nycklar används för att autentisera programmet)
 * API-beroenden (OAuth)
 * Publicerade API: er/resurser/områden (OAuth)
@@ -74,7 +74,7 @@ Som programobjekt, kan tjänstens huvudnamn skapas via flera sökvägar, inklusi
   * När du prenumererar på Office 365 eller starta en utvärderingsversion, skapas en eller flera tjänstens huvudnamn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
   * Vissa Office 365-tjänster som SharePoint skapa tjänstens huvudnamn med jämna mellanrum att tillåta säker kommunikation mellan komponenter, inklusive arbetsflöden.
 * När en administratör lägger till ett program från appgalleriet (det skapas också en underliggande app-objekt)
-* Lägg till ett program att använda den [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Lägg till ett program att använda den [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 * Ansluta ett program för enkel inloggning om hur du använder SAML eller ett lösenord med enkel inloggning (SSO)
 * Programmässigt via Azure AD Graph API eller PowerShell
 
@@ -101,8 +101,8 @@ Program som du lägger till dig själv (som **App (själv)** i diagrammet) inklu
   * Regler för omvandling av anspråk
   * Attributmappningar (etableringen av användare)
 * Mer detaljerad information om tjänstens huvudnamn och programobjekt finns i dokumentationen för Azure AD Graph REST API-referens:
-  * [Programmet](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Tjänstens huvudnamn](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Programmet](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Tjänstens huvudnamn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför program integreras med Azure AD?
 Program läggs till Azure AD för att använda en eller flera av de tjänster, bland annat:

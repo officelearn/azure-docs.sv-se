@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622422"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428229"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
@@ -27,7 +27,7 @@ Den här snabbstarten hjälper dig att distribuera ett befintligt program (Node.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Vilket innefattar hur du installerar Service Fabric-SDK och Visual Studio 2017 eller 2015.
+Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Vilket innefattar hur du installerar Service Fabric SDK och Visual Studio 2019 eller 2015.
 
 Du måste också ha ett befintligt Node.js-program för distribution. Denna snabbstart använder en enkel Node.js-webbplats som du kan hämta [här][download-sample]. Extrahera filen till din `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`-mapp när du har skapat projektet i nästa steg.
 
@@ -66,7 +66,7 @@ Tryck på **OK**.
 
 Visual Studio skapar programprojektet och aktörtjänstprojektet och visar dem i Solution Explorer.
 
-Programprojektet (**MyGuestApp**) innehåller ingen direkt kod. I stället refererar det till en uppsättning tjänstprojekt. Dessutom innehåller det tre andra typer av innehåll:
+Programprojektet (**MyGuestApp**) innehåller inte någon kod direkt. Projektet refererar till en uppsättning tjänstprojekt. Den innehåller också tre andra typer av innehåll:
 
 * **Publicera profiler**  
 Verktygsinställningar för olika miljöer.
@@ -83,7 +83,7 @@ En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reli
 
 För exemplet Node.js-appen som vi distribuerar används port **80** och vi behöver tala om för Service Fabric att porten ska exponeras.
 
-Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet finns en `<Resources> \ <Endpoints>` med en transaktion som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
+Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet, det finns en `<Resources> \ <Endpoints>` med en transaktion som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
 
 ```xml
   <Resources>
@@ -98,7 +98,7 @@ För exemplet Node.js-appen som vi distribuerar används port **80** och vi beh�
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
-Om du trycker på **F5** och kör projektet distribueras det till det lokala klustret. Men vi vill distribuera till Azure i stället.
+Om du trycker på **F5** och kör projektet, den har distribuerats till det lokala klustret. Men vi vill distribuera till Azure i stället.
 
 Högerklicka på projektet och välj **Publicera...** , vilket öppnar en dialogruta för att publicera till Azure.
 
@@ -108,13 +108,13 @@ Välj målprofilen **PublishProfiles\Cloud.xml**.
 
 Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har en ännu, kan du [registrera dig för en][create-account].
 
-Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har ett kluster väljer du **&lt;Skapa nytt kluster... &gt;** som öppnar webbläsarfönstret till Azure-portalen. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har något väljer **&lt;Skapa nytt kluster... &gt;** som öppnar webbläsarfönstret till Azure-portalen. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 När du skapar Service Fabric-kluster, se till att ange **Anpassade slutpunkter** till **80**.
 
 ![Service Fabric-nod-typkonfiguration med anpassad slutpunkt][custom-endpoint]
 
-Det tar en stund att skapa ett nytt Service Fabric-kluster. När det har skapats går du tillbaka till dialogrutan Publicera och väljer **&lt;Uppdatera&gt;**. Det nya klustret visas i listrutan. Markera det.
+Det tar en stund att skapa ett nytt Service Fabric-kluster. När det har skapats går du tillbaka till dialogrutan Publicera och väljer **&lt;Uppdatera&gt;** . Det nya klustret visas i listrutan. Markera det.
 
 Tryck på **Publicera** och vänta tills distributionen är klar.
 
@@ -130,11 +130,11 @@ Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från e
 
 ![Bladet Service fabric-översikt på Azure portal][overview]
 
-Navigera till den här adressen där du kan se svaret `HELLO WORLD`.
+Navigera till den här adressen där du kan se den `HELLO WORLD` svar.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
-Glöm inte att ta bort alla resurser som du har skapat för denna Snabbstart, eftersom du debiteras för dessa resurser.
+Glöm inte att ta bort alla resurser som du har skapat i den här snabbstarten eftersom du debiteras för dessa resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [körbara filer för gäst](service-fabric-guest-executables-introduction.md).

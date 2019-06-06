@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388166"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742456"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -81,7 +81,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
    *Bild 3: Konfigurera etablering i Azure portal*
     
 1. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/v2/
-1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt används innehåller Azure AD en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
+1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. 
 1. Välj **Testanslutningen** ha Azure Active Directory som försöker ansluta till SCIM-slutpunkten. Om försöket misslyckas, visas information om felet.  
 
     >[!NOTE]
@@ -667,8 +667,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
     
 1. I den **klient-URL** fältet, anger du URL: en och en port för din SCIM-slutpunkt som visas på internet. Transaktionen är något som liknar http://testmachine.contoso.com:9000 eller http://\<ip-adress >: 9000 / där \<ip-adress > är internet exponerade IP adress. 
 
-1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt används innehåller Azure AD en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
-
+1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. 
 1. Välj **Testanslutningen** ha Azure Active Directory som försöker ansluta till SCIM-slutpunkten. Om försöket misslyckas, visas information om felet.  
 
     >[!NOTE]

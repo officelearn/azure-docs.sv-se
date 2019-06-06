@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET | Microsoft Docs
-description: Skriv ett C#-konsolprogram för Azure Relay-hybridanslutningar med Websockets.
+title: Kom igång med Azure Relay Hybrid anslutningar WebSockets i .NET | Microsoft Docs
+description: Skriv en C# konsolen program för Azure Relay Hybrid anslutningar WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749737"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428348"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Grattis, du har skapat ett end-to-end hybridanslutningsprogram!
+Grattis, du har skapat en fullständig hybridanslutningsprogram!
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten skapade du .NET-klient- och -serverprogram som använde WebSockets för att skicka och ta emot meddelanden. Funktionen Hybridanslutningar i Azure Relay stöder också användningen av HTTP för att skicka och ta emot meddelanden. Läs om hur du använder HTTP med Azure Relay-hybridanslutningar i [HTTP-snabbstarten](relay-hybrid-connections-http-requests-dotnet-get-started.md).

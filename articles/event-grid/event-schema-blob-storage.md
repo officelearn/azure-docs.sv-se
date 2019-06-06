@@ -24,7 +24,7 @@ En lista över exempel på skript och självstudier finns i [Storage händelsek�
 
 BLOB-lagring genererar följande händelsetyper:
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Utlöses när en blob skapas. |
 | Microsoft.Storage.BlobDeleted | Utlöses när en blob tas bort. |
@@ -88,10 +88,10 @@ Schemat för en blob tas bort händelsen liknar:
 
 En händelse har följande översta data:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
@@ -101,7 +101,7 @@ En händelse har följande översta data:
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | api | string | Åtgärden som utlöste händelsen. |
 | clientRequestId | string | Ett klientgenererade, täckande värde med en teckengräns på 1 KB. När du har aktiverat lagringsanalys, loggning, registreras den i analytics-loggarna. |

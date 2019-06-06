@@ -1,23 +1,18 @@
 ---
 title: Azure Resource Manager-mall-strukturen och syntaxen | Microsoft Docs
 description: Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med hjälp av deklarativa JSON-syntax.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728039"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431235"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -72,7 +67,21 @@ I uttrycket syntaxen `resourceGroup()` anropar någon av de funktioner som Resou
 
 Mallfunktioner och deras parametrar är skiftlägeskänsliga. Exempel: Resource Manager löser **variables('var1')** och **VARIABLES('VAR1')** samma. När det granskades, såvida inte funktionen ändrar uttryckligen skiftläge (till exempel toUpper eller toLower), funktionen bevarar skiftläge. Vissa typer av resurser kan ha krav för användningsfall oavsett hur funktioner utvärderas.
 
-Ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
+Ha en teckensträng som börjar med en vänsterparentes `[` och måste sluta med en högerparentes `]`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`. Till exempel variabeln:
+
+```json
+"demoVar1": "[[test value]"
+```
+
+Motsvarar `[test value]`.
+
+Men om den exakta strängen inte sluta med en hakparentes, inte escape-första hakparentes. Till exempel variabeln:
+
+```json
+"demoVar2": "[test] value"
+```
+
+Motsvarar `[test] value`.
 
 Om du vill skicka ett strängvärde som en parameter till en funktion, Använd enkla citattecken.
 
@@ -493,20 +502,20 @@ Du definierar resurser med följande struktur:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| villkor | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. Se [villkor](#condition). |
+| condition | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. Se [villkor](#condition). |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
-| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). Information om tillgängliga värden finns [mallreferensen](/azure/templates/). För en underordnad resurs, formatet för typ som beror på om den har bäddas in i den överordnade resursen eller definierats utanför den överordnade resursen. Se [underordnade resurser](#child-resources). |
-| namn |Ja |Resursens namn. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. Formatet på namnet beror på om den kapslade i den överordnade resursen eller definierats utanför den överordnade resursen för en underordnad resurs. Se [underordnade resurser](#child-resources). |
+| type |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). Information om tillgängliga värden finns [mallreferensen](/azure/templates/). För en underordnad resurs, formatet för typ som beror på om den har bäddas in i den överordnade resursen eller definierats utanför den överordnade resursen. Se [underordnade resurser](#child-resources). |
+| name |Ja |Namnet på resursen. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. Formatet på namnet beror på om den kapslade i den överordnade resursen eller definierats utanför den överordnade resursen för en underordnad resurs. Se [underordnade resurser](#child-resources). |
 | location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligtvis det vara bra att välja ett som är nära användarna. Vanligtvis är det också vara bra att placera resurser som interagerar med varandra i samma region. De flesta typer av resurser kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
-| tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
+| taggar |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
 | kommentarer |Nej |Dina anteckningar för att dokumentera resurserna i mallen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
-| kopiera |Nej |Om fler än en instans, hur många resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurserna som ska distribueras på samma gång. Mer information finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
+| Kopiera |Nej |Om fler än en instans, hur många resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurserna som ska distribueras på samma gång. Mer information finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. När resurserna inte är beroende av varandra, är de distribueras parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i den här mallen måste redan finnas. Undvik att lägga till onödiga beroenden som de kan sakta distributionen och skapa cirkulärt tjänstberoende. Anvisningar för inställningen beroenden finns i [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
 | properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma som de värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris för att skapa flera instanser av en egenskap. Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
 | sku | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
 | typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB för att skapa. |
 | plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
-| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [underordnade resurser](#child-resources). |
+| Resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [underordnade resurser](#child-resources). |
 
 ### <a name="condition"></a>Tillstånd
 
@@ -735,8 +744,8 @@ I följande exempel visar strukturen för en utdata-definition:
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | outputName |Ja |Namnet på värdet. Måste vara en giltig JavaScript-identifierare. |
-| villkor |Nej | Booleskt värde som anger om utdata detta värde returneras. När `true`, värdet ingår i utdata för distributionen. När `false`, hoppas över värdet för den här distributionen. Om inget värde anges är standardvärdet `true`. |
-| typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **securestring** för utdatatypen värdet inte visas i distributionshistoriken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i mer än en mall, lagra hemligheten i Key Vault och referera till hemligheten i parameterfilen. Mer information finns i [använda Azure Key Vault för att skicka säkra parametervärdet under distributionen](resource-manager-keyvault-parameter.md). |
+| condition |Nej | Booleskt värde som anger om utdata detta värde returneras. När `true`, värdet ingår i utdata för distributionen. När `false`, hoppas över värdet för den här distributionen. Om inget värde anges är standardvärdet `true`. |
+| type |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **securestring** för utdatatypen värdet inte visas i distributionshistoriken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i mer än en mall, lagra hemligheten i Key Vault och referera till hemligheten i parameterfilen. Mer information finns i [använda Azure Key Vault för att skicka säkra parametervärdet under distributionen](resource-manager-keyvault-parameter.md). |
 | value |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
 
 ### <a name="define-and-use-output-values"></a>Definiera och Använd utdatavärden

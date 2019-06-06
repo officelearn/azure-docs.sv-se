@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200632"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430783"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar
 
@@ -89,14 +89,14 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 ### <a name="job-logs"></a>Jobbloggar
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
 | Caller_s |Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb. |
 | Tenant_g | GUID som identifierar klient för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
-| resultType |Status för runbookjobbet. Möjliga värden:<br>– Ny<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Har slutförts |
+| ResultType |Status för runbookjobbet. Möjliga värden:<br>– Ny<br>-Skapade<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Har slutförts |
 | Category | Klassificering av typ av data. För Automation är värdet JobLogs. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
 | Resource | Namnet på Automation-konto |
@@ -111,7 +111,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 
 ### <a name="job-streams"></a>Jobbströmmar
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -119,7 +119,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | StreamType_s |Typ av jobbström. Möjliga värden:<br>- Status<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose |
 | Tenant_g | GUID som identifierar klient för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
-| resultType |Status för runbookjobbet. Möjliga värden:<br>-Pågår |
+| ResultType |Status för runbookjobbet. Möjliga värden:<br>-Pågår |
 | Category | Klassificering av typ av data. För Automation är värdet JobStreams. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
 | Resource | Namnet på Automation-konto |

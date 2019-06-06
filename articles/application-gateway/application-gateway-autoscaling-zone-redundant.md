@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986874"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431194"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisk skalning och zonredundant Application Gateway 
 
@@ -26,8 +26,8 @@ Den nya v2-SKU: N innehåller följande förbättringar:
   Redundans är tillgänglig endast om Azure Zones är tillgängligt. Alla andra funktioner som stöds i andra regioner. Mer information finns i [vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statisk VIP**: Application gateway v2 SKU: N stöder statisk VIP skriver exklusivt. Detta säkerställer att VIP-Adressen som är associerade med application gateway inte ändras för livscykeln för distributionen, även efter en omstart.
 - **Huvud-omskrivning**: Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar med v2-SKU. Mer information finns i [skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
-- **Key Vault-integrering (förhandsversion)**: Application Gateway v2 har stöd för integrering med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
-- **Ingress-kontrollanten för Azure Kubernetes Service (förhandsversion)**: V2 Ingress-kontrollanten för Application Gateway kan Azure Application Gateway som ska användas som inkommande för ett Azure Kubernetes Service (AKS) kallas AKS-kluster. Mer information finns i den [dokumentationssidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault-integrering (förhandsversion)** : Application Gateway v2 har stöd för integrering med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
+- **Ingress-kontrollanten för Azure Kubernetes Service (förhandsversion)** : V2 Ingress-kontrollanten för Application Gateway kan Azure Application Gateway som ska användas som inkommande för ett Azure Kubernetes Service (AKS) kallas AKS-kluster. Mer information finns i den [dokumentationssidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Prestandaförbättringar**: V2 SKU: N erbjuder upp till 5 X bättre SSL-avlastning prestandan jämfört med Standard/WAF SKU.
 - **Snabbare distribution och uppdatering** v2-SKU ger distribution och uppdatering snabbare jämfört med Standard/WAF SKU. Detta omfattar även WAF konfigurationsändringar.
 
@@ -54,6 +54,8 @@ Compute a vägledning:
 > [!NOTE]
 > Varje instans stöder för närvarande cirka 10 kapacitetsenheter.
 > Antalet begäranden som en beräkningsenhet kan hantera beror på olika kriterier som TLS-certifikatets nyckelstorlek, nyckelutbytesalgoritmen, huvud omskrivningar och vid inkommande storleksförfrågningar med WAF. Vi rekommenderar att du kör tester för att fastställa begäran-pris per beräkningsenhet. Både Kapacitetsenhet och beräkningsenhet kommer att göras tillgängligt som ett mått innan debiteras startar.
+
+I följande tabell visar exempel priser och är endast illustrativa.
 
 **Priserna i USA, Öst**:
 
@@ -129,11 +131,11 @@ I följande tabell jämförs funktionerna med varje SKU.
 
 ## <a name="differences-with-v1-sku"></a>Skillnader med v1-SKU
 
-|Skillnad|Information|
+|Skillnaden|Information|
 |--|--|
 |Certifikat för serverautentisering|Stöds ej.<br>Mer information finns i [översikt över slutpunkt till slutpunkt-SSL med Programgateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Blanda Standard_v2 och Standard Application Gateway i samma undernät|Stöds ej|
-|Användardefinierad väg (UDR) i Application Gateway-undernät|Stöds ej|
+|Blanda Standard_v2 och Standard Application Gateway i samma undernät|Stöds inte|
+|Användardefinierad väg (UDR) i Application Gateway-undernät|Stöds inte|
 |NSG för inkommande portintervall| -65200 till 65535 för Standard_v2 SKU<br>-65503 till 65534 för Standard-SKU.<br>Mer information finns i den [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestandaloggar i Azure-diagnostik|Stöds ej.<br>Du bör använda Azure-mått.|
 |Fakturering|Fakturering som schemalagts att starta den 1 juli 2019.|
@@ -142,6 +144,9 @@ I följande tabell jämförs funktionerna med varje SKU.
 |NetWatcher-integrering|Stöds ej.|
 |Azure Support Center-integrering|Ännu inte tillgänglig.
 
+## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2
+
+Azure PowerShell-skript är tillgänglig i PowerShell-galleriet för att migrera från din v1 Application Gateway/WAF till v2 autoskalning SKU. Det här skriptet hjälper dig att kopiera konfigurationen från v1-gateway. Trafik migreringen är fortfarande ditt ansvar. Mer information finns i [migrera Azure Application Gateway från v1 till v2](migrate-v1-v2.md).
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Direkt Internet-trafik med Azure Application Gateway – Azure-portalen](quick-create-portal.md)

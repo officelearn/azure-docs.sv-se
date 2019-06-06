@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518891"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479456"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
@@ -58,7 +58,7 @@ En skriptåtgärder är Bash-skript som körs på noderna i ett HDInsight-kluste
 
      * För kluster med ESP:
          
-         * Wasb [s] :// eller http [s] :// URI: er som stöds.
+         * Wasb: / / eller wasbs: / / eller http [s] :// URI: er som stöds.
             
 * Kan begränsas för att köras på vissa nodtyper. Exempel är huvud- eller arbetsnoder.
 
@@ -171,7 +171,7 @@ Det här avsnittet beskrivs olika sätt du kan använda skriptåtgärder när du
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap  | Value |
+    | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassad__. Annars väljer du något av skript som tillhandahålls. |
     | Namn |Ange ett namn för skriptåtgärden. |
@@ -253,7 +253,7 @@ Gå till den [Azure-portalen](https://portal.azure.com):
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap  | Value |
+    | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassade__. Annars väljer du en medföljande skriptet. |
     | Namn |Ange ett namn för skriptåtgärden. |

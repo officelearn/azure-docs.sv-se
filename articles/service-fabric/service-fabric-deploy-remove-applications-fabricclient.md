@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393295"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428125"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med hjälp av FabricClient
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ När en [programtypen har paketerats][10], den är klar för distribution till e
 3. Ta bort programpaketet från avbildningsarkivet
 4. Skapa programinstansen
 
-När ett program har distribuerats och kör en instans i klustret, kan du ta bort programinstansen och dess programtypen. Omfattar följande steg för att helt ta bort ett program från klustret:
+När du distribuerar ett program och kör en instans i klustret kan du ta bort programinstansen och dess programtypen. Helt tar du bort ett program från klustret genom att följa dessa steg:
 
 1. Ta bort (eller ta bort) löpande programinstansen
 2. Avregistrera programtypen om du inte längre behöver den
@@ -47,7 +47,7 @@ När ett program har distribuerats och kör en instans i klustret, kan du ta bor
 Om du använder Visual Studio för att distribuera och felsöka program på det lokala utvecklingsklustret hanteras alla steg ovan automatiskt via ett PowerShell-skript.  Det här skriptet finns i den *skript* mappen programprojektet. Den här artikeln innehåller bakgrunden på vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
-Anslut till klustret genom att skapa en [FabricClient](/dotnet/api/system.fabric.fabricclient) instans innan du kör något av kodexemplen i den här artikeln. Exempel för att ansluta till ett lokalt utvecklingskluster eller en fjärrklustret eller ett kluster som skyddas med Azure Active Directory, X509 certifikat eller Windows Active Directory finns i [Anslut till ett säkert kluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Om du vill ansluta till det lokala utvecklingsklustret, kör du följande:
+Anslut till klustret genom att skapa en [FabricClient](/dotnet/api/system.fabric.fabricclient) instans innan du kör något av kodexemplen i den här artikeln. Exempel för att ansluta till ett lokalt utvecklingskluster eller en fjärrklustret eller ett kluster som skyddas med Azure Active Directory, X509 certifikat eller Windows Active Directory finns i [Anslut till ett säkert kluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Om du vill ansluta till det lokala utvecklingsklustret, kör du följande exempel:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Ladda upp programpaketet
-Anta att du bygga och paketera ett program som heter *MyApplication* i Visual Studio. Som standard är namnet på programmet som anges i ApplicationManifest.xml ”MyApplicationType”.  Programpaket som innehåller den nödvändiga programmanifestet och tjänstmanifest kod/config/data paket, finns i *C:\Users\&lt; användarnamn&gt;\Documents\Visual Studio 2017\Projects\ MyApplication\MyApplication\pkg\Debug*.
+Anta att du bygga och paketera ett program som heter *MyApplication* i Visual Studio. Som standard är namnet på programmet som anges i ApplicationManifest.xml ”MyApplicationType”.  Programpaket som innehåller den nödvändiga programmanifestet och tjänstmanifest kod/config/data paket, finns i *C:\Users\&lt; användarnamn&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*.
 
-Ladda upp programpaketet placerar den på en plats som kan nås av de interna Service Fabric-komponenterna. Service Fabric verifierar programpaketet vid registrering av programpaketet. Om du vill kontrollera programpaket lokalt (t.ex, innan du laddar upp) kan använda den [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
+Ladda upp programpaketet placerar den på en plats som kan nås av de interna Service Fabric-komponenterna. Service Fabric verifierar programpaketet vid registrering av programpaketet. Men om du vill kontrollera programpaket lokalt (det vill säga innan överföringen), använder den [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
 Den [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API överför programpaketet till klustrets avbildningsarkiv. 
 
@@ -83,7 +83,7 @@ Flera programinstanser kan skapas efter en viss version av en registrerad progra
 Se som namngiven program och tjänster körs i klustret, kör den [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) och [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API: er.
 
 ## <a name="create-a-service-instance"></a>Skapa en tjänstinstans
-Du kan skapa en instans av en tjänst från ett typ med den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Om tjänsten har deklarerats som en standardtjänst i applikationsmanifestet, instantieras tjänsten när programmet instantieras.  Anropa den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API för en tjänst som instantieras redan returnerar ett undantag av typen FabricException som innehåller en felkod med värdet FabricErrorCode.ServiceAlreadyExists.
+Du kan skapa en instans av en tjänst från ett typ med den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Om tjänsten har deklarerats som en standardtjänst i applikationsmanifestet, instantieras tjänsten när programmet instantieras.  Anropa den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API för en tjänst som instantieras redan returnerar ett undantag av typen FabricException. Undantaget innehåller en felkod med värdet FabricErrorCode.ServiceAlreadyExists.
 
 ## <a name="remove-a-service-instance"></a>Ta bort en tjänstinstans
 När en instans av tjänsten inte längre behövs kan du ta bort den från löpande programinstans genom att anropa den [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
@@ -98,7 +98,7 @@ När en programinstans inte längre behövs kan du permanent bort den med hjälp
 > Den här åtgärden kan inte ångras och programmets tillstånd kan inte återställas.
 
 ## <a name="unregister-an-application-type"></a>Avregistrera en programtyp
-När en viss version av programtyp inte längre behövs, bör du avregistrera den särskilda utgåvan av den typ som använder den [avregistrera ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Avregistrera oanvända versioner av programtyper Frigör lagringsutrymme som används av avbildningsarkivet. En version av programtyp kan att avregistrera så länge inga program instansieras mot den versionen av programtyp och inga väntande programuppgraderingar refererar till den versionen av programtyp.
+När en viss version av programtyp inte längre behövs, bör du avregistrera den särskilda utgåvan av den typ som använder den [avregistrera ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Avregistrera oanvända versioner av programtyper Frigör lagringsutrymme som används av avbildningsarkivet. En version av programtyp kan att avregistrera förutsatt att inga program instansieras mot den versionen av programtyp. Vilken typ av program kan också låta inget väntande program uppgraderingar refererar till den versionen av programtyp.
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
@@ -141,7 +141,7 @@ Om klientdatorn är i en annan region än i klustret, du använda en klientdator
 
 Ärende: Ladda upp paketet slutfördes, men [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API når sin tidsgräns. Prova:
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar till avbildningsarkivet.
-Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och fungerar som Service Fabric måste utföra. Överföringen kan vara långsammare (särskilt om du inkluderar komprimering-tid), men registrera och avregistrera programtypen är snabbare.
+Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och fungerar som Service Fabric måste utföra. Överföringen kan vara långsammare (särskilt om du inkluderar komprimering-tid), men registrerar och Avregistrerar programmet typ är snabbare.
 - Ange en längre tidsgräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API med `timeout` parametern.
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
@@ -151,7 +151,7 @@ Prova:
 - Ange en längre tidsgräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) med `timeout` parametern.
 
 ## <a name="code-example"></a>Kodexempel
-I följande exempel kopierar ett programpaket till avbildningsarkivet, etablerar programtypen, skapar en instans av programmet, skapar en tjänstinstans, tar bort programinstansen, avregistrera etablerar programtypen och tar bort den programpaketet från avbildningsarkivet.
+I följande exempel kopierar ett programpaket till avbildningsarkivet och etablerar programtypen. I exemplet skapas en programinstans och skapar en tjänstinstans. Slutligen exemplet tar bort programinstansen, avetablerar programtypen och tar bort programpaketet från avbildningsarkivet.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

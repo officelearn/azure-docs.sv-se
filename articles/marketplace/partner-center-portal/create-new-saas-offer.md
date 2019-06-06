@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243314"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455682"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
-För att börja skapa programvara som en tjänst (SaaS) erbjuder, se till att som du första [skapa ett Partnercenter-konto](./create-account.md) och öppna den [kommersiella Marketplace instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), med den **erbjuder** fliken som valts. 
+För att börja skapa programvara som en tjänst (SaaS) erbjuder, se till att som du första [skapa ett Partnercenter-konto](./create-account.md) och öppna den [kommersiella Marketplace instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), med den **översikt** fliken som valts.
 
-![Kommersiella Marketplace-instrumentpanel på Partner Center](./media/commercial-marketplace-offers.png)
+![Kommersiella Marketplace-instrumentpanel på Partner Center](./media/new-offer-overview.png)
 
 Välj den + **skapar du en ny...** knappen och välj den **programvara som en tjänst** menyalternativ. 
 
 Om du väljer en av de andra typerna av erbjudanden, omdirigeras du till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/).  Endast SaaS-erbjudanden är tillgängliga i den kommersiella Marketplace-portalen på Partner Center just nu. 
 
-![Skapa erbjudande fönster på Partner Center](./media/new-offer.png)
+![Skapa erbjudande fönster på Partner Center](./media/new-offer-click.png)
 
+Den **nytt erbjudande** dialogrutan visas. 
 
-Den **nytt erbjudande** dialogrutan visas. ![Dialogrutan Nytt erbjudande](./media/new-offer-popup.png)
+![Dialogrutan Nytt erbjudande](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>Erbjudande-ID och namn

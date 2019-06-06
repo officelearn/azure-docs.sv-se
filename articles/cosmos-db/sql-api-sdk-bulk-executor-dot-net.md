@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627158"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471434"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliotek för .NET bulk Executor: Hämtningsinformation 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627158"
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Stöd har lagts till för graph bulk executor att acceptera TTL-värdet från hörn och kanter
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Ett problem som gjorde att undantag under elastisk skalning av Azure Cosmos DB vid körning i Gateway-läge har åtgärdats. Den här snabbkorrigeringen är det som 1.4.1 versionen.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Har lagts till BulkDelete stöd för SQL-API-konton att acceptera partitionsnyckel, dokument-id tupplar att ta bort. Den här ändringen gör det funktionellt motsvarar 1.4.0 versionen.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Inklusive MongoBulkExecutor till support .NET Standard 2.0. Den här funktionen gör det funktionellt motsvarar 1.3.0 släpptes med att lägga till stöd för .NET Standard 2.0 som målramverk.
@@ -50,10 +62,24 @@ ms.locfileid: "60627158"
 
 * Har lagts till .NET Standard 2.0 som en av mål som stöds ramverken att göra BulkExecutor biblioteket fungerar med .NET Core-program.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Uppdatera Bulk-Executor för att du nu använda den senaste versionen av Azure Cosmos DB .NET SDK (2.4.0)
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* Stöd har lagts till för graph bulk executor att acceptera TTL-värdet från hörn och kanter
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* Ett problem som gjorde att undantag under elastisk skalning av Azure Cosmos DB vid körning i Gateway-läge har åtgärdats.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* Har lagts till BulkDelete stöd för SQL-API-konton att acceptera partitionsnyckel, dokument-id tupplar att ta bort.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* Lägga till en överlagring för BulkDelete åtgärden för SQL-API-konton att acceptera partitionsnyckel, dokument-id tupplar att ta bort.
-* Lägga till en överlagring för BulkDelete åtgärden för SQL-API-konton att acceptera RequestOptions som innehåller Partitionsnyckeln anger värdet för Partitionsnyckeln, förutom att använda det som ett filter i den inkommande fråga som anger dokument att ta bort.
 * Ett problem som orsakade ett formatering problem i användaragenten som används av BulkExecutor har åtgärdats.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

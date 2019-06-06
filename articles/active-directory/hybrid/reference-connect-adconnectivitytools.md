@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298807"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473796"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell-referens
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör tester av lokala Dns-anslutning. För att konfigurera Active Directory-kopplingen, måste användaren ha båda namnmatchning för skogen som de försöker ansluta till samt som domänkontrollanter som är kopplad till den här skogen.
+Kör tester av lokala Dns-anslutning.
+För att konfigurera Active Directory-kopplingen, måste användarna ha både namnet resolutionthe för skogen de försöker ansluta till samt som domänkontrollanter som är kopplad till den här skogen.
 
 ### <a name="examples"></a>EXEMPEL
 

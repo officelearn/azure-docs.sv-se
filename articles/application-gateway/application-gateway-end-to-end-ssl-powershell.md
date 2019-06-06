@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786289"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729681"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
 
@@ -44,7 +44,7 @@ Det här scenariot kommer att:
 
 Om du vill konfigurera SSL för slutpunkt till slutpunkt med application gateway, krävs ett certifikat för gateway och certifikat krävs för backend servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik.
 
-För slutpunkt till slutpunkt SSL-kryptering måste backend-servern också vitlistas med application gateway. Ladda upp det offentliga certifikatet backend-servrar till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
+För slutpunkt till slutpunkt SSL-kryptering måste på serversidan uttryckligen tillåts av application gateway. Ladda upp det offentliga certifikatet backend-servrar till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
 
 Konfigurationsprocessen beskrivs i följande avsnitt.
 
@@ -170,7 +170,7 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
    > Om du använder värdhuvuden och (Servernamnindikator) på serverdelen, kanske inte platsen till vilken trafikflöden i den offentliga nyckeln hämtades. Om du är osäker, besök https://127.0.0.1/ på backend-servrarna och bekräfta vilket certifikat som används för den *standard* SSL-bindning. Använd den offentliga nyckeln från denna förfrågan i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får ett svar och certifikat från en manuell webbläsarbegäran till https://127.0.0.1/ på backend-servrar, måste du ställa in en standard-SSL-bindning med aktiviteterna. Om du inte gör det, avsökningar misslyckas och backend-servern är inte vitlistat.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]

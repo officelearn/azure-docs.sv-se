@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869414"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472150"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-resurser med tokenautentisering
 
@@ -173,17 +173,17 @@ I följande flödesschema beskriver hur Azure CDN verifierar en klientbegäran o
 3. Under **HTTP stora**väljer **regelmotor**. Du kan använda regelmotorn för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token authentication-relaterade funktioner. Mer information finns i [regelmotor – referens](cdn-rules-engine-reference.md).
 
    1. Välj en befintlig regel eller skapa en ny regel för att definiera tillgång eller sökväg som du vill använda autentisering med enhetstoken. 
-   2. Aktivera autentisering med enhetstoken på en regel för att välja **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** från den **funktioner** och sedan välja **aktiverad**. Välj **uppdatering** om du uppdaterar en regel eller **Lägg till** om du skapar en regel.
+   2. Aktivera autentisering med enhetstoken på en regel för att välja **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** från den **funktioner** och sedan välja **aktiverad**. Välj **uppdatering** om du uppdaterar en regel eller **Lägg till** om du skapar en regel.
         
       ![CDN regelmotor – tokenautentisering aktivera exempel](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Du kan också aktivera ytterligare token authentication-relaterade funktioner i regler-motorn. Om du vill aktivera någon av följande funktioner, välja den från den **funktioner** och sedan välja **aktiverad**.
     
-   - **[Token Auth Denial kod](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Anger typ av svar som returneras till en användare när en begäran nekas. Regler som anges här åsidosätter svarskoden som angetts i den **anpassad datorn för hantering av** på sidan för tokenbaserad autentisering.
+   - **[Token Auth Denial kod](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Anger typ av svar som returneras till en användare när en begäran nekas. Regler som anges här åsidosätter svarskoden som angetts i den **anpassad datorn för hantering av** på sidan för tokenbaserad autentisering.
 
-   - **[Token Auth Ignorera skiftläge för URL: en](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Anger om URL: en som används för att validera token är skiftlägeskänsliga.
+   - **[Token Auth Ignorera skiftläge för URL: en](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Anger om URL: en som används för att validera token är skiftlägeskänsliga.
 
-   - **[Token Auth parametern](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Byter namn på token auth frågesträngparametern som visas i den begärda URL: en. 
+   - **[Token Auth parametern](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Byter namn på token auth frågesträngparametern som visas i den begärda URL: en. 
         
      ![CDN regelmotor – exempel på tokenautentisering inställningar](./media/cdn-token-auth/cdn-rules-engine2.png)
 

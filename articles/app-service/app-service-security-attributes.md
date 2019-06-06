@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001706"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475076"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Security attribut för Azure App Service
 
@@ -41,7 +41,7 @@ Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Ap
 | Stöd för isolering av nätverk och Firewalling| Ja | Kunder kan konfigurera åtkomstkontrollistor (IP-begränsningar) för att låsa tillåten inkommande trafik i nätverket för den offentliga flera innehavare-variationen av App Service.  Se [åtkomstbegränsningar för Azure App Service](app-service-ip-restrictions.md).  App Service-miljöer har distribuerats direkt i virtuella nätverk och därför kan skyddas med NSG: er. |
 | Tvingad tunneltrafik support| Ja | App Service-miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunneltrafik har konfigurerats. Kunder måste följa anvisningarna i [konfigurera App Service Environment med tvingande dirigering](environment/forced-tunnel-support.md). |
 
-## <a name="detection"></a>Identifiering
+## <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -51,7 +51,7 @@ Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Ap
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Kunder kan utveckla program i App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.md) samt andra OAuth kompatibla identitetsleverantörer; Se [autentisering och auktorisering Azure App Service](overview-authentication-authorization.md). För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller. |
+| Autentisering| Ja | Kunder kan utveckla program i App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth kompatibla identitetsleverantörer; Se [autentisering och auktorisering Azure App Service](overview-authentication-authorization.md). För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller. |
 | Auktorisering| Ja | För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller.  |
 
 

@@ -1,6 +1,6 @@
 ---
 title: Felsöka Windows-behållare med Service Fabric och VS | Microsoft Docs
-description: Lär dig mer om att felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017.
+description: Lär dig mer om att felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482651"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428147"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
-Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (15.7), som Service Fabric-tjänster. Den här artikeln visar hur du konfigurerar din miljö och felsöka en .NET-program i en behållare i ett lokalt Service Fabric-kluster.
+Du kan felsöka .NET-program i behållare som Service Fabric-tjänster med Visual Studio-2019. Den här artikeln visar hur du konfigurerar din miljö och felsöka en .NET-program i en behållare i ett lokalt Service Fabric-kluster.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -53,19 +53,19 @@ Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (
 
 Nedan visas en lista över kända begränsningar med felsökning behållare i Service Fabric och möjliga lösningar:
 
-* Med hjälp av localhost för ClusterFQDNorIP stöder inte DNS-matchning i behållare.
+* Med hjälp av localhost för ClusterFQDNorIP stöd inte för DNS-matchning i behållare.
     * Lösning: Ställ in det lokala klustret med namnet på datorn (se ovan)
 * Kör Windows 10 på en virtuell dator får inte DNS-svaret tillbaka till behållaren.
     * Lösning: Inaktivera UDP kontrollsumma avlastning för IPv4 på nätverkskortet för virtuella datorer
-    * Observera att detta försämras nätverksprestanda på datorn.
+    * Kör Windows 10 försämras nätverksprestanda på datorn.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Lösa tjänster i samma program med hjälp av DNS fungerar tjänstnamn inte på Windows 10, om programmet distribuerades med Docker Compose
     * Lösning: Använda servicename.applicationname för att lösa Tjänsteslutpunkter
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Om du använder IP-adress för ClusterFQDNorIP, bryts ändra primära IP-adresser på värden DNS-funktioner.
-    * Lösning: Återskapa klustret med den nya primära IP-Adressen på värden eller Använd namnet på datorn. Det här är avsiktligt.
-* Om klustret har skapats med FQDN inte är matchas i nätverket, misslyckas DNS.
-    * Lösning: Återskapa det lokala klustret med den primära IP-Adressen för värden. Det här är avsiktligt.
+    * Lösning: Återskapa klustret med den nya primära IP-Adressen på värden eller Använd namnet på datorn. Den här brott är avsiktligt.
+* Om det fullständiga Domännamnet som klustret har skapats med inte matchas i nätverket, misslyckas DNS.
+    * Lösning: Återskapa det lokala klustret med den primära IP-Adressen för värden. Det här felet är avsiktligt.
 * När du felsöker en behållare, blir dockerloggar endast tillgängliga i utdatafönstret Visual Studio, inte via Service Fabric API: er, inklusive Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Felsöka en .NET-program som körs i docker-behållare i Service Fabric
@@ -81,4 +81,4 @@ Nedan visas en lista över kända begränsningar med felsökning behållare i Se
     Visual Studio stöder konsolen och typer för ASP.NET-projekt för .NET och .NET Core.
 
 ## <a name="next-steps"></a>Nästa steg
-Följ den här länken om du vill veta mer om funktionerna i Service Fabric och behållare: [Översikt över Service Fabric-behållare](service-fabric-containers-overview.md).
+Mer information om funktionerna i Service Fabric och behållare finns overview](service-fabric-containers-overview.md) för Service Fabric-behållare.

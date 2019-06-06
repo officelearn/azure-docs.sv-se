@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: e7cea725a25d48ac9f1ffad6acc434e21145890e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473250"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492794"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -62,7 +62,7 @@ Mer information om ARMClient kommando finns [dokumentet](https://github.com/proj
 
 ### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Använd Azure Resource Manager-klienten att ta bort Recovery Services-valv
 
-1. Kör följande kommando med ditt prenumerations-ID, resursgruppnamn och valvnamnet. W\hen du körde kommandot valvet tas bort om du inte har några beroenden.
+1. Kör följande kommando med ditt prenumerations-ID, resursgruppnamn och valvnamnet. När du kör kommandot tas bort valvet om du inte har några beroenden.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

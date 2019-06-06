@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209583"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497584"
 ---
 # <a name="vlans-and-subnets-overview"></a>Översikt över virtuella lokala nätverk och undernät
 
 CloudSimple ger en nätverket för varje region där din CloudSimple-tjänsten har distribuerats.  Nätverket är ett enda TCP Layer 3-adressutrymme med routning aktiverad som standard.  Alla privata moln och undernät som skapats i den här regionen kan kommunicera med varandra utan någon ytterligare konfiguration.  Du kan skapa distribuerade portgrupper på vCenter med hjälp av de virtuella lokala nätverken.
+
+![CloudSimple nätverkstopologi](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
@@ -35,11 +37,15 @@ Ett privat moln skapas som en isolerad VMware-stacken (ESXi-värdar, vCenter, vi
 
 Minsta vSphere/virtuellt SAN undernät CIDR-intervall prefix: **/24** maximalt vSphere/virtuellt SAN undernät CIDR-intervall prefix:   **/21**
 
+> [!CAUTION]
+> IP-adresser i CIDR-intervall för virtuella vSphere/SAN-nätverket är reserverade för användning av privat moln-infrastruktur. Använd inte en IP-adress i det här intervallet på någon virtuell dator.
+
+
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt SAN undernät CIDR-intervall gränser
 
 Att välja virtuella vSphere/SAN-nätverket undernät CIDR-intervall storlek har en inverkan på storleken på ditt privata moln.  Tabellen nedan visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt SAN undernät CIDR.
 
-| Den angivna virtuella vSphere/SAN-nätverket undernät CIDR prefixlängd | Maximalt antal noder |
+| Den angivna virtuella vSphere/SAN-nätverket undernät CIDR prefixlängd | Högsta antalet noder |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |

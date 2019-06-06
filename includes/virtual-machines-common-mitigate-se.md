@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125176"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735228"
 ---
-**Senast dokumentera uppdatering**: 14 maj 2019 10:00 FM PST.
+**Senast dokumentera uppdatering**: 4 juni 2019 3:00 PM PST.
 
 Utlämnande av en [ny klass av processorsäkerhetsproblem](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kallas spekulativ körning sidokanal attacker har lett till frågor från kunder som vill ha mer tydligare.  
 
@@ -77,7 +77,7 @@ Du kan aktivera ytterligare säkerhetsfunktioner i din virtuella dator eller mol
 Måloperativsystemets måste vara uppdaterade för att aktivera de här ytterligare säkerhetsfunktioner. Även om ett stort antal spekulativ körning sida kanal åtgärder är aktiverade som standard, ytterligare funktioner som beskrivs här måste vara aktiverat manuellt och kan orsaka en prestandapåverkan. 
 
 
-**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded VM kommer att behöva inaktivera hypertrådning eller flytta till en icke-hyperthreaded VM-storlek. Om du vill kontrollera om den virtuella datorn har hypertrådning aktiverat, finns det med hjälp av Windows-kommandoraden från den virtuella datorn-skriptet nedan.
+**Steg 1: Inaktivera hyper-threading på den virtuella datorn** -kunder som kör icke betrodd kod på en hyper-threaded virtuell dator måste inaktivera hyper-threading eller flytta till en icke-hyper-threaded VM-storlek. Referens [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/acu) en lista med hypertrådar VM-storlekar (där är förhållandet mellan Vcpu(:er) för Core 2:1). Om du vill kontrollera om den virtuella datorn har hyper-threading aktiverad, finns det med hjälp av Windows-kommandoraden från den virtuella datorn-skriptet nedan.
 
 Typ `wmic` att ange det interaktiva gränssnittet. Skriv sedan nedan för att visa mängden fysiska och logiska processorer på den virtuella datorn.
 
@@ -85,7 +85,7 @@ Typ `wmic` att ange det interaktiva gränssnittet. Skriv sedan nedan för att vi
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Om antalet logiska processorer är större än fysiska processorer (kärnor), är hypertrådning aktiverat.  Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**. 
+Om antalet logiska processorer är större än fysiska processorer (kärnor), har sedan flertrådsteknik aktiverats.  Om du kör en hyper-threaded virtuell dator kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) hämta hyper-threading inaktiverad.  När hyper-threading är inaktiverat **supporten behöver en fullständig VM-omstart**. Se [Core antal](#core-count) att förstå varför minskat antal dina VM-kärnor.
 
 
 **Steg 2**: Parallellt till steg 1, följer du anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att verifiera skydd aktiveras med hjälp av den [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-modulen.
@@ -123,14 +123,14 @@ Om utdata visar `MDS mitigation is enabled: False`så kan du [kontakta Azure-sup
 <a name="linux"></a>Aktivera ytterligare säkerhetsfunktioner i uppsättningen kräver att måloperativsystemet är fullständigt uppdaterad. Vissa åtgärder kommer att aktiveras som standard. I följande avsnitt beskrivs de funktioner som är inaktiverade som standard och/eller beroende maskinvarustöd (microcode). Aktivera dessa funktioner kan det orsaka en prestandapåverkan. Referera till ditt operativsystem leverantörens dokumentation för ytterligare instruktioner
 
 
-**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - kunder som kör icke betrodd kod på en hyperthreaded virtuell dator måste du inaktivera hypertrådning eller flyttar till en icke-hyperthreaded virtuell dator.  Kontrollera om du kör en hyperthreaded VM, köra den `lscpu` i Linux VM. 
+**Steg 1: Inaktivera hyper-threading på den virtuella datorn** -kunder som kör icke betrodd kod på en hyper-threaded virtuell dator måste du inaktivera hyper-threading eller flyttar till en icke-hyper-threaded virtuell dator.  Referens [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/linux/acu) en lista med hypertrådar VM-storlekar (där är förhållandet mellan Vcpu(:er) för Core 2:1). Kontrollera om du använder en hyper-threaded VM, köra den `lscpu` i Linux VM. 
 
-Om `Thread(s) per core = 2`, och sedan hypertrådning har aktiverats. 
+Om `Thread(s) per core = 2`, sedan flertrådsteknik har aktiverats. 
 
-Om `Thread(s) per core = 1`, och sedan hypertrådning har inaktiverats. 
+Om `Thread(s) per core = 1`, sedan flertrådsteknik har inaktiverats. 
 
  
-Exempel som utdata för en virtuell dator med hypertrådar aktiverade: 
+Exempel på utdata för en virtuell dator med hyper-threading aktiverat: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) att hämta hypertrådning inaktiverat.  När hypertrådning är inaktiverat **supporten behöver en fullständig VM-omstart**.
+Om du kör en hyper-threaded virtuell dator kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) hämta hyper-threading inaktiverad.  När hyper-threading är inaktiverat **supporten behöver en fullständig VM-omstart**. Se [Core antal](#core-count) att förstå varför minskat antal dina VM-kärnor.
+
 
 
 **Steg 2**: Skyddar mot någon av de nedan spekulativ körning sidokanal sårbarheter, referera till operativsystemet leverantörens dokumentation:   
@@ -153,6 +154,11 @@ Om du kör en hyperthreaded VM [kontakta Azure-supporten](https://aka.ms/Microco
 - [RedHat och CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>Antal kärnor
+
+När en hyper-threaded virtuell dator skapas, Azure allokerar 2 trådar per kärna - dessa kallas virtuella processorer. När hyper-threading inaktiveras tar Azure bort en tråd och hämtar in enkel flertrådade kärnor (fysiska kärnor). Förhållandet mellan Vcpu(:er) för processor är 2:1, så när hyper-threading är inaktiverad, Processorn antal i den virtuella datorn verkar ha minskade med hälften. Till exempel är en D8_v3 virtuell dator en hyper-threaded virtuell dator som körs på 8 virtuella processorer (2 trådar per kärna x 4 kärnor).  När hyper-threading inaktiveras förlorar CPU: er till 4 fysiska kärnor med 1 tråd per kärna. 
 
 ## <a name="next-steps"></a>Nästa steg
 

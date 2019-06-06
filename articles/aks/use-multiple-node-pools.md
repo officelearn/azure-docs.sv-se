@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235760"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475463"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Förhandsversion – skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som har
 * Du kan inte ta bort den första nod-adresspoolen.
 * Tillägg till routning för HTTP-program kan inte användas.
 * Det går inte att lägga till/Uppdatera/ta bort noden pooler med hjälp av en befintlig Resource Manager-mall som med de flesta åtgärder. I stället [använder en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) att göra ändringar i nodpooler i ett AKS-kluster.
+* Klustret autoskalningen (för närvarande i förhandsversion i AKS) kan inte användas.
 
 Den här funktionen är i förhandsversion, begränsningar gäller följande ytterligare:
 
@@ -222,7 +223,7 @@ Det tar några minuter att ta bort noder och nodpoolen.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Ange en VM-storlek för en nodpool
 
-I föregående exempel att skapa en nodpool användes standardstorleken för virtuella datorer för de noder som skapats i klustret. Ett allt vanligare scenario är att skapa nodpooler med olika storlekar på Virtuella datorer och funktioner. Du kan till exempel skapa en nodpool som innehåller noder med stora mängder CPU eller minne eller en nodpool som har stöd för GPU. I nästa steg ska du [Använd taints och tolerations][#schedule-pods-using-taints-and-tolerations] hur Kubernetes scheduler att begränsa åtkomsten till poddar som kan köras på noderna.
+I föregående exempel att skapa en nodpool användes standardstorleken för virtuella datorer för de noder som skapats i klustret. Ett allt vanligare scenario är att skapa nodpooler med olika storlekar på Virtuella datorer och funktioner. Du kan till exempel skapa en nodpool som innehåller noder med stora mängder CPU eller minne eller en nodpool som har stöd för GPU. I nästa steg ska du [använder taints och tolerations](#schedule-pods-using-taints-and-tolerations) som talar om Kubernetes scheduler hur att begränsa åtkomsten till poddar som kan köras på noderna.
 
 I följande exempel skapar en GPU-baserad nodpool som använder den *Standard_NC6* VM-storlek. Dessa virtuella datorer drivs av NVIDIA Tesla K80-kort. Information om tillgängliga storlekar finns i [storlekar för Linux-datorer i Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Poddar som har den här färg som används kan schemaläggas på noder i *gpunod
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Hantera nodpooler med en Resource Manager-mall
 
-När du använder en Azure Resource Manager-mall för att skapa och hanterade resurser, kan du vanligtvis uppdatera inställningarna i din mall och distribuera om för att uppdatera resursen. Med nodepools i AKS kan inte inledande nodepool profilen uppdateras när AKS-klustret har skapats. Detta innebär att du inte kan uppdatera en befintlig Resource Manager-mall, gör en ändring i nodpooler och distribuera om. I stället måste du skapa en separat Resource Manager-mall som uppdaterar endast agentpooler för ett befintligt AKS-kluster.
+När du använder en Azure Resource Manager-mall för att skapa och hanterade resurser, kan du vanligtvis uppdatera inställningarna i din mall och distribuera om för att uppdatera resursen. Med nodpooler i AKS, kan inte den första nod pool profilen uppdateras när AKS-klustret har skapats. Detta innebär att du inte kan uppdatera en befintlig Resource Manager-mall, gör en ändring i nodpooler och distribuera om. I stället måste du skapa en separat Resource Manager-mall som uppdaterar endast agentpooler för ett befintligt AKS-kluster.
 
 Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifestet. Den här exempelmall konfigurerar följande inställningar:
 

@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244101"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728954"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Fråga efter data från Azure Time Series Insights GA-miljö genomC#
 
-Detta C# exemplet visar hur du frågar efter data från Azure Time Series Insights GA-miljö. 
+Detta C# exemplet visar hur du frågar efter data från Azure Time Series Insights GA-miljö.
 
 Exemplet visar flera grundläggande exempel på användning av fråge-API:
 
@@ -31,7 +31,7 @@ Exemplet visar flera grundläggande exempel på användning av fråge-API:
 1. Som ett exempel på en webbsocket-begäran begärs händelsens aggregerade data för den intressanta miljön. Data krävs för hela tillgänglighetstidsintervallet.
 
 > [!NOTE]
-> Exempelkoden finns på [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Exempelkoden finns på [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Projektberoenden
 

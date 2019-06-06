@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418060"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515557"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -155,11 +155,11 @@ Du kan använda automatiserad ML med Azure Machine Learning för att skapa en Py
 
 Automatiserad ML är också tillgängligt i andra Microsoft-lösningar som:
 
-|Integreringar|Beskrivning
-|------------|-----------
-|ML.NET|Val av automatisk modell och utbildning i .NET-appar med Visual Studio och Visual Studio Code med ML.NET automatiserad ML (förhandsversion). [Läs mer](https://docs.microsoft.com/dotnet/machine-learning/automl-overview).
-|HDIsnight|Skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt. [Läs mer](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md).
-|PowerBI|Anropa maskininlärningsmodeller direkt i Power BI (förhandsversion). [Läs mer](https://docs.microsoft.com/power-bi/service-machine-learning-automated).
+|Integreringar|Beskrivning|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Val av automatisk modell och utbildning i .NET-appar med Visual Studio och Visual Studio Code med ML.NET automatiserad ML (förhandsversion).|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Anropa maskininlärningsmodeller direkt i Power BI (förhandsversion).|
 
 ## <a name="next-steps"></a>Nästa steg
 

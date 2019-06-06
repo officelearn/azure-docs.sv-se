@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143409"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427562"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Distribuera en ny simulerad enhet
 
@@ -88,13 +88,14 @@ I det här avsnittet ska du konfigurera Docker för att läsa in modellfiler enh
 1. Kopiera de befintliga enheten modellfilerna från behållaren till den nya platsen. Ta först reda behållar-ID för enheten simulering behållaren:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Kopiera sedan enheten modellfilerna till den **tmp** mapp på den virtuella datorn. Följande kommando förutsätter behållar-ID är c378d6878407, Ersätt detta värde med din enhet simulering behållar-ID:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Behåll den **bash** fönster med SSH-sessionen öppen.
@@ -116,13 +117,13 @@ I det här avsnittet ska du konfigurera Docker för att läsa in modellfiler enh
     Om du vill se status för de Docker-behållarna som körs och deras behållare ID: N använder du följande kommando:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Om du vill se loggen från simulering enhetsbehållare kör du följande kommando. Ersätt behållar-ID med ID: T för din enhet simulering behållare:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Kör simulering

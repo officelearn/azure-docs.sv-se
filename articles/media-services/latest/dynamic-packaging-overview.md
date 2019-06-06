@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299175"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494357"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -114,10 +114,10 @@ MP4-filer som innehåller ljud kodad med stöd för dynamisk paketering
     * DTS Express (dtse)
     * DTS-HD förlustfri (inga kärnor) (dtsl)
 
-### <a name="hls-support"></a>Stöd för HLS
+### <a name="multi-audio-tracks"></a>Flera ljudspår
 
-Stöd för dynamisk paketering HLS (version 4 eller senare) för tillgångar som har flera ljudspår med flera codec och språk.
-
+Vid direktuppspelning tillgångar som har flera ljudspår med flera codec och språk, dynamisk paketering stöder flera ljudspår för HLS-utdata (version 4 eller senare).
+ 
 ### <a name="not-supported"></a>Stöds inte
 
 Dynamisk paketering har inte stöd för filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ljud (det är en äldre codec).

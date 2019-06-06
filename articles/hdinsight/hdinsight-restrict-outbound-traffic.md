@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/24/2019
-ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/30/2019
+ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257838"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743254"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Konfigurera utgående trafik nätverksbegränsning för Azure HDInsight-kluster (förhandsversion)
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg (förhandsversion)
 
 Den här artikeln innehåller anvisningar för att skydda dina utgående trafik från ditt HDInsight-kluster med hjälp av Azure-brandvägg. Stegen nedan förutsätter att du konfigurerar ett Azure-brandväggen för ett befintligt kluster. Om du distribuerar ett nytt kluster och bakom en brandvägg, skapa ditt HDInsight-kluster och undernätet först och följ sedan stegen i den här guiden.
 
@@ -60,9 +60,9 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
     1. En regel som tillåter inloggningsaktivitet för Windows:
         1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
         1. Ange `https:443` under **protokoll: Port** och `login.windows.net` under **rikta FQDN**.
-    1. Om ditt kluster backas upp av WASB och du inte använder Tjänsteslutpunkter ovan, lägger du till en regel för WASB:
+    1. Om ditt kluster backas upp av WASB, lägger du till en regel för WASB:
         1. I den **Target FQDN** avsnittet tillhandahåller en **namn**, och Ställ in **Source adresser** till `*`.
-        1. Ange `http` eller `https` beroende på om du använder wasb: / / eller wasbs: / / under **protokoll: Port** och URL: en för storage-konto under **Target FQDN**.
+        1. Ange `http:80,https:443` under **protokoll: Port** och URL: en för storage-konto under **Target FQDN**. Formatet ska vara detsamma som < storage_account_name.blob.core.windows.net >. För att använda endast https-anslutningar kan du till att [”säker överföring krävs”](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverat för lagringskontot.
 1. Klicka på **Lägg till**.
 
 ![Rubrik: Ange programinformation regeln samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -75,29 +75,29 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
 1. Klicka på **regler** under **inställningar** > **Network regelsamlingen** > **Lägg till nätverk regelsamlingen**.
 1. På den **Lägg till nätverk regelsamlingen** anger en **namn**, **prioritet**, och klicka på **Tillåt** från den **åtgärd** nedrullningsbara menyn.
 1. Skapa följande regler:
-    1. En regel som innebär att klustret kan utföra klockan sync via NTP.
-        1. I den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
+    1. En regel i avsnittet IP-adresser som innebär att klustret kan utföra klockan sync via NTP.
+        1. I den **regler** avsnittet tillhandahåller en **namn** och välj **UDP** från den **protokollet** listrutan.
         1. Ange **källadresser** och **måladresser** till `*`.
         1. Ange **målportar** till 123.
-    1. Om du använder Enterprise Security Package (ESP), och Lägg sedan till en regel som tillåter kommunikation med AAD-DS för ESP-kluster.
+    1. Om du använder Enterprise Security Package (ESP), sedan lägga till en regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster.
         1. Fastställa två IP-adresserna för domänkontrollanterna.
         1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
         1. Ange **Source adresser** `*`.
         1. Ange alla IP-adresser för domänkontrollanter i **måladresser** avgränsade med kommatecken.
         1. Ange **målportar** till `*`.
-    1. Om du använder Azure Data Lake Storage kan du lägga till en regel för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen som kan leda till högre kostnader för stora databelastningar men trafiken kommer att loggas och granskningsbar.
+    1. Om du använder Azure Data Lake Storage kan du lägga till en regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen som kan leda till högre kostnader för stora databelastningar men trafiken kommer att loggas och granskningsbar i loggar från brandväggen.
         1. Kontrollera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett powershell-kommando som `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` att matcha detta FQDN till en IP-adress.
-        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
+        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **TCP** från den **protokollet** listrutan.
         1. Ange **Source adresser** `*`.
         1. Ange IP-adressen för ditt lagringskonto i **måladresser**.
         1. Ange **målportar** till `*`.
-    1. (Valfritt) Om du använder Log Analytics kan du sedan skapa en regel för att aktivera kommunikation med Log Analytics-arbetsytan.
-        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
+    1. (Valfritt) Om du använder Log Analytics kan skapa du en regel i avsnittet IP-adresser om du vill aktivera kommunikation med Log Analytics-arbetsytan.
+        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **TCP** från den **protokollet** listrutan.
         1. Ange **Source adresser** `*`.
         1. Ange **måladresser** till `*`.
         1. Ange **målportar** till `12000`.
-    1. Konfigurera en tjänsttagg för SQL som gör att du kan logga in och granska SQL-trafiken.
-        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **alla** från den **protokollet** listrutan.
+    1. Konfigurera en regel i avsnittet Tjänsttaggar för SQL som gör att du kan logga in och granska SQL-trafik, såvida inte du har konfigurerat Tjänsteslutpunkter för SQL Server på HDInsight-undernät som ska passera brandväggen.
+        1. I nästa rad i den **regler** avsnittet tillhandahåller en **namn** och välj **TCP** från den **protokollet** listrutan.
         1. Ange **Source adresser** `*`.
         1. Ange **måladresser** till `*`.
         1. Välj **Sql** från den **Tjänsttaggar** listrutan.
@@ -110,10 +110,9 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
 
 Skapa en routningstabell med följande poster:
 
-1. Sju adresser från [den här listan över obligatoriska HDInsight hantering av IP-adresserna](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) med ett nexthop för **Internet**:
+1. Sex adresser från [den här listan över obligatoriska HDInsight hantering av IP-adresserna](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) med ett nexthop för **Internet**:
     1. Fyra IP-adresser för alla kluster i alla regioner
     1. Två IP-adresser som är specifika för den region där klustret har skapats
-    1. En IP-adress för Azures rekursiva matchare
 1. En virtuell installation väg för IP-adress 0.0.0.0/0 med nästa hopp som din privata IP-adress för Brandvägg för Azure.
 
 Till exempel för att konfigurera routningstabellen för ett kluster som skapats i regionen USA för ”USA, centrala”, använder du följande steg:
@@ -132,20 +131,15 @@ Till exempel för att konfigurera routningstabellen för ett kluster som skapats
 | 138.91.141.162 | 138.91.141.162/32 | Internet | Saknas |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | Saknas |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | Saknas |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | Saknas |
 | 0.0.0.0 | 0.0.0.0/0 | Virtuell installation | 10.1.1.4 |
-
-![Rubrik: Skapa en routningstabell](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 Slutför routningskonfigurationen för tabellen:
 
 1. Tilldela routningstabellen som du skapade till ditt HDInsight-undernät genom att klicka på **undernät** under **inställningar** och sedan **associera**.
-1. På den **Associera undernät** , väljer det virtuella nätverket som klustret har skapats i och **AzureFirewallSubnet** du skapade för användning med brandväggen.
+1. På den **Associera undernät** , väljer det virtuella nätverket som klustret har skapats i och **HDInsight undernät** du använde för ditt HDInsight-kluster.
 1. Klicka på **OK**.
 
-![Rubrik: Skapa en routningstabell](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
-
-## <a name="edge-node-application-traffic"></a>Kantnod trafik
+## <a name="edge-node-or-custom-application-traffic"></a>Edge-nod eller anpassade programtrafik
 
 Stegen ovan kan klustret för att fungera utan problem. Du måste fortfarande konfigurera beroenden för att hantera dina anpassade program som körs på edge-noder, om tillämpligt.
 
@@ -166,6 +160,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 Integrera din Azure-brandvägg med Azure Monitor-loggar är användbart när du först hämtar ett program som fungerar när du inte är medvetna om alla beroenden för programmet. Du kan läsa mer om Azure Monitor-loggar från [analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+
+## <a name="access-to-the-cluster"></a>Åtkomst till klustret
+Du kan använda den interna slutpunkten efter att ha konfigurationen av brandvägg har (https://<clustername>-int.azurehdinsight.net) att komma åt Ambari från det virtuella nätverket. Du använder den offentliga slutpunkten (https://<clustername>. azurehdinsight.net) eller ssh slutpunkt (<clustername>-ssh.azurehdinsight.net), kontrollera att du har rätt vägar i routningstabellen och NSG-regler inställningar för att undvika asymetric routning problemet beskrivs [här](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en annan virtuell nätverksinstallation
 

@@ -2,20 +2,20 @@
 title: Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du konfigurerar resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688863"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733649"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C med hjälp av en anpassad princip
 
@@ -140,7 +140,7 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
     </TechnicalProfile>
     ```
 
-    Ersätt den **DefaultValue** av **client_id** och **resursid** med program-ID för ProxyIdentityExperienceFramework programmet som du skapade i den kursen.
+    Ersätt den **DefaultValue** av **client_id** med program-ID för ProxyIdentityExperienceFramework programmet som du skapade i den obligatoriska föregående självstudiekursen. Ersätt sedan **DefaultValue** av **resursid** med program-ID för IdentityExperienceFramework programmet som du skapade också i den obligatoriska föregående självstudiekursen.  
 
 5. Lägg till följande **ClaimsProvider** element med sin tekniska profiler till den **ClaimsProviders** element:
 

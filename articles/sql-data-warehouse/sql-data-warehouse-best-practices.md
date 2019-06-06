@@ -2,20 +2,20 @@
 title: Metodtips för Azure SQL Data Warehouse | Microsoft Docs
 description: Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/26/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762658"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515762"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -97,7 +97,7 @@ SQL Data Warehouse har flera datahanteringsvyer (DMV) som du kan använda för a
 
 Se även [Monitor your workload using DMVs][Monitor your workload using DMVs] (Övervaka arbetsbelastningen med datahanteringsvyer), [LABEL][LABEL], [OPTION][OPTION], [sys.dm_exec_sessions][sys.dm_exec_sessions], [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests], [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps], [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], [sys.dm_pdw_dms_workers], [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN], [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
-## <a name="other-resources"></a>Övriga resurser
+## <a name="other-resources"></a>Andra resurser
 Information om vanliga problem och lösningar finns i vår [felsökningsartikel][Troubleshooting].
 
 Om du inte hittar det du letar efter i den här artikeln provar du att använda ”Sök efter dokument” till vänster på den här sidan för att söka igenom alla Azure SQL Data Warehouse-dokument.  Den [Forum för Azure SQL Data Warehouse] [ Azure SQL Data Warehouse MSDN Forum] är en plats där du kan ställa frågor till andra användare och till SQL Data Warehouse-produktgruppen.  Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor i Stack Overflow finns det även ett [Stack Overflow-forum för Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].

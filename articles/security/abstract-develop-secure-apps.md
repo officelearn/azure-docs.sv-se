@@ -1,6 +1,6 @@
 ---
-title: Utveckla säkra program i Azure | Microsoft Docs
-description: En guide som hjälper dig att utveckla säkrare program i molnet.
+title: Utveckla säkra molnprogram på Azure – Microsoft Azure
+description: En guide till säkerhetsfrågor och kontroller att tänka på vid varje fas av livscykel när du utvecklar program för molnet.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 4c4c2cc3356a10eacbb5460fae27a0a8a66ddd35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 710d7a12db3b38a6cecffb33ade6b60eb50d03c7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428285"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program i Azure
+# <a name="develop-secure-cloud-applications-on-azure"></a>Utveckla säkra molnprogram på Azure
 ## <a name="abstract"></a>Abstrakt
 Det här dokumentet är en allmän vägledning till säkerhetsfrågor och kontroller som du bör i varje fas av livscykel när du utvecklar program för molnet. Implementera de här koncepten innan du publicerar din produkt kan hjälpa dig att skapa säkrare programvara. Rekommendationerna i den här artikeln kommer från vår erfarenhet med Azure-säkerhet och erfarenheter från våra kunder.
 

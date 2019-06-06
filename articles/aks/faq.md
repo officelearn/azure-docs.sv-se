@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887358"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514495"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringsk
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan jag ge mitt eget namn för resursgruppen för AKS infrastruktur?
 
-Ja. AKS-resursprovidern skapar automatiskt en sekundär resursgrupp (till exempel *MC_myResourceGroup_myAKSCluster_eastus*) under distributionen. För att uppfylla företagets policy kan du ange ditt eget namn för den här hanterade kluster (*MC_*) resursgrupp.
+Ja. AKS-resursprovidern skapar automatiskt en sekundär resursgrupp (till exempel *MC_myResourceGroup_myAKSCluster_eastus*) under distributionen. För att uppfylla företagets policy kan du ange ditt eget namn för den här hanterade kluster (*MC_* ) resursgrupp.
 
 Om du vill ange egna resursgruppens namn, installera den [förhandsversionen av aks] [ aks-preview-cli] versionen av Azure CLI-tillägget *0.3.2* eller senare. När du skapar ett AKS-kluster med hjälp av den [az aks skapa] [ az-aks-create] kommandot, använda den *--noden resursgrupp* parametern och ange ett namn för resursgruppen. Om du [använder en Azure Resource Manager-mall] [ aks-rm-template] för att distribuera ett AKS-kluster, kan du definiera resursgruppens namn med hjälp av den *nodeResourceGroup* egenskapen.
 
@@ -129,6 +129,10 @@ Eftersom AKS är en hanterad tjänst kan vi distribuera och hantera tilläggspro
 
 Användare kan inte åsidosätta minst `maxPods` verifiering.
 
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Kan jag använda Azure reservation rabatter min AKS-agentnoder?
+
+AKS-agentnoder faktureras som standard Azure-datorer, så om du har köpt [Azure reservationer] [ reservation-discounts] för VM-storleken som används i AKS, används automatiskt de gör.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -145,6 +149,7 @@ Användare kan inte åsidosätta minst `maxPods` verifiering.
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

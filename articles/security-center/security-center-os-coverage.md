@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258690"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480534"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -93,7 +93,7 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Utvärdering av kryptering av disk|✔|✔|X|✔|✔|X|Lediga|
 |Tredjeparts-distribution|✔|X|X|✔|X|X|Lediga|
-|Utvärdering av NSG: er|✔|✔|X|✔|✔|X|Lediga|
+|NSG-utvärdering|✔|✔|X|✔|✔|X|Lediga|
 |Fileless hotidentifiering|✔|✔|✔|X|X|X|Standard|
 |Nätverkskarta|✔|✔|X|✔|✔|X|Standard|
 |Anpassningsbar nätverkskontroller|✔|✔|X|✔|✔|X|Standard|
@@ -129,7 +129,7 @@ Information om när rekommendationerna har genererats för var och en av dessa s
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage-konton *|✔| ✔|
+|Azure Blob storage-konton|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| Saknas|
@@ -137,7 +137,6 @@ Information om när rekommendationerna har genererats för var och en av dessa s
 |Nätverkskort|✔| Saknas|
 |NSG:er|✔| Saknas|
 |Prenumeration|✔ **| ✔|
-|Apptjänst|✔| Saknas|
 |Batch|✔| Saknas|
 |Service fabric|✔| Saknas|
 |Automation-konto|✔| Saknas|
@@ -147,14 +146,9 @@ Information om när rekommendationerna har genererats för var och en av dessa s
 |Stream analytics|✔| Saknas|
 |Händelsehubb|✔| Saknas|
 |Logikappar|✔| Saknas|
-|Undernät|✔| Saknas|
-|Vnet|✔| Saknas|
 |Lagringskonto|✔| Saknas|
 |Redis|✔| Saknas|
-|SQL|✔| Saknas|
 |Data lake analytics|✔| Saknas|
-|Lagringskonto|✔| Saknas|
-|Prenumeration|✔| Saknas|
 |Nyckelvalv|✔| Saknas|
 
 

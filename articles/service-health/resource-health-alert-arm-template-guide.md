@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788457"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493404"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
 
@@ -31,7 +31,7 @@ Om du vill följa anvisningarna på den här sidan måste du konfigurera några 
 1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
 
-## <a name="instructions"></a>Anvisningar
+## <a name="instructions"></a>Instruktioner
 1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
         Login-AzAccount
@@ -442,5 +442,7 @@ Läs mer om Resource Health:
 -  [Översikt över Azure Resource Health](Resource-health-overview.md)
 -  [Resurstyper och hälsokontroller är tillgängliga genom Azure Resource Health](resource-health-checks-resource-types.md)
 
+
 Skapa Service Health-aviseringar:
 -  [Konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Azure Händelseschema för aktivitetslogg](../azure-monitor/platform/activity-log-schema.md)

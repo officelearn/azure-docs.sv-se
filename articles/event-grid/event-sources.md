@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257955"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735008"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -140,6 +140,15 @@ Prenumerera på händelser för Azure Maps att svara på händelser för geofenc
 | [Reagera på händelser för Azure Maps med hjälp av Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integrering av Azure Maps med Event Grid. |
 | [Självstudie: Konfigurera en geofence-området](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du kan använda Azure Event Grid för att strömma geofence-området resultaten och konfigurera ett meddelande baserat på resultatet geofence-området. |
 | [Händelseschema](event-schema-azure-maps.md) | Visar fälten i Azure Maps-händelser. |
+
+## <a name="app-configuration"></a>App Configuration
+Prenumerera på Azure-Appkonfiguration händelser att svara på händelser för nyckel / värde-ändringar.
+
+|Titel | Beskrivning |
+|---------|---------|
+| [Reagera på händelser för konfiguration av Azure med hjälp av Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integrering av Azure-Appkonfiguration med Event Grid. |
+| [Snabbstart: Dirigera konfiguration av Azure-händelser till en anpassad webbslutpunkt med Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka konfiguration av Azure-händelser till en WebHook. |
+| [Händelseschema](event-schema-app-configuration.md) | Visar fälten i konfiguration av Azure-händelser. |
 
 
 ## <a name="next-steps"></a>Nästa steg

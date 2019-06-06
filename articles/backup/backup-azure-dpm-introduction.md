@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111278"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427436"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhetskopiering av arbetsbelastningar till Azure med System Center DPM
 
@@ -54,6 +54,7 @@ Filtyper som stöds | Dessa filtyper kan säkerhetskopieras med Azure Backup: Kr
 Filtyper som inte stöds | Servrar i skiftlägeskänsliga filsystem; hårda länkar (ignoreras); referenspunkt (ignoreras); krypterade och komprimerade (ignoreras); krypterade och utspridda (ignoreras); Komprimerad dataström; parsa dataströmmen.
 Lokal lagring | Varje dator som du vill säkerhetskopiera måste ha lokala ledigt lagringsutrymme som är minst 5% av storleken på de data som säkerhetskopieras. Till exempel kräver säkerhetskopiera 100 GB data minst 5 GB ledigt utrymme i den tillfälliga platsen.
 Valvet lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en datakälla (till exempel en virtuell dator eller en databas) får inte överskrida 54400 GB.
+Azure ExpressRoute | Om Azure ExpressRoute har konfigurerats med privata eller Microsoft-peering, kan inte den användas för att säkerhetskopiera data till Azure.<br/><br/> Om Azure ExpressRoute har konfigurerats med offentlig Peering, kan den användas för att säkerhetskopiera data till Azure.<br/><br/> **Obs:** Offentlig Peering är inaktuell för nya kretsar.
 Azure Backup-agent | Om DPM körs på System Center 2012 SP1 kan du installera Samlad 2 eller senare för DPM SP1. Detta krävs för installation av agent.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup-agenten, även känt som Microsoft Azure Recovery Service MARS-agenten. Om du har en tidigare version som har distribuerats kan du uppdatera till den senaste versionen för att säkerställa att säkerhetskopieringen fungerar som förväntat.
 
 Innan du börjar bör behöver du ett Azure-konto med Azure Backup-funktionen aktiverad. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Läs mer om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).

@@ -23,7 +23,7 @@ Den här artikeln innehåller egenskaperna och schemat för Container Registry-h
 
 Azure Container Registry genererar följande händelsetyper:
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Utlöses när en bild skickas. |
 | Microsoft.ContainerRegistry.ImageDeleted | Utlöses när en bild tas bort. |
@@ -155,10 +155,10 @@ Schemat för ett diagram som har tagits bort händelsen liknar schemat för en a
 
 En händelse har följande översta data:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
@@ -168,7 +168,7 @@ En händelse har följande översta data:
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | Händelse-ID. |
 | timestamp | string | Den tid då händelsen inträffade. |
@@ -178,7 +178,7 @@ Dataobjektet har följande egenskaper:
 
 Målobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | mediaType | string | MIME-typ för det refererade objektet. |
 | size | heltal | Antal byte av innehållet. Samma som fältet längd. |
@@ -191,7 +191,7 @@ Målobjektet har följande egenskaper:
 
 Begäranobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | ID för begäran som initierade händelsen. |
 | addr | string | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |

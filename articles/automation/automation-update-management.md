@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397643"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729490"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -78,9 +78,6 @@ I följande tabell visas en lista över operativsystem som stöds:
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Ubuntu 14.04 LTS, 16.04 LTS och 18.04 (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
-
-> [!NOTE]
-> Azure VM-skalningsuppsättningar kan hanteras med hantering av uppdateringar. Uppdateringshantering fungerar på instanser sig själva och inte basavbildningen. Du behöver att schemalägga uppdateringar på en inkrementell sätt, inte att uppdatera alla VM-instanser på samma gång.
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
@@ -195,7 +192,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 Två gånger per dag för varje hanterad Windows-dator utförs en sökning. Var femtonde minut anropas Windows API att fråga efter den senaste uppdateringstiden att fastställa om statusen har ändrats. Om statusen har ändrats, har en fullständig genomsökning initierats.
 
-Utförs en sökning var tredje timme för varje hanterad Linux-dator.
+En sökning utförs varje timme för varje hanterad Linux-dator.
 
 Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
 
@@ -226,7 +223,7 @@ Virtuella datorer som har skapats från Red Hat Enterprise Linux (RHEL) på beg�
 
 Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>Datorlista

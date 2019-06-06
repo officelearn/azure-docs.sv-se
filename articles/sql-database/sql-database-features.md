@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236836"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479214"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
@@ -96,8 +96,9 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se enskilda element |  Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej, se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast [SQLServer och SQL-databas](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |[Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
+| [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | Internt inbyggda som en del av migreringsprocessen för DMS. [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas och det rekommenderas inte att använda loggöverföring som alternativ för hög tillgänglighet. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [Inloggningar och användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, men `CREATE` och `ALTER` inloggning instruktioner erbjuder inte alla alternativ (inga Windows och på servernivå Azure Active Directory-inloggningar). `EXECUTE AS LOGIN` har inte stöd för – använda `EXECUTE AS USER` i stället.  | Ja, med några [skillnader](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-inloggningar stöds inte och de ska ersättas med Azure Active Directory-inloggningar. |
+| [Långsiktig kvarhållning av säkerhetskopior – LTR](sql-database-long-term-retention.md) | Ja, du Behåll automatiskt gjordes säkerhetskopior till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhetskopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [Minimal loggning i massimport](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej | Nej |
 | [Ändra systemdata](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nej | Ja |

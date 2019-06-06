@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248001"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427735"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box tung systemkrav
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Systemkrav för Azure Data Box tung (förhandsversion)
 
 Den här artikeln beskriver viktiga systemkraven för din Azure Data Box tung enhet och för klienter som ansluter till enheten. Vi rekommenderar att du har läst informationen noggrant innan du distribuerar din Data Box tung och referera tillbaka till det som behövs under distributionen och efterföljande driften.
 

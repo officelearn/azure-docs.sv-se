@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Förhandsversion) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Konfigurera tidszonen</a> när instans skapas.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Konfigurera tidszonen</a> när instans skapas.'
           - html: 'Skapa instanser med <a href="https://aka.ms/managed-instance-collation">på servernivå sortering valfri</a>.'
           - html: 'Funktion för GEO-återställning kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">återställa databasen till ett annat datacenter med hjälp av PowerShell</a>.'
           - html: '(Förhandsversion) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Återskapa släppas databaser med hjälp av PowerShell</a>'

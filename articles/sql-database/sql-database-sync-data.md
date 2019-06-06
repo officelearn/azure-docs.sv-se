@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939588"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693077"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -129,6 +129,7 @@ Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttag
 - Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
 - Azure Active Directory-autentisering stöds inte.
 - Tabeller med samma namn men olika schemat (till exempel dbo.customers och sales.customers) stöds inte.
+- Kolumner med användardefinierade datatyper stöds inte
 
 #### <a name="unsupported-data-types"></a>Datatyper
 

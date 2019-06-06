@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323284"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479745"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-specifika HTTP-huvuden för Azure CDN regelmotor
 
 För **Azure CDN Premium från Verizon** produkter, när en HTTP-begäran skickas till den ursprungliga servern, point of presence (POP)-servern kan lägga till en eller flera reserverade rubriker (eller särskilda proxy-huvuden) i klientbegäran till POP. Dessa rubriker måste vara uppfyllda utöver standard vidarebefordran huvuden som togs emot. Läs om hur standard begärandehuvuden [begär fält](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Om du vill förhindra att en av dessa reserverade huvuden som läggs till i Azure CDN (Content Delivery Network) POP-begäran till den ursprungliga servern, måste du skapa en regel med den [Proxy särskilda rubriker funktionen](cdn-rules-engine-reference-features.md#proxy-special-headers) i regelmotorn. Undanta rubriken som du vill ta bort från listan över sidhuvuden i fältet huvuden i den här regeln. Om du har aktiverat den [felsöka Cache svarshuvuden funktionen](cdn-rules-engine-reference-features.md#debug-cache-response-headers), se till att lägga till nödvändiga `X-EC-Debug` rubriker. 
+Om du vill förhindra att en av dessa reserverade huvuden som läggs till i Azure CDN (Content Delivery Network) POP-begäran till den ursprungliga servern, måste du skapa en regel med den [Proxy särskilda rubriker funktionen](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) i regelmotorn. Undanta rubriken som du vill ta bort från listan över sidhuvuden i fältet huvuden i den här regeln. Om du har aktiverat den [felsöka Cache svarshuvuden funktionen](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), se till att lägga till nödvändiga `X-EC-Debug` rubriker. 
 
 Till exempel för att ta bort den `Via` rubrik som är fältet rubriker i regeln bör innehålla följande lista med rubriker: *X-vidarebefordrade-, X-vidarebefordrade-protokoll, X-värden, X-Midgress X Gatewaylista, X-EG-Name, vara värd för*. 
 
@@ -42,7 +42,7 @@ X-Host | Anger den förfrågans värdnamn. | cdn.mydomain.com
 X-Midgress | Anger om begäran har via proxy till en ytterligare CDN-server. Till exempel en server till ursprunget shield POP-server eller en POP-servern till ADN gateway-server. <br />Den här rubriken läggs till i begäran endast när midgress trafik äger rum. I det här fallet är huvudet inställd till 1 anger att begäran har via proxy till en ytterligare CDN-server.| 1
 [Värd](#host-request-header) | Identifierar värden och den port där du kan hitta det begärda innehållet. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifierar redundans över ADN Gateway-servrar som tilldelats ett kund-ursprung. <br />Ursprung shield: Anger uppsättningen ursprungsservrar shield som tilldelats ett kund-ursprung. | `icn1,hhp1,hnd1`
-X-EC-_&lt;name&gt;_ | Begärandehuvuden som börjar med *X-EG* (till exempel X-EG-tagg, [X-EG-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
+X-EC- _&lt;name&gt;_ | Begärandehuvuden som börjar med *X-EG* (till exempel X-EG-tagg, [X-EG-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
 
 ## <a name="via-request-header"></a>Via huvudet i begäran
 Format som den `Via` begäran rubrik identifierar en POP-server anges med följande syntax:

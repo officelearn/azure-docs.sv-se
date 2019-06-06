@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249065"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482249"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -143,7 +143,7 @@ GPT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måst
 
 **Vilka disktyper stöd för ögonblicksbilder?**
 
-Premium SSD-, standard SSD- och standard SSD stöd för ögonblicksbilder, utan någon storleksgränsen. Så kan du ögonblicksbild stora diskar (upp till 32 TiB). Ultra SSD: er stöder inte ögonblicksbilder.
+Premium SSD, standard SSD och HDD-standard stöd för ögonblicksbilder. För dessa tre disktyper stöds ögonblicksbilder för alla diskstorlekar (inklusive diskar upp till 32 TiB i storlek). Ultra SSD: er stöder inte ögonblicksbilder.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 

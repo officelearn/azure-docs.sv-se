@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241310"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743041"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
 
 ## <a name="may-2019-guest-os"></a>Maj 2019 gäst-OS
 
->[!NOTE]
->Gästoperativsystemet kan distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet kan. Den här listan kan ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gästoperativsystem | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4505050 ]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  18 maj 2019  |
-|  Rel 19-05   |  [4497932 ]  |  Blinkar Update   |  3.73, 4.66, 5.31  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4499175 ]  |  Kan insamling av säkerhet   |  2.86  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495612 ]  |  May Security Rollup .NET 3.5   |  2.86  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495593 ]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  2.86  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4499158 ]  |  Kan insamling av säkerhet   |  3.73  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495607 ]  |  May Security Rollup .NET 3.5   |  3.73  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495591 ]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  3.73  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4492872 ]  |  Insamling av Internet Explorer   |  3.73  |  Den 16 april 2019  |
-|  Rel 19-05   |  [4499165 ]  |  Insamling av säkerhet för mars   |  4.66  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495615 ]  |  May Security Rollup .NET 3.5   |  4.66  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495589 ]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  4.66  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4498947 ]  |  Kan SSU   |  5.31  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4494175 ]  |  Kan Microcode Update   |  5.31  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4505052 ]  |  Kan insamling av säkerhet   |  5.31  |  19 maj 2019  |
-|  Rel 19-05   |  [4499728 ]  |  Kan SSU   |  6.7  |  19 maj 2019  |
-|  Rel 19-05   |  [4505056 ]  |  Kan insamling av säkerhet   |  6.7  |  19 maj 2019  |
-|  Rel 19-05   |  [4494174 ]  |  Kan Microcode Update   |  6.7  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4495590 ]  |  May Security Rollup .NET   |  6.7  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4498206]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4505050]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  18 maj 2019  |
+|  Rel 19-05   |  [4497932]  |  Blinkar Update   |  3.73, 4.66, 5.31  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4499175]  |  Kan insamling av säkerhet   |  2.86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495612]  |  May Security Rollup .NET 3.5   |  2.86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495593]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  2.86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4499158]  |  Kan insamling av säkerhet   |  3.73  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495607]  |  May Security Rollup .NET 3.5   |  3.73  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495591]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  3.73  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4492872]  |  Insamling av Internet Explorer   |  3.73  |  Den 16 april 2019  |
+|  Rel 19-05   |  [4499165]  |  Insamling av säkerhet för mars   |  4.66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495615]  |  May Security Rollup .NET 3.5   |  4.66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495589]  |  Kan .NET 4.5.2 för insamling av säkerhet   |  4.66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4498947]  |  Kan SSU   |  5.31  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4494175]  |  Kan Microcode Update   |  5.31  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4505052]  |  Kan insamling av säkerhet   |  5.31  |  19 maj 2019  |
+|  Rel 19-05   |  [4499728]  |  Kan SSU   |  6.7  |  19 maj 2019  |
+|  Rel 19-05   |  [4505056]  |  Kan insamling av säkerhet   |  6.7  |  19 maj 2019  |
+|  Rel 19-05   |  [4494174]  |  Kan Microcode Update   |  6.7  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495590]  |  May Security Rollup .NET   |  6.7  |  Den 14 maj 2019  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>April 2019 gäst-OS
@@ -83,11 +81,11 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 19-04 | [4493448] | Windows-säkerhet | 2.85 | 9 april 2019 |
 | Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 april 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 april 2019 |
-| Rel 19-04 | [KB4490628] | Servicing Stack-uppdatering | 2.85 | Den 12 mars 2019 |
-| Rel 19-04 | [KB4474419] | SHA2-stöd | 2.85 | Den 12 mars 2019 |
-| Rel 19-04 | [KB4489878] | Insamling av mars icke-säkerhet | 2.85 | Den 12 mars 2019 |
-| Rel 19-04 | [KB4489891] | Insamling av mars icke-säkerhet | 3.72 | Den 12 mars 2019 |
-| Rel 19-04 | [KB4489881] | Insamling av mars icke-säkerhet | 4.65 | Den 12 mars 2019 |
+| Rel 19-04 | [4490628] | Servicing Stack-uppdatering | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [4474419] | SHA2-stöd | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [4489878] | Insamling av mars icke-säkerhet | 2.85 | Den 12 mars 2019 |
+| Rel 19-04 | [4489891] | Insamling av mars icke-säkerhet | 3.72 | Den 12 mars 2019 |
+| Rel 19-04 | [4489881] | Insamling av mars icke-säkerhet | 4.65 | Den 12 mars 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Mars 2019 gäst-OS
 

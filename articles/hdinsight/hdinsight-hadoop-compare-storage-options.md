@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720480"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479155"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagringsalternativ för användning med Azure HDInsight-kluster
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller en översikt över dessa lagringstyper och deras u
 
 I följande tabell sammanfattas de Azure Storage-tjänster som stöds med olika versioner av HDInsight:
 
-| Lagringstjänst | Kontotyp | Namespace-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna | HDInsight-version | Klustertyp |
+| Storage-tjänst | Kontotyp | Namespace-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna | HDInsight-version | Klustertyp |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Generell användning V2 | Hierarkiska (filsystem) | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
 |Azure Storage| Generell användning V2 | Object | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
@@ -137,7 +137,7 @@ HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslut
 
 Du kan också komma åt data i Azure Storage med HDInsight. Syntaxen är följande:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Överväg följande principer när du använder ett Azure Storage-konto med HDInsight-kluster:
 

@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359207"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496751"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
-Den här artikeln hjälper dig att hantera inställningar för multi-Factor Authentication i Azure-portalen. Det tar upp olika ämnen som hjälper dig att få ut det mesta av Azure Multi-Factor Authentication. Inte alla funktioner är tillgängliga i varje [versionen av Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+Den här artikeln hjälper dig att hantera inställningar för multi-Factor Authentication i Azure-portalen. Det tar upp olika ämnen som hjälper dig att få ut det mesta av Azure Multi-Factor Authentication. Inte alla funktioner är tillgängliga i alla versioner av Azure Multi-Factor Authentication.
 
-Du kan komma åt inställningar som rör Multi-Factor Authentication i Azure Portal genom att bläddra till **Azure Active Directory** > **MFA**.
+Du kan komma åt inställningar som rör Azure Multi-Factor Authentication i Azure Portal genom att bläddra till **Azure Active Directory** > **MFA**.
 
 ![Azure portal – Azure AD Multi-Factor Authentication-inställningar](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,7 +33,7 @@ Några av de här inställningarna gäller för MFA-servern eller den Azure MFA.
 | Funktion | Beskrivning |
 | ------- | ----------- |
 | Kontoutelåsning | Tillfälligt låsa konton i Multi-Factor authentication-tjänsten om det finns för många nekade autentiseringsförsök i följd. Den här funktionen gäller enbart för användare som anger en PIN-kod för att autentisera. (MFA Server) |
-| [Blockera/avblockera användare](#block-and-unblock-users) | För att blockera specifika användare på MFA Server (lokalt) från att kunna ta emot Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade. |
+| [Blockera/avblockera användare](#block-and-unblock-users) | För att blockera specifika användare från att kunna ta emot Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar för användare möjlighet att rapportera bedrägliga begäranden |
 | Meddelanden | Aktivera meddelanden av händelser från MFA-servern. |
 | [OATH-token](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i molnbaserade miljöer för Azure MFA för att hantera OATH-token för användare. |
@@ -46,7 +46,7 @@ Inställningar i det här avsnittet gäller endast för MFA-servern.
 
 | Funktion | Beskrivning |
 | ------- | ----------- |
-| Serverinställningar | Ladda ned MFA-servern och skapa autentiseringsuppgifter för aktivering för att initiera miljön |
+| serverinställningar | Ladda ned MFA-servern och skapa autentiseringsuppgifter för aktivering för att initiera miljön |
 | [Engångsförbikoppling](#one-time-bypass) | Tillåt en användare att autentisera utan att utföra tvåstegsverifiering under en begränsad tid. |
 | [Cachelagringsregler](#caching-rules) |  Cachelagring är främst används när den lokala system, t.ex VPN, skickar flera begäranden när den första begäran pågår fortfarande. Den här funktionen kan de efterföljande förfrågningar ska lyckas automatiskt när användaren lyckas första verifiering pågår. |
 | Serverstatus | Se status för dina lokala MFA-servrar, inklusive version, status, IP-adress och senaste kommunikation tid och datum. |
@@ -89,7 +89,7 @@ Konfigurera den _bedrägerivarning_ funktion så att dina användare kan rapport
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
 * **Blockera användare när bedrägeri rapporteras**: Om en användare rapporterar bedrägerier, är deras konto blockerad i 90 dagar eller tills en administratör häver blockeringen för sitt konto. En administratör kan granska inloggningar med hjälp av rapporten inloggning och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
-* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för tvåstegsverifiering, de normalt trycker du på **#** att bekräfta deras inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på **#**. Den här koden är **0** som standard, men du kan anpassa den.
+* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för tvåstegsverifiering, de normalt trycker du på **#** att bekräfta deras inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på **#** . Den här koden är **0** som standard, men du kan anpassa den.
 
    >[!NOTE]
    >Standard röstmeddelanden från Microsoft Instruera användarna att trycka på **0#** att skicka ett bedrägeriförsök. Om du vill använda en kod än **0**, registrera och ladda upp dina egna anpassade röstmeddelanden med rätt anvisningar för dina användare.
@@ -338,7 +338,7 @@ När användarna registrerar sina konton för Azure Multi-Factor Authentication 
 | Samtal till telefon |Placerar rings upp automatiskt. Användaren svara och trycka på #-tangenten för att autentisera. Telefonnumret synkroniseras inte till den lokala Active Directory. |
 | Textmeddelande till telefon |Skickar ett textmeddelande som innehåller en Verifieringskod. Användaren uppmanas att ange verifieringskoden i inloggningsgränssnittet. Den här processen kallas envägs-SMS. Dubbelriktad SMS innebär att användaren måste text tillbaka en viss kod. Dubbelriktad SMS är föråldrade och stöds inte efter den 14 November 2018. Användare som är konfigurerade för dubbelriktad SMS automatiskt växlas till _samtal till telefon_ verifiering vid den tidpunkten.|
 | Meddelande via mobilapp |Skickar ett push-meddelande till din telefon eller en registrerad enhet. Användaren visar meddelandet och väljer **Kontrollera** att slutföra verifieringen. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verifieringskod från mobilapp eller maskinvarutoken |Microsoft Authenticator-appen genererar en ny OATH-Verifieringskod med 30 sekunders mellanrum. Användaren anger verifieringskoden i i inloggningsgränssnittet. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verifieringskod från mobilappen eller maskinvarutoken |Microsoft Authenticator-appen genererar en ny OATH-Verifieringskod med 30 sekunders mellanrum. Användaren anger verifieringskoden i i inloggningsgränssnittet. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Aktivera och inaktivera verifieringsmetoder
 
@@ -351,7 +351,7 @@ När användarna registrerar sina konton för Azure Multi-Factor Authentication 
 
 Mer information om användning av autentiseringsmetoder finns i artikeln [vad är autentiseringsmetoder](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Kom ihåg Multi-Factor Authentication
+## <a name="remember-multi-factor-authentication"></a>Remember Multi-Factor Authentication
 
 Den _komma ihåg Multifaktorautentisering_ funktionen för enheter och webbläsare som är betrodda av den här användaren är en kostnadsfri funktion för alla Multi-Factor Authentication-användare. Användarna kan kringgå efterkontroll för ett angivet antal dagar efter att de har har loggat in till en enhet med hjälp av Multi-Factor Authentication. Funktionen förbättrar användbarheten genom att minimera antalet gånger som en användare har att utföra tvåstegsverifiering på samma enhet.
 

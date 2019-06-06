@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243587"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475151"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Förhandsgranskning – säker API-servern med behörighet till IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -74,8 +74,6 @@ Följande begränsningar gäller när du konfigurerar IP-intervall för API-serv
 Kubernetes API-servern är hur den underliggande Kubernetes APIs exponeras. Den här komponenten tillhandahåller interaktionen för hanteringsverktyg, till exempel `kubectl` eller Kubernetes-instrumentpanelen. AKS innehåller en enda klient kluster-mall med en dedikerad API-server. API-servern har tilldelats en offentlig IP-adress som standard, och du bör kontrollera åtkomst med hjälp av rollbaserad åtkomstkontroll (RBAC).
 
 Att skydda åtkomsten till annars offentligt tillgänglig AKS kontrollplanet / API-servern som du kan aktivera och använda behörighet IP-intervall. Dessa auktoriserade IP-adressintervall kan endast definierade IP-adressintervall kan kommunicera med API-servern. En begäran till API-servern från en IP-adress som inte är en del av dessa auktoriserade IP-adressintervall är blockerad. Du bör fortsätta att använda RBAC för att sedan auktorisera användare och de åtgärder som de begär.
-
-Om du vill använda de auktoriserade IP-adressintervall funktionerna måste visas en offentlig IP-adress på noden poolen genom att distribuera en grundläggande NGINX-tjänst. API-servern kommunicerar med nodpool via den här behöriga offentliga IP-adress. Därefter anger du ytterligare IP-adressintervall som har åtkomst till API-servern.
 
 Läs mer om API-servern och andra klusterkomponenter [Kubernetes viktiga begrepp för AKS][concepts-clusters-workloads].
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724364"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476101"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
 
@@ -59,10 +59,10 @@ När du skapar ett nytt Spark-kluster har möjlighet att välja Azure Blob Stora
 
 | Store-typ | Filsystem | Hastighet | Tillfälligt | Användningsfall |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb [s]:**//url/ | **Standard** | Ja | Tillfälliga kluster |
-| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
-| Azure Data Lake Storage Gen1| **ADL:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
-| Local HDFS | **hdfs:**//url/ | **Snabbaste** | Nej | Interaktiv 24/7-kluster |
+| Azure Blob Storage | **wasb:** //url/ | **Standard** | Ja | Tillfälliga kluster |
+| Azure Data Lake Storage Gen 2| **abfs [s]:** //url/ | **Snabbare** | Ja | Tillfälliga kluster |
+| Azure Data Lake Storage Gen1| **ADL:** //url/ | **Snabbare** | Ja | Tillfälliga kluster |
+| Local HDFS | **hdfs:** //url/ | **Snabbaste** | Nej | Interaktiv 24/7-kluster |
 
 ## <a name="use-the-cache"></a>Använda cache
 

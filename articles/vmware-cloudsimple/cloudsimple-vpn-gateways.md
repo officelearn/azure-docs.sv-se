@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872770"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496851"
 ---
 # <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
@@ -37,6 +37,8 @@ Användningsområden för plats-till-plats-VPN är:
 * Praktiskt överföring av VM-mallar, ISO och andra filer från din lokala resurser till ditt privata moln vCenter.
 * Tillgängligheten för arbetsbelastningar som körs i ditt privata moln från ditt lokala nätverk.
 
+![Topologi för plats-till-plats VPN-anslutning](media/cloudsimple-site-to-site-vpn-connection.png)
+
 ### <a name="cryptographic-parameters"></a>Kryptografiska parametrarna
 
 En plats-till-plats VPN-anslutning använder följande kryptografiska standardparametrar för att upprätta en säker anslutning.  När du skapar en anslutning från den lokala VPN-enheten måste matcha parametrarna.
@@ -48,7 +50,7 @@ En plats-till-plats VPN-anslutning använder följande kryptografiska standardpa
 | Parameter | Förslag 1 | Förslag 2 | Förslag 3 |
 |-----------|------------|------------|------------|
 | IKE-version | IKEv1 | IKEv1 | IKEv1 |
-| Kryptering | AES 128 | AES-256 | AES-256 |
+| Kryptering | AES 128 | AES 256 | AES 256 |
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
 | Diffie-Hellman-grupp (DH grupp) | 1 | 1 | 1 |
 | Livslängd | 28 800 sekunder | 28 800 sekunder | 28 800 sekunder |
@@ -59,7 +61,7 @@ En plats-till-plats VPN-anslutning använder följande kryptografiska standardpa
 
 | Parameter | Förslag 1 | Förslag 2 | Förslag 3 |
 |-----------|------------|------------|------------|
-| Kryptering | AES 128 | AES-256 | AES-256 |
+| Kryptering | AES 128 | AES 256 | AES 256 |
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
 | Perfekt vanlig PFS-grupp (PFS-grupp) | Ingen | Ingen | Ingen |
 | Livslängd | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |

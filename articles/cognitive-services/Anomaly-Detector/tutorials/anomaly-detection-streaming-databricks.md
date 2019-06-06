@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Avvikelseidentifiering på strömmad data med Azure Databricks'
+title: 'Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks'
 description: Använda Avvikelseidentifiering detektor API och Azure Databricks för att övervaka avvikelser i dina data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a00ad2523c215fa54d7d19d8c9e923b621f3081a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791573"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734670"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmad data med Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
 
-Microsoft Power BI Desktop är ett kostnadsfritt program som låter dig ansluta till, transformera och visualisera dina data. Avvikelseidentifiering detektor API, en del av Azure Cognitive Services och gör det möjligt att övervaka dina tidsseriedata. Använd den här självstudien för att köra identifiering av avvikelser på strömmade data nästan i realtid med Azure Databricks. Du mata in twitter-data med Azure Event Hubs och importera dem till Azure Databricks med Spark Event Hubs-anslutningsprogrammet. Därefter ska du använda API: et för att identifiera avvikelser på strömmad data. 
+[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) är ett snabbt, enkelt och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten. Avvikelseidentifiering detektor API, en del av Azure Cognitive Services och gör det möjligt att övervaka dina tidsseriedata. Använd den här självstudien för att köra identifiering av avvikelser på strömmade data nästan i realtid med Azure Databricks. Du mata in twitter-data med Azure Event Hubs och importera dem till Azure Databricks med Spark Event Hubs-anslutningsprogrammet. Därefter ska du använda API: et för att identifiera avvikelser på strömmad data. 
 
 Följande bild visar programflödet:
 
@@ -69,7 +69,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsytan med den [Azure-por
 3. Under **Azure Databricks-tjänst** anger du följande värden för att skapa en Databricks-arbetsyta:
 
 
-    |Egenskap   |Beskrivning  |
+    |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
@@ -79,7 +79,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsytan med den [Azure-por
 
     Välj **Skapa**.
 
-4. Det tar några minuter att skapa kontot. 
+4. Det tar några minuter att skapa arbetsytan. 
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -99,7 +99,8 @@ I det här avsnittet skapar du en Azure Databricks-arbetsytan med den [Azure-por
    * Den här artikeln är att skapa ett kluster med **5.2** runtime. Markera inte **5.3** runtime.
    * Kontrollera att den **Avsluta efter \_ \_ minuter av inaktivitet** kryssrutan är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+     Välj **Skapa kluster**. 
+4. Skapa ett kluster tar flera minuter. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -127,7 +128,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
    ![Dialogrutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
 
-2. På sidan Nytt bibliotek väljer du som **Källa** **Maven-koordinat**. I **Koordinat** anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
+2. På sidan nytt bibliotek för **källa** Välj **Maven**. För **samordnar**, anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
@@ -161,7 +162,7 @@ I den här självstudien använder du den [Azure Cognitive Services Avvikelseide
 
 4. I dialogrutan **Skapa** anger du följande värden:
 
-    |Value |Beskrivning  |
+    |Värde |Beskrivning  |
     |---------|---------|
     |Namn     | Ett namn för Avvikelseidentifiering detektor resursen.        |
     |Prenumeration     | Azure-prenumeration resursen ska kopplas.        |
@@ -172,17 +173,13 @@ I den här självstudien använder du den [Azure Cognitive Services Avvikelseide
 
      Välj **Skapa**.
 
-5. När resursen har skapats från den **översikt** fliken **visa åtkomstnycklar**.
+5. När resursen har skapats från den **översikt** fliken, kopiera och spara den **Endpoint** URL, som visas i skärmbilden. Välj sedan **visa åtkomstnycklar**.
 
     ![Visa åtkomstnycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomstnycklar")
 
-    Kopiera också en del av slutpunkts-URL:en, enligt det som visas i skärmbilden. Du behöver den här URL:en i självstudien.
-
-6. Under **nycklar**, väljer du kopieringsikonen för den nyckel som du vill använda.
+6. Under **nycklar**, väljer du kopieringsikonen för den nyckel som du vill använda. Spara åtkomstnyckeln.
 
     ![Kopiera åtkomstnycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomstnycklar")
-
-7. Spara värdena för slutpunkts-URL:en och åtkomstnyckeln som du hämtade i det här steget. Du behöver dem senare i den här självstudien.
 
 ## <a name="create-notebooks-in-databricks"></a>Skapa anteckningsböcker i Databricks
 
@@ -191,7 +188,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 - **SendTweetsToEventHub** – En producentanteckningsbok som du använder för att få tweets från Twitter och strömma dem till Event Hubs.
 - **AnalyzeTweetsFromEventHub** – en konsumentanteckningsbok som du använder för att läsa tweets från Event Hubs och kör identifiering av avvikelser.
 
-1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
+1. I Azure Databricks-arbetsyta väljer **arbetsytan** i den vänstra rutan. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
 
     ![Skapa anteckningsbok i Databricks](../media/tutorials/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
@@ -205,7 +202,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 ## <a name="send-tweets-to-event-hubs"></a>Skicka tweets till Event Hubs
 
-I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
+I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Den här anteckningsboken skapelsetid och antalet ”som” s från tweets med nyckelordet ”Azure” och strömma dem som händelser till Event Hubs i realtid.
 
 ```scala
 //
@@ -302,7 +299,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. Varje utdatahändelse är en tweet som matas in i Event Hubs.
+Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. Varje händelse i utdatan är en kombination av tidsstämpel och antalet ”som” s matas in i Event Hubs.
 
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
@@ -325,7 +322,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
 
 ## <a name="read-tweets-from-event-hubs"></a>Läsa tweets från Event Hubs
 
-I anteckningsboken **AnalyzeTweetsFromEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Azure Event Hubs som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
+I den **AnalyzeTweetsFromEventHub** anteckningsboken klistra in följande kod och ersätter platshållarna med värdena för Avvikelseidentifiering detektor som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
 
 Börja skriva en klient för att anropa Avvikelseidentifiering detektor. 
 ```scala
@@ -387,7 +384,7 @@ object AnomalyDetector extends Serializable {
     return response.toString()
   }
 
-  // Calls the Latest Point Detection API for timeserie.
+  // Calls the Latest Point Detection API.
   def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
     try {
       println("Process Timestamp: " + series.series.apply(series.series.length-1).timestamp.toString + ", size: " + series.series.length)
@@ -406,7 +403,7 @@ object AnomalyDetector extends Serializable {
     }
   }
 
-  // Calls the Batch Detection API for timeserie.
+  // Calls the Batch Detection API.
   def detectBatch(series: Series): Option[AnomalyBatchResponse] = {
     try {
       val response = processUsingApi(gson.toJson(series), batchDetectionUrl)
@@ -425,7 +422,7 @@ object AnomalyDetector extends Serializable {
 }
 ```
 
-Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. : 
+Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment.
 
     import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
     import java.net.URL
@@ -447,10 +444,9 @@ Förbered sedan en Aggregeringsfunktion för framtida användning.
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-//import org.apache.spark.sql.functions._
 import scala.collection.immutable.ListMap
 
-class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunction {
+class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
   override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
   
   override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
@@ -482,8 +478,8 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
       
       
       // 0.25 is maxAnomalyRatio. It represents 25%, max anomaly ratio in a time series.
-      // 95 is the sensitivity of the algorithms. 
-      // Check Anomaly detector API reference (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-last-detect)
+      // 95 is the sensitivity of the algorithms.
+      // Check Anomaly detector API reference (https://aka.ms/anomaly-detector-rest-api-ref)
       
       val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
       val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
@@ -498,7 +494,7 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
 
 ```
 
-Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. 
+Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment.
 
     import org.apache.spark.sql.Row
     import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
@@ -506,7 +502,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-Sedan läser in data från event hub för avvikelseidentifiering.
+Sedan läser in data från event hub för avvikelseidentifiering. Ersätt platshållaren med värden för din Azure Event Hubs som du skapade tidigare.
 
 ```scala
 //
@@ -544,7 +540,7 @@ display(msgStream)
 
 ```
 
-Utdatan liknar nu följande bild. Betala uppmärksam på som din datum i tabellen kan skilja sig från datumet i den här självstudien när datan realtid.
+Utdatan liknar nu följande bild. Observera att din datum i tabellen kan skilja sig från det datum då i den här självstudien när datan realtid.
 ![Läs in Data från Event hub](../media/tutorials/load-data-from-eventhub.png "Läs in Data från Event Hub")
 
 Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
@@ -583,7 +579,8 @@ groupTime                       average
 
 ```
 
-Hämta sedan det aggregerade resultatet resultat som ska Delta. Eftersom identifiering av avvikelser kräver en längre okno historie, använder vi Delta för att hålla historikdata för platsen som du vill identifiera. 
+Hämta sedan det aggregerade resultatet resultat som ska Delta. Eftersom identifiering av avvikelser kräver en längre okno historie, använder vi Delta för att hålla historikdata för platsen som du vill identifiera. Ersätt den ”[platshållaren: tabellnamn]” med ett kvalificerat tabellnamn för Delta skapas (till exempel ”tweets”). Ersätt ”[platshållaren: mappnamn för kontrollpunkter]” med ett strängvärde som är unik för varje gång du kör den här koden (till exempel ”etl-från-eventhub-20190605”).
+Mer information om Lake Delta på Azure Databricks finns [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -599,6 +596,7 @@ groupStream.writeStream
 
 ```
 
+Ersätt den ”[platshållaren: tabellnamn]” med samma Delta tabellens namn som du har valt ovan.
 ```scala
 //
 // Show Aggregate Result
@@ -625,26 +623,34 @@ groupTime                       average
 
 ```
 
-Sammanställda time series-data är nu kontinuerligt samlas in Delta. Du kan sedan schemalägga ett jobb varje timme för att identifiera avvikelser för senaste tidpunkten. 
+Sammanställda time series-data är nu kontinuerligt samlas in Delta. Du kan sedan schemalägga en timvis jobb att identifiera avvikelser för senaste tidpunkten. Ersätt den ”[platshållaren: tabellnamn]” med samma Delta tabellens namn som du har valt ovan.
 
 ```scala
 //
-// Anomaly Detection with Batch query
+// Anomaly Detection
 //
 
 import java.time.Instant
+import java.time.format.DateTimeFormatter
+import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 val detectData = spark.read.format("delta").table("[Placeholder: table name]")
 
-// How long history you want to use in anomaly detection. It is hourly time series in this tutorial, so 72 means 72 hours. 
-val batchSize = 72
+// You could use Databricks to schedule an hourly job and always monitor the latest data point
+// Or you could specify a const value here for testing purpose
+// For example, val endTime = Instant.parse("2019-04-16T00:00:00Z")
+val endTime = Instant.now()
 
-// Change the endTime to where you want to detect. You could use Databricks to schedule a job and change it to the latest hour. 
-val endTime = Instant.parse("2019-04-16T00:00:00Z")
+// This is when your input of anomaly detection starts. It is hourly time series in this tutorial, so 72 means 72 hours ago from endTime.
+val batchSize = 72
 val startTime = endTime.minus(batchSize, ChronoUnit.HOURS)
 
-val series = detectData.filter($"groupTime" < endTime.toString && $"groupTime" >= startTime.toString).sort($"groupTime")
+val DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC);
+
+val series = detectData.filter($"groupTime" <= DATE_TIME_FORMATTER.format(endTime))
+  .filter($"groupTime" > DATE_TIME_FORMATTER.format(startTime))
+  .sort($"groupTime")
 
 series.createOrReplaceTempView("series")
 
@@ -653,7 +659,7 @@ series.createOrReplaceTempView("series")
 // Register the function to access it
 spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 
-val adResult = spark.sql("SELECT '" + endTime.toString + "' as timestamp, anomalydetect(groupTime, average) as anomaly FROM series")
+val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
 Resultat enligt nedan: 
@@ -665,36 +671,21 @@ Resultat enligt nedan:
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
 
-```
-Utdata avvikelseidentifiering Identifieringsresultat tillbaka till Delta. 
-```scala
-//
-// Output Batch AD Result to delta
-//
 
-adResult.writeStream
-  .format("delta")
-  .outputMode("complete")
-  .option("checkpointLocation", "/delta/[Placeholder: table name]/_checkpoints/[Placeholder: folder name for checkpoints]")
-  .table("[Placeholder: table name]")
-  
-```
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
+Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
 
+## Clean up resources
 
-Klart! Med Azure Databricks har du strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsprogrammet och sedan kört identifiering av avvikelser på strömmande data nästan i realtid.
-Även om i de här självstudierna precisionen är per timme, du kan alltid ändra Granulariteten för att uppfylla dina behov. 
+After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
 
-## <a name="clean-up-resources"></a>Rensa resurser
+![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-När du är klar med självstudien kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
-![Stoppa ett Databricks-kluster](../media/tutorials/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
+## Next steps
 
-Om du inte manuellt avslutar klustret slutar den att automatiskt, som du har valt den **Avsluta efter \_ \_ minuter av inaktivitet** kryssrutan när du skapade klustret. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
-
-## <a name="next-steps"></a>Nästa steg
-
-I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudie och lär dig hur du anropar API: T för Avvikelseidentifiering detektor och visualisera avvikelser med Power BI desktop. 
+In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Batch-avvikelseidentifiering med Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)

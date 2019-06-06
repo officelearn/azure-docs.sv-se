@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851029"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479561"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Vad är fältet-programmable gate matriser (FPGA)
 
@@ -35,7 +35,7 @@ Följande diagram och tabell som visar hur FPGA jämfört med andra processorer.
 |Programspecifika integrerade kretsar|ASICs|Anpassade kanaler, till exempel Googles TensorFlow Processor enheter (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras när dina behov ändras.|
 |Fältet-programmable gate-matriser|FPGA|FPGA, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibelt och omkonfigurerbara över tid, för att implementera logik som är nya.|
 |Bearbetningsenheter för grafik|GPU: er|Ett populärt alternativ för AI-beräkningar. GPU: er erbjuder funktioner för parallell bearbetning, vilket gör det snabbare på bildåtergivning än processorer.|
-|Enheter|Processorer|Allmänna processorer, som inte är perfekt för grafik och bearbetning av livevideo.|
+|Enheter|CPU:er|Allmänna processorer, som inte är perfekt för grafik och bearbetning av livevideo.|
 
 FPGA på Azure baseras på Intels FPGA enheter, vilka dataexperter och utvecklare använder för att påskynda i realtid AI-beräkningar. Den här arkitekturen för FPGA-aktiverade erbjuder prestanda, flexibilitet och skalbarhet och är tillgängliga på Azure.
 
@@ -80,7 +80,7 @@ Kom igång med att distribuera anpassade DNN-modeller till FPGA i Azure-molnet, 
 
 Kolla in dessa videor och bloggar:
 
-+ [Hyperskala maskinvara: ML skalenligt ovanpå Azure + FPGA: Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Hyperskala maskinvara: ML skalenligt ovanpå Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Inom Microsoft FPGA-baserat konfigurerbart moln (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

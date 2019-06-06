@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242284"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734655"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database för PostgreSQL – enskild Server
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Ange lösenordet för användarkontot i Kommandotolken.
 
 ## <a name="monitor-replication"></a>Övervakare för replikering
-Azure Database for PostgreSQL får den **Max fördröjning mellan repliker** mått i Azure Monitor. Detta mått är tillgängliga på den överordnade servern. Mätvärdet visar fördröjningen i byte mellan huvudservern och de flesta släpar repliken. 
+Azure Database för PostgreSQL innehåller två för övervakning av replikeringen. De två måtten är **Max fördröjning mellan repliker** och **repliken fördröjning**. Läs hur du visar de här måtten i den **övervaka en replik** delen av den [Läs replik artikel](howto-read-replicas-portal.md).
 
-Azure Database för PostgreSQL innehåller också de **repliken fördröjning** mått i Azure Monitor. Det här måttet är tillgängligt för repliker endast. 
+Den **Max fördröjning mellan repliker** måttet visar förskjutningen i byte mellan huvudservern och de flesta släpar repliken. Detta mått är tillgängliga på den överordnade servern.
 
-Måttet beräknas från de `pg_stat_wal_receiver` vy:
+Den **repliken fördröjning** mått visar tiden sedan senast återupprepas transaktion. Om det finns inga transaktioner som inträffar på dina huvudservern, visar den här tidsförskjutningen i måttet. Detta mått är tillgängliga för replikservrar. Repliken fördröjning beräknas från de `pg_stat_wal_receiver` vy:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-Repliken fördröjning måttet visar tiden sedan den senaste uppspelat transaktionen. Om det finns inga transaktioner som inträffar på dina huvudservern, visar den här tidsförskjutningen i måttet.
 
 Ställa in en avisering om när repliken fördröjning når ett värde som inte är acceptabel för din arbetsbelastning. 
 

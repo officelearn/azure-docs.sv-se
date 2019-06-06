@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146113"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492726"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använda skrivskyddade repliker att belastningsutjämna skrivskyddad frågearbetsbelastningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 Som en del av den [arkitektur med hög tillgänglighet](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), varje databas på tjänstnivån Premium, affärskritisk eller hyperskala etableras automatiskt med en primär replik och flera sekundära repliker. De sekundära replikerna etableras med samma beräkning storlek som den primära repliken. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt separerade arbetsbelastningar i skrivskyddat läge, till exempel analytics. De kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
@@ -118,7 +116,7 @@ New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Att skapa en databas med skrivskyddade skalbar inaktiverad, eller ändra inställningen för en befintlig databas måste du använda följande metod med det `readScale` egenskapen `Enabled` eller `Disabled` som i den nedan exempelförfrågan.
 

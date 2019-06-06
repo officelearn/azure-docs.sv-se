@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987665"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472410"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -110,14 +110,13 @@ Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kerneln. Den
 
 Om din Linux SMB-klienten inte stöder kryptering kan montera en Azure-filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filresursen. Kontrollera att den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Felet ”Åtkomst nekad” när du går till en Azure-filresurs i portalen
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel ”Auktoriseringen misslyckades” när du går till en Azure-filresurs i portalen
 
 När du bläddrar till en Azure-filresurs i portalen kan du få följande fel:
 
-Åtkomst nekad  
-Du saknar åtkomst  
-Det verkar som om du inte har åtkomst till det här innehållet. Kontakta ägaren för att få åtkomst.  
+Auktoriseringen misslyckades  
+Du har inte åtkomst
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: Ditt användarkonto har inte åtkomst till lagringskontot
 

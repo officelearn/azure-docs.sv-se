@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258856"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735169"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelandet enrichments för meddelanden från enhet till moln IoT Hub (förhandsversion)
 
@@ -49,6 +49,8 @@ Meddelanden kan komma från alla datakällor som stöds av [IoT Hub meddelandero
 
 Du kan lägga till enrichments meddelanden som kommer till den inbyggda slutpunkten för en IoT-hubb eller meddelanden som dirigeras till anpassade slutpunkter som Azure Blob storage, Service Bus-kö eller ett Service Bus-ämne.
 
+Du kan också lägga till enrichments meddelanden som publiceras till Event Grid genom att välja slutpunkten som Event Grid. Mer information finns i [Iot Hub och Event Grid](iot-hub-event-grid.md).
+
 Enrichments tillämpas per slutpunkt. Om du anger fem enrichments stämplas för en viss slutpunkt för är alla meddelanden som skickas till denna slutpunkt stämplad med samma fem enrichments.
 
 Om du vill se hur du kan prova att använda meddelande enrichments kan se den [meddelande enrichments självstudien](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Meddelandet enrichments är tillgängliga för utan extra kostnad. Du debiteras 
 
 ## <a name="availability"></a>Tillgänglighet
 
-Den här funktionen är tillgänglig som förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure Kina 21Vianet](/azure/china/china-welcome.md), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Den här funktionen är tillgänglig som förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china/china-welcome), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Nästa steg
 

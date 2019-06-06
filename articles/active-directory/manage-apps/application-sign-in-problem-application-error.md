@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825410"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742374"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fel på sidan för ett program efter inloggning
 
@@ -67,9 +67,11 @@ Följ dessa steg för att lägga till ett attribut i Azure AD-konfiguration som 
 
 Nästa gång användaren loggar in till programmet, Azure AD skickar det nya attributet i SAML-svar.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>Programmet förväntar sig ett annat användar-ID-värde eller format
+## <a name="the-application-doesnt-identify-the-user"></a>Programmet inte kan hitta användaren
 
-Inloggning till programmet misslyckas eftersom SAML-svar saknar attribut, till exempel roller eller eftersom programmet förväntar sig ett annat format för attributet EntityID.
+Inloggning till programmet misslyckas eftersom SAML-svar saknar attribut, till exempel roller eller eftersom programmet förväntar sig ett annat format eller värde för attributet EntityID.
+
+Om du använder [Azure AD-automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att skapa, underhålla och ta bort användare i programmet. Kontrollera att användaren har etablerats korrekt till SaaS-program. Mer information finns i [inga användare etableras till en Azure AD-galleriprogram](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Lägg till ett attribut i konfigurationen av Azure AD-program:
 

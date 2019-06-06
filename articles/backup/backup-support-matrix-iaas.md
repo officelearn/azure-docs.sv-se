@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399681"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743183"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -54,6 +54,8 @@ Säkerhetskopieringar per dag (via DPM/MABS) | Två schemalagda säkerhetskopier
 Månad/år säkerhetskopiering   | Stöds inte när du säkerhetskopierar med Azure VM-tillägg. Endast stöds dagliga och veckovisa.<br/><br/> Du kan ställa in principen till Kvarhåll säkerhetskopior varje dag/vecka i månad/år kvarhållningsperiod.
 Automatisk klockan justering | Stöds ej.<br/><br/> Azure Backup justera inte automatiskt för sommartid när du säkerhetskopierar en virtuell dator.<br/><br/>  Ändra principen manuellt vid behov.
 [Säkerhetsfunktioner för hybrid-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  Inaktivera säkerhetsfunktioner stöds inte.
+Säkerhetskopiera den virtuella datorn vars dator tid ändras | Stöds ej.<br/><br/> Om datortiden ändras till ett framtida datum / tid när du har aktiverat säkerhetskopiering för den virtuella datorn; Men även om tidsändringar återställs lyckad säkerhetskopiering är inte säkert.  
+
 
 ## <a name="operating-system-support-windows"></a>Operativsystem (Windows)
 
@@ -146,7 +148,7 @@ Säkerhetskopiera virtuella datorer i [tillgänglighetsuppsättningar](https://d
 Säkerhetskopiera virtuella datorer i [tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Stöds ej.
 Säkerhetskopiera virtuella datorer som distribueras med [Hybrid Använd förmånen (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Stöds.
 Säkerhetskopiera virtuella datorer som distribueras i en [skalningsuppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Stöds ej.
-Säkerhetskopiera virtuella datorer som distribueras från den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Som publicerats av Microsoft, tredje part) |  Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
+Säkerhetskopiera virtuella datorer som distribueras från den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Som publicerats av Microsoft, tredje part) |  Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS). Vi återställa inte virtuella Azure Marketplace-datorer säkerhetskopieras som virtuella datorer, som dessa behov biljettköpsinformation men endast som diskar.
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (från tredje part) |   Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
 Säkerhetskopiera virtuella datorer som migreras till Azure  | Stöds.<br/><br/> VM-agenten måste installeras på den migrerade datorn för att säkerhetskopiera den virtuella datorn.
 Säkerhetskopiera konsekvens | Azure Backup tillhandahåller inte data- och konsekvens mellan flera virtuella datorer.

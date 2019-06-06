@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015256"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743295"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -266,13 +266,13 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 4. Fyll i **händelse prenumerationsinformation**: Ange ett beskrivande namn och välj **Grid Händelseschema**.
 
-5. Fyll i den **händelsetyper** fält. Avmarkera **prenumerera på alla händelsetyper** och välj **enheten ansluten** och **enheten frånkopplad** på menyn.
+5. Fyll i den **händelsetyper** fält. I den nedrullningsbara listan väljer du endast **enheten ansluten** och **enheten frånkopplad** på menyn. Klicka på någon annanstans på skärmen för att Stäng listan och spara dina val.
 
    ![Ange händelsetyper efter](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. För **slutpunktsinformation**, Välj typ av slutpunkt som **Webhook** och klicka på Välj slutpunkt och klistra in den URL som du kopierade från din logikapp och bekräfta valet.
 
-   ![Välj slutpunkts-url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Välj slutpunkts-url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Formuläret bör nu se ut ungefär så här:
 
@@ -302,11 +302,9 @@ Nu när din händelseprenumeration är konfigurerat kan vi testa genom att anslu
 
    ![ConnectionString för enhet](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Starta simulatorn Raspberry Pi
 
-1. Nu ska vi använda Raspberry Pi web simulatorn för att simulera enhetsanslutning.
+Nu ska vi använda Raspberry Pi web simulatorn för att simulera enhetsanslutning.
 
 [Starta simulatorn Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Istället för att använda den [Azure-portalen](https://portal.azure.com), du k
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. När du är klar med kursen och har testat resultaten bör du därför inaktivera eller ta bort resurser som du inte vill behålla.
+I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. När du är klar prova självstudien och testa dina resultat kan inaktivera eller ta bort resurser som du inte vill behålla.
 
 Om du inte vill förlora det arbete du gjort i logikappen inaktiverar du den i stället för att ta bort den.
 

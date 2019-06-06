@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524027"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426917"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Lägg till förslag eller Komplettera automatiskt i ditt Azure Search-program
 
@@ -46,7 +46,7 @@ En Azure Search-tjänst är valfritt för den här övningen eftersom lösningen
 
 * Ladda ned den [DotNetHowToAutoComplete exempel](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
-I exemplet är omfattande, vilket täcker förslag, automatisk komplettering, aspektbaserad navigering och klientcachelagring. Du bör granska viktig information och kommentarer för en fullständig beskrivning av exemplet erbjuder.
+I exemplet är omfattande, vilket täcker förslag, automatisk komplettering, aspektbaserad navigering och klientcachelagring. Granska viktig information och kommentarer för en fullständig beskrivning av exemplet erbjuder.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -70,7 +70,7 @@ För både C# och JavaScript-versioner, box sökimplementering är exakt samma.
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Det här är en enkel textruta för textinmatning med en klass för stil, ett ID som refereras av JavaScript och platshållartext.  Hemligheten sitter i inbäddade JavaScript.
+Det här exemplet är en enkel textruta för textinmatning med en klass för stil, ett ID som refereras av JavaScript och platshållartext.  Hemligheten sitter i inbäddade JavaScript.
 
 Den C# kodexempel använder JavaScript i Index.cshtml för att utnyttja den [jQuery UI automatisk komplettering biblioteket](https://jqueryui.com/autocomplete/). Det här biblioteket lägger till automatisk komplettering upplevelse i sökrutan genom att göra asynkrona anrop till MVC-kontrollanten för att hämta förslag. Språkversion JavaScript är i IndexJavaScript.cshtml. Den innehåller skriptet nedan för sökfältet, samt REST API-anrop till Azure Search.
 
@@ -95,7 +95,7 @@ Koden ovan körs i webbläsaren på sidhämtning konfigurera jQuery UI automatis
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Raden ovan informerar jQuery UI automatisk komplettering funktionen var du vill hämta en lista över objekt att visa under sökrutan. Eftersom det här är ett MVC-projekt, anropar funktionen Föreslå i HomeController.cs som innehåller logik för att returnera frågeförslag (mer om föreslå i nästa avsnitt). Den här funktionen skickar även några parametrar till kontroll höjdpunkter, partiell matchning och period. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
+Raden ovan informerar jQuery UI automatisk komplettering funktionen var du vill hämta en lista över objekt att visa under sökrutan. Eftersom det här projektet är ett MVC-projekt, anropar funktionen Föreslå i HomeController.cs som innehåller logik för att returnera frågeförslag (mer om föreslå i nästa avsnitt). Den här funktionen skickar även några parametrar till kontroll höjdpunkter, partiell matchning och period. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Utöka exemplet för att stödja fuzzy-matchning
 
@@ -162,7 +162,7 @@ Nu när vi har granskat JavaScript-koden för webbsidan, ska vi titta på den C#
 
 Öppna den **HomeController.cs** fil under katalogen domänkontrollanter. 
 
-Det första märker du är en metod högst upp i klassen kallas `InitSearch`. Metoden skapar en autentiserad HTTP-indexklient till Azure Search-tjänsten. Mer information finns i [hur du använder Azure Search från .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Det första märker du är en metod högst upp i klassen kallas `InitSearch`. Den här metoden skapar en autentiserad HTTP index klient till Azure Search-tjänsten. Mer information finns i [hur du använder Azure Search från .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 Observera föreslå-funktionen på rad 41. Den är baserad på den [DocumentsOperationsExtensions.Suggest metoden](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-Om du jämför detta med exemplet ovan som anropar HomeController hittar vi flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identisk. 
+Om du jämför det här exemplet i ovanstående exempel som anropar start.kontrollanten ser du flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identisk. 
 
 Den stora ändringen här är källan. I stället för att anropa metoden föreslå i kontrollanten hem, en REST-begäran har skapats i en JavaScript-funktion och körs med Ajax. Svaret bearbetas sedan i ”success” och används som källa.
 
@@ -302,7 +302,7 @@ Fram till nu har du använt värdbaserade NYCJobs demo indexet. Om du vill full 
 
 1. Öppna i mappen DataLoader exempelkod NYCJobs **DataLoader.sln** i Visual Studio.
 
-1. Lägg till anslutningsinformation för Azure Search-tjänsten. Öppna App.config i projektet DataLoader och ändra TargetSearchServiceName och TargetSearchServiceApiKey i appinställningarna så att de motsvarar din Azure Search-tjänst och API-nyckeln för din Azure Search-tjänst. Dessa hittar du i Azure-portalen.
+1. Lägg till anslutningsinformation för Azure Search-tjänsten. Öppna App.config i projektet DataLoader och ändra TargetSearchServiceName och TargetSearchServiceApiKey i appinställningarna så att de motsvarar din Azure Search-tjänst och API-nyckeln för din Azure Search-tjänst. Den här informationen kan hittas i Azure-portalen.
 
 1. Tryck på F5 för att starta programmet, skapar två index och importera exempeldata NYCJob.
 

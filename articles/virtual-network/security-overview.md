@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731692"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478861"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -30,12 +30,12 @@ Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan a
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
-|Egenskap   |Förklaring  |
+|Egenskap  |Förklaring  |
 |---------|---------|
 |Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
 |Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](#service-tags) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protokoll     | TCP, UDP eller någon, inklusive (men inte begränsat till) TCP, UDP och ICMP. Du kan inte ange ICMP separat. Använd därför Any (Alla) om du behöver använda ICMP. |
+|Protocol     | TCP, UDP eller någon, inklusive (men inte begränsat till) TCP, UDP och ICMP. Du kan inte ange ICMP separat. Använd därför Any (Alla) om du behöver använda ICMP. |
 |Direction| Om regeln gäller för inkommande eller utgående trafik.|
 |Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
 |Åtgärd     | Tillåt eller neka        |
@@ -72,7 +72,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 * **AzureContainerRegistry** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Container Registry. Om du anger *AzureContainerRegistry* som värde så tillåts eller nekas trafik till AzureContainerRegistry. Om du bara vill ge åtkomst till AzureContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureContainerRegistry.[regionsnamn]. 
 * **AppService** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService. Om du anger *AppService* som värde tillåts eller nekas trafik till AppService. Om du bara vill ge åtkomst till AppService i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AppService.[regionnamn]. 
 * **AppServiceManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService Management. Om du anger *AppServiceManagement* för värdet så tillåts eller nekas trafik till AppServiceManagement. 
-* **ApiManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Api Management. Om du anger *ApiManagement* för värdet så tillåts eller nekas trafik till ApiManagement.  
+* **ApiManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Api Management. Om du anger *ApiManagement* för, trafik tillåts eller nekas från hanteringsgränssnitt av ApiManagement.  
 * **AzureConnectors** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Connectors. Om du anger *AzureConnectors* som värde tillåts eller nekas trafik till AzureConnectors. Om du bara vill ge åtkomst till AzureConnectors i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureConnectors.[ regionensnamn]. 
 * **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager.  
 * **AzureDataLake** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Data Lake. Om du anger *AzureDataLake* som värde tillåts eller nekas trafik till AzureDataLake. 
@@ -96,19 +96,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
 
@@ -116,19 +116,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
@@ -148,7 +148,7 @@ I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *
 
 Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln [DenyAllInbound](#denyallinbound), krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Tillåt |
 
@@ -156,7 +156,7 @@ Den här regeln krävs för att tillåta trafik från Internet till webbservrarn
 
 Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alla | Neka |
 
@@ -164,7 +164,7 @@ Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåte
 
 Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Tillåt |
 
@@ -219,7 +219,7 @@ Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden
 
 - **Värdnodens virtuella IP-adress**: Grundläggande infrastrukturtjänster som DHCP, DNS, IMDS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här IP-adresserna tillhör Microsoft och är de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet.
-- **Licensiering (nyckelhanteringstjänsten)**: Windows-avbildningar som körs på virtuella datorer måste vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688. För distributioner som använder konfigurationer med [standardflödet 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), inaktiveras denna plattformsregel.
+- **Licensiering (nyckelhanteringstjänsten)** : Windows-avbildningar som körs på virtuella datorer måste vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688. För distributioner som använder konfigurationer med [standardflödet 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), inaktiveras denna plattformsregel.
 - **Virtuella datorer i belastningsutjämnade pooler**: Den källport och det adressintervall som används kommer från den ursprungliga datorn, inte från lastbalanseraren. Målporten och måladressutrymmet kommer från måldatorn, inte lastbalanseraren.
 - **Azure-tjänstinstanser**: Instanser av flera Azure-tjänster, till exempel HDInsight, programtjänstmiljöer och VM-skalningsuppsättningar distribueras i undernät för virtuella nätverk. En fullständig lista över tjänster som du kan distribuera till virtuella nätverk finns i [Virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Ta reda på portkraven för varje tjänst innan du tillämpar en nätverkssäkerhetsgrupp för det undernät som resursen är distribuerad i. Om du nekar åtkomst till portar som krävs för tjänsten kommer tjänsten inte att fungera korrekt.
 - **Skicka utgående e-post**: Microsoft rekommenderar att du använder autentiserade SMTP-relätjänster (ansluts vanligtvis, men inte alltid, via TCP-port 587) för att skicka e-post från virtuella Azure-datorer. SMTP-relätjänsterna är specialiserade på avsändaromdöme för att minska möjligheten att externa e-postleverantörer avvisar meddelanden. SMTP-relätjänsterna omfattar, men är inte begränsade till, Exchange Online Protection och SendGrid. Användningen av SMTP-relätjänster är inte begränsad i Azure, oavsett vilken typ av prenumeration du har. 
@@ -227,7 +227,7 @@ Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt 
   Om du har skapat din Azure-prenumeration före 15 november 2017 kan du, förutom att använda SMTP-relätjänster, även skicka e-post direkt via TCP-port 25. Om du har skapat din prenumeration efter 15 november 2017 kan du inte skicka e-post direkt via port 25. Beteendet för utgående kommunikation via port 25 beror på vilken typ av prenumeration du har:
 
      - **Enterprise-avtal**: Utgående kommunikation via port 25 tillåts. Du kan skicka utgående e-post direkt från virtuella datorer till externa e-postleverantörer utan begränsningar från Azure-plattformen. 
-     - **Betala per användning:** Utgående kommunikation via port 25 blockeras från alla resurser. Om du behöver skicka e-post från en virtuell dator direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du skicka en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande och beviljas endast efter att bedrägerikontroller utförts. Om du vill skicka en förfrågan öppnar du ett supportärende med ärendetypen *Teknisk*, *Virtuell nätverksanslutning*, *Det går inte att skicka e-post (SMTP/Port 25)*. I ditt supportärende anger du information om varför du (din prenumeration) behöver skicka e-post direkt till e-postleverantörer i stället för att gå via ett autentiserat SMTP-relä. Om din prenumeration undantas kan endast virtuella datorer som skapats efter undantagsdatumet använda utgående kommunikation via port 25.
+     - **Betala per användning:** Utgående kommunikation via port 25 blockeras från alla resurser. Om du behöver skicka e-post från en virtuell dator direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du skicka en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande och beviljas endast efter att bedrägerikontroller utförts. Om du vill skicka en förfrågan öppnar du ett supportärende med ärendetypen *Teknisk*, *Virtuell nätverksanslutning*, *Det går inte att skicka e-post (SMTP/Port 25)* . I ditt supportärende anger du information om varför du (din prenumeration) behöver skicka e-post direkt till e-postleverantörer i stället för att gå via ett autentiserat SMTP-relä. Om din prenumeration undantas kan endast virtuella datorer som skapats efter undantagsdatumet använda utgående kommunikation via port 25.
      - **MSDN, Azure-Pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du vill skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
      - **Molntjänstleverantör**: Kunder som förbrukar Azure-resurser via en molntjänstleverantör kan skapa en supportbegäran hos molntjänstleverantören och begära ett avblockeringsärende om det inte går att använda ett säkert SMTP-relä.
 

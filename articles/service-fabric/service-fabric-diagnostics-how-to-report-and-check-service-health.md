@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322088"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428164"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
 När dina tjänster får problem kan beror dina möjligheter att svara på och åtgärda incidenter och avbrott på din möjlighet att upptäcka problem snabbt. Om du rapporterar problem och fel till Azure Service Fabric health manager från service koden kan du använda verktygen i Service Fabric för att kontrollera hälsostatus för standard hälsoövervakning.
@@ -37,7 +37,7 @@ Den här artikeln går vi igenom ett exempel som rapporterar hälsa från tjäns
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha följande installerat:
 
-* Visual Studio 2015 eller Visual Studio 2017
+* Visual Studio 2015 eller Visual Studio 2019
 * Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Att skapa ett kluster för lokal säker utveckling
@@ -65,7 +65,7 @@ Du måste ha följande installerat:
 Mallar för Service Fabric-projekt i Visual Studio innehåller exempelkoden. Följande steg visar hur du kan rapportera anpassade health-händelser från koden för tjänsten. Rapporterna visas automatiskt i standardverktyg för övervakning av hälsotillstånd att Service Fabric tillhandahåller, som Service Fabric Explorer, hälsotillståndsvy för Azure portal och PowerShell.
 
 1. Öppna programmet som du skapade tidigare i Visual Studio, eller skapa ett nytt program med hjälp av den **tillståndskänslig tjänst** Visual Studio-mall.
-1. Öppna filen Stateful1.cs och hitta den `myDictionary.TryGetValueAsync` anropa i den `RunAsync` metoden. Du kan se att den här metoden returnerar en `result` som innehåller det aktuella värdet för räknaren eftersom viktiga logiken i det här programmet är att räkna körs. Om detta är ett riktigt program, och om bristen på resultatet visas ett fel, skulle du flaggan händelsen.
+1. Öppna filen Stateful1.cs och hitta den `myDictionary.TryGetValueAsync` anropa i den `RunAsync` metoden. Du kan se att den här metoden returnerar en `result` som innehåller det aktuella värdet för räknaren eftersom viktiga logiken i det här programmet är att räkna körs. Om det här programmet har ett riktigt program, och om bristen på resultatet visas ett fel, skulle du flaggan händelsen.
 1. Lägg till följande steg om du vill rapportera en hälsohändelse när bristen på resultatet representerar ett fel.
    
     a. Lägg till den `System.Fabric.Health` namnområde till filen Stateful1.cs.
@@ -124,7 +124,7 @@ Mallar för Service Fabric-projekt i Visual Studio innehåller exempelkoden. Fö
     }
     ```
    Den här koden utlöses hälsorapporten varje gång `RunAsync` körs. När du har gjort ändringen trycker du på **F5** att köra programmet.
-1. När programmet körs, öppnar du Service Fabric Explorer för att kontrollera hälsotillståndet för programmet. Den här gången visar Service Fabric Explorer att programmet är i feltillstånd. Det här är på grund av fel som har rapporterats från koden som vi har lagt till tidigare.
+1. När programmet körs, öppnar du Service Fabric Explorer för att kontrollera hälsotillståndet för programmet. Den här gången visar Service Fabric Explorer att programmet är i feltillstånd. Programmet visas som defekt eftersom fel som har rapporterats från den kod som vi har lagt till tidigare.
    
     ![Felaktigt program i Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. Om du väljer den primära repliken i trädvyn för Service Fabric Explorer kan du se att **hälsotillstånd** påvisar ett fel för. Service Fabric Explorer visar även rapporten hälsoinformation som har lagts till i `HealthInformation` parametern i koden. Du kan se samma hälsorapporter i PowerShell och Azure-portalen.

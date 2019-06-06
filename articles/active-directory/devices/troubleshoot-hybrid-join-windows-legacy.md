@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76177972cbd002793f5d9fc4ab8bbe6ef2121e91
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106699"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474331"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -87,7 +87,7 @@ Om enheten inte hybrid Azure AD-anslutna, kan du försöka göra hybrid Azure AD
     
   - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på saknade eller felkonfigurerad AD FS (för federerade domäner) eller saknas eller är felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverksproblem. 
     
-    - Det kan vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på AD FS-servern. 
+    - Det kan vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMULTIAUTHN inte är konfigurerad på AD FS-servern. 
      
     - En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar att **autoworkplace.exe** tyst begär en token.
      

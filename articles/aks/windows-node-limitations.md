@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304395"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475399"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för nodpooler för Windows Server och arbetsbelastningar för program i Azure Kubernetes Service (AKS)
 
@@ -45,6 +45,7 @@ Följande överordnade begränsningar för Windows Server-behållare i Kubernete
 Följande extra begränsningar gäller för Windows Server-noden pool stöd i AKS:
 
 - Ett AKS-kluster innehåller alltid en Linux-pool för noden som den första nod-adresspoolen. Den här första Linux-baserade nodpoolen kan inte tas bort om inte själva AKS-klustret tas bort.
+- AKS stöder för närvarande endast med basic load balancer, vilket gör att endast en serverdelspool, standardpoolen för Linux-noden. Därför kan utgående trafik från Windows poddar kommer alltid att [översätts till en Azure-hanterade offentliga IP-adress][azure-outbound-traffic]. Eftersom den här IP-adressen inte är konfigurerbara, går det inte för närvarande att vitlista trafik som kommer från Windows poddar. 
 - AKS-kluster måste använda Azure CNI (Avancerat) Nätverksmodellen.
     - Kubenet (grundläggande) nätverk stöds inte. Du kan inte skapa ett AKS-kluster som använder kubenet. Mer information om skillnaderna i nätverket modeller finns i [Network begrepp för program i AKS][azure-network-models].
     - Azure CNI nätverk modellen kräver ytterligare planering och överväganden för hantering av IP-adress. Läs mer om hur du planerar och implementerar Azure CNI [CNI konfigurera Azure-nätverk i AKS][configure-azure-cni].
@@ -87,3 +88,4 @@ Du kommer igång med Windows Server-behållare i AKS, [skapar en pool för noden
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

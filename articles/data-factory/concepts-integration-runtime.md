@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232425"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427151"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -40,8 +40,8 @@ I följande tabell beskrivs funktioner och nätverksstöd för varje Integration
 
 IR-typ | Offentligt nätverk | Privat nätverk
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Dataflytt<br/>Aktivitetssändning | &nbsp;
-Egen värd | Dataflytt<br/>Aktivitetssändning | Dataflytt<br/>Aktivitetssändning
+Azure | Data Flow<br/>Dataförflyttning<br/>Aktivitetssändning | &nbsp;
+Egen värd | Dataförflyttning<br/>Aktivitetssändning | Dataförflyttning<br/>Aktivitetssändning
 Azure-SSIS | Körning av SSIS-paket | Körning av SSIS-paket
 
 Följande diagram visar hur olika IR-körningar kan användas i kombination för att ge omfattande dataintegrationsfunktioner och nätverksstöd:
@@ -114,11 +114,11 @@ IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen
 ### <a name="azure-ir-location"></a>Azure IR-plats
 Du kan ställa in en vissa plats för en Azure IR varmed dataflytter eller aktivitetssändningar sker i den specifika regionen. 
 
-Om du väljer att använda Azure IR med automatisk lösning som standard, 
+Om du väljer att använda den **löses av Azure IR** som är standard, 
 
 - För kopieringsaktivitet kommer ADF att försöka identifiera ditt mål- och källdatalager för att välja den bästa platsen, antingen i samma region om den är tillgänglig eller den närmaste inom samma geografiska område. Om det inte går att avgöra används datafabriksregionen.
 
-- För Lookup/GetMetadata-aktivitetskörning och sändning av omvandling av aktivitet använder ADF IR i datafabriksregionen.
+- För sökning/GetMetadata/ta bort aktivitetskörning (även kallat pipelineaktiviteter) transformeringsaktivitet skicka (även kallat externa aktiviteter) och redigera åtgärder (Testa anslutning, bläddra mapplistan och Tabellista förhandsgranska data), ADF använder IR i data factory-region.
 
 - För Data flöda använder ADF IR i data factory-region. 
 
@@ -148,7 +148,7 @@ I följande diagram visas platsinställningar för Data Factory och dess Integra
 
 ## <a name="determining-which-ir-to-use"></a>Bestämma vilken IR som ska användas
 
-### <a name="copy-activity"></a>Kopiera aktivitet
+### <a name="copy-activity"></a>Kopieringsaktivitet
 
 För kopieringsaktiviteten kräver den länkade tjänster-källa och länkade tjänster-mottagare för att definiera dataflödets riktning. Följande logik används till att bestämma vilken Integration Runtime-instans som används för att utföra kopieringen: 
 

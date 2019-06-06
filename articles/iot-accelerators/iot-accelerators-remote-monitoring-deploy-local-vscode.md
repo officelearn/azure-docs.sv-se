@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967525"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730182"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 Följande steg visar hur du kör fjärrövervakning-mikrotjänster i Visual Studio Code:
 
 1. Starta Visual Studio Code.
-1. Öppna den **azure-iot-pcs-remote-monitoring-dotnet** modul från den lokala kopian i VS Code.
-1. Kopiera filerna **launch.json** och **tasks.json** från scripts\local\launch\idesettings\vscode\. Skapa en ny mapp **azure-iot-pcs-remote-monitoring-dotnet\.vscode** och klistra in filerna.
-1. Öppna panelen felsökning i VS Code och kör den **kör alla mikrotjänster** konfiguration. Den här konfigurationen körs enheten simulering mikrotjänster i Docker och kör andra mikrotjänster i felsökningsprogrammet.
+1. I VS Code, öppna den **azure-iot-pcs-remote-monitoring-dotnet** mapp.
+1. Skapa en ny mapp med namnet **.vscode** i den **azure-iot-pcs-remote-monitoring-dotnet** mapp.
+1. Kopiera filerna **launch.json** och **tasks.json** från services\scripts\local\launch\idesettings\vscode till den **.vscode** mapp som du nyss skapade.
+1. Öppna den **Debug panelen** i VS Code och kör den **kör alla mikrotjänster** konfiguration. Den här konfigurationen körs enheten simulering mikrotjänster i Docker och kör andra mikrotjänster i felsökningsprogrammet.
 
-Utdata för exempelvis **Auth** tjänsten på den **Felsökningskonsolen** ser ut som följande:
+Utdata från att köras **kör alla microsoervices** på Felsökningskonsolen ser ut som följande:
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Kör webbgränssnittet
 

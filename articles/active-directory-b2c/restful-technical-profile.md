@@ -2,20 +2,20 @@
 title: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705298"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512746"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful-tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Din princip kan skicka inkommande anspråk till REST-API. REST API kan också re
 - **Teknisk verifieringsprofil** – en teknisk verifieringsprofil anropar RESTful-tjänst. Den tekniska profilen verifiering verifierar data från användare innan användarresa fortsätter. Med den tekniska profilen verifiering, ett felmeddelande visas på en självkontrollerad sida och returneras i utgående anspråk.
 - **Exchange-anspråk** -ett anrop görs till RESTful-tjänsten via en orchestration-steg. I det här scenariot finns det inget användargränssnitt att visas ett felmeddelande. Om REST-API returnerar ett fel, omdirigeras användaren till förlitande part programmet med ett felmeddelande.
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Den **namn** attributet för den **protokollet** element måste anges till `Proprietary`. Den **hanteraren** attributet måste innehålla det fullständigt kvalificerade namnet på protokoll hanteraren sammansättningen som används av Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -83,10 +83,10 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | URL till REST API-slutpunkt. | 
-| AuthenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
+| authenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
 | SendClaimsIn | Nej | Anger hur de inkommande anspråken skickas till RESTful anspråksprovidern. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är den inkommande anspråk som skickas i begärandetexten i JSON-format. Den `Form` värdet är den inkommande anspråk som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är den inkommande anspråk som skickas i rubriken. Den `QueryString` värdet är den inkommande anspråk som skickas i frågesträngen begäran. | 
 | ClaimsFormat | Nej | Anger formatet för utdataanspråk. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är utdata-anspråket som skickas i begärandetexten i JSON-format. Den `Form` värdet är utdata-anspråket som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är utdata-anspråket som skickas i rubriken. Den `QueryString` värdet är utdata-anspråket som skickas i frågesträngen begäran. | 
 | DebugMode | Nej | Kör den tekniska profilen i felsökningsläge. I felsökningsläge och kan REST-API returnera mer information. Se meddelandeavsnittet returnerar fel. | 
@@ -109,7 +109,7 @@ Om typ av autentisering är inställt på `None`, **CryptographicKeys** elemente
 
 Om typ av autentisering är inställt på `Basic`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Ja | Det användarnamn som används för att autentisera. | 
 | BasicAuthenticationPassword | Ja | Det lösenord som används för att autentisera. |
@@ -134,7 +134,7 @@ I följande exempel visas en tekniska profilen med basic-autentisering:
 
 Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ClientCertificate | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att autentisera. | 
 
@@ -157,11 +157,11 @@ Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKe
 
 REST-API kan behöva returnera ett felmeddelande som ”användaren inte hittades i CRM-systemet”. Ett fel inträffar, REST-API ska returnera felmeddelandet HTTP 409 (konflikt svarsstatuskod) med följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | version | Ja | 1.0.0 | 
 | status | Ja | 409 | 
-| Kod | Nej | Felkoden från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
+| code | Nej | Felkoden från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
 | requestId | Nej | En identifierare för begäran från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
 | userMessage | Ja | Ett felmeddelande som visas för användaren. | 
 | developerMessage | Nej | Utförlig beskrivning av problemet och hur du åtgärdar det, vilket är visas när `DebugMode` är aktiverat. | 

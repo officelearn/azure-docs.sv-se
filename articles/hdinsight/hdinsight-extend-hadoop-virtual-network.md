@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388346"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480083"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -268,11 +268,12 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     > [!IMPORTANT]  
     > Om du använder den Azure-region inte visas kan sedan bara använda fyra IP-adresser från steg 1.
 
-    | Land/region | Region | Tillåtna käll-IP-adresser | Tillåtna mål | Direction |
+    | Land | Region | Tillåtna käll-IP-adresser | Tillåtna mål | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asien | Östasien | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkommande |
     | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
-    | Australien | Östra Australien | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
+    | Australien | Australien, centrala | 20.36.36.33</br>20.36.36.196 | \*:443 | Inkommande |
+    | &nbsp; | Östra Australien | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
     | &nbsp; | Sydöstra Australien | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkommande |
     | Brasilien | Södra Brasilien | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkommande |
     | Kanada | Östra Kanada | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkommande |

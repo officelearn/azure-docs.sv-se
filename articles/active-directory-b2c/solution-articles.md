@@ -2,25 +2,25 @@
 title: Lösningar och träning för Azure Active Directory B2C | Microsoft Docs
 description: Den här artikeln får du länkar till lösningen och utbildningsinformation som kan hjälpa dig att förstå och använda Azure Active Directory B2C för end-to-end-business-lösningar.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7b409cc80d2443b01d3025dd84348af18118d640
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 95002eb73277176d4a8aeaa40deea4d96c39a755
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691967"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512413"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Lösningar och träning för Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C kan organisationer att implementera affärslösningar som hjälper dem att ansluta till sina kunder. Följande lösningsguider och utbildning är hämtningsbara dokument som vägleder dig genom dessa lösningar.
 
-| Rubrik | Beskrivning |
+| Titel | Beskrivning |
 | ----- | ----------- |
 | [Kunden Identitetshantering med Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | I den här översikten av tjänsten, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) från Azure AD B2C team ger oss en översikt över hur tjänsten fungerar, och visar också hur vi snabbt kan ansluta B2C till ett ASP.NET Core-program. |
 | [Fördelarna med att använda Azure AD B2C](https://aka.ms/b2coverview) | Förstå fördelarna och vanliga scenarier med Azure AD B2C och hur dina program kan utnyttja den här CIAM-tjänsten. |

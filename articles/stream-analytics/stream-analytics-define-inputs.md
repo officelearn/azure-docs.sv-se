@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159291"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455613"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
 Stream Analytics har förstklassig integrering med Azure-dataströmmar som indata från tre typer av resurser:
+
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,25 +26,29 @@ Stream Analytics har förstklassig integrering med Azure-dataströmmar som indat
 Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytics-jobb eller en annan prenumeration.
 
 ### <a name="compression"></a>Komprimering
-Stream Analytics stöder komprimering för alla stream inkommande datakällor. För närvarande stöds komprimeringstyperna är: Ingen, GZip, och Deflate-komprimering. Stöd för komprimering är inte tillgängligt för referensdata. Om Indataformatet är Avro-data som är komprimerade, hanteras den transparent. Du behöver inte ange Komprimeringstypen med Avro-serialisering. 
+
+Stream Analytics stöder komprimering för alla stream inkommande datakällor. Stöds komprimeringstyperna är: Ingen, GZip, och Deflate-komprimering. Stöd för komprimering är inte tillgängligt för referensdata. Om Indataformatet är Avro-data som är komprimerade, hanteras den transparent. Du behöver inte ange Komprimeringstypen med Avro-serialisering. 
 
 ## <a name="create-edit-or-test-inputs"></a>Skapa, redigera eller testa indata
-Du kan använda den [Azure-portalen](https://portal.azure.com) till [Skapa ny indata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) och visa eller redigera befintliga indata på ditt direktuppspelningsjobb. Du kan också testa inkommande anslutningar och [testfrågor](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) från exempeldata. När du skriver en fråga visas indata i FROM-satsen. Du kan hämta listan över tillgängliga indata från den **fråga** i portalen. Om du vill använda flera inmatningar kan du `JOIN` dem eller skriva flera `SELECT` frågor.
+
+Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), och [Visual Studio Code](quick-create-vs-code.md) att lägga till och visa eller redigera befintliga indata på ditt direktuppspelningsjobb. Du kan också testa inkommande anslutningar och [testfrågor](stream-analytics-manage-job.md#test-your-query) från exempeldata från Azure-portalen [Visual Studio](stream-analytics-vs-tools-local-run.md), och [Visual Studio Code](vscode-local-run.md). När du skriver en fråga kan du visa indata i FROM-satsen. Du kan hämta listan över tillgängliga indata från den **fråga** i portalen. Om du vill använda flera inmatningar kan du `JOIN` dem eller skriva flera `SELECT` frågor.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Strömma data med Event Hubs
 
-Azure Event Hubs ger mycket skalbar publicerings-/ händelse ingestors. En händelsehubb kan samla in miljontals händelser per sekund, så att du kan bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. Event Hubs och Stream Analytics ger du tillsammans, en lösning för slutpunkt till slutpunkt för analys i realtid. Händelsehubbar kan du skicka händelser till Azure i realtid och Stream Analytics-jobb kan bearbeta dessa händelser i realtid. Du kan exempelvis skicka web klick, sensoravläsningar eller online händelser till Event Hubs. Du kan sedan skapa Stream Analytics-jobb för att använda Event Hubs som indata-dataströmmar i realtid filtrering, aggregering och korrelation.
+Azure Event Hubs ger mycket skalbar publicerings-/ händelse ingestors. En händelsehubb kan samla in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. Event Hubs och Stream Analytics ger du tillsammans, en lösning för slutpunkt till slutpunkt för analys i realtid. Händelsehubbar kan du skicka händelser till Azure i realtid och Stream Analytics-jobb kan bearbeta dessa händelser i realtid. Du kan exempelvis skicka web klick, sensoravläsningar eller online händelser till Event Hubs. Du kan sedan skapa Stream Analytics-jobb för att använda Event Hubs som indata-dataströmmar i realtid filtrering, aggregering och korrelation.
 
 `EventEnqueuedUtcTime` tidsstämpeln för ankomst en händelse i en händelsehubb och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
 
-### <a name="consumer-groups"></a>Konsumentgrupper
-Du bör konfigurera varje Stream Analytics-händelsehubb indata har sin egen konsumentgrupp. När ett jobb innehåller en självkoppling eller har flera inmatningar, vissa indata kan läsas av mer än en läsare nedströms. Den här situationen påverkar antalet läsare i en enskild konsument-grupp. För att inte Händelsehubbar högst fem läsare per konsumentgrupp per partition, är det en bra idé att utse en konsumentgrupp för varje Stream Analytics-jobbet. Det finns också en gräns på 20 konsumentgrupper per händelsehubb. Mer information finns i [felsöka Azure Stream Analytics indata](stream-analytics-troubleshoot-input.md).
+### <a name="event-hubs-consumer-groups"></a>Konsumentgrupper för Event Hubs
 
-### <a name="stream-data-from-event-hubs"></a>Strömma data med Event Hubs
+Du bör konfigurera varje Stream Analytics-händelsehubb indata har sin egen konsumentgrupp. När ett jobb innehåller en självkoppling eller har flera inmatningar, vissa indata kan läsas av mer än en läsare nedströms. Den här situationen påverkar antalet läsare i en enskild konsument-grupp. För att inte Händelsehubbar högst fem läsare per konsumentgrupp per partition, är det en bra idé att utse en konsumentgrupp för varje Stream Analytics-jobbet. Det finns också en gräns på 20 konsumentgrupper för en händelsehubb för Standard-nivån. Mer information finns i [felsöka Azure Stream Analytics indata](stream-analytics-troubleshoot-input.md).
+
+### <a name="create-an-input-from-event-hubs"></a>Skapa indata från Event Hubs
+
 I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure portal till strömindata data från en händelsehubb:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **Inmatat alias** |Ett eget namn som du använder i jobbets fråga för att referera till detta indata. |
 | **Prenumeration** | Välj den prenumeration där Event hub-resurs finns. | 
@@ -58,7 +62,7 @@ I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure 
 
 När data kommer från en Event Hub-strömindata, har du åtkomst till följande metadatafält i ditt Stream Analytics-fråga:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **EventProcessedUtcTime** |Datum och tid då händelsen bearbetades av Stream Analytics. |
 | **EventEnqueuedUtcTime** |Datum och tid då händelsen togs emot av Event Hubs. |
@@ -79,17 +83,20 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Stream-data från IoT Hub
-Azure Iot Hub är en mycket skalbar lösning för publicering-prenumeration händelse optimerade för IoT-scenarier.
+
+Azure IoT Hub är en mycket skalbar lösning för publicering-prenumeration händelse optimerade för IoT-scenarier.
 
 Standard-tidsstämpel för händelser som kommer från en IoT-hubb i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
 
-### <a name="consumer-groups"></a>Konsumentgrupper
+### <a name="iot-hub-consumer-groups"></a>Konsumentgrupper för IOT Hub
+
 Du bör konfigurera varje Stream Analytics IoT-hubb som indata har sin egen konsumentgrupp. När ett jobb som innehåller en självkoppling eller när den har flera inmatningar, kan vissa indata läsas av mer än en läsare nedströms. Den här situationen påverkar antalet läsare i en enskild konsument-grupp. Om du vill undvika överstiger fem läsare per konsumentgrupp per partition Azure IoT Hub, är det en bra idé att utse en konsumentgrupp för varje Stream Analytics-jobbet.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Konfigurera en IoT-hubb som en dataström som indata
+
 I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure portal när du konfigurerar en IoT-hubb som en dataström som indata.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **Inmatat alias** | Ett eget namn som du använder i jobbets fråga för att referera till detta indata.|
 | **Prenumeration** | Välj den prenumeration som IoT Hub-resursen finns. | 
@@ -105,7 +112,7 @@ I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure 
 
 När du använder strömdata från en IoT-hubb, har du åtkomst till följande metadatafält i ditt Stream Analytics-fråga:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **EventProcessedUtcTime** | Datum och tid då händelsen bearbetades. |
 | **EventEnqueuedUtcTime** | Datum och tid då händelsen togs emot av IoT Hub. |
@@ -124,13 +131,10 @@ Bearbetning av loggar är ett vanligt scenario för att använda Blob storage in
 
 Standard-tidsstämpel för Blob storage-händelser i Stream Analytics är tidsstämpeln att blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob storage indata per sekund om blob-fil är tillgänglig. Om blob-fil är inte tillgänglig, är det en exponentiell backoff med Maximal fördröjning på 90 sekunder.
 
-CSV-formaterad indata *kräver* en rubrikrad att definiera fält för datauppsättningen och alla rubrikfält rad måste vara unikt.
-
-Stream Analytics stöder för närvarande inte deserialisering av AVRO-meddelanden som genereras av Event Hub avbildnings- eller anpassad slutpunkt för IoT Hub Azure Storage-behållare.
+CSV-formaterad indata kräver en rubrikrad att definiera fält för datauppsättningen och alla rubrikfält rad måste vara unikt.
 
 > [!NOTE]
 > Stream Analytics stöder inte att lägga till innehåll på en befintlig blobfil. Stream Analytics Visa bara en gång varje fil och alla ändringar som görs i filen när jobbet har läst data bearbetas inte. Det är bra att överföra alla data för en blob-fil på en gång och sedan lägga till ytterligare nya händelser i en annan, en ny blob-fil.
-> 
 
 Ladda upp ett mycket stort antal blobbar samtidigt kan det leda till att Stream Analytics kan du hoppar över att läsa några blobbar i sällsynta fall. Vi rekommenderar att ladda upp blobar på minst 2 sekunder upp till Blob storage. Om det här alternativet inte är möjligt kan du använda Event Hubs till stream stora mängder händelser. 
 
@@ -138,7 +142,7 @@ Ladda upp ett mycket stort antal blobbar samtidigt kan det leda till att Stream 
 
 I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure portal när du konfigurerar Blob storage som en dataström som indata.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **Inmatat alias** | Ett eget namn som du använder i jobbets fråga för att referera till detta indata. |
 | **Prenumeration** | Välj den prenumeration som IoT Hub-resursen finns. | 
@@ -154,7 +158,7 @@ I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure 
 
 När data kommer från en källa för Blob storage, har du åtkomst till följande metadatafält i ditt Stream Analytics-fråga:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **BlobName** |Namnet på indata-blob som händelsen kommer ifrån. |
 | **EventProcessedUtcTime** |Datum och tid då händelsen bearbetades av Stream Analytics. |

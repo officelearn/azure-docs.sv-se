@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130471"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472600"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor för översikt över virtuella datorer (förhandsversion)
 
@@ -39,11 +39,12 @@ Innan du börjar bör du kontrollera att du förstår informationen i följande 
 
 Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följande regioner:
 
-- USA, västra centrala 
+- Västra centrala USA
+- USA, västra 2<sup>1</sup>
 - Östra USA
 - Kanada, centrala<sup>1</sup>
 - Storbritannien, södra<sup>1</sup>
-- Europa, västra
+- Västra Europa
 - Sydostasien<sup>1</sup>
 
 <sup>1</sup> den här regionen för tillfället stöder inte funktionen Health i Azure Monitor för virtuella datorer.

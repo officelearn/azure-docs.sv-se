@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242310"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492704"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-prenumeration (förhandsversion)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Privata nätverksanslutningar
 
-Azure Functions som distribuerats till en premiumplan drar nytta av [nya VNet-integrering för web apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  När du konfigurerade din app kan kommunicera med resurser i ditt virtuella nätverk eller skyddad via tjänstslutpunkter.  IP-begränsningar finns även på appen för att begränsa inkommande trafik.
+Azure Functions som distribuerats till en premiumplan drar nytta av [nya VNet-integrering för web apps](../app-service/web-sites-integrate-with-vnet.md).  När du konfigurerade din app kan kommunicera med resurser i ditt virtuella nätverk eller skyddad via tjänstslutpunkter.  IP-begränsningar finns även på appen för att begränsa inkommande trafik.
 
 När du tilldelar ett undernät till funktionsappen i en premiumplan, behöver du ett undernät med tillräckligt med IP-adresser för varje potentiell instans. Även om det maximala antalet instanser kan variera under förhandsversionen, kräver vi ett IP-Adressblock med minst 100 tillgängliga adresser.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414875"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742297"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Konfigurera listan över anpassade förbjudna lösenord
 
@@ -24,7 +24,7 @@ Många organisationer hitta användarna skapa lösenord med hjälp av vanliga lo
 
 ## <a name="add-to-the-custom-list"></a>Lägg till den anpassade listan
 
-Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active Directory Premium P1 eller P2-licens. Mer detaljerad information om Azure Active Directory-licensiering finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). |
+Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active Directory Premium P1 eller P2-licens. Mer detaljerad information om Azure Active Directory-licensiering finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd**.
 1. Ställ in alternativet **tvinga anpassad lista**till **Ja**.

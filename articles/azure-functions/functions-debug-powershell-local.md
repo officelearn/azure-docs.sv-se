@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476671"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsök PowerShell Azure Functions lokalt
 
@@ -95,15 +95,28 @@ Med `Wait-Debugger` på plats, kan du nu felsöka funktioner med hjälp av Visua
 
 ## <a name="debug-in-visual-studio-code"></a>Felsöka i Visual Studio Code
 
-Du måste ha följande tillägg för Visual Studio Code för att felsöka dina PowerShell-funktioner i Visual Studio Code:
+Om du vill felsöka dina PowerShell-funktioner i Visual Studio Code, måste du ha följande installerat:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [PowerShell-tillägget för Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [Azure Functions-tillägg för Visual Studio Code](functions-create-first-function-vs-code.md)
+* [PowerShell Core 6.2 eller högre](/powershell/scripting/install/installing-powershell#powershell-core)
 
-Läsa in en befintlig funktionsappsprojekt när du har installerat PowerShell och Azure Functions-tillägg. Du kan också [skapa ett funktionsprojekt](functions-create-first-function-vs-code.md).
+Läsa in ett befintligt projekt i PowerShell-funktioner när du har installerat dessa beroenden eller [skapa din första PowerShell-funktionsprojekt](functions-create-first-function-powershell.md).
 
 >[!NOTE]
 > Inte bör ditt projekt har de nödvändiga konfigurationsfilerna, uppmanas du att lägga till dem.
+
+### <a name="set-the-powershell-version"></a>Ange PowerShell-version
+
+PowerShell Core installeras sida vid sida med Windows PowerShell. Ange PowerShell Core som PowerShell-version du använder med PowerShell-tillägget för Visual Studio Code.
+
+1. Tryck på F1 om du vill visa kommandot utbud och därefter söka efter `Session`.
+
+1. Välj **PowerShell: Visa menyn för sessionen**.
+
+1. Om din **aktuella sessionen** inte **PowerShell Core 6**, Välj **växla till: PowerShell Core 6**.
+
+När du har öppnat en PowerShell-fil kan se du den version som visas i grönt längst ned till höger i fönstret. Att välja den här texten visas även den session-menyn. Mer information finns i den [välja en version av PowerShell för att använda i tillägget](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### <a name="start-the-function-app"></a>Starta funktionsappen
 
@@ -140,7 +153,7 @@ När du fortsätta och fullständigt anropa skriptet kan se du att:
 * PowerShell-konsolen som gjorde den `Invoke-RestMethod` har returnerat ett resultat
 * PowerShell-konsolen i Visual Studio Code för integrerad väntar på att ett skript som ska köras
 
-Efterföljande gånger när du anropar funktionen samma felsökningsprogrammet i PowerShell tillägget bryter rätt efter den `Wait-Debugger`.
+När du anropar funktionen samma felsökningsprogrammet i PowerShell-tillägget senare bryter rätt efter den `Wait-Debugger`.
 
 ## <a name="debugging-in-a-powershell-console"></a>Felsökning i en PowerShell-konsol
 

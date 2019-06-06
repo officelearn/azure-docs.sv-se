@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000976"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476031"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
@@ -153,11 +153,11 @@ Du kan utvärdera en HTTP-begäran eller ett svar huvud för förekomsten av en 
 
 ## <a name="limitations"></a>Begränsningar
 
+- Om ett svar har mer än en rubriker med samma namn, leder sedan skriva om värdet för en av dessa huvuden släppa de andra rubrikerna i svaret. Detta kan vanligtvis inträffa med Set-Cookie-huvud eftersom du kan ha fler än en Set-Cookie-huvud i svaret. Ett sådant scenario är när du använder en app service med application gateway och har konfigurerat cookie-baserad sessionstillhörighet på application gateway. I det här fallet svaret innehåller 2 Set-Cookie-huvuden: en används av apptjänsten, t.ex, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för application gateway-tillhörighet, d.v.s. `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Skriva om någon av de Set-Cookie-rubrikerna i det här scenariot kan resultera i att ta bort andra Set-Cookie-rubriken från svaret.
+
 - Skriva om anslutning, uppgradering och värd-rubriker stöds inte för närvarande.
 
 - Rubriknamn får kan innehålla alla alfanumeriska tecken och specifika symboler som definierats i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte understreck (\_) specialtecken i rubriknamn.
-
-- Om ett svar har flera rubriker med samma namn, leder sedan skriva om värdet för en av dessa huvuden släppa de andra rubrikerna i svaret.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,24 +1,24 @@
 ---
-title: 'Snabbstart: Mata in Azure-blobar i Azure Data Explorer'
-description: I den här snabbstarten har du lära dig hur du skickar data för storage-konto till Azure Data Explorer med hjälp av en Event Grid-prenumeration.
+title: Mata in Azure-blobar i Azure Data Explorer
+description: I den här artikeln får du lära dig hur du skickar data för storage-konto till Azure Data Explorer med hjälp av en Event Grid-prenumeration.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446456"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494752"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Snabbstart: Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
 
 Azure Data Explorer är en snabb och skalbar tjänst för Kunskapsutveckling för logg-och telemetri. Den erbjuder kontinuerlig inmatning (datainläsning) från blobbar som skrivs till blob-behållare. 
 
-I den här snabbstarten får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigera händelser till Datautforskaren i Azure via en händelsehubb. Om du vill börja, bör du ha ett lagringskonto med en event grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar en Event Grid-dataanslutning och se data flödet i hela systemet.
+I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigera händelser till Datautforskaren i Azure via en händelsehubb. Om du vill börja, bör du ha ett lagringskonto med en event grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar en Event Grid-dataanslutning och se data flödet i hela systemet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -50,7 +50,7 @@ I den här snabbstarten får du lära dig hur du ställer in en [Azure Event Gri
 
 1. Välj fliken **Ytterligare funktioner** om du vill spåra filer från en specifik container. Ange filter för meddelanden på följande sätt:
     * **Ämnet börjar med** fältet är den *literal* prefixet för blob-behållaren. Eftersom det mönster som används är *startswith*, den kan sträcka sig över flera behållare. Jokertecken får inte användas.
-     Det *måste* anges enligt följande: *`/blobServices/default/containers/`*[containerprefix]
+     Det *måste* anges enligt följande: *`/blobServices/default/containers/`* [containerprefix]
     * Fältet **Subject Ends With** (Ämnet slutar med) är det *literala* blobsuffixet. Jokertecken får inte användas.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
@@ -89,7 +89,7 @@ Nu ansluta till event grid från Azure Data Explorer så att data som flödar ti
 
     ![Datainhämtning](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Välj anslutningstyp: **Blob Storage**.
+1.  Välj anslutningstyp: **BLOB-lagring**.
 
 1. Fyll i formuläret med följande information och välj **skapa**.
 
@@ -157,7 +157,7 @@ Spara data i en fil och ladda upp den med det här skriptet:
 > [!NOTE]
 > Azure Data Explorer har en aggregering (batchbearbetning)-princip för datainmatning som utformats för att optimera inmatning.
 Som standard konfigureras principen till 5 minuter.
-Du kommer att kunna ändra principen vid ett senare tillfälle om det behövs. I den här snabbstarten kan du förvänta dig en fördröjning på några minuter.
+Du kommer att kunna ändra principen vid ett senare tillfälle om det behövs. I den här artikeln kan du förvänta dig en fördröjning på några minuter.
 
 1. Under ditt händelserutnät på Azure-portalen ser du en aktivitetstopp när appen körs.
 
@@ -196,5 +196,4 @@ Om du inte planerar att använda händelserutnätet igen rensar du **test-hub-rg
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
+* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)

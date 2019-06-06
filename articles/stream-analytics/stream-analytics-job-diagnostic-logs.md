@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826582"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515919"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
@@ -46,7 +46,7 @@ Aktivitetsloggar är aktiverade som standard och ge övergripande insikter om å
 
    ![Stream Analytics-aktivitet log-åtgärdens sammanfattning](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Rulla ned till den **egenskaper** avsnitt i JSON, vilket ger information om felet som orsakade den misslyckade åtgärden. I det här exemplet var felet på grund av ett körningsfel utanför bundna latitudvärden.
+4. Rulla ned till den **egenskaper** avsnitt i JSON, vilket ger information om felet som orsakade den misslyckade åtgärden. I det här exemplet var felet på grund av ett körningsfel utanför bundna latitudvärden. Avvikelse i de data som bearbetas av ett Stream Analytics-jobb orsakar en datafel. Du kan lära dig om olika [inkommande och utgående datafel och varför de inträffar](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Information om JSON-fel](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 

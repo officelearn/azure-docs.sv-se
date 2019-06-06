@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420595"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473397"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdatera Token?
 
@@ -111,8 +111,11 @@ När en användare startar pekfunktioner webbläsare, anropar en COM-Klientvärd
 En PRT får ett krav för multifaktorautentisering (MFA) i specifika scenarier. När en MFA-baserad PRT används för att begära token för program, överförs MFA-anspråk till dessa apptoken. Den här funktionen ger en sömlös upplevelse för användare genom att förhindra att MFA-kontrollen för varje app som kräver. En PRT kan få en MFA-anspråk på följande sätt:
 
 * **Logga in med Windows Hello för företag**: Windows Hello för företag ersätter lösenord och använder kryptografiska nycklar för autentisering med stark tvåfaktorsautentisering. Windows Hello för företag är specifika för en användare på en enhet och själva kräver MFA för att etablera. När en användare loggar in med Windows Hello för företag, hämtar användarens PRT en MFA-anspråk. Det här scenariot gäller även för användare som loggar in med smartkort om autentisering med smartkort producerar en MFA-anspråk från AD FS.
+   * När Windows Hello för företag betraktas som multifaktorautentisering, uppdateras MFA-anspråk när PRT själva uppdateras, så att hela MFA utökas ständigt när användare loggar in med WIndows Hello för företag
 * **MFA vid WAM interaktiv inloggning i**: Vid en tokenförrfågan via WAM om en användare krävs för att göra MFA för att få åtkomst till appen, är PRT förnyas under denna interaktion imprinted med en MFA-anspråk.
+   * I det här fallet uppdateras MFA-anspråk inte kontinuerligt, så att hela MFA baserat på livslängd som anges för katalogen.
 * **MFA vid enhetsregistrering**: Om en administratör har konfigurerat inställningar för enheter i Azure AD för att [kräva MFA att registrera enheter](device-management-azure-portal.md#configure-device-settings), användaren behöver göra MFA för att slutföra registreringen. Under den här processen har PRT som har utfärdats till användaren MFA-anspråk som hämtats vid registrering. Den här funktionen gäller bara för den användare som utförde åtgärden join inte till andra användare som loggar in till enheten.
+   * Liknar WAM interaktiva inloggningen, MFA-anspråk uppdateras inte kontinuerligt, så att hela MFA baserat på livslängd som anges för katalogen.
 
 Windows 10 har en partitionerad lista med PRTs för varje autentiseringsuppgifter. Det finns därför en PRT för var och en av Windows Hello för företag, lösenord eller smartkort. Den här partitionering säkerställer att MFA-anspråk är isolerade baserat på de autentiseringsuppgifter som används och inte blandas under tokenbegäranden.
 

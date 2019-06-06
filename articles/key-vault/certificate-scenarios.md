@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725710"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427839"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -39,8 +39,7 @@ Certifikat består av tre relaterade resurser som länkas samman som ett Key Vau
 -   Registreringen som IT-administratören, PKI-administratör eller vem som helst hantera konton med CA: er för ett visst företag (ex.) Contoso) krävs för att använda Key Vault-certifikat.  
     Följande certifikatutfärdare är de aktuella samarbetade providers med Key Vault:  
     -   DigiCert - Key Vault erbjuder OV SSL-certifikat med DigiCert.  
-    -   GlobalSign - Key Vault erbjuder OV SSL-certifikat med GlobalSign  
-    -   WoSign - Key Vault erbjuder OV SSL eller EV SSL-certifikat med WoSign baserat på inställningen som konfigurerats av kunden i WoSign kontot på WoSign portal.  
+    -   Globaltrust - Key Vault erbjuder OV SSL-certifikat med Globaltrust.  
 
 **Steg 2** -kontoadministratör för en CA-providern skapar autentiseringsuppgifter som ska användas av Key Vault och registrera, förnya och använder SSL-certifikat via Key Vault.
 

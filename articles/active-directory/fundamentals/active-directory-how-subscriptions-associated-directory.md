@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463634"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430789"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -42,6 +42,7 @@ Innan du kan koppla eller lägga till din prenumeration, måste du utföra följ
     - Användare som har tilldelats med hjälp av RBAC förlorar sin åtkomst
     - Tjänstadministratören och Medadministratörer förlorar åtkomst
     - Om du har några nyckelvalv, de är otillgänglig och du behöver åtgärda dem när detta har gjorts
+    - Om du har inga hanterade identiteter för resurser som virtuella datorer eller Logic Apps kan måste du återaktivera eller återskapa dem när kopplingen
     - Om du har en registrerad Azure Stack, måste du omregistrera när detta har gjorts
 
 1. Logga in med ett konto som:
@@ -76,7 +77,9 @@ När du har associerat en prenumeration på en annan katalog, kan det finnas ytt
 
 1. Om du har alla viktiga valv, måste du ändra nyckelvalv klient-ID. Mer information finns i [ändra en nyckelvalvsklient-ID efter en prenumerationsflytt](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](/azure-stack/operator/azure-stack-registration).
+2. Om du använde systemtilldelade identiteter som ska hanteras för resurser, måste du aktivera dem igen. Om du använde användartilldelade hanterade identiteter, måste du återskapa dessa. När du återaktivera eller återskapa de identiteter som hanteras, måste du återansluta behörigheter som tilldelats dessa identiteter. Mer information finns i [vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
+
+3. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

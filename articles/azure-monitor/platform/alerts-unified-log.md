@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 5/31/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae35c735cffeb8cd85af1f32bb2d14ede6dc6b69
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345894"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427412"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 
@@ -33,7 +33,7 @@ Regler för log search definieras av följande information:
 
 - **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering utlöses. Analytics-fråga kan vara för en specifik Log Analytics-arbetsyta eller Application Insights-app och även omfatta flera [flera Log Analytics och Application Insights-resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst samt fråga rättigheter till alla resurser. 
     > [!IMPORTANT]
-    > Log avisering **inte** stöd för användning av [functions](../log-query/functions.md) av säkerhetsskäl. Även [mellan resurser fråga](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) stöd i loggaviseringar för Application Insights och log aviseringar för [Log Analytics som konfigurerats med scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) endast.
+    > [fråga mellan resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) stöd i loggaviseringar för Application Insights och log aviseringar för [Log Analytics som konfigurerats med scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) endast.
 
     Vissa analytiska kommandon och kombinationer är inkompatibelt med användning i loggvarningar; för mer information se [logga aviseringsfrågor i Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -45,8 +45,8 @@ Regler för log search definieras av följande information:
 
 Log search regler oavsett om det för [Azure Monitor-loggar](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), kan vara av två typer. De olika typerna beskrivs i detalj i avsnitten som följer.
 
-- **[Antal resultat](#number-of-results-alert-rules)**. Avisering skapas när antalet poster som returneras av loggsökningen överskrider ett angivet tal.
-- **[Metrisk måttenhet](#metric-measurement-alert-rules)**.  Varning skapad för varje objekt i resultatet av loggsökningen med värden som överskrider angivet tröskelvärde.
+- **[Antal resultat](#number-of-results-alert-rules)** . Avisering skapas när antalet poster som returneras av loggsökningen överskrider ett angivet tal.
+- **[Metrisk måttenhet](#metric-measurement-alert-rules)** .  Varning skapad för varje objekt i resultatet av loggsökningen med värden som överskrider angivet tröskelvärde.
 
 Skillnaderna mellan varningsregel typerna är som följer.
 
@@ -76,7 +76,7 @@ Sedan skulle aviseringen köra frågan var femte minut, med 30 minuters data –
 
 ### <a name="metric-measurement-alert-rules"></a>Varningsregler för metriska måttenheter
 
-**Metrisk måttenhet** Varningsregler skapar en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde.  De har följande tydliga skillnader från **antal resultat** aviseringsregler.
+**Metrisk måttenhet** Varningsregler skapar en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde och anges villkor för utlösare. Till skillnad från **antal resultat** aviseringsregler, **metriska måttenheter** Varningsregler fungerar när analytics resultatet innehåller en tidsserie. De har följande tydliga skillnader från **antal resultat** aviseringsregler.
 
 - **Mängdfunktion**: Anger beräkningen som utförs och eventuellt ett numeriskt fält ska aggregeras.  Till exempel **antal()** returnerar antalet poster i frågan, **avg(CounterValue)** Returnerar medelvärdet för fältet CounterValue under period. Mängdfunktion i fråga måste vara med namnet/kallas: AggregatedValue och ange ett numeriskt värde. 
 
@@ -127,16 +127,16 @@ Eftersom aviseringen är konfigurerad för att utlösaren baserat på totalt ant
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Sök loggvarningsregel - den utlösts och tillstånd
 
-Sök aviseringsregeln fungerar på logiken vinstmöjligheter av användaren enligt konfiguration och anpassade analytics-fråga som används. Utlösare är inkapslad i en Analytics-fråga – som kan skilja sig i varje loggvarningsregel sedan logiken för exakta villkoret eller orsak varför varningsregeln ska. Azure-aviseringar har begränsade-information för den specifika underliggande grundorsaken i loggen resultaten när villkoret tröskelvärdet för log search varningsregel uppnåtts eller överskridits. Därför loggvarningar refereras till som tillstånd utan och utlöses varje gång resultatet är tillräckligt för att överstiga tröskelvärdet som angetts i loggaviseringar av *antal resultat* eller *metriska måttenheter* typ för villkoret. Och loggaviseringsregler kommer hela tiden hålla, så länge som aviseringstillståndet uppfylls av resultatet av anpassade analysfråga angav; utan aviseringen var komma löst. Som logik på den exakta orsaken till övervakning fel maskeras i analytics-frågan som angetts av användaren. Det finns inga innebär som vilka Azure-aviseringar definitivt härleda om resultatet uppfyller inte tröskelvärdet anger lösning av problemet.
+Sök aviseringsregeln fungerar på logiken vinstmöjligheter av användaren enligt konfiguration och anpassade analytics-fråga som används. Sedan övervakningslogiken kapslas inklusive exakta villkoret eller orsak varför varningsregeln ska utlösas i en analytics-fråga – som kan skilja sig i varje loggvarningsregel. Azure-aviseringar har begränsade information för specifika underliggande Rotorsaksanalys (eller) scenariot som utvärderas när villkoret tröskelvärdet för log search varningsregel uppnåtts eller överskridits. Därför kallas loggvarningar som tillstånd utan. Och loggaviseringsregler ska behålla, så länge som aviseringstillståndet uppfylls av resultatet av anpassade analytics-fråga som tillhandahålls. Utan aviseringen var komma löst, som maskeras logiken för den exakta orsaken till övervakning av fel i analytics-frågan som anges av användaren. Det för närvarande finns ingen mekanism för Azure Monitor-aviseringar definitivt härleda grundorsaken som löst.
 
-Nu antar vi att vi har en loggvarningsregel som kallas *Contoso-Log-avisering*, enligt konfigurationen i den [exempel som angetts för många resultat typ log avisering](#example-of-number-of-records-type-log-alert). 
-- Klockan 13:05 när Contoso-Log-avisering utfördes av Azure-aviseringar, gav resultatet från 0 poster; under tröskelvärdet och kan därför inte startas aviseringen. 
-- I nästa iteration klockan 13:10 när Contoso-Log-avisering utfördes av Azure-aviseringar tillhandahålls resultatet från 5 posterna; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) som är associerade. 
-- Klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar, får resultatet 2 poster; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) som är associerade.
-- Nu får resultatet i nästa iteration klockan 13:20 när Contoso-Log-aviseringen har utförts genom Azure avisering igen 0 poster; under tröskelvärdet och kan därför inte startas aviseringen.
+Låt oss se desamma, med ett praktiska exempel. Anta att vi har en loggvarningsregel som kallas *Contoso-Log-avisering*, enligt konfigurationen i den [exempel som angetts för många resultat typ log avisering](#example-of-number-of-records-type-log-alert) – där anpassade aviseringsfrågan är utformad för att leta efter 500 Resultatkod i loggarna.
 
-Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Därför att err på sida av försiktighet när Contoso-Log-avisering körs klockan 13:15, konfigurerat [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) utlöses igen. Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
+- Klockan 13:05 när Contoso-Log-avisering utfördes av Azure-aviseringar, gav resultatet från noll poster med Resultatkod med 500. Eftersom noll är under tröskeln och aviseringen utlöses inte.
+- I nästa iteration klockan 13:10 när Contoso-Log-avisering utfördes av Azure-aviseringar angetts resultatet som för fem posterna med Resultatkod 500. Eftersom fem överskrider tröskelvärdet och aviseringen utlöses med tillhörande åtgärder hämta utlöses.
+- Resultatet visas två poster med 500 Resultatkod klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar. Eftersom två överskrider tröskelvärdet och aviseringen utlöses med tillhörande åtgärder hämta utlöses.
+- I nästa iteration klockan 13:20 när Contoso-Log-aviseringen har utförts genom Azure avisering får nu resultatet igen noll poster med 500 Resultatkod. Eftersom noll är under tröskeln och aviseringen utlöses inte.
 
+Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel. När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Eftersom logiken för aviseringen är inkapslade i aviseringsfrågan - så två poster med 500 Resultatkod sett klockan 13:15 kanske eller kanske inte redan visas klockan 13:10. Därför för att ta till en viss försiktighet när Contoso-Log-avisering körs klockan 13:15, utlöses konfigurerade åtgärden igen. Nu klockan 13:20 när inga poster visas med 500 Resultatkod - Azure-aviseringar inte får vara säker på att orsaken till 500 Resultatkod visas vid 1:10 PM och 1:15 löses nu och Azure Monitor-aviseringar tryggt kan härleda kan 500 fel problem inte utföras av samma skäl s igen. Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering. I stället den användare som förstår exakta villkoret eller orsaken till den logik som är inbäddad i analytics-fråga kan [markerar du aviseringen som stängts](alerts-managing-alert-states.md) efter behov.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av aviseringar
 
@@ -154,6 +154,8 @@ Ta bort dolda scheduleQueryRules resurserna som du skapade för fakturering av V
 
 - Antingen en användare kan [växla API till inställningar för Varningsregler i Log Analytics-arbetsytan](../../azure-monitor/platform/alerts-log-api-switch.md) och utan dataförlust sina Varningsregler eller övervakning flytten till Azure Resource Manager kompatibla [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Därigenom eliminera behovet av att göra pseudo dolda Varningsregler för fakturering.
 - Eller om användaren inte vill att växla till API-inställningar, användaren måste **ta bort** ursprungliga schema och Aviseringsåtgärd med [äldre Log Analytics API](api-alerts.md) eller ta bort i [Azure-portalen i ursprungliga loggvarningsregel](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+
+Dessutom för dolda scheduleQueryRules resurserna som du skapade för fakturering av Varningsregler med [äldre Log Analytics API](api-alerts.md), ändring av åtgärder som PUT misslyckas. Som den `microsoft.insights/scheduledqueryrules` typ pseudo reglerna avsedda för syftet med fakturering Varningsregler som skapats med hjälp av [äldre Log Analytics API](api-alerts.md). Ändringar varningsregeln ska göras med hjälp av [äldre Log Analytics API](api-alerts.md) (eller) kan användaren [växla API till inställningar för varningsreglerna](../../azure-monitor/platform/alerts-log-api-switch.md) att använda [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

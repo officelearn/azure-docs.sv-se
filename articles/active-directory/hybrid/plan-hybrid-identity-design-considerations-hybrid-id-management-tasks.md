@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918512"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472965"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identitetslivscykel
 Identitet är en av grundpelarna i enterprise mobility och programmet åtkomststrategi. Om du loggar din mobila enhet eller SaaS-app, är din identitet på för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering förena och synkronisering mellan din identitet lagringsplatser, bland annat automatisera och centralisera att etablera resurser. ID-lösning bör vara en centraliserad identitet i både lokalt och i molnet och även använda någon form av identitetsfederation att underhålla centraliserad autentisering och på ett säkert sätt dela och samarbeta med externa användare och företag. Resurser mellan operativsystem och program till personer i eller tillhör en organisation. Organisationsstruktur kan ändras för att hantera etablering principer och procedurer.
@@ -48,22 +48,23 @@ När du definierar dessa krav, se till att minst följande frågor besvaras
   
   * Fungerar licenshantering för hybrid identity lösningen hanterar?
     * Om Ja, vilka funktioner är tillgängliga?
-* Hanterar lösningen licenshantering av gruppbaserad? 
+  * Hanterar lösningen licenshantering av gruppbaserad? 
   
-      - Om Ja, är det möjligt att tilldela en grupp? 
-       - Om Ja, kommer molnkatalogen automatiskt tilldela licenser till alla medlemmar i gruppen? 
-        - Vad händer om en användare är därefter läggs till eller tas bort från gruppen, kommer en licens automatiskt tilldelas eller tas bort efter behov? 
+    * Om Ja, är det möjligt att tilldela en grupp? 
+    * Om Ja, kommer molnkatalogen automatiskt tilldela licenser till alla medlemmar i gruppen? 
+    * Vad händer om en användare är därefter läggs till eller tas bort från gruppen, kommer en licens automatiskt tilldelas eller tas bort efter behov? 
 * Integrering med andra identitetsleverantörer för från tredje part:
-* Kan den här kombinerade lösningen integreras med identitetsleverantörer från tredje part att implementera enkel inloggning?
-* Är det möjligt att förena de olika identitetsprovidrarna i ett sammanhängande identitetssystem?
-* Om Ja, hur och som är de och vilka funktioner är tillgängliga?
+  * Kan den här kombinerade lösningen integreras med identitetsleverantörer från tredje part att implementera enkel inloggning?
+  * Är det möjligt att förena de olika identitetsprovidrarna i ett sammanhängande identitetssystem?
+  * Om Ja, hur och som är de och vilka funktioner är tillgängliga?
 
 ## <a name="synchronization-management"></a>Hantering av datasynkronisering
 Ett av målen med en identity manager för att kunna ta med alla identitetsleverantörer och hålla dem synkroniserade. Du behåller synkronisera data utifrån en auktoritativ master identitetsprovider. I hybrididentitetsscenario med synkroniserade management-modellen kan hantera alla användar- och identiteter i en lokal server och synkronisera de konton och eventuellt lösenord till molnet. Användaren anger de samma lösenord lokalt som i molnet och vid inloggning, lösenordet verifieras av ID-lösning. Den här modellen använder en katalogsynkroniseringsverktyget.
 
-![katalogsynkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) till rätt design synkronisering av din hybrididentitetslösning Kontrollera att följande frågor besvaras: • vilka är de sync-lösningarna som är tillgängliga för hybrididentitetslösning?
-• Vilka är funktionerna för enkel inloggning?
-• Alternativ för identitetsfederation mellan B2B och B2C?
+![katalogsynkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) till rätt design synkronisering av din hybrididentitetslösning Kontrollera att följande frågor besvaras:
+*    Vilka är de sync-lösningarna som är tillgängliga för hybrididentitetslösning?
+*    Vad är funktioner som är tillgängliga för enkel inloggning?
+*    Vad är alternativen för identitetsfederation mellan B2B och B2C?
 
 ## <a name="next-steps"></a>Nästa steg
 [Fastställa införandestrategin för hybrid identity](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

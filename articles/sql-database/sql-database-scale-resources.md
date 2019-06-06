@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073144"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743112"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiskt skala databasresurser med minimal avbrottstid
 
@@ -55,6 +55,9 @@ Alla tre varianter av Azure SQL Database erbjuder vissa möjlighet att dynamiskt
 - Med en [enkel databas](sql-database-single-database-scale.md), du kan använda antingen [DTU](sql-database-dtu-resource-limits-single-databases.md) eller [vCore](sql-database-vcore-resource-limits-single-databases.md) modeller för att definiera maximal mängd resurser som ska tilldelas varje databas.
 - En [Managed Instance](sql-database-managed-instance.md) använder [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) läge och du kan definiera högsta CPU-kärnor och maximalt lagringsutrymme som allokerats till din instans. Alla databaser i instansen kommer att dela resurser allokeras till instansen.
 - [Elastiska pooler](sql-database-elastic-pool-scale.md) kan du definiera högsta gräns för varje grupp med databaser i poolen.
+
+> [!NOTE]
+> Du kan förvänta dig en kort anslutning break när skala upp/skala ned processen är klar. Om du har implementerat [logik för omprövning standard tillfälliga fel](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), ser du inte växling vid fel.
 
 ## <a name="alternative-scale-methods"></a>Skala alternativa metoder
 

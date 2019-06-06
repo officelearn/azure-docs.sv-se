@@ -2,20 +2,20 @@
 title: Användning reporting API-exempel och definitioner i Azure Active Directory B2C | Microsoft Docs
 description: Guiden och exempel på att få rapporter för Azure AD B2C-klientorganisation, användare, autentiseringar och multifaktorautentiseringar.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb8c41f657d8901535ba284c147f4ca3aa86198d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703628"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508718"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via rapporterings-API
 

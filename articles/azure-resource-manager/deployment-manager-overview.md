@@ -1,23 +1,18 @@
 ---
 title: Metoder för säker distribution i flera regioner - Distributionshanteraren för Azure
 description: Beskriver hur du distribuerar en tjänst via många regioner med Azure Deployment Manager. Den visar säker distribution metoder för att kontrollera stabiliteten för distributionen innan du distribuerar till alla regioner.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595796"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431167"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
 
@@ -25,7 +20,7 @@ För att distribuera tjänsten i många regioner och kontrollera att den körs s
 
 Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden. 
 
-Distributionshanteraren i Azure finns i en privat förhandsgranskning. För att använda Azure Deployment Manager måste slutföra den [fyllt i registreringsformuläret](https://aka.ms/admsignup). Hjälp dig förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager är i förhandsversion. Hjälp oss att förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
 
 Om du vill använda Deployment Manager, måste du skapa fyra filer:
 

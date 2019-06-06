@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502264"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427527"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Utforskning och visualisering Dataverktyg på den virtuella datorn för datavetenskap
 
-Ett viktigt steg i datavetenskap är att förstå data. Visualisering och datautforskningsverktygen påskyndar förståelse av data. Här är några verktyg som tillhandahålls på DSVM som underlättar det här viktiga steget. 
+Ett viktigt steg i datavetenskap är att förstå data. Visualisering och datautforskningsverktygen påskyndar förståelse av data. Här är några verktyg som tillhandahålls på DSVM som gör det här viktiga steget enklare. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -56,12 +56,12 @@ Ett viktigt steg i datavetenskap är att förstå data. Visualisering och dataut
 | Innehåller länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
 | Relaterade verktyg på DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Interaktiv datavisualisering och BI-verktyg    |
 | Stöds DSVM-versioner      | Windows  |
 | Vanliga användningsområden      |  Datavisualisering och skapa instrumentpaneler   |
 | Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Relaterade verktyg på DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

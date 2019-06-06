@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508411"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497114"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -180,17 +180,18 @@ Ja. Alla virtuella datorer och molntjänster rollinstanser som distribuerats i e
 ## <a name="azure-services-that-connect-to-vnets"></a>Azure-tjänster som ansluter till virtuella nätverk
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Kan jag använda Azure App Service Web Apps med ett virtuellt nätverk?
-Ja. Du kan distribuera webbprogram i ett virtuellt nätverk med hjälp av en ASE (App Service Environment). Om du har en punkt-till-plats-anslutning som konfigurerats för ditt virtuella nätverk, kan alla webbprogram på ett säkert sätt ansluta och komma åt resurser i det virtuella nätverket. Mer information finns i följande artiklar:
+Ja. Du kan distribuera Webbappar i ett virtuellt nätverk med hjälp av en ASE (App Service Environment), koppla serverdelen för dina appar till dina virtuella nätverk med VNet-integrering och låsa inkommande trafik till din app med Tjänsteslutpunkter. Mer information finns i följande artiklar:
 
+* [Funktioner för App Service](../app-service/networking-features.md)
 * [Skapa Webbappar i App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Med hjälp av VNet-Integration och Hybridanslutningar med Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Åtkomstbegränsningar för App Service](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Kan jag distribuera Cloud Services med webb- och arbetsroller (PaaS) i ett virtuellt nätverk?
 Ja. (Valfritt) kan du distribuera Cloud Services-rollinstanser i virtuella nätverk. Om du vill göra det anger du virtuella nätverkets namn och rollen/undernät-mappningar i konfigurationsavsnittet nätverk av tjänstens konfiguration. Du behöver inte uppdatera alla binära filer.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>Kan jag ansluta en virtuell dator skala ange (VMSS) till ett virtuellt nätverk?
-Ja. En VMSS måste du ansluta till ett virtuellt nätverk.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Kan jag ansluta en VM-skalningsuppsättning till ett virtuellt nätverk?
+Ja. Du måste ansluta en VM-skalningsuppsättning till ett virtuellt nätverk.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Finns det en fullständig lista över Azure-tjänster som kan jag distribuera resurser från i ett virtuellt nätverk?
 Ja, mer information finns i [integrering av virtuella nätverk för Azure-tjänster](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Ja. Mer information finns i [översikt över nätverkssäkerhet för Azure](../s
 ## <a name="apis-schemas-and-tools"></a>API: er, scheman och verktyg
 
 ### <a name="can-i-manage-vnets-from-code"></a>Kan jag hantera virtuella nätverk från kod?
-Ja. Du kan använda REST API: er för virtuella nätverk i den [Azure Resource Manager](/rest/api/virtual-network) och [klassisk (Service Management)](https://go.microsoft.com/fwlink/?LinkId=296833) distributionsmodeller.
+Ja. Du kan använda REST API: er för virtuella nätverk i den [Azure Resource Manager](/rest/api/virtual-network) och [klassiska](https://go.microsoft.com/fwlink/?LinkId=296833) distributionsmodeller.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Finns det verktygsstöd för virtuella nätverk?
 Ja. Lär dig mer om hur du använder:
@@ -227,7 +228,7 @@ Ja. Lär dig mer om hur du använder:
 - PowerShell för att hantera virtuella nätverk som distribueras via den [Resource Manager](/powershell/module/az.network) och [klassiska](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) distributionsmodeller.
 - Azures kommandoradsgränssnitt (CLI) för att distribuera och hantera virtuella nätverk som distribueras via den [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) distributionsmodeller.  
 
-## <a name="vnet-peering"></a>VNet-peering
+## <a name="vnet-peering"></a>VNET-peering
 
 ### <a name="what-is-vnet-peering"></a>Vad är VNet-peering?
 VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk. En VNet peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peerkopplade virtuella nätverk kan kommunicera med varandra som om de är i samma nätverk. Dessa virtuella nätverk kan vara i samma region eller i olika regioner (även kallat Global VNet-Peering). Också kan skapa VNet peering-anslutningar mellan Azure-prenumerationer.
@@ -239,18 +240,18 @@ Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. G
 Om de två virtuella nätverken är i olika regioner (Global VNet-Peering) kan ansluta du inte till resurser som använder grundläggande belastningsutjämnare. Du kan ansluta till resurser som använder Standard Load Balancer.
 Följande resurser använder grundläggande belastningsutjämnare vilket innebär att du inte kan kommunicera till dem i Global VNet-Peering:
 - Virtuella datorer bakom grundläggande belastningsutjämnare
-- VM Scale Sets med grundläggande belastningsutjämnare 
-- Redis-cache 
+- VM-skalningsuppsättningar med grundläggande belastningsutjämnare 
+- Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
 - API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
-- App Service-miljön
+- App Service Environment
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
@@ -285,7 +286,7 @@ Nej. Transitiva peering stöds inte. Du måste peer VNetA och VNetC för den hä
 Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsningar. Bandbredd begränsas bara av den virtuella datorn eller beräkningsresursen.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Hur felsöker jag problem med VNet-Peering?
-Här är en [felsökare guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) du.
+Här är en [felsökare guide](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) du.
 
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 

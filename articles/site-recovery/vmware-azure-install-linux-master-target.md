@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602062"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479997"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -46,7 +46,7 @@ Skapa Huvudmålet i enlighet med följande riktlinjer för storlek:
 - **Ytterligare storleken för kvarhållningsenhet**: 1 TB
 - **CPU-kärnor**: 4 kärnor eller mer
 
-Följande stöds Ubuntu-kärnor stöds.
+Följande Ubuntu kärnor stöds.
 
 
 |Kernel-serien  |Stöd för upp till  |
@@ -245,7 +245,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
 
     ![Flera sökvägar ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatera enheten och sedan skapa ett filsystem på den nya enheten: **mkfs.ext4 /dev/mapper/< multipath kvarhållning disk-id >**.
+3. Formatera enheten och sedan skapa ett filsystem på den nya enheten: **mkfs.ext4 /dev/mapper/< multipath kvarhållning disk-id >** .
     
     ![Filsystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

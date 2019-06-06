@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918482"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473082"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Vanliga scenarier i Azure AD rättigheten hantering (förhandsversion)
 
@@ -47,17 +47,17 @@ Det finns flera sätt att du kan konfigurera hantering av rätt för din organis
 > | Steg | Exempel |
 > | --- | --- |
 > | **1.** [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Skapa en access-paket](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [Lägg till resursroller för att komma åt paketet](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Grupper</li><li>Appar</li><li>SharePoint-webbplatser</li></ul> | ![Lägg till resursroller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Lägg till en princip](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>För användare i din katalog</li><li>Godkännande krävs</li><li>Förfalloinställningar</li></ul> | ![Lägg till princip](./media/entitlement-management-scenarios/policy.png) |
+> | **2.** [Lägg till resursroller för att komma åt paketet](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Grupper</li><li>Program</li><li>SharePoint-webbplatser</li></ul> | ![Lägg till resursroller](./media/entitlement-management-scenarios/resource-roles.png) |
+> | **3.** [Lägg till en princip](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>För användare i din katalog</li><li>Kräv godkännande</li><li>Förfalloinställningar</li></ul> | ![Lägg till princip](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Jag vill att användare från min affärspartner (inklusive användare har ännu inte i min katalog) för att begära åtkomst till grupper, program eller SharePoint-webbplatser
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Jag vill att användare från min katalog för partner av företag (inklusive användare har ännu inte i min katalog) för att begära åtkomst till grupper, program eller SharePoint-webbplatser
 
 > [!div class="mx-tableFixed"]
 > | Steg | Exempel |
 > | --- | --- |
 > | **1.** [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Skapa en access-paket](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Lägg till resursroller för att komma åt paketet](entitlement-management-access-package-edit.md#add-resource-roles) | ![Lägg till resursroller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Lägg till en princip för externa användare](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>För användare inte i din katalog</li><li>Godkännande krävs</li><li>Förfalloinställningar</li></ul> | ![Lägg till princip för externa användare](./media/entitlement-management-scenarios/policy-external.png) |
+> | **3.** [Lägg till en princip för externa användare](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>För användare inte i din katalog</li><li>Kräv godkännande</li><li>Förfalloinställningar</li></ul> | ![Lägg till princip för externa användare](./media/entitlement-management-scenarios/policy-external.png) |
 > | **4.** [Skicka mina åtkomst portal länken att begära åtkomst paketet till din affärspartner](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Affärspartner kan dela länken med sina användare</li></ul> |  |
 
 ### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>Jag vill ändra grupper, program eller SharePoint-webbplatser i en åtkomst-paket
@@ -93,7 +93,7 @@ Det finns flera sätt att du kan konfigurera hantering av rätt för din organis
 > | **1.** [Öppna begäran i min Access portal](entitlement-management-request-approve.md#open-request) | [![Min portal ikonen åtkomst](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** [Godkänn åtkomstbegäran om](entitlement-management-request-approve.md#approve-or-deny-request) | ![Bevilja åtkomst](./media/entitlement-management-scenarios/approve-access.png) |
 
-## <a name="requestors"></a>Begärande
+## <a name="requestors"></a>Beställare
 
 ### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-available-to-me-and-request-access"></a>Jag vill visa grupper, program och SharePoint-webbplatser som är tillgängliga för mig och begära åtkomst
 
@@ -124,4 +124,4 @@ Det finns flera sätt att du kan konfigurera hantering av rätt för din organis
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: Skapa ditt första åtkomst-paket](entitlement-management-access-package-first.md)
-- [Redigera och hantera ett befintligt paket för åtkomst](entitlement-management-access-package-edit.md)
+- [Redigera och hantera ett befintligt åtkomstpaket](entitlement-management-access-package-edit.md)

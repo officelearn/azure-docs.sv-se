@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 51b394043f88789865edea5be6376ae536f88848
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420445"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455784"
 ---
-# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera en delad bildgalleriet i Azure DevTest Labs
-DevTest Labs nu stöder den [delad bildgalleriet](/virtual-machines/windows/shared-image-galleries.md) funktionen. Det gör det möjligt för labbanvändare åtkomst till bilder från en delad plats när du skapar labbresurser. Det hjälper dig också att skapa struktur och organisation runt dina anpassade-hanterade VM-avbildningar. Delad bildgalleriet-funktionen stöder:
+# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
+DevTest Labs nu stöder den [delad bildgalleriet](/virtual-machines/windows/shared-image-galleries.md) funktionen. Det gör det möjligt för labbanvändare att få åtkomst till avbildningar från en delad plats när de skapar labbresurser. Funktionen hjälper dig även att skapa ordning och struktur för dina anpassade hanterade VM-avbildningar. Delad bildgalleriet-funktionen stöder:
 
 - Hanterad global replikering av avbildningar
 - Versionshantering och gruppering av avbildningar för enklare hantering
-- Gör dina avbildningar med hög tillgänglighet med Zonredundant lagring (ZRS)-konton i regioner som har stöd för tillgänglighetszoner. ZRS ger bättre återhämtning mot zonindelad fel.
-- Delning mellan prenumerationer och även mellan klienter, med hjälp av rollbaserad åtkomstkontroll (RBAC).
+- Säkerställ hög tillgänglighet för dina avbildningar med ZRS-konton (zonredundant lagring) i regioner med stöd för tillgänglighetszoner. ZRS ger bättre motståndskraft mot problem i enskilda zoner.
+- Dela mellan prenumerationer, och även mellan klientorganisationer, med hjälp av rollbaserad åtkomstkontroll (RBAC).
 
 Mer information finns i [delad bildgalleriet dokumentation](../virtual-machines/windows/shared-image-galleries.md). 
  
-Om du har ett stort antal hanterade avbildningar som du behöver underhålla och vill göra dem tillgängliga i hela företaget kan använda du en delad bildgalleriet som en lagringsplats som gör det enkelt att uppdatera och dela dina avbildningar. Som labbägare kan koppla du en befintlig delad bildgalleriet till labbet. När det här galleriet är kan labbanvändare skapa datorer från de här senaste bilder. En viktig fördel med den här funktionen är att DevTest Labs kan nu dra nytta av delning avbildningar mellan labs, mellan prenumerationer och mellan regioner. 
+Om du har ett stort antal hanterade avbildningar som du vill göra tillgängliga i hela företaget kan du använda ett delat avbildningsgalleri som en lagringsplats. Det gör det enkelt att uppdatera och dela avbildningarna. Som labbägare kan du lägga till ett befintligt delat avbildningsgalleri till ditt labb. När galleriet är tillagt kan labbägare skapa datorer från de senaste avbildningarna. En viktig fördel med den här funktionen är att DevTest Labs nu kan dela avbildningar mellan olika labb, prenumerationer och regioner. 
 
 ## <a name="considerations"></a>Överväganden
 - Du kan endast koppla en delad bildgalleriet i ett labb i taget. Om du vill koppla en annan galleriet måste du koppla från den befintliga påverkas och kopplar ett annat. 
@@ -46,10 +46,17 @@ Om du har ett stort antal hanterade avbildningar som du behöver underhålla och
 1. I listan över labbar, väljer din **lab**.
 1. Välj **konfiguration och principer** i den **inställningar** avsnitt i den vänstra menyn.
 1. Välj **delad Image Galleries** under **VM-baser** på den vänstra menyn.
+
+    ![Delade Image Galleries-menyn](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Koppla en befintlig delad bildgalleriet till labbet genom att klicka på den **bifoga** knappen och markera galleriet i listrutan.
+
+    ![Anslut](./media/configure-shared-image-gallery/attach-options.png)
 1. Gå till galleriet anslutna och konfigurera galleriet till **aktivera eller inaktivera** delade bilder för att skapa en virtuell dator.
+
+    ![Aktivera eller inaktivera](./media/configure-shared-image-gallery/enable-disable.png)
 1. Labbanvändare kan sedan skapa en virtuell dator med aktiverad avbildningar genom att klicka på **+ Lägg till** och att hitta avbildningen i den **väljer din base** sidan.
 
+    ![Labbanvändare](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>Använd Azure Resource Manager-mallar
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Bifoga en delad bildgalleriet i labbet

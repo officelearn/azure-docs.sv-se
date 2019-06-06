@@ -2,18 +2,17 @@
 title: Metodtips för Azure Kubernetes Service (AKS)
 description: Insamling av klustret operatorn och utvecklare metodtipsen för att skapa och hantera program i Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: iainfou
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467161"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514562"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Metodtips för kluster-operatorn och utvecklare att bygga och hantera program på Azure Kubernetes Service (AKS)
 
@@ -29,19 +28,19 @@ Arbeta tillsammans med programägare och utvecklare för att förstå deras beho
 
 * [Metodtips för isolering av kluster](operator-best-practices-cluster-isolation.md)
     * Innehåller flera innehavare kärnkomponenter och logisk isolering med namnområden.
-* [Metodtips för grundläggande scheduler-funktioner](operator-best-practices-scheduler.md)
+* [Metodtips för grundläggande schemaläggningsfunktioner](operator-best-practices-scheduler.md)
     * Innehåller med resurskvoter och pod avbrott budgetar.
-* [Metodtips för avancerade scheduler-funktioner](operator-best-practices-advanced-scheduler.md)
+* [Metodtips för avancerade schemaläggningsfunktioner](operator-best-practices-advanced-scheduler.md)
     * Innehåller med taints och tolerations, noden väljare och tillhörighet, och kommunikation mellan pod tillhörighet och anti-tillhörighet.
 * [Metodtips för autentisering och auktorisering](operator-best-practices-identity.md)
     * Innefattar integrering med Azure Active Directory, med hjälp av rollbaserad åtkomstkontroll (RBAC) och pod-identiteter.
 
 **Säkerhet**
 
-* [Metodtips för Klustersäkerhet och uppgraderingar](operator-best-practices-cluster-security.md)
+* [Metodtips för klustersäkerhet och uppgraderingar](operator-best-practices-cluster-security.md)
     * Innehåller skydda åtkomst till API-servern, begränsa åtkomst till behållare och hantera uppgraderingar och omstarter av noden.
 * [Metodtips för hantering av behållare avbildningen och säkerhet](operator-best-practices-container-image-management.md)
-    * Innehåller skydda avbildningen och körningar, med betrodda register och automatiserade versioner på basavbildningen uppdateringar...
+    * Innehåller skydda avbildningen och körningar och automatiserade versioner basavbildningen uppdateringar.
 * [Metodtips för pod-säkerhet](developer-best-practices-pod-security.md)
     * Omfattar att skydda åtkomsten till resurser, begränsa exponering av autentiseringsuppgifter och använder pod identiteter och digital nyckelvalv.
 
@@ -61,7 +60,7 @@ Arbeta tillsammans med programägare och utvecklare för att förstå deras beho
 
 Som utvecklare eller programmets ägare, du kan förenkla din utvecklingsupplevelse och definiera kräver prestanda programbehov.
 
-* [Metodtips för programutvecklare att hantera resurser](developer-best-practices-resource-management.md)
+* [Metodtips för programutvecklare för resurshantering](developer-best-practices-resource-management.md)
     * Innehåller definiera pod resursbegäranden och gränser, konfigurerar utvecklingsverktyg och söker efter programfel.
 * [Metodtips för pod-säkerhet](developer-best-practices-pod-security.md)
     * Omfattar att skydda åtkomsten till resurser, begränsa exponering av autentiseringsuppgifter och använder pod identiteter och digital nyckelvalv.

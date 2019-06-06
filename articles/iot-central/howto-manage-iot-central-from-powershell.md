@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086c7d303fd199090de3be77b2456c4ebcd053a8
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533267"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726942"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
@@ -25,7 +25,7 @@ I stället för att skapa och hantera IoT Central-program från IoT Central [Pro
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du vill köra Azure PowerShell på den lokala datorn finns [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). När du kör Azure PowerShell lokalt måste du använda den **Connect AzAccount** cmdlet för att logga in på Azure innan du försöker cmdletarna i den här artikeln.
 
@@ -71,11 +71,11 @@ Skriptet skapar först en resursgrupp i östra USA för programmet. I följande 
 |Underdomän         |Underdomänen i URL: en för programmet. I det här exemplet programmets URL är https://mysubdomain.azureiotcentral.com. |
 |Sku               |Det enda värdet som är för närvarande **S1** (standard-nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Mall          | Mall för program att använda. Mer information finns i följande tabell: |
-|DisplayName       |Namnet på appen som visas i Användargränssnittet. |
+|displayName       |Namnet på appen som visas i Användargränssnittet. |
 
 **Programmallar**
 
-|Mallens namn  |Beskrivning |
+|Mallnamn  |Beskrivning |
 |---------------|------------|
 |iotc-default@1.0.0 |Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 |iotc-demo@1.0.0    |Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |

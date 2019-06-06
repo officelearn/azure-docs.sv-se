@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234164"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475645"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Förhandsgranskning – automatiskt skala ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,11 @@ Den här artikeln visar hur du aktiverar och hanterar klustret autoskalningen i 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln kräver att du kör Azure CLI version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver att du kör Azure CLI version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
 
-AKS-kluster som har stöd för autoskalningen kluster måste använda VM-skalningsuppsättningar och kör Kubernetes-version *1.12.4* eller senare. Den här stöd finns i förhandsversion. Om du vill anmäla dig och skapa kluster som använder skalningsuppsättningar, först installera den *aks-förhandsversion* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot enligt följande Exempel:
+AKS-kluster som har stöd för autoskalningen kluster måste använda VM-skalningsuppsättningar och kör Kubernetes-version *1.12.7* eller senare. Den här stöd finns i förhandsversion. Om du vill anmäla dig och skapa kluster som använder skalningsuppsättningar, först installera den *aks-förhandsversion* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot enligt följande Exempel:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder skalningsuppsättningar för virtuella datorer:
+Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder autoskalningen klustret:
 
 * Tillägg till routning för HTTP-program kan inte användas.
+* Flera nodpooler (för närvarande i förhandsversion i AKS) kan för närvarande inte användas.
 
 ## <a name="about-the-cluster-autoscaler"></a>Om klustret autoskalningen
 

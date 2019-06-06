@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143012"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475609"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använda Azure rollbaserade åtkomstkontroller för att definiera åtkomst till konfigurationsfilen för Kubernetes i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du tilldelar RBAC-roller som begränsa vem som kan h
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Den här artikeln kräver också att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver också att du kör Azure CLI version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Tillgängliga rollbehörigheter
 
@@ -45,9 +45,9 @@ Dessa RBAC-roller kan tillämpas på en Azure Active Directory (AD)-användare e
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Tilldela behörigheter till en användare eller grupp
 
-Om du vill tilldela en av de tillgängliga rollerna, måste du hämta resurs-ID för AKS-klustret och ID för Azure AD-användarkonto eller grupp. Kommandona i följande exempel utför följande steg:
+Om du vill tilldela en av de tillgängliga rollerna, måste du hämta resurs-ID för AKS-klustret och ID för Azure AD-användarkonto eller grupp. Kommandona i följande exempel:
 
-* Hämtar klustret resource ID med den [az aks show] [ az-aks-show] kommandot för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. Ange ditt eget kluster och resurs gruppnamn efter behov.
+* Hämta klustret resource ID med den [az aks show] [ az-aks-show] kommandot för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. Ange ditt eget kluster och resurs gruppnamn efter behov.
 * Använder den [az konto show] [ az-account-show] och [az ad user show] [ az-ad-user-show] kommandon för att få ditt användar-ID.
 * Slutligen tilldelar en roll med hjälp av den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando.
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Om du vill tilldela behörigheter till en Azure AD-grupp, uppdatera den `--assignee` parameter med objekt-ID för gruppen i stället för en användare som du ser i exemplet ovan. Hämta objekt-ID för en grupp med den [az ad group show] [ az-ad-group-show] kommando. I följande exempel hämtar objekt-ID för Azure AD-grupp med namnet *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Om du vill tilldela behörigheter till en Azure AD-grupp, uppdatera den `--assignee` parametern visas i exemplet ovan med objekt-ID för den *grupp* snarare än en *användaren*. Hämta objekt-ID för en grupp med den [az ad group show] [ az-ad-group-show] kommando. I följande exempel hämtar objekt-ID för Azure AD-grupp med namnet *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Du kan ändra den tidigare tilldelningen till den *kluster användarrollen* efter behov.
 

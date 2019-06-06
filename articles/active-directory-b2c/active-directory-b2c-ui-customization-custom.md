@@ -2,20 +2,20 @@
 title: Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig mer om hur du anpassar ett användargränssnitt som använder en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dc60c1fbdbd04653160db4d7794f8887305859d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507674"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ När du har slutfört den här artikeln har du en anpassad princip för registre
 
 Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
-## <a name="page-ui-customization"></a>Anpassning av sidgränssnittet
+## <a name="page-ui-customization"></a>Page UI-anpassning
 
 Med hjälp av funktionen sida Användargränssnittet anpassning, kan du anpassa utseendet och känslan av en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 

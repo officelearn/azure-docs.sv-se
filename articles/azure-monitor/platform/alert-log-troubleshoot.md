@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399190"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477871"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka loggaviseringar i Azure Monitor  
 
 Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar aviseringar i Azure Monitor. Det ger också lösningar på vanliga problem med funktioner och konfigurationen av aviseringar. 
 
-Termen *loggaviseringar* beskriver aviseringar att fire baserat på en loggfråga i en [Azure Log Analytics-arbetsyta](../learn/tutorial-viewdata.md) eller i [Azure Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md).
+Termen *loggaviseringar* beskriver regler att fire baserat på en loggfråga i en [Azure Log Analytics-arbetsyta](../learn/tutorial-viewdata.md) eller i [Azure Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn om Azure-portalen visar en varningsregel som utlöses och ett meddelande inte har utförts av en tillhörande åtgärdsgrupp. Finns i informationen i sådana fall kan [skapa och hantera åtgärdsgrupper i Azure-portalen](../platform/action-groups.md).

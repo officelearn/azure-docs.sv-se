@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417605"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480233"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Avbryta din prenumeration för Azure
 
@@ -29,6 +29,7 @@ Innan du avbryter din prenumeration:
 * Stänga av dina tjänster. Gå till den [resurser sidan i hanteringsportalen](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), och **stoppa** någon kör virtuella datorer, program eller andra tjänster.
 * Överväg att migrera dina data. Se [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 * Du måste ta bort alla resurser och alla resursgrupper. Det är obligatoriskt att ta bort dem innan du kan avbryta en prenumeration. Varje resursgrupp måste tas bort separat. Vid borttagning av resursen, måste du bekräfta borttagningen genom att skriva resursgruppens namn.
+* Om du har några anpassade roller som refererar till den här prenumerationen i `AssignableScopes`, bör du uppdatera dessa anpassade roller för att ta bort prenumerationen. Om du försöker uppdatera en anpassad roll efter att du avbryter en prenumeration kan du få ett felmeddelande. Mer information finns i [felsökning av problem med anpassade roller](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) och [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
 
 Om du avbryter ett betalt supportavtal för Azure faktureras du fortfarande för resten av prenumerationsperioden. Mer information finns i [supportavtal](https://azure.microsoft.com/support/plans/).
 
@@ -43,11 +44,9 @@ Om du avbryter ett betalt supportavtal för Azure faktureras du fortfarande för
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Vad händer när jag säga upp min prenumeration?
 
-När du avbryter stoppas faktureringen omedelbart. Dock kan det ta upp till 10 minuter för detta ska visas i portalen.
+Faktureringen stoppas omedelbart efter att du avbryter. Dock kan det ta upp till 10 minuter för detta ska visas i portalen. Om du avbryter en faktureringsperiod, kan vi skicka den slutgiltiga fakturan på din vanliga fakturadatum när den har löpt ut.
 
-Efter det inaktiveras dina tjänster. Det innebär att dina virtuella datorer är frigjord tillfälliga IP-adresser frigörs och lagring är skrivskyddad.
-
-Om du avbryter en faktureringsperiod, kan vi skicka den slutgiltiga fakturan på din vanliga fakturadatum när den har löpt ut.
+Efter att du avbryter inaktiveras dina tjänster. Det innebär att dina virtuella datorer är frigjord tillfälliga IP-adresser frigörs och lagring är skrivskyddad.
 
 Vi väntar du 90 dagar innan dina data tas bort permanent om du behöver åtkomst till den eller du ändrar dig. Vi debiterar inte du för att bevara data. Mer information finns i [Microsoft Trust Center – hur vi hanterar dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

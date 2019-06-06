@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122312"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475898"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -60,7 +60,7 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-Skapa en offentlig lastbalanserare med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en klientdels-IP-konfiguration med namnet **myFrontEnd**, en serverdelspool med namnet **myBackEndPool** som är associerad med en offentlig IP-adress **10.0.0.7.
+Skapa en intern belastningsutjämnare med [az network lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en frontend IP-konfiguration med namnet **myFrontEnd**, en serverdelspool med namnet **myBackEndPool** som är associerad med en privat IP-adress ** 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

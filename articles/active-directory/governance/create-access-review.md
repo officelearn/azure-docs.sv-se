@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113513"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734571"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -31,14 +31,13 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure AD Premium P2
-- [Åtkomstgranskningar aktiverat](access-reviews-overview.md)
 - Global administratör eller Användaradministratör
 
 Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
-1. Logga in på Azure-portalen och öppna den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Logga in på Azure-portalen och öppna den [Identitetsstyrning sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. I den vänstra menyn klickar du på **Åtkomstgranskningar**.
 

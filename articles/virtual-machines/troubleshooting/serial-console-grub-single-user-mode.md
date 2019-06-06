@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835045"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735269"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet, vilket förmodligen är det första som visas när du startar en virtuell dator. Eftersom den visar innan operativsystemet har startat är den inte tillgänglig via SSH. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
@@ -61,7 +61,7 @@ RHEL förlorar du i enanvändarläge automatiskt om den inte kan starta på vanl
 ### <a name="grub-access-in-rhel"></a>GRUB-åtkomst i RHEL
 RHEL levereras med GRUB aktiverad direkt ur lådan. Du anger GRUB genom att starta om den virtuella datorn med `sudo reboot` och tryck på valfri tangent. GRUB-skärmen visas visas.
 
-> Anteckning: Red Hat innehåller också dokumentationen för start i Räddade läge, nödfall läge, felsökningsläge och återställa rotlösenordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
+> Obs! Red Hat innehåller också dokumentationen för start i Räddade läge, nödfall läge, felsökningsläge och återställa rotlösenordet. [Klicka här för att komma åt den](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Konfigurera rotåtkomst för enanvändarläge i RHEL
 Enanvändarläge i RHEL kräver rotanvändaren är aktiverat som standard är inaktiverad. Om du har ett behov av att aktivera enanvändarläge, Använd följande instruktioner:
@@ -95,7 +95,7 @@ Om du har ställt in GRUB nätverksenheter och rotcertifikatutfärdarcertifikat 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange enanvändarläge utan rotkontot aktiverat i RHEL
 Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återställa du fortfarande rotlösenordet. Använd följande instruktioner:
 
-> Anteckning: Om du använder SELinux, kontrollera att du har vidtagit de ytterligare stegen som beskrivs i dokumentationen för Red Hat [här](https://aka.ms/rhel7grubterminal) när de återställer rotlösenordet.
+> Obs! Om du använder SELinux, kontrollera att du har vidtagit de ytterligare stegen som beskrivs i dokumentationen för Red Hat [här](https://aka.ms/rhel7grubterminal) när de återställer rotlösenordet.
 
 1. Tryck på 'Esc ”när du startar om den virtuella datorn om du vill ange GRUB
 1. I GRUB, trycker du på ”e” om du vill redigera den valda OS som du vill starta i (vanligtvis den första raden)
@@ -109,7 +109,7 @@ Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återst�
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Anteckning: Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge.
+> Obs! Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge.
 
 
 ## <a name="access-for-centos"></a>Åtkomst för CentOS
@@ -184,7 +184,7 @@ GRUB-åtkomst i SLES kräver startprogrammet konfiguration via YaST. Om du vill 
 Du tas automatiskt bort i nödfall shell om SLES inte kan starta på vanligt sätt. Om du vill ange manuellt i nödfall gränssnittet, Använd följande instruktioner:
 
 1. Från GRUB, trycker du på ”e” så här redigerar du din startpost (SLES-post)
-1. Leta efter raden kernel den börjar med `linux`
+1. Leta efter kernel-raden – den börjar med `linux`
 1. Lägg till `systemd.unit=emergency.target` i slutet av raden
 1. Tryck på Ctrl + X för att starta om med de här inställningarna och ange vid akutfall shell
    > Observera att du kommer att tas bort i nödfall shell med en _skrivskyddad_ filsystem. Om du vill göra alla ändringar i alla filer, kommer du behöva montera filsystemet med läs-och skrivbehörighet. Gör detta genom att ange `mount -o remount,rw /` i gränssnittet

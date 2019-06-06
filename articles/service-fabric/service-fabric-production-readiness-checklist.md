@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726595"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729867"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
 Är din program- och redo att ta produktionstrafik? Köra och testa ditt program och klustret nödvändigtvis inte är den redo att gå till produktion. Se till att program och kluster som kör smidigt genom att gå igenom följande lista. Vi rekommenderar att alla dessa objekt som ska kontrolleras. Naturligtvis kan du välja att använda alternativa lösningar för en viss artikel (till exempel en egen ramverk för diagnostik).
 
 
-## <a name="pre-requisites-for-production"></a>Förutsättningar för produktion
-1. [Metodtips för Azure Service Fabric-säkerhet](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) är: 
-1. Använda X.509-certifikat
-1. Konfigurera säkerhetsprinciper
-1. Konfigurera SSL för Azure Service Fabric
-1. Använd isolering av nätverk och säkerhet med Azure Service Fabric
-1. Konfigurera Azure Key Vault för säkerhet
-1. Microsoft.Network/loadBalancersAssign användare till roller
+## <a name="prerequisites-for-production"></a>Krav för produktion
+1. Metodtips för Azure Service Fabric: [Programutformning](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [nätverk](./service-fabric-best-practices-networking.md), [kapacitetsplanering och skalning](./service-fabric-best-practices-capacity-scaling.md), [infrastruktur som kod](./service-fabric-best-practices-infrastructure-as-code.md), och [övervakning och diagnostik](./service-fabric-best-practices-monitoring.md). 
 1. Implementera säkerhetskonfiguration Reliable Actors om använder programmeringsmodellen aktörer
 1. Skapa en dedikerad primära nodtypen systemtjänsterna för kluster med fler än 20 kärnor eller 10 noder. Lägg till [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) att reservera den primära nodtypen för systemtjänster.
 1. Använd en D2v2 eller högre SKU för den primära nodtypen. Vi rekommenderar att välja en SKU med minst 50 GB hårddiskkapacitet.

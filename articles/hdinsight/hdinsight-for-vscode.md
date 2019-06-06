@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight Tools - använder Visual Studio Code för Hive, LLAP eller PySpark | Microsoft Docs
+title: Azure HDInsight Tools - använder Visual Studio Code för Hive, LLAP eller PySpark
 description: Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code för att skapa och skicka frågor och skript.
-Keywords: Visual Studio Code, Azure HDInsight-verktyg, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, interaktiv fråga
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681753"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427688"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -71,12 +69,12 @@ Innan du kan skicka skript till HDInsight-kluster från Visual Studio Code, mås
 
     ![HDInsight Tools för Visual Studio Code-inloggning](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Följ anvisningarna för inloggning i den **utdata** fönstret.
+2. Följ instruktionerna i inloggningen i **utdata** fönstret.
     + För globala Azure-miljön, **HDInsight: Logga in** kommandot utlöser **logga in på Azure** åtgärd i HDInsight explorer och vice versa.
 
         ![Inloggningsinstruktioner för azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + För andra miljöer, följer du instruktionerna för inloggning.
+    + För andra miljöer, följer du anvisningarna inloggningen.
 
         ![Inloggningsinstruktioner för andra miljöer](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -219,7 +217,7 @@ Med HDInsight Tools för Visual Studio Code, kan du skicka interaktiva Hive-frå
 
 8. Verktyget stöder också den **SQL-satsen** fråga.
 
-   ![Skicka Python jobb resultatet](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) status för ansökan visas till vänster i nedre statusfältet när du kör frågor. Inte skicka andra frågor när statusen är **PySpark-Kernel (upptagen)**.  
+   ![Skicka Python jobb resultatet](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) status för ansökan visas till vänster i nedre statusfältet när du kör frågor. Inte skicka andra frågor när statusen är **PySpark-Kernel (upptagen)** .  
 
 >[!NOTE]  
 >Klustren kan underhålla sessionsinformation. Definierad variabel, funktionen och motsvarande värden hålls i sessionen, så att de kan refereras över flera tjänstanrop för samma kluster. 
@@ -306,35 +304,35 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
     **POST /batches**   
     Begärandetext
 
-    | namn | description | typ | 
+    | name | description | type | 
     | :- | :- | :- | 
-    | fil | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
+    | Filen | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
     | proxyUser | Användaren att personifiera när jobbet körs | string | 
-    | Klassnamn | Programmet Java/Spark-huvudklass | string |
+    | className | Programmet Java/Spark-huvudklass | string |
     | args | Kommandoradsargument för programmet | lista med strängar | 
     | JAR-filer | JAR-filer som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
-    | filer | filer som ska användas i den här sessionen | Lista över strängar |
+    | Filer | filer som ska användas i den här sessionen | Lista över strängar |
     | driverMemory | Mängden minne som ska användas för processen för drivrutinen | string |
     | driverCores | Antalet kärnor som ska användas för processen för drivrutinen | int |
     | executorMemory | Mängden minne för att använda per körningsprocess | string |
     | executorCores | Antalet kärnor som ska användas för varje executor | int |
     | numExecutors | Antal executors att starta för den här sessionen | int |
     | Arkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
-    | kö | Namnet på YARN-kö som har skickats | string |
-    | namn | Namnet på den här sessionen | string |
+    | kön | Namnet på YARN-kö som har skickats | string |
+    | name | Namnet på den här sessionen | string |
     | conf | Egenskaper för Spark-konfiguration | Karta över nyckel = värde |
 
     Svarstext   
     Det Batch-objektet.
 
-    | namn | description | typ | 
+    | name | description | type | 
     | :- | :- | :- | 
     | id | Sessions-id | int | 
     | appId | Program-id för den här sessionen |  String |
     | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
     | log | Log-rader | lista med strängar |
-    | state |   Batch-tillstånd | string |
+    | tillstånd |   Batch-tillstånd | string |
 
 >[!NOTE]
 >Tilldelade livy konfig visas i utdatafönstret när skicka skript.
@@ -380,7 +378,7 @@ HDInsight för Visual Studio Code har stöd för följande funktioner:
 
 ## <a name="logout"></a>Utloggning  
 
-Från menyraden navigerar du till **visa** > **Kommandopaletten...** , och ange sedan **HDInsight: Logga ut**.  Det är ett popup-fönster i det nedre högra hörnet om **utloggning har!**.
+Från menyraden navigerar du till **visa** > **Kommandopaletten...** , och ange sedan **HDInsight: Logga ut**.  Det är ett popup-fönster i det nedre högra hörnet om **utloggning har!** .
 
 
 ## <a name="next-steps"></a>Nästa steg

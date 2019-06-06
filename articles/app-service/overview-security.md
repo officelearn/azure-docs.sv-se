@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955739"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475860"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -113,7 +113,6 @@ Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vau
 
 Undantag för den **isolerad** prisnivå, alla nivåerna kör dina appar i den delade nätverksinfrastrukturen i App Service. Till exempel delas den offentliga IP-adresser och front-end belastningsutjämnare med andra klienter. Den **isolerad** nivån ger dig fullständig nätverksisolering genom att köra appar i en dedikerad [apptjänstmiljö](environment/intro.md). App Service environment som körs i en egen instans av [Azure Virtual Network](/azure/virtual-network/). Du kan: 
 
-- Begränsa nätverksåtkomst med [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Ge dina appar via en dedikerad offentlig slutpunkt med dedikerad klientdelar.
 - Hantera internt program med en intern belastningsutjämnare (ILB), vilket ger åtkomst från i ditt virtuella Azure-nätverk. Den interna Belastningsutjämnaren har en IP-adress från ditt privata undernät, vilket ger totalt isolering av dina appar från internet.
 - [Använda en ILB bakom en brandvägg för webbaserade program (WAF)](environment/integrate-with-application-gateway.md). WAF erbjuder företagsnivå skydd för dina offentliga program, till exempel DDoS-skydd, URI-filtrering och SQL-inmatning dataförlustskydd.

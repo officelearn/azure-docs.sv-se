@@ -3,7 +3,7 @@ title: Övervaka identitet och åtkomst i Azure Security Center | Microsoft Docs
 description: Lär dig hur du använder identitets- och åtkomstfunktionerna i Azure Security Center för att övervaka användarnas åtkomstaktiviteter och identitetsrelaterade problem.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389480"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428417"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -42,7 +42,6 @@ Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder inna
 > [!NOTE]
 > Om din prenumeration har mer än 600 konton kan kan Security Center inte köra identitet rekommendationer mot din prenumeration. Rekommendationer som inte körs visas under ”ej tillgängliga utvärderingar” som beskrivs nedan.
 Security Center kan inte köra identitet rekommendationer mot en Cloud Solution Provider (CSP) partners admin agenter.
->
 >
 
 Se [rekommendationer](security-center-identity-access.md#recommendations) för en lista över identitets- och rekommendationer som tillhandahålls av Security Center.
@@ -111,23 +110,20 @@ Använd tabellen nedan som referens för att förstå de tillgängliga rekommend
 
 |Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
 |----|----|----|----|
-|Prenumeration|50|Aktivera MFA för Azure-appen för enhetshantering konton med ägarbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med administratörsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|Prenumeration|50|Aktivera security center på dina prenumerationer |Aktivera Security center på alla dina prenumerationer för avancerad hotidentifiering, JIT, listan över tillåtna program och avancerade rekommendationer |
-|Prenumeration|50|Aktivera security center standard-nivån på dina prenumerationer |Aktivera Security center Standard-nivån på alla dina prenumerationer för avancerad hotidentifiering, JIT, listan över tillåtna program och avancerade rekommendationer.|
-|Prenumeration|40|Aktivera MFA för Azure-appen för enhetshantering konton med skrivbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|Prenumeration|30|Ta bort externa konton med ägarbehörigheter från prenumerationen|Ta bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
-|Prenumeration|30|Aktivera MFA för Azure-appen för enhetshantering konton med läsbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|Prenumeration|25|Ta bort externa konton med skrivbehörigheter från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
-|Prenumeration|20|Ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer. Inaktuella konton är de som inloggning har blockerats i Azure AD.|
-|Prenumeration|5|Ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. Inaktuella konton är de som inloggning har blockerats i Azure AD.|
-|Prenumeration|5|Ange mer än en ägare av din prenumeration|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|
-|Prenumeration|5|Ange upp till 3 ägare av din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
-|Nyckelvalv|5|Aktivera diagnostikloggar i Key Vault|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Prenumeration|15|Ta bort externa konton med läsbehörigheter från prenumerationen|Ta bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst.|
-|Prenumeration|1|Ange säkerhetskontaktinformation|Ange kontaktinformation för säkerhet för var och en av dina prenumerationer. Kontaktinformation är ett e-postadress och telefonnummer tal. Informationen används för att kontakta dig om vårt säkerhetsteam skulle upptäcka att dina resurser äventyras|
+|Prenumeration|50|MFA måste vara aktiverad på konton med ägarbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med administratörsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|40|MFA måste vara aktiverad på din prenumerationskonton med skrivbehörighet|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|30|Externa konton med ägarbehörigheter som ska tas bort från prenumerationen|Ta bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst.|
+|Prenumeration|30|MFA måste vara aktiverad på din prenumerationskonton med läsbehörigheter|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|25|Externa konton med write behörigheter ska tas bort från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
+|Prenumeration|20|Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer.|
+|Prenumeration|5|Bör ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. |
+|Prenumeration|5|Det bör finnas fler än en ägare till prenumerationen|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|
+|Prenumeration|5|Högst 3 ägare bör anges för din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
+|Nyckelvalv|5|Diagnostikloggar i Key Vault ska aktiveras|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Prenumeration|15|Bör ta bort externa konton med läsbehörigheter från prenumerationen|Ta bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst.| 
 
-> ! [OBS] Om du har skapat en princip för villkorlig åtkomst som kräver MFA men innehåller undantag ange Security Center MFA rekommendation utvärderingen tittar på principen icke-kompatibla, eftersom det gör det möjligt för vissa användare att logga in på Azure utan MFA.
->
+> [!NOTE]
+> Om du har skapat en princip för villkorlig åtkomst som kräver MFA men innehåller undantag ange Security Center MFA rekommendation utvärderingen tittar på principen icke-kompatibla, eftersom det gör det möjligt för vissa användare att logga in på Azure utan MFA.
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:

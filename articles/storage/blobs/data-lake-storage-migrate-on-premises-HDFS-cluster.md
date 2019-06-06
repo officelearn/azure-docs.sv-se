@@ -4,26 +4,26 @@ description: Migrera data från en lokal HDFS-databas till Azure Storage
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9a42135df38cde91cc6626a3f7d0328334af0a5d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939268"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729038"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Använda Azure Data Box för att migrera data från en lokal HDFS-databas till Azure Storage
 
-Du kan migrera data från ett lokalt HDFS Arkiv av ditt Hadoop-kluster till Azure Storage (blob-lagring eller Data Lake Storage Gen2) med hjälp av en Data Box-enhet.
+Du kan migrera data från ett lokalt HDFS Arkiv av ditt Hadoop-kluster till Azure Storage (blob-lagring eller Data Lake Storage Gen2) med hjälp av en Data Box-enhet. Du kan välja från en 80 TB Data box-enhet eller en 770 TB Data Box-aktiverat.
 
 Den här artikeln hjälper dig att utföra dessa uppgifter:
 
-:heavy_check_mark: Kopiera dina data till en Data Box-enhet.
+:heavy_check_mark: Kopiera dina data till en Data Box eller en Data Box tung enhet.
 
-:heavy_check_mark: Skicka Data Box-enhet till Microsoft.
+:heavy_check_mark: Skicka tillbaka enheten till Microsoft.
 
 :heavy_check_mark: Flytta data till ditt Data Lake Storage Gen2 storage-konto.
 
@@ -37,10 +37,10 @@ Du behöver dessa saker att slutföra migreringen.
 
 * Ett lokalt Hadoop-kluster som innehåller källdata.
 
-* En [Azure Data Box-enhet](https://azure.microsoft.com/services/storage/databox/). 
+* En [Azure Data Box-enhet](https://azure.microsoft.com/services/storage/databox/).
 
-    - [Beställa Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). När ordning din box-enhet, Kom ihåg att välja ett lagringskonto som **inte** har aktiverade på den hierarkiska namnområden. Det beror på att Data Box inte stöder ännu direkt inmatning i Azure Data Lake Storage Gen2. Du måste kopiera till ett lagringskonto och gör sedan en kopia till Gen2 ADLS-konto. Instruktioner för detta anges i stegen nedan.
-    - [Ansluta och ansluta din Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) till ett lokalt nätverk.
+    - [Beställa Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) eller [Data Box aktiverat](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). När ordning din enhet, Kom ihåg att välja ett lagringskonto som **inte** har aktiverade på den hierarkiska namnområden. Det beror på att Data Box-enheter inte stöder ännu direkt inmatning i Azure Data Lake Storage Gen2. Du måste kopiera till ett lagringskonto och gör sedan en kopia till Gen2 ADLS-konto. Instruktioner för detta anges i stegen nedan.
+    - Ansluta och ansluta din [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) eller [Data Box tung](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) till ett lokalt nätverk.
 
 Om du är redo kan vi ska börja.
 
@@ -48,12 +48,12 @@ Om du är redo kan vi ska börja.
 
 Om du vill kopiera data från ditt lokala HDFS store till en Data Box-enhet, ska du konfigurera några saker och sedan använder den [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) verktyget.
 
-Om mängden data som du kopierar överstiger kapaciteten för en enda Data Box, kommer du behöva dela upp datauppsättningen till storlekar som ryms i ditt Data-rutorna.
+Om mängden data som du kopierar är mer än kapaciteten för en enda Data Box eller som en nod på Data Box tung kan du dela upp datauppsättningen till storlekar som ryms i dina enheter.
 
-Följ dessa steg för att kopiera data via REST API: er för Blob/Object-lagring till din Data Box. REST API-gränssnittet gör Data Box visas som ett HDFS-Arkiv i klustret. 
+Följ dessa steg för att kopiera data via REST API: er för Blob/Object-lagring till din Data Box-enhet. REST API-gränssnittet gör enheten visas som ett HDFS-Arkiv i klustret. 
 
 
-1. Innan du har kopierat data via REST identifiera primitiver för säkerhet och anslutningen att ansluta till REST-gränssnittet på Data Box. Logga in på det lokala webbtjänst Konfigurationssgränssnittet i Data Box och gå till **Anslut och kopiera** sidan. Mot Azure storage-konto för din Data under **åtkomstinställningar**letar du upp och välj **REST(Preview)**.
+1. Identifiera primitiver för säkerhet och anslutningen att ansluta till REST-gränssnittet på Data Box eller Data Box tung innan du kopierar data via REST. Logga in på det lokala webbtjänst Konfigurationssgränssnittet i Data Box och gå till **Anslut och kopiera** sidan. Mot Azure storage-konto för din enhet under **åtkomstinställningar**, leta upp och välj **REST**.
 
     ![”Anslut och Kopiera”-sida](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -63,7 +63,7 @@ Följ dessa steg för att kopiera data via REST API: er för Blob/Object-lagring
 
      ![Dialogrutan ”åtkomst till lagringskontot och ladda upp data”](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Lägga till slutpunkten och Data Box-IP-adressen `/etc/hosts` på varje nod.
+3. Lägga till slutpunkten och Data Box eller Data Box tung noden IP-adressen `/etc/hosts` på varje nod.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -123,21 +123,29 @@ Följ dessa steg för att kopiera data via REST API: er för Blob/Object-lagring
 Att kopiera snabbare:
 - Försök att ändra antalet Mappningskomponenter. (I ovanstående exempel används `m` = 4 Mappningskomponenter.)
 - Försök att köra flera `distcp` parallellt.
-- Kom ihåg att stora filer bättre prestanda än små filer.       
+- Kom ihåg att stora filer bättre prestanda än små filer.
     
 ## <a name="ship-the-data-box-to-microsoft"></a>Leverera Data Box till Microsoft
 
 Följ dessa steg för att förbereda och skicka Data Box-enhet till Microsoft.
 
-1. När Datakopieringen är klar kör du [Förbered för att skicka](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) på din Data Box. När enheten förberedelser har slutförts kan du ladda ner BOM-filer. Du ska använda dessa BOM eller manifest filer senare för att kontrollera data har överförts till Azure. Stäng enheten och ta bort kablarna. 
-2.  Schemalägga en upphämtning med Avbrottsfria till [leverera din Data Box tillbaka till Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
-3.  När Microsoft tar emot din enhet, den är ansluten till nätverket datacenter och data har överförts till storage-kontot som du har angett (med hierarkisk namnområden inaktiverad) när du har beställt Data Box. Kontrollera att alla dina data har överförts till Azure mot BOM-filer. Du kan nu flytta dessa data till ett lagringskonto för Data Lake Storage Gen2.
+1. När Datakopieringen är klar kör du:
+    
+    - [Förbered för att skicka på din Data Box eller Data Box tung](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+    - När enheten förberedelser har slutförts kan du ladda ner BOM-filer. Du ska använda dessa BOM eller manifest filer senare för att kontrollera data har överförts till Azure. 
+    - Stäng enheten och ta bort kablarna.
+2.  Schemalägga en upphämtning med Avbrottsfria. Följ anvisningarna för att:
+
+    - [Leverera din Data box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [Leverera din Data Box-aktiverat](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+3.  När Microsoft tar emot din enhet, det är anslutet till datacenternätverket och data har överförts till storage-kontot som du har angett (med hierarkisk namnområden inaktiverad) när du placerade ordningen som enheten. Kontrollera att alla dina data har överförts till Azure mot BOM-filer. Du kan nu flytta dessa data till ett lagringskonto för Data Lake Storage Gen2.
+
 
 ## <a name="move-the-data-onto-your-data-lake-storage-gen2-storage-account"></a>Flytta data till ditt Data Lake Storage Gen2 storage-konto
 
 Det här steget krävs om du använder Azure Data Lake Storage Gen2 som datalager. Om du använder bara ett blob storage-konto utan hierarkiskt namnområde som datalager, behöver du inte utför det här steget.
 
-Du kan göra detta på 2 sätt. 
+Du kan göra detta på två sätt.
 
 - Använd [Azure Data Factory för att flytta data till ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Du måste ange **Azure Blob Storage** som källa.
 

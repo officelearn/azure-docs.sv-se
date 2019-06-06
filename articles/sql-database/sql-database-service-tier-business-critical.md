@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709334"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479222"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Affärsnivå kritiska – Azure SQL Database
 
@@ -49,6 +49,7 @@ Företag kritiska-nivån är utformad för program som kräver låg latens svar 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Hitta resursen egenskaper (antal kärnor, i/o, minne) för nivån affärskritisk i [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modellen](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) eller [DTU-modellen](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), eller elastiska resurspool i [vCore-modellen](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) och [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Lär dig mer om [generella](sql-database-service-tier-general-purpose.md) och [hyperskala](sql-database-service-tier-hyperscale.md) nivåer.
 - Lär dig mer om [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Fler alternativ för hög tillgänglighet och katastrofåterställning, se [affärskontinuitet](sql-database-business-continuity.md).

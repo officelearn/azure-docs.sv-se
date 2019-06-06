@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806153"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474520"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kontrollera publiceringsstatus för ditt kommersiella Marketplace-erbjudande
 
 Du kan visa din aktuella **Publiceringsstatus** på den **erbjuder översikt** fliken den [kommersiella Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) Partner Center.
 
+En av följande status indikatorerna ska visas för varje erbjudande.
+
+| **Status**    | **Beskrivning**  |
+| :---------- | :-------------------|
+| **Utkast** | Erbjudandet har skapats men publiceras inte. |
+| **Publicering pågår** | Erbjudandet /-planen fungerar väg genom stegen för publiceringsprocessen. |
+| **Åtgärd krävs** | Ett kritiskt problem har identifierats under certifiering av Microsoft eller någon av de publicera steg. |
+| **Förhandsversion** | Erbjudandet har certifierats av Microsoft och nu väntar på dig en slutlig verifiering av utgivaren. Välj Driftsätt att göra erbjudandet live. |
+| **Live** | Erbjudandet kan är aktiv i marketplace och ses och har köpt av kunder. |
+| **Väntande stoppa säljer** | Utgivare har valt ”stoppa säljer” erbjudandet eller, men åtgärden har inte slutförts ännu. |
+| **Inte tillgängligt i marketplace** | En tidigare publicerade erbjudande /-planen i marketplace har tagits bort. |
+
 ## <a name="automated-validation"></a>Automatiserad verifiering
 
 Det första steget i publiceringsprocessen är en uppsättning automatiserade verifieringar. Varje validerngssteg motsvarar en funktion som du har valt att aktivera i skapandet av ditt erbjudande. Om funktionen inte har aktiverats, valideringen hoppar över vidare till nästa steg för publicering. Varje verifieringskontroll måste slutföras innan Publiceringsstatus har godkänts.
 
-- **Erbjuda inköp flow installationsprogrammet (> 10: e minut)**
+- **Erbjuda inköp flow installationsprogrammet (< 10: e minut)**
 
 I det här steget ska vi se till att ditt erbjudande kan uppfyllas när de köps av kunder via Azure portal. Det här steget gäller endast för erbjudanden som säljs via Microsoft.
 
@@ -34,7 +46,7 @@ I det här steget ska vi för att validera data som du angav i provkörning tekn
 
 I det här steget när du har validerat data och funktioner i din provkörning i föregående steg, vi distribuera och replikera instanser av din provkörning så att de är klara för användning av kunden.  Det här steget gäller endast för erbjudanden med en testenhet aktiverat.
 
-- **Leda management verifiering och registrering (> 15 min)**
+- **Leda management verifiering och registrering (< 15 min)**
 
 I det här steget bekräftar att din lead-hanteringssystemet kan ta emot kundleads baserat på informationen i erbjudandet-installationen. Det här steget gäller endast för erbjudanden med aktiverad Lead-hantering.
 

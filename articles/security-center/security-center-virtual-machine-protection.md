@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e65e3869d420607ad2721df8ba0ef1005c923f73
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4e0a8473dfadc151ab861a4d749d9ff5e1622fb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968147"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428380"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet för dina Azure-resurser, icke-Azure-servrar och virtuella datorer. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -31,7 +31,7 @@ Du kan övervaka dina resursers säkerhetstillstånd på den **Security Center �
 
 Du kan visa en lista över alla problem genom att välja **rekommendationer**. Mer information om hur du utför rekommendationerna finns i [utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
-En fullständig lista över beräknings- och App services-rekommendationer finns i [rekommendationer](security-center-virtual-machine-recommendations.md).
+En fullständig lista över beräknings- och App services-rekommendationer finns i [rekommendationer](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
 
 Om du vill fortsätta, Välj **Compute och appar** under **resurser** eller huvudmenyn i Security Center.
 ![Instrumentpanelen för Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -43,12 +43,12 @@ Under **Compute och appar**, finns följande flikar:
 - **Virtuella datorer och datorer**: Listar alla dina virtuella datorer, datorer och det aktuella säkerhetstillståndet för var och en.
 - **Molntjänster**: Listar alla dina webb- och arbetarroller som övervakas av Security Center.
 - **Apptjänster**: lista över dina App service-miljöer och aktuella säkerhetstillståndet för var och en.
-- **Behållare (förhandsgranskning)**: lista över dina behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
-- **Beräkningsresurser (förhandsversion)**: lista över rekommendationer för dina beräkningsresurser, till exempel Service Fabric-kluster och Event hubs.
+- **Behållare (förhandsgranskning)** : lista över dina behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
+- **Beräkningsresurser (förhandsversion)** : lista över rekommendationer för dina beräkningsresurser, till exempel Service Fabric-kluster och Event hubs.
 
 Om du vill fortsätta, Välj **Compute och appar** under **Resource security hygien**.
 
-![Beräkna](./media/security-center-virtual-machine-recommendations/compute.png)
+![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
 På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet.
 
@@ -122,7 +122,7 @@ Om du vill få en mer ingående förklaring av den här rekommendationen klickar
 
 
 
-![Uppdatera OS-version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
+![Uppdatera OS-versionen](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>App Services
 Du måste aktivera App Service i din prenumeration för att visa information för App Service. Anvisningar om hur du aktiverar den här funktionen finns i [skydda App Service med Azure Security Center](security-center-app-services.md).
@@ -184,53 +184,50 @@ Om du vill ange alla befintliga skalningsuppsättningar för att installera Micr
 |----|----|----|----|
 |Apptjänst|20|Webbprogram bör enbart vara åtkomliga via HTTPS|Begränsa åtkomst till webbprogram via HTTPS endast.|
 |Apptjänst|20|Funktionen App bör enbart vara åtkomliga via HTTPS|Begränsa åtkomst till Funktionsappar via HTTPS endast.|
-|Apptjänst|5|Aktivera diagnostikloggar i App service|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Apptjänst|5|Diagnostikloggar i App Services ska aktiveras|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Apptjänst|10|Fjärrfelsökning bör stängas av för webbprogram|Inaktivera felsökning för webbprogram, om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp.|
 |Apptjänst|10|Fjärrfelsökning bör stängas av för Funktionsprogram|Inaktivera felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp.|
-|Apptjänst|10|Konfigurera IP-begränsningar för webbprogram|Definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker.|
 |Apptjänst|10|Tillåt inte alla ('* ') resurser för att komma åt ditt program| Tillåt inte parametern website_load_certificates. den uppsättning ””. Ställa in parametern ”innebär att alla certifikat läses in till din web program personliga certifikatarkiv. Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning.|
 |Apptjänst|20|CORS bör inte bevilja alla resurser att komma åt dina webbprogram|Tillåt endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram.|
 |Apptjänst|20|CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp| Tillåt endast nödvändiga domäner att interagera med ditt funktionsprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram.|
-|Beräkningsresurser (batch)|1|Konfigurera måttaviseringsregler på Batch-konto|Konfigurera måttaviseringsregler på Batch-konto och aktivera mätvärden Pool ta bort klar händelser och poolen ta bort starta händelser|
-|Beräkningsresurser (service fabric)|10|Använd Azure Active Directory för klientautentisering i Service Fabric|Utför klientautentisering endast via Azure Active Directory i Service Fabric.|
-|Beräkningsresurser (automation-konto)|5| Aktivera kryptering av Automation-konto|Aktivera kryptering av Automation-konto variabler för tillgångar vid lagring av känsliga data.|
-|Beräkningsresurser (belastningsutjämnare)|5|Aktivera diagnostikloggar i belastningsutjämnaren|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Beräkningsresurser (Sök)|5|Aktivera diagnostikloggar i söktjänst|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Beräkningsresurser (service bus)|5|Aktivera diagnostikloggar i Service Bus|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Beräkningsresurser (stream analytics)|5|Aktivera diagnostikloggar i Azure Stream Analytics|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Beräkningsresurser (service fabric)|5|Aktivera diagnostikloggar i Service Fabric|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Beräkningsresurser (batch)|1|Måttvarningsregler som ska konfigureras på Batch-konton|Konfigurera måttaviseringsregler på Batch-konto och aktivera mätvärden Pool ta bort klar händelser och poolen ta bort starta händelser|
+|Beräkningsresurser (service fabric)|10|Service Fabric-kluster bör endast använda Azure Active Directory för klientautentisering|Utför klientautentisering endast via Azure Active Directory i Service Fabric.|
+|Beräkningsresurser (automation-konto)|5|Automation-konto variabler ska krypteras|Aktivera kryptering av Automation-konto variabler för tillgångar vid lagring av känsliga data.|
+|Beräkningsresurser (Sök)|5|Granska aktiverar diagnostikloggar för Search-tjänster|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Beräkningsresurser (service bus)|5|Diagnostikloggar i Service Bus ska aktiveras|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Beräkningsresurser (stream analytics)|5|Diagnostikloggar i Azure Stream Analytics ska aktiveras|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Beräkningsresurser (batch)|5|Aktivera diagnostikloggar i Batch-konton|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|Beräkningsresurser (händelsehubb)|5|Aktivera diagnostikloggar i Event Hub|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Beräkningsresurser (händelsehubb)|5|Diagnostikloggar i Event Hub ska aktiveras|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Beräkningsresurser (logikappar)|5|Aktivera diagnostikloggar i Logic Apps|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Beräkningsresurser (service fabric)|15|Ange egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric|Service Fabric tillhandahåller tre skyddsnivåer (ingen, logga in och EncryptAndSign) för nod-till-nod-kommunikation med hjälp av en primär klustercertifikat.  Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt. |
 |Beräkningsresurser (service bus)|1|Ta bort alla regler förutom RootManageSharedAccessKey från Service Bus-namnområde |Service Bus-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
-|Beräkningsresurser (händelsehubb)|1|Ta bort alla regler förutom RootManageSharedAccessKey från namnområdet för Händelsehubben |Event Hub-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
-|Beräkningsresurser (händelsehubb)|5|Definiera regler för Event Hub-entitet|Granska auktoriseringsregler på entiteten Event Hub att bevilja lägsta åtkomstbehörighet.|
+|Beräkningsresurser (händelsehubb)|1|Alla regler förutom RootManageSharedAccessKey ska tas bort från namnområdet för Händelsehubben|Event Hub-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
+|Beräkningsresurser (händelsehubb)|5|Auktoriseringsregler för Event Hub-entitet ska definieras|Granska auktoriseringsregler på entiteten Event Hub att bevilja lägsta åtkomstbehörighet.|
 |Machine|50|Installera övervakningsagenten på dina datorer|Installera agenten för övervakning om du vill aktivera insamling av data, uppdateringar som genomsökning, baslinjegenomsökning och endpoint protection på varje dator.|
 |Dator|50|Aktivera automatisk etablering och insamling av data för dina prenumerationer |Aktivera automatisk etablering och insamling av data för datorer i dina prenumerationer för att aktivera insamling av data, uppdateringar som genomsökning, baslinjegenomsökning och endpoint protection på varje dator som har lagts till i dina prenumerationer.|
 |Dator|40|Åtgärda hälsoproblem för övervakningsagenten på dina datorer|För fullständig Security Center skydd Lös övervakningsproblem agenten på dina datorer genom att följa anvisningarna i guiden för felsökning| 
 |Dator|40|Åtgärda hälsoproblem för slutpunktsskydd på dina datorer|Lös övervakningsproblem agenten på dina datorer genom att följa anvisningarna i guiden för felsökning för fullständig Security Center-skydd.|
 |Dator|40|Felsök saknade skanningsdata på dina datorer|Felsöka genomsökningsdata som saknas på virtuella datorer och datorer. Skanningsdata saknas på dina datorer blir saknas säkerhetsutvärderingar som uppdatera genomsökning, baslinje genomsökning och saknas genomsökning för endpoint protection lösning.|
-|Dator|40|Installera systemuppdateringar på dina datorer|Installera saknas systemsäkerhet och viktiga uppdateringar för att skydda dina Windows- och Linux-datorer och datorer
+|Dator|40|Systemuppdateringar bör vara installerad på dina datorer|Installera saknas systemsäkerhet och viktiga uppdateringar för att skydda dina Windows- och Linux-datorer och datorer
 |Machine|15|Lägg till en brandvägg för webbappar| Distribuera en lösning web application firewall (WAF) för att skydda dina webbprogram. |
 |Machine|40|Uppdatera operativsystemsversionen för dina molntjänstroller|Uppdatera operativsystemets version för dina molntjänstroller till den senaste tillgängliga versionen för din OS-familj.|
-|Dator|35|Åtgärda säkerhetsriskerna i säkerhetskonfigurationen på dina datorer|Åtgärda sårbarheter i Säkerhetskonfiguration på dina datorer för att skydda dem från attacker. |
+|Dator|35|Säkerhetsproblem i Säkerhetskonfiguration på dina datorer bör åtgärdas|Åtgärda sårbarheter i Säkerhetskonfiguration på dina datorer för att skydda dem från attacker.|
 |Dator|35|Åtgärda sårbarheter i Säkerhetskonfiguration på dina behållare|Åtgärda sårbarheter i säkerhetskonfigurationen på datorer med Docker installerat för att skydda dem mot angrepp.|
 |Dator|25|Aktivera anpassningsbara programkontroller|Aktivera programmet kontroller som program kan köras på din virtuella dator i Azure. Detta hjälper att skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning att analysera programmen som körs på varje virtuell dator och hjälper till att du tillämpar tillåter regler med den här intelligensen. Den här funktionen förenklar processen med att konfigurera och underhålla program tillåter regler.|
 |Dator|20|Installera endpoint protection-lösningen på dina datorer|Installera en endpoint protection-lösning på dina virtuella datorer, att skydda dem mot hot och sårbarheter.|
 |Dator|20|Starta om dina datorer för att att tillämpa systemuppdateringarna|Starta om dina datorer för att tillämpa systemuppdateringarna och skydda datorn från säkerhetsrisker.|
-|Machine|15|Tillämpa diskkryptering på dina virtuella datorer|Kryptera virtuella diskar med Azure Disk Encryption både för Windows och Linux-datorer. Azure Disk Encryption (ADE) använder branschens standard BitLocker-funktion i Windows och DM-crypt i Linux för att ange operativsystem- och diskkryptering för att skydda och skydda dina data och att uppfylla din organisations säkerhet och efterlevnad åtaganden i kundens Azure-nyckelvalv. När dina krav på efterlevnad och säkerhet måste du kryptera data från slutpunkt till slutpunkt med hjälp av dina krypteringsnycklar, inklusive kryptering av tillfälliga (lokalt anslutna tillfälliga) disk, Använd Azure-diskkryptering. Du kan också som standard är Managed Disks krypterade i vila som standard med hjälp av Azure Storage Service Encryption där krypteringsnycklarna är hanteras av Microsoft-nycklar i Azure. Om det uppfyller din efterlevnad och säkerhetskrav, kan du använda standard Managed diskkryptering för att uppfylla dina krav.|
+|Machine|15|Diskkryptering ska tillämpas på virtuella datorer|Kryptera virtuella diskar med Azure Disk Encryption både för Windows och Linux-datorer. Azure Disk Encryption (ADE) använder branschens standard BitLocker-funktion i Windows och DM-crypt i Linux för att ange operativsystem- och diskkryptering för att skydda och skydda dina data och att uppfylla din organisations säkerhet och efterlevnad åtaganden i kundens Azure-nyckelvalv. När dina krav på efterlevnad och säkerhet måste du kryptera data från slutpunkt till slutpunkt med hjälp av dina krypteringsnycklar, inklusive kryptering av tillfälliga (lokalt anslutna tillfälliga) disk, Använd Azure-diskkryptering. Du kan också som standard är Managed Disks krypterade i vila som standard med hjälp av Azure Storage Service Encryption där krypteringsnycklarna är hanteras av Microsoft-nycklar i Azure. Om det uppfyller din efterlevnad och säkerhetskrav, kan du använda standard Managed diskkryptering för att uppfylla dina krav.|
 |Machine|30|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|
 |Dator|15|Lägg till en brandvägg för webbappar| Distribuera en lösning web application firewall (WAF) för att skydda dina webbprogram. |
-|Dator|30|Åtgärda sårbarheter med hjälp av en lösning för sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
+|Dator|30|Sårbarheter som bör åtgärdas av en lösning för Sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
 |Machine|30|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|
-|Machine|1|Migrera virtuella datorer till nya Azure Resource Manager-resurser|Använda Azure Resource Manager för dina virtuella datorer för att ange säkerhetsförbättringar t.ex: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering. |
-|Machine|30|Åtgärda sårbarheter med hjälp av en lösning för sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
-|Skaluppsättning för den virtuella datorn |4|Aktivera diagnostikloggar i Virtual Machine Scale Sets|Aktivera loggar och behålla för upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning. Detta är användbart när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Skaluppsättning för den virtuella datorn|35|Åtgärda säkerhetsproblem i säkerhetskonfigurationen på dina skalningsuppsättningar för virtuella datorer|Åtgärda sårbarheter i säkerhetskonfigurationen för din virtuella dators skalningsuppsättningar för att skydda dem från angrepp. |
-|Skaluppsättning för den virtuella datorn|5|Åtgärda hälsokontrollfel för slutpunktsskydd i skalningsuppsättningar för virtuella datorer|Åtgärda Endpoint Protection-hälsofel på skalningsuppsättningar för virtuella datorer för att skydda mot hot och sårbarheter. |
-|Skaluppsättning för den virtuella datorn|10|Installera lösning för slutpunktsskydd i skalningsuppsättningar för virtuella datorer|Installera en endpoint protection-lösning på dina VM-skalningsuppsättningar, att skydda dem mot hot och sårbarheter. |
-|Skaluppsättning för den virtuella datorn|40|Installera systemuppdateringar i skalningsuppsättningar för virtuella datorer|Installera saknade systemsäkerhetsuppdateringar och viktiga uppdateringar för att skydda dina skalningsuppsättningar för virtuella Windows och Linux-dator. |
+|Machine|1|Virtuella datorer som ska migreras till nya AzureRM-resurser|Använda Azure Resource Manager för dina virtuella datorer för att ange säkerhetsförbättringar t.ex: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering. |
+|Machine|30|Sårbarheter som bör åtgärdas av en lösning för Sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
+|Skaluppsättning för virtuella datorer |4|Diagnostikloggar i Virtual Machine Scale Sets ska aktiveras|Aktivera loggar och behålla för upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning. Detta är användbart när en säkerhetsincident inträffar eller nätverket komprometteras.|
+|Skaluppsättning för virtuella datorer|35|Säkerhetsproblem i Säkerhetskonfiguration på VM-skalningsuppsättningar som bör åtgärdas|Åtgärda sårbarheter i Säkerhetskonfiguration på din VM-skalningsuppsättningar för att skydda dem mot attacker. |
+|Skaluppsättning för virtuella datorer|5|Åtgärda fel med slutpunktsskydd hälsotillstånd på VM-skalningsuppsättningar|Åtgärda hälsotillstånd fel med slutpunktsskydd på VM-skalningsuppsättningar att skydda dem mot hot och sårbarheter. |
+|Skaluppsättning för virtuella datorer|10|Endpoint protection ska installeras på virtuella datorer|Installera en endpoint protection-lösning på dina VM-skalningsuppsättningar, att skydda dem mot hot och sårbarheter. |
+|Skaluppsättning för virtuella datorer|40|Systemuppdateringar på virtual machine scale sets ska installeras|Installera saknas systemsäkerhet och viktiga uppdateringar för att skydda dina Windows- och Linux VM-skalningsuppsättningar. |
  
 
 

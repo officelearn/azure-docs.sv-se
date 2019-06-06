@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978885"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475218"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien behöver du:
 
 Använda anpassade domäner i Azure App Service, din app [apptjänstplan](https://azure.microsoft.com/pricing/details/app-service/) måste vara en betald nivå (**delad**, **grundläggande**, **Standard**, eller  **Premium**). I det här steget ska se du till att appen är stöds prisnivå.
 
-### <a name="sign-in-to-azure"></a>Logga in till Azure
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Öppna [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
@@ -55,7 +55,7 @@ Du ser hanteringssidan för App Service-appen.
 
 ### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
-I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)**.
+I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)** .
 
 ![Skala upp-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -79,10 +79,10 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 ## <a name="buy-the-domain"></a>Köp domänen
 
-### <a name="pricing-information"></a>Prisinformation
+### <a name="pricing-information"></a>Information om priser
 Prissättning information om Azure App Service-domäner finns i [prissättning för App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) och rullar ned till App Service-domänen.
 
-### <a name="sign-in-to-azure"></a>Logga in till Azure
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 Öppna [Azure Portal](https://portal.azure.com/) och logga in med ditt Azure-konto.
 
 ### <a name="launch-buy-domains"></a>Starta köp domäner
@@ -138,13 +138,17 @@ I den **App Service-domänen** klickar du på **OK**. Medan åtgärden pågår k
 
 ### <a name="test-the-hostnames"></a>Testa värdnamnen
 
-Om du har tilldelat standard värdnamn till din app kan se du även ett meddelande för lyckade för varje valda värddatornamnet. 
+Om du har tilldelat standard värdnamn till din app kan se du även ett meddelande för lyckade för varje valda värddatornamnet.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Du kan också se den valda värdnamnen i den **anpassade domäner** sidan den **anpassade värdnamn** avsnittet. 
+Du kan också se den valda värdnamnen i den **anpassade domäner** sidan den **anpassade värdnamn** avsnittet.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. För att konfigurera SSL-bindning, se [köp och konfigurera ett SSL-certifikat för Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 Om du vill testa värdnamnen, navigerar du till listan värdnamn i webbläsaren. I exemplet i föregående skärmbild, försök att gå till _kontoso.net_ och _www\.kontoso.net_.
 
@@ -267,7 +271,7 @@ Azure-portalen från den vänstra menyn, Välj **alla tjänster** > **App Servic
 
 Välj domänen som ska du vill avbryta eller ta bort. 
 
-### <a name="delete-hostname-bindings"></a>Ta bort värddatornamnsbindningar
+### <a name="delete-hostname-bindings"></a>Ta bort värdnamnsbindningar
 
 I vänstermenyn för domänens väljer **värdnamnsbindningar**. Värdnamnsbindningar från alla Azure-tjänster visas här.
 

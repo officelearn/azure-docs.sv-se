@@ -2,20 +2,20 @@
 title: Översikt över token - Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om de token som används i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681897"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509082"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över token i Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ En [registrerade program](tutorial-register-applications.md) tar emot token och 
 
 Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från den `/authorize` eller `/token` slutpunkter. När ID-token är upptagna från den `/authorize` slutpunkt kan de görs det med hjälp av den [implicit flöde](active-directory-b2c-reference-spa.md), vilket ofta används för användare som loggar in till javascript-baserade webbprogram. När ID-token är upptagna från den `/token` slutpunkt kan de görs det med hjälp av den [kod flow](active-directory-b2c-reference-oidc.md), som ser till att den token som är dolda från webbläsaren.
 
-## <a name="claims"></a>Anspråk
+## <a name="claims"></a>anspråk
 
 När du använder Azure AD B2C har detaljerad kontroll över innehållet i dina token. Du kan konfigurera [användarflöden](active-directory-b2c-reference-policies.md) och [anpassade principer](active-directory-b2c-overview-custom.md) att skicka vissa uppsättningar av användardata i anspråk som krävs för ditt program. Dessa anspråk kan innehålla standardegenskaper som **displayName** och **e-postadress**. Dina program kan använda de här anspråken att på ett säkert sätt autentisera användare och förfrågningar. 
 

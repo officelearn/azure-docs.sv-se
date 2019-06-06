@@ -1,29 +1,25 @@
 ---
-title: Anropa, utlösa eller kapsla arbetsflöden med HTTP-slutpunkter – Azure Logic Apps | Microsoft Docs
+title: Anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter – Azure Logic Apps
 description: Konfigurera HTTP-slutpunkter för att anropa, utlösare, eller kapsla arbetsflöden för Azure Logic Apps
 services: logic-apps
-keywords: arbetsflöden, HTTP-slutpunkter
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304274"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495042"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i Azure Logic Apps
 
 Internt kan du exponera synkron HTTP-slutpunkter som utlösare för logikappar så att du kan utlösa eller anropa dina logikappar via en URL. Du kan också kapsla arbetsflöden i dina logic apps genom att använda ett mönster av anropningsbara slutpunkter.
 
@@ -245,11 +241,11 @@ Du kan inkludera mer än en rubrik och alla typer av innehåll i svarstexten. I 
 
 Svar har följande egenskaper:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | statusCode |Anger HTTP-statuskod för att svara på den inkommande begäranden. Den här koden kan vara en giltig status-kod som börjar med 2xx, 4xx eller 5xx. 3xx statuskoder är inte tillåtna. |
 | Rubriker |Definierar valfritt antal huvuden ska ingå i svaret. |
-| brödtext |Anger en brödtext-objekt som kan vara en sträng, ett JSON-objekt eller även binärt innehåll som refereras till från ett tidigare steg. |
+| body |Anger en brödtext-objekt som kan vara en sträng, ett JSON-objekt eller även binärt innehåll som refereras till från ett tidigare steg. |
 
 Här är JSON-schemat ser ut nu för den **svar** åtgärd:
 

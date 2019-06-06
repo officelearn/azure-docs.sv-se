@@ -2,18 +2,17 @@
 title: Använd Azure Monitor-loggar för att övervaka Azure HDInsight-kluster
 description: Lär dig hur du använder Azure Monitor-loggar för att övervaka jobb som körs i ett HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203669"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479261"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använd Azure Monitor-loggar för att övervaka HDInsight-kluster
 
@@ -49,21 +48,15 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om du vill använda en Azure Log Analytics-arbetsyta för att övervaka jobb, felsökningsloggar osv.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Från den [Azure-portalen](https://portal.azure.com/), Välj ditt kluster.  Se [lista och visa kluster](./hdinsight-administer-use-portal-linux.md#showClusters) anvisningar. Klustret har öppnats i en ny Portalsida.
 
-2. I den vänstra menyn, Välj **alla tjänster**.
+1. Från vänster, under **övervakning**väljer **Operations Management Suite**.
 
-3. Under **ANALYTICS**väljer **HDInsight-kluster**.
+1. Från den huvudsakliga vyn under **OMS-övervakning**väljer **aktivera**.
 
-4. Välj ditt kluster i listan.
+1. Från den **Välj en arbetsyta** listrutan väljer du en befintlig Log Analytics-arbetsyta.
 
-5. Från vänster, under **övervakning**väljer **Operations Management Suite**.
-
-6. Från den huvudsakliga vyn under **OMS-övervakning**väljer **aktivera**.
-
-7. Från den **Välj en arbetsyta** listrutan väljer du en befintlig Log Analytics-arbetsyta.
-
-8. Välj **Spara**.  Det tar en stund att spara inställningen.
+1. Välj **Spara**.  Det tar en stund att spara inställningen.
 
     ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "aktiverar övervakning av HDInsight-kluster")
 

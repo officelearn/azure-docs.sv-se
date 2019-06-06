@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.openlocfilehash: 261fd9f820f3e5421d9d0f4f7c9220ec31003283
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148442"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473445"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
 
 ## <a name="overview"></a>Översikt
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Blobfuse ger dig tillgång till dina befintliga block blob-data i ditt storage-konto via filsystemet Linux. Azure Blob storage är en tjänst för lagring av objekt och har inte ett hierarkiskt namnområde. Blobfuse innehåller det här namnområdet med virtuell katalog med snedstrecket ”/” som avgränsare.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Blobfuse ger dig tillgång till dina befintliga block blob-data i ditt storage-konto via filsystemet Linux. Blobfuse använder schemat virtuell katalog med snedstrecket ”/” som avgränsare.  
 
 Den här guiden visar hur du använder blobfuse och montera Blob storage-behållare på Linux och komma åt data. Om du vill veta mer om blobfuse kan du läsa informationen i [blobfuse databasen](https://github.com/Azure/azure-storage-fuse).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault hanteras lagringskonto – CLI
-description: Lagringskontonycklar ger en sömlös integrering mellan Azure Key Vault och viktiga baserat åtkomst till Azure Storage-konto.
+title: Hantera lagringskontonycklar med Azure Key Vault och Azure CLI
+description: Lagringskontonycklar ger sömlös integrering mellan Azure Key Vault och nyckelbaserad åtkomst till ett Azure storage-konto.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
@@ -8,160 +8,169 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232558"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476147"
 ---
-# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
+# <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Hantera lagringskontonycklar med Azure Key Vault och Azure CLI 
+
+Azure Key Vault hanterar nycklar för Azure storage-konton och klassiska lagringskonton. Du kan använda funktionen för Key Vault hanterad lagring-konto för att slutföra flera viktiga hanteringsfunktioner åt dig.
+
+En [Azure storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett kontonamn och en nyckel. Nyckeln är automatiskt genererade och fungerar som ett lösenord, snarare än en som en kryptografisk nyckel. Key Vault hanterar lagringskontonycklar genom att lagra dem som [Key Vault-hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). Nycklar listas (synkroniserade) med ett Azure storage-konto och skapas med jämna mellanrum eller _roterad_. 
+
+När du använder funktionen viktiga hanterad lagring kan du överväga följande punkter:
+
+- Nyckelvärden returneras aldrig som svar på en anropare.
+- Endast Key Vault ska hantera dina lagringskontonycklar. Inte hantera nycklarna själv och undvika störningar på Key Vault-processer.
+- Endast ett enda Key Vault-objekt bör hantera lagringskontonycklar. Tillåt inte nyckelhantering från flera objekt.
+- Du kan begära Key Vault för att hantera ditt lagringskonto med en annan användare, men inte med ett huvudnamn för tjänsten.
+- Återskapa nycklar genom att endast använda Key Vault. Inte manuellt återskapa dina lagringskontonycklar. 
 
 > [!NOTE]
-> [Azure storage-integrering med Azure Active Directory (Azure AD)] är Microsofts molnbaserade identitets- och management-tjänsten. Azure AD-integrering är tillgängligt för tjänsterna Blob och kö. (https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure AD för autentisering och auktorisering, som ger OAuth2-tokenbaserad åtkomst till Azure storage, precis som Azure Key Vault. På så sätt kan du:
-> - Autentisera ditt klientprogram som använder en program- eller identitet, i stället för autentiseringsuppgifterna för lagringskontot. 
-> - Använd en [Azure AD-hanterad identitet](/azure/active-directory/managed-identities-azure-resources/) när körs på Azure. Hanterade identiteter ta bort behovet av klientautentisering som helhet och lagra autentiseringsuppgifter i eller med ditt program.
-> - Använd rollbaserad åtkomstkontroll (RBAC) för att hantera auktorisering, vilket även stöds av Key Vault.
+> Azure Storage-integrering med Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och management-tjänsten.
+> Azure AD-integrering är tillgängligt för [Azure-blobbar och köer](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> Använd Azure AD för autentisering och auktorisering.
+> Azure AD tillhandahåller OAuth2-tokenbaserad åtkomst till Azure Storage precis som Azure Key Vault.
+>
+> Azure AD kan du autentisera ditt klientprogram med hjälp av en program- eller identitet, i stället för autentiseringsuppgifterna för lagringskontot.
+> Du kan använda en [Azure AD-hanterad identitet](/azure/active-directory/managed-identities-azure-resources/) när du kör på Azure. Hanterade identiteter ta bort behovet av klientautentisering och lagra autentiseringsuppgifter i eller med ditt program.
+> Azure AD använder rollbaserad åtkomstkontroll (RBAC) för att hantera auktorisering, som stöds också av Key Vault.
 
-En [Azure storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett kontonamn och en nyckel. Nyckeln är automatiskt genererade och fungerar mer som ”lösenord” till skillnad från en kryptografisk nyckel. Key Vault kan hantera dessa lagringskontonycklar genom att lagra dem som [Key Vault-hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+### <a name="service-principal-application-id"></a>Service principal program-ID
 
-## <a name="overview"></a>Översikt
+En Azure AD-klient ger varje registrerade program med en [tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object). Tjänstens huvudnamn fungerar som Programidentitet (ID). Program-ID används under installationen av auktorisering för åtkomst till andra Azure-resurser via RBAC.
 
-Key Vault hanteras storage-konto som funktionen utför flera hanteringsfunktioner åt dig:
+Key Vault är en Microsoft-program som redan är registrerad i alla Azure AD-klienter. Key Vault har registrerats under samma program-ID och inom varje Azure-molnet.
 
-- Listor (synkronisering) nycklar med ett Azure storage-konto.
-- Återskapar (roterar) nycklarna regelbundet.
-- Hanterar nycklar för både storage-konton och klassiska lagringskonton.
-- Nyckelvärden returneras aldrig i svaret till anroparen.
+| Klienter | Molnet | Program-ID:t |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azures offentliga | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Annat  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-När du använder funktionen viktiga hanterad lagring:
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-- **Tillåt endast Key Vault för att hantera dina lagringskontonycklar.** Försök inte hantera dem själv, som du ska påverka Key Vault-processer.
-- **Tillåt inte storage-kontonycklar som ska hanteras av fler än ett objekt i Key Vault**.
-- **Inte manuellt återskapa dina lagringskontonycklar**. Vi rekommenderar att du återskapar dem via Key Vault.
-- Ber Key Vault för att hantera ditt lagringskonto kan göras genom att ett UPN för tillfället och inte ett huvudnamn för tjänsten
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-I följande exempel visar hur du kan låta Key Vault för att hantera dina lagringskontonycklar.
+Innan du använder Key Vault för att hantera din lagringskontonyckel kan du granska kraven:
 
-> [!IMPORTANT]
-> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
-> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
-
-<a name="prerequisites"></a>Nödvändiga komponenter
---------------
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installera Azure CLI   
-2. [Skapa ett Lagringskonto](https://azure.microsoft.com/services/storage/)
-    - Följ stegen i den här [dokumentet](https://docs.microsoft.com/azure/storage/) att skapa ett lagringskonto  
-    - **Riktlinjer för namngivning:** Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.        
+- Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Skapa en [Azure storage-konto](https://azure.microsoft.com/services/storage/). Följ [här](https://docs.microsoft.com/azure/storage/).
+- Lagringskontonamnet måste använda endast gemena bokstäver och siffror. Längden på namnet måste vara mellan 3 och 24 tecken.        
       
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Steg för steg-instruktioner om hur du använder Key Vault för att hantera Lagringskontonycklar
---------------------------------------------------------------------------------
-Begreppsmässigt lista över steg som är
-- Vi först hämta ett storage-konto (befintlig)
-- Vi sedan enkelt hämta (befintlig) key vault
-- Vi sedan lägga till ett KeyVault-hanterade storage-konto till valvet, ställa in Key1 som den aktiva nyckeln och med en återskapandeperiod på 180 dagar
-- Till sist ska du ange en storage-kontext för det angivna lagringskontot med Key1
+## <a name="manage-storage-account-keys"></a>Hantera lagringskontonycklar
 
-I den nedan information vi tilldela Key Vault som en tjänst har operatorn behörigheter för ditt storage-konto
+Det finns fyra grundläggande stegen för att använda Key Vault för att hantera storage-kontonycklar:
+
+1. Få ett befintligt lagringskonto.
+1. Hämta ett befintligt nyckelvalv.
+1. Lägga till ett lagringskonto för Key Vault hanteras i valvet. Ange `key1` som den aktiva nyckeln med en återskapandeperiod på 180 dagar.
+1. Använd `key1` att ange en storage-kontext för det angivna lagringskontot.
 
 > [!NOTE]
-> . Observera att när du har konfigurerat Azure Key Vault hanteras storage kontonycklar de bör **nr** längre ändras utom via Key Vault. Hanterade Storage-kontonycklar innebär att Key Vault administrerar rotera nyckeln till lagringskontot
+> Key Vault som en tjänst är tilldelad behörigheten operatör på ditt lagringskonto.
+> 
+> När du har konfigurerat Azure Key Vault hanterade lagringskontonycklar du bara ändra nycklarna med Key Vault.
+> Hanterade lagringskontonycklar hanteras Key Vault rotation av storage-kontonyckel.
 
-> [!IMPORTANT]
-> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
-> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
-
-> - För närvarande kan du använda UPN be Key Vault för att hantera ett storage-konto och inte ett huvudnamn för tjänsten
-
-
-1. När du har skapat ett lagringskonto som kör följande kommando för att hämta resurs-ID för lagringskontot som vill du hantera
-
+1. När du har skapat ett lagringskonto, kör du följande kommando för att hämta resurs-ID för storage-konto för att hantera:
     ```
-    az storage account show -n storageaccountname 
+    az storage account show -n storageaccountname
     ```
-    Kopiera ID-fält av resultatet av kommandot ovan, som ser ut som nedan
+
+    Kopiera resurs-ID-värde från utdata från kommandot:
     ```
-    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
+    /subscriptions/<subscription ID>/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+
+    Exempel på utdata:
+    ```
+    "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+    ```
     
-2. Tilldela RBAC-roll ”Storage-konto nyckeln Tjänstroll som operatör” till Key Vault, begränsar åtkomstomfånget till ditt lagringskonto. För ett klassiskt lagringskonto använder du ”klassisk lagring konto nyckeln Tjänstroll som operatör”.
+1. Tilldela rollen RBAC ”Storage-konto nyckeln Tjänstroll som operatör” till Key Vault. Den här rollen begränsar omfattningen för åtkomst till ditt lagringskonto. Använda rollen ”klassiska Storage-konto nyckeln Tjänstroll som operatör” för ett klassiskt lagringskonto.
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-    ”93c27d83-f79b-4cb2-8dd4-4aa716542e74” är objekt-ID för Key Vault i offentliga molnet. För att hämta objekt-ID för Key Vault i nationella moln finns i avsnittet viktiga ovan
+    `93c27d83-f79b-4cb2-8dd4-4aa716542e74` är objekt-ID för Key Vault i det offentliga Azure-molnet. För att hämta objekt-ID för Key Vault i Azure Government-molnet, se [principal program-ID för tjänstens](#service-principal-application-id).
     
-3. Skapa Key Vault hanteras Storage-konto.     <br /><br />
-   Nedan har anger vi en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”. Det blir det Key1 den aktiva nyckeln nu. 
+1. Skapa ett Key Vault hanteras storage-konto:
+
+    Ange en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault genererar `key1` och byter ut den aktiva nyckeln från `key2` till `key1`. `key1` sedan markeras den aktiva nyckeln. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
 
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Steg för steg-instruktioner om hur du använder Key Vault för att skapa och generera SAS-token
---------------------------------------------------------------------------------
-Du kan även ställa Key Vault för att generera SAS (Shared Access Signature)-token. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Med en SAS kan kan du ge klienterna åtkomst till resurser i ditt storage-konto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-När du har slutfört köra stegen ovan kan du följande kommandon för att be Key Vault för att generera SAS-token åt dig. 
+## <a name="create-and-generate-tokens"></a>Skapa och generera token
 
-Lista över saker som kan uppnås på den nedanstående steg är
-- Anger ett konto med namnet SAS-definitionen `<YourSASDefinitionName>` ett KeyVault-hanterade lagringskonto `<YourStorageAccountName>` i ditt valv `<VaultName>`. 
-- Skapar en SAS-token för kontot för tjänsterna Blob, fil, tabell och kö för resurstyperna Service, behållare och objekt, med alla behörigheter över https och med de angivna start- och slutdatumen
-- Anger en hanterad KeyVault-lagring SAS-definitionen i valvet med mall-uri som SAS-token som skapade ovan, för SAS-typ 'account' och giltig för N dagar
-- Hämtar den faktiska åtkomst-token från KeyVault-hemligheten som motsvarar den SAS-definitionen
+Du kan även ställa Key Vault för att generera signaturtoken för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan ge klienterna åtkomst till resurser i ditt lagringskonto utan att dela dina kontonycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
 
-1. I det här steget ska vi skapa en SAS-definitionen. När den här SAS-definitionen har skapats kan be du Key Vault för att generera mer SAS-token åt dig. Den här åtgärden kräver behörigheten lagring/setsas.
+Kommandona i det här avsnittet utför följande åtgärder:
 
-```
-$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
-```
-Du kan se mer hjälp om åtgärden ovan [här](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+- Ange ett konto som delas åtkomst signatur definition `<YourSASDefinitionName>`. Definitionen är inställt på ett lagringskonto för Key Vault hanteras `<YourStorageAccountName>` i ditt nyckelvalv `<VaultName>`.
+- Skapa signaturtoken för delad åtkomst ett konto för Blob, fil, tabell och kö-tjänster. Token har skapats för resurstyperna Service, behållare och objekt. Token har skapats med alla behörigheter över https, och med de angivna start- och slutdatumen.
+- Ange en definition av Key Vault hanteras storage delad åtkomst signatur i valvet. Definitionen innehåller mallen URI för signatur för delad åtkomst-token som har skapats. Definitionen har typen signatur för delad åtkomst `account` och är giltig i N dagar.
+- Hämta den faktiska åtkomst-token från Key Vault-hemlighet som motsvarar definitionen för signatur för delad åtkomst.
 
-När den här åtgärden har körts kan bör du se utdata som liknar enligt nedan. Kopiera som
+När du har slutfört stegen i föregående avsnitt, kör du följande kommandon för att be Key Vault för att generera signaturtoken för delad åtkomst. 
 
-```console
-   "se=2020-01-01&sp=***"
-```
+1. Skapa en definition för signatur för delad åtkomst. När definitionen för signatur för delad åtkomst har skapats kan du be Key Vault för att generera mer delade signatur åtkomsttoken. Den här åtgärden kräver den `storage` och `setsas` behörigheter.
+    ```
+    $sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+    ```
 
-1. I det här steget använder vi utdata ($sasToken) genereras ovan för att skapa en SAS-Definition. Mer dokumentation finns [här](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+    Hjälp om åtgärden finns i den [az storage-konto generera sas](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) referensdokumentation.
 
-```
-az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
-```
-                        
+    Kopiera utdata när åtgärden har körts.
+    ```console
+       "se=2020-01-01&sp=***"
+    ```
 
- > [!NOTE] 
- > I det fallet att användaren inte har behörighet att storage-konto kan hämta vi först objekt-Id för användaren
+1. Använd den `$sasToken` genereras av det föregående kommandot och skapa en definition för signatur för delad åtkomst. Mer information om kommandoparametrarna finns i den [az keyvault storage sas-definitionen skapa](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters) referensdokumentation.
+    ```
+    az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+    ```
 
- ```
- az ad user show --upn-or-object-id "developer@contoso.com"
+    När användaren inte har behörighet att storage-konto, bör du först hämta objekt-ID för användaren:
+    ```
+    az ad user show --upn-or-object-id "developer@contoso.com"
 
- az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
- ```
-    
-## <a name="fetch-sas-tokens-in-code"></a>Hämta SAS-token i koden
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    ```
 
-I det här avsnittet diskuteras hur du kan göra åtgärder på ditt lagringskonto genom att hämta [SAS-token](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) från Key Vault
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-I den under avsnittet vi visar hur du kan hämta SAS-token när en SAS-definitionen har skapats enligt ovan.
+## <a name="fetch-tokens-in-code"></a>Hämta token i koden
 
-> [!NOTE]
->   Det finns 3 sätt att autentisera till Key Vault eftersom du kan läsa i den [grundläggande begrepp](key-vault-whatis.md#basic-concepts)
-> - Med hjälp av hanterad tjänstidentitet (rekommenderas)
-> - Med hjälp av tjänstens huvudnamn och certifikat 
-> - Med tjänstens huvudnamn och lösenord (rekommenderas inte)
+Utför åtgärder i ditt storage-konto genom att hämta [delad signaturtoken för åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) från Key Vault.
+
+Det finns tre sätt att autentisera till Key Vault:
+
+- Använda hanterade tjänstidentiteter. Den här metoden rekommenderas starkt.
+- Använd ett huvudnamn för tjänsten och certifikat. 
+- Använd ett huvudnamn för tjänsten och lösenord. Den här metoden rekommenderas inte.
+
+Mer information finns i [Azure Key Vault: Grundläggande begrepp](key-vault-whatis.md#basic-concepts).
+
+I följande exempel visar hur du hämtar signaturtoken för delad åtkomst. Du kan hämta token när du har skapat en definition för signatur för delad åtkomst. 
 
 ```cs
-// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
+// After you get a security token, create KeyVaultClient with vault credentials.
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
 
-// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+// Get a shared access signature token for your storage from Key Vault.
+// The format for SecretUri is https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
 var sasToken = await kv.GetSecretAsync("SecretUri");
 
-// Create new storage credentials using the SAS token.
+// Create new storage credentials by using the shared access signature token.
 var accountSasCredential = new StorageCredentials(sasToken.Value);
 
 // Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
@@ -170,19 +179,22 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 ```
 
-Om din SAS-token snart upphör att gälla, sedan du hämta SAS-token igen från Key Vault och uppdatera koden
+Om din signaturtoken för delad åtkomst är upphör snart att gälla, hämta signaturtoken för delad åtkomst igen från Key Vault och uppdatera koden.
 
 ```cs
-// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+// If your shared access signature token is about to expire,
+// get the shared access signature token again from Key Vault and update it.
 sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
-### <a name="relevant-azure-cli-commands"></a>Relevant Azure CLI-kommandon
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-[Azure CLI-Storage-kommandon](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+### <a name="azure-cli-commands"></a>Azure CLI-kommandon
 
-## <a name="see-also"></a>Se också
+Information om Azure CLI-kommandon som är relevanta för hanterade storage-konton finns i den [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) referensdokumentation.
 
-- [Om nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/)
-- [Key Vault-teamets blogg](https://blogs.technet.microsoft.com/kv/)
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/).
+- Granska artiklar på den [Azure Key Vault-teamets blogg](https://blogs.technet.microsoft.com/kv/).

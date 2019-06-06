@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074057"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431311"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -99,6 +99,8 @@ När du skapar en LoadBalancer typ Service skapas en underliggande Azure belastn
 I AKS, kan du skapa en Ingress-resurs med något som NGINX eller använda funktionen AKS HTTP programmet routning. När du aktiverar HTTP programmet routning för ett AKS-kluster kan Azure-plattformen skapar Ingress-kontrollanten och en *externt DNS* controller. Då nya Ingress-resurser skapas i Kubernetes, skapas de nödvändiga DNS A-posterna i en klusterspecifika DNS-zon. Mer information finns i [distribuera routning av HTTP-programmet][aks-http-routing].
 
 En annan vanlig funktion för ingång är SSL/TLS-avslutning. I stora webbprogram som kan nås via HTTPS, kan TLS-avslutning hanteras av Ingress-resursen inte själva programmet. Du kan konfigurera Ingress-resurs för att använda leverantörer som krypterar vi för att tillhandahålla automatisk generering av TLS-certifiering och konfiguration. Läs mer om hur du konfigurerar en NGINX-Ingress-kontrollant med ska vi kryptera [Ingångshändelser och TLS][aks-ingress-tls].
+
+Du kan också konfigurera ingress-kontrollanten för att bevara klienten käll-IP för förfrågningar till behållare i AKS-klustret. När en klientbegäran dirigeras till en behållare i AKS-klustret via ingress-kontrollant, ursprunglig käll-ip för begäran inte tillgängliga för en målbehållare. När du aktiverar *klienten källa IP konservering*, käll-IP för klienten är tillgänglig i rubriken under *X vidarebefordras för*. Om du använder klienten källa IP konservering på ingress-kontrollant, kan du inte använda SSL direkt. Klienten källa IP bevara och SSL direkt kan användas med andra tjänster, till exempel den *LoadBalancer* typen.
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 

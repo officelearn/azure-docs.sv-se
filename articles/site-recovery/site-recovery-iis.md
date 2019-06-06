@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280425"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480292"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera haveriberedskap för en flerskiktade IIS-baserade webbprogram
 
@@ -63,7 +63,7 @@ Scenario | Till en sekundär plats | Till Azure
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
 Fysisk server | Nej | Ja
-Azure|Ej tillämpligt|Ja
+Azure|Saknas|Ja
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 
@@ -109,7 +109,7 @@ Om anslutningssträngen refererar till den virtuella datorn för databasen med h
         </connectionStrings>
         </configuration>
 
-Om du vill uppdatera anslutningssträngen på webbnivå, lägger du till en [IIS anslutning uppdateringsskript](https://aka.ms/asr-update-webtier-script-classic) efter grupp 3 i återställningsplanen.
+Om du vill uppdatera anslutningssträngen på webbnivå, lägger du till en [IIS anslutning uppdateringsskript](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) efter grupp 3 i återställningsplanen.
 
 #### <a name="site-bindings-for-the-application"></a>Bindningar för webbplats för programmet
 Varje plats består av bindningsinformation. Bindningsinformationen innehåller typen av bindning, IP-adressen som IIS-servern lyssnar efter förfrågningar för platsen, portnumret och värdnamnen för webbplatsen. Du kan behöva uppdatera dessa bindningar om det finns en ändring i IP-adressen som är associerat med dem under redundansväxlingen.

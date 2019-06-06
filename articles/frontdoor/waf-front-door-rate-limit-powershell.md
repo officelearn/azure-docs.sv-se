@@ -9,22 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387335"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478921"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en web application rate gränsen brandväggsregel med hjälp av Azure PowerShell
 Azure web application firewall (WAF) hastighet gränsen regel för Azure ytterdörren styr antalet begäranden som tillåts från en enskild klient-IP-adress under en tid för en minut.
 Den här artikeln visar hur du konfigurerar en regel för WAF hastighet gränsen som styr antalet begäranden som tillåts från en enda klient till ett webbprogram som innehåller */promo* i URL-Adressen med hjälp av Azure PowerShell.
-
-> [!IMPORTANT]
-> WAF hastighet gränsen regeln funktionen för Azure ytterdörren är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

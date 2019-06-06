@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242522"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734523"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och felsöka problem när du använder Azure Cosmos DB-utlösare i Azure Functions
 
@@ -88,6 +88,12 @@ Om du upptäcker att vissa ändringar inte har tagits emot alls av utlösaren, d
 Dessutom kan du kontrollera scenariot, om du vet hur många instanser i Azure Function-App som du har som körs. Om du vill inspektera behållaren lån och räkna antalet lån objekt inom de distinkta värdena för den `Owner` -egenskapen i dem vara lika med antalet instanser av din Funktionsapp. Om det finns fler ägare än kända instanserna i Azure Function-App, innebär det att följande extra ägare är en ”stjäla” ändringarna.
 
 Ett enkelt sätt att lösa den här situationen är att tillämpa en `LeaseCollectionPrefix/leaseCollectionPrefix` till din funktion med en ny/annan värde eller du kan också testa med en ny lån-behållare.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan endast göras med IReadOnlyList<Document> eller JArray
+
+Felet kan inträffa om Azure Functions-projekt (eller alla refererade projekt) innehåller en manuell NuGet referens till Azure Cosmos DB SDK med en annan version än den som tillhandahålls av den [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+
+Lösa den här situationen, ta bort den manuella NuGet-referens som har lagts till och låt Azure Cosmos DB SDK-referensen lösa via Azure Functions Cosmos DB Extension-paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 

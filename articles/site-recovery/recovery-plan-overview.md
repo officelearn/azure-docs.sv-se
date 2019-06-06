@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400012"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471438"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -37,10 +37,10 @@ En återställningsplan hjälper dig att definiera en systematisk återställnin
 
 Du kan planera och skapa en grupp för dataåterställning för att samla in app-specifika egenskaper. Till exempel anta att du har ett typiskt trelagers-program med en SQLServer-serverdel, mellanprogram och en webbservergrupp. Normalt anpassa återställningsplanen så att datorerna i varje nivå börjar i rätt ordning efter en redundansväxling.
 
-    - SQL-serverdelen ska starta först mellanprogrammet nästa och slutligen webbservergrupp.
-    - Den här startordningen säkerställer att appen fungerar när den sista datorn startar.
-    - Den här ordningen säkerställer att när mellanprogrammet startar och försöker ansluta till SQL Server-nivå, SQL Server-nivå körs redan. 
-    - Den här ordningen kan också se till att front-end-server börjar senaste, så att slutanvändare inte ansluta till den app-URL innan alla komponenter som är igång och körs och appen är redo att acceptera begäranden.
+- SQL-serverdelen ska starta först mellanprogrammet nästa och slutligen webbservergrupp.
+- Den här startordningen säkerställer att appen fungerar när den sista datorn startar.
+- Den här ordningen säkerställer att när mellanprogrammet startar och försöker ansluta till SQL Server-nivå, SQL Server-nivå körs redan. 
+- Den här ordningen kan också se till att front-end-server börjar senaste, så att slutanvändare inte ansluta till den app-URL innan alla komponenter som är igång och körs och appen är redo att acceptera begäranden.
 
 Om du vill skapa den här ordningen, lägga till grupper i gruppen återställning och lägga till datorer i grupper.
 - Om ordning anges, används ordningsföljd. Åtgärder köras parallellt vid behov för att förbättra programåterställning RTO.

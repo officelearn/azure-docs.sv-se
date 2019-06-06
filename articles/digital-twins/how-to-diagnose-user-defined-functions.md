@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924864"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735189"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digital Twins
 
-Den här artikeln sammanfattar hur du diagnostiserar och felsöka användardefinierade funktioner. Sedan visas några av de vanligaste scenarierna som hittades när du felsöker dem.
+Den här artikeln sammanfattar hur du diagnostiserar och felsöka användardefinierade funktioner i Azure Digital Twins. Sedan visas några av de vanligaste scenarierna som hittades när du felsöker dem.
 
 >[!TIP]
 > Läs [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md) mer information om hur du konfigurerar felsökningsverktyg i Azure Digital Twins med aktivitetsloggar, diagnostikloggar och Azure Monitor.
 
 ## <a name="debug-issues"></a>Felsökning av problem
 
-Att veta hur du diagnostiserar problem som kan uppstå i din instans av Azure Digital Twins hjälper dig att effektivt identifiera problemet, orsaken till problemet och en lösning.
+Att veta hur du diagnostiserar problem i Azure Digital Twins kan du effektivt analysera problem, identifiera orsaken till problem och tillhandahålla lämpliga lösningar för dem.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Aktivera logganalys för din instans
+En mängd olika loggning, analys och diagnostikverktyg tillhandahålls för detta ändamål.
 
-Loggar och mått för din Azure Digital Twins instans visas i Azure Monitor. Den här dokumentationen förutsätter att du har skapat en [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) arbetsytan via den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md), via [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), eller via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Aktivera loggning för din instans
 
-> [!NOTE]
-> Det uppstå en fördröjning på 5 minuter när du skickar händelser till Azure Monitor-loggar för första gången.
+Azure Digital Twins stöder robust loggning, övervakning och analys. Lösningar för utvecklare kan använda Azure Monitor-loggar, diagnostikloggar, aktivitetsloggar och andra tjänster för komplexa övervakning behov av en IoT-app. Alternativ för loggning kan kombineras för att fråga efter eller visa poster över flera tjänster och ger detaljerad loggning täckning för många tjänster.
 
-Om du vill konfigurera övervakning och loggning för Azure Digital Twins resurser, läsa [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md).
+* Loggningskonfiguration som är specifika för Azure Digital Twins läsa [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md).
+* Läs den den [Azure Monitor](../azure-monitor/overview.md) översikt om du vill veta mer om kraftfulla Logginställningar aktiveras via Azure Monitor.
+* I artikeln [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md) för att konfigurera diagnostiklogginställningar i Azure Digital Twins via Azure Portal, Azure CLI eller PowerShell.
 
-Läs artikeln [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md) för att konfigurera diagnostiklogginställningar i Azure Digital Twins via Azure Portal, Azure CLI eller PowerShell.
-
->[!IMPORTANT]
-> Se till att välja alla loggkategorier, mått och Azure Log Analytics-arbetsytan.
+När du konfigurerat kommer du att kunna markera alla loggkategorier, mått, och använda kraftfulla Azure Monitor log analytics-arbetsytor för att stödja din felsökningen.
 
 ### <a name="trace-sensor-telemetry"></a>Spårningstelemetri för sensor
 
@@ -47,7 +45,7 @@ Att spåra sensor telemetri, kontrollera att diagnostikinställningar har aktive
 
 Du kan ange ett Korrelations-ID på av data som skickas för att matcha en sensor telemetrimeddelanden till dess respektive loggar. Du gör detta genom att ange den `x-ms-client-request-id` egenskapen till ett GUID.
 
-När du har skickat telemetri, öppna log analytics för att fråga efter loggar med uppsättningen Korrelations-ID:
+När du har skickat telemetri, öppna log analytics att fråga efter loggar med uppsättningen Korrelations-ID:
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +207,6 @@ Om du aktiverar diagnostikinställningar kan du stöta på dessa vanliga undanta
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du aktiverar [övervakning och loggar](../azure-monitor/platform/activity-logs-overview.md) i Azure Digital Twins.
+- Lär dig hur du aktiverar [övervakning och loggar](./how-to-configure-monitoring.md) i Azure Digital Twins.
+
+- Läs den [översikt av Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md) artikel för fler Azure loggningsalternativen.

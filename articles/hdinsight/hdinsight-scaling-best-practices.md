@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990535"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479274"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -34,7 +34,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |[Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål > |
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret ditt HDInsight-kluster, Välj **klusterstorlek** i den vänstra menyn och sedan i fönstret kluster storlek, Skriv i antalet arbetarnoder och klicka på Spara.|  
 
-![Skala kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned inom några minuter.
 
@@ -58,13 +58,12 @@ För att undvika att din körs jobben misslyckas under en skala ned igen kan fö
 1. Avsluta jobb manuellt.
 1. Skicka jobb när skalning åtgärden har avslutats.
 
-Om du vill se en lista över väntande och jobb som körs, kan du använda YARN **ResourceManager UI**, följa dessa steg:
+Om du vill se en lista över väntande och jobb som körs, kan du använda YARN **Resource Manager UI**, följa dessa steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Från vänster, gå till **alla tjänster** > **Analytics** > **HDInsight-kluster**, och välj sedan ditt kluster.
-3. Huvudvy, navigera till **Klusterinstrumentpaneler** > **Ambari home**. Ange dina autentiseringsuppgifter för klustret.
-4. Ambari UI, Välj **YARN** på listan över tjänster i den vänstra menyn.  
-5. YARN-sidan väljer du **snabblänkar** och hovra över aktiva huvudnoden och välj sedan **ResourceManager UI**.
+1. Från den [Azure-portalen](https://portal.azure.com/), Välj ditt kluster.  Se [lista och visa kluster](./hdinsight-administer-use-portal-linux.md#showClusters) anvisningar. Klustret har öppnats i en ny Portalsida.
+2. Huvudvy, navigera till **Klusterinstrumentpaneler** > **Ambari home**. Ange dina autentiseringsuppgifter för klustret.
+3. Ambari UI, Välj **YARN** på listan över tjänster i den vänstra menyn.  
+4. YARN-sidan väljer du **snabblänkar** och hovra över aktiva huvudnoden och välj sedan **ResourceManager UI**.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 

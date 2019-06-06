@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2017
+ms.date: 06/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07d52544b584adb02cc60790b7cb63c8aee1e366
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514480"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
 
@@ -82,7 +82,7 @@ Skapa en ny .json-fil – vi kan kalla den `template1.json` i det här exemplet.
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
                 }
             },
             "dailyQuota": {
@@ -200,8 +200,8 @@ Skapa en app-resurs med pris företagsplanen, med hjälp av mallen ovan:
 
 |priceCode|plan|
 |---|---|
-|1|Grundläggande|
-|2|Enterprise|
+|1|Basic|
+|2|Företag|
 
 * Om du endast vill använda standard Basic-prisplan kan du utelämna CurrentBillingFeatures resursen från mallen.
 * Om du vill ändra prisplanen när komponenten resursen har skapats kan du använda en mall som utesluter ”microsoft.insights/components”-resurs. Dessutom utelämna den `dependsOn` nod från fakturering resursen. 
@@ -452,4 +452,3 @@ Andra automation-artiklar:
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
 * [Distribuera till Azure från GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Skapa Versionsanteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

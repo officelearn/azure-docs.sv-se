@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245045"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475660"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory
 
-Azure Data Factory kan du hämta den omfattande organisationens data i din Office 365-klient till Azure på ett skalbart sätt och skapa analysprogram och extrahera insikter utifrån dessa viktiga datatillgångar. Integrering med Privileged Access Management ger säker åtkomstkontroll för värdefulla utvalda data i Office 365.  Mer information om Microsoft Graph-data ansluta, referera till [den här länken](https://docs.microsoft.com/graph/data-connect-concept-overview).
+Azure Data Factory kan integreras med [Microsoft Graph-data ansluter](https://docs.microsoft.com/graph/data-connect-concept-overview), så att du kan ta med de omfattande organisationens data i din Office 365-klient till Azure på ett skalbart sätt och skapa analysprogram och få insikter utifrån dessa viktiga datatillgångar. Integrering med Privileged Access Management ger säker åtkomstkontroll för värdefulla utvalda data i Office 365.  Se [den här länken](https://docs.microsoft.com/graph/data-connect-concept-overview) ansluta en översikt över Microsoft Graph-data och referera till [den här länken](https://docs.microsoft.com/graph/data-connect-policies#licensing) för mer information om licenser.
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Office 365. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
+ADF Office 365-anslutning och Microsoft Graph-data ansluta aktiverar på skala inmatning av olika typer av datauppsättningar från Exchange e-postaktiverade postlådor, inklusive kontakter i adressboken, Kalender-händelser, e-postmeddelanden, information om användare, e-postinställningar för, och osv.  Se [här](https://docs.microsoft.com/graph/data-connect-datasets) att se den fullständiga listan över tillgängliga datauppsättningar.
 
 För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från Office 365 till [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), och [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) i JSON-format** (typen setOfObjects). Om du vill att läsa in Office 365 till andra typer av datalager eller i andra format, du kan länka första kopieringsaktiviteten med en efterföljande Kopieringsaktivitet ytterligare läsa in data i någon av de [stöds ADF målarkiv](copy-activity-overview.md#supported-data-stores-and-formats) (finns i ” stöds som en mottagare ”kolumn i tabellen” stöds datalager och format ”).
 
@@ -76,7 +77,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Office 365-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Office365** | Ja |
 | office365TenantId | Azure klient-ID som Office 365-kontot tillhör. | Ja |
@@ -116,7 +117,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Office 365, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
 | tableName | Namn på datauppsättning för att extrahera från Office 365. Se [här](https://docs.microsoft.com/graph/data-connect-datasets#datasets) lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |

@@ -2,20 +2,20 @@
 title: Sträng-anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C | Microsoft Docs
 description: Sträng anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707457"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512592"
 ---
 # <a name="string-claims-transformations"></a>Sträng anspråk omvandlingar
 
@@ -280,7 +280,7 @@ Följande exempel genererar ett slumpmässigt heltal mellan 0 och 1000. Värdet 
 ### <a name="example"></a>Exempel
 
 - Indataparametrar:
-    - **randomGeneratorType**: HELTAL
+    - **randomGeneratorType**: INTEGER
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **Base64**: false
@@ -476,7 +476,7 @@ Hämtar domändelen i en e-postadress.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | ClaimType som innehåller den e-postadressen. |
-| OutputClaim | domän | string | ClaimType som skapas när detta omvandling av anspråk har anropats - domänen. |
+| OutputClaim | Domän | string | ClaimType som skapas när detta omvandling av anspråk har anropats - domänen. |
 
 Använd detta anspråk omvandling för att analysera domännamnet efter det @-tecknet för användaren. Det kan vara användbart för borttagning av personligt identifierbar information (PII) från granskningsdata. Följande anspråkstransformering visar hur du Parsar domännamnet från en **e-post** anspråk.
 
@@ -582,9 +582,9 @@ Till exempel följande anspråk omvandling kontrollerar om värdet för **ageGro
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **claimToMatch**: Minderårig
+    - **claimToMatch**: Mindre
 - Indataparametrar:
-    - **matchTo**: Minderårig
+    - **matchTo**: Mindre
     - **stringComparison**: ordinalIgnoreCase 
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Utgående anspråk:

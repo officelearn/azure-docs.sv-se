@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783451"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473774"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -114,10 +114,10 @@ Upprepa följande steg för att konfigurera KCD, för varje connector-datorn:
 
 Nu när du har konfigurerat KCD, är du redo att konfigurera Azure AD-programproxy.
 
-1. Publicera din SharePoint-webbplats med följande inställningar. Stegvisa instruktioner finns i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
-   * **Intern URL**: Interna SharePoint-URL som valdes tidigare, till exempel **<https://SharePoint/>**.
+1. Publicera din SharePoint-webbplats med följande inställningar. Stegvisa instruktioner finns i [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **Intern URL**: Interna SharePoint-URL som valdes tidigare, till exempel **<https://SharePoint/>** .
    * **Förautentiseringsmetod**: Azure Active Directory
-   * **Översätt URL i rubriker**: NEJ
+   * **Översätt URL i rubriker**: NO
 
    >[!TIP]
    >SharePoint använder den _värdhuvud_ värde att leta upp platsen. Det genererar även länkar som baseras på det här värdet. Nettoeffekten är att alla länkar som genereras av SharePoint är en publicerade URL som är korrekt konfigurerad att använda den externa URL: en. Ställer in värdet på **Ja** kan också anslutningen så att vidarebefordra begäran till backend-programmet. Dock ställer in värdet på **nr** innebär att anslutningen inte ska skicka interna värdnamnet. I stället skickar anslutningsappen värdhuvudet som publicerade URL: en för backend-programmet.

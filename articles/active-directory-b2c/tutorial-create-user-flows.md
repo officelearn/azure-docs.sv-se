@@ -2,20 +2,20 @@
 title: Självstudie – skapa användarflöden - Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du skapar användarflöden för dina program i Azure Active Directory B2C med Azure portal.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fd8aefa924b927d9a55d0e91f35f40060097c53b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601595"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512141"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudier: Skapa användarflöden i Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Registrera dig och logga in användarflödet hanterar registrering och inloggning upplevelser med en enda konfiguration. Användare av ditt program leds av rätt väg beroende på kontext.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 
     ![Växla till prenumerationskatalogen](./media/tutorial-create-user-flows/switch-directories.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243436"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743145"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -82,7 +82,15 @@ Vi rekommenderar att du utför den under verifieringen, innan du börjar felsök
 Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om manuella säkerhetskopieringar fungera utan problem, kan du prova följande åtgärder:
 
 - Kontrollera schema för säkerhetskopiering av Windows Server inte står i konflikt med Azure filer och mappar schema för säkerhetskopiering.
-- Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**. Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**. Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken. Kontrollera att statusen är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan och klicka på **OK**. På den **Allmänt** går du till fliken **säkerhetsalternativ** och se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **lokala Gruppen Administratörer** på servern.
+
+- Kontrollera status för onlinesäkerhetskopiering anges **aktivera**. Kontrollera statusen utför den nedan:
+
+  - Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**.
+    - Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**.
+  - Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken.
+  - Kontrollera om status är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan och klicka på **OK**.
+
+- Se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **gruppen lokala administratörer** på servern. Kontrollera användarkontot, gå till den **Allmänt** fliken och markera den **säkerhetsalternativ**.
 
 - Se om PowerShell 3.0 eller senare är installerat på servern. Kör följande kommando för att kontrollera PowerShell-version och kontrollera att den *större* versionsnumret är lika med eller större än 3.
 
@@ -98,6 +106,15 @@ Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om 
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
+- Se till att servern har startats om efter installationen backup-agenten
+
+- Se till att det finns ingen saknas eller är skadad **PowerShell** modulen **MSonlineBackup**. Om det finns en saknas eller är skadad fil, för att lösa problemet utför den nedan:
+
+  - Från en annan dator (Windows 2008 R2) med MARS-agenten fungerar korrekt, kopiera mappen MSOnlineBackup från *(C:\Program Files\Microsoft Azure Recovery Services-Agent\bin\Modules)* sökväg.
+  - Klistra in det i problematiska dator i samma sökväg *(C:\Program Files\Microsoft Azure Recovery Services-Agent\bin\Modules)* .
+  - Om **MSOnlineBackup** mappen är redan finns på datorn, klistra in/Ersätt innehållsfilerna i den.
+
+
 > [!TIP]
 > För att säkerställa att ändringarna tillämpas konsekvent, startar du om servern när du har utfört stegen ovan.
 
@@ -108,7 +125,7 @@ Azure Backup kan inte har montera återställningsvolymen, även om några minut
 
 1.  Avbryt den pågående mount-processen och om den har körts i flera minuter.
 
-2.  Se om du använder den senaste versionen av Backup-agenten. Att ta reda på versionen på den **åtgärder** fönstret MARS-konsolen väljer **om Microsoft Azure Recovery Services Agent**. Bekräfta att den **Version** antalet är lika med eller högre än den version som nämns i [i den här artikeln](https://go.microsoft.com/fwlink/?linkid=229525). Du kan hämta den senaste versionen från [här](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Se om du använder den senaste versionen av Backup-agenten. Att ta reda på versionen på den **åtgärder** fönstret MARS-konsolen väljer **om Microsoft Azure Recovery Services Agent**. Bekräfta att den **Version** antalet är lika med eller högre än den version som nämns i [i den här artikeln](https://go.microsoft.com/fwlink/?linkid=229525). Du kan hämta den senaste versionen [här](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 3.  Gå till **Enhetshanteraren** > **lagringsstyrenheter**, och leta upp **Microsoft iSCSI Initiator**. Om du kan hitta den, går du direkt till steg 7.
 

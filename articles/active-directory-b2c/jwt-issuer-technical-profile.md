@@ -2,20 +2,20 @@
 title: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683788"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510710"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip för Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683788"
 
 Azure Active Directory (Azure AD) B2C skickar flera typer av säkerhetstoken när den går igenom varje autentiseringsflödet. En teknisk profil för en JWT-tokenutfärdare genererar en JWT-token som returneras till förlitande part-programmet. Den här tekniska profilen är vanligtvis det sista orkestreringssteget i användarresan.
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Den **namn** attributet för den **protokollet** element måste anges till `None`. Ange den **OutputTokenFormat** elementet mot `JWT`.
 
@@ -44,11 +44,11 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | Anspråk som ska användas som användar-ID anspråk i OAuth2-auktoriseringskoder och uppdateringstoken. Som standard ska du ange den till `objectId`, såvida du inte anger en annan SubjectNamingInfo Anspråkstypen. | 
 | SendTokenResponseBodyWithJsonNumbers | Nej | Alltid inställt `true`. För äldre format där numeriska värden anges som strängar i stället för JSON-nummer, inställt på `false`. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade egenskaper, till exempel som strängar. | 
-| token_lifetime_secs | Nej | Tokenlivslängder för åtkomst. Livslängden för den OAuth 2.0-ägartoken som användes för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Högsta (inklusivt) är 86 400 sekunder (24 timmar). | 
+| token_lifetime_secs | Nej | Tokenlivslängder för åtkomst. Livslängden för OAuth 2.0-ägartoken som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Högsta (inklusivt) är 86 400 sekunder (24 timmar). | 
 | id_token_lifetime_secs | Nej | ID tokenlivslängder. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Max (inklusivt) är sekunder 86,400 (24 timmar). | 
 | refresh_token_lifetime_secs | Nej | Uppdatera livslängd för token. Den maximala tidsperiod innan vilken en uppdateringstoken kan användas till att skaffa en ny åtkomsttoken om programmet har beviljats offline_access omfånget. Standardvärdet är 120,9600 sekunder (14 dagar). Minimivärdet (inklusivt) är 86 400 sekunder (24 timmar). Max (inklusivt) är 7,776,000 sekunder (90 dagar). | 
 | rolling_refresh_token_lifetime_secs | Nej | Uppdatera token livslängd för skjutfönster. När den här tidsperioden har gått ut måste tvingas användaren att autentiseras på nytt, oavsett giltighetsperioden hos den senaste uppdateringstoken som införskaffats av programmet. Om du inte vill att framtvinga en livslängd för skjutfönster, ange värdet för allow_infinite_rolling_refresh_token till `true`. Standardvärdet är 7,776,000 sekunder (90 dagar). Minimivärdet (inklusivt) är 86 400 sekunder (24 timmar). Max (inklusivt) är 31,536,000 sekunder (365 dagar). | 
@@ -60,7 +60,7 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 
 CryptographicKeys-elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | issuer_secret | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att signera JWT-token. Det här är den `B2C_1A_TokenSigningKeyContainer` viktiga konfigureras i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). | 
 | issuer_refresh_token_key | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att kryptera uppdateringstoken. Du har konfigurerat den `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) |

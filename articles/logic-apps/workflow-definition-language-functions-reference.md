@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416344"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733074"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps och Microsoft Flow
 
@@ -297,7 +297,7 @@ Fullständig referens om varje funktion finns i [lista i bokstavsordning](../log
 <a name="alphabetical-list"></a>
 <a name="action"></a>
 
-### <a name="action"></a>åtgärd
+### <a name="action"></a>action
 
 Returnera den *aktuella* åtgärd jobbs effekt vid körning, eller värden från andra JSON namn och värde par som du kan tilldela till ett uttryck.
 Den här funktionen refererar till åtgärdsobjektet hela som standard, men du kan du ange en egenskap vars värde du vill.
@@ -319,7 +319,7 @@ action().outputs.body.<property>
 | <*Egenskapen*> | Nej | String | Namn på åtgärd-objektets egenskapen vars värde du vill: **namn**, **startTime**, **endTime**, **indata**,  **matar ut**, **status**, **kod**, **trackingId**, och **clientTrackingId**. I Azure-portalen hittar du de här egenskaperna genom att granska information om en specifik körningshistoriken. Mer information finns i [REST-API – kör arbetsflödesåtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*action-output*> | String | Utdata från den aktuella åtgärden eller egenskapen |
 ||||
@@ -341,7 +341,7 @@ actionBody('<actionName>')
 | <*actionName*> | Ja | String | Namn för åtgärden `body` utdata som du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*action-body-output*> | String | Den `body` utdata från den angivna åtgärden |
 ||||
@@ -388,7 +388,7 @@ actionOutputs('<actionName>')
 | <*actionName*> | Ja | String | Namn för åtgärden utdatafiler som du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*output*> | String | Utdata från den angivna åtgärden |
 ||||
@@ -461,7 +461,7 @@ actions('<actionName>').outputs.body.<property>
 | <*Egenskapen*> | Nej | String | Namn på åtgärd-objektets egenskapen vars värde du vill: **namn**, **startTime**, **endTime**, **indata**,  **matar ut**, **status**, **kod**, **trackingId**, och **clientTrackingId**. I Azure-portalen hittar du de här egenskaperna genom att granska information om en specifik körningshistoriken. Mer information finns i [REST-API – kör arbetsflödesåtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*action-output*> | String | Utdata från den angivna åtgärden eller egenskapen |
 ||||
@@ -491,7 +491,7 @@ add(<summand_1>, <summand_2>)
 | <*summand_1*>, <*summand_2*> | Ja | Heltal, flyttal, eller både | Nummer att lägga till |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*result-sum*> | Heltal eller flyttal | Resultatet från att lägga till den angivna värden |
 ||||
@@ -523,7 +523,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpeln plus det angivna antalet dagar  |
 ||||
@@ -565,7 +565,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpeln plus det angivna antalet timmar  |
 ||||
@@ -607,7 +607,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpeln plus det angivna antalet minuter |
 ||||
@@ -649,7 +649,7 @@ addProperty(<object>, '<property>', <value>)
 | <*value*> | Ja | Alla | Värdet för egenskapen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | Uppdaterade JSON-objekt med den angivna egenskapen |
 ||||
@@ -680,7 +680,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpeln plus det angivna antalet sekunder  |
 ||||
@@ -724,7 +724,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpeln plus det angivna antalet tidsenheter  |
 ||||
@@ -737,7 +737,7 @@ Det här exemplet lägger till en dag till den angivna tidsstämpeln:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-Och returnerar resultatet: `"2018-01-02T00:00:00:0000000Z"`
+Och returnerar resultatet: `"2018-01-02T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -765,7 +765,7 @@ and(<expression1>, <expression2>, ...)
 | <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när alla uttryck utvärderas som true. Returnera false när minst en uttrycket är FALSKT. |
 ||||
@@ -818,7 +818,7 @@ array('<value>')
 | <*value*> | Ja | String | Strängen för att skapa en matris |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*värdet*>] | Matris | En matris som innehåller den enda angivna indata |
 ||||
@@ -848,7 +848,7 @@ base64('<value>')
 | <*value*> | Ja | String | Indatasträngen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*base64-string*> | String | Base64-kodad versionen för Indatasträngen |
 ||||
@@ -878,7 +878,7 @@ base64ToBinary('<value>')
 | <*value*> | Ja | String | Base64-kodad sträng som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*binär för base64-sträng*> | String | Den binära versionen för base64-kodad sträng |
 ||||
@@ -912,7 +912,7 @@ base64ToString('<value>')
 | <*value*> | Ja | String | Base64-kodade strängen att avkoda |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*decoded-base64-string*> | String | Strängversion för en base64-kodad sträng |
 ||||
@@ -942,7 +942,7 @@ binary('<value>')
 | <*value*> | Ja | String | Sträng som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*binary-for-input-value*> | String | Den binära versionen för den angivna strängen |
 ||||
@@ -976,7 +976,7 @@ body('<actionName>')
 | <*actionName*> | Ja | String | Namn för åtgärden `body` utdata som du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
 | <*action-body-output*> | String | Den `body` utdata från den angivna åtgärden |
 ||||
@@ -1021,7 +1021,7 @@ bool(<value>)
 | <*value*> | Ja | Alla | Värdet att konvertera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Den booleska versionen för det angivna värdet |
 ||||
@@ -1056,7 +1056,7 @@ coalesce(<object_1>, <object_2>, ...)
 | <*object_1*>, <*object_2*>, ... | Ja | Eventuella kan blanda typer | Ett eller flera objekt att söka efter null |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*first-non-null-item*> | Alla | Den första posten eller -värde som inte är null. Den här funktionen returnerar null om alla parametrarna är null. |
 ||||
@@ -1092,7 +1092,7 @@ concat('<text1>', '<text2>', ...)
 | <*Text1*>, <*text2*>,... | Ja | String | Minst två strängar att kombinera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*text1text2...* > | String | Den sträng som har skapats från kombinerade inkommande strängar |
 ||||
@@ -1132,7 +1132,7 @@ Den här funktionen fungerar mer specifikt om den här typen av samling:
 | <*value*> | Ja | Sträng, matrisen eller ordboken, respektive | Objektet du vill hitta |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera sant när objektet har hittats. Returnera false när hittades inte. |
 ||||
@@ -1170,7 +1170,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*converted-timestamp*> | String | Tidsstämpeln konverteras till måltidszon |
 ||||
@@ -1213,7 +1213,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*converted-timestamp*> | String | Tidsstämpeln konverteras till måltidszon |
 ||||
@@ -1255,7 +1255,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*converted-timestamp*> | String | Tidsstämpel som konverteras till UTC |
 ||||
@@ -1296,7 +1296,7 @@ createArray('<object1>', '<object2>', ...)
 | <*Objekt1*>, <*object2*>,... | Ja | Sådana finns, men inte blandat | Minst två objekt att skapa matrisen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*Objekt1*>, <*object2*>,...] | Matris | Matrisen som skapats från alla inkommande objekt |
 ||||
@@ -1326,7 +1326,7 @@ dataUri('<value>')
 | <*value*> | Ja | String | Sträng som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*data-uri*> | String | Data-URI för Indatasträngen |
 ||||
@@ -1358,7 +1358,7 @@ dataUriToBinary('<value>')
 | <*value*> | Ja | String | Data-URI att konvertera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*binary-for-data-uri*> | String | Den binära versionen för data-URI |
 ||||
@@ -1393,7 +1393,7 @@ dataUriToString('<value>')
 | <*value*> | Ja | String | Data-URI att konvertera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*string-for-data-uri*> | String | Strängversion för data-URI |
 ||||
@@ -1423,7 +1423,7 @@ dayOfMonth('<timestamp>')
 | <*timestamp*> | Ja | String | Den sträng som innehåller tidsstämpeln |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*dag i månaden*> | Integer | Dagen i månaden från den angivna tidsstämpeln |
 ||||
@@ -1453,7 +1453,7 @@ dayOfWeek('<timestamp>')
 | <*timestamp*> | Ja | String | Den sträng som innehåller tidsstämpeln |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*dag i vecka*> | Integer | Dag i veckan från den angivna tidsstämpeln där är söndag 0, måndag är 1 och så vidare |
 ||||
@@ -1483,7 +1483,7 @@ dayOfYear('<timestamp>')
 | <*timestamp*> | Ja | String | Den sträng som innehåller tidsstämpeln |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*day-of-year*> | Integer | Dag på året från den angivna tidsstämpeln |
 ||||
@@ -1515,7 +1515,7 @@ decodeBase64('<value>')
 | <*value*> | Ja | String | Base64-kodade strängen att avkoda |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*decoded-base64-string*> | String | Strängversion för en base64-kodad sträng |
 ||||
@@ -1547,7 +1547,7 @@ decodeDataUri('<value>')
 | <*value*> | Ja | String | Data-URI-strängen att avkoda |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*binary-for-data-uri*> | String | Den binära versionen för en URI-sträng |
 ||||
@@ -1582,7 +1582,7 @@ decodeUriComponent('<value>')
 | <*value*> | Ja | String | Strängen med escape-tecken att avkoda |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*decoded-uri*> | String | Den uppdaterade strängen med avkodade escape-tecken |
 ||||
@@ -1614,7 +1614,7 @@ div(<dividend>, <divisor>)
 | <*divisor*> | Ja | Heltal eller flyttal | Talet som dividerar den *täljaren*, men kan inte vara 0 |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*quotient-result*> | Integer | Heltal resultatet från divisionen av den första siffran av den andra siffran |
 ||||
@@ -1647,7 +1647,7 @@ encodeUriComponent('<value>')
 | <*value*> | Ja | String | Sträng som ska konverteras till URI-kodat format |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*encoded-uri*> | String | Den URI-kodade strängen med escape-tecken |
 ||||
@@ -1679,7 +1679,7 @@ empty([<collection>])
 | <*Samling*> | Ja | Sträng, matris eller ett objekt | Samlingen som ska kontrolleras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när samlingen är tom. Returnera värdet false när det är inte tom. |
 ||||
@@ -1716,7 +1716,7 @@ endsWith('<text>', '<searchText>')
 | <*searchText*> | Ja | String | Den sista delsträngen att hitta |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT  | Boolean | Returnera värdet true när den sista delsträngen hittas. Returnera false när hittades inte. |
 ||||
@@ -1757,7 +1757,7 @@ equals('<object1>', '<object2>')
 | <*Objekt1*>, <*object2*> | Ja | Olika | I värden, uttryck eller objekt att jämföra |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera sant när båda är likvärdiga. Returnera värdet false när det är inte likvärdig. |
 ||||
@@ -1792,7 +1792,7 @@ first([<collection>])
 | <*Samling*> | Ja | Sträng eller matris | Samlingen var du hittar det första objektet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*first-collection-item*> | Alla | Det första objektet i samlingen |
 ||||
@@ -1827,7 +1827,7 @@ float('<value>')
 | <*value*> | Ja | String | Den sträng som har ett giltigt Flyttalsnummer att konvertera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*float-value*> | Float | Flyttalsnummer för den angivna strängen |
 ||||
@@ -1858,7 +1858,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*reformatted-timestamp*> | String | Uppdaterade tidsstämpeln i angivet format |
 ||||
@@ -1889,7 +1889,7 @@ formDataMultiValues('<actionName>', '<key>')
 | <*Nyckel*> | Ja | String | Namn för den nyckel vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*matris med nyckel värden*>] | Matris | En matris med alla värden som matchar den angivna nyckeln |
 ||||
@@ -1921,7 +1921,7 @@ formDataValue('<actionName>', '<key>')
 | <*Nyckel*> | Ja | String | Namn för den nyckel vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*key-value*> | String | Värdet i den angivna nyckeln  |
 ||||
@@ -1953,7 +1953,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Den aktuella tidsstämpeln plus det angivna antalet tidsenheter |
 ||||
@@ -1997,7 +1997,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Den aktuella tidsstämpeln minus det angivna antalet tidsenheter |
 ||||
@@ -2042,7 +2042,7 @@ greater('<value>', '<compareTo>')
 | <*compareTo*> | Ja | Heltal, flyttal och sträng, respektive | Värdet för jämförelse |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när det första värdet är större än det andra värdet. Returnera false när det första värdet är lika med eller mindre än det andra värdet. |
 ||||
@@ -2079,7 +2079,7 @@ greaterOrEquals('<value>', '<compareTo>')
 | <*compareTo*> | Ja | Heltal, flyttal och sträng, respektive | Värdet för jämförelse |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när det första värdet är större än eller lika med det andra värdet. Returnera värdet false när det första värdet är mindre än det andra värdet. |
 ||||
@@ -2119,7 +2119,7 @@ guid('<format>')
 | <*Format*> | Nej | String | En enda [formatera specificerare](https://msdn.microsoft.com/library/97af8hh4) för GUID som returnerades. Formatet är ”D” som standard, men du kan använda ”N”, ”D”, ”B”, ”P” eller ”X”. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*GUID-value*> | String | Ett slumpmässigt genererat GUID |
 ||||
@@ -2152,7 +2152,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 | <*valueIfFalse*> | Ja | Alla | Värdet som returneras om uttrycket är FALSKT |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*specified-return-value*> | Alla | Det angivna värdet som returnerar baserat på om uttrycket är SANT eller FALSKT |
 ||||
@@ -2183,7 +2183,7 @@ indexOf('<text>', '<searchText>')
 | <*searchText*> | Ja | String | Delsträngen som ska hitta |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*index-value*>| Integer | Positionen eller index startvärdet för den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. |
 ||||
@@ -2213,7 +2213,7 @@ int('<value>')
 | <*value*> | Ja | String | Sträng som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*integer-result*> | Integer | Heltal-version för den angivna strängen |
 ||||
@@ -2239,7 +2239,7 @@ Du kan också få värdena från egenskaperna för det objektet.
 item()
 ```
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*current-array-item*> | Alla | Det aktuella objektet i matrisen för åtgärdens aktuella iteration |
 ||||
@@ -2268,7 +2268,7 @@ items('<loopName>')
 | <*loopName*> | Ja | String | Namnet för varje slinga |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*item*> | Alla | Objektet från den aktuella cykeln i den angivna för varje slingan |
 ||||
@@ -2296,7 +2296,7 @@ iterationIndexes('<loopName>')
 | <*loopName*> | Ja | String | Namn för Until-loop | 
 ||||| 
 
-| Returvärde | Type | Beskrivning | 
+| Returvärde | Typ | Beskrivning | 
 | ------------ | ---- | ----------- | 
 | <*index*> | Integer | Indexvärdet för den aktuella upprepningen i den angivna Until-loop | 
 |||| 
@@ -2373,7 +2373,7 @@ Det här exemplet skapar en räknarvariabeln och steg variabeln med ett under va
 
 <a name="json"></a>
 
-### <a name="json"></a>json
+### <a name="json"></a>JSON
 
 Returnera TYPVÄRDE för JavaScript Object Notation (JSON) eller objekt för en sträng eller XML.
 
@@ -2386,7 +2386,7 @@ json('<value>')
 | <*value*> | Ja | Sträng eller XML | Den sträng eller XML som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*JSON-result*> | Inbyggda JSON-typ eller objekt | Värde av ursprunglig typ. JSON eller -objekt för den angivna sträng eller XML. Om strängen är null returnerar funktionen ett tomt-objekt. |
 ||||
@@ -2458,7 +2458,7 @@ intersection('<collection1>', '<collection2>', ...)
 | <*collection1*>, <*samling2*>,... | Ja | Matris eller objekt, men inte båda | Samlingar som du vill från *endast* vanliga objekt |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*common-items*> | Matris eller ett objekt, respektive | En samling som har endast objekt som är gemensamma mellan de angivna samlingarna |
 ||||
@@ -2489,7 +2489,7 @@ join([<collection>], '<delimiter>')
 | <*delimiter*> | Ja | String | Avgränsaren mellan varje tecken i den resulterande strängen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*char1*><*avgränsare*><*char2*><*avgränsare*>... | String | Den resulterande strängen som skapats från alla objekt i den angivna matrisen |
 ||||
@@ -2520,7 +2520,7 @@ last([<collection>])
 | <*Samling*> | Ja | Sträng eller matris | Samlingen var du hittar det sista objektet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*last-collection-item*> | Sträng eller matris, respektive | Det sista objektet i samlingen |
 ||||
@@ -2556,7 +2556,7 @@ lastIndexOf('<text>', '<searchText>')
 | <*searchText*> | Ja | String | Delsträngen som ska hitta |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*ending-index-value*> | Integer | Positionen eller index startvärdet för den sista förekomsten av den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. |
 ||||
@@ -2573,7 +2573,7 @@ Och returnerar resultatet: `6`
 
 <a name="length"></a>
 
-### <a name="length"></a>Längd
+### <a name="length"></a>length
 
 Returnera antalet objekt i en samling.
 
@@ -2587,7 +2587,7 @@ length([<collection>])
 | <*Samling*> | Ja | Sträng eller matris | I samlingen med de objekt som ska räknas |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*length-or-count*> | Integer | Antalet objekt i samlingen |
 ||||
@@ -2621,7 +2621,7 @@ less('<value>', '<compareTo>')
 | <*compareTo*> | Ja | Heltal, flyttal och sträng, respektive | Jämförelse av-objektet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera sant när det första värdet är mindre än det andra värdet. Returnera false när det första värdet är lika med eller större än det andra värdet. |
 ||||
@@ -2658,7 +2658,7 @@ lessOrEquals('<value>', '<compareTo>')
 | <*compareTo*> | Ja | Heltal, flyttal och sträng, respektive | Jämförelse av-objektet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT  | Boolean | Returnera värdet true när det första värdet är mindre än eller lika med det andra värdet. Returnera false när det första värdet är större än det andra värdet. |
 ||||
@@ -2688,7 +2688,7 @@ Den här funktionen fungerar bara med utlösare och åtgärder för den **HttpWe
 listCallbackUrl()
 ```
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*callback-URL*> | String | Motringnings-URL för en utlösare eller åtgärd |
 ||||
@@ -2716,7 +2716,7 @@ max([<number1>, <number2>, ...])
 | [<*number1*>, <*number2*>,...] | Ja | Matris - heltal, flyttal eller båda | Matris med tal som du vill det högsta värdet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*max-value*> | Heltal eller flyttal | Det högsta värdet i den angivna matrisen eller taluppsättning |
 ||||
@@ -2749,7 +2749,7 @@ min([<number1>, <number2>, ...])
 | [<*number1*>, <*number2*>,...] | Ja | Matris - heltal, flyttal eller båda | Matris med tal som du vill det lägsta värdet |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*min-value*> | Heltal eller flyttal | Det lägsta värdet i den angivna uppsättningen med siffror eller matrisen |
 ||||
@@ -2782,7 +2782,7 @@ mod(<dividend>, <divisor>)
 | <*divisor*> | Ja | Heltal eller flyttal | Talet som dividerar den *täljaren*, men kan inte vara 0. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*modulo-result*> | Heltal eller flyttal | Återstoden av att dividera det första talet av den andra siffran |
 ||||
@@ -2813,7 +2813,7 @@ mul(<multiplicand1>, <multiplicand2>)
 | <*multiplicand2*> | Ja | Heltal eller flyttal | Hur många som multipler *multiplicand1* |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*product-result*> | Heltal eller flyttal | Produkten från multiplicera den första siffran av den andra siffran |
 ||||
@@ -2848,7 +2848,7 @@ multipartBody('<actionName>', <index>)
 | <*index*> | Ja | Integer | Indexvärdet för den del som du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*body*> | String | Brödtexten för den angivna delen |
 ||||
@@ -2869,7 +2869,7 @@ not(<expression>)
 | <*uttryck*> | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när uttrycket är FALSKT. Returnera false när uttrycket är sant. |
 ||||
@@ -2918,7 +2918,7 @@ or(<expression1>, <expression2>, ...)
 | <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT | Boolean | Returnera värdet true när minst en uttrycket är sant. Returnera false om alla uttrycken är falska. |
 ||||
@@ -2966,7 +2966,7 @@ parameters('<parameterName>')
 | <*parameterName*> | Ja | String | Namnet på parametern vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*parameter-value*> | Alla | Värdet för den angivna parametern |
 ||||
@@ -3005,7 +3005,7 @@ rand(<minValue>, <maxValue>)
 | <*maxValue*> | Ja | Integer | Det heltal som följer det högsta heltalet i intervallet som funktionen kan returnera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*random-result*> | Integer | Slumpvist heltal som returneras från det angivna intervallet |
 ||||
@@ -3036,7 +3036,7 @@ range(<startIndex>, <count>)
 | <*Antal*> | Ja | Integer | Antalet heltal i matrisen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*intervallet resultatet*>] | Matris | Matris med heltal med början från det angivna indexet |
 ||||
@@ -3068,7 +3068,7 @@ replace('<text>', '<oldText>', '<newText>')
 | <*newText*> | Ja | String | Ersättningssträngen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-text*> | String | Uppdaterade strängen när du har ersatt delsträngen <p>Om delsträngen inte hittas, returnera den ursprungliga strängen. |
 ||||
@@ -3099,7 +3099,7 @@ removeProperty(<object>, '<property>')
 | <*Egenskapen*> | Ja | String | Namnet på egenskapen att ta bort |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | Uppdaterade JSON-objekt utan att den angivna egenskapen |
 ||||
@@ -3130,7 +3130,7 @@ setProperty(<object>, '<property>', <value>)
 | <*value*> | Ja | Alla | Värdet som angetts för den angivna egenskapen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | Det uppdaterade JSON-objektet vars egenskapsuppsättningen |
 ||||
@@ -3160,7 +3160,7 @@ skip([<collection>], <count>)
 | <*Antal*> | Ja | Integer | Ett positivt heltal för antalet objekt att ta bort längst fram |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*uppdateras samling*>] | Matris | Uppdaterade samlingen när du tar bort de angivna objekt |
 ||||
@@ -3191,7 +3191,7 @@ split('<text>', '<delimiter>')
 | <*delimiter*> | Ja | String | Tecken i den ursprungliga strängen som ska användas som avgränsare |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*substring1*>, <*substring2*>,...] | Matris | En matris som innehåller delsträngar från den ursprungliga strängen, avgränsade med kommatecken |
 ||||
@@ -3222,7 +3222,7 @@ startOfDay('<timestamp>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Den angivna tidsstämpeln men med början vid noll mark för dagen |
 ||||
@@ -3253,7 +3253,7 @@ startOfHour('<timestamp>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Den angivna tidsstämpeln men med början vid noll minuter mark för timme |
 ||||
@@ -3284,7 +3284,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Den angivna tidsstämpeln men från och med den första dagen i månaden på noll mark |
 ||||
@@ -3317,7 +3317,7 @@ startsWith('<text>', '<searchText>')
 | <*searchText*> | Ja | String | Från strängen som ska hittas |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | SANT eller FALSKT  | Boolean | Returnera värdet true när från delsträngen hittas. Returnera false när hittades inte. |
 ||||
@@ -3357,7 +3357,7 @@ string(<value>)
 | <*value*> | Ja | Alla | Värdet att konvertera |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*string-value*> | String | Strängversionen för det angivna värdet |
 ||||
@@ -3398,7 +3398,7 @@ sub(<minuend>, <subtrahend>)
 | <*subtrahend*> | Ja | Heltal eller flyttal | Det tal som ska subtraheras från den *minuenden* |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*result*> | Heltal eller flyttal | Resultatet från att subtrahera den andra siffran från den första siffran |
 ||||
@@ -3431,7 +3431,7 @@ substring('<text>', <startIndex>, <length>)
 | <*Längd*> | Ja | Integer | Ett positivt antal tecken som du vill ha i delsträngen |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*substring-result*> | String | En understräng med det angivna antalet tecken, med början vid position i Källsträngen angivna indexet |
 ||||
@@ -3465,7 +3465,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | String | Tidsstämpel minus det angivna antalet tidsenheter |
 ||||
@@ -3507,7 +3507,7 @@ take([<collection>], <count>)
 | <*Antal*> | Ja | Integer | Ett positivt heltal för antalet objekt som du vill från början |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*delmängd*> eller [<*delmängd*>] | Sträng eller matris, respektive | En sträng eller en matris som har det angivna antalet objekt som tagits från början av den ursprungliga samlingen |
 ||||
@@ -3542,7 +3542,7 @@ ticks('<timestamp>')
 | <*timestamp*> | Ja | String | Strängen för en tidsstämpel |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*ticks-number*> | Integer | Antalet tick eftersom den angivna tidsstämpeln |
 ||||
@@ -3562,7 +3562,7 @@ toLower('<text>')
 | <*text*> | Ja | String | Strängen att returnera i gemener format |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*lowercase-text*> | String | Den ursprungliga strängen i gemener format |
 ||||
@@ -3592,7 +3592,7 @@ toUpper('<text>')
 | <*text*> | Ja | String | Strängen att returnera i versaler format |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*uppercase-text*> | String | Den ursprungliga strängen i versaler format |
 ||||
@@ -3624,7 +3624,7 @@ Dessutom har snabbformat-versioner som är tillgängliga för den här funktione
 trigger()
 ```
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*trigger-output*> | String | Utdata från en utlösare vid körning |
 ||||
@@ -3641,7 +3641,7 @@ Se [trigger()](#trigger).
 triggerBody()
 ```
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*trigger-body-output*> | String | Den `body` utdata från utlösaren |
 ||||
@@ -3661,7 +3661,7 @@ triggerFormDataMultiValues('<key>')
 | <*Nyckel*> | Ja | String | Namn för den nyckel vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | [<*matris med nyckel värden*>] | Matris | En matris med alla värden som matchar den angivna nyckeln |
 ||||
@@ -3692,7 +3692,7 @@ triggerFormDataValue('<key>')
 | <*Nyckel*> | Ja | String | Namn för den nyckel vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*key-value*> | String | Värdet i den angivna nyckeln |
 ||||
@@ -3722,7 +3722,7 @@ triggerMultipartBody(<index>)
 | <*index*> | Ja | Integer | Indexvärdet för den del som du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*body*> | String | Brödtexten för den angivna delen i en utlösarens multipart-utdata |
 ||||
@@ -3739,7 +3739,7 @@ Se [trigger()](#trigger).
 triggerOutputs()
 ```
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*trigger-output*> | String | Utdata från en utlösare vid körning  |
 ||||
@@ -3759,7 +3759,7 @@ trim('<text>')
 | <*text*> | Ja | String | Den sträng som har den inledande och avslutande blankstegen för att ta bort |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updatedText*> | String | En uppdaterad version för den ursprungliga strängen utan inledande eller avslutande blanksteg |
 ||||
@@ -3791,7 +3791,7 @@ union([<collection1>], [<collection2>], ...)
 | <*collection1*>, <*samling2*>,...  | Ja | Matris eller objekt, men inte båda | Samlingar som du vill från *alla* objekt |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*updatedCollection*> | Matris eller ett objekt, respektive | En samling med alla objekt från de angivna samlingarna - inga dubbletter |
 ||||
@@ -3823,7 +3823,7 @@ uriComponent('<value>')
 | <*value*> | Ja | String | Sträng som ska konverteras till URI-kodat format |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*encoded-uri*> | String | Den URI-kodade strängen med escape-tecken |
 ||||
@@ -3853,7 +3853,7 @@ uriComponentToBinary('<value>')
 | <*value*> | Ja | String | URI-kodad sträng som ska konverteras |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*binary-for-encoded-uri*> | String | Den binära versionen för den URI-kodad strängen. Binärt innehåll är base64-kodad och representeras av `$content`. |
 ||||
@@ -3888,7 +3888,7 @@ uriComponentToString('<value>')
 | <*value*> | Ja | String | URI-kodade strängen att avkoda |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*decoded-uri*> | String | Den avkodade versionen för den URI-kodad strängen |
 ||||
@@ -3918,7 +3918,7 @@ uriHost('<uri>')
 | <*uri*> | Ja | String | URI: N vars `host` värdet du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*host-value*> | String | Den `host` värde för den angivna URI: N |
 ||||
@@ -3948,7 +3948,7 @@ uriPath('<uri>')
 | <*uri*> | Ja | String | URI: N vars `path` värdet du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*path-value*> | String | Den `path` värde för angiven URI. Om `path` inte ha ett värde, returnerar tecknet ”/”. |
 ||||
@@ -3978,7 +3978,7 @@ uriPathAndQuery('<uri>')
 | <*uri*> | Ja | String | URI: N vars `path` och `query` värden du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*path-query-value*> | String | Den `path` och `query` värden för den angivna URI: N. Om `path` inte ange ett värde, returnerar tecknet ”/”. |
 ||||
@@ -4008,7 +4008,7 @@ uriPort('<uri>')
 | <*uri*> | Ja | String | URI: N vars `port` värdet du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*port-value*> | Integer | Den `port` värde för angiven URI. Om `port` inte ange ett värde, returneras standardporten för protokollet. |
 ||||
@@ -4038,7 +4038,7 @@ uriQuery('<uri>')
 | <*uri*> | Ja | String | URI: N vars `query` värdet du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*query-value*> | String | Den `query` värde för den angivna URI: N |
 ||||
@@ -4068,7 +4068,7 @@ uriScheme('<uri>')
 | <*uri*> | Ja | String | URI: N vars `scheme` värdet du vill ha |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*scheme-value*> | String | Den `scheme` värde för den angivna URI: N |
 ||||
@@ -4101,7 +4101,7 @@ Alternativt kan du ange ett annat format med den <*format*> parametern.
 | <*Format*> | Nej | String | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*current-timestamp*> | String | Aktuellt datum och tid |
 ||||
@@ -4143,7 +4143,7 @@ variables('<variableName>')
 | <*variableName*> | Ja | String | Namnet på variabeln vars värde du vill |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*variable-value*> | Alla | Värdet för den angivna variabeln |
 ||||
@@ -4197,7 +4197,7 @@ xml('<value>')
 | <*value*> | Ja | String | Strängen med JSON-objekt att konvertera <p>JSON-objekt måste ha endast en rot-egenskapen, vilket inte får vara en matris. <br>Använd omvänt snedstreck (\\) som escape-tecken för dubbelt citattecken (”). |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*xml-version*> | Object | Kodad XML-filen för den angivna strängen eller JSON-objekt |
 ||||
@@ -4256,7 +4256,7 @@ xpath('<xml>', '<xpath>')
 | <*xpath*> | Ja | Alla | XPath-uttrycket som används för att hitta matchande värdena eller XML-noder |
 |||||
 
-| Returvärde | Type | Beskrivning |
+| Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | En XML-nod när endast en nod matchar det angivna XPath-uttrycket |
 | <*value*> | Alla | Värdet från en XML-nod när endast ett värde matchar det angivna XPath-uttrycket |

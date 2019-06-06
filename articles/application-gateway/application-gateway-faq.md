@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947073"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430883"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Här följer några vanliga frågor och svar om Azure Application Gateway.
 
 ## <a name="general"></a>Allmänt
 
@@ -187,13 +189,18 @@ Se [ordningen på bearbetningsregler](https://docs.microsoft.com/azure/applicati
 
 Fältet värd namnet skicka om avsökningen för att när du har konfigurerat flera platser för Application Gateway. Annars använda ”127.0.0.1”. Det här värdet skiljer sig från virtuella datorns värdnamn. Dess format är \<protokollet\>://\<värden\>:\<port\>\<sökvägen\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>Kan jag listan över godkända Application Gateway-åtkomst till endast några source IP-adresser?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag låta Application Gateway-åtkomst till endast några källans IP-adresser?
 
-Ja. Se [begränsa åtkomsten till specifika käll-IP-adresser](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Ja. Se [begränsa åtkomsten till specifika käll-IP-adresser](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan jag använda samma port för både offentliga och privata-ansluten lyssnare?
 
 Nej.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Finns det vägledning för att migrera från SKU: N v1 till v2-SKU?
+
+Ja. Mer information finns i [migrera Azure Application Gateway och brandväggen för webbaserade program från v1 till v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Konfiguration – SSL
 
@@ -312,6 +319,10 @@ Mer information finns i [OWASP topp 10 sårbarheter](https://www.owasp.org/index
 ### <a name="does-waf-support-ddos-protection"></a>Stöder WAF DDoS protection?
 
 Ja. Du kan aktivera DDoS-skydd i det virtuella nätverket där application gateway distribueras. Den här inställningen garanterar att tjänsten Azure DDoS Protection även skyddar application gateway virtuell IP (VIP).
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Finns det vägledning för att migrera från SKU: N v1 till v2-SKU?
+
+Ja. Mer information finns i [migrera Azure Application Gateway och brandväggen för webbaserade program från v1 till v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 5d11d5c0da350b9abf2e2b06a11a1690cf3f6922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247116"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687928"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -32,13 +32,13 @@ Du kan använda AzCopy `make` kommando för att skapa en filresurs. I exemplet i
 
 ## <a name="upload-files"></a>Överföra filer
 
-Du kan använda AzCopy `copy` kommando för att ladda upp filer och mappar från din lokala dator.
+Du kan använda AzCopy `copy` kommando för att ladda upp filer och kataloger från din lokala dator.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
 > * Överför en fil
-> * Ladda upp en mapp
+> * Ladda upp en katalog
 > * Ladda upp filer med jokertecken
 
 > [!NOTE]
@@ -49,46 +49,46 @@ Det här avsnittet innehåller följande exempel:
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>"` |
-| **Exempel** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **Exempel** | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
-### <a name="upload-a-folder"></a>Ladda upp en mapp
+### <a name="upload-a-directory"></a>Ladda upp en katalog
 
-Det här exemplet kopierar en mapp (och alla filer i mappen) till en filresurs. Resultatet är en mapp i filresursen med samma namn.
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
-| **Exempel** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
-
-Kopiera till en mapp i filresursen genom att ange namnet på mappen bara i kommandosträng.
+Det här exemplet kopierar en katalog (och alla filer i den katalogen) till en filresurs. Resultatet är en katalog i filresursen med samma namn.
 
 |    |     |
 |--------|-----------|
-| **Exempel** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+| **Syntax** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
+| **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Om du anger namnet på en mapp som inte finns i filresursen, skapar en ny mapp med det namnet i AzCopy.
-
-### <a name="upload-the-contents-of-a-folder"></a>Ladda upp innehållet i en mapp
-
-Du kan ladda upp innehållet i en mapp utan att kopiera mappen som innehåller själva med hjälp av jokertecknet (*).
+Kopiera till en katalog i filresursen genom att ange namnet på katalogen bara i kommandosträng.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>` |
-| **Exempel** | `azcopy copy "C:\myFolder\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+
+Om du anger namnet på en katalog som inte finns i filresursen, skapar en ny katalog med det namnet i AzCopy.
+
+### <a name="upload-the-contents-of-a-directory"></a>Ladda upp innehållet i en katalog
+
+Du kan ladda upp innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy "<local-directory-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>` |
+| **Exempel** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda upp filer i alla undermappar.
+> Lägg till den `--recursive` flagga för att ladda upp filer i alla underkataloger.
 
 ## <a name="download-files"></a>Hämta filer
 
-Du kan använda AzCopy `copy` kommando för att hämta filer, mappar och filen delar till din lokala dator.
+Du kan använda AzCopy `copy` kommando för att hämta filer, kataloger och filen delar till din lokala dator.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
 > * Hämta en fil
-> * Ladda ned en mapp
+> * Ladda ned en katalog
 > * Ladda ned filer med jokertecken
 
 > [!NOTE]
@@ -99,28 +99,28 @@ Det här avsnittet innehåller följande exempel:
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>" "<local-file-path>"` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder\myTextFile.txt"` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory\myTextFile.txt"` |
 
-### <a name="download-a-folder"></a>Ladda ned en mapp
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>" "<local-folder-path>" --recursive` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"  --recursive` |
-
-Det här exemplet resulterar i en mapp med namnet `C:\myFolder\myFileShareFolder` som innehåller alla hämtade filer.
-
-### <a name="download-the-contents-of-a-folder"></a>Ladda ned innehållet i en mapp
-
-Du kan hämta innehållet i en mapp utan att kopiera mappen som innehåller själva med hjälp av jokertecknet (*).
+### <a name="download-a-directory"></a>Ladda ned en katalog
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-folder-path>/"` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+
+Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myFileShareDirectory` som innehåller alla hämtade filer.
+
+### <a name="download-the-contents-of-a-directory"></a>Ladda ned innehållet i en katalog
+
+Du kan hämta innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-directory-path>/"` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda ned filer i alla undermappar.
+> Lägg till den `--recursive` flagga för att ladda ned filer i alla underkataloger.
 
 ## <a name="next-steps"></a>Nästa steg
 

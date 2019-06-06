@@ -1,6 +1,6 @@
 ---
-title: 'Azure-Status Monitor v2 API-referens: Inaktivera instrumentation motorn | Microsoft Docs'
-description: Status Monitor v2 API-referens Disable-InstrumentationEngine. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Azure statusövervakaren v2 API-referens: Inaktivera instrumentation motorn | Microsoft Docs'
+description: Status Monitor v2 API-referens. Disable-InstrumentationEngine. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,29 +12,28 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 7d1b658da59c0e778c82301077ef27bdd9c9e614
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514432"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>Status Monitor v2 API: Inaktivera InstrumentationEngine (v0.2.1-alfa)
 
-Det här dokumentet beskriver en cmdlet som levereras som en medlem i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Beskrivning
-
-Denna cmdlet inaktiverar Instrumentation motorn genom att ta bort vissa registernycklar.
+Inaktiverar instrumentation motorn genom att ta bort vissa registernycklar.
 Starta om IIS för att ändringarna ska börja gälla.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-Session med administratörsbehörighet.
+> Denna cmdlet kräver en PowerShell-session med administratörsbehörigheter.
 
 ## <a name="examples"></a>Exempel
 
@@ -45,7 +44,7 @@ PS C:\> Disable-InstrumentationEngine
 ## <a name="parameters"></a>Parametrar 
 
 ### <a name="-verbose"></a>-Verbose
-**Vanliga Parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+**Vanliga parameter.** Använd den här växeln för att mata ut detaljerade loggar.
 
 ## <a name="output"></a>Resultat
 
@@ -64,4 +63,4 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Nästa steg
 
  Gör mer med Status Monitor v2:
- - Använd vår guide om hur du [Felsök](status-monitor-v2-troubleshoot.md) statusövervakaren v2.
+ - Använd vår guide om hur du [felsöka](status-monitor-v2-troubleshoot.md) statusövervakaren v2.

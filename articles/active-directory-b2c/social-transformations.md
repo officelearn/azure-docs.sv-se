@@ -2,20 +2,20 @@
 title: Socialt konto anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C | Microsoft Docs
 description: Socialt konto anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697732"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512494"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråksomvandlingar för konton i sociala medier
 
@@ -75,8 +75,8 @@ Lägger till en `AlternativeSecurityId` till en `alternativeSecurityIdCollection
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Objekt | string | ClaimType som ska läggas till utdata-anspråket. |
-| InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering om det är tillgängligt i principen. Om anspråkstransformering lägger till den `item` i slutet av samlingen. |
-| OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen som innehåller båda objekten från indata `collection` och `item`. |
+| InputClaim | Samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering om det är tillgängligt i principen. Om anspråkstransformering lägger till den `item` i slutet av samlingen. |
+| OutputClaim | Samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen som innehåller båda objekten från indata `collection` och `item`. |
 
 I följande exempel länkas en ny sociala identitet med ett befintligt konto. Länka en ny sociala identitet:
 1. I den **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** tekniska profiler utdata användarens **alternativeSecurityIds** anspråk.
@@ -139,8 +139,8 @@ Tar bort en **AlternativeSecurityId** från en **alternativeSecurityIdCollection
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | ClaimType som innehåller namn på identitetsprovider som ska tas bort från samlingen. |
-| InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering. Anspråkstransformering tar bort Identityprovidern från samlingen. |
-| OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen, när Identityprovidern tagits bort från samlingen. |
+| InputClaim | Samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering. Anspråkstransformering tar bort Identityprovidern från samlingen. |
+| OutputClaim | Samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen, när Identityprovidern tagits bort från samlingen. |
 
 I följande exempel tar bort länkar för en av sociala med ett befintligt konto. Att Avlänka en sociala identitet:
 1. I den **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** tekniska profiler utdata användarens **alternativeSecurityIds** anspråk.

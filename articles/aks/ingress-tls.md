@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: ad73b9d84a041f42cfdc3c7f5513bd0d32adf2a0
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c858d1ac56da5f04346b3cd84402d4eeeb7fd975
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392192"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430971"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för HTTPS på Azure Kubernetes Service (AKS)
 
@@ -44,6 +44,9 @@ Ingress-kontrollant måste också schemaläggas på en Linux-nod. Windows Server
 
 > [!TIP]
 > I följande exempel skapas ett Kubernetes-namnområde för ingress-resurser med namnet *ingress-grundläggande*. Ange ett namnområde för din egen miljö efter behov. Om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` för Helm-kommandon.
+
+> [!TIP]
+> Om du vill aktivera [klienten källa IP konservering] [ client-source-ip] för begäranden till behållare i klustret, lägga till `--set controller.service.externalTrafficPolicy=Local` till Helm installationskommando. Klienten källan IP lagras i rubriken under *X vidarebefordras för*. När du använder en ingress-kontrollant med klienten källa IP konservering aktiverad, fungerar inte SSL direkt.
 
 ```console
 # Create a namespace for your ingress resources
@@ -404,4 +407,5 @@ Du kan också:
 [aks-ingress-own-tls]: ingress-own-tls.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli

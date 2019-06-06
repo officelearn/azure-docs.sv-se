@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417996"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425428"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
@@ -35,7 +35,7 @@ Vi rekommenderar att Media Services för att skapa nycklar. Du skulle normalt en
 > * Egenskaper för **Innehållsprinciper nyckel** som är av typen är alltid i UTC-format för datum/tid.
 > * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
 
-## <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
 
 Gå till nyckeln genom att använda **GetPolicyPropertiesWithSecretsAsync**, enligt den [få en signeringsnyckel från den befintliga principen](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exempel.
 

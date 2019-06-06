@@ -1,22 +1,22 @@
 ---
-title: 'Snabbstart: Mata in data från Event Hub i Azure Data Explorer'
-description: I den här snabbstarten får du lära dig hur du matar in (load) data i Azure Data Explorer från Event Hub.
+title: Mata in data från Event Hub i Azure Data Explorer
+description: I den här artikeln får lära du att mata in (load) data i Azure Data Explorer från Event Hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/29/2019
-ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: c68662fbcc73d6c91d3fd40dc67804baa9205e53
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357672"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494816"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
+# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här snabbstarten ska du skapa en händelsehubb, ansluta till den från Azure Data Explorer och se hur data flödar genom systemet.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln får du skapa en händelsehubb, ansluter till den från Azure-Datautforskaren och se dataflödet genom systemet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -34,11 +34,11 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-I den här snabbstarten ska du skapa exempeldata och skicka dem till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
+I den här artikeln får du generera exempeldata och skicka den till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
 
 1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
 
-    [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstarts-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Knappen **Distribuera till Azure** tar dig till Azure-portalen där du kan fylla i ett distributionsformulär.
 
@@ -58,7 +58,7 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | Resursgrupp | *test-hub-rg* | Skapa en ny resursgrupp. |
-    | Location | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
+    | Location | *USA, västra* | Välj *västra USA* för den här artikeln. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
     | Namn på namnområde | Ett unikt namnområdesnamn | Välj ett unikt namn som identifierar namnområdet. Till exempel *mytestnamespace*. Domännamnet *servicebus.windows.net* läggs till i namnet som du anger. Namnet får endast innehålla bokstäver, siffror och bindestreck. Namnet måste börja med en bokstav och sluta med en bokstav eller siffra. Värdet måste innehålla mellan 6 och 50 tecken.
     | Namn på händelsehubb | *test-hub* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. Namnet på händelsehubben måste vara unikt inom namnområdet. |
     | Konsumentgruppens namn | *test-group* | Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
@@ -205,5 +205,4 @@ Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** 
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
+* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)

@@ -2,20 +2,20 @@
 title: Kapacitetsbegränsningar – Azure SQL Data Warehouse | Microsoft Docs
 description: Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/14/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f3c2ecbb4c83132b674b4c296adc1339027f5215
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797788"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514684"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -30,7 +30,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/> SQL Data Warehouse kan köra maximalt 128 samtidiga frågor och köer återstående frågor.<br/><br/>Antalet samtidiga frågor kan minska när användare har tilldelats högre resursklasser eller när SQL Data Warehouse har en lägre [informationslagerenheten](memory-and-concurrency-limits.md) inställningen. Vissa frågor, t.ex DMV frågor tillåts alltid att köra och gör inte påverkar gräns för samtidiga frågor. Mer information om samtidiga frågekörning finns i den [samtidighet maximum](memory-and-concurrency-limits.md#concurrency-maximums) artikeln. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maximal GB |399 GB per DW100. Vid DWU1000 storlek tempdb därför till 3,99 TB. |
 
-## <a name="database-objects"></a>Databasobjekt
+## <a name="database-objects"></a>databasobjekt
 | Category | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | Databas |Maxstorlek | Gen1: 240 TB komprimerat på disken. Här är oberoende av tempdb-eller log och därför tomrummet är dedikerad till permanent tabeller.  Grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till cirka 1 PB när alla tabeller är grupperade (tabelltyp för standard). <br/><br/> Gen2: 240TB för rowstore och obegränsad lagring för columnstore-tabeller |
@@ -65,10 +65,10 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | Fråga |Maximal parametrar |2098 |
 | Batch |Maximal storlek |65,536*4096 |
 | Välj resultat |Kolumner per rad |4096<br/><br/>Du kan aldrig ha högst 4 096 kolumner per rad i väljer resultatet. Det är inte säkert att du alltid har 4096. Om frågeplanen kräver en tillfällig tabell, kan 1024 kolumner per tabell maximala gälla. |
-| Välj |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan kan en koppling medföra en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
-| Välj |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
-| Välj |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
-| Välj |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
+| VÄLJ |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan kan en koppling medföra en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
+| VÄLJ |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
+| VÄLJ |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
+| VÄLJ |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
 | Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: En uttryckstjänstgräns har nåtts](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Stränglitteraler | Antal stränglitteraler i en instruktion | 20,000 <br/><br/>SQL Data Warehouse begränsar antalet strängkonstanter i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632.|
 

@@ -2,20 +2,20 @@
 title: Användaren flow-versioner i Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om vilka versioner av användarflöden som är tillgängliga i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af44658b42e9132ea89aadcbff29bdba1c13f46d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed57a9fa3b041961ce220e8f10d9aed5e7bef60e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689662"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511924"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Användaren flow-versioner i Azure Active Directory B2C
 
@@ -30,18 +30,18 @@ Den nya användarflöden har lagts till som nya versioner. När användarflöden
 
 | Användarflödet | Rekommenderas | Beskrivning |
 | --------- | ----------- | ----------- |
-| Lösenordsåterställning | Ja | Används att välja ett nytt lösenord när du har verifierat sin e-post. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Tokenkompatibilitetsinställningar</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Profilredigering | Ja | Används att konfigurera sina användarattribut. Med det här användarflödet kan konfigurera du: <ul><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li></ul> |
-| resursägaren | Nej | Kan en användare med ett lokalt konto att logga in direkt i interna program (inga webbläsare krävs). Med det här användarflödet kan konfigurera du: <ul><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li></ul> |
-| Logga in | Nej | Gör det möjligt för en användare att logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li><li>Blockera inloggning</li><li>Framtvinga återställning av lösenord</li><li>Håll mig inloggad (KMSI)</ul><br>Du kan inte anpassa användargränssnittet med det här användarflödet. |
-| Registrera dig | Nej | Används att skapa ett konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Registrera dig och logga in | Ja | Används att skapa ett konto eller logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul>|
+| Lösenordsåterställning | Ja | Används att välja ett nytt lösenord när du har verifierat sin e-post. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Inställningar för tokenkompatibilitet</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Profilredigering | Ja | Används att konfigurera sina användarattribut. Med det här användarflödet kan konfigurera du: <ul><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li></ul> |
+| resursägaren | Nej | Kan en användare med ett lokalt konto att logga in direkt i interna program (inga webbläsare krävs). Med det här användarflödet kan konfigurera du: <ul><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li></ul> |
+| Logga in | Nej | Gör det möjligt för en användare att logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li><li>Blockera inloggning</li><li>Framtvinga återställning av lösenord</li><li>Håll mig inloggad (KMSI)</ul><br>Du kan inte anpassa användargränssnittet med det här användarflödet. |
+| Registrera dig | Nej | Används att skapa ett konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Registrera dig och logga in | Ja | Används att skapa ett konto eller logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
 ## <a name="v2"></a>V2
 
 | Användarflödet | Rekommenderas | Beskrivning |
 | --------- | ----------- | ----------- |
-| Återställning av lösenord v2 | Nej | Används att välja ett nytt lösenord när du har verifierat sin e-post. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Tokenkompatibilitetsinställningar</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Logga in v2 | Nej | Gör det möjligt för en användare att logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>På inloggningssidan anpassning</li></ul> |
-| Registrera sig v2 | Nej | Används att skapa ett konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Tokenkompatibilitetsinställningar</li><li>Sessionsbeteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Registrera sig och logga in v2 | Nej | Används att skapa ett konto eller logga in sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| V2 för återställning av lösenord | Nej | Används att välja ett nytt lösenord när du har verifierat sin e-post. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Inställningar för tokenkompatibilitet</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Logga in v2 | Nej | Gör det möjligt för en användare att logga in på sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>På inloggningssidan anpassning</li></ul> |
+| Registrera dig v2 | Nej | Används att skapa ett konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Livslängd för token](active-directory-b2c-reference-tokens.md)</li><li>Inställningar för tokenkompatibilitet</li><li>Sessionsbeteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Registrera dig och logga in v2 | Nej | Används att skapa ett konto eller logga in sitt konto. Med det här användarflödet kan konfigurera du: <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav på lösenordskomplexitet](active-directory-b2c-reference-password-complexity.md)</li></ul> |

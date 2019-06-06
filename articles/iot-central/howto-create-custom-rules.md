@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805988"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742417"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Utöka Azure IoT Central med anpassade regler som skickar meddelanden
 
@@ -38,12 +38,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Skapa en IoT Central-App från den [Azure IoT Central - Mina program](https://aka.ms/iotcentral) sidan med följande inställningar:
 
-| Inställning | Value |
+| Inställning | Värde |
 | ------- | ----- |
 | Betalningsplan | Betala per användning |
-| Programmall | Contoso-exempel |
+| Programmall | Exemplet Contoso |
 | Programnamn | Acceptera standardinställningarna eller välj namnet på din egen |
-| Webbadress | Acceptera standardinställningarna eller välj en egen unik URL-prefix |
+| URL | Acceptera standardinställningarna eller välj en egen unik URL-prefix |
 | Katalog | Azure Active Directory-klient |
 | Azure-prenumeration | Din Azure-prenumeration |
 | Region | Östra USA |
@@ -61,11 +61,11 @@ Använd den [Azure portal för att skapa ett namnområde för Event Hubs](https:
 | Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj namnet på ditt namnområde |
-| Prisnivå | Grundläggande |
+| Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Location | Östra USA |
-| Dataflödesenheter | 1 |
+| Genomflödesenheter | 1 |
 
 ### <a name="stream-analytics-job"></a>Stream Analytics-jobb
 
@@ -77,7 +77,7 @@ Använd den [Azure portal för att skapa ett Stream Analytics-jobb](https://port
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Location | Östra USA |
-| Värdmiljö | Moln |
+| Värdmiljö | Molnet |
 | Strömningsenheter | 3 |
 
 ### <a name="function-app"></a>Funktionsapp
@@ -152,7 +152,7 @@ Portalen skapar en standardfunktion som kallas **HttpTrigger1**:
 
 Om du vill skicka e-postmeddelanden med SendGrid måste du konfigurera bindningarna för din funktion på följande sätt:
 
-1. Välj **integrera**, Välj utdata **HTTP ($return)**, och välj sedan **ta bort**.
+1. Välj **integrera**, Välj utdata **HTTP ($return)** , och välj sedan **ta bort**.
 1. Välj **+ nya utdata**, välj sedan **SendGrid**, och välj sedan **Välj**. Välj **installera** att installera tillägget SendGrid.
 1. När installationen är klar väljer du **Använd funktionsreturvärde**. Lägg till en giltig **till adressen** att ta emot e-postmeddelanden.  Lägg till en giltig **från adress** ska användas som e-postavsändaren.
 1. Välj **nya** bredvid **SendGrid API-nyckel för Appinställningen**. Ange **SendGridAPIKey** som nyckeln och SendGrid API-nyckeln som du antecknade tidigare som värde. Välj sedan **Skapa**.
@@ -240,7 +240,7 @@ Den här lösningen använder en Stream Analytics-fråga för att identifiera n�
 1. I Azure-portalen går du till ditt Stream analytics-jobb under **jobb topologi** Välj **indata**, Välj **+ Lägg till strömindata**, och välj sedan **händelse Hub**.
 1. Använd informationen i följande tabell för att konfigurera indata med hjälp av den händelsehubb som du skapade tidigare och välj sedan **spara**:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Inmatat alias | centraltelemetry |
     | Prenumeration | Din prenumeration |
@@ -250,7 +250,7 @@ Den här lösningen använder en Stream Analytics-fråga för att identifiera n�
 1. Under **jobb topologi**väljer **utdata**, Välj **+ Lägg till**, och välj sedan **Azure-funktion**.
 1. Använd informationen i följande tabell för att konfigurera utdata och välj **spara**:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Utdataalias | emailnotification |
     | Prenumeration | Din prenumeration |
@@ -324,7 +324,7 @@ Navigera till den [IoT Central programmet](https://aka.ms/iotcentral) du skapade
 
 Vänta tills statusen export är **kör** innan du fortsätter.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testa
 
 Om du vill testa lösningen kan du inaktivera den löpande dataexporten från IoT Central till simulerade stoppade enheter:
 
@@ -353,4 +353,4 @@ I den här guiden beskrivs hur du:
 * Skapa ett Stream Analytics-fråga som identifierar när en enhet har stoppats skickar data.
 * Skicka ett e-postmeddelande med Azure Functions och SendGrid-tjänster.
 
-Nu när du vet hur du skapar anpassade regler och meddelanden, föreslagna nästa steg är att lära dig hur du [visualisera och analysera dina Azure IoT Central data i en Power BI-instrumentpanel](howto-connect-powerbi.md).
+Nu när du vet hur du skapar anpassade regler och meddelanden, föreslagna nästa steg är att lära dig hur du [utöka Azure IoT Central med anpassade analytics](howto-create-custom-analytics.md).

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789251"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476113"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -73,7 +73,7 @@ Se tabellen nedan för de utgående portar som du behöver öppna om du vill anv
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag godkänna?
 Följ dessa steg för att hitta rätt IP-adresser till vitlista för dina anslutningar:
@@ -115,7 +115,7 @@ Exempel:
 
 bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule krävs användarnamn = ”$ ConnectionString ”password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ”;
 
-Anteckning: Hitta de konfigurationer som används för att ange SASL-användarnamn och lösenord och använda dem i stället om sasl.jaas.config inte är en konfiguration som stöds i ditt ramverk. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
+Obs! Hitta de konfigurationer som används för att ange SASL-användarnamn och lösenord och använda dem i stället om sasl.jaas.config inte är en konfiguration som stöds i ditt ramverk. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Vad är meddelandehändelse/storleken för Kafka-aktiverade Event Hubs?
 Den maximala tillåtna storleken för Kafka-aktiverade Händelsehubbar är 1MB.

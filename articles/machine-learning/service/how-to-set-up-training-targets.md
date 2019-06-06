@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236626"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475981"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
@@ -31,22 +31,22 @@ I den här artikeln får du lära dig hur du använder olika beräkningsmål fö
 
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.6.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Beräkningsmål för utbildning
 
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 
-|Beräkningsmål för träning| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad<br/> maskininlärning | Azure Machine Learning Pipelines |
+|Utbildning &nbsp;mål| GPU-stöd |Automatisk ML | ML-pipelines | Visuellt gränssnitt
 |----|:----:|:----:|:----:|:----:|
-|[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Fjärransluten virtuell dator](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Lokal dator](#local)| maybe | ja | &nbsp; | &nbsp; |
+|[Azure Machine Learning-beräkning](#amlcompute)| ja | Ja & <br/>finjustering&nbsp;justering | ja | ja |
+|[Fjärransluten virtuell dator](#vm) |ja | Ja & <br/>finjustering av hyperparametrar | ja | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | ja | ja | &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | ja | &nbsp; |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | ja | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | ja | &nbsp; |
 
 **Alla beräkningsresurser mål kan återanvändas för flera upplärningsjobb**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.
 

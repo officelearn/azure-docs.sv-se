@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596715"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692845"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -27,7 +27,7 @@ En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-z
 > [!NOTE]
 > Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domännamn (FQDN) i slutpunkter. Vi rekommenderar använda statiska IP-adresser.
 
-## <a name="capabilities"></a>FUNKTIONER
+## <a name="capabilities"></a>Funktioner
 
 - **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-postuppsättning är automatiskt om den offentliga IP-adressen ändras eller har tagits bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
 
@@ -67,6 +67,9 @@ Precis som en Traffic Manager-profil kan du också använda alias poster för at
 Till exempel om din statiska webbplats har namnet www.contoso.com, dina användare kan komma åt din webbplats med hjälp av contoso.com utan att behöva lägga till åtkomstgruppen för www till DNS-namn.
 
 Som tidigare nämnts, stöds inte CNAME-poster i basdomänen. Så det går inte att du använder en CNAME-post för att peka contoso.com till CDN-slutpunkten. Använd istället en aliaspost för att peka zonens apex direkt på en CDN-slutpunkt.
+
+> [!NOTE]
+> Pekar en basdomänen till CDN-slutpunkter för Azure CDN från Akamai stöds för närvarande inte.
 
 ## <a name="next-steps"></a>Nästa steg
 

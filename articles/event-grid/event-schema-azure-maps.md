@@ -22,7 +22,7 @@ Den här artikeln innehåller egenskaperna och schema för Azure Maps-händelser
 
 Ett Azure Maps-konto genererar följande händelsetyper:
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Aktiveras när koordinater emot har flyttat från utanför en viss geofence-området till i |
 | Microsoft.Maps.GeofenceExited | Aktiveras när koordinater emot har flyttats från inom en viss geofence-området till utanför |
@@ -102,10 +102,10 @@ I följande exempel visar schemat för **GeofenceResult**
 
 En händelse har följande översta data:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
@@ -115,7 +115,7 @@ En händelse har följande översta data:
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | apiCategory | string | API-kategori för händelsen. |
 | apiName | string | API-namnet på händelsen. |
@@ -125,13 +125,13 @@ Dataobjektet har följande egenskaper:
 
 Felobjekt returneras när ett fel uppstår i Maps-API. Felobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | error | Felinformation |Det här objektet som returneras när ett fel uppstår i Maps-API  |
 
 ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinformation eller det objekt du har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | code | string | HTTP-statuskoden. |
 | message | string | Om det finns en mänsklig läsbar beskrivning av felet. |
@@ -139,13 +139,13 @@ ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinform
 
 InnerError är ett objekt som innehåller service-specifik information om felet. Objektet InnerError har följande egenskaper: 
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | code | string | Ett felmeddelande. |
 
 Objektet geometrier listar geometri ID: N för geofence-områden som har upphört att gälla i förhållande till Användartid i begäran. Objektet geometrier har geometri objekt med följande egenskaper: 
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |:-------- |:---- |:----------- |
 | deviceid | string | ID för enheten. |
 | distance | string | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
@@ -156,7 +156,7 @@ Objektet geometrier listar geometri ID: N för geofence-områden som har upphör
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Listor över geometri-ID: T för geofence-området som har upphört att gälla i förhållande till Användartid i begäran. |
 | geometries | geometries[] |Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |

@@ -1,28 +1,28 @@
 ---
-title: 'Snabbstart: Mata in data med hjälp av Node-biblioteket i Azure Data Explorer'
-description: I den här snabbstarten lär du dig att mata in (läsa in) data i Azure-datautforskaren med hjälp av Node.js.
+title: Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
+description: I den här artikeln får lära du att mata in (load) data i Datautforskaren i Azure med hjälp av Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800428"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494487"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snabbstart: Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure-datautforskaren tillhandahåller två klientbibliotek för Node: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här snabbstarten skapar du först en tabell och datamappning i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure-datautforskaren tillhandahåller två klientbibliotek för Node: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln får skapa du först en tabell och datamappning av i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Förutom en Azure-prenumeration behöver du följande för att slutföra den här snabbstarten:
+Förutom en Azure-prenumeration behöver du följande för att slutföra den här artikeln:
 
 * [Ett testkluster och en databas](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
+Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+* [Skriv frågor](write-queries.md)

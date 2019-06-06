@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602092"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472587"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -43,14 +43,14 @@ Följande fält och konventioner gäller både VMConnection och VMBoundPort:
 
 - Dator: Fullständigt kvalificerade domännamnet för rapportering av dator 
 - AgentID: Den unika identifieraren för en dator med Log Analytics-agenten  
-- Dator: Namnet på Azure Resource Manager-resurs för den datorn som exponeras av ServiceMap. Det är i formatet *m-{GUID}*, där *GUID* är samma GUID som AgentID  
-- Processen: Namnet på Azure Resource Manager-resurs för den process som exponeras av ServiceMap. Det är i formatet *p-{hexadecimal sträng}*. Processen är unika inom en datoromfånget och kombinera fält för datorn och processen för att generera en unik process-ID för datorer. 
+- Dator: Namnet på Azure Resource Manager-resurs för den datorn som exponeras av ServiceMap. Det är i formatet *m-{GUID}* , där *GUID* är samma GUID som AgentID  
+- Processen: Namnet på Azure Resource Manager-resurs för den process som exponeras av ServiceMap. Det är i formatet *p-{hexadecimal sträng}* . Processen är unika inom en datoromfånget och kombinera fält för datorn och processen för att generera en unik process-ID för datorer. 
 - ProcessName: Filnamn för rapporterna.
 - Alla IP-adresser är strängar i IPv4 kanoniskt format, till exempel *13.107.3.160* 
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett givet intervall för en minut, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |Direction |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
 |Machine |Datorn FQDN |
@@ -62,7 +62,7 @@ För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte en
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |LinksEstablished |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 |LinksTerminated |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -73,7 +73,7 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
@@ -99,16 +99,16 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |RemoteCountry |Namnet på det land/region som är värd för RemoteIp.  Till exempel *USA* |
 |RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
 |RemoteLongitude |Geoplats longitud. Till exempel *-122.12* |
 
-#### <a name="malicious-ip"></a>Skadlig IP
+#### <a name="malicious-ip"></a>Skadlig IP-adress
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
 |IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
@@ -125,16 +125,9 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 ### <a name="ports"></a>Portar 
 Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan acceptera trafik, men är inaktiva under tidsperioden för reporting skrivs till tabellen VMBoundPort.  
 
->[!NOTE]
->Azure Monitor för virtuella datorer stöder inte samla in och registrera portdata i Log Analytics-arbetsytan i följande regioner:  
->- Östra USA  
->- Europa, västra
->
-> Data samlas in är aktiverad i den andra [regioner som stöds](vminsights-enable-overview.md#log-analytics) för Azure Monitor för virtuella datorer. 
-
 Varje post i VMBoundPort identifieras med följande fält: 
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 |Process | Identiteten för processen (eller grupper av processer) som porten som är associerad med.|
 |Ip | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
@@ -160,7 +153,7 @@ Här följer några viktiga saker att tänka på:
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med beroendeagenten. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -185,7 +178,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL poster
 Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslutna processer på servrar med beroendeagenten. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Description |
+| Egenskap | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

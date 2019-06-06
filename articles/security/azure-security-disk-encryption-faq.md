@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416704"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730689"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -82,6 +82,9 @@ Nej, krypterar Azure Disk Encryption endast monterade volymer.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur jag rotera hemligheter eller krypteringsnycklar?
 
 Att rotera hemligheter, anropar du bara samma kommando som du ursprungligen använde för att aktivera diskkryptering, anger du ett annat Nyckelvalv. Anropa samma kommando du använts för att aktivera diskkryptering, att ange den nya krypteringsnyckel för att rotera nyckeln krypteringsnyckeln. 
+
+>[!WARNING]
+> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) genom att ange autentiseringsuppgifter för Azure AD för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hur jag för att lägga till eller ta bort en nyckelkrypteringsnyckel om jag inte ursprungligen använder en?
 

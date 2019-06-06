@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307354"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688628"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Anslut med RDP till Azure Kubernetes Service (AKS) klusternoder i Windows Server för underhåll och felsökning
 
@@ -32,7 +32,18 @@ Du också ha Azure CLI version 2.0.61 eller senare installerat och konfigurerat.
 
 Windows Server-noderna i AKS-klustret har inte den externa IP-adresser. Om du vill göra en RDP-anslutning, kan du distribuera en virtuell dator med en offentligt tillgänglig IP-adress i samma undernät som Windows Server-noder.
 
-I följande exempel skapas en virtuell dator med namnet *myVM* i den *myResourceGroup* resursgrupp. Ersätt *$SUBNET_ID* med ID: T för det undernät som används av din pool för Windows Server-nod.
+I följande exempel skapas en virtuell dator med namnet *myVM* i den *myResourceGroup* resursgrupp.
+
+Hämta först det undernät som används av din pool för Windows Server-nod. För att hämta undernät-id, behöver du namnet på undernätet. För att hämta namnet på undernätet, behöver du namnet på det virtuella nätverket. Hämta virtuella nätverkets namn genom att fråga ditt kluster för sin lista över nätverk. Om du vill fråga klustret, behöver du dess namn. Du kan få alla dessa genom att köra följande i Azure Cloud Shell:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+Nu när du har SUBNET_ID, kör du följande kommando i samma Azure Cloud Shell-fönstret för att skapa den virtuella datorn:
 
 ```azurecli-interactive
 az vm create \

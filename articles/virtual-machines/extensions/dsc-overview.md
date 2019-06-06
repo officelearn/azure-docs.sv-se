@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518863"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515911"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
@@ -81,7 +81,7 @@ Den här informationen kan ses i den [Azure-portalen](../../automation/automatio
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Om nodkonfiguration namn, kontrollera att du använder namnet på den *nodkonfiguration* och inte konfigurationen.
+Kontrollera att nodkonfigurationen finns i Azure State Configuration för nodkonfiguration-namn.  Om det inte returnerar tillägget distributionen ett fel.  Kontrollera också att du använder namnet på den *nodkonfiguration* och inte konfigurationen.
 En konfiguration har definierats i ett skript som ska användas för [att kompilera nodkonfiguration (MOF-fil)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Namnet kommer alltid att konfigurationen följt av en punkt `.` och antingen `localhost` eller namnet på en specifik dator.
 

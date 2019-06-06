@@ -2,20 +2,20 @@
 title: Definiera en självkontrollerad tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en självkontrollerad tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691031"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512666"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en självkontrollerad tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64691031"
 
 All interaktion i Azure Active Directory (Azure AD) B2C där användaren förväntas som indata är lokal verifieringsvillkor tekniska profiler. Till exempel en registreringssidan, en inloggningssida eller ett lösenord för lösenordsåterställning.
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Den **namn** attributet för den **protokollet** element måste anges till `Proprietary`. Den **hanteraren** attributet måste innehålla det fullständigt kvalificerade namnet på protokoll hanteraren sammansättningen som används av Azure AD B2C för lokal verifieringsvillkor: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -127,7 +127,7 @@ Du kan också anropa en REST API-tekniska profilen med din affärslogik, ersätt
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Nej | Visar knappen Fortsätt. Möjliga värden: `true` (standard), eller `false` |
 | setting.showCancelButton | Nej | Visar knappen Avbryt. Möjliga värden: `true` (standard), eller `false` |

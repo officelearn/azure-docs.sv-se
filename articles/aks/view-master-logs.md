@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128710"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497253"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -26,15 +26,14 @@ Den här artikeln kräver ett AKS-kluster som körs i ditt Azure-konto. Om du in
 
 För att samla in och granska data från flera källor, ger Azure Monitor-loggar en frågespråk och en analytisk frågemotor som ger insikter i din miljö. En arbetsyta används för att sortera och analysera data och kan integreras med andra Azure-tjänster, till exempel Application Insights och Security Center. Om du vill använda en annan plattform för att analysera loggarna måste välja du i stället att skicka diagnostikloggar till en Azure storage-konto eller event hub. Mer information finns i [vad är Azure Monitor-loggar?] [log-analytics-overview].
 
-Azure Monitor-loggar har aktiverats och hanteras i Azure-portalen. Öppna Azure portal i en webbläsare om du vill aktivera insamling av supportloggar för huvudkomponenter Kubernetes AKS-klustret och utför följande steg:
+Azure Monitor-loggar är aktiverade och hanteras i Azure-portalen. Öppna Azure portal i en webbläsare om du vill aktivera insamling av supportloggar för huvudkomponenter Kubernetes AKS-klustret och utför följande steg:
 
 1. Välj resursgrupp för AKS-klustret, till exempel *myResourceGroup*. Välj den resursgrupp som innehåller din enskilda AKS-kluster-resurser, som inte *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Till vänster, Välj **diagnostikinställningar**.
-1. Välj AKS-klustret, till exempel *myAKSCluster*, sedan välja att **slå på diagnostik**.
-1. Ange ett namn, till exempel *myAKSClusterLogs*, Välj alternativet att **skicka till Log Analytics-arbetsyta**.
-    * Välja att *konfigurera* Log Analytics-arbetsyta och sedan välja en befintlig arbetsyta eller **Skapa ny arbetsyta**.
-    * Om du vill skapa en arbetsyta kan du ange ett namn, en resursgrupp och en plats.
-1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera. Som standard den *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare* loggar är aktiverade. Du kan aktivera ytterligare loggar som *kube-granskning* och *kluster autoskalningen*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics-arbetsytor är aktiverade.
+1. Välj AKS-klustret, till exempel *myAKSCluster*, sedan välja att **Lägg till diagnostikinställning**.
+1. Ange ett namn, till exempel *myAKSClusterLogs*, Välj alternativet att **skicka till Log Analytics**.
+1. Välj en befintlig arbetsyta eller skapa en ny. Om du skapar en arbetsyta, ange ett namn på arbetsytan, en resursgrupp och en plats.
+1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera. Vanliga loggar innehåller den *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare*. Du kan aktivera ytterligare loggar som *kube-granskning* och *kluster autoskalningen*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics-arbetsytor är aktiverade.
 1. När du är klar väljer **spara** att aktivera insamling av valda loggarna.
 
 > [!NOTE]
@@ -50,7 +49,7 @@ Azure Monitor-loggar har aktiverats och hanteras i Azure-portalen. Öppna Azure 
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-I följande exempel portal skärmbild visas den *diagnostikinställningar* fönstret och sedan på alternativet för att skapa en Log Analytics-arbetsyta:
+I följande exempel portal skärmbild visas den *diagnostikinställningar* fönster:
 
 ![Aktivera Log Analytics-arbetsyta för Azure Monitor-loggarna för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
 

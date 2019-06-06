@@ -2,20 +2,20 @@
 title: Integrera REST API anspråk Utbytena i din Azure Active Directory B2C-användarresa | Microsoft Docs
 description: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717285"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510726"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -60,7 +60,7 @@ Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-
 
 1. Skapa ett projekt i Visual Studio genom att välja **filen** > **New** > **projekt**.
 
-2. I den **nytt projekt** väljer **Visual C#** > **Web** > **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
+2. I den **nytt projekt** väljer **Visual C#**  > **Web** > **ASP.NET-Webbtillämpningsprogram (.NET Framework)** .
 
 3. I den **namn** skriver ett namn för programmet (till exempel *Contoso.AADB2C.API*), och välj sedan **OK**.
 
@@ -248,13 +248,13 @@ En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Fler
 
 Följande XML-kodstycke innehåller en anspråk providern nod med två tekniska profiler:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Definierar RESTful-tjänst.
+* **TechnicalProfile Id="REST-API-SignUp"** : Definierar RESTful-tjänst.
   * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider.
   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst.
 
     I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren.
 
 Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstycke under den `<ClaimsProviders>` nod:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768179"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425615"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Saker att Observera:
 
 ## <a name="data-integration-units"></a>Integrering enheter
 
-En **Data Integration enhet (DIU)** (tidigare kallat Cloud Data Movement enhet eller dmu här) är ett mått som representerar (en kombination av processor, minne och nätverksresursallokering) en enhet i Data Factory. **DIU gäller endast för [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, men inte [lokal Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+En **Data Integration enhet (DIU)** (tidigare kallat Cloud Data Movement enhet eller dmu här) är ett mått som representerar (en kombination av processor, minne och nätverksresursallokering) en enhet i Data Factory. **DIU gäller endast för [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** , men inte [lokal Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **Minimal Data Integration Units möjligheter för körningen av Kopieringsaktiviteten är två.** Om inte anges visas i följande tabell de standard-DIUs som används i olika kopia scenarier:
 
@@ -93,7 +93,7 @@ Om du vill åsidosätta denna standardinställning, ange ett värde för den **d
 Du kan se den faktiskt används Integration enheter för varje kopia som kör i kopieringsaktiviteten utdata när du övervakar en aktivitet som körs. Få mer detaljerad information från [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Inställningen för den DIUs **större än 4** fungerar för närvarande endast när du **kopiera flera filer från Blob-lagring/Data Lake Storage/Amazon S3/i molnet FTP/i molnet SFTP till andra molndata lagrar.**.
+> Inställningen för den DIUs **större än 4** gäller för närvarande endast när du **kopiera flera filer från Azure Storage/Data Lake Storage/Amazon S3/Google Cloud Storage/i molnet FTP/i molnet SFTP till alla andra molndatalager**.
 >
 
 **Exempel:**
@@ -188,7 +188,7 @@ För närvarande kan kopiera du inte data mellan två lokala datalager med hjäl
 
 Konfigurera den **enableStaging** inställningen i Kopieringsaktiviteten till att ange om du vill att data ska mellanlagras i Blob storage innan du läser in dem till ett måldatalager. När du ställer in **enableStaging** till `TRUE`, anger du ytterligare egenskaper som anges i nästa tabell. Om du inte har någon kan du även behöva skapa ett Azure Storage eller Storage shared access signature-länkad tjänst för mellanlagring.
 
-| Egenskap  | Beskrivning | Standardvärde | Krävs |
+| Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via en tiden mellanlagring store. |False |Nej |
 | **linkedServiceName** |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkad tjänst som refererar till instansen av lagring som du använder som ett tillfälligt mellanlagringsarkivet. <br/><br/> Du kan inte använda Storage med signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |

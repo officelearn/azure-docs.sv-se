@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238514"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455142"
 ---
 I följande tabell visas de begränsningar som gäller för Azure IoT Hub Device Provisioning Service-resurser.
 
@@ -20,6 +20,7 @@ I följande tabell visas de begränsningar som gäller för Azure IoT Hub Device
 | Maximalt antal registreringar | 1,000,000 |
 | Maximalt antal registreringsgrupper | 100 |
 | Maximalt antal CA: er | 25 |
+| Maximal storlek för meddelande | 96 KB|
 
 > [!NOTE]
 > Om du vill öka antalet instanser i din prenumeration, kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).

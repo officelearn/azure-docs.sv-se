@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087276"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514452"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
 
@@ -145,6 +145,25 @@ Du har använt en autentiseringsuppgift i en konfiguration, men inte anger rätt
 #### <a name="resolution"></a>Lösning
 
 * Se till att skicka in rätt **ConfigurationData** att ställa in **PSDscAllowPlainTextPassword** till true för varje nodkonfiguration som nämns i konfigurationen. Mer information finns i [tillgångar i Azure Automation DSC](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Scenario: Onboarding från dsc-tillägget ”fel vid bearbetningen av tillägget” fel
+
+#### <a name="issue"></a>Problem
+
+När onboarding med hjälp av DSC-tillägg, ett fel uppstår med felet:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår vanligen när noden har tilldelats ett nodnamn konfiguration som inte finns i tjänsten.
+
+#### <a name="resolution"></a>Lösning
+
+* Kontrollera att du tilldelar nod med en nodkonfigurationsnamn som exakt matchar namnet i tjänsten.
+* Du kan välja att inte inkludera namnet på noden konfigurationen, vilket leder onboarding noden men inte tilldela en nodkonfiguration
 
 ## <a name="next-steps"></a>Nästa steg
 

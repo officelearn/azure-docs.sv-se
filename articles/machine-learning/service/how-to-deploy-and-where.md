@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418039"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742964"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -97,7 +97,7 @@ Följande beräkningsmål, eller beräkna resurser, kan användas som värd för
 | [Lokala webbtjänst](#local) | Testa/debug | Bra för begränsad testning och felsökning.
 | [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för CPU-baserade arbetsbelastningar med låg skala. |
-| [Azure Machine Learning-beräkning](how-to-run-batch-predictions.md) | (Förhandsversion) Batch inferens | Kör batchbedömnings på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
+| [Azure Machine Learning-beräkning](how-to-run-batch-predictions.md) | Batch inferens | Kör batch inferens på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera och hantera ML-modeller på IoT-enheter. |
 
 
@@ -130,8 +130,9 @@ Följande typer stöds för närvarande:
 Om du vill använda scheman innehåller den `inference-schema` paketet i filen conda-miljö. I följande exempel används `[numpy-support]` eftersom posten skriptet använder en numpy parametertyp: 
 
 #### <a name="example-dependencies-file"></a>Exempelfil för beroenden
-Följande är ett exempel på en fil med Conda-beroenden för inferens.
-```python
+Följande YAML är ett exempel på en fil med Conda-beroenden för inferens.
+
+```YAML
 name: project_environment
 dependencies:
   - python=3.6.2
@@ -186,6 +187,48 @@ def run(data):
         return error
 ```
 
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exempelskript med ordlistan indata (stöd för förbrukning från Power BI)
+
+Följande exempel visar hur du definierar indata som < nyckel: värde > ordlista, med hjälp av dataramar. Den här metoden stöds för användning av den distribuerade webbtjänsten från Power BI ([Läs mer om hur du förbrukar webbtjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+def init():
+    global model
+    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+input_sample = pd.DataFrame(data=[{
+              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
+              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
+              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
+            }])
+
+output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+
+@input_schema('data', PandasParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 Fler exempelskript finns i följande exempel:
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -281,7 +324,7 @@ Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillg
 
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
-### <a id="aks"></a>Azure Kubernetes Service (produktion)
+### <a id="aks"></a>Azure Kubernetes Service (DEVTEST och produktion)
 
 Du kan använda ett befintligt AKS-kluster eller skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
@@ -293,6 +336,9 @@ Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om
 
   ```python
   aks_target = AksCompute(ws,"myaks")
+  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
+  # cores and memory to handle this deployment configuration. Note that memory is also used by
+  # things such as dependencies and AML components.
   deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
   service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
   service.wait_for_deployment(show_output = True)
@@ -315,16 +361,23 @@ Läs mer om AKS-distributionen och skala automatiskt i den [AksWebservice.deploy
 #### Skapa ett nytt AKS-kluster<a id="create-attach-aks"></a>
 **Uppskattad tidsåtgång:** Cirka 5 minuter.
 
-> [!IMPORTANT]
-> Skapa eller koppla ett AKS-kluster är en gång bearbetar för din arbetsyta. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
+Skapa eller koppla ett AKS-kluster är en gång bearbetar för din arbetsyta. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera. Du kan ha flera AKS-kluster som är kopplat till din arbetsyta.
 
-Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas`, finns i den [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) referens.
+Om du vill skapa ett AKS-kluster för utveckling, verifieringen och testningen kan du ställa in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` när du använder [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Ett kluster som skapats med den här inställningen har endast en nod.
+
+> [!IMPORTANT]
+> Ange `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` skapar ett AKS-kluster som inte passar för hantering av produktionstrafik. Inferens tider kan vara längre än i ett kluster som skapats för produktion. Feltolerans garanteras inte också för utveckling/testning-kluster.
+>
+> Vi rekommenderar att kluster som skapas för utveckling och testning använder minst två virtuella processorer.
+
 I följande exempel visar hur du skapar ett nytt Azure Kubernetes Service-kluster:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Use the default configuration (you can also provide parameters to customize this)
+# Use the default configuration (you can also provide parameters to customize this).
+# For example, to create a dev/test cluster, use:
+# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
@@ -341,6 +394,7 @@ Mer information om hur du skapar ett AKS-kluster utanför Azure Machine Learning
 * [Skapa ett AKS-kluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Skapa ett AKS-kluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
+Mer information om den `cluster_purpose` parameter, finns i den [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) referens.
 
 > [!IMPORTANT]
 > För [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer Anpassad värden för agent_count och vm_size, måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Till exempel om du använder en vm_size av ”Standard_D3_v2” som har 4 virtuella processorer, bör sedan du välja en agent_count 3 eller högre.
@@ -349,7 +403,16 @@ Mer information om hur du skapar ett AKS-kluster utanför Azure Machine Learning
 
 #### <a name="attach-an-existing-aks-cluster"></a>Koppla ett befintligt AKS-kluster
 
-Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.12. ## och har minst 12 virtuella processorer, du kan använda den för att distribuera din avbildning. Följande kod visar hur du ansluter en befintlig AKS 1.12. ## klustret till din arbetsyta:
+Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.12. ##, du kan använda den för att distribuera din avbildning.
+
+> [!WARNING]
+> När du ansluter ett AKS-kluster till en arbetsyta, kan du definiera hur du använder klustret genom att ange den `cluster_purpose` parametern.
+>
+> Om du inte anger den `cluster_purpose` parametern eller ange `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, klustret måste ha minst 12 virtuella processorer som är tillgängliga.
+>
+> Om du ställer in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, och sedan klustret inte behöver ha 12 virtuella processorer. Men ett kluster som har konfigurerats för utveckling och testning kan inte lämplig för trafiken på nätverksnivå för produktion och kan öka inferens gånger.
+
+Följande kod visar hur du ansluter en befintlig AKS 1.12. ## klustret till din arbetsyta:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -357,11 +420,18 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attach the cluster to your workgroup
+# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
+# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+#                                         cluster_name = cluster_name,
+#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
+
+Mer information om `attack_configuration()`, finns i den [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) referens.
+
+Mer information om den `cluster_purpose` parameter, finns i den [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) referens.
 
 ## <a name="consume-web-services"></a>Konsumera webbtjänster
 
@@ -395,7 +465,7 @@ print(response.json())
 Mer information finns i [skapa klient program kan använda webservices](how-to-consume-web-service.md).
 
 
-### <a id="azuremlcompute"></a> Batch-förbrukning
+### <a id="azuremlcompute"></a> Batch inferens
 Azure Machine Learning Compute mål skapas och hanteras av Azure Machine Learning-tjänsten. De kan användas för batch-förutsägelse från Azure Machine Learning Pipelines.
 
 En genomgång av batch inferens med beräkning av Azure Machine Learning finns det [hur du kör Batch-förutsägelser](how-to-run-batch-predictions.md) artikeln.

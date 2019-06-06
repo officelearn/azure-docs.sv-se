@@ -2,20 +2,20 @@
 title: Anpassa Azure Active Directory B2C-användargränssnittet (UI) dynamiskt med hjälp av anpassade principer | Microsoft Docs
 description: Stöd för flera företagsanpassning upplevelser med HTML5/CSS-innehåll som ändras dynamiskt vid körning.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708872"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507786"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -68,7 +68,7 @@ I den här genomgången ska du:
 
 1. Skapa ett projekt i Visual Studio genom att välja **filen** > **New** > **projekt**.
 
-2. I den **nytt projekt** väljer **Visual C#** > **Web** > **ASP.NET Core-Webbapp (.NET Core)**.
+2. I den **nytt projekt** väljer **Visual C#**  > **Web** > **ASP.NET Core-Webbapp (.NET Core)** .
 
 3. Ge programmet namnet (till exempel *Contoso.AADB2C.UI*), och välj sedan **OK**.
 

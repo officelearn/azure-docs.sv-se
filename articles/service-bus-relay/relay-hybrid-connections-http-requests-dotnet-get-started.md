@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749536"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428243"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -67,7 +67,7 @@ För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual 
 1. Kör klientprogrammet. `hello!` visas i klientfönstret. Klienten har skickat en HTTP-begäran till servern och servern svarade med en `hello!`. 
 3. Om du vill stänga konsolfönstret nu trycker du på **RETUR** i båda konsolfönsterna. 
 
-Grattis, du har skapat ett end-to-end hybridanslutningsprogram!
+Grattis, du har skapat en fullständig hybridanslutningsprogram!
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,17 +3,17 @@ title: Arkitektoniska begrepp i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp gällande arkitekturen i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887426"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693130"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -79,6 +79,14 @@ I en mall för enheten:
 
 Ett program kan ha en eller flera simulerade och verkliga enheter baserat på varje enhet-mall.
 
+## <a name="data-export"></a>Export av data
+
+I ett Azure IoT Central program, kan du [kontinuerligt exportera dina data](howto-export-data-event-hubs-service-bus.md) din egen Azure Event Hubs och Azure Service Bus-instanser. Du kan också regelbundet exportera dina data till Azure Blob storage-kontot. IoT Central kan exportera mått, enheter och mallar för enheten.
+
+## <a name="batch-device-updates"></a>Batch-enhetsuppdateringar
+
+I ett Azure IoT Central program, kan du [skapa och köra jobb](howto-run-a-job.md) att hantera anslutna enheter. Dessa jobb låter dig göra massuppdateringar enhetsegenskaper eller inställningar eller kör kommandon. Du kan till exempel skapa ett jobb för att öka hastigheten fläkt för flera kylda varuautomater.
+
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 
 En [administratören kan definiera åtkomstregler](howto-administer.md) för ett Azure IoT Central-program med hjälp av de fördefinierade rollerna. En administratör kan tilldela användare till roller som bestämmer vilka delar av programmet användaren har åtkomst till.
@@ -95,7 +103,10 @@ Säkerhetsfunktionerna i Azure IoT Central omfattar:
 ## <a name="ui-shell"></a>UI-gränssnittet
 
 UI-gränssnittet är en modern, dynamiskt, HTML5 webbläsarbaserade program.
+En administratör kan anpassa Användargränssnittet för programmet genom att använda anpassade teman och ändra hjälplänkar så att den pekar till dina egna anpassade hjälpresurser. Läs mer om anpassning av Användargränssnittet i [anpassa Azure IoT Central Användargränssnittet](howto-customize-ui.md) artikeln.
+
+En operatör kan skapa instrumentpaneler för anpassade program. Du kan ha flera instrumentpaneler som visar olika data och växla mellan dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om arkitekturen i Azure IoT Central, föreslagna nästa steg är att lära dig om [enhetsanslutning](concepts-connectivity.md) i Azure IoT Central.
+Nu när du har lärt dig om arkitekturen för Azure IoT Central, föreslagna nästa steg är att lära dig om [enhetsanslutning](concepts-connectivity.md) i Azure IoT Central.

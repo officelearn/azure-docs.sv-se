@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306819"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428066"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
 
@@ -43,7 +43,7 @@ Innan du börjar:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i en nätverkssäkerhetsgrupp.
-* Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](https://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure development**, **ASP.NET och webbutveckling**, och **.NET Core plattformsoberoende utveckling**arbetsbelastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
 ## <a name="network-topology"></a>Nätverkstopologi
 
@@ -88,7 +88,7 @@ Starta Visual Studio som administratör och skapa en ASP.NET Core-tjänst:
     </Resources>
     ```
 
-    Om du tar bort porten kan Service Fabric ange en port dynamiskt från portintervallet för programmet, som öppnas via Nätverkssäkerhetsgruppen i klustrets Resource Manager-mall så att trafik kan flöda till den från API Management.
+    Om du tar bort porten kan Service Fabric för att ange en port dynamiskt från portintervallet för programmet, öppnas via Nätverkssäkerhetsgruppen i Cluster Resource Manager-mall så att trafik kan flöda till den från API Management.
 
  6. Tryck på F5 i Visual Studio för att verifiera att ditt webb-API är tillgängligt lokalt.
 

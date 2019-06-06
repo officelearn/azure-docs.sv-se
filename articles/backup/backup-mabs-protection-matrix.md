@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237621"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427361"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -82,6 +82,15 @@ Den här artikeln visar de olika servrar och arbetsbelastningar som du kan skydd
 |VMwares virtuella datorer|VMware vCenter/vSphere ESX/ESXi  licensed version 5.5/6.0/6.5 |Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|Y|Virtuella VMware-datorer på klusterdelade volymer (CSV), NFS, och SAN-lagring<br /> Återställning av filer och mappar är endast tillgänglig för Windows-datorer, VMware vApps stöds inte.|
 |VMwares virtuella datorer|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|N|Virtuella VMware-datorer på klusterdelade volymer (CSV), NFS, och SAN-lagring<br /> Återställning av filer och mappar är endast tillgänglig för Windows-datorer, VMware vApps stöds inte.|
 |Linux|Linux körs som Hyper-V eller VMware-gäst|Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|Y|Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn <br/><br/> En fullständig lista över Linux-distributioner som stöds och versioner finns i artikeln [Linux på distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md).|
+
+## <a name="azure-expressroute-support"></a>Support för Azure ExpressRoute
+
+Om Azure ExpressRoute har konfigurerats med privata eller Microsoft-peering, kan inte den användas för att säkerhetskopiera data till Azure.
+
+Om Azure ExpressRoute har konfigurerats med offentlig Peering, kan den användas för att säkerhetskopiera data till Azure.
+
+>[!NOTE]
+>Offentlig Peering är inaktuell för nya kretsar.
 
 ## <a name="cluster-support"></a>Stöd för kluster
 Azure Backup Server kan skydda data i följande klustrade program:

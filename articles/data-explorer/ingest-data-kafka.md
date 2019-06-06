@@ -1,20 +1,20 @@
 ---
-title: 'Snabbstart: Mata in data från Kafka i Azure Data Explorer'
-description: I den här snabbstarten får du lära dig hur du matar in (load) data i Azure Data Explorer från Kafka.
+title: Mata in data från Kafka i Azure Data Explorer
+description: I den här artikeln får lära du att mata in (load) data i Azure Data Explorer från Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497271"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Mata in data från Kafka i Azure Data Explorer
  
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Kafka. Kafka är en distribuerad strömningsplattform som gör det möjligt att skapa realtidsbaserade datapipelines som på ett tillförlitligt sätt flyttar data mellan system och program.
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Skapa
+#### <a name="build"></a>Utveckla
 
 Skapa lokalt med Maven för att bilda en `.jar` komplett med beroenden.
 
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Nästa steg
  
-> [!div class="nextstepaction"]
-> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
+* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)

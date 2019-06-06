@@ -7,171 +7,109 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.reviewer: seguler
-ms.date: 04/29/2019
+ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 36cc8cebdb567cb9650ad1ad3baf72a0b5478247
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148463"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427973"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
-Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
 
-Till skillnad från som är värd för statisk webbplats, dynamiska webbplatser som är beroende av serverkod är bäst hanteras med hjälp av [Azure App Service](/azure/app-service/overview).
-
-## <a name="how-does-it-work"></a>Hur fungerar det?
-När du aktiverar statisk webbplats som är värd för ditt storage-konto du väljer namnet på din standardfil och du kan också ange en sökväg till en custom 404-sida. När funktionen är aktiverad, en behållare med namnet *$web* skapas om den inte redan finns.
-
-Filer i den *$web* behållare är:
-
-- hanteras via anonyma förfrågningar
-- endast tillgängligt via objektet läsåtgärder
-- skiftlägeskänsligt
-- tillgängliga till offentlig webbplats efter det här mönstret:
-    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- tillgängliga via en slutpunkt för Blob-lagring som följer det här mönstret:
-    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
-
-Du kan använda Blob storage-slutpunkt för att ladda upp filer. Exempelvis kan överföra filen till den här platsen:
-
-```bash
-https://contoso.blob.core.windows.net/$web/image.png
-```
-
-är tillgängligt i webbläsaren på en plats så här:
-
-```bash
-https://contoso.z4.web.core.windows.net/image.png
-```
-
-Valda standardfilnamnet används vid roten och eventuella underkataloger när ett filnamn inte har angetts. Om servern returnerar ett 404 och du inte anger en feldokumentets sökväg, returneras ett 404 standardsidan för användaren.
+Du kan hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Som är värd för ditt innehåll i Azure Storage kan du använda arkitekturer utan server som innehåller [Azure Functions](/azure/azure-functions/functions-overview) och annan plattform som en tjänst (PaaS)-tjänster.
 
 > [!NOTE]
-> Standardnivån för offentlig åtkomst för filer är privata. Eftersom filerna hanteras via anonyma förfrågningar, ignoreras den här inställningen. Det finns offentlig åtkomst till alla filer och RBAC-behörigheter ignoreras.
+> Om din webbplats är beroende av serverkod, använda [Azure App Service](/azure/app-service/overview) i stället.
 
-## <a name="cdn-and-ssl-support"></a>CDN- och SSL-stöd
+## <a name="setting-up-a-static-website"></a>Konfigurera en statisk webbplats
 
-För att göra dina filer för statisk webbplats via din anpassade domän och HTTPS, se [använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md). Som en del av den här processen måste du *peka CDN-nätverket till webbslutpunkt* till skillnad från blob-slutpunkten. Du kan behöva vänta några minuter innan innehållet är synligt när CDN-konfigurationen inte utförs omedelbart.
+Som är värd för statisk webbplats är en funktion som du måste aktivera för lagringskontot.
+
+Välj namnet på din standardfil för att aktivera statisk webbplats som är värd för, och du kan också ange en sökväg till en custom 404-sida. Om en blob storage-behållare med namnet **$web** inte redan finns på kontot, en skapas åt dig. Lägga till filer i din webbplats i den här behållaren.
+
+Stegvisa anvisningar finns i [vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website-how-to.md).
+
+![Azure Storage serverstatiska webbplatser mått mått](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+
+Filer i den **$web** behållare är skiftlägeskänsliga, hanteras via förfrågningar om anonym åtkomst och är bara tillgänglig via läsåtgärder.
+
+## <a name="uploading-content"></a>Överför innehåll
+
+Du kan använda någon av dessa verktyg för att överföra innehåll till den **$web** behållare:
+
+> [!div class="checklist"]
+> * [Azure CLI](storage-blob-static-website-how-to.md#cli)
+> * [Azure PowerShell-modul](storage-blob-static-website-how-to.md#powershell)
+> * [AzCopy](../common/storage-use-azcopy-v10.md)
+> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> * [Visual Studio Code-tillägg](https://code.visualstudio.com/tutorials/static-website/getting-started)
+
+## <a name="viewing-content"></a>Visa innehåll
+
+Användare kan visa webbplatsens innehåll från en webbläsare med hjälp av en offentlig URL för webbplatsen. Du hittar URL: en med hjälp av Azure-portalen, Azure CLI eller PowerShell. Använd den här tabellen som vägledning.
+
+|Verktyget| Riktlinjer |
+|----|----|
+|**Azure Portal** | [Hitta URL: webbplatsen med hjälp av Azure portal](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure CLI** | [Hitta URL: webbplatsen med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Azure PowerShell-modul** | [Hitta URL: webbplatsen med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+
+URL: en för webbplatsen innehåller en regional kod. Till exempel URL: en `https://contosoblobaccount.z22.web.core.windows.net/` innehåller regional kod `z22`.
+
+Medan den koden måste vara URL: en, är det endast för intern användning och du behöver inte använda den kod i något annat sätt.
+
+Index-dokumentet som du anger när du aktiverar som är värd för statisk webbplats, visas när användaren öppnar platsen inte anger en specifik fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
+
+Om servern returnerar ett 404-fel, och du har inte angett ett fel-dokument när du har aktiverat på webbplatsen, returneras ett 404 standardsidan för användaren.
+
+## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effekten av inställningen offentlig åtkomstnivå av webbehållaren
+
+Du kan ändra offentlig åtkomstnivå för den **$web** behållare, men detta påverkar inte primär webbplatsslutpunkt eftersom dessa filer hanteras via anonyma förfrågningar. Det innebär att offentlig åtkomst till alla filer som (skrivskyddad).
+
+Följande skärmbild visar inställningen för offentlig åtkomst i Azure portal:
+
+![Skärmbild som visar hur du ställer in offentlig åtkomstnivå i portalen](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+
+Medan primär webbplatsslutpunkt inte påverkas, påverkar en ändring av offentlig åtkomstnivå primär blob service-slutpunkt.
+
+Exempel: Om du ändrar offentlig åtkomstnivå för den **$web** behållare från **privat (ingen anonym åtkomst)** till **Blob (anonym läsåtkomst endast för blobbar)** , kommer för offentlig åtkomst till primär webbplatsslutpunkt `https://contosoblobaccount.z22.web.core.windows.net/index.html` ändras inte.
+
+Men du offentlig åtkomst till primärt blob-tjänsteslutpunkt `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras från privata till allmänheten. Användare kan nu öppna filen med någon av dessa två slutpunkter.
+
+## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Content Delivery Network (CDN) och Secure Socket Layer (SSL)-support
+
+För att göra dina filer för statisk webbplats via din anpassade domän och HTTPS, se [använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md). Som en del av den här processen måste du peka CDN-nätverket till primärt *statisk webbplats* slutpunkten till skillnad från primärt *blobtjänst* slutpunkt. Du kan behöva vänta några minuter innan innehållet är synligt när CDN-konfigurationen inte utförs omedelbart.
 
 När du uppdaterar din statiska webbplats, måste du ta bort cachelagrat innehåll i CDN edge-servrar genom att rensa CDN-slutpunkten. Mer information finns i [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md) (Rensa en Azure CDN-slutpunkt).
 
 > [!NOTE]
-> HTTPS stöds internt via webbslutpunkt för kontot. Användningen av anpassade domäner över HTTPS kräver användning av Azure CDN just nu. 
+> HTTPS stöds internt via webbslutpunkt konto så att webbslutpunkt är tillgängliga via både HTTP och HTTPS. Men om lagringskontot har konfigurerats för att kräva säker överföring via HTTPS, måste sedan användare använda HTTPS-slutpunkten. Mer information finns i [Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md).
 >
-> Offentliga konto webbslutpunkt över HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+> Användningen av anpassade domäner över HTTPS kräver användning av Azure CDN just nu.
 
 ## <a name="custom-domain-names"></a>Egna domännamn
 
-Du kan [konfigurera ett anpassat domännamn för Azure Storage-kontot](storage-custom-domain-name.md) att tillgängliggöra din statiska webbplats via en anpassad domän. För en grundlig genomgång som är värd för din domän på [Azure, se värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+Du kan göra din statiska webbplats via en anpassad domän. Mer information finns i [konfigurera ett anpassat domännamn för Azure Storage-kontot](storage-custom-domain-name.md).
+
+Inblick i som är värd för din domän i Azure, se [värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prissättning
-Att aktivera som är värd för statisk webbplats är kostnadsfritt. Kunderna debiteras för utnyttjade blob-kostnader för lagring och åtgärder. Mer information om priser för Azure Blob Storage finns i [Prissättningssidan för Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="quickstart"></a>Snabbstart
-
-### <a name="azure-portal"></a>Azure Portal
-Börja genom att öppna Azure-portalen på https://portal.azure.com och gå igenom följande steg på din GPv2-konto:
-
-1. Klicka på **inställningar**
-2. Klicka på **statisk webbplats**
-3. Ange en *indexdokumentnamn*. (Gemensamt värde är *index.html)*
-4. Du kan också ange en *feldokument* till en custom 404-sida. (Gemensamt värde är *404.html)*
-
-![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
-
-Därefter ladda upp dina tillgångar till den *$web* behållare via Azure portal eller med den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ladda upp hela kataloger. Se till att inkludera en fil som matchar den *indexdokumentnamn* du valde när du aktiverar funktionen.
-
-Slutligen navigera till din webbslutpunkt för att testa din webbplats.
-
-### <a name="azure-cli"></a>Azure CLI
-Installera tillägget storage förhandsversion:
-
-```azurecli-interactive
-az extension add --name storage-preview
-```
-När det gäller flera prenumerationer, ange din CLI till prenumerationen för GPv2-lagringskonto som du vill aktivera:
-
-```azurecli-interactive
-az account set --subscription <SUBSCRIPTION_ID>
-```
-Aktivera funktionen. Se till att ersätta alla platshållarvärdena, inklusive parenteser med dina egna värden:
-
-```azurecli-interactive
-az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
-```
-Fråga för web slutpunkts-URL:
-
-```azurecli-interactive
-az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
-```
-
-Överföra objekt till den *$web* behållare från en källkatalog. Se till att korrekt escape-referensen till den *$web* behållare i kommandot. Till exempel om du använder Azure CLI från CloudShell i Azure-portalen kan undvika den *$web* behållare som visas:
-
-```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
-```
-
-## <a name="deployment"></a>Distribution
-
-Följande: metoder för att distribuera innehåll till en lagringsbehållare
-
-- [AzCopy](../common/storage-use-azcopy.md)
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-- [Visual Studio Code-tillägg](https://code.visualstudio.com/tutorials/static-website/getting-started)
-
-I samtliga fall måste du kopiera filer till den *$web* behållare.
+Du kan aktivera som är värd för statisk webbplats kostnadsfritt. Du faktureras bara för blob-lagring som webbplatsen använder och driftskostnader. Mer information om priser för Azure Blob Storage finns i [Prissättningssidan för Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="metrics"></a>Mått
 
-Om du vill aktivera mått på sidorna statisk webbplats klickar du på **inställningar** > **övervakning** > **mått**.
+Du kan aktivera mätvärden på statisk webbplatsens sidor. När du har aktiverat mått kan trafik statistik på filer i den **$web** behållare rapporteras i instrumentpanelen för hälsostatistik.
 
-Måttdata genereras av anslutning till olika mått API: er. Portalen visar endast API-medlemmar som används inom en angiven tidsperiod för att endast fokusera på medlemmar som returnerar data. För att kontrollera att du kan välja den nödvändiga API-medlemmen, är det första steget att expandera tidsperioden.
-
-Klicka på knappen tidsram och välj **senaste 24 timmarna** och klicka sedan på **tillämpa**
-
-![Azure Storage-mått serverstatiska webbplatser tidsintervall](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
-
-Välj sedan **Blob** från den *Namespace* nedrullningsbar listruta.
-
-![Azure Storage serverstatiska webbplatser mått namnområde](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
-
-Välj sedan den **utgående** mått.
-
-![Azure Storage serverstatiska webbplatser mått mått](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
-
-Välj **summan** från den *aggregering* väljare.
-
-![Azure Storage serverstatiska webbplatser mått aggregering](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
-
-Klicka sedan på den **Lägg till filter** knappen och väljer **API-namn** från den *egenskapen* väljare.
-
-![Azure Storage serverstatiska webbplatser mått-API-namn](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
-
-Slutligen, markera kryssrutan bredvid **GetWebContent** i den *värden* att fylla i mått-rapporten.
-
-![Azure Storage-serverstatiska webbplatser mått GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
-
-När du har aktiverat, trafik statistik på filer i den *$web* behållare rapporteras i instrumentpanelen för hälsostatistik.
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-
-**Är funktionen serverstatiska webbplatser tillgänglig för alla typer av konton?**  
-Nej, som är värd för statisk webbplats är endast tillgänglig i GPv2-konton för standardlagring.
-
-**Är lagring VNET och brandväggsregler som stöds på den nya web-slutpunkten?**  
-Ja, den nya webbslutpunkt följs virtuellt nätverk och brandvägg reglerna som konfigurerats för lagringskontot.
-
-**Är webbslutpunkt skiftlägeskänsligt?**  
-Ja, web-slutpunkt är skiftlägeskänsliga precis som blob-slutpunkten.
-
-**Är webbslutpunkt tillgängliga via både HTTP och HTTPS?**
-Ja, web-slutpunkt är tillgängliga via både HTTP och HTTPS. Men om lagringskontot har konfigurerats för att kräva säker överföring via HTTPS, måste sedan användare använda HTTPS-slutpunkten. Mer information finns i [Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md).
+För att aktivera mått på sidorna statisk webbplats, se [aktivera mätvärden på statisk webbplatssidor](storage-blob-static-website-how-to.md#metrics).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https](storage-https-custom-domain-cdn.md)
+
+* [Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website-how-to.md)
+* [Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md)
 * [Konfigurera ett anpassat domännamn för din blob eller web-slutpunkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)

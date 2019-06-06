@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231984"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688914"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -85,7 +85,7 @@ Backup aviseringslistan visar den valda informationen för de filtrerade aviseri
 
 | Aviseringsnivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
-| Kritisk | Du får viktiga aviseringar när: Säkerhetskopieringsjobb misslyckas, återställningsjobb misslyckas och när du stoppar skyddet på en server, men behålla data.|
+| Kritiskt | Du får viktiga aviseringar när: Säkerhetskopieringsjobb misslyckas, återställningsjobb misslyckas och när du stoppar skyddet på en server, men behålla data.|
 | Varning | Du får varning aviseringar när: Säkerhetskopieringsjobb Slutför med varningar, till exempel när färre än 100 filer säkerhetskopieras inte på grund av problem med skador, eller när det är större än 1 000 000 filer har säkerhetskopierat). |
 | Information | för närvarande används inga informationsaviseringar. |
 
@@ -102,7 +102,7 @@ Som standard all information förutom **tidpunkt för senaste förekomst**, visa
 * Skyddad Server
 * Severity
 * Varaktighet
-* Skapad
+* Skapandetid
 * Status
 * Tidpunkt för senaste förekomst
 
@@ -156,7 +156,7 @@ Välj den allvarlighetsgrad för avisering (kritiskt eller varning) används fö
 
 ## <a name="manage-backup-items"></a>Hantera säkerhetskopieringsobjekt
 
-Recovery Services-valvet innehåller många typer av säkerhetskopierade data. En fullständig lista över typer av säkerhetskopiering finns [som program och arbetsbelastningar kan säkerhetskopieras](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). För att hantera de olika servrar, datorer, databaser och arbetsbelastningar, klickar du på den **Säkerhetskopieringsobjekt** panel för att visa innehållet i valvet.
+Recovery Services-valvet innehåller många typer av säkerhetskopierade data. [Läs mer](backup-overview.md#what-can-i-back-up) om vad du kan säkerhetskopiera. För att hantera de olika servrar, datorer, databaser och arbetsbelastningar, klickar du på den **Säkerhetskopieringsobjekt** panel för att visa innehållet i valvet.
 
 ![Objekt att säkerhetskopiera panel](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -206,7 +206,7 @@ Menyn för säkerhetskopieringsjobb visar status för alla åtgärder på alla t
 
 2. Välj inställningarna i filtret och klicka på **klar**. De filtrerade listan uppdateras baserat på de nya inställningarna.
 
-#### <a name="item-type"></a>Typ av objekt
+#### <a name="item-type"></a>Objekttyp
 
 Objekttypen är typ av säkerhetskopieringshantering för den skyddade instansen. Det finns fyra typer. se listan nedan. Du kan visa alla typer av objekt, eller en objekttyp. Du kan inte välja två eller tre typer av objekt. Tillgängliga objekttyper är:
 
@@ -226,7 +226,7 @@ Du kan visa en åtgärd eller alla åtgärder. Du kan inte välja två eller tre
 * Backup
 * Återställ
 * Inaktivera säkerhetskopiering
-* ta bort säkerhetskopierade data
+* Ta bort säkerhetskopieringsdata
 
 #### <a name="status"></a>Status
 
@@ -237,7 +237,7 @@ Du kan visa Status för alla eller en. Du kan inte välja två eller tre status.
 * Pågår
 * Misslyckad
 * Avbrutna
-* Slutfört med varningar
+* Har slutförts med varningar
 
 #### <a name="start-time"></a>Starttid
 
@@ -247,7 +247,7 @@ Dag och tid som frågan börjar. Standardvärdet är en 24-timmarsperiod.
 
 Den dag och tid när frågan slutar.
 
-### <a name="export-jobs"></a>Exportera jobb
+### <a name="export-jobs"></a>Export-jobb
 
 Använd **exportera jobb** att skapa ett kalkylblad som innehåller alla jobb menyn uppgifter. Kalkylbladet har ett blad som innehåller en sammanfattning av alla jobb och enskilda ark för varje jobb.
 

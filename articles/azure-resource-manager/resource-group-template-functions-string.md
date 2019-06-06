@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782930"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431225"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
@@ -713,7 +713,7 @@ Utdata från föregående exempel med standardvärdena är:
 | arrayOutput | String | en |
 | stringOutput | String | O |
 
-## <a name="format"></a>Format
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -1015,7 +1015,7 @@ Utdata från föregående exempel med standardvärdena är:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-## <a name="length"></a>Längd
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1259,7 +1259,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,9 +1272,9 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>hoppa över
+## <a name="skip"></a>Hoppa över
 
 `skip(originalValue, numberToSkip)`
 
@@ -1550,7 +1550,7 @@ Returnerar en understräng som börjar vid angiven position och innehåller det 
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |string |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
 | startIndex |Nej |int |Nollbaserade tecken startposition delsträngen. |
-| Längd |Nej |int |Antalet tillåtna tecken för delsträngen. Måste referera till en plats i strängen. Måste vara noll eller större. |
+| length |Nej |int |Antalet tillåtna tecken för delsträngen. Måste referera till en plats i strängen. Måste vara noll eller större. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1893,7 +1893,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>URI: N
 
 `uri (baseUri, relativeUri)`
 
@@ -2077,7 +2077,7 @@ Returnerar det aktuella (UTC) datetime-värdet i formatet som anges. Om inget fo
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Format |Nej |string |URI-kodad värdet att konvertera till en sträng. Använd antingen [standard formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nej |string |URI-kodad värdet att konvertera till en sträng. Använd antingen [standard formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258526"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743236"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
@@ -44,10 +44,6 @@ Dessa funktioner är nu tillgängliga i Azure Security Center:
 - **Detaljerad datorn undersökning**: Azure Security Center-kunder komma åt Windows Defender ATP-konsolen för att utföra en detaljerade undersökningar för att upptäcka omfattningen av ett intrång.
 
 ![Azure Security Center, visas en lista över aviseringar och allmän information om varje avisering](media/security-center-wdatp/image1.png)
-
-Du kan [undersöka aviseringen](security-center-investigation.md) i Azure Security Center:
-
-![Aviseringen undersökningsinstrumentpanelen i Azure Security Center](media/security-center-wdatp/image2.png)
 
 Du kan ytterligare undersöka aviseringen genom att pivotera till Windows Defender ATP. Det kan du se ytterligare information, till exempel aviseringar processträdet och incident graph. Du kan också se en tidslinje för detaljerade som visar var beteende för en tidigare period på upp till sex månader.
 

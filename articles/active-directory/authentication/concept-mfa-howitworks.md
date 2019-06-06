@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415844"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496794"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -36,10 +36,10 @@ Azure Multi-Factor Authentication (MFA) hjälper dig att skydda åtkomsten till 
 
 Multi-Factor Authentication ingår i följande erbjudanden:
 
-* **Azure Active Directory Premium-licenser** -fullständig användning av Azure Multi-Factor Authentication-tjänsten (moln) eller Azure Multi-Factor Authentication Server (lokalt).
-   * **Azure MFA Service (molnet)** - **det här alternativet är den rekommendera sökvägen för nya distributioner**. Azure MFA i molnet kräver någon lokal infrastruktur och kan användas med din federerad eller endast molnbaserade användare.
-   * **Azure MFA Server** – om din organisation vill hantera tillhörande infrastruktur-element och har distribuerat AD FS i din lokala miljö på så sätt kan vara ett alternativ.
-* **Multi-Factor Authentication för Office 365** -vissa Azure Multi-Factor Authentication-funktioner är tillgängliga som en del av din prenumeration. Mer information om MFA för Office 365 finns i artikeln [planera för multi-Factor authentication för Office 365-distributioner](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
+* **Azure Active Directory Premium** eller **Microsoft 365 Business** -fullständig användning av Azure Multi-Factor Authentication använder principer för villkorlig åtkomst för att kräva multifaktorautentisering.
+
+* **Azure AD kostnadsfri**, **Azure AD Basic**, eller fristående **Office 365** licenser – Använd färdiga [principer för villkorlig åtkomst baslinje protection](../conditional-access/concept-baseline-protection.md) att kräva multifaktorautentisering för dina användare och administratörer.
+
 * **Azure Active Directorys globala administratörer** -vissa Azure Multi-Factor Authentication-funktioner är tillgängliga som ett sätt att skydda globala administratörskonton.
 
 > [!NOTE]
@@ -51,16 +51,9 @@ Eftersom de flesta användare är vana vid att använda endast lösenord för au
 
 * Träna supportpersonalen att hantera scenarier där användaren kan inte logga in eftersom de inte har åtkomst till sina autentiseringsmetoder eller de inte fungerar korrekt.
    * Med principer för villkorlig åtkomst för Azure MFA-tjänsten, supportpersonal kan lägga till en användare till en grupp som inte ingår i en princip som kräver MFA.
-   * Supportpersonalen kan aktivera en tillfällig engångsförbikoppling för Azure MFA Server användarna att låta en användare kan autentisera utan tvåstegsverifiering. Förbikopplingen är tillfällig och upphör att gälla efter ett angivet antal sekunder.   
-* Överväg att använda tillförlitliga IP-adresser eller namngivna platser som ett sätt att minimera tvåstegsverifiering verifiering anvisningarna. Med den här funktionen kan administratörer för en hanterad eller federerade klient kringgå tvåstegsverifiering för användare som loggar in från en betrodd nätverksplats, till exempel en organisations intranät.
+* Överväg att använda villkorlig åtkomst – namngivna platser som ett sätt att minimera tvåstegsverifiering uppmanar. På så sätt kan administratörer kan kringgå tvåstegsverifiering för användare som loggar in från en säker betrodd nätverksplats, till exempel ett nätverk segment som används för den nya användaren onboarding.
 * Distribuera [Azure AD Identity Protection](../active-directory-identityprotection.md) och utlöser tvåstegsverifiering baserat på riskhändelser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hämta en stegvisa MFA [distributionsplan](https://aka.ms/MFADeploymentPlan)
-
-- Hitta information om [licensiering av användare](concept-mfa-licensing.md)
-
-- Få information om [vilken version som ska distribueras](concept-mfa-whichversion.md)
-
-- Få svar på [vanliga frågor](multi-factor-authentication-faq.md)
+- [Stegvis distribution av Azure Multi-Factor Authentication](howto-mfa-getstarted.md)

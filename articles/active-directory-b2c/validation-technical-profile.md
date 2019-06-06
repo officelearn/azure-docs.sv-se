@@ -2,20 +2,20 @@
 title: Definiera en teknisk verifieringsprofil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en Azure Active Directory-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11efd1fa3431d8200545cf1327e98cec6ed1f59e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683160"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511913"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Den **ValidationTechnicalProfiles** elementet innehåller följande element:
 
 Den **ValidationTechnicalProfile** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principen eller överordnad principen. |
 |ContinueOnError|Nej| Som anger om verifiering av alla efterföljande verifiering tekniska profiler ska fortsätta om den här tekniska verifieringsprofil genererar ett fel. Möjliga värden: `true` eller `false` (standard bearbetning av ytterligare verifiering profiler stoppas och ett fel returneras). |
@@ -63,7 +63,7 @@ Den **ValidationTechnicalProfile** elementet innehåller följande element:
 
 Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
 | `ExecuteActionsIf` | Ja | Anger om åtgärderna som i villkor som ska utföras om testet är true eller false. |

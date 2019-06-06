@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399312"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494629"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualisera data med Azure Data Explorer-kopplingen för Power BI
 
@@ -38,13 +38,11 @@ Först ansluter du till Azure Data Explorer-hjälpklustret, och sedan hämtar du
 
     ![Hämta data](media/power-bi-connector/get-data-more.png)
 
-1. Sök efter *Azure Data Explorer*, välj **Azure Data Explorer (Beta)** och därefter **Anslut**.
+1. Sök efter *Azure Data Explorer*väljer **Azure Data Explorer** sedan **Connect**.
 
     ![Sök efter och hämta data](media/power-bi-connector/search-get-data.png)
 
-1. På skärmen **Förhandsgranska anslutningsapp** väljer du **Fortsätt**.
-
-1. På nästa skärm fyller du i formuläret med följande information.
+1. På den **Azure Data Explorer (Kusto)** skärmen, Fyll i formuläret med följande information.
 
     ![Kluster-, databas-, tabellalternativ](media/power-bi-connector/cluster-database-table.png)
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850533"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514530"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Om du vill köra dina program och tjänsterna du behöver ett Kubernetes *noden*
 
 Azure VM-storlek för noderna definierar hur många processorer, hur mycket minne och storlek och typ av lagring som är tillgängliga (till exempel högpresterande SSD och regelbundna HDD). Om du räknar behov av program som kräver stora mängder CPU och minne eller lagring med höga prestanda, planera på lämpligt sätt nodstorlek. Du kan även skala upp antalet noder i AKS-kluster för att möta efterfrågan.
 
-I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
+I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra. Agentnoder faktureras som standard-datorer, så att eventuella rabatter som du har på VM-storleken du använder (inklusive [Azure reservationer][reservation-discounts]) som ska vidtas automatiskt.
 
 Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda en behållare runtime än Moby du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
 
@@ -270,3 +270,4 @@ Den här artikeln beskriver några av Kubernetes kärnkomponenter samt hur de an
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

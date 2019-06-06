@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 99ca7e82a11687d25355589e7ea539a14cdb493b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420686"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455137"
 ---
 1. Ladda ned klienten SDK snabbstarter för följande plattformar:
     
@@ -94,7 +94,7 @@ ms.locfileid: "66420686"
 
         2. Skapa .NET serverprojektet lokalt i Visual Studio.
 
-        3. Öppna i Visual Studio Solution Explorer, högerklicka på `ZUMOAPPNAMEService` projektet, klicka på **publicera**, visas en `Publish to App Service` fönster. Om du arbetar på Mac kan du kolla andra sätt att distribuera appen [här](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
+        3. Öppna i Visual Studio Solution Explorer, högerklicka på `ZUMOAPPNAMEService` projektet, klicka på **publicera**, visas en `Publish to App Service` fönster. Om du arbetar på Mac kan du kolla andra sätt att distribuera appen [här](https://docs.microsoft.com/azure/app-service/deploy-local-git).
         
            ![Visual studio-publicering](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 

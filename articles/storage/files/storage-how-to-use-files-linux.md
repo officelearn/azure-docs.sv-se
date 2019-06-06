@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 75987c7838846aacb099b725e2a222967b32fe64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691262"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427921"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 
@@ -81,56 +81,57 @@ ms.locfileid: "64691262"
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera den Azure-filen resursen på begäran med `mount`
 
-1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)**.
+1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)** .
 
-1. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Exempel:
+1. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under en ny mapp. Till exempel följande kommando skapar en ny katalog, Ersätt **< storage_account_name >** och **< file_share_name >** med rätt information för din miljö:
 
     ```bash
-    mkdir /mnt/MyAzureFileShare
+    mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Använd mount-kommando för att montera Azure-filresursen**: Kom ihåg att ersätta `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, och `<mount-point>` med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd `3.0` för `<smb-version>`. Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda `2.1` för `<smb-version>`. En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0. 
+1. **Använd mount-kommando för att montera Azure-filresursen**: Kom ihåg att ersätta **< storage_account_name >** , **< share_name >** , **< smb_version >** , **< storage_account_key >** , och **< mount_point >** med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd **3.0** för **< smb_version >** . Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda **2.1** för **< smb_version >** . En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0. 
 
     ```bash
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> När du är klar med Azure-filresursen som du kan använda `sudo umount <mount-point>` att montera resursen.
+> När du är klar med Azure-filresursen som du kan använda `sudo umount <mount_point>` att montera resursen.
 
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en beständig monteringspunkt för Azure-filresursen med `/etc/fstab`
 
-1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)**.
+1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)** .
 
-1. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Observera den absoluta sökvägen till mappen där du skapar. Till exempel följande kommando skapar en ny mapp under `/mnt` (sökvägen är en absolut sökväg).
+1. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under en ny mapp. Observera den absoluta sökvägen till mappen där du skapar. Till exempel följande kommando skapar en ny katalog, Ersätt **< storage_account_name >** och **< file_share_name >** med rätt information för din miljö.
 
     ```bash
-    sudo mkdir /mnt/MyAzureFileShare
+    sudo mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Skapa en fil med autentiseringsuppgifter för att lagra användarnamnet (lagringskontonamnet) och lösenordet (nyckeln till lagringskontot) för filresursen.** Kom ihåg att ersätta `<storage-account-name>` och `<storage-account-key>` med rätt information för din miljö. 
+1. **Skapa en fil med autentiseringsuppgifter för att lagra användarnamnet (lagringskontonamnet) och lösenordet (nyckeln till lagringskontot) för filresursen.** Ersätt **< storage_account_name >** och **< storage_account_key >** med rätt information för din miljö.
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
-        sudo mkdir /etc/smbcredentials
+    sudo mkdir /etc/smbcredentials
     fi
-
-    if [ ! -f "/etc/smbcredentials/<storage-account-name>.cred" ]; then
-        sudo bash -c 'echo "username=<storage-account-name>" >> /etc/smbcredentials/<storage-account-name>.cred'
-        sudo bash -c 'echo "password=<storage-account-key>" >> /etc/smbcredentials/<storage-account-name>.cred'
+    if [ ! -f "/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred" ]; then
+    sudo bash -c 'echo "username=<STORAGE ACCOUNT NAME>" >> /etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred'
+    sudo bash -c 'echo "password=7wRbLU5ea4mgc<DRIVE LETTER>PIpUCNcuG9gk2W4S2tv7p0cTm62wXTK<DRIVE LETTER>CgJlBJPKYc4VMnwhyQd<DRIVE LETTER>UT<DRIVE LETTER>yR5/RtEHyT/EHtg2Q==" >> /etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred'
     fi
     ```
 
 1. **Ändra behörigheterna för filen autentiseringsuppgifter så att endast rot kan läsa eller ändra filen.** Ange behörigheter för filen så att endast rot kan komma åt är viktigt att eftersom lagringskontonyckeln är i stort sett ett överordnad administratörslösenord för storage-konto, så att användare med lägre behörighet inte kan hämta nyckeln till lagringskontot.   
 
     ```bash
-    sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
+    sudo chmod 600 /etc/smbcredentials/<storage_account_name>.cred
     ```
 
-1. **Använd följande kommando för att lägga till följande rad för att `/etc/fstab`** : Kom ihåg att ersätta `<storage-account-name>`, `<share-name>`, `<smb-version>`, och `<mount-point>` med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd `3.0` för `<smb-version>`. Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda `2.1` för `<smb-version>`. En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0. 
+1. **Använd följande kommando för att lägga till följande rad för att `/etc/fstab`** : Kom ihåg att ersätta **< storage_account_name >** , **< share_name >** , **< smb_version >** , och **< mount_point >** med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd **3.0** för **< smb_version >** . Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda **2.1** för **< smb_version >** . En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0.
 
     ```bash
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+
+    sudo mount /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME>
     ```
 
 > [!Note]  

@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228368"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496508"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service environment #
-
-## <a name="overview"></a>Översikt ##
 
 Azure App Service Environment är en distribution av Azure App Service i ett undernät i kundens Azure-nätverk. Det består av:
 
@@ -62,17 +60,14 @@ Skapa en app i en ASE:
 
 1. Välj ditt operativsystem. 
 
-    * Som är värd för en Linux-app i en ASE är en ny förhandsgranskningsfunktion, så vi rekommenderar att du inte lägger till Linux-appar i en ASE som kör produktionsarbetsbelastningar. 
-    * Lägga till en Linux-app i en ASE innebär att ASE också i förhandsgranskningsläge. 
-
 1. Välj en befintlig App Service-plan i din ASE eller skapa en ny genom att följa dessa steg:
 
     a. Välj **skapa en ny**.
 
     b. Ange namn för din App Service-plan.
 
-    c. Välj din ASE i den **plats** listrutan. Som är värd för en Linux-app i en ASE är endast aktiverad i 6 regioner för tillfället: **Västra USA, östra USA, västra Europa, Norra Europa, östra Asien, sydöstra.** 
-
+    c. Välj din ASE i den **plats** listrutan. 
+    
     d. Välj en **isolerad** prisnivå. Välj **Välj**.
 
     e. Välj **OK**.

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967772"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730355"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -42,15 +42,15 @@ Det automatiskt genererade Swagger-referensmaterialet tillhandahåller en snabb 
 
 En kortfattad sammanfattning beskriver API: et.
 
-![Swagger upp][1]
+[![Swagger upp](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 Hantering av API-objektmodeller visas också.
 
-![Swagger-modeller][2]
+[![Swagger-modeller](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 Du kan välja varje listad objektmodell för en mer detaljerad översikt över nyckelattribut.
 
-![Swagger-modell][3]
+[![Swagger-modell](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på Azure Digital Twins.
 
@@ -64,7 +64,7 @@ Varje listad slutpunkt innehåller också nödvändiga informationen, till exemp
 * Den begärda parameterdatatyper.
 * HTTP-metoden för åtkomst till resursen.
 
-![Swagger-slutpunkter][4]
+[![Swagger-slutpunkter](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 Välj varje resurs om du vill se en mer detaljerad översikt.
 
@@ -74,11 +74,11 @@ En av kraftfulla funktioner som innehåller Swagger är möjligheten att testa e
 
 När du har valt en viss slutpunkt kan du se **prova**.
 
-![Swagger-försök][5]
+[![Swagger-försök](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Expandera avsnittet att ta fram inmatningsfält för alla obligatoriska och valfria parametrar. Ange rätt värden och välj **kör**.
 
-![Ett försök gjordes att swagger][6]
+[![Ett försök gjordes att swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 När du kör testet kan verifiera du svarsdata.
 
@@ -86,7 +86,7 @@ När du kör testet kan verifiera du svarsdata.
 
 Varje listad slutpunkt innehåller också svarsdata för brödtexten för att verifiera din utveckling och tester. De här exemplen omfattar statuskoder och JSON som du vill se för lyckade HTTP-begäranden.
 
-![Swagger-svar][7]
+[![Swagger-svar](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 Exemplen omfattar också felkoder för att felsöka eller förbättra misslyckas tester.
 
@@ -118,31 +118,22 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
 
 5. Kopiera ID för din Azure AD-app.
 
-6. Klicka på auktorisera på sidan med swagger.
+När du har slutfört registreringen för Azure Active Directory:
 
-    ![Swagger auktorisera knappen](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. Klicka på den **auktorisera** knappen på din swagger-sidan.
 
-7. Klistra in program-ID i fältet client_id.
+    [![Klicka på Swagger auktorisera knappen](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Swagger client_id fält](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. Klistra in program-ID i den **client_id** fält.
 
-    ![Swagger bevilja programbehörigheter](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Swagger client_id fält](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Du bör nu se ägar-token för autentisering skickas i auktoriseringsrubriken och identiteten för den inloggade användaren visas i resultatet.
+8. Du omdirigeras sedan till följande modal framgång.
 
-    ![Swagger token resultat](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Swagger omdirigering modal](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om Azure Digital Twins objektmodeller och rumsliga intelligence diagrammet, läsa [förstå Azure Digital Twins objekt modeller](./concepts-objectmodel-spatialgraph.md).
 
 - Läs hur du autentiserar med ditt API Management, [autentisera med API: er](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

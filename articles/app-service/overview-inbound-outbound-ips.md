@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835302"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742940"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
@@ -35,9 +35,17 @@ Oavsett vilket antal utskalade instanser av har varje app en inkommande IP-adres
 - Ta bort den sista appen i en resursgrupp _och_ region kombination och återskapa den.
 - Ta bort en befintlig SSL-bindning som vid förnyelse av certifikat (se [förnya certifikat](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## <a name="get-static-inbound-ip"></a>Få statiska inkommande IP-adress
+## <a name="find-the-inbound-ip"></a>Hitta den inkommande IP-Adressen
 
-Ibland kanske du vill en dedikerad, statisk IP-adress för din app. Om du vill ha en statisk inkommande IP-adress, måste du konfigurera en [IP-baserad SSL-bindning](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). Om du inte verkligen behöver SSL-funktioner för att skydda din app, kan du även ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad SSL-bindning binds certifikatet till IP-adressen, så App Service tillhandahåller en statisk IP-adress till att göra det direkt. 
+Bara kör följande kommando i en lokal terminal:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Få en statisk inkommande IP-adress
+
+Ibland kanske du vill en dedikerad, statisk IP-adress för din app. Om du vill ha en statisk inkommande IP-adress, måste du konfigurera en [IP-baserad SSL-bindning](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Om du inte verkligen behöver SSL-funktioner för att skydda din app, kan du även ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad SSL-bindning binds certifikatet till IP-adressen, så App Service tillhandahåller en statisk IP-adress till att göra det direkt. 
 
 ## <a name="when-outbound-ips-change"></a>När utgående IP-adresser ändras
 

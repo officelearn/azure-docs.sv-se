@@ -2,20 +2,20 @@
 title: Konfigurera logga in med ett Azure Active Directory-konto i Azure Active Directory B2C med anpassade principer | Microsoft Docs
 description: Ställ in logga in med ett Azure Active Directory-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785195"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508647"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C 
 
@@ -53,7 +53,7 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 
 Du behöver lagra programnyckeln som du skapade i din Azure AD B2C-klient.
 
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. På sidan Översikt väljer **Identitetsramverk**.
 4. Välj **Principnycklar** och välj sedan **Lägg till**.

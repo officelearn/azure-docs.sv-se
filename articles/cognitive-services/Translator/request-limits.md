@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796898"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514641"
 ---
 # <a name="request-limits-for-translator-text"></a>Gränser för begäran för textöversättning
 
@@ -27,7 +27,7 @@ Varje Översätt-begäran är begränsad till 5 000 tecken. Du debiteras per tec
 
 Följande tabell visar matris element och tecknet begränsningar för varje åtgärd av Translator Text API.
 
-| Operation | Maximal storlek för matriselement |   Maxantalet matriselement |  Begär maxstorleken (tecken) |
+| Åtgärd | Maximal storlek för matriselement |   Maxantalet matriselement |  Begär maxstorleken (tecken) |
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
@@ -38,7 +38,7 @@ Följande tabell visar matris element och tecknet begränsningar för varje åtg
 
 ## <a name="character-limits-per-hour"></a>Tecknet gränserna per timme
 
-Din teckengränsen per timme baserat på textöversättning prenumeration nivå. Timvis kvot ska förbrukas jämnt under hela timmen. Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar. 
+Din teckengränsen per timme baserat på textöversättning prenumeration nivå. Timvis kvot ska förbrukas jämnt under hela timmen. Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar.
 
 | Nivå | Maximalt antal tillåtna tecken |
 |------|-----------------|
@@ -65,11 +65,11 @@ När du använder den [BreakSentence](https://docs.microsoft.com/azure/cognitive
 | Kinesiska | zh | 132 |
 | Tyska | de | 290 |
 | Italienska | it | 280 |
-| japanska | ja | 150 |
+| Japanska | ja | 150 |
 | Portugisiska | pt | 290 |
 | Spanska | es | 280 |
 | Italienska | it | 280 |
-| Thai | :e | 258 |
+| Thai | TH | 258 |
 
 > [!NOTE]
 > Den här gränsen gäller inte för översättningar.

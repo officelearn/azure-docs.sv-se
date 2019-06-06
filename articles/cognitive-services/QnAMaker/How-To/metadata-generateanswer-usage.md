@@ -1,7 +1,7 @@
 ---
 title: Metadata med GenerateAnswer API – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker kan du lägga till metadata i form av nyckel/värde-par för din fråga/svar-uppsättningar. Den här informationen kan användas för att filtrera resultat på användarförfrågningar och för att lagra ytterligare information som kan användas i Uppföljnings konversationer.
+description: QnA Maker kan du lägga till metadata i form av nyckel/värde-par för din fråga/svar-uppsättningar. Du kan filtrera resultaten på användarförfrågningar och lagra ytterligare information som kan användas i Uppföljnings konversationer.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -10,48 +10,48 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496960"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693239"
 ---
-# <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
+# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer API och metadata
 
-Använd GenerateAnswer API för att få förväntade svaret på en användares fråga. När du publicerar en kunskapsbas visas den här informationen för att använda detta API på på publiceringssidan. Du kan också konfigurera API för att filtrera svar baserat på metadatataggar och testa kunskapsbas från slutpunkten med test-frågesträngparametern.
+Använd GenerateAnswer API för att få förväntade svaret på en användares fråga. När du publicerar en kunskapsbas visas information om hur du använder detta API på den **publicera** sidan. Du kan också konfigurera API för att filtrera svar baserat på metadatataggar och testa kunskapsbas från slutpunkten med test-frågesträngparametern.
 
-QnA Maker kan du lägga till metadata i form av nyckel / värdepar i din fråga/svar-uppsättningar. Den här informationen kan användas för att filtrera resultat på användarförfrågningar och för att lagra ytterligare information som kan användas i Uppföljnings konversationer. Mer information finns i [kunskapsbas](../Concepts/knowledge-base.md).
+QnA Maker kan du lägga till metadata i form av nyckel / värdepar för din uppsättningar av frågor och svar. Du kan sedan använda den här informationen för att filtrera resultat på användarförfrågningar och för att lagra ytterligare information som kan användas i Uppföljnings konversationer. Mer information finns i [kunskapsbas](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
-## <a name="storing-questions-and-answers-with-a-qna-entity"></a>Lagra frågor och svar med en entitet för frågor och svar
+## <a name="store-questions-and-answers-with-a-qna-entity"></a>Store frågor och svar med en entitet för frågor och svar
 
-Först är det viktigt att förstå hur QnA Maker lagrar fråga/svar-data. Följande bild visar en frågor och svar om entitet:
+Det är viktigt att förstå hur QnA Maker lagrar frågor och svar. Följande bild visar en frågor och svar om entitet:
 
-![Frågor och svar om entiteten](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+![Bild av en QnA-entitet](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
 
-Varje entitet för frågor och svar har ett unikt och beständiga-ID. ID: T kan användas för att göra uppdateringar för en viss affärsenhet i frågor och svar.
+Varje entitet för frågor och svar har ett unikt och beständiga-ID. Du kan använda det ID: T för att göra uppdateringar för en viss affärsenhet i frågor och svar.
 
 <a name="generateanswer-api"></a>
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Få svar förutsägelser med GenerateAnswer-API
 
-Du kan använda GenerateAnswer-API: er i din robot eller ditt program för att fråga din kunskapsbas med en fråga för användare att få bästa möjliga matchning från fråga/svar-uppsättningar.
+Du använder GenerateAnswer-API: er i din robot eller ditt program för att fråga din kunskapsbas med en användare-fråga, för att få bästa möjliga matchning från frågor och svar anger.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer slutpunkten 
 
-När du publicerar din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller med hjälp av den [API](https://go.microsoft.com/fwlink/?linkid=2092179), du kan hämta information om din GenerateAnswer slutpunkt.
+När du har publicerat din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller genom att använda den [API](https://go.microsoft.com/fwlink/?linkid=2092179), du kan hämta information om din GenerateAnswer slutpunkt.
 
 Hämta information om din slutpunkt:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. I **min kunskapsbaser**, klicka på **Visa kod** för kunskapsbasen.
-    ![Min kunskapsbaser](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. I **min kunskapsbaser**väljer **Visa kod** för kunskapsbasen.
+    ![Skärmbild av Mina kunskapsbaser](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Får tillgång till dina GenerateAnswer slutpunkt.
 
-    ![information om slutpunkten](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![Skärmbild av information om slutpunkten](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
 Du kan också få din slutpunktsinformation från den **inställningar** fliken i kunskapsbasen.
 
@@ -70,21 +70,21 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |Egenskapen för HTTP-begäran|Namn|Type|Syfte|
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
-|URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
+|URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på den **inställningar** sidan när du har publicerat i knowledge base. |
 |Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
 |Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar|
+|Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar.|
 
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Krävs|Type|Syfte|
+|Brödtext JSON-egenskap|Obligatoriskt|Type|Syfte|
 |--|--|--|--|
 |`question`|Krävs|string|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|Valfritt|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
 |`userId`|Valfritt|string|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
 |`scoreThreshold`|Valfritt|heltal|Endast svar med förtroendepoäng ovanför denna tröskel returneras. Standardvärdet är 0.|
-|`isTest`|Valfritt|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
+|`isTest`|Valfritt|Boolean|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
 |`strictFilters`|Valfritt|string|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
 |`RankerType`|Valfritt|string|Om tillhörigheten `QuestionOnly`, talar om för QnA Maker att söka efter frågor endast. Om inte anges söker QnA Maker frågor och svar.
 
@@ -147,19 +147,19 @@ Ett lyckat svar returneras statusen 200 och ett JSON-svar.
 
 <a name="metadata-example"></a>
 
-## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Med metadata kan du filtrera svar efter anpassade metadatataggar
+## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Använda metadata för att filtrera svar efter anpassade metadatataggar
 
-Att lägga till metadata kan du filtrera svar efter dessa metadatataggar. Lägga till metadatakolumnen från den **Visningsalternativ** menyn. Lägga till metadata i kunskapsbasen genom att klicka på metadata **+** ikon för att lägga till ett metadata-par. Den här par består av en nyckel och ett värde.
+Att lägga till metadata kan du filtrera svar efter dessa metadatataggar. Lägga till metadatakolumnen från den **Visningsalternativ** menyn. Lägga till metadata i kunskapsbasen genom att välja metadata **+** ikon för att lägga till ett metadata-par. Den här par består av en nyckel och ett värde.
 
-![lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+![Skärmbild för att lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
 <a name="filter-results-with-strictfilters-for-metadata-tags"></a>
 
 ## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrera resultaten med strictFilters för metadatataggarna
 
-Överväg att användaren frågan ”när fungerar den här hotell Stäng”? Om avsikten är angiven för restaurang ”Paradise”.
+Överväg att användaren frågan ”när gör den här hotell Stäng”?, där avsikten är angiven för restaurang ”Paradise”.
 
-Eftersom det behövs endast för restaurang ”Paradise” resultat, kan du ange ett filter i GenerateAnswer anropet om metadata som ”restaurang-Name”, enligt följande.
+Eftersom resultat krävs endast för restaurang ”Paradise” kan definiera du ett filter i GenerateAnswer anropet om metadata som ”restaurang-Name”. I följande exempel visar detta:
 
 ```json
 {
@@ -177,7 +177,7 @@ Eftersom det behövs endast för restaurang ”Paradise” resultat, kan du ange
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Använda frågor och svar resultat för att hålla konversationen kontext
 
-Svaret på GenerateAnswer innehåller motsvarande metadatainformation för matchade fråga/svar-uppsättningen. Den här informationen kan användas i klientprogrammet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer. 
+Svaret på GenerateAnswer innehåller motsvarande metadatainformation för uppsättningen matchade frågor och svar. Du kan använda den här informationen i klientprogrammet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer. 
 
 ```json
 {
@@ -222,7 +222,7 @@ Du kan söka igenom de publicerade kb med `isTest=false`, eller i kb test med `i
 
 ## <a name="next-steps"></a>Nästa steg
 
-Publiceringssidan innehåller även information om du vill generera ett svar med [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) och [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+Den **publicera** sidan innehåller även information om du vill generera ett svar med [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) och [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Skapa en kunskapsbas](./create-knowledge-base.md)

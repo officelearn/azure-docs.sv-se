@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ms.author: sajagtap
-ms.openlocfilehash: 19144ae40e67127b656cedd61199b732b1c05e86
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f802c64e141e8757f633d82ad577fa50f7d076fc
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236603"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688881"
 ---
-# <a name="content-moderator-api-reference"></a>API-referens för Content Moderator
+# <a name="content-moderator-api-reference"></a>Content Moderator API-referens
 
-Du Kom igång med Azure Content Moderator API: er på följande sätt:
+Du kan komma igång med Azure Content Moderator API: er på följande sätt:
 
 - I Azure-portalen [prenumerera Content Moderator-API: et](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
 - Se [försök Content Moderator på webben](quick-start.md) att registrera dig med den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/).
@@ -37,7 +37,7 @@ Du kan använda följande Content Moderator API: erna för att ställa in efter 
 
 ## <a name="review-apis"></a>Omdömes-API:er
 
-Granska API: et har följande komponenter:
+Granska API: erna har följande komponenter:
 
 | Beskrivning | Referens |
 | -------------------- |-------------|

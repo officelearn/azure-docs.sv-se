@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496931"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693216"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -113,7 +113,7 @@ QnA Maker kan användarna [samarbeta](../How-to/collaborate-knowledge-base.md) p
 
 ## <a name="active-learning"></a>Aktiv inlärning
 
-[Aktiv inlärning](../How-to/improve-knowledge-base.md) fungerar på bästa sätt för att föreslå alternativa frågor när den har en mängd olika kvalitet och kvantitet för användarbaserad frågor. Det är viktigt att tillåta-klientprogram användarfrågor att delta i aktivt learning återkopplingssystem utan censur. När frågor föreslås i QnA Maker-portalen, kan du **[filtrera efter förslag](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** och sedan granska och godkänna eller avvisa dessa förslag. 
+[Aktiv inlärning](../How-to/improve-knowledge-base.md) fungerar på bästa sätt för att föreslå alternativa frågor när den har en mängd olika kvalitet och kvantitet för användarbaserad frågor. Det är viktigt att tillåta-klientprogram användarfrågor att delta i aktivt learning återkopplingssystem utan censur. När frågor föreslås i QnA Maker-portalen, kan du **[filtrera efter förslag](../How-To/improve-knowledge-base.md)** och sedan granska och godkänna eller avvisa dessa förslag. 
 
 ## <a name="next-steps"></a>Nästa steg
 

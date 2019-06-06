@@ -90,9 +90,9 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för BLOB storage. |
@@ -111,7 +111,7 @@ Dataobjektet har följande egenskaper:
 | contentLength | heltal | Storleken på blobben i byte. |
 | blobType | string | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
 | url | string | Sökvägen till blobben. |
-| sekvenseraren | string | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
+| sequencer | string | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
 | storageDiagnostics | objekt | Information om storage-diagnostik. |
  
 ## <a name="next-steps"></a>Nästa steg

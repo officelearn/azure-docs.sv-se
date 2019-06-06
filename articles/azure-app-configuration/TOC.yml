@@ -47,6 +47,8 @@
       href: concept-point-time-snapshot.md
     - name: Funktionshantering
       href: concept-feature-management.md
+    - name: Händelsehantering
+      href: concept-app-configuration-event.md
     - name: Hög tillgänglighet
       items:
         - name: Återhämtning och haveriberedskap
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importera eller exportera konfigurationsdata
       href: howto-import-export-data.md
+    - name: Dirigera händelser till en anpassad slutpunkt
+      href: howto-app-configuration-event.md
     - name: Bästa praxis
       href: howto-best-practices.md
 - name: Referens

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864522"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496556"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -175,7 +175,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Linux och Windows-appar kan inte finnas i samma resursgrupp. Om du har en befintlig resursgrupp med namnet `myResourceGroup` med en Windows-funktionsapp eller webbapp, måste du använda en annan resursgrupp.
+> Azure Functions, förbrukningsplan för Linux är för närvarande i förhandsversion och endast tillgängligt i följande regioner: Västra USA, östra USA, Västeuropa, östra Asien. Linux och Windows-appar kan dessutom finnas i samma resursgrupp. Om du har en befintlig resursgrupp med namnet `myResourceGroup` med en Windows-funktionsapp eller webbapp, måste du använda en annan resursgrupp.
 
 Du är nu redo att publicera projektet lokala funktioner i funktionsappen i Azure.
 

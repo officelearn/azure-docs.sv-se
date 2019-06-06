@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279139"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Självstudier: Azure Active Directory-integrering med ExcelityGlobal
 
@@ -28,7 +28,7 @@ Integrera ExcelityGlobal med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till ExcelityGlobal.
 * Du kan aktivera användarna att vara automatiskt inloggad till ExcelityGlobal (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -52,7 +52,7 @@ För att konfigurera integrering av ExcelityGlobal i Azure AD, som du behöver l
 
 **Utför följande steg för att lägga till ExcelityGlobal från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av ExcelityGlobal i Azure AD, som du behöver l
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -68,19 +68,19 @@ För att konfigurera integrering av ExcelityGlobal i Azure AD, som du behöver l
 
      ![ExcelityGlobal i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ExcelityGlobal baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ExcelityGlobal upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ExcelityGlobal, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera ExcelityGlobal Single Sign-On](#configure-excelityglobal-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa testanvändare ExcelityGlobal](#create-excelityglobal-test-user)**  – du har en motsvarighet för Britta Simon i ExcelityGlobal som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -90,7 +90,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Excelit
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **ExcelityGlobal** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -132,15 +132,15 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Excelit
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
-    b. Azure AD-identifierare
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Konfigurera ExcelityGlobal Single Sign-On
 
-Att konfigurera enkel inloggning på **ExcelityGlobal** sida, som du behöver skicka den **tumavtrycksvärde** och lämpliga kopierade URL: er från Azure portal för att [ExcelityGlobal supportteamet](https://www.excelityglobal.com/contact-us/our-locations/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **ExcelityGlobal** sida, som du behöver skicka den **tumavtrycksvärde** och lämpliga kopierade URL: er från Azure portal för att [ExcelityGlobal supportteamet](https://www.excelityglobal.com/contact-us). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -195,7 +195,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-excelityglobal-test-user"></a>Skapa ExcelityGlobal testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i ExcelityGlobal. Arbeta med [ExcelityGlobal supportteamet](https://www.excelityglobal.com/contact-us/our-locations/) att lägga till användare i ExcelityGlobal-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i ExcelityGlobal. Arbeta med [ExcelityGlobal supportteamet](https://www.excelityglobal.com/contact-us) att lägga till användare i ExcelityGlobal-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

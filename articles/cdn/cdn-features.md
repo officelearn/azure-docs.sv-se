@@ -5,22 +5,22 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: sohamnchatterjee
+editor: mdgattuso
 ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 06/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0c80abeb4aca47b3ef957c25e12c59e86d59dd94
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5aa342700c8440e67987cd9d1b45574c02a45f47
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872883"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729809"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Jämföra Azure CDN-produktfunktioner
 
@@ -33,13 +33,13 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 | [Acceleration av dynamisk webbplats](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | Erbjuds via [Azure ytterdörren Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Acceleration av dynamisk webbplats – adaptiv bildkomprimering](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Acceleration av dynamisk webbplats – förhämtning av objekt](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [Allmän leveransoptimering](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är mindre än 10 MB  | **&#x2713;** |  **&#x2713;** |
+| [Allmän leveransoptimering](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;** , Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är mindre än 10 MB  | **&#x2713;** |  **&#x2713;** |
 | [Optimering av videoströmning](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | via General Web Delivery | **&#x2713;**  | via General Web Delivery |  via General Web Delivery |
-| [Optimering av stora filer](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | via General Web Delivery | **&#x2713;**, Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är större än 10 MB   | via General Web Delivery |  via General Web Delivery |
+| [Optimering av stora filer](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | via General Web Delivery | **&#x2713;** , Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är större än 10 MB   | via General Web Delivery |  via General Web Delivery |
 | Ändra typ av lagringsoptimering | |**&#x2713;** | | |
 | Ursprungsport |Alla TCP-portar |[Tillåtna ursprungsportar](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Alla TCP-portar |Alla TCP-portar |
 | [Global serverbelastningsutjämning (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Snabbrensning](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Rensa och jokerteckensrensning stöds inte av Azure CDN från Akamai för närvarande |**&#x2713;** |**&#x2713;** |
+| [Snabbrensning](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , Rensa och jokerteckensrensning stöds inte av Azure CDN från Akamai för närvarande |**&#x2713;** |**&#x2713;** |
 | [Inläsning av tillgångar i förväg](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Inställningar för cache/huvud (med hjälp av [cachelagringsregler](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | Anpassningsbar regler baserade motor för innehållsleverans (med hjälp av [regelmotor](cdn-rules-engine.md))  |  | | |**&#x2713;** |
@@ -52,7 +52,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 ||||
  **Säkerhet** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Stöd för HTTPS med CDN-slutpunkt | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Egen domän-HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Egen domän-HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** , Kräver direkta CNAME att aktivera |**&#x2713;** |**&#x2713;** |
 | [Stöd för anpassade domännamn](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geo-filtrering](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Tokenautentisering](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 

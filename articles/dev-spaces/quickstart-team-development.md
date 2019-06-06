@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kubernetes-utveckling i grupp med behållare och mikrotjänster på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 74ed1981ba6bf62413d7d7bfd51282eb04afd403
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393403"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480373"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Grupputveckling på Kubernetes med Azure Dev blanksteg
 
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Om du använder ett kluster med RBAC-aktiverade**, se till att konfigurera [ett tjänstkonto för Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). I annat fall `helm` kommandon kommer att misslyckas.
 
 Den `helm install` kommandot kan ta flera minuter att slutföra. Utdata från kommandot visar status för alla tjänster som den distribueras till klustret när du är klar:
 

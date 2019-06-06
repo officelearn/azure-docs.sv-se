@@ -3,18 +3,18 @@ title: Ta en rundtur i Azure IoT Central-användargränssnittet | Microsoft Docs
 description: Som byggare bekantar du dig med de viktiga områden i Azure IoT Central-användargränssnittet som du använder när du skapar en IoT-lösning.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233440"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476312"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -35,7 +35,7 @@ Som _operatör_ använder du Azure IoT Central-användargränssnittet till att h
 
 ## <a name="use-the-left-navigation-menu"></a>Använda den vänstra navigeringsmenyn
 
-Använd den vänstra navigeringsmenyn för att komma åt de olika områdena i programmet. Du kan expandera eller komprimera navigeringsfältet genom att välja **<** eller **>**:
+Använd den vänstra navigeringsmenyn för att komma åt de olika områdena i programmet. Du kan expandera eller komprimera navigeringsfältet genom att välja **<** eller **>** :
 
 | Meny | Beskrivning |
 | ---- | ----------- |
@@ -63,7 +63,9 @@ Du kan välja mellan ett ljust eller ett mörkt tema för användargränssnittet
 
 ![Instrumentpanel](media/overview-iot-central-tour/homepage.png)
 
-Instrumentpanelen är den första sidan som visas när du loggar in på ditt Azure IoT Central program. Du kan anpassa instrumentpanelen för program för andra användare genom att lägga till paneler som ett verktyg. Mer information finns i självstudien om att [anpassa operatörsvyn i Azure IoT Central](tutorial-customize-operator.md). Användarna kan också [skapa sina egna personliga instrumentpaneler](howto-personalize-dashboard.md).
+* Instrumentpanelen är den första sidan som visas när du loggar in på ditt Azure IoT Central program. Du kan anpassa instrumentpanelen för program för andra användare genom att lägga till paneler som ett verktyg. Mer information finns i självstudien om att [anpassa operatörsvyn i Azure IoT Central](tutorial-customize-operator.md).
+
+* Som operatör kan du skapa anpassade instrumentpaneler och växla mellan dem och standardinstrumentpanelen. Mer information finns i den [skapa och hantera personliga instrumentpaneler](howto-personalize-dashboard.md) artikel.
 
 ## <a name="device-explorer"></a>Enhetsutforskaren
 
@@ -90,25 +92,32 @@ På analyssidan visas diagram där du kan se hur enheter som är anslutna till d
 
 ![Sidan Jobb](media/overview-iot-central-tour/jobs.png)
 
-På sidan Jobb kan du utföra aktiviteter för massenhetshantering för dina enheter. Verktyget använder den här sidan för att uppdatera enhetsegenskaper, inställningar och kommandon. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
+Sidan jobb kan du köra massåtgärder för enheten på dina enheter. Verktyget använder den här sidan för att uppdatera enhetsegenskaper, inställningar och kommandon. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
 
-## <a name="device-templates"></a>Enhetsmallar
+## <a name="device-templates"></a>Enheten mallar
 
 ![Sidan Enhetsmallar](media/overview-iot-central-tour/templates.png)
 
-Sidan för enhetsmallar är där en byggare skapar och hanterar enhetsmallarna i programmet. Mer information finns i självstudien om att [definiera en ny enhetstyp i Azure IoT Central-programmet](tutorial-define-device-type.md).
+Sidan för enhetsmallar är där en byggare skapar och hanterar enhetsmallarna i programmet. En mall för enheten anger enhetsegenskaper till exempel:
 
-## <a name="continuous-data-export"></a>Kontinuerlig dataexport
+- Telemetri, status och händelsen mått.
+- Inställningar och egenskaper.
+- -Kommandon.
+- Regler baserat på händelser eller telemetrivärden.
+
+Mer information finns i självstudien om att [definiera en ny enhetstyp i Azure IoT Central-programmet](tutorial-define-device-type.md).
+
+## <a name="continuous-data-export"></a>Löpande dataexport
 
 ![Sidan Kontinuerlig dataexport](media/overview-iot-central-tour/export.png)
 
-Sidan för kontinuerlig dataexport är där en administratör definierar hur data, till exempel telemetri, ska exporteras från programmet. Andra tjänster kan lagra exporterade data eller använda dem för analys. Mer information finns i artikeln om att [exportera dina data i Azure IoT Central](howto-export-data.md).
+Sidan kontinuerlig export finns där administratören definierar hur att strömma data, till exempel telemetri från programmet. Andra tjänster kan lagra exporterade data eller använda dem för analys. Mer information finns i artikeln om att [exportera dina data i Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administration
 
 ![Sidan Administration](media/overview-iot-central-tour/administration.png)
 
-Administrationssidan innehåller länkar till de verktyg som en administratör använder till att exempelvis definiera användare och roller i programmet. Mer information finns i artikeln om att [administrera ditt Azure IoT Central-program](howto-administer.md).
+Administrationssidan innehåller länkar till de verktyg som en administratör använder till exempel definiera användare och roller i programmet och anpassa Gränssnittet. Mer information finns i artikeln om att [administrera ditt Azure IoT Central-program](howto-administer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

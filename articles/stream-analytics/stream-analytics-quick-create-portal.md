@@ -4,16 +4,16 @@ description: Den här snabbstarten visar hur du kommer igång genom att skapa et
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123627"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493362"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -82,7 +82,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.  
 
-3. Välj **Data + analys** > **Stream Analytics-jobb** i resultatlistan.  
+3. Välj **Analytics** > **Stream Analytics-jobbet** i resultatlistan.  
 
 4. Fyll i sidan för Stream Analytics-jobbet med följande information:
 
@@ -93,7 +93,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    |Resursgrupp   |   asaquickstart-resourcegroup  |   Använd samma resursgrupp som din IoT-hubb. |
    |Location  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
    |Strömningsenheter  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
-   |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure Cloud, och med Edge kan du distribuera till en IoT edge-enhet. |
+   |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Molnet kan du distribuera till Azure-molnet och Edge kan du distribuera till en IoT Edge-enhet. |
 
    ![Skapa jobb](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -187,7 +187,7 @@ Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de in
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan även distribuera Stream Analytics-jobb med hjälp av [PowerShell](stream-analytics-quick-create-powershell.md) och [Visual Studio](stream-analytics-quick-create-vs.md).
+I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan också distribuera Stream Analytics-jobb med [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), och [Visual Studio Code](quick-create-vs-code.md).
 
 Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 

@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 979ca857a4410a8efd1b211afc09a0563d76a1ba
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158617"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733296"
 ---
-Om du ska fortsätta till nästa rekommenderade artikel kan du behålla de resurser som du redan har skapat och återanvända dem.
+Om du planerar att fortsätta till nästa artikel om rekommenderade kan du hålla och återanvända resurser som du redan har skapat.
 
-Annars kan du ta bort Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
+I annat fall kan du för att undvika avgifter kan ta bort Azure-resurser som du skapade i den här artikeln. 
 
 > [!IMPORTANT]
-> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
+> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du skapat IoT-hubben inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bort bara IoT hub resursen, inte resursgruppen.
 >
 
 Ta bort en resursgrupp med namnet:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
+1. I den **filtrera efter namn** anger du namnet på resursgruppen som innehåller din IoT-hubb. 
 
-3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+1. I resultatlistan till höger om resursgruppen, Välj ellipsen ( **...** ), och välj sedan **ta bort resursgrupp**.
 
-    ![Radera](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
+    ![Knappen ”Ta bort resursgrupp”](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+1. För att bekräfta borttagningen av resursgruppen, ange resursgruppens namn och välj sedan **ta bort**. Resursgruppen och alla resurser tas bort efter en liten stund.

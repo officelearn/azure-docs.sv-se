@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773221"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428073"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett .NET-program för tillförlitliga tjänster till Service Fabric
 
@@ -33,7 +33,7 @@ Den här snabbstarten visar hur du distribuerar ditt första .NET-program i Serv
 Med det här programmet får du lära dig att:
 
 * Skapa ett program med .NET och Service Fabric
-* Använda ASP.NET Core som webbklient
+* Använda ASP.NET core som en frontwebb
 * Lagra programdata i en tillståndskänslig tjänst
 * Felsöka programmet lokalt
 * Skala ut programmet över flera noder
@@ -43,7 +43,7 @@ Med det här programmet får du lära dig att:
 
 För att slutföra den här snabbstarten behöver du:
 
-1. [Installera Visual Studio 2017](https://www.visualstudio.com/) med **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
+1. [Installera Visual Studio 2019](https://www.visualstudio.com/) med den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
 2. [Installera Git](https://git-scm.com/)
 3. [Installera Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Kör följande kommando för att aktivera Visual Studio för distribution till det lokala Service Fabric-klustret:
@@ -87,11 +87,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-Högerklicka på Visual Studio-ikonen på startmenyn och välj **Kör som administratör**. Du måste köra Visual Studio som administratör för att kunna bifoga felsökningsprogrammet till tjänsterna.
+Högerklicka på Visual Studio-ikonen på startmenyn och välj **Kör som administratör**. Om du vill bifoga felsökningsprogrammet till tjänsterna, som du behöver köra Visual Studio som administratör.
 
 Öppna Visual Studio-lösningen **Voting.sln** från den lagringsplats du har klonat.
 
-Röstningsprogrammet är som standard inställt på att lyssna på port 8080.  Programporten ställs in i filen */VotingWeb/PackageRoot/ServiceManifest.xml*.  Du kan ändra programporten genom att uppdatera attributet **Port** för elementet **Slutpunkt**.  Om du vill distribuera och köra programmet lokalt måste programporten vara öppen och tillgänglig på datorn.  Om du ändrar programporten ersätter du det nya programportvärdet med ”8080” i den här artikeln.
+Röstningsprogrammet är som standard inställt på att lyssna på port 8080.  Programporten ställs in i filen */VotingWeb/PackageRoot/ServiceManifest.xml*.  Du kan ändra programporten genom att uppdatera attributet **Port** för elementet **Slutpunkt**.  Om du vill distribuera och köra programmet lokalt måste programporten vara öppen och tillgänglig på datorn.  Om du ändrar programporten ersätter du det nya programmet Portvärdet för ”8080” i den här artikeln.
 
 Distribuera programmet genom att trycka på **F5**.
 
@@ -123,7 +123,7 @@ När du röstar i programmet händer följande:
 
 ## <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
 
-Programmet bör köras som det ska, men du kan använda felsökaren och se hur viktiga delar av programmet fungerar. När du felsöker programmet i Visual Studio, använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
+Programmet bör köras som det ska, men du kan använda felsökaren och se hur viktiga delar av programmet fungerar. När du felsöker programmet i Visual Studio, använder du ett lokalt utvecklingskluster för Service Fabric. Du kan justera felsökningen för ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
 
 Gör så här om du vill se vad som händer i koden:
 
@@ -132,23 +132,23 @@ Gör så här om du vill se vad som händer i koden:
 2. Öppna filen **/VotingData/Controllers/VoteDataController.cs** och konfigurera en brytpunkt i denna webb-API:s metod **Put** (rad 54).
 
 3. Gå tillbaka till webbläsaren och klicka på ett röstningsalternativ eller lägg till ett nytt röstningsalternativ. Du kommer till den första brytpunkten i webbklientdelens api-kontroll.
-   * Här skickar JavaScript i webbläsaren en begäran till webb-API-kontrollen i frontwebbtjänsten.
+   * Det här steget är där JavaScript i webbläsaren skickar en begäran till webb-API-kontrollen i frontwebbtjänsten.
 
      ![Lägg till röst för frontwebbtjänst](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
-   * Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
-   * Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
+   * Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)** .
+   * Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)** .
+   * Till sist returneras svaret från serverdelstjänsten till klienten **(3)** .
 
 4. Tryck på **F5** för att fortsätta
    - Om du uppmanas av webbläsaren ska du ge gruppen ServiceFabricAllowedUsers läs- och körbehörighet för felsökningsläge.
-   - Du befinner dig nu på brytpunkten i serverdelstjänsten.
+   - Du är nu på brytpunkten i backend-tjänsten.
 
      ![Lägg till röst för serverdelstjänst](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
    - På den första raden i metoden **(1)** kommer `StateManager` hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
    - All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
-   - I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
+   - I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)** . När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
 5. Tryck på **F5** för att fortsätta
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.
@@ -188,7 +188,7 @@ Gör så här om du vill uppgradera programmet:
 I den här snabbstarten har du lärt dig att:
 
 * Skapa ett program med .NET och Service Fabric
-* Använda ASP.NET Core som webbklient
+* Använda ASP.NET core som en frontwebb
 * Lagra programdata i en tillståndskänslig tjänst
 * Felsöka programmet lokalt
 * Skala ut programmet över flera noder

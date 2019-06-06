@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 8124f2236b37f72741c16dad8f1649d08963542e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a91bbceb3cb55cf3e7f8e0f84581af07f1ffb80d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614773"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728915"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en VM-skalningsuppsättning med en Azure-mall i Windows
 
@@ -29,7 +29,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>Definiera en skalningsuppsättning i en mall
@@ -39,10 +39,10 @@ Mer information om mallar finns i [Översikt över Azure Resource Manager](https
 
 En mall definierar konfigurationen för varje resurstyp. Resurstypen för VM-skalningsuppsättning är ungefär samma som för en enskild virtuell dator. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
-| Egenskap                      | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
+| Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| type                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
 | location                     | Platsen där skalningsuppsättningen skapas                     | Östra USA                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |

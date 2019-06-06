@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: e972dfdd7694a1a43302fa5879ea22f2ecd051ad
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 16a168f69c635ca86f40a08ba38a26d68c95954c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298862"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495765"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -31,30 +31,29 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 > [!NOTE]  
 > Standardversionen för HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett beroende som version, ange HDInsight version när du skapar ditt kluster med .NET SDK med Azure PowerShell och Azure klassiskt CLI.
 
-| Komponent | HDInsight 4.0 | HDInsight 3.6 (standard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
-| --- | --- | --- | --- | --- | --- | --- | --- |--- |
-| Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
-| Apache Hadoop och YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
-| Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive och HCatalog |-|1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache Hive |3.1.0 | 2.1.0 |-|-|-|-|-|-|
-| Apache Tez Hive2 |-| 0.8.4 |-|-|-|-|-|-|
-| Apache Ranger |1.1.0 |0.7.0 |0.6.0 |-|-|-|-|-|
-| Apache HBase |2.0.1 |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| Apache Sqoop |1.4.7 |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| Apache Oozie |4.3.1 |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |- |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
-| Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
-| Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (endast Windows) |-|-|
-| Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1.1 |1.1, 1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 |-|-|-|-|
-| Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
-| Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
-| Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
-| Apache skjutreglaget |-| 0.92.0 |-|-|-|-|-|-|
+| Komponent | HDInsight 4.0 | HDInsight 3.6 (standard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 |
+|---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
+| Hortonworks Data Platform | 3.0 | 2.6 | 2.5 | 2.4 | 2.3 | 2.2 |
+| Apache Hadoop och YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
+| Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
+| Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
+| Apache Hive och HCatalog | - | 1.2.1 | 1.2.1 | 1.2.1 | 1.2.1 | 0.14.0 |
+| Apache Hive | 3.1.0 | 2.1.0 | - | - | - | - |
+| Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
+| Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
+| Apache HBase | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
+| Apache Sqoop | 1.4.7 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.5 |
+| Apache Oozie | 4.3.1 | 4.2.0 | 4.2.0 | 4.2.0 | 4.2.0 | 4.1.0 |
+| Apache Zookeeper | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 |
+| Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
+| Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
+| Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
+| Apache Spark | 2.3.2 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (endast Windows) |
+| Apache Livy | 0,5 | 0.4 | 0.3 | 0.3 | 0.2 | - |
+| Apache Kafka | 1.1.1 | 1.1, 1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 | - | - |
+| Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
+| Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
+| Mono | 4.2.1 | 4.2.1 | 4.2.1 | 3.2.8 | - | - |
 
 > [!NOTE]
 > På grund av system prestandaöverväganden, stöd för Kafka version 0.10 har upphört att gälla i mars 2019.
@@ -81,7 +80,7 @@ I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure
 | HDInsight-version | HDP-version | VM OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 september 2018 | | |Ja |Ja |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | Den 30 juni 2020 |Den 31 december 2020 |Ja |Ja |
 
 
 > [!NOTE]  

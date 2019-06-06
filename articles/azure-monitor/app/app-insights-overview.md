@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256636"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496375"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
-
-[Titta på introduktionsanimeringen](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Hur fungerar Application Insights?
 Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs på Microsoft Azure Portal. Instrumentationen övervakar din app och skickar telemetridata till portalen. (Programmet kan köras överallt – det behöver inte finnas i Azure.)
@@ -104,11 +102,13 @@ Application Insights är en av de många tjänsterna som finns i Microsoft Azure
 
 Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäst. Du kan fortsätta med de andra senare.
 
-* **Vid körning: instrumentera webbappen på servern.** Undviker uppdateringar av koden. Du behöver administratörsåtkomst till servern.
-  * [**IIS lokalt eller på en virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure-webbapp eller virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **Vid utveckling: lägg till Application Insights i din kod.** Gör att du kan skriva anpassad telemetri och instrumentera serverdels- och skrivbordsappar.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 uppdatering 2 eller senare.
+* **Vid körning: instrumentera webbappen på servern.** Perfekt för program som redan har distribuerats. Undviker uppdateringar av koden.
+  * [**ASP.NET-program som körs i IIS antingen lokalt eller i en virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**ASP.NET eller ASP.NET Core-program som körs på Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+* **Vid utveckling: lägg till Application Insights i din kod.** Kan du anpassa telemetriinsamling och skicka ytterligare telemetri.
+  * [ASP.NET-program](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core-program](../../azure-monitor/app/asp-net-core.md)
+  * [.NET-konsolprogram](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Andra plattformar](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
 Kom igång under körningsfasen med:
 
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Kom igång under utvecklingsfasen med:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Kom igång under utvecklingsfasen med:
 
 ## <a name="videos"></a>Videoklipp
 
-[![Animerad introduktion](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- Extern video: [konfigurera Application Insights med ett ASP.NET-program](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- Extern video: [konfigurera Application Insights med ASP.NET Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Extern video: [konfigurera Application Insights med ASP.NET Core och Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793544"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471557"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Snabbstart: Utforska Azure Search REST API: er med Postman
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ I Postman, formulera en begäran som ser ut som följande skärmbild. Välj **h�
 
 I Azure Search kan skapa du vanligtvis indexet innan de läses in med data. Den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här uppgiften. 
 
-URL: en har utökats för att inkludera den `hotel` Indexnamnet.
+URL: en har utökats för att inkludera den `hotels` Indexnamnet.
 
 Att göra detta i Postman:
 
 1. Byt till verbet **PLACERA**.
 
-2. Kopiera i den här URL: en `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+2. Kopiera i den här URL: en `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
 3. Ange indexdefinitionen (se nedan) i brödtexten i begäran.
 
@@ -257,7 +257,7 @@ Kopiera i en modifierad version av den här URL: en för target och: `https://<Y
 
 ### <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Byt till verbet **PLACERA**. Kopiera en modifierad version av den här URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Kopiera indexdefinitionen ovan till begärandetexten. Sidan bör likna följande skärmbild. Klicka på **kör** uppe till höger för att skicka din färdiga begäran.
+Byt till verbet **PLACERA**. Kopiera en modifierad version av den här URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`. Kopiera indexdefinitionen ovan till begärandetexten. Sidan bör likna följande skärmbild. Klicka på **kör** uppe till höger för att skicka din färdiga begäran.
 
 ![Begärandetext i Fiddler][7]
 

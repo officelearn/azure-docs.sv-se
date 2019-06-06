@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513308"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734595"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
@@ -65,7 +65,7 @@ Hybrid Azure AD-koppling kräver att enheterna har åtkomst till följande Micro
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (Om du använder eller planerar att använda enkel inloggning)
 
-Om din organisation kräver åtkomst till Internet via en utgående proxy, Microsoft rekommenderar [implementera Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) att aktivera Windows 10-datorer att göra enhetsregistrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, gå till [Felsöka automatisk identifiering] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Om din organisation kräver åtkomst till Internet via en utgående proxy, Microsoft rekommenderar [implementera Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) att aktivera Windows 10-datorer att göra enhetsregistrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, gå till [felsökning automatisk identifiering](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Om du inte använder WPAD och behöva konfigurera proxyinställningarna på datorn, kan du göra så från och med Windows 10 1709 av [konfigurera WinHTTP-inställningar med hjälp av ett grupprincipobjekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -158,7 +158,7 @@ För verifiering av enhetsregistreringsstatus i din Azure-klientorganisation kan
 
 Följande gäller när du använder cmdlet:en **Get-MSolDevice** för att kontrollera tjänstinformation:
 
-- Ett objekt med den **enhets-id** som matchar id på Windows klient måste finnas.
+- Ett objekt med den **enhets-ID** som matchar ID på Windows klient måste finnas.
 - Värdet för **DeviceTrustType** måste vara **Domänansluten**. Detta motsvarar statusen **Hybrid Azure AD-ansluten** på enhetssidan i Azure AD-portalen.
 - Värdet för **Aktiverad** måste vara **True** och **DeviceTrustLevel** måste vara **Hanteras** för enheter som används i villkorsstyrd åtkomst.
 

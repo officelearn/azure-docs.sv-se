@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475539"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742888"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -119,7 +119,7 @@ I kursexemplet lägger du till en CNAME-post för `www`-underdomänen (till exem
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa en underdomän till appens standardvärdnamn (`<app_name>.azurewebsites.net`, där `<app_name>` är namnet på appen).
+Lägg till en CNAME-post för att mappa en underdomän till appens standarddomännamnet (`<app_name>.azurewebsites.net`, där `<app_name>` är namnet på din app).
 
 För `www.contoso.com`-domänexemplet lägger du till en CNAME-post som mappar namnet `www` till `<app_name>.azurewebsites.net`.
 
@@ -129,13 +129,13 @@ När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Aktivera CNAME-postmappning i Azure
 
-Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal. 
+Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 
 ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 På sidan **Anpassade domäner** för appen lägger du till det fullständigt kvalificerade DNS-namnet (`www.contoso.com`) i listan.
 
-Välj **+** -ikonen bredvid **Lägg till värddatornamn**.
+Välj den **+** ikonen bredvid **Lägg till anpassad domän**.
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ Skriv det fullständigt kvalificerade domännamnet som du lade till en CNAME-pos
 
 Välj **Verifiera**.
 
-Sidan **Lägg till värddatornamn** visas. 
+Den **Lägg till anpassad domän** sida visas.
 
 Se till att **posttyp för värddatornamn** är inställd på **CNAME (www\.example.com eller en underdomän)** .
 
-Välj **Lägg till värddatornamn**.
+Välj **Lägg till en anpassad domän**.
 
 ![Lägg till DNS-namnet i appen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
+Det kan ta lite tid för den nya anpassa domänen visas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ På sidan **Anpassade domäner** kopierar du appens IP-adress.
 När du mappar en A-post till en app i App Service behöver du **två** DNS-poster:
 
 - En **A**-post för att mappa till appens IP-adress.
-- En **TXT**-post att mappa till appens standardvärdnamn `<app_name>.azurewebsites.net`. Den här posten används av App Service endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. När din anpassade domän har verifierats och konfigurerats i App Service kan du ta bort TXT-posten.
+- En **TXT** post att mappa till appens standarddomännamnet `<app_name>.azurewebsites.net`. Den här posten används av App Service endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. När din anpassade domän har verifierats och konfigurerats i App Service kan du ta bort TXT-posten.
 
 För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följande tabell (`@` representerar vanligtvis rotdomänen).
 
@@ -219,23 +219,23 @@ När posterna har lagts till ser sidan för DNS-poster ut som i följande exempe
 
 Gå till sidan **Anpassade domäner** för appen i Azure Portal, lägg till det fullständigt kvalificerade DNS-namnet (till exempel `contoso.com`) i listan.
 
-Välj **+** -ikonen bredvid **Lägg till värddatornamn**.
+Välj den **+** ikonen bredvid **Lägg till anpassad domän**.
 
-![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Skriv det fullständigt kvalificerade domännamnet som du konfigurerade A-posten för, till exempel `contoso.com`.
 
 Välj **Verifiera**.
 
-Sidan **Lägg till värddatornamn** visas. 
+Den **Lägg till anpassad domän** sida visas.
 
 Se till att **Posttyp för värddatornamn** har värdet **A-post (example.com)** .
 
-Välj **Lägg till värddatornamn**.
+Välj **Lägg till en anpassad domän**.
 
 ![Lägg till DNS-namnet i appen](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
+Det kan ta lite tid för den nya anpassa domänen visas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
 
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa ett jokernamn till appens standardvärdnamn (`<app_name>.azurewebsites.net`).
+Lägg till en CNAME-post för att mappa ett jokernamn till appens standarddomännamnet (`<app_name>.azurewebsites.net`).
 
 För `*.contoso.com`-domänexemplet mappar CNAME-posten namnet `*` till `<app_name>.azurewebsites.net`.
 
@@ -274,23 +274,23 @@ Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i 
 
 ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Välj ikonen **+** bredvid **Lägg till värddatornamn**.
+Välj den **+** ikonen bredvid **Lägg till anpassad domän**.
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Ange ett fullständigt kvalificerat domännamn som matchar domänen med jokertecken (till exempel `sub1.contoso.com`) och välj sedan **Verifiera**.
 
-Knappen **Lägg till värddatornamn** aktiveras. 
+Den **Lägg till anpassad domän** knappen aktiveras.
 
 Se till att **posttyp för värddatornamn** är inställd på **CNAME-post (www\.example.com eller en underdomän)** .
 
-Välj **Lägg till värddatornamn**.
+Välj **Lägg till en anpassad domän**.
 
 ![Lägg till DNS-namnet i appen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
+Det kan ta lite tid för den nya anpassa domänen visas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
 
-Välj ikonen **+** igen för att lägga till ytterligare ett värdnamn som matchar domänen med jokertecken. Du kan till exempel lägga till `sub2.contoso.com`.
+Välj den **+** ikonen igen för att lägga till en annan anpassad domän som matchar domänen med jokertecken. Du kan till exempel lägga till `sub2.contoso.com`.
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 

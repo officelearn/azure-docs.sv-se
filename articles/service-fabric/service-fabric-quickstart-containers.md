@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110420"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734503"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containrar till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-containeravbildning i ett Service Fabric-program. När du är klar har du en fungerande Windows Server Core 2016-Server och IIS-behållare. Den här snabbstarten beskriver hur du distribuerar en Windows-container. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-container.
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-containeravbildning i ett Service Fabric-program. När du är klar har du en fungerande Windows Server Core 2016-Server och IIS-behållare. Den här snabbstarten beskriver hur du distribuerar en Windows-behållare. Läs [snabbstarten](service-fabric-quickstart-containers-linux.md) att distribuera en Linux-behållare.
 
 ![IIS-standardwebbsidan][iis-default]
 
@@ -44,7 +44,7 @@ I den här snabbstarten lär du dig att:
 
 * En Azure-prenumeration (du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * En utvecklingsdator som kör:
-  * Visual Studio 2015 eller Visual Studio 2017.
+  * Visual Studio 2015 eller Windows 2019.
   * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Paketera en Docker-avbildningscontainer med Visual Studio
@@ -57,7 +57,7 @@ Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka
 
 Välj **Behållare** från mallarna **Hosted Containers and Applications** (Värdbaserade behållare och program).
 
-I **avbildningsnamn**, ange ”mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016” den [Windows Server Core-Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+I **avbildningsnamn**, ange ”mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016” den [Windows Server Core-Server och IIS-avbildningsnamn](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Konfigurera containerns portmappning från port till värd så att inkommande begäranden till tjänsten på port 80 mappas till port 80 i containern.  Ge **Containerport** värdet 80 och **Värdport** värdet 80.  
 
@@ -67,7 +67,7 @@ Ge tjänsten namnet ”MyContainerService” och klicka på **OK**.
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Ange operativsystemets version för containeravbildningen
 
-Containrar som skapats med en viss Windows Server-version kan kanske inte köras på en värd som kör en annan Windows Server-version. Containrar som t.ex. har skapats med version 1709 av Windows Server kan inte köras på värdar som kör Windows Server 2016. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+Containrar som skapats med en viss Windows Server-version kan kanske inte köras på en värd som kör en annan Windows Server-version. Behållare som har skapats med hjälp av Windows Server version 1709 kör exempelvis inte på värdar som kör Windows Server 2016. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
 Med version 6.1 och senare av Service Fabric Runtime kan du ange flera operativsystemsavbildningar per container och tagga var och en med den version av operativsystemet som de ska distribueras till. Detta hjälper dig att säkerställa att programmet kan köras på värdar som kör olika versioner av Windows operativsystem. Mer information finns i [Ange specifika containeravbildningar för operativsystemet](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -77,14 +77,14 @@ Microsoft publicerar olika avbildningar för de olika versioner av IIS som har s
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Tjänstmanifestet fortsätter att ange endast en avbildning för nanoservern, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+Tjänstmanifestet fortsätter att ange endast en avbildning för nanoservern, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 I filen *ApplicationManifest.xml* ska du också ändra **PasswordEncrypted** till **false**. Kontot och lösenordet är tomma för den offentliga containeravbildningen i Docker Hub, så vi inaktiverar kryptering eftersom kryptering av ett tomt lösenord genererar ett kompileringsfel.
 
@@ -100,11 +100,11 @@ Installera Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guid
 
 Innan du kör följande skript i PowerShell ska du köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variablerna i skriptet, som `subscriptionId`, `certpwd`, `certfolder`, `adminuser` och `adminpwd`.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
+Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variabler i skriptet: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`och så vidare.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-När du har angett värden för variablerna trycker du på **F5** för att köra skriptet.
+När du har angett dina värden för variablerna, trycker du på **F5** att köra skriptet.
 
 När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Exempel:
 
@@ -115,9 +115,9 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 ### <a name="install-the-certificate-for-the-cluster"></a>Installera klustrets certifikat
 
-Nu ska vi installera PFX i certifikatarkivet *CurrentUser\My*. PFX-filen finns i katalogen du angav i miljövariabeln `certfolder` i PowerShell-skriptet ovan.
+Nu ska vi installera PFX i *CurrentUser\My* certifikatarkiv. PFX-filen finns i katalogen du angav i miljövariabeln `certfolder` i PowerShell-skriptet ovan.
 
-Gå till den katalogen och kör sedan följande PowerShell-kommando, där du använder namnet på PFX-filen i katalogen `certfolder` och lösenordet du angav i variabeln `certpwd`. I det här exemplet sätts aktuell katalog till den katalog som anges i variabeln `certfolder` i PowerShell-skriptet. Därifrån körs kommandot `Import-PfxCertificate`:
+Ändra till katalogen och sedan kör du följande PowerShell-kommando och ersätter namnet på PFX-fil som finns i din `certfolder` directory och det lösenord som du angav i den `certpwd` variabeln. I det här exemplet sätts aktuell katalog till den katalog som anges i variabeln `certfolder` i PowerShell-skriptet. Därifrån körs kommandot `Import-PfxCertificate`:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -150,7 +150,7 @@ Klicka på **Avancerade anslutningsparametrar** och kontrollera anslutningsinfor
 
 Klicka på **Publicera**.
 
-Varje program i klustret måste ha ett unikt namn. Om det finns en namnkonflikt byter du namn på Visual Studio-projektet och distribuerar igen.
+Varje program i klustret måste ha ett unikt namn. Om det finns en namnkonflikt, byta namn på Visual Studio-projektet och distribuera igen.
 
 Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Exempel: http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 

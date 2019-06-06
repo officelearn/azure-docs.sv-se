@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428400"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Snabbstart: 1 – skapa ett Azure Search-index iC#
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795821"
 > * [Postman](search-fiddler.md)
 >*
 
-Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search-index](search-what-is-an-index.md) med C# och [.NET SDK](https://aka.ms/search-sdk). Det här är den första lektionen i en 3 delar Övning för att skapa, läsa in och fråga ett index. Skapandet av index åstadkoms genom att utföra dessa uppgifter:
+Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search-index](search-what-is-an-index.md) med C# och [.NET SDK](https://aka.ms/search-sdk). Den här snabbstarten är den första lektionen i en tre delar Övning för att skapa, läsa in och fråga ett index. Skapandet av index åstadkoms genom att utföra dessa uppgifter:
 
 > [!div class="checklist"]
 > * Skapa en [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) objekt för att ansluta till en söktjänst.
@@ -39,7 +39,7 @@ Följande tjänster, verktyg och data som används i den här snabbstarten.
 
 + [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
+[Visual Studio-2019](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) ger exempellösningen är en .NET Core-konsolprogram som skrivits C#, som finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer. Data som ingår i lösningen.
 
@@ -61,17 +61,15 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 
 1. I appsettings.json, ersätter du standard innehåll med exemplet nedan och ange sedan namnet på tjänsten och admin api-nyckel för din tjänst. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
+   För tjänstnamnet behöver du bara namnet i sig. Exempel: om din URL är https://mydemo.search.windows.net, lägga till `mydemo` till JSON-fil.
 
-  För tjänstnamnet behöver du bara namnet i sig. Exempel: om din URL är https://mydemo.search.windows.net, lägga till `mydemo` till JSON-fil.
-
-1. Tryck på F5 för att skapa lösningen och kör konsolappen. De återstående stegen i den här övningen och de som följer är en förklaring av hur den här koden fungerar. 
+1. Tryck på F5 för att skapa lösningen och kör konsolappen. De återstående stegen i den här övningen och de här stegen som följer är en förklaring av hur den här koden fungerar. 
 
 Du kan också referera till [hur du använder Azure Search från .NET-program](search-howto-dotnet-sdk.md) mer detaljerad täckning av SDK-beteenden. 
 
@@ -108,7 +106,7 @@ Ett enda anrop till den `Indexes.Create` metoden skapar ett index. Den här meto
 
 1. Ange `Name`-egenskapen för `Index`-objektet till namnet på ditt index.
 
-2. Ange `Fields`-egenskapen för `Index`-objektet till en matris med `Field`-objekt. Det enklaste sättet att skapa `Field`-objekten på är att anropa `FieldBuilder.BuildForType`-metoden och skicka en modellklass för typparametern. En modellklass har egenskaper som mappar till fält i ditt index. På så sätt kan du binda dokument från din sökindex till instanser av din modellklass.
+2. Ange `Fields`-egenskapen för `Index`-objektet till en matris med `Field`-objekt. Det enklaste sättet att skapa `Field`-objekten på är att anropa `FieldBuilder.BuildForType`-metoden och skicka en modellklass för typparametern. En modellklass har egenskaper som mappar till fält i ditt index. Den här mappningen kan du binda dokument från din sökindex till instanser av din modellklass.
 
 > [!NOTE]
 > Även om du inte planerar att använda någon modellklass kan du definiera ditt index genom att skapa `Field`-objekt direkt. Du kan ge namnet på fältet till konstruktorn, tillsammans med datatypen (eller analysverktyget för strängfält). Du kan också ange andra egenskaper som `IsSearchable`, `IsFilterable`, för att nämna några.
@@ -117,7 +115,7 @@ Ett enda anrop till den `Indexes.Create` metoden skapar ett index. Den här meto
 
 Det är viktigt att du behåller dina användarupplevelsen och affärsbehov i åtanke när du utformar ditt index. Varje fält måste tilldelas den [attribut](https://docs.microsoft.com/rest/api/searchservice/Create-Index) som styr vilka sökfunktioner (filtrering, aspekter, sortering och så vidare) som tillämpas på vilka fält. För egenskaper som du inte uttryckligen anger inaktiverar klassen  `Field` som standard motsvarande sökfunktion såvida du inte uttryckligen aktiverar den.
 
-I det här exemplet Indexnamnet är ”hotels” och fält definieras med en modellklass. Varje egenskap i modellklassen har attribut som avgör motsvarande indexfälts sökrelaterade beteende. Modellklassen definieras så här:
+I det här exemplet Indexnamnet är ”hotels” och fält definieras med en modellklass. Varje egenskap i modellklassen har attribut som avgör de sökrelaterade beteende på motsvarande indexfält. Modellklassen definieras så här:
 
 ```csharp
 using System;
@@ -175,7 +173,7 @@ public partial class Hotel
 
 Vi har noga valt attributen för varje egenskap baserat på hur vi tror att de kommer att användas i ett program. Eftersom det t.ex. är troligt att personer som söker efter hotell är intresserade av nyckelordsmatchningar i `description`-fältet har vi aktiverat fulltextsökning för det fältet genom att lägga till attributet `IsSearchable` till egenskapen `Description`.
 
-Observera att exakt ett fält i indexet av typen `string` måste definieras som *nyckelfält*. Det gör du genom att lägga till attributet `Key` till (se `HotelId` i ovanstående exempel).
+Observera att exakt ett fält i indexet av typen `string` måste definieras som den *nyckel* genom att lägga till den `Key` attribut (se `HotelId` i exemplet ovan).
 
 Indexdefinitionen ovan använder ett språkanalysverktyg för `description_fr`-fältet eftersom det ska lagra fransk text. Mer information finns i [lägga till språkanalysverktyg till ett Azure Search-index](index-add-language-analyzers.md).
 
@@ -184,7 +182,7 @@ Indexdefinitionen ovan använder ett språkanalysverktyg för `description_fr`-f
 > 
 > 
 
-Nu när vi har definierat en modellklass kan vi lätt skapa en indexdefinition:
+Nu när vi har definierat en modellklass kan vi enkelt skapa en Indexdefinition:
 
 ```csharp
 var definition = new Index()

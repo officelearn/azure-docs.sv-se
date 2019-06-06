@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540908"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479556"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?
 
@@ -106,7 +106,7 @@ Så vad händer om du har flera överlappande rolltilldelningar? RBAC är en add
 
 ![Flera rolltilldelningar](./media/overview/rbac-multiple-roles.png)
 
-## <a name="deny-assignments"></a>Neka tilldelningar
+## <a name="deny-assignments"></a>Avvisa tilldelning
 
 Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. Mer information finns i [Förstå nekandetilldelningar för Azure-resurser](deny-assignments.md) och [Visa nekandetilldelningar för Azure-resurser med hjälp av Azure-portalen](deny-assignments-portal.md).
 
@@ -132,6 +132,10 @@ Följande är de övergripande stegen som RBAC använder för att avgöra om du 
 1. Om användaren inte har någon roll med åtgärden i det begärda omfånget beviljas inte åtkomst. I annat fall kontrollerar Azure Resource Manager om det gäller ett tilldelningsnekande.
 
 1. Om det gäller ett tilldelningsnekanden blockeras åtkomsten. Annars beviljas åtkomst.
+
+## <a name="license-requirements"></a>Licenskrav
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

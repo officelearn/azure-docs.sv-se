@@ -8,49 +8,53 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93c71fa8b0c39cc16d2a8e24472e8d68717a6c32
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158635"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733264"
 ---
-I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
+Det här avsnittet beskriver hur du skapar en IoT-hubb med hjälp av den [Azure-portalen](https://portal.azure.com).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj +**Skapa en resurs** och välj sedan **Sakernas Internet**.
+1. Välj **skapa en resurs**, och välj sedan **Internet of Things**.
 
-3. Klicka på **Iot Hub** i listan till höger. Du ser den första skärmen för att skapa en IoT-hubb.
+1. Välj i listan till höger, **Iot Hub**. Den första sidan för att skapa en IoT-hubb öppnas.
 
-   ![Skärmbild som visar hur du skapar en hubb i Azure-portalen](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
+   ![Skapa en IoT-hubb i Azure portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    Fyll i fälten:
 
-   **Prenumeration**: Välj den prenumeration som du vill använda för din IoT-hubb.
+   a. I den **prenumeration** listrutan väljer du prenumerationen som ska användas för din IoT hub.
 
-   **Resursgrupp**: Du kan skapa en ny resursgrupp eller välja en befintlig. Klicka på **Skapa ny** för att skapa en ny och ange namnet som du vill använda. Om du vill använda en befintlig resursgrupp väljer du **Använd befintlig** och väljer en resursgruppen i listrutan. Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   b. För **resursgrupp**, gör du något av följande: 
+      * Om du vill skapa en ny resursgrupp, Välj **Skapa nytt** och ange namnet som du vill använda. 
+      * Om du vill använda en befintlig resursgrupp, Välj **Använd befintlig** och välj sedan resursgruppen i den nedrullningsbara listan. 
+      
+        Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
-   **Region**: Det här är den region som du vill att din hubb ska finnas i. Välj en region som har stöd för IoT Hub device strömmar förhandsversionen, centrala USA eller centrala USA – EUAP.
+   c. I den **Region** listrutan väljer du den region som du vill att din hubb ska finnas. Välj en region som har stöd för IoT Hub device strömmar förhandsversion, antingen **centrala USA** eller **centrala USA – EUAP**.
 
-   **Namn på IoT-hubb**: Ange ett namn för IoT-hubben. Det här namnet måste vara globalt unikt. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
+   d. I den **namnet IoT-hubb** ange namn för din IoT hub. Namnet måste vara globalt unikt. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. Klicka på **Nästa: Storlek och skalning** för att fortsätta att skapa IoT-hubben.
+1. Om du vill fortsätta att skapa din IoT-hubb, Välj **nästa: Storlek och skala**.
 
-   ![Skärmbild som visar inställningsstorlek och skala för en ny IoT-hubb med Azure-portalen](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
+   ![Ange storlek och skala för en ny IoT hub med Azure portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   På den här skärmen kan du ta standardvärdena och klicka bara på **Granska + skapa** längst ned på sidan.
+   I det här fönstret kan du acceptera standardinställningarna och väljer **granska + skapa** längst ned på sidan. Överväg följande alternativ:
 
-   **Pris- och skalningsnivå**: Se till att du väljer någon av standardnivåerna (S1, S2, S3) eller den kostnadsfria nivån (F1). Det här valet kan även bero på storleken på din flotta och de icke-strömmade arbetsbelastningar som du förväntar dig från din hubb (t.ex. telemetrimeddelanden). Till exempel är den kostnadsfria nivån avsedd för testning och utvärdering. Det gör att 500 enheter kan anslutas till IoT-hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnadsfria nivån. 
+   * I den **pris- och skalnivåer** listrutan, Välj något av standard-nivåerna (**S1**, **S2**, eller **S3**) eller **F1: Kostnadsfri nivå**. Det här alternativet kan också leds av storleken på flygplanen och icke-streaming arbetsbelastningar som du förväntar dig i din hubb (till exempel telemetrimeddelanden). Till exempel är den kostnadsfria nivån avsedd för testning och utvärdering. Det gör att 500 enheter kan anslutas till IoT-hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnadsfria nivån. 
 
-   **IoT Hub-enheter**: Det här valet beror på icke-strömmade arbetsbelastningar som du förväntar dig från din hubb – du kan välja 1 för tillfället.
+   * För **många av IoT Hub-enheter**: Det här alternativet är beroende av icke-streaming arbetsbelastning som du förväntar dig av din hubb. Du kan välja 1 för tillfället.
 
-   Mer information om de andra alternativen för nivån finns i avsnittet om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+   Mer information om alternativen finns i [välja rätt nivå för IoT hub](../articles/iot-hub/iot-hub-scaling.md).
 
-5. Klicka på **Granska + skapa** och granska dina val. Du ser något som liknar den här skärmen.
+1. Om du vill granska dina val, Välj den **granska + skapa** fliken. Fönstret som öppnas är ungefär så här:
 
-   ![Skärmbild – Granska informationen för att skapa den nya IoT-hubben](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
+   ![Information för att skapa den nya IoT-hubben](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
-6. Klicka på **Skapa** för att skapa din nya IoT-hubb. Det tar några minuter att skapa hubben.
+1. Om du vill skapa nya IoT-hubben, Välj **skapa**. Processen tar några minuter.

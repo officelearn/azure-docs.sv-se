@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79697d44ea3e5126d43169f36c550046af3bc366
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170556"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480046"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -23,7 +23,9 @@ En VPN-gateway är en viss typ av virtuell nätverksgateway som används till at
 
 En virtuell nätverksgateway består av två eller flera virtuella datorer som distribuerats till ett specifikt undernät som du skapar, kallat *gatewayundernätet*. De virtuella datorerna i gatewayundernätet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan inte konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt, och du bör aldrig distribuera ytterligare resurser till gatewayundernätet.
 
-Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. En av inställningarna som du konfigurerar är gatewaytypen. Gatewaytypen ”vpn” anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en VPN-anslutning från en punkt till en plats (VPN över IKEv2 eller SSTP). Då kan du fjärransluta till ditt virtuella nätverk, till exempel från en konferens eller från hemmakontoret.
+VPN-gatewayer kan distribueras i Azure Availability Zones. Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel. Se [om zonredundant virtuella nätverksgatewayer i Tillgänglighetszoner i Azure](about-zone-redundant-vnet-gateways.md)
+
+Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. En av inställningarna som du konfigurerar är gatewaytypen. Gatewaytypen ”vpn” anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en punkt-till-plats VPN-anslutning (VPN över OpenVPN, IKEv2 eller SSTP), vilket gör att du kan ansluta till ditt virtuella nätverk från en annan plats, till exempel från en konferens eller från hemmakontoret.
 
 ## <a name="configuring"></a>Konfigurera en VPN gateway
 
@@ -83,7 +85,7 @@ Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Punkt-till-plats (VPN via IKEv2 eller SSTP)
+## <a name="P2S"></a>Punkt-till-plats-VPN
 
 Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som behöver ansluta till virtuella Azure-nätverk från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta till ett virtuellt nätverk.
 
@@ -112,7 +114,7 @@ De virtuella nätverk som du ansluter kan finnas:
 
 Azure har för närvarande två distributionsmodeller: klassisk och Resource Manager. Om du har använt Azure ett tag har du förmodligen virtuella Azure-datorer och instansroller som kör i ett klassiskt VNet. Dina nyare virtuella datorer och rollinstanser kanske körs i ett VNet som skapats i Resource Manager. Du kan skapa en anslutning mellan virtuella nätverk så att resurserna i ett VNet kan kommunicera direkt med resurserna i ett annat.
 
-### <a name="vnet-peering"></a>VNet-peering
+### <a name="vnet-peering"></a>VNET-peering
 
 Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 

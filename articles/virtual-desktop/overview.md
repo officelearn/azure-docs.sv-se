@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965729"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476724"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -26,6 +26,12 @@ Här är vad du kan göra när du kör virtuella Windows-skrivbordet på Azure:
 * Ta med din befintliga Remote Desktop Services (RDS) och Windows Server-skrivbord och appar på alla datorer
 * Virtualisera både skrivbord och appar
 * Hantera Windows 10, Windows Server och Windows 7-skrivbord och appar med en enhetlig hanteringsupplevelse
+
+## <a name="introductory-video"></a>Introduktionsvideo
+
+I följande video visar Scott Manchester några av Windows virtuella skrivbordet funktioner:
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -93,7 +99,6 @@ Följande Remote Desktop-klienter har stöd för virtuella Windows-skrivbordet:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-
 ## <a name="supported-virtual-machine-os-image"></a>Stöds den virtuella datoravbildning
 
 Virtuella Windows-skrivbordet stöder följande OS-avbildningar:
@@ -101,7 +106,7 @@ Virtuella Windows-skrivbordet stöder följande OS-avbildningar:
 * Windows 10 Enterprise flera session
 * Windows Server 2016
 
-## <a name="provide-feedback"></a>Lämna feedback
+## <a name="provide-feedback"></a>Ge feedback
 
 Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar. Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen.
 

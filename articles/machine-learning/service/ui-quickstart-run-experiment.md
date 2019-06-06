@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545043"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475957"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Snabbstart: Förbereda och visualisera data utan att skriva kod i Azure Machine Learning
 
-Förbered och visualisera dina data i det visuella dra och släpp-gränssnittet (förhandsversion) för Azure Machine Learning. Du kommer att använda innehåller poster för olika bilar, inklusive uppgifter om märke, modell, tekniska specifikationer och pris.  
+Förbered och visualisera dina data i det visuella dra och släpp-gränssnittet (förhandsversion) för Azure Machine Learning. Du kommer att använda innehåller poster för olika bilar, inklusive uppgifter om märke, modell, tekniska specifikationer och pris. När du har slutfört den här snabbstarten kommer du vara redo att använda den här informationen för att förutsäga priset på en bil. 
 
-I den här snabbstarten du utforska och förbereda data:
+Innan du träna en maskininlärningsmodell måste du förstå och förbereda dina data.  I den här snabbstarten får du:
 
 - Skapa ditt första experiment för att lägga till och förhandsgranska data
 - Förbereda data genom att ta bort värden som saknas
@@ -66,11 +66,11 @@ Verktyget visuella gränssnittet innehåller en interaktiv, visuell plats för a
 
 ## <a name="add-data"></a>Lägg till data
 
-Det första du behöver för machine learning är data. Det finns flera provdatauppsättningar som ingår i det här gränssnittet som du kan använda eller du kan importera data från flera källor. I det här exemplet ska du använda exempeldatauppsättningen **Automobile price data (Raw)**. 
+Det första du behöver för machine learning är data. Det finns flera provdatauppsättningar som ingår i det här gränssnittet som du kan använda eller du kan importera data från flera källor. I det här exemplet ska du använda exempeldatauppsättningen **Automobile price data (Raw)** . 
 
 1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Välj **sparade datauppsättningar** därefter **exempel** att visa tillgängliga exempeldatauppsättningarna.
 
-1. Välj sedan datamängden **Automobile price data (raw)**, och dra den till arbetsytan.
+1. Välj sedan datamängden **Automobile price data (raw)** , och dra den till arbetsytan.
 
    ![Dra data på ytan](./media/ui-quickstart-run-experiment/drag-data.png)
 
@@ -131,7 +131,7 @@ Nu när du har kört ditt första experiment kan visualisera du data om du vill 
 
      ![Förhandsgranska data](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Klicka på varje kolumn om du vill veta mer om din datauppsättning.
+1. Klicka på varje kolumn för att förstå mer om din datauppsättning och tänka på om de här kolumnerna ska vara användbar för att förutsäga priset på en bil.
 
 ## <a name="prepare-data"></a>Förbereda data
 
@@ -172,11 +172,11 @@ Ta först bort de **normalized-losses** kolumn helt.
 
     Modulen visas nu en upp-pilen för att dölja kommentaren.
         
-    ![Kommentarer](./media/ui-quickstart-run-experiment/comments.png)
+    ![Kommentar](./media/ui-quickstart-run-experiment/comments.png)
 
 ### <a name="clean-missing-data"></a>Rensa data som saknas
 
-Nu ska du lägga till en annan modul som tar bort återstående rader där data saknas.
+När du tränar en modell som du behöver göra något om de data som saknas.  I det här fallet lägger du till en modul för att ta bort återstående rader där data saknas.  
 
 1. Typ **Rengör** i sökrutan för att hitta den **Rensa Data som saknas** modulen.
 
@@ -216,7 +216,7 @@ Eftersom du har gjort ändringar i moduler i ditt experiment, har status ändrat
 
     Det finns nu 193 rader och kolumner som är 25.
 
-    När du klickar på **num av dörrar** du ser den fortfarande har 2 unika värden men nu har 0 värden som saknas.  
+    När du klickar på **num av dörrar** du ser den fortfarande har 2 unika värden men nu har 0 värden som saknas. Klicka dig igenom resten av kolumnerna för att se att det inte finns några värden som saknas kvar i datauppsättningen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -228,7 +228,7 @@ I den här snabbstarten har du lärt dig att:
 
 - Skapa ditt första experiment för att lägga till och förhandsgranska data
 - Förbereda data genom att ta bort värden som saknas
-- Visualisera resultatet
+- Visualisera förberedda data
 
 Vill du fortsätta till självstudien att använda dessa data för att förutsäga priset på en bil.
 

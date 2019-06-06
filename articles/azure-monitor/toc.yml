@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: Klassiska aviseringar
           href: platform/alerts-classic.overview.md
-        - name: Smarta grupper
-          href: platform/alerts-smartgroups-overview.md
-        - name: Automatisk skalning
-          href: platform/autoscale-overview.md
         - name: Måttaviseringar
           href: platform/alerts-metric-overview.md
         - name: Loggaviseringar
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: Åtgärdsregler
           href: platform/alerts-action-rules.md
+        - name: Smarta grupper
+          href: platform/alerts-smartgroups-overview.md
+        - name: Automatisk skalning
+          href: platform/autoscale-overview.md
         - name: Ändra analys
           href: app/change-analysis.md
     - name: Visualisera data

@@ -1,6 +1,6 @@
 ---
 title: Kommunicera med en app för enheter i C via Azure IoT Hub device strömmar (förhandsversion) | Microsoft Docs
-description: I den här snabbstarten har köra du ett tjänstsidan C-program som kommunicerar med en IoT-enhet via en dataström med enheten.
+description: I den här snabbstarten kör du ett C enhetssidan program som kommunicerar med en IoT-enhet via en dataström med enheten.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,30 +10,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: f5e6128c1ecceda181f92b2d81e9ac06effbfce2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 6a2fe71a1086559d90adf5c464323f353be431aa
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834067"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733315"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett enhetsprogram i C via IoT Hub-enhetsströmmar (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub-enhetsströmmar](iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Under den allmänna förhandsversionen stöder C SDK endast enhetsströmmar på enhetssidan. Därför omfattar den här snabbstarten bara instruktioner för att köra programmet på enhetssidan. Du bör köra ett tillhörande tjänstsidan program som är tillgänglig i följande snabbstarter:
+[IoT Hub-enhetsströmmar](iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Allmänt tillgängliga förhandsversionen stöder C SDK enheten dataströmmar på enheter-sidan. Den här snabbstarten beskrivs därför instruktionerna för att köra enhetssidan programmet. Om du vill köra ett tillhörande tjänstsidan program, se:
  
-   * [Kommunikation till appar för enheter i C# via IoT Hub device strömmar](./quickstart-device-streams-echo-csharp.md)
-
-   * [Kommunikation till appar för enheter i Nodejs via IoT Hub device strömmar](./quickstart-device-streams-echo-nodejs.md).
+   * [Kommunicera med appar för enheter i C# via IoT Hub device strömmar](./quickstart-device-streams-echo-csharp.md)
+   * [Kommunicera med appar för enheter i Node.js via IoT Hub device strömmar](./quickstart-device-streams-echo-nodejs.md)
 
 C-programmet på enhetssidan i den här snabbstarten har följande funktioner:
 
 * Upprätta en enhetsström till en IoT-enhet.
-
-* Ta emot data som skickas från tjänstsidan och returnera dem igen.
+* Ta emot data som skickas från tjänstsidan programmet och echo dem igen.
 
 Koden visar hur initiation du en enhet ström, samt hur du använder den för att skicka och ta emot data.
 
@@ -43,17 +41,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
+* Förhandsversionen av enheten strömmar stöds för närvarande endast för IoT-hubbar som har skapats i följande regioner:
 
-  * **USA, centrala**
+  * Centrala USA
+  * USA, centrala – EUAP
 
-  * **USA, centrala – EUAP**
-
-* Installera [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
+* Installera [Visual Studio 2017](https://www.visualstudio.com/vs/) med den [skrivbordsutveckling med C++ ](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
 
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).
 
-* Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+* Kör följande kommando för att lägga till Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS)-specifika kommandon för att Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -61,11 +58,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
-För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](iot-hub-device-sdk-c-intro.md). Du kommer att förbereda en utvecklingsmiljö som ska användas för att klona och skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) från GitHub. SDK:n på GitHub inkluderar den exempelkod som används i den här snabbstarten.
+Den här snabbstartsguiden ska du använda den [Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md). Förbereder du en utvecklingsmiljö som används för att klona och skapa den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) från GitHub. SDK på GitHub innehåller exempelkod som används i den här snabbstarten.
 
 1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/).
 
-    Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
+    Innan du påbörjar installationen CMake, är det viktigt som Visual Studio-krav (Visual Studio och *skrivbordsutveckling med C++*  arbetsbelastning) är installerat på datorn. När kraven är uppfyllda och du har kontrollerat nedladdningen, kan du installera CMake build-system.
 
 2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
@@ -73,9 +70,9 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Du bör förvänta dig den här åtgärden kan ta några minuter.
+    Den här åtgärden tar några minuter.
 
-3. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen.
+3. Skapa en *cmake* underkatalog i rotkatalogen på Git-lagringsplatsen, som det visas i följande kommando och sedan gå till mappen.
 
     ```
     cd azure-iot-sdk-c
@@ -83,7 +80,7 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
     cd cmake
     ```
 
-4. Kör följande kommandon från den `cmake` directory för att skapa en version av SDK som är specifika för din utvecklingsplattform för klienten.
+4. Kör följande kommandon från den *cmake* katalog för att skapa en version av SDK: N som är specifik för din utvecklingsplattform för klienten.
 
    * I Linux:
 
@@ -92,7 +89,7 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
       make -j
       ```
 
-   * I Windows, kör du följande kommandon i Kommandotolken för utvecklare för Visual Studio 2015 eller 2017. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen.
+   * I Windows, kör du följande kommandon i Kommandotolken för utvecklare för Visual Studio 2015 eller 2017. En Visual Studio-lösning för den simulerade enheten kommer att skapas i den *cmake* directory.
 
       ```cmd
       rem For VS2015
@@ -111,41 +108,40 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det här avsnittet kommer du att använda Azure Cloud Shell med [IoT-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) för att registrera en simulerad enhet.
+Du måste registrera en enhet med IoT-hubben innan den kan ansluta. I det här avsnittet ska du använda Azure Cloud Shell med den [IoT-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) att registrera en simulerad enhet.
 
-1. Kör följande kommando i Azure Cloud Shell för att skapa enhetens identitet.
+1. Om du vill skapa enhetens identitet, kör du följande kommando i Cloud Shell:
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
-
-   **MyDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   > [!NOTE]
+   > * Ersätt den *YourIoTHubName* med det namn du väljer för din IoT hub.
+   > * Använd *MyDevice*, som visas. Det är det namn du angav för den registrerade enheten. Om du väljer ett annat namn för din enhet kan använda det namnet i den här artikeln och uppdatera namnet på enheten i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Kör följande kommandon i Azure Cloud Shell för att hämta *enhetsanslutningssträngen* för enheten du just registrerade:
+2. Att hämta den *enhetsanslutningssträngen* för den enhet som du just registrerade, kör du följande kommandon i Cloud Shell:
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   > [!NOTE]
+   > Ersätt den *YourIoTHubName* med det namn du väljer för din IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som följande exempel:
+    Observera enhetens anslutningssträng för senare användning i den här snabbstarten. Det ser ut som i följande exempel:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Du kommer att använda det här värdet senare i snabbstarten.
-
-## <a name="communicate-between-device-and-service-via-device-streams"></a>Kommunicera mellan enhet och tjänst via enhetsströmmar
+## <a name="communicate-between-the-device-and-the-service-via-device-streams"></a>Kommunicera mellan enheten och tjänsten via enheten strömmar
 
 I det här avsnittet kör både enhetssidan programmet och tjänstsidan programmet och kommunicera mellan två.
 
 ### <a name="run-the-device-side-application"></a>Köra programmet på enhetssidan
 
-För att kunna köra programmet på enhetssidan behöver du utföra följande steg:
+Om du vill köra programmet enhetssidan, gör du följande:
 
-1. Ange dina autentiseringsuppgifter för enheten genom att redigera källfilen `iothub_client_c2d_streaming_sample.c` i mappen `iothub_client/samples/iothub_client_c2d_streaming_sample` och ge enhetens anslutningssträng.
+1. Ange dina autentiseringsuppgifter för enheten genom att redigera den *iothub_client_c2d_streaming_sample.c* -källfilen i den *iothub_client/samples/iothub_client_c2d_streaming_sample* mapp och sedan tillhandahålla enhetens anslutningssträng.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -182,11 +178,10 @@ För att kunna köra programmet på enhetssidan behöver du utföra följande st
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
 
-Som tidigare nämnts är IoT Hub C SDK endast har stöd för enheten strömmar på enheten. Om du vill skapa och köra programmet på tjänstsidan, följer du stegen i någon av följande snabbstarter:
+Som tidigare nämnts är IoT Hub C SDK har stöd för enheten strömmar på enheten endast. Om du vill skapa och köra programmet på tjänstsidan, följer du anvisningarna i någon av följande snabbstarter:
 
 * [Kommunicera med en app för enheter i C# via IoT Hub device strömmar](./quickstart-device-streams-echo-csharp.md)
-
-* [Kommunicera med en app för enheter i Node.js via IoT Hub device strömmar](./quickstart-device-streams-echo-nodejs.md).
+* [Kommunicera med en app för enheter i Node.js via IoT Hub device strömmar](./quickstart-device-streams-echo-nodejs.md)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -196,7 +191,7 @@ Som tidigare nämnts är IoT Hub C SDK endast har stöd för enheten strömmar p
 
 I den här snabbstarten har du ställa in en IoT-hubb, registrerade en enhet, upprätta en enhet dataström mellan ett C-program på enheten och ett annat program på serversidan och används dataströmmen för att skicka data fram och tillbaka mellan program.
 
-Använd länkarna nedan om du vill läsa mer om enhetsströmmar:
+Mer information om enheten strömmar finns:
 
 > [!div class="nextstepaction"]
 > [Översikt över enhetsströmmar](./iot-hub-device-streams-overview.md)

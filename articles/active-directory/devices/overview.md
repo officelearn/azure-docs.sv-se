@@ -1,6 +1,6 @@
 ---
-title: Vad är enhetshantering i Azure Active Directory? | Microsoft Docs
-description: Lär dig hur enhetshantering kan hjälpa dig att få kontroll över de enheter som har åtkomst till resurser i din miljö.
+title: Vad är enhetens identitet i Azure Active Directory? | Microsoft Docs
+description: Lär dig hur enheten identity management kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -13,35 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e756b260db0f6db752d345e085b16d58cee5555
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997292"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729997"
 ---
-# <a name="what-is-device-management-in-azure-active-directory"></a>Vad är enhetshantering i Azure Active Directory?
+# <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
 I en mobil- och molnorienterad värld ger Azure Active Directory (Azure AD) enkel inloggning till enheter, appar och tjänster från var som helst. I och med den ökande mängden enheter – inklusive BYOD står IT-experter inför två motsatta mål:
 
 - Underlätta för slutanvändarna att vara produktiva oavsett tid och plats
 - Se till att företagets resurser alltid är skyddade
 
-Dina användare får åtkomst till gemensamma tillgångar genom sina enheter. Som IT-administratör vill du nog ha kontroll över de här enheterna så att du kan skydda de gemensamma tillgångarna. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.
+Via enheter i Azure AD får dina användare åtkomst till företagstillgångar. För att skydda dina företagstillgångar som IT-administratör kan du hantera dessa enheter-identiteter. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.
 
-Enhetshantering utgör även grunden för [enhetsbaserad villkorsstyrd åtkomst](../conditional-access/require-managed-devices.md). Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
+Identitetshantering för enheten är också grunden för [enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md). Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
 
-Den här artikeln beskriver hur enhetshantering i Azure Active Directory fungerar.
+## <a name="getting-devices-in-azure-ad"></a>Hämta enheter i Azure AD
 
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>Hämta enheter med Azure AD-kontroll
-
-Om du vill att en enhet ska kontrolleras av Azure AD har du två alternativ:
+Om du vill ha en enhet i Azure AD, har du två alternativ:
 
 - Registrerar
 - Ansluta
@@ -54,7 +50,7 @@ Att **ansluta** en enhet är en utökning av att registrera tjänsten. Det inneb
 
 ## <a name="azure-ad-registered-devices"></a>Azure AD-registrerade enheter
 
-Målet med Azure AD-registrerade enheter är att ge dig stöd för scenariot **Bring Your Own Device (BYOD)**. I det här scenariot kan användaren få åtkomst till organisationens Azure Active Directory-kontrollerade resurser med en personlig enhet.  
+Målet med Azure AD-registrerade enheter är att ge dig stöd för scenariot **Bring Your Own Device (BYOD)** . I det här scenariot kan användaren få åtkomst till organisationens Azure Active Directory-kontrollerade resurser med en personlig enhet.  
 
 ![Azure AD-registrerade enheter](./media/overview/03.png)
 
@@ -66,7 +62,7 @@ Organisationens användare kan enkelt lägga till ett arbets- eller skolkonto ti
 - När du öppnar ett arbetsprogram för första gången
 - Manuellt via menyn **Inställningar** i Windows 10
 
-Du kan konfigurera Azure AD-registrerade enheter till Windows 10, iOS, Android och macOS.
+Du kan konfigurera en Azure AD-registrerad enhetens tillstånd för **Windows 10 personal, iOS, Android och macOS** enheter.
 
 ## <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
@@ -93,7 +89,6 @@ När du implementerar Azure AD-anslutna enheter får du följande fördelar:
 - **Åtkomst till Windows Store for Business** med ett Azure AD-konto. Användarna kan välja bland ett urval program som valts i förväg av organisationen.
 - **Windows Hello**-stöd för säker och bekväm åtkomst till arbetsresurser.
 - **Begränsad åtkomst** till appar endast från enheter som uppfyller kompatibilitetsprincipen.
-
 - **Smidig åtkomst till lokala resurser** när enheten har åtkomst till den lokala domänkontrollanten.
 
 Azure AD Join är främst avsett för organisationer som inte har någon lokal Windows Server Active Directory-infrastruktur, men du kan använda det i scenarier där:
@@ -129,9 +124,9 @@ Du kan konfigurera Hybrid Azure AD-anslutna enheter för Windows 10 och äldre e
 
 ## <a name="summary"></a>Sammanfattning
 
-Med enhetshantering i Azure AD kan du:
+Med identity enhetshantering i Azure AD kan du:
 
-- Förenkla processen med att kontrollera enheter med Azure AD
+- Förenkla processen att föra och hantering av enheter i Azure AD
 - Ge användarna enkel åtkomst till organisationens molnbaserade resurser
 
 Som tumregel ska du använda:
@@ -156,9 +151,9 @@ Som tumregel ska du använda:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill ha en översikt över hantering av enheter i Azure-portalen kan du läsa om att [hantera enheter med Azure-portalen](device-management-azure-portal.md)
-- Om du vill veta mer om enhetsbaserad villkorlig åtkomst kan du läsa mer om att [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
-- För att konfigurera:
-   - Azure Active Directory-registrerade Windows 10-enheter läser du om att [konfigurera Azure Active Directory-registrerade Windows 10-enheter](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-   - Azure Active Directory-anslutna enheter läser du om att [konfigurera Azure Active Directory-anslutna enheter](../user-help/device-management-azuread-joined-devices-setup.md)
+- Om du vill få en översikt över hur du hanterar enhetsidentiteter i Azure-portalen, se [hantera enhetsidentiteter med Azure portal](device-management-azure-portal.md).
+- Så här skapar:
+   - Azure Active Directory-registrerade Windows 10-enheter, se [så här konfigurerar du Azure Active Directory-registrerade Windows 10-enheter](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
+   - Azure Active Directory-anslutna enheter, se [hur du planerar din implementering för Azure Active Directory-koppling](azureadjoin-plan.md).
    - Hybrid Azure AD-anslutna enheter: läs [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md).
+- Läs mer om enhetsbaserad villkorlig åtkomst i [principer för Konfigurera Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).

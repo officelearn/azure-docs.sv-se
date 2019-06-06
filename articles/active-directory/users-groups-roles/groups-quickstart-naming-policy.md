@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605635"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734715"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snabbstart: Namnprincip för grupper i Azure Active Directory
 
@@ -31,12 +31,12 @@ I den här snabbstarten konfigurerar du en namnprincip i din Azure Active Direct
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure portal (förhandsversion)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure portal
 
 1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) användare med ett administratörskonto.
 1. Välj **grupper**och välj sedan **Namngivningspolicy** att öppna sidan namngivning av principen.
 
-    ![Öppna sidan namngivning av principen i administrationscentret](./media/groups-naming-policy/policy-preview.png)
+    ![Öppna sidan namngivning av principen i administrationscentret](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visa eller redigera namnprincip för Prefix-suffix
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 1. På den **Namngivningspolicy** väljer **blockeras ord**.
 
-    ![Redigera och ladda upp blockerade ord lista för namngivning av princip](./media/groups-naming-policy/blockedwords-preview.png)
+    ![Redigera och ladda upp blockerade ord lista för namngivning av princip](./media/groups-naming-policy/blockedwords.png)
 
 1. Visa eller redigera den aktuella listan över anpassade spärrad ord genom att välja **hämta**.
 1. Ladda upp den nya listan över anpassade spärrad ord genom att välja filikonen.
@@ -59,7 +59,7 @@ Klart! Du har angett en namnprincip och lagt till dina anpassade blockerade ord.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Ta bort principen namngivning med hjälp av Azure portal (förhandsversion)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Ta bort principen namngivning med hjälp av Azure portal
 
 1. På den **Namngivningspolicy** väljer **ta bort princip**.
 1. När du bekräftar borttagningen namngivning principen tas bort, inklusive alla prefix-suffix namngivning av principen och eventuella anpassade blockerade orden.

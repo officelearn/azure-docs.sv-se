@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA på iOS-enheter
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Utveckla
-      items:
-        - name: Bygga in MFA i anpassade appar
-          href: howto-mfa-sdk.md
     - name: Rapportering
       items:
         - name: SSPR-rapporter

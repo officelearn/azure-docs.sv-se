@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64715880"
@@ -73,7 +73,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| omfång | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -113,7 +113,7 @@ Skapa en POST-anrop som den som visas här med informationen i följande tabell 
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resurs | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* och *resource* är de värden som du antecknade tidigare som program-ID *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.

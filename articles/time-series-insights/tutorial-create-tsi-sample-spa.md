@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 5ee6e9aefb235feb28468798c3bd6b107f8c7c49
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244039"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735353"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -126,7 +126,7 @@ Innan du skapar programmet måste du registrera den med Azure AD. Registreringen
 
    1. Ta bort kommentarerna för de tre raderna under kommentaren `"PROD RESOURCE LINKS"` växla beroenden från utveckling till produktion. Kommentera ut de tre raderna under kommentaren `"DEV RESOURCE LINKS"`.
 
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
+      [!code-html[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
       Vara bör kommenterade dina beroenden som i följande exempel:
 

@@ -1,21 +1,17 @@
 ---
 title: Översikt över Azure Managed Applications | Microsoft Docs
 description: Beskriver begreppen för Azure Managed Applications
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001804"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479823"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -55,7 +51,9 @@ Mer information om hur du publicerar program på Marketplace finns i [Använda m
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Vanligtvis finns resurserna för ett hanterat program i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Möjligheten att begränsa åtkomsten för [dataåtgärder](../role-based-access-control/role-definitions.md) stöds inte för närvarande för alla datalprovidrar i Azure.
+Resurser för ett hanterat program är oftast i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Utgivaren kan begära antingen en permanent rolltilldelning eller [just-in-time-åtkomst](request-just-in-time-access.md) för en uppgift som är begränsad till en viss tidsperiod.
+
+Möjligheten att begränsa åtkomsten för [dataåtgärder](../role-based-access-control/role-definitions.md) stöds inte för närvarande för alla datalprovidrar i Azure.
 
 Följande avbildning visar ett scenario där utgivaren begär ägarrollen för den hanterade resursgruppen. Utgivaren placerade ett skrivskyddat lås för den här resursgruppen för användaren. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 
@@ -69,7 +67,7 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 
 ### <a name="managed-resource-group"></a>Hanterad resursgrupp
 
-Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen.
+Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomst är antingen permanenta eller begränsad till en viss tidpunkt.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 

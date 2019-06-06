@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682506"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735336"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Azure Resource Manager-exempelmallar för virtuella nätverk
 
@@ -29,7 +29,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-exempelmallar. 
 Den JSON-syntax och de egenskaper som ska användas i mallar finns i avsnittet om [Microsoft.Network-resurstyper](/azure/templates/microsoft.network/allversions).
 
 
-| | |
+| Aktivitet | Beskrivning |
 |----|----|
 |[Skapa ett virtuellt nätverk med två undernät](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Skapar ett virtuellt nätverk med två undernät.|
 |[Dirigera trafik via en virtuell nätverksinstallation](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Skapar ett virtuellt nätverk med tre undernät. Distribuerar en virtuell dator i varje undernät. Skapar en routingtabell som innehåller vägar för att dirigera trafik från ett undernät till ett annat genom den virtuella datorn i det tredje undernätet. Associerar routningstabellen med ett av undernäten.|

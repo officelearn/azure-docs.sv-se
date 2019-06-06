@@ -2,22 +2,18 @@
 title: Översikt över Azure Resource Manager | Microsoft Docs
 description: Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225906"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514342"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
@@ -51,13 +47,15 @@ Resource Manager har flera fördelar:
 * Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
 * Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.
 
-## <a name="understand-management-scope"></a>Förstå hanteringsomfång
+## <a name="understand-scope"></a>Förstå omfång
 
-Azure erbjuder fyra nivåer av hanteringsomfång: [hanteringsgrupper](../governance/management-groups/index.md), prenumerationer, [resursgrupper](#resource-groups), och resurser. Följande bild visar ett exempel på dessa lager.
+Azure erbjuder fyra olika omfång: [hanteringsgrupper](../governance/management-groups/index.md), prenumerationer, [resursgrupper](#resource-groups), och resurser. Följande bild visar ett exempel på dessa lager.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
 Du tillämpar hanteringsinställningar på vilken som helst av dessa omfångsnivåer. Den nivå nu väljer avgör hur brett inställningen tillämpas. Lägre nivåer ärver inställningar från högre nivåer. Till exempel när du tillämpar en [princip](../governance/policy/overview.md) prenumerationen, tillämpas principen för alla resursgrupper och resurser i din prenumeration. När du använder en princip på tillämpas den resursgrupp som principen är resursgruppen och alla dess resurser. En annan resursgrupp har dock inte den principtilldelningen.
+
+Du kan distribuera mallar till hanteringsgrupper, prenumerationer eller resursgrupper.
 
 ## <a name="guidance"></a>Riktlinjer
 
@@ -85,7 +83,7 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 
 När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
-Om den resursgrupp regionen är inte tillgänglig för tillfället, kan du inte uppdatera resurser i resursgruppen eftersom metadata är inte tillgänglig. Resurser i andra regioner fortsätter att fungera som förväntat, men du kan inte uppdatera dem. För att minimera risken att leta upp din resursgrupp och resurser i samma region.
+Om den resursgrupp regionen är inte tillgänglig för tillfället, kan du inte uppdatera resurser i resursgruppen eftersom metadata är inte tillgänglig. Resurser i andra regioner fortsätter att fungera som förväntat, men du kan inte uppdatera dem. Mer information om att skapa tillförlitliga program finns i [utformar tillförlitliga molnprogram](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Resursproviders
 

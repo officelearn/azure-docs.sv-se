@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073720"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688093"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure Portal
 
@@ -31,27 +31,28 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-Längst upp i vänstra hornet i Azure-portalen väljer du **+ Skapa en resurs** > **Kubernetes Service**.
+I det övre vänstra hörnet i Azure-portalen, väljer **+ skapa en resurs** > **behållare** >  **Kubernetes Service**.
 
 Du skapar ett AKS-kluster genom att slutföra följande steg:
 
-1. **Grunder** – Konfigurera följande alternativ:
+1. På den **grunderna** konfigurerar följande alternativ:
    - *PROJEKTINFORMATION*: Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup*. Ange ett **Kubernetes-klusternamn**, till exempel *myAKSCluster*.
    - *KLUSTERINFORMATION*: Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
-   - *SKALA*: Välj en storlek på virtuell dator för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
+   - **Den primära NODEN POOL**: Välj en VM-storlek för AKS-noder. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats. 
        - Välj även det antal noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
     
      ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Välj **Nästa: Autentisering** när det är klart.
+     Välj **Nästa: Skala** när du är klar.
 
-1. **Autentisering**: Konfigurera följande alternativ:
-   - Skapa ett nytt tjänsthuvudnamn eller *Konfigurera* för att använda ett befintligt. Du måste ange ID och hemlighet för SPN-klienten om du använder ett befintligt SPN.
-   - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. De här kontrollerna ger mer detaljerad kontroll över åtkomst till de Kubernetes-resurser som har distribuerats i ditt AKS-kluster.
+2. På den **skala** behåller standardalternativen. Längst ned på skärmen klickar du på **nästa: autentisering**.
+3. På den **autentisering** konfigurerar följande alternativ:
+   - Skapa ett nytt huvudnamn för tjänsten genom att låta den **tjänstens huvudnamn** med **(ny) standard tjänstens huvudnamn**. Eller så kan du välja *konfigurera tjänstens huvudnamn* att använda en befintlig. Om du använder en befintlig kommer du behöva ange SPN-klient-ID och hemlighet.
+   - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomst till Kubernetes-resurser som har distribuerats i AKS-klustret.
 
-     Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Välj **Granska + skapa** och välj sedan **Skapa** när det är klart.
+    Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Klicka på **granska + skapa** och sedan **skapa** när verifieringen är klar.
 
-Det tar några minuter för AKS-klustret att skapas och bli redo för användning. När det är klart, bläddra till AKS-klusterresursgruppen, till exempel *myResourceGroup*, och välj AKS-resursen, till exempel *myAKSCluster*. Instrumentpanelen för AKS-klustret visas som i följande exempelskärmbild:
+Det tar några minuter att skapa AKS-kluster. När distributionen är klar klickar du på **gå till resurs**, eller bläddra till resursgruppen för AKS-kluster, till exempel *myResourceGroup*, och välj AKS-resurs, till exempel *myAKSCluster*. Instrumentpanelen för AKS-klustret visas som i följande exempel:
 
 ![Exempel på AKS-instrumentpanel i Azure-portalen](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ Det tar några minuter för AKS-klustret att skapas och bli redo för användnin
 
 För att hantera Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommandoradsklient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Öppna Cloud Shell med knappen längst upp till höger i Azure-portalen.
+Öppna Cloud Shell med hjälp av den `>_` knappen överst i Azure-portalen.
 
 ![Öppna Azure Cloud Shell i portalen](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

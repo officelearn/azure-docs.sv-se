@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461671"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743211"
 ---
 # <a name="swagger-documentation"></a>Dokumentation om Swagger
 
@@ -26,7 +26,7 @@ Speech Services erbjuder en Swagger-specifikation för att interagera med en han
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generera kod från Swagger-specifikation
 
-Den [Swager specifikationen](https://cris.ai/swagger/ui/index) har alternativ med vilka du kan snabbt testa för olika sökvägar. Men är ibland det klokt att generera kod för alla sökvägar som skapar ett enda anrop som du kan basera framtida lösningar på-bibliotek. Låt oss ta en titt på processen för att generera ett Python-bibliotek.
+Den [Swagger-specifikationen](https://cris.ai/swagger/ui/index) har alternativ med vilka du kan snabbt testa för olika sökvägar. Men är ibland det klokt att generera kod för alla sökvägar som skapar ett enda anrop som du kan basera framtida lösningar på-bibliotek. Låt oss ta en titt på processen för att generera ett Python-bibliotek.
 
 Du måste du ange Swagger samma region som din Speech Service-prenumeration. Du kan bekräfta din region i Azure portal under din Speech Services-resurs. En fullständig lista över regioner som stöds finns i [regioner](regions.md).
 

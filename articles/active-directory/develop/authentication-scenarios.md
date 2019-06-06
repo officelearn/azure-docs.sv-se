@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540159"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734474"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -85,14 +85,11 @@ Följande diagram visar en förenklad Microsoft identity-plattformen etablering 
 
 I det här etableringsflödet sker följande:
 
-|   |   |
-|---|---|
-| 1 | En användare från klient B försöker logga in med appen |
-| 2 | Autentiseringsuppgifterna hämtas och verifieras |
-| 3 | Användaren uppmanas att godkänna att appen får åtkomst till klientorganisation B |
-| 4 | Microsofts identitetsplattform använder programobjektet i A som underlag för att skapa ett tjänstens huvudnamn i klient B |
-| 5 | Användaren får begärd token |
-|   |   |
+1. En användare från klient B försöker logga in med appen auktoriseringsslutpunkten begär en token för programmet.
+1. Användarens autentiseringsuppgifter har köpt och verifierat för autentisering
+1. Användaren uppmanas att ge ditt medgivande för appen att få åtkomst till klient B
+1. Microsofts identitetsplattform använder programobjektet på klient A som underlag för att skapa ett tjänstens huvudnamn i klient B
+1. Användaren får begärd token
 
 Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Klient A behåller skissen för appen (programobjektet). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [program och tjänstobjekt i Microsoft identity-plattformen](app-objects-and-service-principals.md).
 

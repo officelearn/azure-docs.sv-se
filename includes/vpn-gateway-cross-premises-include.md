@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 14793d7f787780bfc8604e4af11eb05f1ff0d937
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170519"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425748"
 ---
 |  | **Punkt-till-plats** | **Plats till plats** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Azure-tjänster som stöds** |Cloud Services och Virtual Machines |Cloud Services och Virtual Machines |[Tjänstlista](../articles/expressroute/expressroute-faqs.md#supported-services) |
 | **Vanliga bandbredder** |Baserat på gateway-SKU |Vanligtvis < 1 Gbit/s sammanlagt |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protokoll som stöds** |SSTP (Secure Sockets Tunneling Protocol) och IPsec |IPsec |Direktanslutning över VLAN, NSP:er VPN-teknologier (MPLS, VPLS,...) |
+| **Protokoll som stöds** |Secure Sockets Tunneling Protocol (SSTP), OpenVPN och IPsec |IPsec |Direktanslutning över VLAN, NSP:er VPN-teknologier (MPLS, VPLS,...) |
 | **Routning** |RouteBased (dynamisk) |Vi stöder principbaserad (statisk routning) och ruttbaserad (dynamisk routning VPN) |BGP |
 | **Anslutningsåterhämtning** |aktiv-passiv |aktiv-passiv eller aktiv-aktiv |aktiv-aktiv |
 | **Vanligt användningsfall** |Prototyper, dev/test/testlabb-scenarier för molntjänster och virtuella datorer |Dev/test/testlabb-scenarier och småskaliga produktionsbelastningar för molntjänster och virtuella datorer |Åtkomst till alla Azure-tjänster (validerad lista), Enterprise-klass och verksamhetskritiska arbetsbelastningar, säkerhetskopiering, Big Data, Azure som en DR-plats |

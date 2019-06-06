@@ -104,9 +104,9 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
 | data | objekt | Geofencing händelsedata. |
@@ -118,37 +118,37 @@ Dataobjektet har följande egenskaper:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | apiCategory | string | API-kategori för händelsen. |
-| ApiName | string | API-namnet på händelsen. |
-| Problem | objekt | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
+| apiName | string | API-namnet på händelsen. |
+| issues | objekt | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
 | responseCode | nummer | HTTP-svarskoden |
-| geometrier | objekt | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
+| geometries | objekt | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
 
 Felobjekt returneras när ett fel uppstår i Maps-API. Felobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| fel | Felinformation |Det här objektet som returneras när ett fel uppstår i Maps-API  |
+| error | Felinformation |Det här objektet som returneras när ett fel uppstår i Maps-API  |
 
 ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinformation eller det objekt du har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Kod | string | HTTP-statuskoden. |
-| meddelande | string | Om det finns en mänsklig läsbar beskrivning av felet. |
+| code | string | HTTP-statuskoden. |
+| message | string | Om det finns en mänsklig läsbar beskrivning av felet. |
 | innererror | InnerError | Om det finns ett objekt som innehåller service-specifik information om felet. |
 
 InnerError är ett objekt som innehåller service-specifik information om felet. Objektet InnerError har följande egenskaper: 
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Kod | string | Ett felmeddelande. |
+| code | string | Ett felmeddelande. |
 
 Objektet geometrier listar geometri ID: N för geofence-områden som har upphört att gälla i förhållande till Användartid i begäran. Objektet geometrier har geometri objekt med följande egenskaper: 
 
 | Egenskap  | Typ | Beskrivning |
 |:-------- |:---- |:----------- |
 | deviceid | string | ID för enheten. |
-| avstånd | string | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
+| distance | string | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
 | geometryid |string | Unikt id identifierar geofence-området geometri. |
 | nearestlat | nummer | Latitud för den närmaste punkten i geometrin. |
 | nearestlon | nummer | Longitud för den närmaste punkten i geometrin. |
@@ -159,7 +159,7 @@ Dataobjektet har följande egenskaper:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Listor över geometri-ID: T för geofence-området som har upphört att gälla i förhållande till Användartid i begäran. |
-| geometrier | geometries[] |Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
+| geometries | geometries[] |Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
 | invalidPeriodGeofenceGeometryId | string[]  | Listor över geometri-ID: T för geofence-området som tillhör ogiltig period i förhållande till Användartid i begäran. |
 | isEventPublished | boolesk | SANT har om minst en händelse publiceras till Azure Maps händelse prenumerant, FALSKT om ingen händelse publicerats på Azure Maps händelse prenumeranten. |
 

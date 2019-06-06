@@ -157,9 +157,9 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för BLOB storage. |
@@ -171,22 +171,22 @@ Dataobjektet har följande egenskaper:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | Händelse-ID. |
-| tidsstämpel | string | Den tid då händelsen inträffade. |
-| åtgärd | string | Den åtgärd som omfattar den angivna händelsen. |
-| mål | objekt | Målet för händelsen. |
-| begäran | objekt | Den begäran som skapade händelsen. |
+| timestamp | string | Den tid då händelsen inträffade. |
+| action | string | Den åtgärd som omfattar den angivna händelsen. |
+| target | objekt | Målet för händelsen. |
+| request | objekt | Den begäran som skapade händelsen. |
 
 Målobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | mediaType | string | MIME-typ för det refererade objektet. |
-| storlek | heltal | Antal byte av innehållet. Samma som fältet längd. |
-| Sammanfattad | string | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
-| Längd | heltal | Antal byte av innehållet. Samma som fältet. |
-| Lagringsplats | string | Namnet på lagringsplatsen. |
-| tagg | string | Taggnamnet. |
-| namn | string | Diagrammets namn. |
+| size | heltal | Antal byte av innehållet. Samma som fältet längd. |
+| digest | string | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
+| length | heltal | Antal byte av innehållet. Samma som fältet. |
+| repository | string | Namnet på lagringsplatsen. |
+| tag | string | Taggnamnet. |
+| name | string | Diagrammets namn. |
 | version | string | Diagram-version. |
 
 Begäranobjektet har följande egenskaper:
@@ -195,9 +195,9 @@ Begäranobjektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | id | string | ID för begäran som initierade händelsen. |
 | addr | string | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
-| värd | string | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
-| metod | string | Metoden för begäran som genererade händelsen. |
-| USERAGENT | string | Användaren agent huvudet för begäran. |
+| host | string | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
+| method | string | Metoden för begäran som genererade händelsen. |
+| useragent | string | Användaren agent huvudet för begäran. |
 
 ## <a name="next-steps"></a>Nästa steg
 

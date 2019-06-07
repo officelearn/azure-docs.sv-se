@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954554"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754664"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Snabbstart: Skapa en .NET-webbapp med SQL API-konto i Azure Cosmos DB
 
@@ -52,33 +52,32 @@ En Azure-prenumeration eller ett kostnadsfritt utvärderingskonto för Azure Cos
 
 Du kan använda Datautforskaren i Azure-portalen för att skapa en databas och samling. 
 
-1.  Välj **Datautforskaren** i det vänstra navigeringsfönstret på Azure Cosmos DB-konto sida och välj sedan **ny samling**. 
+1.  Välj **Datautforskaren** i det vänstra navigeringsfönstret på Azure Cosmos DB-konto sida och välj sedan **ny behållare**. 
     
-    Du kan behöva bläddra åt höger för att se den **Lägg till samling** området.
+    Du kan behöva bläddra åt höger för att se den **Lägg till behållare** fönster.
     
     ![Datautforskaren i Azure-portalen, fönstret Lägg till samling](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  På sidan **Lägg till samling** anger du inställningarna för den nya samlingen.
+1.  I den **Lägg till behållaren** fönstret anger du inställningarna för den nya samlingen.
     
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg.|
-    |**Samlings-ID**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.|
-    |**Partitionsnyckel**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
+    |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrollera den **etablera databasen dataflöde** alternativ, kan du dela dataflödet som tillhandahållits till databasen över alla behållare i databasen. Det här alternativet hjälper också med kostnadsbesparingar. |
     |**Dataflöde**|400|Vill du lämna dataflödet på 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
+    |**Behållar-ID**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.|
+    |**Partitionsnyckel**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
+
     
     Lägg inte till **unika nycklar** i det här exemplet. Unika nycklar kan du lägga till ett lager med dataintegritet till databasen genom att se till att ett eller flera värden per partitionsnyckel är unikt. Mer information finns i [unika nycklar i Azure Cosmos DB](unique-keys.md).
     
-1.  Välj **OK**. 
-    Datautforskaren visar den nya databasen och samlingen.
+1.  Välj **OK**. Datautforskaren visar den nya databasen och den behållare som du skapade.
     
-    ![Datautforskaren i Azure-portalen visar den nya databasen och samlingen](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>Lägg till data i databasen
 
 Lägga till data i den nya databasen med hjälp av Datautforskaren.
 
-1. I **Datautforskaren**, den nya databasen visas i den **samlingar** fönstret. Expandera den **ToDoList** databasen, expandera den **objekt** samling, väljer **dokument**, och välj sedan **nytt dokument**. 
+1. I **Datautforskaren**, expandera den **ToDoList** databasen och expandera den **objekt** behållare. Välj sedan **objekt**, och välj sedan **nytt objekt**. 
    
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Lägga till data i den nya databasen med hjälp av Datautforskaren.
 
 Om du vill se hur enkelt det är att arbeta med Azure Cosmos DB-data programmässigt, klona SQL API .NET webb-exempelappen från GitHub, uppdatera anslutningssträngen och köra appen om du vill uppdatera dina data. 
 
-Du kan också skapa databas och samling med hjälp av .NET-exempelkod. Mer information finns i [granska .NET-kod](#review-the-net-code).
+Du kan också skapa databasen och behållaren med hjälp av .NET-exempelkod. Mer information finns i [granska .NET-kod](#review-the-net-code).
 
 ### <a name="clone-the-sample-app"></a>Klona exempelappen
 
@@ -148,7 +147,7 @@ Först klonar en C# [SQL API-app](https://github.com/Azure-Samples/documentdb-do
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Kontrollera att databasen och samlingen värdena i den *web.config* matchar namnen som du skapade tidigare. 
+1. Kontrollera att databasen och samlingen (kallas även för behållaren) värdena i den *web.config* matchar namnen som du skapade tidigare. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Först klonar en C# [SQL API-app](https://github.com/Azure-Samples/documentdb-do
 
 1. I NuGet-rutan **Bläddra**, skriver du in *DocumentDB*.
 
-1. Från resultatet installerar den **Microsoft.Azure.DocumentDB** biblioteket om du inte redan är installerat. Detta installerar de [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) paketet och alla beroenden.
+1. Från resultatet installerar den **2.2.3 version** av **Microsoft.Azure.DocumentDB** biblioteket om du inte redan är installerat. Detta installerar de [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) paketet och alla beroenden.
    
    Om NuGet Package Manager visar ett meddelande om att vissa paket saknas i lösningen, Välj **återställa** att installera dem från interna källor. 
 
@@ -177,7 +176,7 @@ Du kan gå tillbaka till Datautforskaren i Azure portal för att se, fråga, än
 
 ## <a name="review-the-net-code"></a>Granska .NET-kod
 
-Det här steget är valfritt. I den här snabbstarten har du skapade en databas och en samling i Azure portal och lagt till exempeldata med hjälp av .NET-exempel. Men kan du också skapa databasen och samlingen med hjälp av .NET-exempel. Granska följande kodfragment om du vill veta hur databasresurserna skapas i koden. Alla kodavsnitten hämtas från den *documentdbrepository.CS så ser* fil i den **todo** projekt.
+Det här steget är valfritt. I den här snabbstarten du skapade en databas och en behållare i Azure portal och lagt exempeldata med hjälp av .NET-exempel. Men kan du också skapa databasen och behållaren med hjälp av .NET-exempel. Granska följande kodfragment om du vill veta hur databasresurserna skapas i koden. Alla kodavsnitten hämtas från den *documentdbrepository.CS så ser* fil i den **todo** projekt.
 
 * Den här koden initierar den `DocumentClient`: 
 
@@ -230,7 +229,7 @@ Det här steget är valfritt. I den här snabbstarten har du skapade en databas 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapa en databas och samling med Datautforskaren och kör en .NET-webbapp för att uppdatera dina data. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
+I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapa en databas och en behållare med Datautforskaren och kör en .NET-webbapp för att uppdatera dina data. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

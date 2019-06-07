@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866515"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752710"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -72,7 +72,7 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 |Category   |Namn   |
 |---|---|
 |Linux-verktyg            |Bash<br> zsh<br> SH<br> tmux<br> fördjupa<br>               |
-|Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassiskt CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassiskt CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Textredigerare           |kod (Cloud Shell-redigeraren)<br> vim<br> nano<br> emacs    |
 |Källkontroll         |git                    |
 |Skapa verktyg            |Kontrollera<br> maven<br> npm<br> PIP         |

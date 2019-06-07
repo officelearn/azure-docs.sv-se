@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743254"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754597"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg (förhandsversion)
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrera din Azure-brandvägg med Azure Monitor-loggar är användbart när du först hämtar ett program som fungerar när du inte är medvetna om alla beroenden för programmet. Du kan läsa mer om Azure Monitor-loggar från [analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Åtkomst till klustret
-Du kan använda den interna slutpunkten efter att ha konfigurationen av brandvägg har (https://<clustername>-int.azurehdinsight.net) att komma åt Ambari från det virtuella nätverket. Du använder den offentliga slutpunkten (https://<clustername>. azurehdinsight.net) eller ssh slutpunkt (<clustername>-ssh.azurehdinsight.net), kontrollera att du har rätt vägar i routningstabellen och NSG-regler inställningar för att undvika asymetric routning problemet beskrivs [här](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Du kan använda den interna slutpunkten efter att ha konfigurationen av brandvägg har (`https://<clustername>-int.azurehdinsight.net`) att komma åt Ambari från det virtuella nätverket. Du använder den offentliga slutpunkten (`https://<clustername>.azurehdinsight.net`) eller ssh slutpunkt (`<clustername>-ssh.azurehdinsight.net`), kontrollera att du har rätt vägar i routningstabellen och NSG-regler inställningar för att undvika asymetric routningsproblem som förklaras [här](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en annan virtuell nätverksinstallation
 

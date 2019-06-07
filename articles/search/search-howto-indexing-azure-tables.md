@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024783"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755081"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexera Azure Table storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera data lagrade i Azure Table storage.
@@ -114,6 +114,8 @@ När index och datakälla har skapats är du redo att skapa indexeraren:
 Den här indexeraren körs varannan timme. (Schemaintervallet är inställd på ”PT2H”.) Ange intervallet till ”PT30M” för att köra en indexerare var 30: e minut. Den kortaste stöds är fem minuter. Schemat är valfritt. Om det utelämnas används körs en indexeraren en gång när den har skapats. Du kan dock köra en indexerare på begäran när som helst.   
 
 Mer information om Create Indexer API finns i [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Läs mer om hur du definierar indexeraren scheman [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Hantera med olika fältnamn
 Ibland skiljer fältnamn i ditt befintliga index sig från kolumner i tabellen. Du kan använda fältmappningar för att mappa egenskapsnamnen från tabellen till fältnamn i sökindexet. Mer information om fältmappningar finns [fältmappningar för Azure Search-indexeraren överbrygga skillnaderna mellan datakällor och search index](search-indexer-field-mappings.md).

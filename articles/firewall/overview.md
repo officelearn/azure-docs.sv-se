@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495801"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753733"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -62,7 +62,7 @@ Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till
 
 ### <a name="inbound-dnat-support"></a>Stöd för inkommande DNAT
 
-Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts (Destination Network Address Translation) och filtreras till de privata IP-adresserna på dina virtuella nätverk. 
+Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts (Destination Network Address Translation) och filtreras till de privata IP-adresserna på dina virtuella nätverk.
 
 ### <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
@@ -82,8 +82,7 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Portintervall i nätverk och regler|Portar som är begränsade till 64 000 eftersom höga portar är reserverade för hantering och diagnostiska sökningar. |Vi arbetar för att minska den här begränsningen.|
 |Threat intelligence aviseringar kan hämta maskeras|Nätverksregler med mål 80/443 för utgående filtrering masker hot intelligence aviseringar när konfigurerad för att aviseringen läge.|Skapa utgående filtrering för 80/443 med hjälp av regler för program. Eller ändra threat intelligence läge till **Avisera och neka**.|
 |Azure-brandväggen använder Azure DNS för att matcha|Azure-brandväggen löser FQDN: er endast med Azure DNS. En anpassad DNS-server stöds inte. Det finns ingen inverkan på DNS-matchning i andra undernät.|Vi arbetar för att minska den här begränsningen.|
-|Azure brandväggen SNAT DNAT fungerar inte för privata IP-mål|Support för Azure brandväggen SNAT/DNAT är begränsad till Internet utgående/inkommande. SNAT/DNAT fungerar inte för närvarande för privata IP-mål. Till exempel eker att ekrar.|Detta håller på att undersökas.
-
+|Azure brandväggen SNAT DNAT fungerar inte för privata IP-mål|Support för Azure brandväggen SNAT/DNAT är begränsad till Internet utgående/inkommande. SNAT/DNAT fungerar inte för närvarande för privata IP-mål. Till exempel eker att ekrar.|Det är en översikten för en kommande uppdatering.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal](tutorial-firewall-deploy-portal.md)

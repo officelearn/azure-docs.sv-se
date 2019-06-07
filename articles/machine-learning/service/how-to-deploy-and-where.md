@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742964"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753082"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -92,14 +92,7 @@ Mer information finns i referensdokumentationen för den [Modellklass](https://d
 
 Följande beräkningsmål, eller beräkna resurser, kan användas som värd för din distribution av webbtjänster. 
 
-| Beräkningsmål | Användning | Beskrivning |
-| ----- | ----- | ----- |
-| [Lokala webbtjänst](#local) | Testa/debug | Bra för begränsad testning och felsökning.
-| [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| [Azure Container Instances (ACI)](#aci) | Testning | Bra för CPU-baserade arbetsbelastningar med låg skala. |
-| [Azure Machine Learning-beräkning](how-to-run-batch-predictions.md) | Batch inferens | Kör batch inferens på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
-| [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera och hantera ML-modeller på IoT-enheter. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Förbered distributionen
 

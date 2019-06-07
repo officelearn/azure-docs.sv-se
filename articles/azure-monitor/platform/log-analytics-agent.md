@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916364"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751977"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
 
@@ -59,7 +59,8 @@ Från och med versioner som lanseras efter augusti 2018 har gör vi följande ä
 * Nya versioner av AMI stöds inte.  
 * Endast de versioner som kör SSL 1.x som standard som stöds.
 
-Om du använder en distribution eller en version som stöds för närvarande inte och inte justeras till vår supportmodell, rekommenderar vi att du Förgrena lagringsplatsen uppmärksammades att Microsoft-supporten inte kommer ge hjälp med förgrenade agent versioner.
+>[!NOTE]
+>Om du använder en distribution eller en version som stöds för närvarande inte och inte justeras till vår supportmodell, rekommenderar vi att du Förgrena lagringsplatsen uppmärksammades att Microsoft-supporten inte kommer ge hjälp med förgrenade agent versioner.
 
 * Amazon Linux 2017.09 (x 64)
 * CentOS Linux 6 (x86/x64) och 7 (x 64)  
@@ -72,6 +73,21 @@ Om du använder en distribution eller en version som stöds för närvarande int
 >[!NOTE]
 >OpenSSL 1.1.0 stöds bara på x86_x64 plattformar (64-bitars) och OpenSSL tidigare än 1.x inte stöds på valfri plattform.
 >
+
+### <a name="agent-prerequisites"></a>Krav för klientagenten
+
+Följande tabell visar de paket som krävs för distributioner som stöds Linux som agenten ska installeras på.
+
+|Nödvändigt paket |Beskrivning |Lägsta version |
+|-----------------|------------|----------------|
+|Glibc |    GNU C-bibliotek | 2.5-12 
+|Openssl    | OpenSSL-bibliotek | 1.0.x eller 1.1.x |
+|Curl | cURL webbklienten | 7.15.5 |
+|Python-ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Rsyslog eller syslog-ng krävs för att samla in syslog-meddelanden. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Om du vill samla in syslog-data från den här versionen av dessa distributioner bör rsyslog-daemon installeras och konfigureras för att ersätta sysklog.
 
 ## <a name="tls-12-protocol"></a>TLS 1.2-protokollet
 Om du vill se till att skydda data under överföring till Azure Monitor-loggar, rekommenderar vi starkt att du kan konfigurera att agenten ska du använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
@@ -99,7 +115,7 @@ För Linux-agenten proxyservern har angetts under installationen eller [efter in
 > [!NOTE]
 > Om proxyservern inte kräver att autentisera, kräver Linux-agenten fortfarande ett pseudo/användarlösenord. Detta kan vara valfri användarnamn eller lösenord.
 
-|Egenskap | Beskrivning |
+|Egenskap| Beskrivning |
 |--------|-------------|
 |Protokoll | https |
 |Användare | Valfritt användarnamn för proxy-autentisering |

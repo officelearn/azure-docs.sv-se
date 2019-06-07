@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427921"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754830"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427921"
 
     På andra distributioner, använder du lämplig Pakethanteraren eller [kompilera från källan](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Besluta om katalogfil/behörigheterna för den monterade resursen**: I exemplen nedan behörigheten `0777` är används för att ge Läs, Skriv och körbehörighet till alla användare. Du kan ersätta den med andra [chmod behörigheter](https://en.wikipedia.org/wiki/Chmod) enligt önskemål.
+* **Besluta om katalogfil/behörigheterna för den monterade resursen**: I exemplen nedan behörigheten `0777` är används för att ge Läs, Skriv och körbehörighet till alla användare. Du kan ersätta den med andra [chmod behörigheter](https://en.wikipedia.org/wiki/Chmod) efter behov, men det innebär att potentiellt begränsa åtkomsten. Om du använder andra behörigheter, bör du också använda uid och gid för att behålla åtkomst för lokala grupper du väljer.
+
+> [!NOTE]
+> Om du inte uttryckligen anger katalog och ett filnamn behörigheten med dir_mode och file_mode standard som till 0755.
 
 * **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427921"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Använd mount-kommando för att montera Azure-filresursen**: Kom ihåg att ersätta **< storage_account_name >** , **< share_name >** , **< smb_version >** , **< storage_account_key >** , och **< mount_point >** med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd **3.0** för **< smb_version >** . Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda **2.1** för **< smb_version >** . En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0. 
+1. **Använd mount-kommando för att montera Azure-filresursen**: Kom ihåg att ersätta **< storage_account_name >** , **< share_name >** , **< smb_version >** , **< storage_account_key >** , och **< mount_point >** med rätt information för din miljö. Om din Linux-distribution stöder SMB 3.0 med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd **3.0** för **< smb_version >** . Linux-distributioner som inte stöder SMB 3.0 med kryptering kan använda **2.1** för **< smb_version >** . En Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokala eller i en annan Azure-region) med SMB 3.0. Om du vill kan du kan ändra katalog- och filbehörigheter på monterade resursen men det betyder att begränsa åtkomsten.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

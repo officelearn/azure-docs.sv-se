@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303201"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755042"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database managed instance resursbegränsningar
 
@@ -38,8 +38,8 @@ Azure SQL Database-hanterad instans kan distribueras på två maskinvarugenerati
 | --- | --- | --- |
 | Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor) | Intel E5-2673 v4 (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, vCore = 1 LP (hyper-tråd) |
 | vCores | 8, 16, 24 virtuella kärnor | 8, 16, 24, 32, 40, 64, 80 vCores |
-| Minne | 7 GB per vCore | 5.1 GB per vCore |
-| Maximal InMemory-OLTP-minne | 3 GB per vCore | 2,6 GB per vCore |
+| Minne (minne/kärna-kvot) | 7 GB per vCore | 5.1 GB per vCore |
+| Maximal InMemory-OLTP-minne | Gräns för instans: 3 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 8GB per databas<br/> – 16 kärnor: 20GB per databas<br/> -24 kärnor: 36GB per databas | Gräns för instans: 2,5 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 13GB per databas<br/> – 16 kärnor: 32GB per databas |
 | Maximal instans lagring (generell användning) |  8 TB | 8 TB |
 | Maximal instans lagring (affärskritisk) | 1 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
 
@@ -50,14 +50,14 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Minne | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore) | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore) |
+| Minne (minne/kärna-kvot) | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore) | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore) |
 | Maxstorlek för instans-lagring | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |
 | Data/Log IOPS (ungefärlig) | 500 – 7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Log dataflöde | 3 MB/s per vCore<br/>Max 22 MB/s per instans | 4 MB/s per vCore<br/>Max 48 MB/s per instans|
-| Dataflöde (ungefärlig) | 100 - 250 MB/s per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| Dataflöde (ungefärlig) | 100 - 250 MB/s per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Gäller inte |
 | I/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
 | Maxstorlek för tempDB | 192 - 1,920 GB (24 GB per vCore) | Inga begränsningar – begränsas av de största instansstorleken för lagring |
 | Maximalt antal sessioner | 30000 | 30000 |

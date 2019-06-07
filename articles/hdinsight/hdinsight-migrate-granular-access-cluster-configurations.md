@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730672"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754532"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -59,10 +59,10 @@ Följande API: er kan ändras eller inaktuell:
 - [**GET-/configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (känslig information tas bort)
     - Tidigare används för att hämta enskilda konfigurationerna (inklusive hemligheter).
     - Den här API-anrop returnerar nu enskilda konfigurationerna med hemligheter utelämnas. Hämta alla inställningar, till exempel hemligheter, med nya INLÄGG /configurations anropet. Hämta bara gateway-inställningar med det nya INLÄGG /getGatewaySettings anropet.
-- [**GET-/configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (inaktuell)
+- [**GET-/configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (inaktuell)
     - Användes för att hämta alla konfigurationer (inklusive hemligheter)
     - Den här API-anrop kommer inte längre att stödjas. Hämta alla konfigurationer framöver med nya INLÄGG /configurations anropet. Hämta konfigurationer med känsliga parametrar utelämnas med GET /configurations/ {configurationName}-anrop.
-- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (inaktuell)
+- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (inaktuell)
     - Tidigare används för att uppdatera gateway-autentiseringsuppgifter.
     - Den här API-anrop kommer föråldrad och inte längre stöds. Använd den nya INLÄGG /updateGatewaySettings i stället.
 

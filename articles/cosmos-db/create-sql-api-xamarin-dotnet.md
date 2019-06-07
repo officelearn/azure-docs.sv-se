@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860888"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754721"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en att göra-app med Xamarin med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -48,7 +48,7 @@ Om du använder en Mac kan du ladda ner den [Visual Studio för Mac](https://www
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Lägga till en samling
+## <a name="add-a-container"></a>Lägg till en behållare
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -184,7 +184,7 @@ Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
     }
     ```
 
-    Här krävs en ny URI för att göra en unik identifiering av det dokument som ska ersättas och hämtas med hjälp av `UriFactory.CreateDocumentUri`, och sedan skickas till databasen, samlingsnamnen och ID:t för dokumentet.
+    Här en ny URI krävs för att unikt identifiera dokument som ska ersättas och hämtas med hjälp av `UriFactory.CreateDocumentUri` och skicka den databasen, samlingsnamnen och ID för dokumentet.
 
     `DocumentClient.ReplaceDocumentAsync` ersätter dokumentet som identifieras av URI:n med det som anges som parameter.
 
@@ -245,7 +245,7 @@ Följande steg visar hur du kör appen med felsökningsprogrammet i Visual Studi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och skapar och distribuerar en Xamarin-app. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto.
+I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapa en behållare med Datautforskaren, bygger och distribuerar en Xamarin-app. Du kan nu importera ytterligare data till ditt Azure Cosmos-konto.
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475981"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752962"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
@@ -37,18 +37,8 @@ I den här artikeln får du lära dig hur du använder olika beräkningsmål fö
 
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Utbildning &nbsp;mål| GPU-stöd |Automatisk ML | ML-pipelines | Visuellt gränssnitt
-|----|:----:|:----:|:----:|:----:|
-|[Lokal dator](#local)| maybe | ja | &nbsp; | &nbsp; |
-|[Azure Machine Learning-beräkning](#amlcompute)| ja | Ja & <br/>finjustering&nbsp;justering | ja | ja |
-|[Fjärransluten virtuell dator](#vm) |ja | Ja & <br/>finjustering av hyperparametrar | ja | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | ja | ja | &nbsp; |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | ja | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | ja | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | ja | &nbsp; |
-
-**Alla beräkningsresurser mål kan återanvändas för flera upplärningsjobb**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.
 
 > [!NOTE]
 > Beräkning av Azure Machine Learning kan skapas som en beständig resurs eller skapats dynamiskt när du begär en körning. Kör-baserade skapa tar bort beräkningsmål när utbildning körningen är klar, så du inte kan återanvända beräkningsmål som skapats på detta sätt.

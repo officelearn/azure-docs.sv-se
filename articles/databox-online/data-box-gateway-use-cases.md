@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924395"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754174"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Användningsfall för Azure Data Box-Gateway
 
@@ -50,7 +50,7 @@ Innan du börjar måste du kontrollera att du har en aktiv gatewayenhet för Dat
 - När data har överförts kommer du behöva flytta den till arkivnivån. Du kan ange blob-nivå på två sätt: Azure PowerShell-skript eller en princip för livscykelhantering för Azure Storage.  
     - Om du använder Azure PowerShell, följer du dessa [steg](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) att flytta data till arkivnivån.
     - Om du använder Azure livscykelhantering, Följ stegen nedan för att flytta data till arkivnivån.
-        - [Registrera](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) förhandsversionen av Blob Lifecycle management-tjänsten att använda arkivet nivå.
+        - [Registrera](/azure/storage/common/storage-lifecycle-management-concepts) förhandsversionen av Blob Lifecycle management-tjänsten att använda arkivet nivå.
         - Använd följande princip att [Arkivera data på mata in](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - När blobarna som är markerade som Arkiv, kan de inte längre ändras med gatewayen flytta varma eller kalla nivån. Om filen finns i den lokala lagringen, överförs inte ändringar som görs i den lokala kopian (inklusive borttagningar) för att arkivera nivå.
 - Om du vill läsa data i arkivlagring, som ska extraheras genom att ändra blob-nivå för att frekvent eller lågfrekvent. [Uppdatera resursen](data-box-gateway-manage-shares.md#refresh-shares) på gatewayen inte rehydrate blob.

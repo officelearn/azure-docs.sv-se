@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732526"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751941"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure Functions)
 
-Hållbar funktionen orkestreringar implementeras i kod och kan använda funktionerna för hantering av fel i programmeringsspråket. Med detta i åtanke, det verkligen inte finns några nya begrepp som du behöver mer information om när du använder felhantering och ersättning i din orkestreringar. Det finns dock några beteenden som du bör känna till.
+Hållbar funktionen orkestreringar implementeras i kod och kan använda funktionerna för hantering av fel i programmeringsspråket. Med detta i åtanke, det verkligen inte finns några nya begrepp som du behöver lära dig om hur du använder felhantering och ersättning till din orkestreringar. Det finns dock några beteenden som du bör känna till.
 
 ## <a name="errors-in-activity-functions"></a>Fel i Aktivitetsfunktioner
 

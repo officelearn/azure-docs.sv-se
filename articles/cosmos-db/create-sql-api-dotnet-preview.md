@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: bf749cde85be10bae5f7acf3f1f995be1b81c30f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860892"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754318"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en ASP.NET-app med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -43,12 +43,12 @@ Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda d
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Skapa ett databaskonto
+## <a name="create-an-azure-cosmos-account"></a>Skapa ett Azure Cosmos-konto
 
 [!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 <a id="create-collection"></a>
-## <a name="add-a-collection"></a>Lägga till en samling
+## <a name="add-a-container"></a>Lägg till en behållare
 
 [!INCLUDE [cosmos-db-create-collection-preview](../../includes/cosmos-db-create-collection-preview.md)]
 

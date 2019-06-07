@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400240"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753175"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatisk ML-experiment i Python
 
@@ -158,7 +158,7 @@ Använd anpassad validering datauppsättning om slumpmässiga delning inte kan g
 
 Därefter fastställer där modellen ska tränas. En automatiserad machine learning-träningsexperiment kan köras på följande beräkningsalternativ:
 *   Den lokala datorn, till exempel en lokal stationär eller bärbar dator – Allmänt när du har liten datamängd och du fortfarande är i fasen utforskning.
-*   En fjärrdator i molnet – [Azure Machine Learning-hanterade Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) är en hanterad tjänst som gör möjligheten att träna maskininlärningsmodeller på kluster av virtuella Azure-datorer.
+*   En fjärrdator i molnet – [Azure Machine Learning-hanterade Compute](concept-compute-target.md#amlcompute) är en hanterad tjänst som gör möjligheten att träna maskininlärningsmodeller på kluster av virtuella Azure-datorer.
 
 Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) till exempel bärbara datorer med lokal och fjärransluten beräkningsmål.
 

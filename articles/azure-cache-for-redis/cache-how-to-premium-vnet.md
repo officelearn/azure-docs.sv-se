@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831086"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752072"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du stöd för Virtual Network för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en Azure-Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, är inte offentligt adresserbar och kan bara kommas åt från virtuella datorer och program i det virtuella nätverket. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för premium Azure Cache för Redis-instans.
@@ -113,7 +113,7 @@ Det finns sju krav för utgående port.
 | Portar | Direction | Transport-protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Utgående |TCP |Redis beroenden på Azure Storage/PKI (Internet) | (Redis undernät) |* |
-| 53 |Utgående |TCP/UDP |Redis beroenden av DNS (Internet/VNet) | (Redis undernät) |* |
+| 53 |Utgående |TCP/UDP |Redis beroenden av DNS (Internet/VNet) | (Redis undernät) | 168.63.129.16 och 169.254.169.254 <sup>1</sup> och eventuella anpassade DNS-server för undernätet <sup>3</sup> |
 | 8443 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) | (Redis undernät) |
 | 10221-10231 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) | (Redis undernät) |
 | 20226 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
@@ -121,6 +121,9 @@ Det finns sju krav för utgående port.
 | 15000-15999 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 6379-6380 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 
+<sup>1</sup> följande IP-adresser som ägs av Microsoft används för att hantera värden VM, vilket fungerar Azure DNS.
+
+<sup>3</sup> inte behövs för undernät med inga anpassade DNS-server eller nyare redis-cacher som Ignorera anpassad DNS.
 
 #### <a name="inbound-port-requirements"></a>Krav för inkommande port
 

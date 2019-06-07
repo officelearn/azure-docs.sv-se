@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937719"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752736"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
@@ -148,4 +148,4 @@ Om du inte redan gjort det,
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
 
 - [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
-- Se [Azure SaaS-program erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) för mer information.
+- Se [Azure SaaS-program erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) för mer information.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817697"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752884"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Överföra filer till ett Media Services-konto med hjälp av REST  
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Nu när du har URL kan behöva du skriva kod med Azure Blob-API: er direkt för 
 
 - [Använda Azure Storage REST-API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PLACERA Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Ladda upp blobar till Blob storage](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Ladda upp blobar till Blob storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Ladda upp en fil med Postman
 
@@ -185,7 +185,7 @@ T.ex använder vi Postman för att överföra en liten MP4-fil. Det kan finnas e
 Överföringsförfrågan är inte en del av den **AzureMedia** samling. 
 
 Skapa och konfigurera en ny begäran:
-1. Tryck på **+**, för att skapa en ny flik i begäran.
+1. Tryck på **+** , för att skapa en ny flik i begäran.
 2. Välj **PLACERA** igen och klistra in **{{UploadURL}}** i URL: en.
 2. Lämna **auktorisering** fliken skick (Ange inte till den **ägar-Token**).
 3. I den **rubriker** fliken, ange: **Nyckeln**: ”x-ms-blob-type” och **värdet**: "BlockBlob".

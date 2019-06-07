@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455682"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751894"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -74,7 +74,7 @@ För att visa en lista över programvara som en tjänst (SaaS) erbjuder med komm
 
 - Erbjudandet måste vara kompatibla med Azure-klienter. (Ofta SaaS-appar finns på Azure för bästa prestanda och kompatibilitet, men detta är inte ett krav.) 
 - Erbjudandet måste använda [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) för Identitetshantering och autentisering.
-- Erbjudandet måste använda [SaaS Techtrends API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) att integrera med Azure Marketplace.
+- Erbjudandet måste använda [SaaS Techtrends API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) att integrera med Azure Marketplace.
 
 #### <a name="billing-infrastructure-costs"></a>Fakturering infrastrukturkostnader
 För SaaS-erbjudanden kan du, som utgivare, måste ta hänsyn till avgifter för användning av Azure-infrastrukturen och licensavgifter som ett enda kostnaden-objekt. Den här kostnaden representeras som en fast månadsavgift för kunden. Användning av Azure-infrastrukturen hanteras och debiteras för partner kan du direkt. Faktisk användning infrastrukturavgifter ses inte av kunden. Utgivare välja vanligtvis för att bifoga avgifter för användning av Azure-infrastrukturen i deras programvara licens priser. 

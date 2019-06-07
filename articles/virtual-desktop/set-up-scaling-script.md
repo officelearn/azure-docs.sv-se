@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410576"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755127"
 ---
 # <a name="automatically-scale-session-hosts"></a>Skala sessionsvärdar automatiskt
 
@@ -26,7 +26,7 @@ Miljön där du kör skriptet måste ha följande saker:
 
 - En klient för virtuella Windows-skrivbordet och konto eller ett huvudnamn för tjänsten med behörighet att fråga den klienten (till exempel RDS deltagare).
 - Sessionen värd pool med virtuella datorer konfigureras och registrerats för virtuellt skrivbord i Windows-tjänsten.
-- En ytterligare virtuell dator som kör den schemalagda aktiviteten via Schemaläggaren och har åtkomst till sessionen värdar. Det här är avses senare i dokumentet som scaler VM.
+- En ytterligare virtuell dator som kör den schemalagda aktiviteten via Schemaläggaren och har åtkomst till sessionen värdar. Detta kommer kallas senare i dokumentet scaler VM.
 - Den [Microsoft Azure Resource Managers PowerShell-modulen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installerad på den virtuella datorn som kör den schemalagda aktiviteten.
 - Den [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installerad på den virtuella datorn som kör den schemalagda aktiviteten.
 

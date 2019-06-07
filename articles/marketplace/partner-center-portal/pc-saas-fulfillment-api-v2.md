@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 1aba0ab7083c437210166d2d5a2d77e7a657afe9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: da23b90e44869dcbd21acf9b2c4e04f30153ae09
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474596"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751773"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends-API: er version 2 
 
@@ -107,7 +107,7 @@ Lös slutpunkten gör det möjligt för utgivare att matcha en marketplace-token
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 |  x-ms-marketplace-token  |  Token frågeparameter i URL: en när användaren omdirigeras till SaaS-ISV-webbplats från Azure (till exempel: `https://contoso.com/signup?token=..`). *Obs:* URL: en avkodar token-värde från webbläsaren innan du använder den.  |
 
 *Svarskoder:*
@@ -171,7 +171,7 @@ Visar alla SaaS-prenumerationer för en utgivare.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Svarskoder:*
 
@@ -198,7 +198,7 @@ Baserat på auktoriseringstoken, hämta utgivare och motsvarande prenumerationer
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
@@ -241,7 +241,7 @@ Hämtar den angivna SaaS-prenumerationen. Använd det här anropet att hämta li
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Svarskoder:*
 
@@ -305,7 +305,7 @@ Använd det här anropet för att ta reda på om det finns några privata/offent
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Svarskoder:*
 
@@ -359,7 +359,7 @@ Internt serverfel<br>
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här strängen kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Begäran:*
 
@@ -416,7 +416,7 @@ Uppdatera planen för prenumerationen.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.    |
-| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Nyttolasten i begäran:*
 
@@ -482,7 +482,7 @@ Uppdatera kvantitet för prenumerationen.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.    |
-| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| Auktorisering      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Nyttolasten i begäran:*
 
@@ -548,7 +548,7 @@ Avbryta prenumerationen och ta bort den angivna prenumerationen.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Svarskoder:*
 
@@ -601,7 +601,7 @@ Visar en lista över väntande åtgärder för den aktuella utgivaren.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Svarskoder:*
 
@@ -664,7 +664,7 @@ Gör att utgivaren för att spåra statusen för den angivna utlösta asynkron �
 |  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  Auktorisering     |[Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  Auktorisering     |[Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Svarskoder:* Kod: 200<br> Hämtar den angivna väntande åtgärd för SaaS<br>
 Svarsnyttolasten:
@@ -727,7 +727,7 @@ Uppdatera status för en åtgärd för att indikera lyckades/misslyckades med an
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
-|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  Auktorisering     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Nyttolasten i begäran:*
 

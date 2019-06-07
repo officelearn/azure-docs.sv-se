@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121509"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752566"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -279,7 +279,7 @@ I följande tabell listar och beskriver integrationsscenarier:
 |[Programkarta](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Komponenterna i din app, med viktiga mätvärden och aviseringar.|
 |[Diagnostik söka för instans data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.|
 |[Metrics Explorer för aggregerade data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider.|
-|[Instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet.|
+|[Instrumentpaneler](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet.|
 |[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat.|
 |[Analys](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket.|
 |[Automatiska och manuella aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatiska aviseringar anpassa appens normala telemetrimönster telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också ställa in aviseringar på särskilda nivåer med anpassade mätvärden eller standardmätvärden.|
@@ -330,7 +330,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 
 | Tjänst | Resurstyp | Loggar | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Koppling|  Koppling|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Anslutningsapp (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure Automation-konton| Microsoft.Automation/<br>AutomationAccounts|    Diagnostik||       [Mer information](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch-konton|  Microsoft.Batch/<br>batchAccounts|  Diagnostik|    Diagnostik||
@@ -344,7 +344,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 |Azure Load Balancer|   Microsoft.Network/<br>belastningsutjämnare|    Diagnostik|||
 |Azure Logic Apps|  Microsoft.Logic/<br>Arbetsflöden|  Diagnostik|    Diagnostik||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Nätverkssäkerhetsgrupper|   Microsoft.Network/<br>networksecuritygroups|Diagnostik||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Nätverkssäkerhetsgrupper|   Microsoft.Network/<br>networksecuritygroups|Diagnostik||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Recovery-valv|   Microsoft.RecoveryServices/<br>Valv|||[Azure Recovery Services-analys (förhandsversion)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Söktjänster|   Microsoft.Search/<br>searchServices|    Diagnostik|    Diagnostik||
 |Service Bus-namnområde| Microsoft.ServiceBus/<br>namnrymder|    Diagnostik|Diagnostik|    [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

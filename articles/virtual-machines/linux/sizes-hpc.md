@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704669"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755207"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -33,38 +33,55 @@ ms.locfileid: "64704669"
 
 ### <a name="mpi"></a>MPI 
 
-Endast Intel MPI 5.x-versioner som stöds.
+SR-IOV aktiverade storlekar för Virtuella datorer på Azure Tillåt nästan vilken smak av MPI som ska användas.
+På SR IOV aktiverade virtuella datorer stöds endast Intel MPI 5.x-versioner. Senare versioner (2017, 2018) på Intel MPI-runtime biblioteket kanske eller kanske inte är kompatibla med Azure Linux RDMA-drivrutiner.
 
-> [!NOTE]
-> Senare versioner (2017, 2018) på Intel MPI-runtime biblioteket kanske eller kanske inte är kompatibla med Azure Linux RDMA-drivrutiner.
 
-### <a name="distributions"></a>Distributioner
+### <a name="supported-os-images"></a>OS-avbildningar som stöds
  
-Distribuera en beräkningsintensiv virtuell dator från en avbildning i Azure Marketplace som stöder RDMA-anslutning:
+Azure Marketplace har många Linux-distributioner som stöder RDMA-anslutning:
   
-* **Ubuntu** – Ubuntu Server 16.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel att ladda ned Intel MPI:
+* **CentOS-baserade HPC** – för icke-SR-IOV-aktiverade virtuella datorer, CentOS-baserade version 6.5 HPC eller en senare version, upp till 7.5 är lämpliga. För virtuella datorer i H-serien rekommenderas versioner 7.1 7.5. RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.
+  För SR-IOV virtuella datorer kommer CentOS-HPC 7.6 optimerade och med RDMA-drivrutiner och olika MPI-paket som är installerade.
+  Lägga till tillägget InfiniBandLinux om du vill aktivera InfiniBand för andra RHEL/CentOS VM-avbildningar. Den här Linux VM-tillägget installeras Mellanox OFED drivrutiner (på SR-IOV virtuella datorer) för RDMA-anslutning. Följande PowerShell-cmdlet installerar den senaste versionen (version 1.0) av tillägget InfiniBandDriverLinux på en befintlig RDMA-kompatibla virtuell dator. RDMA-kompatibla VM heter *myVM* och har distribuerats i resursgruppen med namnet *myResourceGroup* i den *västra USA* region på följande sätt:
 
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  ```
+  VM-tillägg kan tas med i Azure Resource Manager-mallar för enkel distribution med följande JSON-element:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverLinux",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+ 
+  > [!NOTE]
+  > På CentOS-baserade HPC-avbildningar, inaktiveras kernel-uppdateringar i den **yum** konfigurationsfilen. Detta beror på Linux RDMA-drivrutiner har distribuerats som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kerneln är uppdaterad.
+  >
+  
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 för HPC, SLES 12 SP3 för HPC (Premium), SLES 12 SP1 för HPC, SLES 12 SP1 för HPC (Premium). RDMA-drivrutiner är installerade och Intel MPI paket distribueras på den virtuella datorn. Installera MPI genom att köra följande kommando:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 för HPC, SLES 12 SP3 för HPC (Premium), SLES 12 SP1 för HPC, SLES 12 SP1 för HPC (Premium), SLES 12 SP4 och SLES 15. RDMA-drivrutiner är installerade och Intel MPI paket distribueras på den virtuella datorn. Installera MPI genom att köra följande kommando:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
-    
-* **CentOS-baserade HPC** -CentOS-baserade 6,5 HPC eller en senare version (H-serien, version 7.1 eller senare rekommenderas). RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.  
- 
-  > [!NOTE]
-  > På CentOS-baserade HPC-avbildningar, inaktiveras kernel-uppdateringar i den **yum** konfigurationsfilen. Detta beror på Linux RDMA-drivrutiner har distribuerats som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kerneln är uppdaterad.
-  > 
- 
+  
+* **Ubuntu** – Ubuntu Server 16.04 LTS, 18.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel att ladda ned Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
+
+  Mer information om hur du aktiverar InfiniBand, hur du konfigurerar MPI, finns i [aktivera InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+
+
 ### <a name="cluster-configuration-options"></a>Konfigurationsalternativ för kluster
 
 Azure tillhandahåller flera alternativ för att skapa kluster av virtuella Linux HPC-datorer som kan kommunicera med RDMA-nätverk, inklusive: 
 
 * **Virtuella datorer** – distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen). Om du använder den klassiska distributionsmodellen kan du distribuera de virtuella datorerna i samma molntjänst. 
 
-* **VM-skalningsuppsättningar** – i en VM-skalningsuppsättning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
+* **VM-skalningsuppsättningar** – i en virtuell datorskalning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
 
 * **Azure CycleCloud** -skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) att köra MPI-jobb på Linux-noder.
 
@@ -72,14 +89,12 @@ Azure tillhandahåller flera alternativ för att skapa kluster av virtuella Linu
 
 * **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) har stöd för flera Linux-distributioner att köras på beräkningsnoder som distribuerats i RDMA-kompatibla virtuella Azure-datorer som hanteras av en huvudnod för Windows Server. Ett exempel på distribution finns i [skapa HPC Pack Linux RDMA-kluster i Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
-Beroende på ditt val av klusterhanteringsverktyg kan ytterligare konfiguration behövas för att köra MPI-jobb. I ett kluster av virtuella datorer, kan du behöva upprätta förtroende mellan noderna i klustret genom att generera SSH-nycklar eller genom att etablera lösenordslös SSH-förtroende.
 
-### <a name="network-topology-considerations"></a>Topologiöverväganden för nätverk
-* Eth1 är reserverad för nätverkstrafik för RDMA i RDMA-aktiverade virtuella Linux-datorer i Azure. Ändra inte Eth1 inställningar eller all information i konfigurationsfilen som refererar till det här nätverket. Eth0 är reserverad för vanliga Azure nätverkstrafik.
-
-* RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. 
-
-
+### <a name="network-considerations"></a>Nätverksöverväganden
+* Icke-SR-iov, är RDMA-aktiverade virtuella Linux-datorer i Azure, eth1 reserverad för RDMA-nätverkstrafik. Ändra inte eth1 inställningar eller all information i konfigurationsfilen som refererar till det här nätverket.
+* På SR-IOV-aktiverade virtuella datorer (HB och HC-serien), ib0 är reserverat för RDMA-nätverkstrafik.
+* RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. Kontrollera att virtuella nätverkets adressutrymme inte överlappar RDMA-nätverk för att köra MPI-program på distribuerade instanser i Azure-nätverk.
+* Beroende på ditt val av klusterhanteringsverktyg kan ytterligare konfiguration behövas för att köra MPI-jobb. I ett kluster av virtuella datorer, kan du behöva upprätta förtroende mellan noderna i klustret genom att generera SSH-nycklar eller genom att etablera lösenordslös SSH-inloggningar.
 
 
 ## <a name="other-sizes"></a>Andra storlekar
@@ -92,8 +107,5 @@ Beroende på ditt val av klusterhanteringsverktyg kan ytterligare konfiguration 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Mer information om hur du konfigurerar, optimera och skala [HPC-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) på Azure.
 - Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
-
-
-
-

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925676"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753771"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: Haveriberedskap för Azure till Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: Azure till Azure-haveriberedskap
 
 Den här artikeln innehåller svar på vanliga frågor om haveriberedskap för virtuella Azure-datorer till en annan Azure-region med hjälp av [Site Recovery](site-recovery-overview.md). 
 
@@ -137,13 +137,13 @@ Den första återställningspunkten som skapas har fullständig kopia. Alla efte
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Kan du öka lagringskostnaderna genom att öka kvarhållningsperioden för återställningspunkter?
 Ja. Om du ökar kvarhållningsperioden från 24 timmar till 72 timmar, sparar Site Recovery återställningspunkterna för en ytterligare 48 timmar. Extra tid tillkommer lagringskostnader. Till exempel om en enda återställningspunkt har deltaändringar på 10 GB och kostnaden per GB är $0.16 per månad, blir ytterligare avgifter $1.6 * 48 per månad.
 
-## <a name="multi-vm-consistency"></a>Multi-VM-konsekvens
+## <a name="multi-vm-consistency"></a>Konsekvens
 
 ### <a name="what-is-multi-vm-consistency"></a>Vad är konsekvens?
 Det innebär att se till att återställningspunkten är konsekvent för alla replikerade virtuella datorer.
 Site Recovery tillhandahåller ett alternativ för ”konsekvens”, som när du väljer det, skapar du en replikeringsgrupp för att replikera alla datorer tillsammans som ingår i gruppen.
 Alla virtuella datorer har delade kraschkonsekventa och appkonsekventa återställningspunkter när de har redundansväxlats.
-Gå igenom självstudiekursen och [aktivera konsekvens](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Gå igenom självstudiekursen och [aktivera konsekvens](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan jag redundans enskild virtuell dator i en replikeringsgrupp för Multi-VM-konsekvens?
 Genom att välja alternativet ”konsekvens”, du talar om att programmet har ett beroende på alla virtuella datorer i en grupp. Därför är redundans för virtuell dator inte tillåtet.

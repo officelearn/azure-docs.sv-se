@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025347"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755091"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -158,23 +158,7 @@ Du kan även ordna indexeraren ska köras regelbundet enligt ett schema. Gör de
 
 Den **intervall** parametern är obligatorisk. Intervallet avser tiden mellan början av två på varandra följande indexeraren körningar. Minsta tillåtna intervall är 5 minuter. den längsta är en dag. Den måste vara formaterad som en XSD-värde för ”dayTimeDuration” (en begränsad delmängd av en [varaktighet i ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värde). Mönstret för det här är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för varje kvart `PT2H` för varannan timme.
 
-Den valfria **startTime** anger när den schemalagda körningar ska påbörjas. Om det utelämnas används den aktuella UTC-tiden. Nu kan vara i det förflutna – om den första körningen har schemalagts som om indexeraren har körts sedan startTime oavbrutet.  
-
-Endast en körning av en indexerare kan köras i taget. Om en indexerare körs när körningen har schemalagts, är körningen skjutas upp tills nästa schemalagda tid.
-
-Vi tar ett exempel för att göra detta mer konkret. Anta att vi följande timschema som konfigurerats:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Här är vad som händer:
-
-1. Den första körningen av indexeraren startar vid eller runt den 1 mars 2015 klockan 12:00 UTC.
-2. Anta att den här körningen tar 20 minuter (eller när som helst mindre än 1 timme).
-3. Den andra körningen startar vid eller runt den 1 mars 2015 klockan 1:00
-4. Anta nu att den här körningen tar mer än en timme – till exempel 70: e minut – så att den är klar ungefär kl 02:10:00
-5. Det är nu kl, tid att starta tredje körningen. Men eftersom den andra körningen från 1 a.m. körs fortfarande, tredje körningen har hoppats över. Tredje körningen startar klockan 03
-
-Du kan lägga till, ändra eller ta bort ett schema för en befintlig indexerare med hjälp av en **PUT indexeraren** begäran.
+Läs mer om hur du definierar indexeraren scheman [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -297,7 +281,7 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd den sträng som
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografisk plats |Edm.GeographyPoint |Stöds endast geografi instanser av typen punkt med SRID 4326 (som är standard) |
-| ROWVERSION |Gäller inte |Rad-version kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
+| rowversion |Gäller inte |Rad-version kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
 | tid, tidsintervall, binary, varbinary, bild, xml, geometri, CLR-typer |Gäller inte |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733873"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754769"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder
 
@@ -25,7 +25,7 @@ Azure IoT Hub kan integreras med Azure Event Grid så att du kan skicka händels
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Event Grid-integration är tillgänglig för IoT-hubbar finns i regioner där Event Grid stöds. Alla enhetshändelser förutom telemetri enhetshändelser är allmänt tillgängliga. Enheten telemetri händelse finns i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china/china-welcome), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). Den senaste listan över regioner finns [en introduktion till Azure Event Grid](../event-grid/overview.md).
+Event Grid-integration är tillgänglig för IoT-hubbar finns i regioner där Event Grid stöds. Alla enhetshändelser förutom telemetri enhetshändelser är allmänt tillgängliga. Enheten telemetri händelse finns i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). Den senaste listan över regioner finns [en introduktion till Azure Event Grid](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Händelsetyper
 

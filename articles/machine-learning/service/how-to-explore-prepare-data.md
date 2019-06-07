@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146302"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753055"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Utforska och förbereda data med klassen datauppsättning (förhandsgranskning)
 
@@ -117,7 +117,7 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||Typ|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Ärendenummer|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -127,8 +127,8 @@ IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1
 Primär typ|FieldType.STRING|BEDRÄGERIFÖRSÖK|STÖLD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Beskrivning|FieldType.STRING|MUSENHETEN KONTROLL|ÖVER 500 USD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Platsbeskrivning|FieldType.STRING||SKOLAN, OFFENTLIG, ATT SKAPA|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Kvarhållande|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Inrikes|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Kvarhållande|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Inrikes|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
 Distrikt|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
@@ -148,7 +148,7 @@ I datauppsättningar anses null-värden, Nans och värden som innehåller inget 
 
 Från den datauppsättning profilen som genererats i föregående avsnitt, ser vi att `Latitude` och `Longitude` kolumner har en hög andel värden som saknas. I det här exemplet vi beräkna medelvärdet och sedan imputera saknas värden för dessa två kolumner.
 
-Först hämtar de senaste definitionerna av datauppsättningen med [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) och skära ned data med [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), så att vi endast visa de kolumner vi vill adress.
+Först hämtar de senaste definitionerna av datauppsättningen med [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) och skära ned data med [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), så att vi endast visa de kolumner vi vill adress.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -164,9 +164,9 @@ ds_def.head(3)
 
 ||ID|Kvarhållande| Latitud|Longitud|
 -|---------|-----|---------|----------|
-|0|10498554|Falskt|41.692834|-87.604319|
-|1|10516598|Falskt| 41.744107 |-87.664494|
-|2|10519196|Falskt| NaN|NaN|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
 
 Därefter kontrollerar du den `MEAN` värdet för en latitud kolumn med hjälp av den [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funktion. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Den `summary_columns` parametern accepterar den `SummaryColumnsValue` som anger kolumnnamnet på aktuella nya beräknade fältnamn och `SummaryFunction` att utföra.
 
@@ -181,7 +181,7 @@ lat_mean.head(1)
 
 ||Kvarhållande|Latitude_MEAN|
 --|-----|--------|
-|0|Falskt|41.780049|
+|0|False|41.780049|
 
 När vi Kontrollera värdena sedan imputera använda [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) att lära dig en fast uttryck som imputes kolumner med antingen ett beräknat `MIN`, `MAX`, `MEAN` värde, eller en `CUSTOM` värde. När `group_by_columns` har angetts värden som saknas kommer imputeras gruppvis med `MIN`, `MAX`, och `MEAN` beräknas per grupp.
 
@@ -217,9 +217,9 @@ I följande utdatatabell visas saknas latitud har tillräknade med den `MEAN` v�
 
 ||ID|Kvarhållande|Latitud|Longitud
 -|---------|-----|---------|----------
-0|10498554|Falskt|41.692834|-87.604319
-1|10516598|Falskt|41.744107|-87.664494
-2|10519196|Falskt|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 Uppdatera definitionen för datauppsättningen med, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) att hålla utförs transformeringssteg.
 
@@ -230,9 +230,9 @@ dataset.head(3)
 
 ||ID|Kvarhållande|Latitud|Longitud
 -|---------|-----|---------|----------
-0|10498554|Falskt|41.692834|-87.604319
-1|10516598|Falskt|41.744107|-87.664494
-2|10519196|Falskt|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 ## <a name="create-assertion-rules"></a>Skapa regler för försäkran
 
@@ -256,10 +256,10 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||Typ|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
-Kvarhållande|FieldType.BOOLEAN|Falskt|Falskt|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Kvarhållande|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Latitud|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Longitud|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
@@ -294,7 +294,7 @@ dataset.head(3)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO PARA|...
 
-Anta att du vill omvandla formatet datum och tid till 2016-04-04 10 PM - 12: 00 ”. I den [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, innehåller exempel på önskade utdata i den `example_data` parametern i det här formatet: *(ursprungliga utdata, önskad utdata)*.
+Anta att du vill omvandla formatet datum och tid till 2016-04-04 10 PM - 12: 00 ”. I den [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, innehåller exempel på önskade utdata i den `example_data` parametern i det här formatet: *(ursprungliga utdata, önskad utdata)* .
 
 Följande kod innehåller två exempel på önskade utdata (”2016-04-04 23:56:00” ”, 2016-04-04 10 PM-kl. 12”) och (”2016-04-15 17:00:00” ”, 2016-04-15 4 PM - 18: 00”)
 

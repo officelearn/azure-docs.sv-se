@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479947"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753977"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera dokument (till exempel PDF: er och Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar den grunderna för att installera och konfigurera en blob-indexeraren. Sedan den erbjuder en djupare förklaring av beteenden och scenarier som du kan stöta på.
@@ -116,6 +116,8 @@ Den här indexeraren ska köras varannan timme (schemaintervallet är inställd 
 
 Mer information om API: et för skapa indexerare finns [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+Läs mer om hur du definierar indexeraren scheman [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
+
 ## <a name="how-azure-search-indexes-blobs"></a>Hur Azure Search indexerar blobar
 
 Beroende på den [indexerarkonfiguration](#PartsOfBlobToIndex), blob-indexeraren kan enbart indexera lagringsmetadata (användbart om du bara bryr dig om metadata och behöver inte att indexera innehållet i BLOB-objekt), lagring och metadata eller både metadata och textinnehåll. Som standard extraherar indexeraren både metadata och innehåll.
@@ -139,7 +141,8 @@ Beroende på den [indexerarkonfiguration](#PartsOfBlobToIndex), blob-indexeraren
   * **metadata\_storage\_senaste\_ändras** (Edm.DateTimeOffset) - senast ändrad tidsstämpel för bloben. Den här tidsstämpeln använder Azure Search för att identifiera ändrade blobbar, för att undvika omindexering allt efter den inledande indexeringen.
   * **metadata\_storage\_storlek** (Edm.Int64) - blob-storlek i byte.
   * **metadata\_storage\_innehåll\_md5** (Edm.String) - MD5-hashen för blobbinnehåll, om det är tillgängligt.
-  * **metadata\_storage\_sas\_token** (Edm.String) – en tillfällig token som kan användas av [anpassade funktioner](cognitive-search-custom-skill-interface.md) att få rätt åtkomst till blob. Den här sas-token inte ska lagras för senare användning eftersom det kan gå ut.
+  * **metadata\_storage\_sas\_token** (Edm.String) – en tillfällig SAS-token som kan användas av [anpassade funktioner](cognitive-search-custom-skill-interface.md) att få åtkomst till bloben. Denna token bör inte lagras för senare användning eftersom det kan gå ut.
+
 * Metadataegenskaper som är specifika för varje dokumentformat extraheras till de fält som visas [här](#ContentSpecificMetadata).
 
 Du behöver inte definiera fält för alla ovanstående egenskaper i sökindexet – bara avbilda egenskaper som du behöver för ditt program.

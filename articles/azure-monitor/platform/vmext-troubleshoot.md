@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd5e0749116ef335887ea634b9d2790c63bf171d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341255"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751923"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Felsökning av Log Analytics VM-tillägget i Azure Monitor
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux-datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
@@ -45,16 +45,11 @@ Om den *Microsoft Monitoring Agent* VM-tillägget inte installera eller rapporte
    * Du kan också granska loggfilen för VM-agenten `C:\WindowsAzure\logs\WaAppAgent.log`
    * VM-agenten installeras inte om loggen inte finns.
    * [Installera Azure VM-agenten](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Bekräfta Microsoft Monitoring Agent-tillägget pulsslag aktiviteten körs med följande steg:
-   * Logga in på den virtuella datorn
-   * Öppna Schemaläggaren och Sök efter den `update_azureoperationalinsight_agent_heartbeat` uppgift
-   * Bekräfta aktiviteten är aktiverad och körs minuten
-   * Kontrollera loggfilen pulsslag i `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Granska loggfilerna i Microsoft Monitoring Agent-VM-tillägg `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
-4. Se till att den virtuella datorn kan köra PowerShell-skript
-5. Kontrollera att behörigheterna för C:\Windows\temp inte har ändrats
-6. Visa status för Microsoft Monitoring Agent genom att skriva följande i en upphöjd PowerShell-kommandotolk på den virtuella datorn `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Granska loggfilerna Microsoft Monitoring Agent i `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+2. Granska loggfilerna i Microsoft Monitoring Agent-VM-tillägg `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+3. Se till att den virtuella datorn kan köra PowerShell-skript
+4. Kontrollera att behörigheterna för C:\Windows\temp inte har ändrats
+5. Visa status för Microsoft Monitoring Agent genom att skriva följande i en upphöjd PowerShell-kommandotolk på den virtuella datorn `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Granska loggfilerna Microsoft Monitoring Agent i `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Mer information finns i [felsökning av Windows-tillägg](../../virtual-machines/extensions/oms-windows.md).
 

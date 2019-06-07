@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236749"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754999"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -62,7 +62,11 @@ Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst 
 
 ### <a name="block-blob-storage-accounts"></a>Block blob storage-konton
 
-Block blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar eller tilläggsblobar. Block blob storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
+Block blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar. Det här lagringskontot skriver stöder blockblobar och lägga till objekt, men inte sidblobar, tabeller eller köer.
+
+Jämfört med gpv2 och blob storage-konton, ger block blob storage-konton låg och konsekvent svarstider och högre transaktionspriser.
+
+Block blob storage-konton stöder för närvarande inte lagringsnivåer för frekvent, lågfrekvent eller arkivnivå åtkomst.
 
 ### <a name="filestorage-preview-storage-accounts"></a>Lagringskonton för FileStorage (förhandsversion)
 
@@ -75,12 +79,16 @@ Tänk på dessa regler när du namnger lagringskontot:
 - Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
 - Namnet på ditt lagringskonto måste vara unikt i Azure. Det får inte finnas två lagringskonton med samma namn.
 
-## <a name="general-purpose-performance-tiers"></a>Allmänna prestandanivåer
+## <a name="performance-tiers"></a>Prestandanivåer
 
 Allmänna lagringskonton kan konfigureras för något av följande prestandanivåer:
 
 * En standard prestandanivån för att lagra blobar, filer, tabeller, köer och Azure-datordiskar.
 * En premium-prestandanivån för att lagra endast ohanterade virtuella diskar.
+
+Block blob storage-konton ger en premium-prestandanivån för att lagra blockblobbar och tilläggsblobbar.
+
+FileStorage (förhandsversion) storage-konton har en premium-prestandanivån för Azure-filresurser.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Åtkomstnivåerna för block blob-data
 
@@ -88,9 +96,9 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block blob-da
 
 Tillgängliga åtkomstnivåer är:
 
-* Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är högre. Nya lagringskonton som skapas i frekvent nivå som standard.
+* Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är högre. Nya lagringskonton som skapas i den frekventa nivån som standard.
 * Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara dyrare än att komma åt data på frekvent lagringsnivå.
-* Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än att komma åt data i frekvent eller lågfrekvent nivå.
+* Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än åtkomst till data i nivåer för frekvent eller lågfrekvent.
 
 Om det finns en ändring i användningsmönstret för dina data, kan du växla mellan de olika nivåerna när som helst. Läs mer om åtkomstnivåerna [Azure Blob storage: frekvent, lågfrekvent och arkivnivå åtkomst](../blobs/storage-blob-storage-tiers.md).
 
@@ -119,7 +127,7 @@ Exempel: om din Allmänt lagringskonto heter *mystorageaccount*, så är standar
 * Azure Files: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Ett Blob storage-konto exponerar endast Blob service-slutpunkt.
+> Blockblob- och blob storage-konton exponerar endast blob service-slutpunkt.
 
 URL: en för att komma åt ett objekt i ett lagringskonto skapas genom att lägga till att objektets plats i lagringskontot till slutpunkten. En blobbadress kan till exempel ha följande format: http://*mittlagringskonto*.blob.core.windows.net/*minbehållare*/*minblobb*.
 
@@ -165,7 +173,7 @@ Läs mer om Azure Storage REST API, [Azure Storage Services REST API-referens](h
 > [!IMPORTANT]
 > Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Azure Import/Export-tjänsten
+### <a name="azure-importexport-service"></a>Tjänsten Azure Import/Export
 
 Om du har en stor mängd data som ska importeras till ditt lagringskonto kan du tjänsten Azure Import/Export. Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att leverera diskenheter till en Azure-datacenter. 
 
@@ -177,5 +185,6 @@ Import/Export-tjänsten kan också användas för att överföra data från Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs hur du skapar ett Azure storage-konto i [skapa ett lagringskonto](storage-quickstart-create-account.md).
+* Läs hur du skapar ett allmänt Azure storage-konto i [skapa ett lagringskonto](storage-quickstart-create-account.md).
+* Läs hur du skapar ett block blob storage-konto i [Skapa block blob storage-kontot](../blobs/storage-blob-create-account-block-blob.md).
 * För att hantera eller ta bort ett befintligt lagringskonto, se [hantera Azure storage-konton](storage-account-manage.md).

@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333624"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754471"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
 När du använder Azure Container Registry (ACR) med Azure Kubernetes Service (AKS), måste en autentiseringsmetod upprättas. Den här artikeln beskriver de rekommenderade konfigurationerna för autentisering mellan dessa två Azure-tjänster.
 
-Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och du kan få åtkomst till klustret med den `kubectl` kommandoradsklient. 
+Du behöver bara konfigurera en av dessa autentiseringsmetoder. Det vanligaste sättet är att [bevilja åtkomst med AKS tjänstens huvudnamn](#grant-aks-access-to-acr). Om du har särskilda behov kan du eventuellt [bevilja åtkomst med hjälp av Kubernetes hemligheter](#access-with-kubernetes-secret).
+
+Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och du kan få åtkomst till klustret med den `kubectl` kommandoradsklient.
 
 ## <a name="grant-aks-access-to-acr"></a>Grant AKS åtkomst till ACR.
 

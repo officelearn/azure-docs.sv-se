@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 881d62cd7b7b9d4434a807a2aab62b75e9a8e97b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937784"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751664"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Översikt över Azure Marketplace och AppSource
 
@@ -21,12 +21,15 @@ Det här dokumentet ger en överblick över vad som kommer härnäst för Azure 
 
 Vi tar gärna emot dina förslag! Delta i konversationen den [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) att hämta de senaste uppdateringarna på nya funktioner, program och händelser.
 
+
 ## <a name="roadmap"></a>Översikt
 ![](./media/marketplace-publishers-guide/roadmap.png)
+
 
 ## <a name="recent-releases"></a>Har släppts nyligen
 
 När en funktion är live kan tas den bort från översikten. Funktioner som har lagts till i Marketplace innehåller följande.
+
 
 ### <a name="for-march-2019"></a>För mars 2019
 
@@ -34,12 +37,11 @@ När en funktion är live kan tas den bort från översikten. Funktioner som har
 * [Publicera erbjudanden till CSP-kanal (ISV)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
 * [Återförsäljning av Marketplace-erbjudanden (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
 * [Standardavtal](https://docs.microsoft.com/azure/marketplace/standard-contract)
-* [SaaS betjäna API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis)
+* [SaaS betjäna API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis)
 * [Marketplace-regioner och valutor](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Säljaren insikter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 Gå till den [Azure Marketplace och AppSource Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sidan.
-
----

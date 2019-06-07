@@ -3,7 +3,7 @@ title: Azure Windows VM-storlekar – HPC | Microsoft Docs
 description: Visar en lista över de olika storlekarna som är tillgängliga för Windows-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck
-ms.openlocfilehash: 58d4ced041b6f5cf767b45191e28a4b395f584b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: jonbeck;amverma
+ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540520"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755312"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Högpresterande storlekar på virtuella datorer
 
@@ -35,20 +35,29 @@ ms.locfileid: "60540520"
 
 * **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
 
-  Stöds MPI-implementeringar använda Microsoft Network Direct-gränssnittet för att kommunicera mellan instanser. 
+  På SR IOV aktiverade virtuella datorer Använd stöds MPI-implementeringar gränssnittet Microsoft Network Direct (IV) för att kommunicera mellan instanser. SR-IOV aktiverade VM-storlekar (HB och HC-serien) på Azure Tillåt nästan vilken version av MPI som ska användas med Mellanox OFED. 
 
-* **RDMA nätverksadressutrymme** – The RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. Kontrollera att virtuella nätverkets adressutrymme inte överlappar RDMA-nätverk för att köra MPI-program på distribuerade instanser i Azure-nätverk.
+* **InfiniBandDriverWindows VM-tillägget** – på RDMA-kompatibla virtuella datorer, lägga till tillägget InfiniBandDriverWindows om du vill aktivera InfiniBand. Den här Windows VM-tillägget installeras Windows Network Direct drivrutiner (på SR IOV virtuella datorer) eller Mellanox OFED drivrutiner (på SR-IOV virtuella datorer) för RDMA-anslutning.
+I vissa distributioner av A8 och A9-instanser läggs tillägget HpcVmDrivers automatiskt. Observera att HpcVmDrivers VM-tillägget används längre; Det kommer inte att uppdateras. Om du vill lägga till VM-tillägget till en virtuell dator, kan du använda [Azure PowerShell](/powershell/azure/overview) cmdletar. 
 
-* **HpcVmDrivers VM-tillägget** – på RDMA-kompatibla virtuella datorer, lägga till tillägget HpcVmDrivers för att installera drivrutiner för Windows-nätverk för RDMA-anslutning. (I vissa distributioner av A8 och A9-instanserna HpcVmDrivers tillägget läggs automatiskt.) Om du vill lägga till VM-tillägget till en virtuell dator, kan du använda [Azure PowerShell](/powershell/azure/overview) cmdletar. 
-
-  
-  Följande kommando installerar det senaste version 1.1 HpcVMDrivers tillägget på en befintlig RDMA-kompatibla virtuell dator med namnet *myVM* distribuerat i resursgruppen med namnet *myResourceGroup* i den  *Västra USA* region:
+  Följande kommando installerar det senaste version 1.0 InfiniBandDriverWindows tillägget på en befintlig RDMA-kompatibla virtuell dator med namnet *myVM* distribuerat i resursgruppen med namnet *myResourceGroup* i  *Västra USA* region:
 
   ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  ```
+  VM-tillägg kan tas med i Azure Resource Manager-mallar för enkel distribution, med följande JSON-element:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverWindows",
+  "typeHandlerVersion": "1.0",
+  } 
   ```
   
   Mer information finns i [virtuella datorer, tillägg och funktioner](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributionsmodellen](classic/manage-extensions.md).
+
+* **RDMA nätverksadressutrymme** – The RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. Kontrollera att virtuella nätverkets adressutrymme inte överlappar RDMA-nätverk för att köra MPI-program på distribuerade instanser i Azure-nätverk.
+
 
 ### <a name="cluster-configuration-options"></a>Konfigurationsalternativ för kluster
 
@@ -56,7 +65,7 @@ Azure tillhandahåller flera alternativ för att skapa kluster i Windows HPC-dat
 
 * **Virtuella datorer** – distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen). Om du använder den klassiska distributionsmodellen kan du distribuera de virtuella datorerna i samma molntjänst. 
 
-* **VM-skalningsuppsättningar** – i en VM-skalningsuppsättning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
+* **VM-skalningsuppsättningar** – i en virtuell datorskalning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
 
 * **Azure CycleCloud** -skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) att köra MPI-jobb på Windows-noder.
 
@@ -79,7 +88,3 @@ Azure tillhandahåller flera alternativ för att skapa kluster i Windows HPC-dat
 - Om du vill använda beräkningsintensiva instanser när du kör MPI-program med Azure Batch, se [använda aktiviteter med flera instanser för att köra program med Message Passing Interface (MPI) i Azure Batch](../../batch/batch-mpi.md).
 
 - Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
-
-
-
-

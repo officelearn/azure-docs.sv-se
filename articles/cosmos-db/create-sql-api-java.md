@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: c97b974919c5aec4c902867604d207cda11e8594
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979144"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754307"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa ett Java-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -26,7 +26,7 @@ ms.locfileid: "65979144"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Den här självstudiekursen visar hur du skapar och hanterar resurser för ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto med hjälp av ett Java-program. Först skapar du ett Azure Cosmos DB SQL API-konto med hjälp av Azure-portalen, skapar en Java-app med hjälp av [SQL Java SDK](sql-api-sdk-async-java.md) och lägger till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabbstarten kommer du att kunna skapa och ändra Cosmos DB-databaser eller samlingar i antingen användargränssnittet eller programmatiskt, beroende på vad du föredrar.
+Den här självstudiekursen visar hur du skapar och hanterar resurser för ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto med hjälp av ett Java-program. Först skapar du ett Azure Cosmos DB SQL API-konto med hjälp av Azure-portalen, skapar en Java-app med hjälp av [SQL Java SDK](sql-api-sdk-async-java.md) och lägger till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabbstarten kommer du kunna skapa och ändra Cosmos DB-databaser, behållare i antingen Användargränssnittet eller programmässigt, beroende på dina inställningar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -48,7 +48,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-API-konto m
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Lägga till en samling
+## <a name="add-a-container"></a>Lägg till en behållare
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -75,7 +75,7 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en SQL API-app från Gi
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Köra appen](#run-the-app). 
 
-* `AsyncDocumentClient`-initiering. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) ger logisk representation på klientsidan för Azure Cosmos DB-databastjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
+* `AsyncDocumentClient`-initiering. Den [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) ger klientsidan logisk representation för tjänsten Azure Cosmos-databas. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -204,7 +204,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig att skapa ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med datautforskaren och att köra en app för att göra samma sak programmässigt. Du kan nu importera ytterligare data till Azure Cosmos DB-samlingen. 
+I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos-konto, en dokumentdatabas och en behållare med Datautforskaren och kör en app för att göra samma sak programmässigt. Du kan nu importera ytterligare data till din Azure Cosmos-behållare. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

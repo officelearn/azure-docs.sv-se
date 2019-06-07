@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239861"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751793"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en notebook-fil
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239861"
 
      ![Nya projekt popup-fönster med ifyllt information](media/quickstarts/new-project-popup.png)
 
-1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en anteckningsbok i projektet genom att välja den **+ ny** listrutan (som kan visas bara **+**), sedan välja **Notebook**:
+1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en anteckningsbok i projektet genom att välja den **+ ny** listrutan (som kan visas bara **+** ), sedan välja **Notebook**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Ett nytt tomt projekt och lägga till notebook-kommando")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. I den **Skapa ny anteckningsbok** popup-fönstret som visas, ange ett filnamn för din bärbara dator, till exempel *HelloWorldInPython.ipynb* (*.ipynb* innebär v Ironpythonu (Jupyter)-anteckningsbok ), och välj **Python 3.6** för språket (kallas även den *kernel*):
+1. I den **Skapa ny anteckningsbok** popup-fönstret som visas, ange ett filnamn för din bärbara dator, till exempel *HelloWorldInPython.ipynb* ( *.ipynb* innebär v Ironpythonu (Jupyter)-anteckningsbok ), och välj **Python 3.6** för språket (kallas även den *kernel*):
 
     ![Skapa en ny anteckningsbok popup-fönstret](media/quickstarts/new-notebook-popup.png)
 

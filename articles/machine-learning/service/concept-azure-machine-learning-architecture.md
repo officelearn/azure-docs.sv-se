@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480051"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753186"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -27,7 +27,7 @@ Läs mer om arkitekturen, begrepp och arbetsflöde för Azure Machine Learning-t
 
 Machine learning-arbetsflöde Allmänt följer den här sekvensen:
 
-1. Utveckla maskininlärning utbildning skript i **Python**.
+1. Utveckla maskininlärning utbildning skript i **Python** eller med det visuella gränssnittet.
 1. Skapa och konfigurera en **beräkningsmålet**.
 1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Posterna i körningen sparas som **körs** i den **arbetsytan** och grupperade under **experiment**.
 1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
@@ -107,34 +107,7 @@ Använda Python SDK-API eller Azure Machine Learning CLI för att lagra och häm
 
 ## <a name="compute-target"></a>Beräkningsmål
 
-Beräkningsmål är beräkningsresursen som används för att köra skriptet utbildning eller vara värd för tjänstdistributionen av. Beräkningsmål som stöds är:
-
-| Beräkningsmål | Utbildning | Distribution |
-| ---- |:----:|:----:|
-| Den lokala datorn | ✓ | &nbsp; |
-| Azure Machine Learning-beräkning | ✓ | &nbsp; |
-| En virtuell Linux-dator i Azure</br>(till exempel Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| Apache Spark för HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Fältet-programmable gate array FPGA) | &nbsp; | ✓ |
-
-Beräkningsmål är kopplade till en arbetsyta. Compute mål än den lokala datorn som delas av användare i arbetsytan.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Hanterade och ohanterade beräkningsmål
-
-* **Hanterade**: Beräkningsmål som skapas och hanteras av Azure Machine Learning-tjänsten. Dessa beräkningsalternativ mål är optimerade för machine learning-arbetsbelastningar. Azure Machine Learning-instanser är den enda hanterade beräkningsmål från och med 4 December 2018. Ytterligare hanterade beräkningsmål kan läggas till i framtiden.
-
-    Du kan skapa machine learning beräkningsinstanser direkt via arbetsytan med hjälp av Azure-portalen, Azure Machine Learning SDK eller Azure CLI. Alla andra beräkningsmål måste skapas utanför arbetsytan och sedan ansluts till den.
-
-* **Ohanterade**: Beräkningsmål som är *inte* hanteras av Azure Machine Learning-tjänsten. Du kan behöva skapa dem utanför Azure Machine Learning och sedan koppla dem till din arbetsyta före användning. Ohanterade beräkningsmål kan kräva ytterligare steg för att underhålla eller förbättra prestanda för arbetsbelastningar för machine learning.
-
-Information om att välja beräkningsmål för träning, finns i [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md).
-
-Information om att välja beräkningsmål för distribution finns i den [distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+En [beräkningsmålet](concept-compute-target.md) kan du ange beräkningsresursen där du kör dina utbildningsskript eller värden tjänstdistributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräkningsresurs. Beräkningsmål gör det enkelt att ändra din beräkningsmiljö utan att ändra koden. 
 
 ## <a name="training-script"></a>Inlärningsskript
 

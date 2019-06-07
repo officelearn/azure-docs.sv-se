@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523098"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753937"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-kryptering med Kundhanterade nycklar i Azure Key Vault
 
@@ -227,7 +227,7 @@ Skapa ett AAD-program i portalen:
 
 1. [Skapa ett program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Hämta program-ID och autentiseringsnyckel nyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) som de som måste utföras för att skapa ett index som är krypterade. Du måste ange värden är **program-ID** och **autentiseringsnyckeln**.
+1. [Hämta program-ID och autentiseringsnyckel nyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) som de som måste utföras för att skapa ett index som är krypterade. Du måste ange värden är **program-ID** och **autentiseringsnyckeln**.
 
 >[!Important]
 > När du beslutar att använda ett AAD-program för autentisering i stället för en hanterad identitet ska du tänka på som Azure Search inte har behörighet att hantera AAD-programmet för din räkning och det är upp till dig att hantera din AAD-programmet, till exempel periodiska rotation av autentiseringsnyckeln program.

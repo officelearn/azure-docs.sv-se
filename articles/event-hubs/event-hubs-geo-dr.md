@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305014"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754760"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
@@ -98,7 +98,7 @@ Observera följande överväganden att tänka på med den här versionen:
  
 2. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, schemalagda meddelanden och nya dubbletter ska fungera. 
 
-3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
+3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) minst en gång. 
 
 4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut.
 

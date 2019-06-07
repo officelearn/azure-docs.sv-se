@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522841"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753996"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med en Azure Search-indexerare
 
@@ -283,6 +283,8 @@ Den här indexeraren körs varannan timme (schemaintervallet är inställd på �
 
 Mer information om API: et för skapa indexerare finns [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+Läs mer om hur du definierar indexeraren scheman [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
+
 ## <a name="use-net"></a>Använda .NET
 
 Allmänt tillgänglig .NET SDK har fullständig paritet med den allmänt tillgängliga REST-API. Vi rekommenderar att du läser avsnittet ovan REST API för att lära dig begrepp, arbetsflöde och krav. Du kan referera till följande .NET API-referensdokumentation att implementera en JSON-indexerare i förvaltad kod.
@@ -363,7 +365,7 @@ I följande exempel skapas en datakälla med en princip för mjuk borttagning:
 
 ## <a name="NextSteps"></a>Nästa steg
 
-Gratulerar! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Search med en indexerare.
+Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Search med en indexerare.
 
 * Läs mer om Azure Cosmos DB i den [service-sidan för Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Läs mer om Azure Search i den [söktjänstsidan](https://azure.microsoft.com/services/search/).

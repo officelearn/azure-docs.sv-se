@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979068"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754254"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -42,7 +42,7 @@ Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Lägga till en samling
+## <a name="add-a-container"></a>Lägg till en behållare
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -85,7 +85,7 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Gå till [Azure-portalen](https://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
+1. I den [Azure-portalen](https://portal.azure.com/), i ditt Azure Cosmos-konto i det vänstra navigeringsfönstret klickar du på **nycklar**. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
@@ -216,7 +216,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
+I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapa en behållare med Datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB för användning med SQL API:t](import-data.md)

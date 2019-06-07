@@ -4,14 +4,14 @@ description: Visar en lista över vilka typer av Azure-resurs som kan flyttas ti
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872559"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752348"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 Den här artikeln visar om en Azure-resurstypen stöder flyttåtgärden. Även om en resurstyp stöder flyttåtgärden, kan det finnas villkor som hindrar resursen flyttas. Mer information om villkor som påverkar flyttåtgärder finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
@@ -36,7 +36,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -92,8 +92,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | ------------- | ----------- | ---------- |
 | Kluster | Nej | Nej |
 | fileservers | Nej | Nej |
-| jobb | Nej | Nej |
-| arbetsytor | Nej | Nej |
+| Jobb | Nej | Nej |
+| Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -169,12 +169,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | gallerier/bilder/versioner | Nej | Nej |
 | hostgroups | Nej | Nej |
 | hostgroups/värdar | Nej | Nej |
-| bilder | Ja | Ja |
+| images | Ja | Ja |
 | proximityplacementgroups | Nej | Nej |
 | restorepointcollections | Nej | Nej |
 | sharedvmimages | Nej | Nej |
 | sharedvmimages/versions | Nej | Nej |
-| ögonblicksbilder | Ja | Ja |
+| Ögonblicksbilder | Ja | Ja |
 | virtuella datorer | Ja | Ja |
 | virtuella datorer /-tillägg | Ja | Ja |
 | virtualmachinescalesets | Ja | Ja |
@@ -228,7 +228,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| jobb | Nej | Nej |
+| Jobb | Nej | Nej |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -238,7 +238,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| arbetsytor | Nej | Nej |
+| Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -254,7 +254,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| paket | Nej | Nej |
+| Paket | Nej | Nej |
 | Planer | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -288,18 +288,18 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
 | servergroups | Nej | Nej |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -408,7 +408,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| jobb | Ja | Ja |
+| Jobb | Ja | Ja |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -423,7 +423,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | metricalerts | Nej | Nej |
 | notificationgroups | Nej | Nej |
 | notificationrules | Nej | Nej |
-| scheduledqueryrules | Nej | Nej |
+| scheduledqueryrules | Ja | Ja |
 | webbtester | Ja | Ja |
 | arbetsböcker | Ja | Ja |
 
@@ -436,7 +436,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Ja | Ja |
-| graf | Ja | Ja |
+| graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -478,7 +478,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | ------------- | ----------- | ---------- |
 | commitmentplans | Ja | Ja |
 | WebServices | Ja | Nej |
-| arbetsytor | Ja | Ja |
+| Arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -508,7 +508,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| arbetsytor | Nej | Nej |
+| Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -556,7 +556,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | applicationsecuritygroups | Ja | Ja |
 | azurefirewalls | Ja | Ja |
 | bastionhosts | Nej | Nej |
-| anslutningar | Ja | Ja |
+| Anslutningar | Ja | Ja |
 | ddoscustompolicies | Ja | Ja |
 | ddosprotectionplans | Nej | Nej |
 | dnszones | Ja | Ja |
@@ -564,7 +564,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | expressroutecrossconnections | Nej | Nej |
 | expressroutegateways | Nej | Nej |
 | expressrouteports | Nej | Nej |
-| ytterdörrar | Ja | Ja |
+| frontdoors | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
 | loadbalancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
@@ -607,19 +607,19 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| arbetsytor | Ja | Ja |
+| Arbetsytor | Ja | Ja |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Ja | Ja |
 | lösningar | Ja | Ja |
-| visningar | Ja | Ja |
+| Vyer | Ja | Ja |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| peeringar | Nej | Nej |
+| peer-kopplingar | Nej | Nej |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -698,7 +698,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | edgeclusters | Nej | Nej |
 | Nätverk | Nej | Nej |
 | secretstores | Nej | Nej |
-| volymer | Nej | Nej |
+| volumes | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -707,8 +707,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | containergroups | Nej | Nej |
 | Gateways | Ja | Ja |
 | Nätverk | Ja | Ja |
-| hemligheter | Ja | Ja |
-| volymer | Ja | Ja |
+| secrets | Ja | Ja |
+| volumes | Ja | Ja |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -735,7 +735,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | instancepools | Ja | Ja |
 | managedinstances | Ja | Ja |
 | managedinstances/databaser | Ja | Ja |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | servrar/databaser | Ja | Ja |
 | servrar/elasticpools | Ja | Ja |
 | virtualclusters | Ja | Ja |
@@ -799,7 +799,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Nej | Nej |
-| resurser | Nej | Nej |
+| Resurser | Nej | Nej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -835,9 +835,9 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| certifikat | Nej | Ja |
+| Certifikat | Nej | Ja |
 | connectiongateways | Ja | Ja |
-| anslutningar | Ja | Ja |
+| Anslutningar | Ja | Ja |
 | customapis | Ja | Ja |
 | hostingenvironments | Nej | Nej |
 | servergrupper | Ja | Ja |
@@ -855,7 +855,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | ------------- | ----------- | ---------- |
 | applicationgroups | Nej | Nej |
 | hostpools | Nej | Nej |
-| arbetsytor | Nej | Nej |
+| Arbetsytor | Nej | Nej |
 
 ## <a name="third-party-services"></a>Tjänster från tredje part
 

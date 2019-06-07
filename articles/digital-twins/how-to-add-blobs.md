@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967044"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754482"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
@@ -36,7 +36,7 @@ Förutom **Content-Type** och **Content-Disposition**, Azure Digital Twins blob 
 
 Det finns fyra huvudsakliga JSON-scheman:
 
-![JSON-scheman][1]
+[![JSON-scheman](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
 
 JSON-blob-metadata överensstämmer med följande modell:
 
@@ -51,16 +51,16 @@ JSON-blob-metadata överensstämmer med följande modell:
   }
 ```
 
-| Attribut | Type | Beskrivning |
+| Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
 | **name** |String | Ett mänskliga eget namn för blobben |
 | **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **subtype** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **description** | String | Anpassade beskrivning av blob |
-| **sharing** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **Beskrivning** | String | Anpassade beskrivning av blob |
+| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.
 
@@ -108,19 +108,19 @@ Individuellt returnerade blobar överensstämmer med följande JSON-schemat:
 }
 ```
 
-| Attribut | Type | Beskrivning |
+| Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| **id** | String | Den unika identifieraren för bloben |
+| **ID** | String | Den unika identifieraren för bloben |
 | **name** |String | Ett mänskliga eget namn för blobben |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
 | **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **subtype** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **sharing** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
-| **description** | String | Anpassade beskrivning av blob |
+| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **Beskrivning** | String | Anpassade beskrivning av blob |
 | **contentInfos** | Matris | Anger Ostrukturerade metadatainformation inklusive version |
-| **fullName** | String | Det fullständiga namnet på bloben |
+| **FullName** | String | Det fullständiga namnet på bloben |
 | **spacePaths** | String | Sökvägen utrymme |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Till sist [cURL](https://curl.haxx.se/) användare kan göra anrop för multipart formulär på samma sätt:
 
-![Enheten blobar][5]
+[![Enheten blobar](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ I följande avsnitt beskrivs core blob-relaterade API-slutpunkter och deras funk
 
 Du kan koppla blobar till enheter. Följande bild visar Swagger-referensdokumentation för dina Management-API: er. Den anger alla nödvändiga parametrarna att skicka till dem och enhetsrelaterade API-slutpunkter för blob-användning.
 
-![Enheten blobar][2]
+[![Enheten blobar](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
 
 Till exempel om du vill uppdatera eller skapa en blob och bifoga blob till en enhet, gör du en autentiserad HTTP PATCH-begäran till:
 
@@ -229,7 +229,7 @@ Lyckade begäranden som returnerar ett JSON-objekt som [ovan](#blobModel).
 
 Du kan även bifoga blobbar i blanksteg. Följande bild visar en lista över alla utrymme API-slutpunkter ansvarar för att hantera blobar. Den visar också eventuella sökvägsparametrar att skicka till dessa slutpunkter.
 
-![Utrymme blobar][3]
+[![Utrymme blobar](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
 
 Till exempel för att returnera en blob som är kopplat till ett utrymme, gör du en autentiserad HTTP GET-begäran till:
 
@@ -249,7 +249,7 @@ En PATCH-begäran till samma slutpunkt uppdaterar metadata beskrivningar och ska
 
 Du kan koppla blobar till användaren modeller (t.ex, för att associera en profilbild). Följande bild visar relevanta användare API-slutpunkter och eventuella nödvändiga sökvägen-parametrar som `id`:
 
-![Användaren blobar][4]
+[![Användaren blobar](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
 
 Till exempel om du vill hämta en blob som är kopplade till en användare, gör du en autentiserad HTTP GET-begäran med alla nödvändiga formulärdata till:
 
@@ -288,10 +288,3 @@ Kontrollera också att varje multipart segment har en motsvarande **Content-Type
 - Mer information om Swagger-referensdokumentation för Azure Digital Twins [Använd Azure Digital Twins Swagger](how-to-use-swagger.md).
 
 - Om du vill ladda upp blobar via Postman, läsa [så här konfigurerar du Postman](./how-to-configure-postman.md).
-
-<!-- Images -->
-[1]: media/how-to-add-blobs/blob-models.PNG
-[2]: media/how-to-add-blobs/blobs-device-api.PNG
-[3]: media/how-to-add-blobs/blobs-space-api.PNG
-[4]: media/how-to-add-blobs/blobs-users-api.PNG
-[5]: media/how-to-add-blobs/curl.PNG

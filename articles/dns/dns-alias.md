@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692845"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754227"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -43,9 +43,9 @@ Det finns några vanliga scenarier för Alias poster.
 
 Ett vanligt problem med traditionella DNS-poster överflödiga poster. Till exempel DNS-poster som inte har uppdaterats för att återspegla ändringar till IP-adresser. Problemet uppstår särskilt med A/AAAA- eller CNAME posttyper.
 
-Med en traditionell DNS-zon post, om det finns inte längre mål-IP- eller CNAME-post, måste DNS-posten som associeras med den uppdateras manuellt. I vissa organisationer kan en manuell uppdatering inte ske i tid på grund av problem med processen eller på grund av åtskillnad av roller och associerade behörighetsnivåer. En roll kan till exempel ha behörighet att ta bort en CNAME-post eller IP-adress som hör till ett program. Men som har inte tillräcklig behörighet att uppdatera DNS-post som pekar på dessa mål. En fördröjning vid uppdatering av DNS-posten kan eventuellt medföra ett avbrott för användare.
+Med en traditionell DNS-zon post, om det finns inte längre mål-IP- eller CNAME-post, måste DNS-posten som associeras med den uppdateras manuellt. I vissa organisationer kan en manuell uppdatering inte ske i tid på grund av processproblem eller åtskillnad av roller och associerade behörighetsnivåer. En roll kan till exempel ha behörighet att ta bort en CNAME-post eller IP-adress som hör till ett program. Men som har inte tillräcklig behörighet att uppdatera DNS-post som pekar på dessa mål. En fördröjning vid uppdatering av DNS-posten kan eventuellt medföra ett avbrott för användare.
 
-Alias-poster förhindrar överflödiga referenser nära att koppla livscykeln för en DNS-post med en Azure-resurs. Anta exempelvis att en DNS-post som är kvalificerad som ett aliaspost så att den pekar till en offentlig IP-adress eller en Traffic Manager-profil. Om de underliggande resurserna tas bort tas DNS-aliaspost bort samtidigt.
+Alias-poster förhindrar överflödiga referenser nära att koppla livscykeln för en DNS-post med en Azure-resurs. Anta exempelvis att en DNS-post som är kvalificerad som ett aliaspost så att den pekar till en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-aliaspost en tom postuppsättning. Den inte längre refererar till borttagna resursen.
 
 ### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Uppdatera DNS-postuppsättning automatiskt när programmet IP-adresser ändras
 
@@ -54,9 +54,9 @@ Det här scenariot liknar föregående. Kanske ett program har flyttats, eller d
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Värdprogram för Utjämning av nätverksbelastning i basdomänen
 
 Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Till exempel om domänen är contoso.com; Du kan skapa CNAME-poster för somelable.contoso.com; men du kan inte skapa CNAME-post för contoso.com själva.
-Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom du använder en Traffic Manager-profil kräver en CNAME-post skapas, går det inte att den pekar på Traffic Manager-profilen från zonens apex.
+Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom du använder en Traffic Manager-profil kräver skapandet av en CNAME-post, är det inte går att den pekar på Traffic Manager-profilen från zonens apex.
 
-Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster, alias poster kan skapas i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare kan peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.
+Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster skapas alias poster i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.
 
 Till exempel contoso.com och www\.contoso.com kan peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
 

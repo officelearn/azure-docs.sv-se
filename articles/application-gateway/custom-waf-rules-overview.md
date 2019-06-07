@@ -7,18 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 62259749e04d66d78206a0bba77ce88f2c08c82f
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689008"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752025"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>Anpassade regler för brandväggen för webbaserade program
-
-> [!IMPORTANT]
-> Azure Application Gateway WAF anpassade regler är för närvarande en offentlig förhandsversion. **Anpassade regler är endast tillgängliga för SKU: N WAF_v2**.
-> Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Application Gateway brandväggen för webbaserade program (WAF) levereras med en förkonfigurerad, hanterad plattform regeluppsättning som ger skydd från många olika typer av attacker. Dessa attacker är mellan webbplatser, SQL-inmatning och andra. Om du är en WAF-administratör kan du skriva egen regeluppsättning att utöka den grundläggande regeln (CRS) regler. Reglerna kan blockera eller tillåta begärda trafik baserat på matchar villkoren.
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257969"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754742"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -288,7 +288,7 @@ Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-k
 
 ## <a name="expressroute-local"></a>ExpressRoute lokal
 ### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute lokal?
-Lokal ExpressRoute är en SKU för ExpressRoute-krets. En viktig funktion i lokala är att en lokal krets på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
+ExpressRoute lokala är en SKU för ExpressRoute-krets som är tillgängliga på [ExpressRoute Direct](expressroute-erdirect-about.md). En viktig funktion i lokala är att en lokal krets på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med lokala ExpressRoute?
 När du behöver betala för utgående dataöverföring för Standard eller Premium ExpressRoute-krets kan betalar du inte utgående dataöverföring separat för din lokala ExpressRoute-krets. Med andra ord innehåller priset för ExpressRoute lokal dataöverföring. Lokal ExpressRoute är en mer prisvärt lösning om du har omfattande mängd data du överför och du kan hämta data via en privat anslutning till en ExpressRoute-peering plats nära dina önskade Azure-regioner. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686979"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754426"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
 
@@ -27,7 +27,7 @@ Azure Dev blanksteg är en funktion i Azure Kubernetes Service (AKS). Du bör va
 
 Aktivera Dev blanksteg i AKS-kluster i olika regioner kan du fortsätta att använda Dev blanksteg direkt efter ett fel i Azure-region.
 
-Allmän information om distributioner över flera regioner med AKS finns i [planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+Allmän information om distributioner över flera regioner med AKS finns i [planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
 Information om hur du distribuerar ett AKS-kluster som är kompatibel med Azure Dev blanksteg finns i [skapa ett Kubernetes-kluster med Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 

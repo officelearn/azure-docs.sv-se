@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806198"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752859"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Så här hanterar du ditt kommersiella Marketplace-konto i Partnercenter 
 
@@ -63,7 +63,7 @@ I informationsavsnittet konto kan du se grundläggande information som ditt **ko
 
 I avsnittet Publisher-ID: N kan du se din **försäljning ID**, **MPN-ID**, och **Publicerings-ID**. Värdena tilldelas av Microsoft för att identifiera ditt developer-konto och kan inte redigeras.
 
-### <a name="contact-info"></a>Kontaktinformation
+### <a name="contact-info"></a>Kontaktuppgifter
 
 I avsnittet kontakta info ser du din **Publisher visningsnamn**, **försäljning kontaktinformation** (den namn, e-post, telefonnummer och adress för företagets försäljning), och **företag godkännare** (namn, e-post och telefonnummer på personen med behörighet att godkänna beslut för företaget). 
 
@@ -279,7 +279,7 @@ Om du vill bevilja åtkomst för Partner Center till en helt ny Azure AD-program
 1.  Från den **användare** sida (under **kontoinställningar**), Välj **lägga till Azure AD-program**.
 2.  På nästa sida väljer **ny Azure AD-programmet**.
 3.  Ange den **svars-URL** för den nya Azure AD-program. Det här är URL: en där användare kan logga in och använda Azure AD-program (ibland även känt som App-URL eller inloggnings-URL: en). Den **svars-URL** får inte vara längre än 256 tecken och måste vara unikt i din katalog.
-4.  Ange den **Appidentitets-URI** för den nya Azure AD-program. Det här är en logisk identifierare för Azure AD-programmet som visas när en enkel inloggning på-begäran skickas till Azure AD. Observera att den **Appidentitets-URI** måste vara unikt för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om App-ID-URI finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Ange den **Appidentitets-URI** för den nya Azure AD-program. Det här är en logisk identifierare för Azure AD-programmet som visas när en enkel inloggning på-begäran skickas till Azure AD. Observera att den **Appidentitets-URI** måste vara unikt för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om App-ID-URI finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  I den **roller** anger roller eller anpassade behörigheter för Azure AD-programmet.
 6.  Välj **Spara**.
 
@@ -313,9 +313,9 @@ Obs Azure Active Directory (AAD)-klient roller vara global administratör, Anvä
 |      |• Skapa supportärenden för Partner Center
 ||• Visa avtal, prislistor och erbjudanden
 ||• Visa, skapa och hantera partneranvändare|
-|Chef|• Kan komma åt alla Microsoft-kontofunktioner utom skatte- och betalnings-inställningar
+|Manager|• Kan komma åt alla Microsoft-kontofunktioner utom skatte- och betalnings-inställningar
 |      |• Kan hantera användare, roller, och arbetsrelaterade konton (klienter)|
-|Utvecklare|• Kan ladda upp paket, skicka in appar och tillägg och visa användningsrapporten mer telemetri
+|Developer|• Kan ladda upp paket, skicka in appar och tillägg och visa användningsrapporten mer telemetri
 |      |• Kan inte komma åt finansiell information eller dina inställningar|
 |Företag deltagare|• Kan komma åt finansiell information och ange prisinformation
 |      |• Kan inte skapa eller skicka in nya appar och tillägg|

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950004"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754902"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 
@@ -157,7 +157,7 @@ Mer information om hantering och datasäkerhet plan för lagring finns i den [s�
 
 Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av verktyg och SDK: er:
 
-| Verktyg  | Version  |
+| Verktyget  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 eller senare |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 eller senare |
@@ -216,7 +216,7 @@ Den `NotDataActions` behörighet anger de åtgärder som är undantagna från de
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-Den `AssignableScopes` egenskap anger scope (prenumerationer, resursgrupper och resurser) att rollen är tillgänglig för tilldelning. Du kan göra rollen tilldelas i endast prenumerationer eller resursgrupper som kräver det, och inte oreda användarens upplevelse för resten av prenumerationer och resursgrupper. Du måste använda minst en prenumeration, resursgrupp eller resurs-ID.
+Den `AssignableScopes` egenskap anger scope (prenumerationer, resursgrupper och resurser) som har den här rolldefinition som är tillgängliga. Du kan göra rollen tilldelas i prenumerationer eller resursgrupper som kräver detta och inte att störa användarupplevelsen för resten av prenumerationer och resursgrupper. Du måste använda minst en prenumeration, resursgrupp eller resurs-ID.
 
 Inbyggda roller har `AssignableScopes` inställd rotscopet (`"/"`). Rotscopet anger att rollen är tillgängliga för tilldelning i alla omfattningar. Exempel på giltiga tilldelningsbara omfång:
 

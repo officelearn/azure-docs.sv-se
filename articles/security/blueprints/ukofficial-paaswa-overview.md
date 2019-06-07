@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109335"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753841"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -191,7 +191,7 @@ Den här mallen använder följande Application Insights-komponenter:
 
 #### <a name="azure-activity-logs"></a>Azure-aktivitetsloggar
 
-[Azure-aktivitetslogg](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) granskningar kontrollplanet händelser för dina prenumerationer. Med aktivitetsloggen kan du fastställa den ”vad, vem, och när” för alla skrivåtgärder (PUT, POST, ta bort) vidtas på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper.
+[Azure-aktivitetslogg](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) granskningar kontrollplanet händelser för dina prenumerationer. Med aktivitetsloggen kan du fastställa den ”vad, vem, och när” för alla skrivåtgärder (PUT, POST, ta bort) vidtas på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

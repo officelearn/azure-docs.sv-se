@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735169"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754562"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelandet enrichments för meddelanden från enhet till moln IoT Hub (förhandsversion)
 
@@ -77,7 +77,7 @@ Meddelandet enrichments är tillgängliga för utan extra kostnad. Du debiteras 
 
 ## <a name="availability"></a>Tillgänglighet
 
-Den här funktionen är tillgänglig som förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china/china-welcome), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Den här funktionen är tillgänglig som förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Nästa steg
 

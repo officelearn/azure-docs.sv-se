@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420786"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755582"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
@@ -57,7 +57,7 @@ Premium Storage cachelagring: Stöds inte
 - SLES 12 SP2 eller senare
 - RHEL eller CentOS version 6.7 till och 6.10 med Microsoft tillhandahåller LIS paketet 4.3.1 (eller senare) installerat
 - RHEL eller CentOS version 7.3, med paketet Microsoft tillhandahåller LIS 4.2.1 (eller senare) installerat
-- RHEL eller CentOS version 7.4 eller senare
+- RHEL eller CentOS version 7.6 eller senare
 - Oracle Linux med UEK4 eller senare
 - Debian 9 med backportar-kerneln, Debian 10 eller senare
 - CoreOS med en 4.14 kernel eller senare

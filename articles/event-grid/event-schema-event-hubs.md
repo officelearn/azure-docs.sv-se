@@ -59,9 +59,9 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för Event hub. |
@@ -74,7 +74,7 @@ Dataobjektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | fileUrl | string | Sökvägen till filen avbildning. |
 | fileType | string | Filtypen för filen avbildning. |
-| Partitions-ID | string | Shard-ID. |
+| partitionId | string | Shard-ID. |
 | sizeInBytes | heltal | Filstorlek. |
 | eventCount | heltal | Antal händelser i filen. |
 | firstSequenceNumber | heltal | Det minsta sekvensnumret från kön. |

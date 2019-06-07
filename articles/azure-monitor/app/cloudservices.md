@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256307"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478326"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure molntjänster
 [Application Insights] [ start] kan övervaka [Azure cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK: er med [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -194,18 +194,18 @@ För arbetsroller kan spåra du undantag på två sätt:
 ## <a name="performance-counters"></a>Prestandaräknare
 Följande räknare samlas in som standard:
 
-    * \Process(??APP_WIN32_PROC??)\% Processortid
-    * \Memory\Tillgängliga byte
-    * \.NET CLR-undantag(??APP_CLR_PROC??)\# undantag som utlöses/sekund
-    * \Process(??APP_WIN32_PROC??)\Privata byte
-    * \Process(??APP_WIN32_PROC??)\Byte i I/O-data per sekund
-    * \Processor(_Total)\% processortid
+* \Process(??APP_WIN32_PROC??)\% Processortid
+* \Memory\Tillgängliga byte
+* \.NET CLR-undantag(??APP_CLR_PROC??)\# undantag som utlöses/sekund
+* \Process(??APP_WIN32_PROC??)\Privata byte
+* \Process(??APP_WIN32_PROC??)\Byte i I/O-data per sekund
+* \Processor(_Total)\% processortid
 
 För webbroller samlas även dessa räknare in:
 
-    * \ASP.NET-program(??APP_W3SVC_PROC??)\Begäranden/sek
-    * \ASP.NET-program(??APP_W3SVC_PROC??)\Körningstid för begäran
-    * \ASP.NET-program(??APP_W3SVC_PROC??)\Begäranden i tillämpningskö
+* \ASP.NET-program(??APP_W3SVC_PROC??)\Begäranden/sek
+* \ASP.NET-program(??APP_W3SVC_PROC??)\Körningstid för begäran
+* \ASP.NET-program(??APP_W3SVC_PROC??)\Begäranden i tillämpningskö
 
 Du kan ange fler anpassade prestandaräknare eller andra Windows-prestandaräknare genom att redigera *ApplicationInsights.config* [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 

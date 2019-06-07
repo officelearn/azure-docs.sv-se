@@ -2,20 +2,20 @@
 title: 'Lokalisering sträng ID: N – Azure Active Directory B2C | Microsoft Docs'
 description: 'Ange ID: N för en innehållsdefinition med Id api.signuporsignin i en anpassad princip i Azure Active Directory B2C.'
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510926"
 ---
 # <a name="localization-string-ids"></a>Lokalisering sträng ID: N
 
@@ -33,21 +33,21 @@ Följande-ID som används för en innehållsdefinitionen vid ID `api.signuporsig
 | **logonIdentifier_email** | E-postadress |
 | **requiredField_email** | Ange din e-postadress |
 | **invalid_email** | Ange en giltig e-postadress |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Logga in med ditt användarnamn |
 | **logonIdentifier_username** | Användarnamn |
 | **requiredField_username** | Ange ditt användarnamn |
 | **Lösenord** | Lösenord |
 | **requiredField_password** | Ange ditt lösenord |
-| **invalid_password** | Det angivna lösenordet är inte i förväntat format. |
-| **forgotpassword_link** | Har du glömt lösenordet? |
+| **invalid_password** | Det angivna lösenordet är inte det förväntade formatet. |
+| **forgotpassword_link** | Glömt ditt lösenord? |
 | **createaccount_intro** | Har du inte något konto? |
 | **createaccount_link** | Registrera dig nu |
 | **divider_title** | ELLER |
 | **cancel_message** | Användaren har glömt sitt lösenord |
 | **button_signin** | Logga in |
 | **social_intro** | Logga in med ditt sociala konto |
-  **remember_me** |Jag vill förbli inloggad|
+  **remember_me** |Håll mig inloggad|
 | **unknown_error** | Vi har problem med att logga in dig. Försök igen senare. |
 
 I följande exempel visar användningen av vissa av användaren i gränssnittet på sidan registrering eller inloggning:
@@ -83,9 +83,9 @@ I följande exempel localizes Facebook identitetsprovider till arabiska:
 
 | ID | Standardvärde |
 | -- | ------------- |
-| **UserMessageIfInvalidPassword** | Ditt lösenord är fel. |
-| **UserMessageIfClaimsPrincipalDoesNotExist** | Vi verkar inte kunna hitta ditt konto. |
-| **UserMessageIfOldPasswordUsed** | Det ser ut som om du har använt ett gammalt lösenord. |  
+| **UserMessageIfInvalidPassword** | Lösenordet är felaktigt. |
+| **UserMessageIfClaimsPrincipalDoesNotExist** | Vi kan inte hitta ditt konto. |
+| **UserMessageIfOldPasswordUsed** | Det verkar som du använde ett gammalt lösenord. |  
 | **DefaultMessage** | Ogiltigt användarnamn eller lösenord. |  
 | **UserMessageIfUserAccountDisabled** | Ditt konto har låsts. Kontakta supporten om du vill låsa upp det och försök igen. |  
 | **UserMessageIfUserAccountLocked** | Ditt konto har låsts temporärt för att förhindra obehörig användning. Försök igen senare. |  
@@ -97,11 +97,11 @@ Följande är de ID: N för en innehållsdefinition med ID `api.localaccountsign
 
 | ID | Standardvärde |
 | -- | ------------- |
-| **ver_sent** | Verifieringskoden har skickats till: |
+| **ver_sent** | Verifieringskod har skickats till: |
 | **ver_but_default** | Standard |
 | **cancel_message** | Användaren har avbrutit att ange självkontrollerad information |
-| **preloader_alt** | Vänta |
-| **ver_but_send** | Skicka verifieringskod |
+| **preloader_alt** | Snälla vänta |
+| **ver_but_send** | Skicka Verifieringskod |
 | **alert_yes** | Ja |
 | **error_fieldIncorrect** | En eller flera fält är ifyllda felaktigt. Kontrollera posterna och försök igen. |
 | **År** | År |
@@ -110,7 +110,7 @@ Följande är de ID: N för en innehållsdefinition med ID `api.localaccountsign
 | **ver_fail_no_retry** | Du har gjort för många felaktiga försök. Försök igen senare. |
 | **Månad** | Månad |
 | **ver_success_msg** | E-postadress som verifierats. Du kan nu fortsätta. |
-| **månader** | Januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december |
+| **månader** | Januari, februari, mars, maj April, juni, juli, augusti, September, oktober, November, December |
 | **ver_fail_server** | Vi har problem med att verifiera din e-postadress. Ange en giltig e-postadress och försök igen. |
 | **error_requiredFieldMissing** | Ett obligatoriskt fält saknas. Fyll i alla obligatoriska fält och försök igen. |
 | **initial_intro** | Ange följande information. |
@@ -119,16 +119,16 @@ Följande är de ID: N för en innehållsdefinition med ID `api.localaccountsign
 | **error_passwordEntryMismatch** | Inmatningsfält lösenordet stämmer inte överens. Ange samma lösenord i bägge fälten och försök igen. |
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
-| **ver_but_verify** | Verifiera koden |
+| **ver_but_verify** | Verifiera kod |
 | **alert_no** | Nej |
 | **ver_info_msg** | Verifieringskod har skickats till din inkorg. Kopiera den till rutan nedan. |
 | **dag** | Dag |
 | **ver_fail_throttled** | Det har förekommit för många begäranden för att verifiera det här e-postadress. . Vänta en stund och försök igen. |
 | **helplink_text** | Vad är detta? |
 | **ver_fail_retry** | Koden är felaktig. Försök igen. |
-| **alert_title** | Avbryt inmatningen av din information |
-| **required_field** | Den här informationen är obligatorisk. |
-| **alert_message** | Är du säker på att du vill avbryta inmatningen av din information? |
+| **alert_title** | Avbryt att ange din information |
+| **required_field** | Den här informationen krävs. |
+| **alert_message** | Är du säker på att du vill avbryta att ange din information? |
 | **ver_intro_msg** | Verifiering krävs. Klicka på knappen Skicka. |
 | **ver_input** | Verifieringskod |
 
@@ -162,37 +162,37 @@ Följande är de ID: N för en innehållsdefinition med ID `api.phonefactor`.
 | **button_verify** | Ring mig |
 | **country_code_label** | Landskod |
 | **cancel_message** | Användaren har avbrutit multifaktorautentisering |
-| **text_button_send_second_code** | skicka en ny kod |
+| **text_button_send_second_code** | Skicka en ny kod |
 | **code_pattern** | \\d{6} |
 | **intro_mixed** | Vi har följande numret på posten för dig. Vi kan skicka en kod via SMS eller telefonnummer för att autentisera dig. |
 | **intro_mixed_p** | Vi har följande nummer på posten för dig. Välj ett tal att vi kan phone eller skicka en kod via SMS för att autentisera dig. |
-| **button_verify_code** | Verifiera koden |
-| **requiredField_code** | Ange den verifieringskod du fick |
-| **invalid_code** | Ange den sexsiffriga koden du fick |
+| **button_verify_code** | Verifiera kod |
+| **requiredField_code** | Ange den Verifieringskod du fick |
+| **invalid_code** | Ange den 6-siffrig kod som du har fått |
 | **button_cancel** | Avbryt |
 | **local_number_input_placeholder_text** | Telefonnummer |
 | **button_retry** | Försök igen |
-| **alternative_text** | Jag har inte min telefon |
+| **alternative_text** | Jag har min telefon |
 | **intro_phone_p** | Vi har följande nummer på posten för dig. Välj ett tal som vi kan telefonnummer för att autentisera dig. |
 | **intro_phone** | Vi har följande numret på posten för dig. Vi kommer telefonnummer för att autentisera dig. |
-| **enter_code_text_intro** | Ange verifieringskoden nedan eller  |
-| **intro_entry_phone** | Ange ett nummer nedan så att vi kan ringa upp för att autentisera dig. |
-| **intro_entry_sms** | Ange ett nummer nedan, så att vi kan autentisera dig genom att skicka en kod via SMS. |
+| **enter_code_text_intro** | Ange verifieringskoden nedan, eller  |
+| **intro_entry_phone** | Ange ett tal som är nedan att vi kan telefonnummer för att autentisera dig. |
+| **intro_entry_sms** | Ange ett tal nedan att vi kan skicka en kod via SMS för att autentisera dig. |
 | **button_send_code** | Skicka kod |
 | **invalid_number** | Ange ett giltigt telefonnummer |
 | **intro_sms** | Vi har följande numret på posten för dig. Vi skickar en kod via SMS för att autentisera dig. |
-| **intro_entry_mixed** | Ange ett nummer nedan så att vi kan autentisera dig genom skicka en kod via SMS eller ringa upp dig. |
+| **intro_entry_mixed** | Ange ett tal som är nedan att vi kan skicka en kod via SMS eller telefonnummer för att autentisera dig. |
 | **number_pattern** | ^\\+ (?: [0-9] [\\x20-]?) {6,14}[0-9] $ |
 | **intro_sms_p** |Vi har följande nummer på posten för dig. Välj ett tal att vi kan skicka en kod via SMS för att autentisera dig. |
-| **requiredField_countryCode** | Välj din landskod |
+| **requiredField_countryCode** | Välj landskod |
 | **requiredField_number** | Ange ditt telefonnummer |
 | **country_code_input_placeholder_text** |Land eller region |
 | **number_label** | Telefonnummer |
 | **error_tryagain** | Det angivna telefonnumret är upptagen eller otillgänglig. Kontrollera numret och försök igen. |
 | **error_incorrect_code** | Den Verifieringskod du angett matchar inte våra poster. Försök igen eller begära en ny kod. |
 | **countryList** | {\"Standard\":\"Land/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albanien\",\"DZ\":\"Algeriet\",\"AS\":\" Amerikanska Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\": \"Anguilla\",\"AQ\":\"Antarktis\",\"AG\":\"Antigua och Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenien\",\"AW\":\"Aruba \",\"AU\":\"Australien\",\"på\":\"Österrike\",\" AZ\":\"Azerbajdzjan\",\"BS\":\"Bahamas\",\"BH\":\" Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\" GENOM att\":\"Vitryssland\",\"BE\":\"Belgien\",\"BZ\":\" Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermudaöarna\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\" Bonaire\",\"BA\":\"Bosnien och Hercegovina\",\"BW\":\"Botswana<span class="notransla class=""></span class="notransla> : S yttre öar\",\"VI\":\"USA Jungfruöarna\",\"UG\":\"Uganda\",\"UA\":\"Ukraina\",\"AE\":\" Förenade Arabemiraten\",\"GB\":\"Storbritannien\",\"USA\":\"USA\",\"UY \":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"Anteckning\":\"Vanuatu\", \"VA\":\"Vatikanstaten\",\"Stött\":\"Venezuela\",\"VN\":\"Vietnam \",\"WF\":\"Wallis och Futuna\",\"YE\":\"Jemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
-| **error_448** | Det angivna telefonnumret går inte att nå. |
-| **error_449** | Användaren har överskridit antalet tillåtna återförsök. |
+| **error_448** | Det angivna telefonnumret kan inte nås. |
+| **error_449** | Användaren har överskridit antalet nya försök. |
 | **verification_code_input_placeholder_text** | Verifieringskod |
 
 I följande exempel visar användningen av vissa av användargränssnittets delar på sidan för MFA-registrering:

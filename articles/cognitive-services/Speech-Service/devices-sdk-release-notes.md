@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237940"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751805"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Viktig information för Cognitive Services tal enheter SDK
 Följande avsnitt lista över ändringar i de senaste versionerna.
@@ -49,7 +49,7 @@ Följande avsnitt lista över ändringar i de senaste versionerna.
 
 **Större ändringar** 
 
-*   [Installera ett wake ord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) har förenklad, det är nu en del av appen och behöver inte separat installation på enheten.
+*   [Installera ett wake ord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklad, det är nu en del av appen och behöver inte separat installation på enheten.
 *   Wake word erkännande har ändrats och två händelser som stöds.
     - RecognizingKeyword, anger det tal resultatet innehåller (overifierade) Nyckelordstext.
     - RecognizedKeyword, anger den nyckelordet igenkänning av slutförts eftersom det angivna nyckelordet.

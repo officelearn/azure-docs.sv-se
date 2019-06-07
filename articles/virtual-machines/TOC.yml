@@ -12,6 +12,8 @@
       href: workloads/oracle/oracle-considerations.md
     - name: SAP
       href: workloads/sap/get-started.md
+    - name: Beräkning med höga prestanda
+      href: workloads/hpc/configure.md
     - name: Byta värd för stordator
       href: workloads/mainframe-rehosting/overview.md
 - name: Klassiska distributioner

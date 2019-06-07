@@ -27,7 +27,7 @@ En lista över exempel på skript och självstudier finns i [IoT Hub-händelsek�
 
 Azure IoT Hub genererar följande händelsetyper:
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicerade när en enhet registreras till en IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. | 
@@ -148,7 +148,7 @@ Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Den 
 
 Alla händelser som innehåller samma översta data: 
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | Unik identifierare för händelsen. |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
@@ -161,7 +161,7 @@ Alla händelser som innehåller samma översta data:
 
 För alla IoT Hub-händelser innehåller dataobjektet följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | hubName | string | Namnet på IoT Hub där enheten skapas eller tas bort. |
 | deviceId | string | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -170,7 +170,7 @@ Innehållet i dataobjektet är olika för varje händelse-utgivare.
 
 För **enheten ansluten** och **enheten frånkopplad** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | moduleId | string | Den unika identifieraren för modulen. Det här fältet är utdata bara för modulen enheter. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objekt | Anslutningen händelseinformation om enhetstillstånd
@@ -178,7 +178,7 @@ För **enheten ansluten** och **enheten frånkopplad** IoT Hub-händelser, datao
 
 För **Enhetstelemetri** IoT Hub-händelse, dataobjektet innehåller meddelandet med enhet till molnet i [IoT hub-meddelandeformat](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | body | string | Innehållet i meddelandet från enheten. |
 | properties | string | Egenskaper för program är en användardefinierad strängar som kan läggas till i meddelandet. De här fälten är valfria. |
@@ -186,7 +186,7 @@ För **Enhetstelemetri** IoT Hub-händelse, dataobjektet innehåller meddelandet
 
 För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | twin | objekt | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
 | deviceID | string | Den unika identifieraren för enhetstvillingen. | 

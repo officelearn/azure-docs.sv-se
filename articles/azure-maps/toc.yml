@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: Geoplatstjänst
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Mobilitetstjänsten
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Renderingstjänst
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Routningstjänst

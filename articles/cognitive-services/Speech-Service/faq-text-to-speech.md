@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539017"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751622"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
@@ -33,7 +33,7 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan 
 
 **F: Om jag vill använda en röstmeddelanden modell är API: et samma som det som används för att få en standard?**
 
-**S**: När en anpassad voice-modell skapas och distribueras, kan du få en unik slutpunkt för din modell. Om du vill använda röst för att tala i dina appar, måste du ange slutpunkten i HTTP-förfrågningar. På samma sätt som är tillgänglig i REST-API för Text till tal-tjänsten är tillgänglig för din anpassade slutpunkt. Lär dig hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**S**: När en anpassad voice-modell skapas och distribueras, kan du få en unik slutpunkt för din modell. Om du vill använda röst för att tala i dina appar, måste du ange slutpunkten i HTTP-förfrågningar. På samma sätt som är tillgänglig i REST-API för Text till tal-tjänsten är tillgänglig för din anpassade slutpunkt. Lär dig hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
 **F: Behöver jag förbereda träningsdata att skapa anpassade röst modeller på egen hand?**
 
@@ -41,7 +41,7 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan 
 
 En samling taldata krävs för att skapa en modell i röstmeddelanden. Den här samlingen består av en uppsättning ljudfiler av tal inspelningar och en textfil för utskrift av varje ljudfil. Resultatet av din digitala röst beroende kraftigt kvaliteten på dina utbildningsdata. Det är viktigt att inspelningarna görs i en tyst rum med hög kvalitet, stående mikrofon för att skapa en bra rösten. En konsekvent volym talar hastighet och talar försäljningsargument och även konsekvens i lättfattliga maner, ovanor tal är behövs för att skapa en fantastisk digital röst. Vi rekommenderar starkt att spela in rösterna i en inspelning studio.
 
-Vi inte för närvarande kan stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Vi inte för närvarande kan stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **F: Vilka skript ska jag använda för att registrera taldata för anpassade ton?**
 

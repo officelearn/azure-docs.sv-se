@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303909"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808752"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C IoT Edge-modul för Windows-enheter
 
@@ -38,7 +38,7 @@ Den här kursen visar hur du utvecklar en modul i **C** med **Visual Studio 2019
 
 Använd följande tabell för att förstå dina alternativ för utveckling och distribution C-moduler till Windows-enheter: 
 
-| C | Visual Studio-kod | Visual Studio 2017/2019 | 
+| C | Visual Studio-koden | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
@@ -104,29 +104,33 @@ Distribution av manifestet delar autentiseringsuppgifterna för behållarregistr
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Spara filen deployment.template.json. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+Standardkoden för modulen tar emot meddelanden på ett inkommande kö och skickar dem via en utgående kö. Vi lägger till ytterligare kod så att meddelanden vid gränsen bearbetar i modulen innan den vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperaturdata i varje meddelande och endast skickar meddelandet till IoT Hub om temperaturen överstiger ett visst tröskelvärde. 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. Ladda ned den [Parson GitHub-lagringsplatsen](https://github.com/kgabis/parson). Kopiera den **parson.c** och **parson.h** filer till den **CModule** projekt.
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. Visual Studio, öppna den **CMakeLists.txt** filen från CModule projektmappen. Längst upp i filen importerar du Parson-filerna som ett bibliotek med namnet **my_parson**.
 
       ```
-      add_library(my_parson        parson.c        parson.h    )
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add **my_parson** to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. Lägg till **my_parson** i listan över bibliotek i den **target_link_libraries** i filen CMakeLists.txt.
 
-   4. Save the **CMakeLists.txt** file.
+   4. Spara filen **CMakeLists.txt**.
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Öppna **CModule** > **main.c**. Längst ned i listan över ingår satser, lägga till en ny som ska innehålla `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"

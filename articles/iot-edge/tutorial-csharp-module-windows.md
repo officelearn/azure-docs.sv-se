@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303931"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808769"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -38,7 +38,7 @@ Den här kursen visar hur du utvecklar en modul i **C#** med **Visual Studio 201
 
 Använd följande tabell för att förstå dina alternativ för utveckling och distribution C-moduler till Windows-enheter: 
 
-| C# | Visual Studio-kod | Visual Studio 2017/2019 | 
+| C# | Visual Studio-koden | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Utveckla Windows AMD64** | ![Utveckla C# moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -104,16 +104,17 @@ Distribution av manifestet delar autentiseringsuppgifterna för behållarregistr
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Spara filen deployment.template.json. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+Standardkoden för modulen tar emot meddelanden på ett inkommande kö och skickar dem via en utgående kö. Vi lägger till ytterligare kod så att meddelanden vid gränsen bearbetar i modulen innan den vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperaturdata i varje meddelande och endast skickar meddelandet till IoT Hub om temperaturen överstiger ett visst tröskelvärde. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Öppna i Visual Studio **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. Överst i **CSharpModule**-namnrymden läger du till tre **using**-instruktioner för typer som ska användas senare:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

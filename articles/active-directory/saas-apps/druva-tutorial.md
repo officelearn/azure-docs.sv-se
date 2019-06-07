@@ -12,122 +12,88 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 06/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da134672224c5881a69f002d418c79af97036d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf359f38bd7032b4de48a17b91ba1c10b165c91
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280334"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807785"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Självstudier: Azure Active Directory-integrering med Druva
+# <a name="tutorial-integrate-druva-with-azure-active-directory"></a>Självstudier: Integrera Druva med Azure Active Directory
 
-I den här självstudien lär du dig att integrera Druva med Azure Active Directory (AD Azure).
-Integreringen av Druva med Azure AD medför följande fördelar:
+I de här självstudierna lär du dig att integrera Druva med Azure Active Directory (AD Azure). När du integrerar Druva med Azure AD, kan du:
 
-* Du kan i Azure AD styra vem som har åtkomst till Druva.
-* Du kan göra så att dina användare automatiskt loggas in på Druva (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Styr i Azure AD som har åtkomst till Druva.
+* Ge dina användare att automatiskt inloggad till Druva med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Druva behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Druva-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
+* Aktiverat prenumeration Druva enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
-
-* Druva har stöd för **SP**- och **IDP**-initierad enkel inloggning
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Druva har stöd för **SP**- och **IDP**-initierad enkel inloggning
 
 ## <a name="adding-druva-from-the-gallery"></a>Lägga till Druva från galleriet
 
 För att konfigurera integrering av Druva i Azure AD behöver du lägga till Druva från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Druva från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **Druva** i sökrutan.
+1. Välj **Druva** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD enkel inloggning med Druva med en testanvändare kallas **Britta Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Druva för SSO ska fungera.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Druva, utför du följande byggblock:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan skriver du **Druva**, väljer **Druva** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
-
-     ![Druva i resultatlistan](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Druva baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Druva upprättas.
-
-För att konfigurera och testa enkel inloggning för Azure AD med Druva behöver du slutföra följande byggstenar:
-
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Druva](#configure-druva-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
+2. **[Konfigurera Druva SSO](#configure-druva-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa Druva-testanvändare](#create-druva-test-user)** – för att ha en motsvarighet för Britta Simon i Druva som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Azure AD för Druva:
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Druva** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Druva** och väljer **Enkel inloggning**.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+1. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge, användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+    I rutan **Inloggnings-URL** anger du en URL: `https://login.druva.com/login`
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
-
-    ![Druva-domän och information om URL:er för enkel inloggning](common/idp-identifier.png)
-
-    I textrutan **Identifierare** skriver du ett strängvärde:  `druva-cloud`
-
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    ![image](common/both-preintegrated-signon.png)
-
-    I rutan **Inloggnings-URL** anger du en URL: `https://cloud.druva.com/home`
-
-6. Druva-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+1. Druva-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
-7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
     | Namn | Källattribut|
     | ------------------- | -------------------- |
     | insync\_auth\_token |Ange det tokengenererade värdet |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -141,137 +107,108 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Dr
 
     g. Klicka på **Spara**.
 
-8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+   ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-9. I avsnittet **Konfigurera Druva** kopierar du lämpliga URL:er enligt dina behov.
+1. På den **konfigurera Druva** avsnittet, kopiera den lämpliga URL: er efter behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+### <a name="configure-druva-sso"></a>Configure Druva SSO
 
-    b. Azure AD-identifierare
+1. I ett annat webbläsarfönster, loggar du in din Druva företagets webbplats som administratör.
 
-    c. Utloggnings-URL
-
-### <a name="configure-druva-single-sign-on"></a>Konfigurera enkel inloggning för Druva
-
-1. I ett annat webbläsarfönster loggar du in på din Druva-företagswebbplats som administratör.
-
-2. Gå till **Hantera \> Inställningar**.
+1. Gå till **Hantera \> Inställningar**.
 
     ![Inställningar](./media/druva-tutorial/ic795091.png "Inställningar")
 
-3. I dialogrutan Inställningar för enkel inloggning utför du följande steg:
+1. I dialogrutan Inställningar för enkel inloggning utför du följande steg:
 
     ![Inställningar för enkel inloggning](./media/druva-tutorial/ic795092.png "Inställningar för enkel inloggning")
-    
+
     a. I textrutan **ID Provider Login URL** (Inloggnings-URL för ID-provider) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
-        
+
     b. I textrutan **ID Provider Logout URL** (Utloggnings-URL för ID-provider) klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen
-        
+
     c. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra in det i textrutan **ID Provider Certificate** (Certifikat för ID-provider)
-     
+
     d. Öppna sidan **Inställningar** genom att klicka på **Spara**.
 
-4. På sidan **Inställningar** klickar du på **Generate SSO Token** (Generera token för enkel inloggning).
+1. På sidan **Inställningar** klickar du på **Generate SSO Token** (Generera token för enkel inloggning).
 
     ![Inställningar](./media/druva-tutorial/ic795093.png "Inställningar")
 
-5. I dialogrutan **Single Sign-on Authentication Token** (Token för autentisering med enkel inloggning) utför du följande steg:
+1. I dialogrutan **Single Sign-on Authentication Token** (Token för autentisering med enkel inloggning) utför du följande steg:
 
     ![Token för enkel inloggning](./media/druva-tutorial/ic795094.png "Token för enkel inloggning")
-    
+
     a. Klicka på **Kopia**, klistra in det kopierade värdet i textrutan **Värde** i avsnittet **Lägg till attribut** i Azure-portalen.
-    
+
     b. Klicka på **Stäng**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare i Azure-portalen kallas Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `Britta Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Druva.
+I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Druva.
 
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Druva**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I programlistan väljer du **Druva**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I programlistan väljer du **Druva**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Länken för Druva i programlistan](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **användare och grupper** dialogrutan **Britta Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-druva-test-user"></a>Skapa Druva-testanvändare
 
-För att göra det möjligt för Azure AD-användare att logga in på Druva måste de etableras till Druva. När det gäller Druva är etablering en manuell uppgift.
+För att aktivera Azure AD-användare att logga in på Druva, måste de etableras i Druva. När det gäller Druva är etablering en manuell uppgift.
 
 **Utför följande steg för att konfigurera användarförsörjning:**
 
-1. Logga in på din **Druva**-företagswebbplats som administratör.
+1. Logga in på din **Druva** företagets plats som administratör.
 
-2. Gå till **Hantera \> Användare**.
-   
+1. Gå till **Hantera \> Användare**.
+
     ![Hantera användare](./media/druva-tutorial/ic795097.png "Hantera användare")
 
-3. Klicka på **Skapa ny**.
-   
+1. Klicka på **Skapa ny**.
+
     ![Hantera användare](./media/druva-tutorial/ic795098.png "Hantera användare")
 
-4. I dialogrutan Skapa ny användare utför du följande steg:
-   
+1. I dialogrutan Skapa ny användare utför du följande steg:
+
     ![Skapa ny användare](./media/druva-tutorial/ic795099.png "Skapa ny användare")
-   
+
     a. I den **e-postadress** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
-   
+
     b. I textrutan **Namn** anger du namnet på användaren: **BrittaSimon**.
-   
+
     c. Klicka på **Skapa användare**.
 
->[!NOTE]
->Du kan använda andra verktyg eller API:er för Druva-kontoskapande som tillhandahålls av Druva för att etablera Azure AD-användarkonton.
+> [!NOTE]
+> Du kan använda andra verktyg eller API:er för Druva-kontoskapande som tillhandahålls av Druva för att etablera Azure AD-användarkonton.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-sso"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas in på Druva som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Druva i åtkomstpanelen, bör det vara loggas in automatiskt till Druva som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -280,4 +217,3 @@ När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas i
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

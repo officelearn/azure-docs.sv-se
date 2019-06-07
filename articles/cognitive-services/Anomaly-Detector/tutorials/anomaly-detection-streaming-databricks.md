@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734670"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807475"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) är ett snabbt, enkelt och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten. Avvikelseidentifiering detektor API, en del av Azure Cognitive Services och gör det möjligt att övervaka dina tidsseriedata. Använd den här självstudien för att köra identifiering av avvikelser på strömmade data nästan i realtid med Azure Databricks. Du mata in twitter-data med Azure Event Hubs och importera dem till Azure Databricks med Spark Event Hubs-anslutningsprogrammet. Därefter ska du använda API: et för att identifiera avvikelser på strömmad data. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) är ett snabbt, enkelt och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten. Avvikelseidentifiering detektor API, en del av Azure Cognitive Services och gör det möjligt att övervaka dina tidsseriedata. Använd den här självstudien för att köra identifiering av avvikelser på strömmade data nästan i realtid med Azure Databricks. Du mata in twitter-data med Azure Event Hubs och importera dem till Azure Databricks med Spark Event Hubs-anslutningsprogrammet. Därefter ska du använda API: et för att identifiera avvikelser på strömmad data. 
 
 Följande bild visar programflödet:
 

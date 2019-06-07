@@ -34,7 +34,7 @@ En lista över exempel på skript och självstudier finns i [Resource group hän
 
 Resursgrupper generera management händelser från Azure Resource Manager, t.ex. när en virtuell dator skapas eller en lagringskontot har tagits bort.
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Utlöses när åtgärden på resursen har avbrutits. |
 | Microsoft.Resources.ResourceActionFailure | Utlöses när åtgärden på resursen misslyckas. |
@@ -234,10 +234,10 @@ I följande exempel visas schemat för en **ResourceActionSuccess** händelse. S
 
 En händelse har följande översta data:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
@@ -247,7 +247,7 @@ En händelse har följande översta data:
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | authorization | objekt | Den begärda auktoriseringen för åtgärden. |
 | claims | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |

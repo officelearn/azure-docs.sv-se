@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa423fc441c50c774a9670feec64d0f844a4f5ec
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712211"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755273"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
@@ -168,29 +168,25 @@ För att installera uppdateringar schemalägger du en distribution som passar di
 
 Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att klicka på **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
-* **Namn** – Ett unikt namn som identifierar uppdateringsdistributionen.
-* **Uppdatera klassificering** – Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Klassificeringstyper:
-  * Kritiska uppdateringar
-  * Säkerhetsuppdateringar
-  * Samlade uppdateringar
-  * Funktionspaket
-  * Service pack
-  * Definitionsuppdateringar
-  * Verktyg
-  * Uppdateringar
+Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-* **Schemainställningar** – Du kan antingen godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid, eller så kan du ange en annan tid.
-  Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Klicka på alternativet Återkommande under Återkommande för att ange ett återkommande schema.
+| Egenskap | Beskrivning |
+| --- | --- |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+|Operativsystem| Linux eller Windows|
+| Grupper för att uppdatera |För datorer i Azure, definierar du en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. </br></br>För icke-Azure-datorer, väljer du en befintlig sparad sökning för att välja en grupp med icke-Azure-datorer som ska ingå i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
+|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](../../automation/automation-update-management.md#inclusion-behavior) |
+|Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
+| Förskript och efterskript|Välj skript ska köras före och efter distributionen|
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
+| Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
-  ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manageupdates-schedule-win.png)
-
-* **Underhållsperiod (minuter)** – Ange den tidsperiod som uppdateringsdistributionen ska utföras inom.  På så sätt försäkrar du dig om att ändringarna utförs inom ditt definierade servicefönster.
+Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du skapar en distribution med REST API i [programvarukonfigurationer för Update - skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-runbook som kan användas för att skapa en distribution av varje vecka. Läs mer om denna runbook i [skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 När du har konfigurerat schemat klickar du på **Skapa**. Därmed återgår du till statusinstrumentpanelen.
 Observera att tabellen **Schemalagt** visar det distributionsschema som du skapade.
-
-> [!WARNING]
-> Om en uppdatering kräver omstart startas den virtuella datorn om automatiskt.
 
 ### <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 
@@ -226,7 +222,7 @@ Så här aktiverar du ändringsspårning och inventering för din virtuella dato
 2. Välj en virtuell dator i listan.
 3. Gå till avsnittet **Åtgärder** och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto för att använda och klicka på **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Även om lösningarna är uppdelade på menyn, ingår de i samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
+Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto för att använda och klicka på **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
 ![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 

@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Datainsamling
-          href: security-center-enable-data-collection.md
-        - name: Inbyggda säkerhetsprinciper
-          href: security-center-policy-definitions.md
-        - name: E-postmeddelanden
-          href: security-center-provide-security-contact-details.md
-        - name: Prisnivå
-          href: security-center-pricing.md
-        - name: Säkerhetskonfigurationer
-          href: security-center-customize-os-security-config.md
-        - name: Synlighet i hela klientorganisationen
-          href: security-center-management-groups.md
+    - name: Datainsamling
+      href: security-center-enable-data-collection.md
+    - name: Inbyggda säkerhetsprinciper
+      href: security-center-policy-definitions.md
+    - name: E-postmeddelanden
+      href: security-center-provide-security-contact-details.md
+    - name: Prisnivå
+      href: security-center-pricing.md
+    - name: Säkerhetskonfigurationer
+      href: security-center-customize-os-security-config.md
+    - name: Synlighet i hela klientorganisationen
+      href: security-center-management-groups.md
     - name: Implementera säkerhetsrekommendationer
       href: security-center-recommendations.md
       items:

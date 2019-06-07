@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169451"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754361"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Linux-dator i Azure
 
@@ -50,7 +50,7 @@ Du behöver en virtuell dator för att kunna se diagnostik och mått i praktiken
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/*:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -117,7 +117,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas i Azure Portal:
 
 1. I Azure Portal, klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
-1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]*-måtten under **Tillgängliga mått**.
+1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]* -måtten under **Tillgängliga mått**.
 
     ![Visa värdmått](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -147,7 +147,7 @@ Du kan skapa aviseringar baserat på specifika prestandamått. Aviseringar kan t
 I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
 1. I Azure Portal: välj **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
-2. Välj **Aviseringar (klassisk)**, välj sedan att **Lägg till måttavisering (klassisk)** längst upp i fönstret aviseringar.
+2. Välj **Aviseringar (klassisk)** , välj sedan att **Lägg till måttavisering (klassisk)** längst upp i fönstret aviseringar.
 3. Ange ett **namn** för aviseringen, till exempel *myAlertRule*
 4. Om du vill utlösa en avisering när CPU-procenten har varit högre än 1,0 i fem minuter lämnar du alla andra standardinställningar valda.
 5. Du kan också markera kryssrutan för *E-postägare, deltagare och läsare* om du vill skicka ett e-postmeddelande. Standardåtgärden är att visa en avisering i portalen.
@@ -201,28 +201,27 @@ När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppda
 
 För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
-Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att välja **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
+Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att klicka på **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
-* **Namn** – Ett unikt namn som identifierar uppdateringsdistributionen.
-* **Uppdatera klassificering** – Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Klassificeringstyper:
-  * Kritiska uppdateringar och säkerhetsuppdateringar
-  * Övriga uppdateringar
-* **Uppdateringar som ska hoppas över** – Du kan ange en lista över paketnamn som ska hoppas över när uppdateringen distribueras. Det går att använda jokertecken i paketnamn (t.ex. \*kernel\*).
+Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-  ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Egenskap | Beskrivning |
+| --- | --- |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+|Operativsystem| Linux eller Windows|
+| Grupper för att uppdatera |För datorer i Azure, definierar du en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. </br></br>För icke-Azure-datorer, väljer du en befintlig sparad sökning för att välja en grupp med icke-Azure-datorer som ska ingå i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
+|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](../../automation/automation-update-management.md#inclusion-behavior) |
+|Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
+| Förskript och efterskript|Välj skript ska köras före och efter distributionen|
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
+| Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
-* **Schemainställningar** – Du kan antingen godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid, eller så kan du ange en annan tid.
-  Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Välj alternativet Återkommande under Återkommande för att ange ett återkommande schema.
+Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du skapar en distribution med REST API i [programvarukonfigurationer för Update - skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-runbook som kan användas för att skapa en distribution av varje vecka. Läs mer om denna runbook i [skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
-  ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Underhållsperiod (minuter)** – Ange den tidsperiod som uppdateringsdistributionen ska utföras inom. På så sätt försäkrar du dig om att ändringarna utförs inom ditt definierade servicefönster.
-
-När du har konfigurerat schemat väljer du **Skapa**. Därmed återgår du till statusinstrumentpanelen.
+När du har konfigurerat schemat klickar du på **Skapa**. Därmed återgår du till statusinstrumentpanelen.
 Observera att tabellen **Schemalagt** visar det distributionsschema som du skapade.
-
-> [!WARNING]
-> Om en uppdatering kräver omstart startas den virtuella datorn om automatiskt.
 
 ### <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 

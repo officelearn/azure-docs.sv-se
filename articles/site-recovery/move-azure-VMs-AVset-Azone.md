@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793744"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753763"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
-Tillgänglighetszoner i Azure att skydda dina program och data från datacenter havererar. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data från datacenter havererar. Azure erbjuder ett servicenivåavtal (SLA) med 99,99% tillgänglighet för virtuella datorer (VM) med Tillgänglighetszoner. Tillgänglighetszoner stöds i utvalda regioner som anges i [vad är Tillgänglighetszoner i Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
+Tillgänglighetszoner i Azure att skydda dina program och data från datacenter havererar. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data från datacenter havererar. Azure erbjuder ett servicenivåavtal (SLA) med 99,99% tillgänglighet för virtuella datorer (VM) med Tillgänglighetszoner. Tillgänglighetszoner stöds i utvalda regioner som anges i [vad är Tillgänglighetszoner i Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 I ett scenario där dina virtuella datorer distribueras som *instans* i en viss region, och du vill förbättra tillgängligheten till din genom att flytta de virtuella datorerna till en Tillgänglighetszon, du kan göra det med hjälp av Azure Site Recovery. Den här åtgärden kan ytterligare kategoriseras till:
 
@@ -28,7 +28,7 @@ I ett scenario där dina virtuella datorer distribueras som *instans* i en viss 
 
 ## <a name="check-prerequisites"></a>Kontrollera krav
 
-- Kontrollera om målregionen har [stöd för Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Kontrollera att ditt val av [källa region/mål-region kombinationen stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Fatta ett välgrundat beslut i målregionen.
+- Kontrollera om målregionen har [stöd för Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region). Kontrollera att ditt val av [källa region/mål-region kombinationen stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Fatta ett välgrundat beslut i målregionen.
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
 - Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
 - Kontrollera behörigheterna. Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för din prenumeration. Om du inte är prenumerationsadministratör, tillsammans med administratören tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en virtuell dator och slutligen kopierar data till målet med hjälp av Azure Site Recovery, måste du ha:
@@ -86,7 +86,7 @@ Följande steg vägleder dig när du använder Azure Site Recovery för att akti
 
 1. I Azure-portalen väljer du **virtuella datorer**, och välj den virtuella datorn som du vill flytta i Tillgänglighetszoner.
 2. I **Operations**väljer **haveriberedskap**.
-3. I **konfigurera haveriberedskap** > **målregionen**, Välj den målregion som du ska replikera. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Tillgänglighetszoner.
+3. I **konfigurera haveriberedskap** > **målregionen**, Välj den målregion som du ska replikera. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Tillgänglighetszoner.
 
     ![Välja målregion](media/azure-vms-to-zones/enable-rep-1.PNG)
 

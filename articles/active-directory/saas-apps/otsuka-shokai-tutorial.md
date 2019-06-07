@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481161"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752459"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Självstudier: Integrera Otsuka Shokai med Azure Active Directory
 
@@ -79,14 +79,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
-
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Otsuka Shokai klienten supportteamet](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+1. På den **ange in enkel inloggning med SAML** kan programmet är förkonfigurerad och nödvändiga URL: er är redan ifyllda på förhand med Azure. Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen.
 
 1. Otsuka Shokai program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, var som **nameidentifier** mappas med **user.userprincipalname**. Otsuka Shokai program som förväntar **nameidentifier** mappas med **user.objectid**, så måste du redigera attribut mappar genom att klicka på **redigera**  ikon och ändra attributet mappningen.
 
@@ -139,7 +132,7 @@ I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
 1. Välj **ny användare** överst på skärmen.
 1. I den **användaren** egenskaper, Följ dessa steg:
    1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -163,7 +156,7 @@ I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggnin
 
 ### <a name="create-otsuka-shokai-test-user"></a>Skapa Otsuka Shokai testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Otsuka Shokai. Arbeta med [Otsuka Shokai supportteamet](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) att lägga till användare i Otsuka Shokai-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas B.Simon i Otsuka Shokai. Arbeta med [Otsuka Shokai supportteamet](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) att lägga till användare i Otsuka Shokai-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa enkel inloggning
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 460d8756c437a1212aef054cf069be2bccac8c8a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001365"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474531"
 ---
 # <a name="security-attributes-for-azure-services"></a>Security attribut för Azure-tjänster
 
@@ -44,7 +44,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG) och Azure Application Gateway (eller andra programinstallation) respektive. |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -93,7 +93,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Stöd för isolering av nätverk och Firewalling| Ja | Kunder kan konfigurera åtkomstkontrollistor (IP-begränsningar) för att låsa tillåten inkommande trafik i nätverket för den offentliga flera innehavare-variationen av App Service.  Se [åtkomstbegränsningar för Azure App Service](../app-service/app-service-ip-restrictions.md).  App Service-miljöer har distribuerats direkt i virtuella nätverk och därför kan skyddas med NSG: er. |
 | Tvingad tunneltrafik support| Ja | App Service-miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunneltrafik har konfigurerats. Kunder måste följa anvisningarna i [konfigurera App Service Environment med tvingande dirigering](../app-service/environment/forced-tunnel-support.md). |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -103,7 +103,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Kunder kan utveckla program i App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.md) samt andra OAuth kompatibla identitetsleverantörer; Se [autentisering och auktorisering Azure App Service](../app-service/overview-authentication-authorization.md). För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller. |
+| Autentisering| Ja | Kunder kan utveckla program i App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth kompatibla identitetsleverantörer; Se [autentisering och auktorisering Azure App Service](../app-service/overview-authentication-authorization.md). För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller. |
 | Auktorisering| Ja | För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller.  |
 
 
@@ -142,7 +142,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Nej |  |
 | Tvingad tunneltrafik support| Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -191,7 +191,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Tvingad tunneltrafik har stöd för säkerhetskopiering av virtuella datorer. Tvingad tunneltrafik finns inte stöd för arbetsbelastningar som körs på virtuella datorer. |
 | Tvingad tunneltrafik support| Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -240,7 +240,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
 | Tvingad tunneltrafik support| Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -289,7 +289,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja (endast Premium-nivån) |  |
 | Tvingad tunneltrafik support| Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -336,7 +336,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Nej |  |
 | Tvingad tunneltrafik support| Gäller inte | Relay är TLS-tunnel  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -385,7 +385,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -433,7 +433,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Brandväggen på båda databas - och server-nivå. nätverksisolering för [hanterad instans](../sql-database/sql-database-managed-instance.md) endast |
 | Tvingad tunneltrafik support| Ja | [hanterad instans](../sql-database/sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -489,7 +489,7 @@ Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster
 | Isolering av nätverk och brandväggsfunktioner support| Ja | |
 | Tvingad tunneltrafik support| Gäller inte |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

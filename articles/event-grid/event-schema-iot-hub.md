@@ -151,9 +151,9 @@ Alla händelser som innehåller samma översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | Unik identifierare för händelsen. |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | data | objekt | IoT Hub händelsedata.  |
 | dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
@@ -163,7 +163,7 @@ För alla IoT Hub-händelser innehåller dataobjektet följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| HubName | string | Namnet på IoT Hub där enheten skapas eller tas bort. |
+| hubName | string | Namnet på IoT Hub där enheten skapas eller tas bort. |
 | deviceId | string | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Innehållet i dataobjektet är olika för varje händelse-utgivare. 
@@ -190,7 +190,7 @@ För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet inneh
 | -------- | ---- | ----------- |
 | twin | objekt | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
 | deviceID | string | Den unika identifieraren för enhetstvillingen. | 
-| ETag | string | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
+| etag | string | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
 | deviceEtag| string | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
 | status | string | Om enhetstvillingen är aktiverat eller inaktiverat. | 
 | statusUpdateTime | string | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |
@@ -202,8 +202,8 @@ För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet inneh
 | primaryThumbprint | string | Primära tumavtrycket för x509 certifikat. |
 | secondaryThumbprint | string | Sekundära tumavtrycket för x509 certifikat. | 
 | version | heltal | Ett heltal som ökas med 1 varje gång enheten twin uppdateras. |
-| önskad | objekt | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
-| rapporterat | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
+| desired | objekt | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
+| reported | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
 | lastUpdated | string | Uppdatera ISO8601-tidsstämpel för den senaste twin enhetsegenskapen. | 
 
 ## <a name="next-steps"></a>Nästa steg

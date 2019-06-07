@@ -2,8 +2,10 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om programhantering
+    - name: Vad är programhantering?
       href: what-is-application-management.md
+    - name: Vad är Application Proxy?
+      href: what-is-application-proxy.md
 - name: Snabbstarter
   expanded: true
   items:

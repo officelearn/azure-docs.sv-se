@@ -1,7 +1,11 @@
 - name: Översikt
   items:
-    - name: Överväganden för virtuella Oracle-datorer
-      href: oracle-considerations.md
+    - name: Översikt över Oracle-lösningar
+      href: oracle-overview.md
+    - name: Lösningar på virtuella Azure-datorer
+      href: oracle-vm-solutions.md
+    - name: Lösningar med OCI – förhandsversion
+      href: oracle-oci-overview.md
 - name: Snabbstarter
   items:
     - name: Skapa en Oracle-databas
@@ -10,7 +14,7 @@
   items:
     - name: Konfigurera Oracle ASM
       href: configure-oracle-asm.md
-    - name: Konfigurera Oracle DataGuard
+    - name: Konfigurera Oracle Data Guard
       href: configure-oracle-dataguard.md
     - name: Konfigurera Oracle GoldenGate
       href: configure-oracle-golden-gate.md

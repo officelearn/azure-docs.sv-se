@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: WAF-konfiguration
           href: application-gateway-waf-configuration.md
+        - name: Anpassade regler
+          href: custom-waf-rules-overview.md
     - name: Hälsoövervakning
       items:
         - name: Hälsoavsökning
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: Anpassade WAF-regler
+      items:
+        - name: Exempel på anpassad regel
+          href: create-custom-waf-rules.md
+        - name: Konfigurera WAT med anpassade regler
+          href: configure-waf-custom-rules.md
     - name: Dirigera efter URL
       items:
         - name: Azure PowerShell

@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: Begrepp
   items:
+    - name: Hybrididentitet
+      items:
+        - name: Molnstyrd hantering för lokala arbetsbelastningar
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect och Connect Health
       items:
         - name: Vad är Azure AD Connect och Connect Health?

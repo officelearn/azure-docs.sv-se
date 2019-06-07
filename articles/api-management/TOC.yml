@@ -121,6 +121,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Anpassa utvecklarupplevelsen
       items:
+        - name: Komma åt och anpassa den nya utvecklarportalen
+          href: api-management-howto-developer-portal.md
         - name: Ändra innehåll och layout
           href: api-management-modify-content-layout.md
         - name: Anpassa systemsidor med mallar

@@ -111,9 +111,7 @@
           items:
             - name: Hantera via Azure Portal
               href: data-box-portal-ui-admin.md
-            - name: Flytta data till en blobnivå
-              href: data-box-how-to-set-data-tier.md
-            - name: Felsöka Data Box Heavy-problem
+            - name: Felsöka problem med Data Box Disk
               href: data-box-disk-troubleshoot.md
             - name: Kontakta supporten
               href: data-box-disk-contact-microsoft-support.md
@@ -155,12 +153,18 @@
               href: data-box-local-web-ui-admin.md
             - name: Felsöka enhetsproblem
               href: data-box-troubleshoot.md
+            - name: Flytta data till en blobnivå
+              href: data-box-how-to-set-data-tier.md
             - name: Kontakta supporten
               href: data-box-disk-contact-microsoft-support.md
             - name: Migrera
               items:
+                - name: Till SharePoint Online
+                  href: data-box-heavy-migrate-spo.md
                 - name: Till Azure File Sync
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Från HDFS-lagring
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: Resurser
       items:
         - name: Data Box-produkt

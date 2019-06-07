@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/23/2019
+  ms.date: 06/03/2019
   ms.author: anshan
 abstract:
   description: 'Välkommen till Azure Time Series Insights. Azure Time Series Insights ger kraftfulla verktyg för datautforskning och telemetri som hjälper dig att förbättra driftsanalyser. Den här dokumentationen beskriver tjänsten, hur du kommer igång med de många olika funktionerna, klient-SDK och de kraftfulla Time Series Insights-API:erna. Informationen visas för två versioner, en som redan är allmänt tillgänglig (Time Series Insights GA) och en stor tjänstuppdatering som är i förhandsversion (förhandsversionen av Time Series Insights).'
@@ -46,9 +46,9 @@ sections:
         className: cardsD
         items:
           - title: Allmän tillgänglighet för Azure Time Series Insights
-            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Skapa en miljö</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Skapa en enkelsidig webbapp</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Utforska JavaScript-klientbiblioteket</a></p>
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Skapa en Azure Time Series Insights-miljö</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Skapa en enkelsidig webbapp</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Utforska JavaScript-klientbiblioteket</a></p>
           - title: Förhandsversion av Azure Time Series Insights
-            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Självstudie för förhandsversionen</a></p>
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Konfigurera en Azure Time Series Insights-miljö (förhandsversion)</a></p>
   - title: Referens
     items:
       - type: list
@@ -56,6 +56,8 @@ sections:
         className: cardsD
         items:
           - title: 'API:er för allmän tillgänglighet för Time Series Insights'
-            html: <p><a href="/rest/api/time-series-insights-management">API för resurshantering</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Frågesyntax</a></p>
+            html: <p><a href="rest/api/time-series-insights/ga">Dataåtkomst</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Frågesyntax</a></p>
           - title: 'API:er för förhandsversionen av Time Series Insights'
             html: <p><a href="/rest/api/time-series-insights/preview-query">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Modell-API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Miljö-API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression-API</a></p>
+          - title: Client SDK
+            html: '<p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript Client SDK</a></p>'

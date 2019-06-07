@@ -1,8 +1,8 @@
-- name: Dokumentation för enhetshantering
+- name: Dokumentation om enhetsidentiteter
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är enhetshantering i Azure AD?
+    - name: Vad är en enhetsidentitet?
       href: overview.md
     - name: Vad är Enterprise State Roaming?
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: Instruktionsguider
   expanded: true
   items:
-    - name: Hantera enheter med Azure Portal
+    - name: Hantera enhetsidentitet
       href: device-management-azure-portal.md
     - name: Hantera inaktuella enheter
       href: manage-stale-devices.md

@@ -235,6 +235,8 @@
               href: msal-js-sso.md
             - name: Beteende vid fråga (JS)
               href: msal-js-prompt-behavior.md
+            - name: Stöd för ADFS (.NET)
+              href: msal-net-adfs-support.md
             - name: Integrera med Azure AD B2C
               items:
                 - name: JavaScript

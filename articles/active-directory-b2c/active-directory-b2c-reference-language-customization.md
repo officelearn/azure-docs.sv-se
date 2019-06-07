@@ -2,20 +2,20 @@
 title: Språkanpassning i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig mer om hur du anpassar den språk-upplevelsen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c319349d721a390562faac0fc6f90a7b471db0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703425"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509397"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språkanpassning i Azure Active Directory B2C
 
@@ -192,7 +192,7 @@ Chrome och Firefox både begära för sina set-språk. Om det är ett språk som
 | Franska                | fr            |
 | Gujarati              | gu            |
 | Hindi                 | hi            |
-| Kroatiska              | tim            |
+| Kroatiska              | hr            |
 | Ungerska             | hu            |
 | Italienska               | it            |
 | Japanska              | ja            |
@@ -213,7 +213,7 @@ Chrome och Firefox både begära för sina set-språk. Om det är ett språk som
 | Svenska               | sv            |
 | Tamilska                 | ta            |
 | Telugu                | te            |
-| Thai                  | :e            |
+| Thai                  | TH            |
 | Turkiska               | tr            |
 | Kinesiska – förenklad  | zh-hans       |
 | Kinesiska – traditionell | zh-hant       |

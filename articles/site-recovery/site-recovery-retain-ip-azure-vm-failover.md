@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277332"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479956"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Behålla IP-adresser vid redundans
 
@@ -43,7 +43,7 @@ Här är arkitekturen före redundans.
         - Östasien har ett virtuellt nätverk (**Källnätverk**) med adressen utrymme 10.1.0.0/16.
         - Östasien har arbetsbelastningar som delas upp i alla tre undernät i det virtuella nätverket:
             - **Undernät 1**: 10.1.1.0/24
-            - **Undernät 2**: 10.1.2.0/24,
+            - **Undernät 2**: 10.1.2.0/24
             - **Undernät 3**: 10.1.3.0/24
     - Sekundär (mål) regionen är Azure Sydostasien
         - Sydostasien har en återställning VNet (**Recovery VNet**) identisk **Källnätverk**.
@@ -131,11 +131,11 @@ Här är nätverksarkitekturen ser det ut före redundans.
 - Östasien har ett virtuellt nätverk (**Källnätverk**) med adressen utrymme 10.1.0.0/16.
   - Östasien har arbetsbelastningar som delas upp i alla tre undernät i **Källnätverk**:
     - **Undernät 1**: 10.1.1.0/24
-    - **Undernät 2**: 10.1.2.0/24,
-    - **Undernät 3**: 10.1.3.0/24utilizing Azure-nätverk med adress utrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **Källnätverk**
+    - **Undernät 2**: 10.1.2.0/24
+    - **Undernät 3**: använda Azure-nätverk med adress utrymme 10.1.0.0/16 10.1.3.0/24. Det här virtuella nätverket har namnet **Källnätverk**
       - Regionen sekundär (mål) är Azure Sydostasien:
   - Sydostasien har en återställning VNet (**Recovery VNet**) identisk **Källnätverk**.
-- Virtuella datorer i Östasien är anslutna till ett lokalt datacenter med Azure ExpressRoute eller plats-till-plats-VPN.
+- Virtuella datorer i Östasien är anslutna till ett lokalt datacenter med Azure ExpressRoute eller VPN för plats-till-plats.
 - För att minska RTO etablerar företag B gateways på Recovery VNet i Azure Sydostasien före redundans.
 - Företag B verifierar tilldelar/mål-IP-adresser för replikerade virtuella datorer. Mål-IP-adressen är samma som IP-källadressen för varje virtuell dator.
 

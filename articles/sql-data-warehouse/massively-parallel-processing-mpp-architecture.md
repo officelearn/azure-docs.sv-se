@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse – MPP-arkitektur | Microsoft Docs
 description: Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå höga prestanda och skalbarhet.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c3cdd464dffc810e76cf101ac70c2a14bbc4f9ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790723"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515798"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse – massivt parallell bearbetning (MPP)-arkitektur
 Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå höga prestanda och skalbarhet. 
@@ -36,7 +36,7 @@ Med fristående lagringsutrymme och databearbetning kan SQL Data Warehouse:
 * Pausa beräkningskapaciteten, lämna data intakta så du betalar bara för lagring.
 * Återuppta beräkningskapacitet under driftstimmar.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 SQL Data Warehouse använder Azure storage för att skydda användardata.  Eftersom dina data lagras och hanteras av Azure storage, debiteras SQL Data Warehouse separat för din lagringsanvändning. Själva informationen är fragmenterade (sharded) i **distributioner** optimera prestandan för systemet. Du kan välja vilka mönster för horisontell partitionering du använder för att distribuera data när du har definierat tabellen. SQL Data Warehouse stöder dessa mönster för horisontell partitionering:
 
 * Hash

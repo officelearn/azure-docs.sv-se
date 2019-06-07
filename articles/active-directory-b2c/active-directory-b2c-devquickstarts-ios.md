@@ -2,20 +2,20 @@
 title: Med AppAuth i ett iOS-program i Azure Active Directory B2C | Microsoft Docs
 description: Den här artikeln visar hur du skapar en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användaridentiteter och autentiserar användare.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dc429861d97715505ed48e06d216bd2c8292addf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703088"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510085"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -84,7 +84,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Auktoriserar
+### <a name="authorizing"></a>Auktorisering
 
 En begäran om godkännande kan skapas när du konfigurerar eller hämtar en tjänstkonfiguration för auktorisering. För att skapa begäran, behöver du följande information:  
 * Klient-ID (till exempel 00000000-0000-0000-0000-000000000000)

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575615"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492840"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -61,7 +61,7 @@ Virtual network-integration ger din funktionsapp tillgång till resurser i det v
 
 Du kan använda virtual network-integration för att aktivera åtkomst från appar till databaser och webbtjänster som körs i ditt virtuella nätverk. Med virtual network-integration behöver du inte Exponerar en offentlig slutpunkt för program på den virtuella datorn. Du kan använda de privata, icke-internet dirigerbara adresserna i stället.
 
-Den allmänt tillgängliga versionen av virtual network-integration är beroende av en VPN-gateway för att ansluta funktionsappar till ett virtuellt nätverk. Det är tillgängligt i functions som körs i en App Service-plan. Läs hur du konfigurerar den här funktionen i [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+Den allmänt tillgängliga versionen av virtual network-integration är beroende av en VPN-gateway för att ansluta funktionsappar till ett virtuellt nätverk. Det är tillgängligt i functions som körs i en App Service-plan. Läs hur du konfigurerar den här funktionen i [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Förhandsversionen av virtual network-integration
 

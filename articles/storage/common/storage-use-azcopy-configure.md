@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247131"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688021"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -52,7 +52,7 @@ Använd den `azcopy env` att kontrollera det aktuella värdet för den här vari
 
 ## <a name="change-the-location-of-the-log-files"></a>Ändra platsen för loggfilerna
 
-Loggfilerna finns som standard i den `%USERPROFILE\\.azcopy` mapp på Windows eller i den `$HOME\\.azcopy` mapp på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
+Loggfilerna finns som standard i den `%USERPROFILE\\.azcopy` katalogen på Windows eller i den `$HOME\\.azcopy` på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy skapar log och planera filer för alla jobb. Du kan använda loggarna fö
 
 Loggarna innehåller statusen för fel (`UPLOADFAILED`, `COPYFAILED`, och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till felet.
 
-Som standard logg-och planen finns i den `%USERPROFILE\\.azcopy` mapp på Windows eller `$HOME\\.azcopy` mapp på Mac och Linux.
+Som standard logg-och planen finns i den `%USERPROFILE\\.azcopy` på Windows eller `$HOME\\.azcopy` på Mac och Linux.
 
 > [!IMPORTANT]
 > När du skickar en begäran om att Microsoft Support (eller felsöka problem som rör tredje part), dela den redigerade versionen av kommandot som du vill köra. Detta säkerställer att Signaturen inte är delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.

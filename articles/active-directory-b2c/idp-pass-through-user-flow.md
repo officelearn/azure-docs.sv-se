@@ -2,20 +2,20 @@
 title: Skicka en åtkomst-token via ett användarflöde till ditt program – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du kan passera en åtkomsttoken för OAuth2.0 Identitetsproviders som ett anspråk i ett användarflöde i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0270ef3ff74a219442a6800b67055deda7a0583f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705337"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510952"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via ett användarflöde till ditt program i Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Azure AD-B2C stöder för närvarande endast skicka åtkomsttoken [OAuth 2.0](ac
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **användarflöden (principer)**, och välj sedan ditt användarflöde. Till exempel **B2C_1_signupsignin1**.
+4. Välj **användarflöden (principer)** , och välj sedan ditt användarflöde. Till exempel **B2C_1_signupsignin1**.
 5. Välj **Programanspråk**.
 6. Aktivera den **åtkomsttoken för identitets-Provider** anspråk.
 

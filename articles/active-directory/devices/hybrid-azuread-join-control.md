@@ -1,136 +1,102 @@
 ---
-title: Kontrollera hybrid Azure AD-anslutning av dina enheter | Microsoft Docs
-description: Lär dig hur du styr hybrid Azure AD join för dina enheter i Azure Active Directory.
+title: Kontrollerad validering av hybrid Azure AD join - Azure AD
+description: Lär dig hur du gör en kontrollerad validering av hybrid Azure AD-anslutning innan du aktiverar i hela organisationen på samma gång
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 05/30/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353116"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513292"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Kontrollera Azure AD-anslutningshybriden för dina enheter
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
-Hybrid Azure Active Directory (Azure AD)-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter registreras automatiskt. Detta gäller, till exempel under den inledande distributionen för att kontrollera att allt fungerar som förväntat.
+När alla krav är uppfyllda, kommer Windows-enheter automatiskt att registreras som enheter i din Azure AD-klient. Tillståndet för de här enhetsidentiteter i Azure AD kallas hybrid Azure AD-anslutning. Mer information om begrepp i den här artikeln finns i artiklarna [introduktionen till enhetshantering i Azure Active Directory](overview.md) och [planera implementeringen hybrid Azure Active Directory join ](hybrid-azuread-join-plan.md).
 
-Den här artikeln innehåller råd om hur du kan styra hybrid Azure AD join för dina enheter. 
+Organisationer vilja göra en kontrollerad validering av hybrid Azure AD-anslutning innan du aktiverar i hela organisationen på samma gång. Den här artikeln förklarar hur du utför en kontrollerad validering av hybrid Azure AD-anslutning.
 
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Den här artikeln förutsätter att du är bekant med:
-
--  [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
- 
--  [Planera implementeringen av Azure Active Directory-hybridanslutning](hybrid-azuread-join-plan.md)
-
--  [Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner](hybrid-azuread-join-managed-domains.md) eller [konfigurera hybrid Azure Active Directory-anslutning för federerade domäner](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>Styra aktuella Windows-enheter
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Kontrollerad validering av hybrid Azure AD join i befintliga Windows-enheter
 
 För enheter som kör Windows operativsystem, versionen som stöds är Windows 10 Anniversary Update (version 1607) eller senare. Ett bra tips är att uppgradera till den senaste versionen av Windows 10.
 
-Alla Windows befintliga enheter automatiskt registrera med Azure AD vid starten av enheten eller användaren logga in. Du kan styra detta genom att använda ett grupprincipobjekt (GPO) eller System Center Configuration Manager.
+Om du vill göra en kontrollerad validering av hybrid Azure AD join i befintliga Windows-enheter, måste du:
 
-För att styra aktuella Windows-enheter, måste du: 
-
-
-1.  **Till alla enheter**: Inaktivera automatisk enhetsregistrering.
-2.  **Till valda enheter**: Aktivera automatisk enhetsregistrering.
-
-När du har kontrollerat att allt fungerar som förväntat, är du redo att aktivera automatisk enhetsregistrering för alla enheter igen.
+1. Ta bort posten tjänstanslutningspunkt (SCP) från Active Directory (AD) om den finns
+1. Konfigurera registerinställningar på klientsidan för SCP på domänanslutna datorer med hjälp av ett grupprincipobjekt (GPO)
+1. Om du använder AD FS måste du också konfigurera registerinställningen för klientsidan för SCP på AD FS-servern med hjälp av ett grupprincipobjekt  
 
 
 
-### <a name="group-policy-object"></a>Grupprincipobjekt 
+### <a name="clear-the-scp-from-ad"></a>Ta bort SCP: N från AD
 
-Du kan kontrollera enhetsbeteende för registrering av dina enheter genom att distribuera följande grupprincipobjekt: **Registrera domänanslutna datorer som enheter**.
+Använd den Active Directory Services Interfaces Editor (ADSI-redigering) för att ändra SCP-objekt i AD.
 
-Så här Grupprincipobjektet:
+1. Starta den **ADSI-redigering** skrivbordsprogram från och administrativ arbetsstation eller en domänkontrollant som en företagsadministratör.
+1. Ansluta till den **Configuration namngivningskontext** på din domän.
+1. Bläddra till **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = enhet registrering Configuration**
+1. Högerklicka på objektet löv under **CN = enhet registrering Configuration** och välj **egenskaper**
+   1. Välj **nyckelord** från den **Attributredigeraren** och klicka på **redigera**
+   1. Välj värdena för **azureADId** och **azureADName** (en i taget) och klicka på **ta bort**
+1. Stäng **ADSI-redigering**
 
-1.  Öppna **Serverhanteraren**, och gå till **verktyg** > **Group Policy Management**.
 
-2.  Gå till domännoden som motsvarar den domän där du vill inaktivera eller aktivera automatisk registrering.
+### <a name="configure-client-side-registry-setting-for-scp"></a>Konfigurera registerinställningar på klientsidan för SCP
 
-3.  Högerklicka på **grupprincipobjekt**, och välj sedan **New**.
+Använd följande exempel för att skapa ett grupprincipobjekt (GPO) för att distribuera en registerinställning som konfigurerar en SCP-post i registret på dina enheter.
 
-4.  Ange ett namn (till exempel **Hybrid Azure AD-anslutning**) för din grupprincipobjekt. 
+1. Öppna konsolen Grupprinciphantering och skapa ett nytt grupprincipobjekt i domänen.
+   1. Ange ett namn (till exempel ClientSideSCP) för ditt nyligen skapade GPO.
+1. Redigera Grupprincipobjektet och leta upp följande sökväg: **Datorkonfiguration** > **inställningar** > **Windows-inställningar** > **registret**
+1. Högerklicka på registernyckeln och välj **New** > **registerobjekt**
+   1. På den **Allmänt** konfigurerar följande
+      1. Åtgärd: **Uppdatering**
+      1. Registreringsdatafil: **HKEY_LOCAL_MACHINE**
+      1. Nyckelsökväg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Värdenamn: **TenantId**
+      1. Värdetyp: **REG_SZ**
+      1. Värdedata: GUID eller **katalog-ID** för din Azure AD-instans (det här värdet finns i den **Azure-portalen** > **Azure Active Directory**  >   **Egenskaper för** > **katalog-ID**)
+   1. Klicka på **OK**
+1. Högerklicka på registernyckeln och välj **New** > **registerobjekt**
+   1. På den **Allmänt** konfigurerar följande
+      1. Åtgärd: **Uppdatering**
+      1. Registreringsdatafil: **HKEY_LOCAL_MACHINE**
+      1. Nyckelsökväg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Värdenamn: **tenantName**
+      1. Värdetyp: **REG_SZ**
+      1. Värdedata: Din verifierade **domännamn** i Azure AD (till exempel `contoso.onmicrosoft.com` eller några andra verifierat domännamn i katalogen)
+   1. Klicka på **OK**
+1. Stäng Redigeraren för den nyligen skapade GPO
+1. Länka det nya Grupprincipobjektet till Organisationsenheten önskade som innehåller domänanslutna datorer som tillhör din kontrollerad distribution population
 
-5.  Välj **OK**.
+### <a name="configure-ad-fs-settings"></a>Konfigurera inställningar för AD FS
 
-6.  Högerklicka på ditt nya GPO och välj sedan **redigera**.
+Om du använder AD FS måste du först konfigurera SCP för klientsidan med hjälp av anvisningarna som nämns ovan, men länkning av Grupprincipobjektet till AD FS-servrarna. Den här konfigurationen krävs för AD FS för att upprätta källan för enhetsidentiteter som Azure AD.
 
-7.  Gå till **Datorkonfiguration** > **principer** > **Administrationsmallar** > **Windows Komponenter** > **Enhetsregistrering**. 
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollerad validering av hybrid Azure AD join i Windows äldre enheter
 
-8.  Högerklicka på **registrera domänanslutna datorer som enheter**, och välj sedan **redigera**.
+Om du vill registrera Windows äldre enheter, organisationer måste installera [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) finns på Microsoft Download Center.
 
-    > [!NOTE] 
-    > Den här mallen har ändrats från tidigare versioner av konsolen Grupprinciphantering. Om du använder en tidigare version av konsolen går du till **Datorkonfiguration** > **principer** > **Administrationsmallar**  >  **Windows-komponenter** > **Enhetsregistrering** > **registrera domänansluten dator som enheten**. 
+Du kan distribuera paketet med hjälp av ett system för programvarudistribution som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder alternativen standard tyst installation med parametern tyst. Den aktuella grenen av Configuration Manager ger fördelar jämfört med tidigare versioner, som möjligheten att spåra slutförda registreringar.
 
-9.  Välj något av följande inställningar och välj sedan **tillämpa**:
+Installationsprogrammet skapar en schemalagd aktivitet på system som körs i användarkontexten. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med Azure AD.
 
-    - **Inaktiverad**: Att förhindra automatisk enhetsregistrering.
-    - **Aktiverad**: Att aktivera automatisk enhetsregistrering.
+För att styra enhetsregistreringen, bör du distribuera Windows Installer-paketet på din valda grupp av Windows äldre enheter.
 
-10. Välj **OK**.
+> [!NOTE]
+> Om en SCP inte har konfigurerats i AD så du bör följa samma metod som beskrivs till [konfigurera registerinställningar på klientsidan för SCP](#configure-client-side-registry-setting-for-scp)) på domänanslutna datorer med hjälp av ett grupprincipobjekt (GPO).
 
-Du måste länka Grupprincipobjektet till en valfri plats. Till exempel ange den här principen för alla domänanslutna aktuella enheter i din organisation och länka Grupprincipobjektet till domänen. Gör en kontrollerad distribution genom att ställa in principen till domänanslutna Windows befintliga enheter som hör till en organisationsenhet eller en säkerhetsgrupp.
 
-### <a name="configuration-manager-controlled-deployment"></a>Configuration Manager kontrollerad distribution 
-
-Du kan styra beteendet enheten registreringen av din befintliga enheter genom att konfigurera följande klientinställning: **Registrera automatiskt nya Windows 10 domänanslutna enheter med Azure Active Directory**.
-
-Konfigurera klientinställningen:
-
-1.  Öppna **Configuration Manager**väljer **Administration**, och gå till **klientinställningar**.
-
-2.  Öppna egenskaperna för **inställningar för standardklient** och välj **molntjänster**.
-
-3.  Under **Enhetsinställningar**, väljer du något av följande inställningar för **automatiskt registrera nya Windows 10 domänanslutna enheter med Azure Active Directory**:
-
-    - **Inte**: Att förhindra automatisk enhetsregistrering.
-    - **Ja**: Att aktivera automatisk enhetsregistrering.
-
-4.  Välj **OK**.
-
-Du måste länka den här klientinställningen till en valfri plats. Till exempel för att konfigurera den här klientinställningen för alla aktuella Windows-enheter i din organisation, länka klientinställningen till domänen. Du kan konfigurera för klienten att domänanslutna Windows befintliga enheter som hör till en organisationsenhet eller en säkerhetsgrupp om du vill göra en kontrollerad distribution.
-
-> [!Important]
-> Även om ovanstående konfiguration tar hand om befintliga domänanslutna Windows 10-enheter, enheter som nyligen ansluter till domänen kan fortfarande försöka slutföra hybrid Azure AD-anslutning på grund av möjlig fördröjning vid tillämpning av en grupprincip eller Configuration Manager-inställningar på enheter. 
->
-> Om du vill undvika detta rekommenderar vi att du skapar en ny Sysprep-bild (används som exempel för en metod för etablering). Skapa det från en enhet som aldrig tidigare hybrid Azure AD-anslutna och att redan har en grupprincip ställde eller Configuration Manager-klientinställningen tillämpas. Du måste också använda den nya avbildningen för att etablera nya datorer som ansluter till organisationens domän. 
-
-## <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter
-
-Om du vill registrera Windows äldre enheter, som du behöver hämta och installera Windows Installer-paketet (.msi) från Download Center på den [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) sidan.
-
-Du kan distribuera paketet med hjälp av ett system för programvarudistribution som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder alternativen standard tyst installation med parametern tyst. Den aktuella grenen av Configuration Manager ger fördelar jämfört med tidigare versioner, som möjligheten att spåra slutförda registreringar.
-
-Installationsprogrammet skapar en schemalagd aktivitet på system som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med Azure AD.
-
-För att styra enhetsregistreringen, bör du distribuera Windows Installer-paketet enbart för en grupp av Windows äldre enheter. Om du har kontrollerat att allt fungerar som förväntat, är du redo att distribuera paketet till alla äldre enheter.
-
+När du har kontrollerat att allt fungerar som förväntat kan du automatiskt registrera resten av dina aktuella och äldre enheter i Windows med Azure AD genom [konfigurera SCP med Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
-
-
-
+[Planera implementeringen av Azure Active Directory-hybridanslutning](hybrid-azuread-join-plan.md)

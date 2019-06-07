@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2f6b693e11ccbb759b59c949b24690e8a2054f94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132415"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472296"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindningar för Azure Functions
 
@@ -42,7 +42,7 @@ Queue storage-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Storage
 ## <a name="encoding"></a>Kodning
 Functions förväntar sig en *base64* -kodad sträng. Eventuella justeringar av kodningstyp (för att förbereda data som en *base64* -kodad sträng) implementeras i anropande-tjänsten.
 
-## <a name="trigger"></a>Utlös
+## <a name="trigger"></a>Utlösare
 
 Använd kö-utlösare för att starta en funktion när ett nytt objekt tas emot i en kö. Kömeddelandet anges som indata till funktionen.
 
@@ -275,7 +275,7 @@ I JavaScript, använda `context.bindings.<name>` till nyttolasten för objekt i 
 
 Kö-utlösare innehåller flera [metadataegenskaper](./functions-bindings-expressions-patterns.md#trigger-metadata). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) klass.
 
-|Egenskap |Typ|Beskrivning|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Kön nyttolast (om det är en giltig sträng). Om kön nyttolast som en sträng `QueueTrigger` har samma värde som variabeln med namnet genom att den `name` -egenskapen i *function.json*.|
 |`DequeueCount`|`int`|Antal gånger som har tagits bort från kön det här meddelandet.|
@@ -307,7 +307,7 @@ Kö-utlösare förhindrar automatiskt en funktion från att bearbeta ett kömedd
 
 Den [host.json](functions-host-json.md#queues) filen innehåller inställningar som styr beteendet för kö-utlösare. Se den [host.json inställningar](#hostjson-settings) information om tillgängliga inställningar.
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 Använd den Azure Queue storage-utdatabindning för att skriva meddelanden till en kö.
 
@@ -507,7 +507,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**type** | Saknas | Måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön i funktionskoden. Ange `$return` att referera till returvärde för funktion.|
-|**Könamn** |**Könamn** | Köns namn. |
+|**Könamn** |**Könamn** | Namnet på kön. |
 |**anslutning** | **anslutning** |Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -564,9 +564,9 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 ```
 
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Den längsta tiden mellan kön avsöker. Minimum är 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|Den längsta tiden mellan kön avsöker. Minimum är 00:00:00.100 (100 ms) och ökar upp till 00:01:00 (1 min). |
 |visibilityTimeout|00:00:00|Det går inte att tidsintervall mellan försök vid bearbetning av ett meddelande. |
 |batchSize|16|Antal Kömeddelanden som Functions-körning hämtar samtidigt och bearbetar parallellt. När antalet bearbetas kommer ned till den `newBatchThreshold`, körningen får en annan batch och påbörjar bearbetningen av dessa meddelanden. Så det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning för meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock samtidighet bara så länge som din funktionsapp körs på en enskild virtuell dator (VM). Om funktionsappen skalas ut till flera virtuella datorer, kan varje virtuell dator kör en instans av varje funktion som utlöses av kön.<br><br>Maximalt `batchSize` är 32. |
 |maxDequeueCount|5|Antal gånger att försöka bearbetar ett meddelande innan du flyttar den till skadliga kön.|

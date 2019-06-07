@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrera från federation till direktautentisering för Azure Active Directory | Microsoft Docs'
+title: 'Azure AD Connect: Migrera från federation till PTA för Azure AD'
 description: Den här artikeln innehåller information om hur du flyttar din hybridmiljön identitet från federation till direktautentisering.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382780"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473376"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från federation till direktautentisering för Azure Active Directory
 
@@ -75,7 +75,7 @@ Slutför stegen i följande avsnitt för att förstå vilken metod du ska använ
 2. På den **ytterligare uppgifter** väljer **visa aktuell konfiguration**, och välj sedan **nästa**.<br />
  
    ![Skärmbild av alternativet Visa aktuell konfiguration på sidan ytterligare uppgifter](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. På den **granska din lösning** , bläddrar du till **Active Directory Federation Services (AD FS)**.<br />
+3. På den **granska din lösning** , bläddrar du till **Active Directory Federation Services (AD FS)** .<br />
 
    * Om AD FS-konfigurationen visas i det här avsnittet, kan du på ett säkert sätt anta att AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect. Du kan konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av Azure AD Connect **ändra användarinloggning** alternativet. Mer information om processen finns i avsnittet **alternativ 1: Konfigurera direktautentisering med hjälp av Azure AD Connect**.
    * Om AD FS inte visas i de aktuella inställningarna, måste du manuellt konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av PowerShell. Mer information om den här processen finns i avsnittet **alternativ 2: Växla från federation till direktautentisering med hjälp av Azure AD Connect och PowerShell**.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460261"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479055"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Skapa en WAF-princip för Azure åtkomsten med hjälp av Azure portal
 
@@ -48,7 +48,7 @@ Skapa först en grundläggande WAF-princip med hanterade standard regeln ange (D
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Ytterdörren              | Välj ditt profilnamn för åtkomsten.|
-    | Klientdelsvärd           | Välj namnet på din ytterdörren värden och sedan **Lägg till**.|
+    | Frontend-värd           | Välj namnet på din ytterdörren värden och sedan **Lägg till**.|
     
     > [!NOTE]
     > Om frontend-värden är kopplad till en WAF-princip, är det visas som nedtonade. Du måste först ta bort frontend-värden från den associerade principen och associerar frontend-värden till en ny WAF-princip.
@@ -63,17 +63,19 @@ Om du vill se hur WAF i praktiken kan du ändra lägesinställningarna för frå
 
  ![Ändra WAF principläge](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>Anpassade regler
+
+Du kan skapa en anpassad regel genom att välja **Lägg till anpassad regel** under den **anpassade regler** avsnittet. Detta startar konfigurationssidan för anpassad regel. Nedan visas ett exempel på hur du konfigurerar en anpassad regel för att blockera en begäran om frågesträngen innehåller **blockme**.
+
+![Ändra WAF principläge](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>Regeluppsättning för standard (DRS)
 
 Azure-hanterade regeln standarduppsättningen är aktiverat som standard. Om du vill inaktivera en regel inom en regelgrupp Expandera regler i för regelgruppen, Välj den **kryssrutan** framför regeln antal och välj **inaktivera** på fliken ovan. Ändra typer av åtgärder för enskilda regler i regeln ange, markerar du kryssrutan framför regel-numret och välj sedan den **ändra åtgärd** flik ovan.
 
- ![Ändra WAF regeluppsättning](./media/waf-front-door-create-portal/managed.png)
+ ![Ändra WAF regeluppsättning](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Azure waf](waf-overview.md).
 - Läs mer om [Azure ytterdörren](front-door-overview.md).
-
-
-
-

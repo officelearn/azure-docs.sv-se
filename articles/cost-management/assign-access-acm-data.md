@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785864"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493757"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -170,6 +170,13 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 7. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller program**.
 8. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 9. Klicka på **Spara**.
+
+## <a name="cross-tenant-authentication-issues"></a>Autentiseringsproblem med flera klienter
+
+Azure Cost Management har för närvarande begränsat stöd för flera klienter autentisering. I vissa fall när du försöker autentisera över klienter, får du en **åtkomst nekad** fel i kostnadsanalys. Det här problemet kan uppstå om du konfigurerar rollbaserad åtkomstkontroll (RBAC till en annan klient-prenumeration) och försök sedan att visa kostnadsdata.
+
+*Att undvika problemet*: När du konfigurerar RBAC för flera klienter, vänta en timme. Försök sedan att visa kostnader i kostnadsanalys eller bevilja kostnadshantering åtkomst till användare i båda klienter.  
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,20 +2,20 @@
 title: Definiera en OpenId Connect tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en OpenId Connect tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710322"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512919"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OpenId Connect tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64710322"
 
 Azure Active Directory (Azure AD) B2C har stöd för den [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protokollet identitetsprovider. OpenID Connect 1.0 definierar en identity-läger ovanpå OAuth 2.0 och representerar avancerade i moderna autentiseringsprotokoll. Med en OpenId Connect tekniska profil, kan du federera med OpenId Connect baserat identitetsprovider, t.ex Azure AD. Federera med en identitetsprovider tillåter användare att logga in med sina befintliga sociala eller företagsidentiteter.
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Den **namn** attributet för den **protokollet** element måste anges till `OpenIdConnect`. Till exempel protokollet för den **MSA-OIDC** tekniska profilen är `OpenIdConnect`:
 
@@ -73,7 +73,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program-ID för identitetsprovidern. |
 | IdTokenAudience | Nej | Id_token målgrupp. Om anges kontrollerar om token är i ett anspråk som returnerades av identitetsprovidern och är lika med den som angetts i Azure AD B2C. |
@@ -81,7 +81,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 | ProviderName | Nej | Namnet på identitetsprovidern. |
 | response_types | Nej | Svarstypen enligt OpenID Connect Core 1.0-specifikation. Möjliga värden: `id_token`, `code`, eller `token`. |
 | response_mode | Nej | Den metod som identitetsprovidern använder för att skicka resultatet tillbaka till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard), eller `fragment`. |
-| omfång | Nej | Omfattningen för den begäran som definieras enligt OpenID Connect Core 1.0-specifikation. Till exempel `openid`, `profile`, och `email`. |
+| scope | Nej | Omfattningen för den begäran som definieras enligt OpenID Connect Core 1.0-specifikation. Till exempel `openid`, `profile`, och `email`. |
 | HttpBinding | Nej | Den förväntade HTTP-bindningen till åtkomst-token och anspråk token slutpunkterna. Möjliga värden: `GET` eller `POST`.  |
 | ValidTokenIssuerPrefixes | Nej | En nyckel som kan användas för att logga in på var och en av innehavarna som när du använder en identitetsprovider för flera innehavare, till exempel Azure Active Directory. |
 | UsePolicyInRedirectUri | Nej | Anger om du vill använda en princip när omdirigeringen-URI. När du konfigurerar ditt program i identitetsprovidern som du behöver ange omdirigerings-URI. Omdirigerings-URI som pekar på Azure AD B2C `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com kan ändras med din klient name.b2clogin.com).  Om du anger `false`, du måste lägga till en omdirigerings-URI för varje princip som du använder. Till exempel: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
@@ -92,7 +92,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Klienthemlighet för identitetsprogram för providern. Den kryptografiska nyckeln krävs endast om den **response_types** metadata är inställd på `code`. Azure AD B2C gör i det här fallet ett annat anrop till byta auktoriseringskod för en åtkomsttoken. Om metadata är inställt på `id_token` du kan utelämna den kryptografiska nyckeln.  |  
 

@@ -2,20 +2,20 @@
 title: Om anpassning av användargränssnitt i Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om hur du anpassar användargränssnittet för ditt program som använder Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682007"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511179"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användargränssnitt i Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ När du använder egna HTML och CSS-filer för att anpassa Användargränssnitte
 
 Du kan välja en fördefinierad mall som ger en bättre inblick för standardsidor och fungerar som en bra grund för dina egna anpassning för v2 användarflöden.
 
-I den vänstra menyn under **anpassa**väljer **sidan layouter**. Välj sedan **mall (förhandsversion)**.
+I den vänstra menyn under **anpassa**väljer **sidan layouter**. Välj sedan **mall (förhandsversion)** .
 
 ![Välj en mall för layout](media/customize-ui-overview/template.png)
 

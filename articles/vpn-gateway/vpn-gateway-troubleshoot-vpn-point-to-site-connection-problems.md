@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457484"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475967"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
@@ -62,7 +62,7 @@ Läs mer om hur du installerar klientcertifikatet [generera och exportera certif
 
 ### <a name="symptom"></a>Symtom
 
-När du försöker och ansluta till en Azure-nätverk gteway som använder IKEv2 på Windows kan du få följande felmeddelande visas:
+När du försöker och ansluta till en Azure virtuell nätverksgateway som använder IKEv2 på Windows kan du få följande felmeddelande visas:
 
 **Gick inte att upprätta nätverksanslutningen mellan datorn och VPN-servern eftersom fjärrservern inte svarar**
 
@@ -305,7 +305,7 @@ Du tar bort punkt-till-plats VPN-anslutning och sedan installera om VPN-klienten
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >**, och kör sedan installationsprogrammet för VPN-klienten igen .
+Lös problemet genom att ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >** , och kör sedan installationsprogrammet för VPN-klienten igen .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats VPN-klienten inte kan lösa det fullständiga Domännamnet för resurserna i den lokala domänen
 

@@ -2,20 +2,20 @@
 title: Definiera en OAuth1 tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
 description: Definiera en OAuth1 tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699833"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513123"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64699833"
 
 Azure Active Directory (Azure AD) B2C har stöd för den [OAuth 1.0-protokollet](https://tools.ietf.org/html/rfc5849) identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med en teknisk OAuth1-profil kan du federera med en OAuth1 baserat identitetsprovider, till exempel Twitter. Federera med identitetsprovidern tillåter användare att logga in med sina befintliga sociala eller företagsidentiteter.
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Den **namn** attributet för den **protokollet** element måste anges till `OAuth1`. Till exempel protokollet för den **Twitter-OAUTH1** tekniska profilen är `OAuth1`.
 
@@ -67,7 +67,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program-ID för identitetsprovidern. |
 | ProviderName | Nej | Namnet på identitetsprovidern. |
@@ -81,7 +81,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Klienthemlighet för identitetsprogram för providern.   | 
 

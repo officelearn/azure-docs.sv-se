@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991372"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480315"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -54,7 +54,7 @@ Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på
 
 När du försöker montera en filresurs från en lokal plats eller från ett annat datacenter kan du få följande fel:
 
-- Systemfel 53 har uppstått. Gick inte att hitta nätverkssökvägen.
+- Systemfel 53 har uppstått. Det gick inte att hitta nätverkssökvägen.
 - Systemfel 67 har uppstått. Nätverksnamnet kan inte hittas.
 - Systemfel 87 har uppstått. Parametern är felaktig.
 
@@ -136,14 +136,13 @@ Fel 1816 händer när du når den övre gränsen för samtidiga öppna referense
 
 Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [checklista för prestanda och skalbarhet i Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Felet ”Åtkomst nekad” när du går till en Azure-filresurs i portalen
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel ”Auktoriseringen misslyckades” när du går till en Azure-filresurs i portalen
 
 När du bläddrar till en Azure-filresurs i portalen kan du få följande fel:
 
-Åtkomst nekad  
-Du saknar åtkomst  
-Det verkar som om du inte har åtkomst till det här innehållet. Kontakta ägaren för att få åtkomst.  
+Auktoriseringen misslyckades  
+Du har inte åtkomst 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: Ditt användarkonto har inte åtkomst till lagringskontot
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.author: mialdrid
-ms.openlocfilehash: a86d3f44d3c2177185fa81602f953be4f726badb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/31/2019
+ms.author: jaredr80
+ms.openlocfilehash: c443d4705da83a43af10763f633f340b1eab69d3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257882"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478155"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -86,10 +86,10 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Chennai** | Tata Communications | Södra Indien | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Södra Indien | Airtel |
 | **Chicago** | Equinix | Norra centrala USA | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
-| **Dallas** | Equinix | Saknas | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Verizon, Zayo|
+| **Dallas** | Equinix | Saknas | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | Västra centrala USA | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat Förenade Arabemiraten | Förenade Arabemiraten, norra | Etisalat Förenade Arabemiraten |
-| **Dubai2** | du datamena | Förenade Arabemiraten, norra | du datamena |
+| **Dubai2** | du datamena | Förenade Arabemiraten, norra | du datamena, Orixcom |
 | **Dublin** | Equinix | Norra Europa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | Saknas | DE-CIX, Interxion |
 | **Hongkong SAR** | Equinix | Östasien | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -100,13 +100,13 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **London2** | Telehouse | Storbritannien, södra | IX räckvidd, Equinix |
 | **Los Angeles** | CoreSite | Saknas | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marseille** |Interxion | Frankrike, södra | Interxion |
-| **Melbourne** | NextDC | Sydöstra Australien | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
+| **Melbourne** | NextDC | Sydöstra Australien | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | Saknas | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Saknas | Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai** | Tata Communications | Indien, västra | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | Indien, västra | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | Saknas | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
-| **Newport(Wales)** | Nästa generations data | Storbritannien, västra | British Telecom, Level 3 Communications, Next Generation Data |
+| **Newport(Wales)** | Nästa generations data | Storbritannien, västra | British Telecom, Colt, Level 3 Communications, nästa generations brandvägg |
 | **Osaka** | Equinix | Västra Japan | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | Frankrike, centrala | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | Saknas | Megaport, NextDC |

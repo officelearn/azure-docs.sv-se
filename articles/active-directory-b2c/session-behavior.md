@@ -2,20 +2,20 @@
 title: Konfigurera sessionsbeteende - Azure Active Directory B2C | Microsoft Docs
 description: Konfigurera beteendet för sessionen i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700992"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512553"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurera beteendet för sessionen i Azure Active Directory B2C
 
@@ -51,10 +51,10 @@ Följande användningsfall aktiveras med hjälp av dessa egenskaper:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **användarflöden (principer)**.
+4. Välj **användarflöden (principer)** .
 5. Öppna det användarflöde som du skapade tidigare. 
 6. Välj **egenskaper**.
-7. Konfigurera **webbappssession (minuter)**, **webbappssession**, **konfigurationen för enkel inloggning**, och **kräver ID-Token i utloggningsbegäranden**  efter behov.
+7. Konfigurera **webbappssession (minuter)** , **webbappssession**, **konfigurationen för enkel inloggning**, och **kräver ID-Token i utloggningsbegäranden**  efter behov.
 
     ![Konfigurera sessionsbeteende](./media/session-behavior/session-behavior.png)
     

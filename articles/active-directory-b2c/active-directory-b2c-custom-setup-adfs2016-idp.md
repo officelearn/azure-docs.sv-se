@@ -2,20 +2,20 @@
 title: Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C | Microsoft Docs
 description: Konfigurera AD FS 2016 med SAML-protokoll och anpassade principer i Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767998"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510434"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -144,7 +144,7 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 Om du vill använda AD FS som en identitetsprovider i Azure AD B2C måste du skapa en AD FS förtroende för förlitande part med Azure AD B2C SAML-metadata. I följande exempel visas en URL-adress till SAML-metadata för en Azure AD B2C-tekniska profilen:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Ersätt följande värden:
@@ -173,7 +173,7 @@ Ersätt följande värden:
     | Efternamn | family_name |
     | Angivna namn | given_name |
     | E-Mail-Address | email |
-    | Visningsnamn | namn |
+    | Visningsnamn | name |
     
 12.  Baserat på din typ av certifikat kan behöva du ange HASH-algoritmen. I egenskapsfönstret förlitande part förtroende (B2C Demo) väljer den **Avancerat** fliken och ändra den **säkra hash-algoritm** till `SHA-256`, och klicka på **Ok**.  
 13. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.

@@ -1,22 +1,22 @@
 ---
-title: 'Snabbstart: Mata in data från Logstash i Azure Data Explorer'
-description: I den här snabbstarten får du lära dig hur du matar in (läser in) data i Azure Data Explorer från Logstash
+title: Mata in data från Logstash i Azure Data Explorer
+description: I den här artikeln får du lära dig hur mata in (load) data i Azure Data Explorer från Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759375"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494546"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Snabbstart: Mata in data från Logstash i Azure Data Explorer
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Mata in data från Logstash i Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) är en databearbetningspipeline för serversidan med öppen källkod som matar in data från många källor samtidigt, transformerar data och sedan skickar data till din favoritlagring. I den här snabbstarten skickar du dessa data till Azure Data Explorer, som är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Först skapar du en tabell och datamappning i ett testkluster, och sedan instruerar du Logstash att skicka data till tabellen och verifiera resultatet.
+[Logstash](https://www.elastic.co/products/logstash) är en databearbetningspipeline för serversidan med öppen källkod som matar in data från många källor samtidigt, transformerar data och sedan skickar data till din favoritlagring. I den här artikeln får skickar du dessa data till Azure Data Explorer, vilket är en tjänst för Kunskapsutveckling för snabba och skalbara data för logg-och telemetri. Först skapar du en tabell och datamappning i ett testkluster, och sedan instruerar du Logstash att skicka data till tabellen och verifiera resultatet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -146,5 +146,4 @@ Kör du följande kommando i databasen för att rensa tabellen `logs`:
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+* [Skriv frågor](write-queries.md)

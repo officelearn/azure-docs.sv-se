@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551369"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688739"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -100,7 +100,7 @@ Windows 10 64-bitars | Enterprise, Pro, Home | Datorer ska köra den senaste ser
 Windows 8.1 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 8 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 7 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Datorer ska köra den senaste services Pack och uppdateringar.
-Server  | |
+Server | |
 Windows Server 2019 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
 Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
@@ -182,8 +182,8 @@ Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Finns det någon gräns för antalet återställningspunkter som kan skapas?
 Du kan skapa upp till 9999 återställningspunkter per skyddad instans. En skyddad instans är en dator, en server (fysisk eller virtuell) eller en arbetsbelastning som säkerhetskopierar till Azure.
 
-- Läs mer om [säkerhetskopiering och kvarhållning](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Lär dig mer om [skyddade instanser](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
+- Läs mer om [säkerhetskopiering och kvarhållning](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Hur många gånger kan jag återställningsdata som säkerhetskopieras till Azure?
 Det finns ingen gräns för antalet återställningar från Azure Backup.

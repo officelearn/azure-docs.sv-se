@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956385"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497194"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du använder *kubenet* nätverk för att skapa och a
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.56 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI version 2.0.65 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Översikt över kubenet nätverk med ditt eget undernät
 
@@ -48,7 +48,7 @@ Med *Azure CNI*, ett vanligt problem är det tilldelade IP-adressintervallet är
 
 Som en svaghet, kan du skapa ett AKS-kluster som använder *kubenet* och Anslut till ett befintligt undernät för virtuellt nätverk. Den här metoden gör att noderna får definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser direkt för alla potentiella poddarna som kan köras i klustret.
 
-Med *kubenet*, du kan använda ett mycket mindre IP-adressintervall och att kunna stödja stora kluster och behov. Till exempel ännu med en */27* IP-adressintervall, du kan köra ett kluster med 20-25 noder med tillräckligt med utrymme för att skala eller uppgradera. Den här klusterstorleken stöder upp till *2200 2,750* poddar (med standard högst 110 poddar per nod).
+Med *kubenet*, du kan använda ett mycket mindre IP-adressintervall och att kunna stödja stora kluster och behov. Till exempel ännu med en */27* IP-adressintervall, du kan köra ett kluster med 20-25 noder med tillräckligt med utrymme för att skala eller uppgradera. Den här klusterstorleken stöder upp till *2200 2,750* poddar (med standard högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *kubenet* i AKS är 250.
 
 Följande grundläggande beräkningar jämför skillnaden i nätverket modeller:
 
@@ -140,15 +140,15 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Du har nu skapat ett virtuellt nätverk och undernät, och skapas och behörigheter för ett huvudnamn för tjänsten för att kunna använda dessa nätverksresurser. Nu skapa ett AKS-kluster i ditt virtuella nätverk och undernät med hjälp av den [az aks skapa] [ az-aks-create] kommando. Definiera dina egna huvudnamn för tjänsten  *\<appId >* och  *\<lösenord >*, vilket visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn.
+Du har nu skapat ett virtuellt nätverk och undernät, och skapas och behörigheter för ett huvudnamn för tjänsten för att kunna använda dessa nätverksresurser. Nu skapa ett AKS-kluster i ditt virtuella nätverk och undernät med hjälp av den [az aks skapa] [ az-aks-create] kommando. Definiera dina egna huvudnamn för tjänsten  *\<appId >* och  *\<lösenord >* , vilket visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn.
 
 Följande IP-adressintervall också definieras som en del av klustret skapa processen:
 
-* Den *--service-cidr* används för att tilldela en IP-adress för interna tjänster i AKS-kluster. Den här IP-adressintervallet ska vara ett adressutrymme som inte används i din nätverksmiljö. Detta inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutningar.
+* Den *--service-cidr* används för att tilldela en IP-adress för interna tjänster i AKS-kluster. Den här IP-adressintervallet ska vara ett adressutrymme som inte används i din nätverksmiljö. Det här intervallet inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
 
 * Den *--dns-tjänst-IP-* adress ska vara den *.10* -adressen för ditt service IP-adressintervall.
 
-* Den *--pod-cidr* ska vara ett stort adressutrymme som inte används i din nätverksmiljö. Detta inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
+* Den *--pod-cidr* ska vara ett stort adressutrymme som inte används i din nätverksmiljö. Det här intervallet inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
     * Den här adressintervallet måste vara tillräckligt stor för att anpassa antalet noder som du förväntar dig att skala upp till. Du kan inte ändra den här adressintervall när klustret distribueras om du behöver fler adresser för ytterligare noder.
     * Pod IP-adressintervall som används för att tilldela en */24* adressutrymme till varje nod i klustret. I följande exempel visas den *--pod-cidr* av *192.168.0.0/16* tilldelar den första noden *192.168.0.0/24*, den andra noden *192.168.1.0/24*, och den tredje nod *192.168.2.0/24*.
     * Som klustret skalas eller uppgraderingar kan fortsätter Azure-plattformen att tilldela en pod IP-adressintervall till varje ny nod.

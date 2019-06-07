@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255643"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497156"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights instrumentpanel
 
@@ -37,7 +37,7 @@ Val av tidsintervall har förenklats till ett enkelt klick-gränssnitt.
 
 Övergripande har prestanda avsevärt ökat. Du har ett klick åtkomst till populära funktioner som **Search** och **Analytics**. Varje standard dynamiskt uppdaterar KPI panel ger inblick i motsvarande Application Insights-funktioner. Mer information om misslyckades begäranden väljer **fel** under den **Undersök** rubrik:
 
-![Fel](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![fel](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Instrumentpanel för program
 
@@ -60,9 +60,12 @@ Gå tillbaka till översikt upplevelsen bara välja:
 
 ![Översikt över knappen](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Felsökning
+
+Om du väljer **konfigurera Panelinställningar** och ange ett anpassat tidsintervall som överstiger 31 dagar instrumentpanelen inte visas längre än 31 dagarnas data, även med en standard-datakvarhållning på 90 dagar. Det finns ingen lösning på problemet.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Trattar](../../azure-monitor/app/usage-funnels.md)
 - [Kvarhållning](../../azure-monitor/app/usage-retention.md)
 - [Användarflöden](../../azure-monitor/app/usage-flows.md)
-- [Instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)

@@ -2,20 +2,20 @@
 title: Konfigurera token - Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du konfigurerar inställningarna för token livslängd och kompatibilitet i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69a6284ea7b8905bb5efdb1f4c9f26027bd6f9d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1163c88a100ebb7500607475ab5740557904137
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689615"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511339"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurera token i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Du kan konfigurera livslängd för token på alla användarflödet.
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din Azure AD B2C-klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **användarflöden (principer)**.
+4. Välj **användarflöden (principer)** .
 5. Öppna det användarflöde som du skapade tidigare. 
 6. Välj **egenskaper**.
 7. Under **Token livslängd**, justera följande egenskaper så att de passar behoven i ditt program:
@@ -43,7 +43,7 @@ Du kan konfigurera livslängd för token på alla användarflödet.
 
 ## <a name="configure-token-compatibility"></a>Konfigurera tokenkompatibilitet
 
-1. Välj **användarflöden (principer)**.
+1. Välj **användarflöden (principer)** .
 2. Öppna det användarflöde som du skapade tidigare. 
 3. Välj **egenskaper**.
 4. Under **Token kompatibilitetsinställningar**, justera följande egenskaper så att de passar behoven i ditt program:

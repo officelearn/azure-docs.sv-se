@@ -1,6 +1,6 @@
 ---
 title: Överföra data till eller från Azure Blob storage med hjälp av AzCopy v10 | Microsoft Docs
-description: Den här artikeln innehåller en samling av AzCopy exempel kommandon som hjälper dig att skapa behållare, kopiera filer och synkronisera mappar mellan lokala filsystem och behållare.
+description: Den här artikeln innehåller en samling av AzCopy exempel kommandon som hjälper dig att skapa behållare, kopiera filer och synkronisera kataloger mellan lokala filsystem och behållare.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 98e33f838ee9b6f506bf1dc01e1dd61ad587aa05
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299397"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688051"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob storage
 
@@ -42,13 +42,13 @@ Du kan använda AzCopy `make` kommando för att skapa en behållare. Exemplen i 
 
 ## <a name="upload-files"></a>Överföra filer
 
-Du kan använda AzCopy `copy` kommando för att ladda upp filer och mappar från din lokala dator.
+Du kan använda AzCopy `copy` kommando för att ladda upp filer och kataloger från din lokala dator.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
 > * Överför en fil
-> * Ladda upp en mapp
+> * Ladda upp en katalog
 > * Ladda upp filer med jokertecken
 
 > [!NOTE]
@@ -59,53 +59,53 @@ Det här avsnittet innehåller följande exempel:
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>"` |
-| **Exempel** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt"` |
+| **Exempel** | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt"` |
 
 > [!NOTE]
 > AzCopy som standard överför data till blockblobar. Ladda upp filer som Tilläggsblobbar och Sidblobbar använder du flaggan `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
-### <a name="upload-a-folder"></a>Ladda upp en mapp
+### <a name="upload-a-directory"></a>Ladda upp en katalog
 
-Det här exemplet kopierar en mapp (och alla filer i mappen) till en blob-behållare. Resultatet är en mapp i behållaren med samma namn.
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
-| **Exempel** | `azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myFolder" "https://mystorageaccount.dfs.core.windows.net/mycontainer" --recursive` |
-
-Om du vill kopiera till en mapp i behållaren, anger du namnet på mappen i kommandosträng.
+Det här exemplet kopierar en katalog (och alla filer i den katalogen) till en blob-behållare. Resultatet är en katalog i behållaren med samma namn.
 
 |    |     |
 |--------|-----------|
-| **Exempel** | `azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myFolder" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobFolder" --recursive` |
+| **Syntax** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
+| **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myDirectory" "https://mystorageaccount.dfs.core.windows.net/mycontainer" --recursive` |
 
-Om du anger namnet på en mapp som inte finns i behållaren, skapar en ny mapp med det namnet i AzCopy.
-
-### <a name="upload-the-contents-of-a-folder"></a>Ladda upp innehållet i en mapp
-
-Du kan ladda upp innehållet i en mapp utan att kopiera mappen som innehåller själva med hjälp av jokertecknet (*).
+Kopiera till en katalog i behållaren genom att ange namnet på katalogen bara i kommandosträng.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>\*" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>` |
-| **Exempel** | `azcopy copy "C:\myFolder\*" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder"` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myFolder\*" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobFolder"` |
+| **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myDirectory" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
+
+Om du anger namnet på en katalog som inte finns i behållaren, skapar en ny katalog med det namnet i AzCopy.
+
+### <a name="upload-the-contents-of-a-directory"></a>Ladda upp innehållet i en katalog
+
+Du kan ladda upp innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy "<local-directory-path>\*" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>` |
+| **Exempel** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory"` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda upp filer i alla undermappar.
+> Lägg till den `--recursive` flagga för att ladda upp filer i alla underkataloger.
 
 ## <a name="download-files"></a>Hämta filer
 
-Du kan använda AzCopy `copy` kommando för att hämta blobs, mappar och behållare till den lokala datorn.
+Du kan använda AzCopy `copy` kommando för att hämta blobs, kataloger och behållare till den lokala datorn.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
 > * Hämta en fil
-> * Ladda ned en mapp
+> * Ladda ned en katalog
 > * Ladda ned filer med jokertecken
 
 > [!NOTE]
@@ -116,33 +116,33 @@ Det här avsnittet innehåller följande exempel:
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>" "<local-file-path>"` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "C:\myFolder\myTextFile.txt"` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt" "C:\myFolder\myTextFile.txt"` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "C:\myDirectory\myTextFile.txt"` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt" "C:\myDirectory\myTextFile.txt"` |
 
-### <a name="download-a-folder"></a>Ladda ned en mapp
+### <a name="download-a-directory"></a>Ladda ned en katalog
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>" "<local-folder-path>" --recursive` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder "C:\myFolder"  --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobFolder "C:\myFolder"  --recursive` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>" "<local-directory-path>" --recursive` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory "C:\myDirectory"  --recursive` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory "C:\myDirectory"  --recursive` |
 
-Det här exemplet resulterar i en mapp med namnet `C:\myFolder\myBlobFolder` som innehåller alla hämtade filer.
+Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myBlobDirectory` som innehåller alla hämtade filer.
 
-### <a name="download-the-contents-of-a-folder"></a>Ladda ned innehållet i en mapp
+### <a name="download-the-contents-of-a-directory"></a>Ladda ned innehållet i en katalog
 
-Du kan hämta innehållet i en mapp utan att kopiera mappen som innehåller själva med hjälp av jokertecknet (*).
+Du kan hämta innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
 
 > [!NOTE]
 > Det här scenariot stöds för närvarande bara för konton som inte har ett hierarkiskt namnområde.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-folder-path>/"` |
-| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder/*" "C:\myFolder"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"` |
+| **Exempel** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*" "C:\myDirectory"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda ned filer i alla undermappar.
+> Lägg till den `--recursive` flagga för att ladda ned filer i alla underkataloger.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Kopiera BLOB-objekt mellan lagringskonton
 
@@ -157,9 +157,9 @@ Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
 > * Kopiera en blobb till ett annat lagringskonto
-> * Kopiera en mapp till ett annat lagringskonto
+> * Kopiera en katalog till ett annat lagringskonto
 > * Kopiera en behållare till ett annat lagringskonto
-> * Kopiera alla behållare, mappar och filer till ett annat lagringskonto
+> * Kopiera alla behållare, kataloger och filer till ett annat lagringskonto
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Kopiera en blobb till ett annat lagringskonto
 
@@ -168,12 +168,12 @@ Det här avsnittet innehåller följande exempel:
 | **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>"` |
 | **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
 
-### <a name="copy-a-folder-to-another-storage-account"></a>Kopiera en mapp till ett annat lagringskonto
+### <a name="copy-a-directory-to-another-storage-account"></a>Kopiera en katalog till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>" --recursive` |
-| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobFolder" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobFolder" --recursive` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
+| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
 
 ### <a name="copy-a-containers-to-another-storage-account"></a>Kopiera en behållare till ett annat lagringskonto
 
@@ -182,7 +182,7 @@ Det här avsnittet innehåller följande exempel:
 | **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
 | **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### <a name="copy-all-containers-folders-and-files-to-another-storage-account"></a>Kopiera alla behållare, mappar och filer till ett annat lagringskonto
+### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>Kopiera alla behållare, kataloger och filer till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
@@ -196,7 +196,7 @@ Du kan synkronisera innehållet i ett lokalt filsystem på en blobbehållare. Du
 > [!NOTE]
 > Den aktuella versionen av AzCopy inte synkroniseras mellan andra källor och mål (till exempel: Fillagring eller Amazon Web Services (AWS) S3 buckets).
 
-Den `sync` kommandot Jämför filnamn och senast ändrad tidsstämplar. Ange den `--delete-destination` valfri flagga till ett värde av `true` eller `prompt` att ta bort filer i målmappen om dessa filer inte längre finns i källmappen.
+Den `sync` kommandot Jämför filnamn och senast ändrad tidsstämplar. Ange den `--delete-destination` valfri flagga till ett värde av `true` eller `prompt` att ta bort filer i målmappen om dessa filer inte längre finns i källkatalogen.
 
 Om du ställer in den `--delete-destination` flaggan till `true` AzCopy tar bort filer utan att ange en uppmaning. Om du vill att en fråga visas innan AzCopy tar bort en fil, anger du den `--delete-destination` flaggan till `prompt`.
 
@@ -209,9 +209,9 @@ I det här fallet det lokala filsystemet blir källan och behållaren är målet
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
-| **Exempel** | `azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy sync "C:\myFolder" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
+| **Syntax** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
+| **Exempel** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
 
 ### <a name="synchronize-a-local-file-system-to-a-container"></a>Synkronisera ett lokalt filsystem till en behållare
@@ -220,9 +220,9 @@ I det här fallet behållaren blir källan och det lokala filsystemet är målet
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myFolder" --recursive` |
-| **Exempel** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myFolder" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myFolder" --recursive` |
+| **Syntax** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
+| **Exempel** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+| **Exempel** (hierarkiskt namnområde) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
 
 ## <a name="next-steps"></a>Nästa steg
 

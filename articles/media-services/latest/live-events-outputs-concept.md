@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550968"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732991"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -79,48 +79,53 @@ När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahå
 
 Du kan antingen använda icke-anpassade eller anpassade URL:er. 
 
+> [!NOTE] 
+> För en inmatning ange URL: en ska vara förutsägande, ”anpassad”-läge.
+
 * Icke-anpassad URL
 
     Icke-anpassade URL:er är standardläget i AMS v3. Du eventuellt hämta livehändelsen snabbt, men inmatnings-URL är endast känd när livehändelsen startas. URL:en ändras om du stoppar/startar livehändelsen. <br/>Icke-anpassad är användbart i situationer när en slutanvändare vill strömma med en app där appen vill göra en livehändelse omedelbart, och det inte är något problem att ha en dynamisk inmatnings-URL.
 * Anpassad URL
 
     Anpassat läge föredras av stora mediesändningsföretag som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar livehändelsen. De vill ha en förutsägande infognings-URL som inte ändras med tiden.
+    
+    Om du vill ange det här läget du ställer in `vanityUrl` till `true` vid tidpunkten för skapandet (standardvärdet är `false`). Du måste också skicka din egen åtkomst-token (`LiveEventInput.accessToken`) vid tidpunkten för skapandet. Du kan ange token värde för att undvika en slumpmässig token i URL: en. Åtkomst-token måste vara en giltig GUID-sträng (med eller utan streck). När läget har angetts kan inte uppdateras.
 
-> [!NOTE] 
-> För en inmatning URL: en ska vara förutsägande, måste du använda ”anpassad” läge och skicka din egen åtkomst-token (för att undvika en slumpmässig token i URL: en).
+    Åtkomst-token måste vara unikt i ditt datacenter. Om programmet behöver för att använda en anpassad URL, bör du alltid vill skapa en ny GUID-instans för ditt åtkomst-token (istället för att alla befintliga GUID). 
 
 ### <a name="live-ingest-url-naming-rules"></a>Liveinmatning regler för namngivning av URL: en
 
 Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).<br/>
-Den *åtkomsttoken* som visas nedan är det du behöver ange för den fasta URL:en. Det är också ett 128-bitars hexadecimalt tal.
+Den *åtkomsttoken* är vad du behöver att ange för fast URL: en. Du måste ange en åtkomst-token sträng som är en giltig GUID-sträng. <br/>
+Den *Livesända* anger stream-namnet för en viss anslutning. Stream namn-värde läggs vanligtvis av livekodaren att du använder.
 
 #### <a name="non-vanity-url"></a>Icke-anpassad URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Anpassad URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Live-händelse förhandsgransknings-URL
 

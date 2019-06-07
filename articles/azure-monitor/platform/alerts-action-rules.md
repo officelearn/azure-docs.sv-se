@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619996"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734942"
 ---
 # <a name="action-rules-preview"></a>Åtgärdsregler (förhandsversion)
 
@@ -33,7 +33,7 @@ Det finns ofta många scenarier där det kan vara användbart att utelämna de m
 
 ## <a name="configuring-an-action-rule"></a>Konfigurera en åtgärdsregel för
 
-Du kan komma åt funktionen genom att välja **hanterar åtgärder** från aviseringarna landningssida i Azure Monitor. Välj sedan **Åtgärdsregler (förhandsversion)**. Du kan komma åt dem genom att välja **Åtgärdsregler (förhandsversion)** från instrumentpanelen för landningssidan för aviseringar.
+Du kan komma åt funktionen genom att välja **hanterar åtgärder** från aviseringarna landningssida i Azure Monitor. Välj sedan **Åtgärdsregler (förhandsversion)** . Du kan komma åt dem genom att välja **Åtgärdsregler (förhandsversion)** från instrumentpanelen för landningssidan för aviseringar.
 
 ![Åtgärdsregler från Azure Monitor-landningssida](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ De tillgängliga filtren är:
 * **Avisera regel-ID**: Kan du filtrera fram specifika Varningsregler med hjälp av Resource Manager-ID för den.
 * **Övervaka tillståndet**: Filter för aviseringsinstanser med ”Fired” eller ”löst” som övervakarens villkor.
 * **Beskrivning**: Regex matchar inom den beskrivning som definierats som en del av regeln.
-* **Aviseringskontext (nyttolast)**: RegEx matchar inom den [aviseringskontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fält i en aviseringsinstansen.
+* **Aviseringskontext (nyttolast)** : RegEx matchar inom den [aviseringskontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fält i en aviseringsinstansen.
 
 Dessa filter används tillsammans med varandra. Till exempel om jag ange 'Resurstypen' = 'Virtuella datorer ”och” allvarlighetsgrad ”= Sev0, så jag har filtrerat för alla 'Sev0' aviseringar på endast Mina virtuella datorer. 
 
@@ -80,7 +80,7 @@ Därefter konfigurerar du åtgärdsregeln för Undertryckning av aviseringar ell
 #### <a name="suppression"></a>Undertryckning
 
 Om du väljer **Undertryckning**, konfigurera varaktighet för Undertryckning av åtgärder och meddelanden. Välj något av följande:
-* **Från och med nu (alltid)**: Ignorerar alla meddelanden på obestämd tid.
+* **Från och med nu (alltid)** : Ignorerar alla meddelanden på obestämd tid.
 * **Vid ett schemalagt klockslag**: Utelämna meddelanden inom en begränsad tid.
 * **Med en upprepning**: Utelämna på ett återkommande schema, vilket kan vara daglig, veckovis eller månadsvis.
 
@@ -128,12 +128,15 @@ Contoso vill hindra meddelanden för alla logga aviseringar som genereras för d
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: Åtgärdsgrupp som definierats på en resursgrupp
 
-Contoso har definierat [en metrisk varning på prenumerationsnivå](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), utan vill definierar de åtgärder som utlöser aviseringar separat för sina resursgruppen ”ContosoRG”.
+Contoso har definierat [en metrisk varning på prenumerationsnivå](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), utan vill definierar de åtgärder som utlöser specifikt för aviseringar som genereras från sina resursgrupp 'ContosoRG'.
 
 **Lösning:** Skapa en åtgärdsregel för
 * Scope = 'ContosoRG'
 * Inga filter
 * Åtgärdsgrupp inställd på 'ContosoActionGroup'
+
+> [!NOTE]
+> **Åtgärdsgrupper som definierats i Åtgärdsregler och Varningsregler är oberoende av varandra, med inga avduplicering**. I det scenario som beskrivs ovan, om det finns en åtgärdsgrupp definierats för regeln utlöses tillsammans med åtgärdsgrupp som definierats i åtgärdsregeln. 
 
 ## <a name="managing-your-action-rules"></a>Hantera din Åtgärdsregler
 
@@ -143,7 +146,7 @@ Du kan visa och hantera dina Åtgärdsregler från listvyn enligt nedan.
 
 Härifrån kan kan du aktivera/inaktivera/ta bort Åtgärdsregler i stor skala genom att markera kryssrutan bredvid dem. När du klickar på någon åtgärdsregel öppnas sidan dess konfiguration så att du kan uppdatera dess definition och aktivera/inaktivera den.
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
 Loggaviseringar som skapats med den ['antal resultat ”](alerts-unified-log.md) alternativ generera **en enda avisering instans** med hela sökresultatet (som kan vara på flera datorer till exempel). I det här scenariot, om en åtgärdsregel för använder 'Varningskontexten (nyttolast) ”-filter ska det riktas in på aviseringsinstansen så länge det finns en matchning. I scenario 2 som beskrivs ovan, om sökresultatet för log-avisering som genererats innehåller både dator-01 och ”dator-02” hela meddelandet undertrycks (dvs, det finns inget meddelande genereras för dator-02 alls).
 
@@ -153,7 +156,7 @@ Du bäst utnyttjar loggvarningar med Åtgärdsregler, rekommenderar vi att du at
 
 ![Åtgärdsregler och aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 * F. Jag skulle vilja se alla möjliga överlappande åtgärd regler så att jag undvika dubbla meddelanden när du konfigurerar en åtgärdsregel för. Är det möjligt att göra detta?
 

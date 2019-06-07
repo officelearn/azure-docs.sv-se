@@ -2,20 +2,20 @@
 title: Användarmigrering närmar sig i Azure Active Directory B2C | Microsoft Docs
 description: Diskutera grundläggande och avancerade koncept på användarmigrering med Graph API och du kan också använda anpassade principer för Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726130"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507654"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar din identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsprovider till Azure AD B2C. Artikeln är inte avsedd att köras förebyggande, men i stället beskriver några scenarier. Utvecklaren är ansvarig för lämpligheten för varje metod.
@@ -145,7 +145,7 @@ Om du vill redigera JSON-filen, öppna den `AADB2C.UserMigration.sln` Visual Stu
 ![Datafil för användare](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Som du ser innehåller filen en lista över användarentiteter. Varje entitet har följande egenskaper:
-- e-post
+- email
 - displayName
 - firstName
 - lastName

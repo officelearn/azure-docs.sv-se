@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Ange det UserJourneys elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812569"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512033"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ Den **UserJourney** elementet innehåller följande attribut:
 
 | Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för en användarresa som kan användas för att referera till den från andra element i principen. Den **DefaultUserJourney** elementet i den [förlitande part princip](relyingparty.md) pekar på det här attributet. |
+| Id | Ja | En identifierare för en användarresa som kan användas för att referera till den från andra element i principen. Den **DefaultUserJourney** elementet i den [förlitande part princip](relyingparty.md) pekar på det här attributet. |
 
 Den **UserJourney** elementet innehåller följande element:
 
@@ -99,7 +99,7 @@ Den **Förhandsvillkoret** element innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Value | 1:n | En ClaimTypeReferenceId ska efterfrågas för. Ett annat värde element innehåller värdet som ska kontrolleras.</li></ul>|
+| Värde | 1:n | En ClaimTypeReferenceId ska efterfrågas för. Ett annat värde element innehåller värdet som ska kontrolleras.</li></ul>|
 | Åtgärd | 1:1 | Den åtgärd som ska utföras om villkor som kontrollerar inom en orkestreringssteget är true. Om värdet för den `Action` är inställd på `SkipThisOrchestrationStep`, den associerade `OrchestrationStep` inte ska köras. | 
 
 #### <a name="preconditions-examples"></a>Exempel på villkor
@@ -222,7 +222,7 @@ Den **ClaimsExchanges** elementet innehåller följande element:
 
 Den **ClaimsExchange** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för exchange-steg anspråk. Identifieraren används för att referens anspråksutbytet från anspråk providern urval steg i principen. | 
+| Id | Ja | En identifierare för exchange-steg anspråk. Identifieraren används för att referens anspråksutbytet från anspråk providern urval steg i principen. | 
 | TechnicalProfileReferenceId | Ja | Identifierare för den tekniska profilen som ska köras. |

@@ -1,18 +1,18 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med hjälp avC#'
+title: Skapa ett Azure Data Explorer-kluster och en databas med hjälp avC#
 description: Lär dig hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av denC#
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900825"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494614"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp avC#
 
@@ -24,7 +24,7 @@ ms.locfileid: "65900825"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av C#.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av C#.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -112,7 +112,7 @@ Nu har du ett kluster och en databas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-* Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade.
+* Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade.
 * Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd följande kommando för att ta bort klustret:
 
     ```C#-interactive
@@ -121,5 +121,4 @@ Nu har du ett kluster och en databas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)
+* [Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)

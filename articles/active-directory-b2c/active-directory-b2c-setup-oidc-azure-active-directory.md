@@ -2,20 +2,20 @@
 title: Konfigurera inloggning för en Azure Active Directory-organisation – Azure Active Directory B2C | Microsoft Docs
 description: Konfigurera inloggning för en viss Azure Active Directory-organisation i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785251"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508425"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en viss Azure Active Directory-organisation i Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange en **namn**. Ange till exempel `Contoso Azure AD`.
-5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.
+5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)** , och klicka sedan på **OK**.
 6. Välj **ställa in den här identitetsprovidern**
 7. För **metadata_url**, ange följande URL ersätter `your-AD-tenant-domain` med domännamnet för din Azure AD-klient. Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

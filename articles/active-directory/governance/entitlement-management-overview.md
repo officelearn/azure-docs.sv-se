@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921065"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474063"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsgranskning)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsversion)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättigheten management är för närvarande i offentlig förhandsversion.
@@ -70,22 +70,13 @@ Här är typerna av resurser som du kan hantera åtkomst till med hantering av b
 
 - Azure AD-säkerhetsgrupper
 - Office 365-grupper
-- Azure AD-företagsprogram
-- SaaS-program
-- Anpassad-integrerade program
-- SharePoint Online-webbplatssamlingar
-- SharePoint Online-platser
+- Azure AD företagsprogram, inklusive SaaS-program och anpassade-integrerade program som stöder federation eller etablering
+- SharePoint Online-webbplatssamlingar och platser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Du kan också styra åtkomst till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Office 365-grupper.  Exempel:
 
-Om du vill använda Azure AD rättigheten hantering (förhandsversion), måste du ha en av följande licenser:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-Mer information finns i [registrera dig för Azure Active Directory Premium-versionerna](../fundamentals/active-directory-get-started-premium.md) eller [Enterprise Mobility + Security E5-utvärderingsversion](https://aka.ms/emse5trial).
-
-Specialiserad moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet, är inte för närvarande tillgängliga för användning i den här förhandsversionen.
+- Du kan ge användarlicenser för Microsoft Office 365 använder en Azure AD-säkerhetsgrupp i ett paket för åtkomst och konfigurerar [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
+- Du kan ge användare åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett paket för åtkomst och skapa en [Azure rolltilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
 
 ## <a name="what-are-access-packages-and-policies"></a>Vad är access paket och principer?
 
@@ -129,15 +120,15 @@ För att bättre förstå rättigheten hanterings- och dess dokumentation, bör 
 | hantering av behörighet | En tjänst som tilldelar återkallar och administrerar åtkomst paket. |
 | åtkomst-paketet | En uppsättning behörigheter och principer till resurser som användarna kan begära. En åtkomst-paketet finns alltid i en katalog. |
 | åtkomstbegäran | En begäran om åtkomst till en åtkomst-paketet. En begäran går vanligtvis igenom ett arbetsflöde. |
-| princip | En uppsättning regler som definierar åtkomst livscykel, till exempel hur användare får åtkomst, som kan godkänna och hur länge användarna har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
+| policy | En uppsättning regler som definierar åtkomst livscykel, till exempel hur användare får åtkomst, som kan godkänna och hur länge användarna har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
 | catalog | En behållare för relaterade resurser och åtkomst-paket. |
 | Allmän catalog | En inbyggd katalog som alltid är tillgänglig. Lägg till resurser i den allmänna katalogen måste du ha vissa behörigheter. |
-| resurs | En tillgång eller en tjänst (till exempel en grupp, program eller en webbplats) som en användare kan beviljas behörigheter till. |
-| resurstyp | Typ av resurs som innehåller grupper, program och SharePoint Online-platser. |
+| resource | En tillgång eller en tjänst (till exempel en grupp, program eller en webbplats) som en användare kan beviljas behörigheter till. |
+| Resurstyp | Typ av resurs som innehåller grupper, program och SharePoint Online-platser. |
 | resurs-roll | En uppsättning behörigheter som är associerade med en resurs. |
 | resursbiblioteket | En katalog som har en eller flera resurser för att dela. |
 | tilldelade användare | En tilldelning av ett paket för åtkomst till en användare eller grupp. |
-| aktivera | Processen att göra ett åtkomst-paket tillgängliga för användare att begära. |
+| Aktivera | Processen att göra ett åtkomst-paket tillgängliga för användare att begära. |
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
@@ -150,11 +141,11 @@ Berättigande management har olika roller baserat på arbetsfunktion.
 | Katalogen ägare | Redigera och hantera befintliga kataloger. Vanligtvis en IT-administratör eller resursägaren. |
 | Åtkomst-Pakethanteraren | Redigera och hantera alla befintliga åtkomst-paket i en katalog. |
 | Godkännare | Godkänna förfrågningar om åtkomst till paket. |
-| Beställare | Begär åtkomst till paket. |
+| Begärande | Begär åtkomst till paket. |
 
 I följande tabell visas behörigheterna för var och en av dessa roller.
 
-| Uppgift | Användaradministration | Katalogens skapare | Katalogen ägare | Åtkomst-Pakethanteraren | Godkännare |
+| Aktivitet | Användaradministration | Katalogens skapare | Katalogen ägare | Åtkomst-Pakethanteraren | Godkännare |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Skapa ett nytt åtkomst-paket i allmän katalogen](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
 | [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
@@ -173,6 +164,12 @@ I följande tabell visas behörigheterna för var och en av dessa roller.
 | [Lägg till/ta bort resurser till och från en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Lägg till katalogen ägare eller få åtkomst till pakethanterare](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Redigera/ta bort en katalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Licenskrav
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Specialiserad moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet, är inte för närvarande tillgängliga för användning i den här förhandsversionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

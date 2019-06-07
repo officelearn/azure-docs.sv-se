@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906513"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480007"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -28,7 +28,6 @@ Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.or
 * Ett HDInsight Hadoop-kluster. Om du vill skapa en [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * Den [Java Developer Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) eller högre.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL är en JDBC-klientprogram.
-
 
 ## <a name="jdbc-connection-string"></a>JDBC-anslutningssträng
 
@@ -54,20 +53,12 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 1. Skapa en katalog så att den innehåller vissa filer kopieras från klustret.
 
-2. I följande skript, ersätter `sshuser` med SSH-användarkontonamnet för klustret.  Ersätt `CLUSTERNAME` med HDInsight-klusternamnet.  Ange följande kommando för att kopiera filer från ett HDInsight-kluster från en kommandorad:
+2. I följande skript, ersätter `sshuser` med SSH-användarkontonamnet för klustret.  Ersätt `CLUSTERNAME` med HDInsight-klusternamnet.  Ändra arbetskatalogen den du skapade i föregående steg från en kommandorad och ange sedan följande kommando för att kopiera filer från ett HDInsight-kluster:
 
-    ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    ```cmd
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. Starta SQuirreL SQL-programmet. Till vänster i fönstret Välj **drivrutiner**.
@@ -82,7 +73,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
     * **Namn på**: Hive
     * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klassen sökväg**: Använd knappen Lägg till att lägga till i alla jar-filer som hämtats tidigare
+    * **Extra klassen sökväg**: Använd den **Lägg till** för att lägga till i alla jar-filerna hämtade tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
 
    ![Lägg till drivrutin dialogrutan](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)

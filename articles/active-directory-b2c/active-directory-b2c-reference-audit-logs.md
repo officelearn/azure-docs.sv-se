@@ -2,20 +2,20 @@
 title: Granskningsloggar exempel och definitioner i Azure Active Directory B2C | Microsoft Docs
 description: Guiden och exempel om hur du använder Azure AD B2C-granskningsloggar.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688758"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509643"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -33,7 +33,7 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 |Katalog |Aktiviteter relaterade till katalogattribut hämtas när en administratör loggar in med hjälp av Azure-portalen |
 |Program | CRUD-åtgärder på B2C-program |
 |Nyckel |CRUD-åtgärder på nycklar som lagras i B2C-nyckelbehållare |
-|Resurs |CRUD-åtgärder på B2C-resurser (till exempel principer och Identitetsproviders)
+|Resource |CRUD-åtgärder på B2C-resurser (till exempel principer och Identitetsproviders)
 |Autentisering |Verifiering av autentiseringsuppgifter för användare och utfärdande|
 
 > [!NOTE]

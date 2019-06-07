@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575420"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478602"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella datornätverk
 
 Det är enkelt att skapa ett virtuellt nätverk för att experimentera med, men det finns goda chanser att du ska distribuera flera virtuella nätverk över tid för produktion-behoven i din organisation. Med lite planering kommer du att kunna distribuera virtuella nätverk och ansluta de resurser du behöver mer effektivt. Informationen i den här artikeln är mest användbart om du redan är bekant med virtuella nätverk och har viss erfarenhet av att arbeta med dem. Om du inte är bekant med virtuella nätverk, bör du läsa [översikt över virtuella nätverk](virtual-networks-overview.md).
 
-## <a name="naming"></a>Namngivning
+## <a name="naming"></a>Namnge
 
 Alla Azure-resurser ha ett namn. Namnet måste vara unika inom en omfattning som kan variera för varje resurstyp. Till exempel namnet på ett virtuellt nätverk måste vara unika inom en [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan vara flera gånger i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure [region](https://azure.microsoft.com/regions/#services). Det är bra att definiera en namngivningskonvention som du kan använda konsekvent när du namnger resurser när du hanterar flera nätverksresurser över tid. Förslag finns i [namngivningskonventioner](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
@@ -77,7 +77,7 @@ Du kan filtrera nätverkstrafik till och från resurser i ett virtuellt nätverk
 - Om olika säkerhetsregler tillämpas på de olika virtuella datorer i ett undernät måste associera du nätverksgränssnittet i den virtuella datorn till en eller flera programsäkerhetsgrupper. En säkerhetsregel kan ange en programsäkerhetsgrupp i dess källa, mål, eller båda. Regeln sedan gäller endast för nätverksgränssnitt som är medlemmar i programsäkerhetsgruppen. Läs mer om [nätverkssäkerhetsgrupper](security-overview.md) och [programsäkerhetsgrupper](security-overview.md#application-security-groups).
 - Azure skapar flera säkerhetsregler i varje nätverkssäkerhetsgrupp. En standardregel tillåter all trafik mellan alla resurser i ett virtuellt nätverk. Om du vill åsidosätta detta använder du nätverkssäkerhet grupperar, anpassad routning för att dirigera trafik till en NVA eller båda. Vi rekommenderar att du bekanta dig med alla Azures [standardsäkerhetsregler](security-overview.md#default-security-rules) och förstå hur reglerna för nätverkssäkerhetsgrupper tillämpas på en resurs.
 
-Du kan visa exempelfiler & för att implementera ett perimeternätverk (även kallat DMZ) mellan Azure och internet med en [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) eller [nätverkssäkerhetsgrupper](virtual-networks-dmz-nsg.md).
+Du kan visa exempelfiler & för att implementera ett perimeternätverk (även kallat DMZ) mellan Azure och internet med en [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Routning av nätverkstrafik
 

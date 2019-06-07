@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946814"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431301"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -57,7 +57,7 @@ Nätverkssäkerhetsgrupper (NSG) stöds på Application Gateway. Men det finns f
 
 - Trafik från den **AzureLoadBalancer** taggen måste tillåtas.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Lista över tillåtna Application Gateway-åtkomst till några käll-IP-adresser
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Tillåt Application Gateway-åtkomst till några käll-IP-adresser
 
 Använd NSG: er på Application Gateway-undernät i det här scenariot. Placera följande begränsningar i undernät i det här prioritetsordning:
 
@@ -118,7 +118,7 @@ Välj den frontend IP-adress som du vill associera med den här lyssnaren. Lyssn
 
 Välj frontend-porten. Välj en befintlig port eller skapa en ny. Välj ett värde mellan den [tillåtna portintervall](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Du kan använda inte bara välkända portar, till exempel 80 och 443, men alla tillåtna anpassade portar som är lämpligt. En port kan användas för lyssnare för offentliga eller privata-ansluten lyssnare.
 
-### <a name="protocol"></a>Protokoll
+### <a name="protocol"></a>Protocol
 
 Välj HTTP eller HTTPS:
 
@@ -209,13 +209,13 @@ Lägg till flera backend-HTTP-inställningarna som motsvarar varje URL-sökväge
 
 ### <a name="redirection-setting"></a>Omdirigeringsinställningen
 
-Om omdirigering har konfigurerats för en grundläggande regel, omdirigeras alla begäranden på den associerade lyssnaren till målet. Det här är *globala* omdirigering. Om omdirigering har konfigurerats för en sökvägsbaserad regel, omdirigeras endast begäranden under en viss plats. Ett exempel är en i kundvagnen område som markerats med */cart/\**. Det här är *sökvägsbaserad* omdirigering.
+Om omdirigering har konfigurerats för en grundläggande regel, omdirigeras alla begäranden på den associerade lyssnaren till målet. Det här är *globala* omdirigering. Om omdirigering har konfigurerats för en sökvägsbaserad regel, omdirigeras endast begäranden under en viss plats. Ett exempel är en i kundvagnen område som markerats med */cart/\** . Det här är *sökvägsbaserad* omdirigering.
 
 Läs mer om omdirigeringar [översikt för omdirigering i Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
-#### <a name="redirection-type"></a>Omdirigeringstyp
+#### <a name="redirection-type"></a>Typ av omdirigering
 
-Välj typ av omdirigering av krävs: *Permanent(301)*, *Temporary(307)*, *Found(302)*, eller *finns i other(303)*.
+Välj typ av omdirigering av krävs: *Permanent(301)* , *Temporary(307)* , *Found(302)* , eller *finns i other(303)* .
 
 #### <a name="redirection-target"></a>Omdirigering av mål
 
@@ -259,7 +259,7 @@ Den här funktionen är användbart när du vill behålla en användarsession p�
 
 Anslutningstömning hjälper dig att smidigt ta bort serverdelspool medlemmar under planerade service uppdateringar. Du kan använda den här inställningen för alla medlemmar i en serverdelspool samband med regelgenereringen. Det innebär att ta bort registrera instanser av en backend-poolen inte får alla nya begäranden. Under tiden kan ska befintliga begäranden kunna slutföras inom en konfigurerad tid. Anslutningstömning gäller för backend-instanser som uttryckligen tas bort från backend poolen med ett API-anrop. Det gäller även för backend-instanser som har rapporterats som *feltillstånd* av hälsotillståndet avsökningar.
 
-### <a name="protocol"></a>Protokoll
+### <a name="protocol"></a>Protocol
 
 Application Gateway stöder både HTTP och HTTPS för dirigering av begäranden till backend servrarna. Om du väljer HTTP är-trafik till backend servrarna okrypterad. Om dekrypterade kommunikation inte är acceptabel kan du välja HTTPS.
 
@@ -269,7 +269,7 @@ Den här inställningen tillsammans med HTTPS i lyssnaren stöder [slutpunkt til
 
 Den här inställningen anger den port där backend servrarna lyssnar på trafik från programgatewayen. Du kan konfigurera portar mellan 1 och 65535.
 
-### <a name="request-timeout"></a>Timeout för begäran
+### <a name="request-timeout"></a>Tidsgräns för begäran
 
 Den här inställningen är antalet sekunder som application gateway som väntar på svar från backend poolen innan den returnerar felmeddelandet ”anslutning uppnåddes”.
 

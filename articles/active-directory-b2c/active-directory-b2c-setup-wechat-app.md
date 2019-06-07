@@ -2,20 +2,20 @@
 title: Konfigurera registrering och inloggning med ett WeChat-konto med Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med WeChat konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cfe5309a142b444d8118419cd24a7f5ec8d5cf26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: aa44edcf009d381894a581172ea5edffefe946a0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703799"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508143"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett WeChat-konto med Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Om du vill använda ett WeChat-konto som identitetsprovider i Azure Active Direc
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 5. Ange en **namn**. Ange till exempel *WeChat*.
-6. Välj **identifiera providertyp**väljer **WeChat (förhandsversion)**, och klicka på **OK**.
+6. Välj **identifiera providertyp**väljer **WeChat (förhandsversion)** , och klicka på **OK**.
 7. Välj **ställa in den här identitetsprovidern** och ange det ID som du antecknade tidigare som den **klient-ID** och ange APP-NYCKELN som du registrerade som den **klienthemlighet** av den WeChat program som du skapade tidigare.
 8. Klicka på **OK** och klicka sedan på **skapa** att spara din WeChat konfiguration.
 

@@ -2,20 +2,20 @@
 title: Självstudiekurs – lägga till Identitetsproviders i dina program – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du lägger till Identitetsproviders i dina program i Azure Active Directory B2C med Azure portal.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1bd78442f6a7218dde3710236766117816c42fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710129"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512198"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till Identitetsproviders i dina program i Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange en **namn**. Ange till exempel *Contoso Azure AD*.
-5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.
+5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)** , och klicka sedan på **OK**.
 6. Klicka på **ställa in den här identitetsprovidern**
 7. För **metadata_url**, ange följande URL ersätter `your-AD-tenant-domain` med domännamnet för din Azure AD-klient.
 
@@ -130,7 +130,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 
 Du har skapat ett användarflöde i självstudien som du har slutfört som en del av förutsättningarna för registrering och inloggning med namnet *B2C_1_signupsignin1*. I det här avsnittet ska du lägga till identitetsleverantörer till den *B2C_1_signupsignin1* användarflödet.
 
-1. Välj **användarflöden (principer)**, och välj sedan den *B2C_1_signupsignin1* användarflödet.
+1. Välj **användarflöden (principer)** , och välj sedan den *B2C_1_signupsignin1* användarflödet.
 2. Välj **identitetsprovidrar**väljer den **Facebook** och **Contoso Azure AD** identitetsleverantörer som du har lagt till.
 3. Välj **Spara**.
 

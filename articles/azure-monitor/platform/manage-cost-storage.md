@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417859"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496346"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar
 
@@ -58,6 +58,9 @@ Log Analytics avgifter läggs till i Azure-fakturan. Du kan se information om di
 Du kan konfigurera en daglig högsta gräns och begränsa den dagliga datainmatningen för arbetsytan, men var försiktig eftersom målet inte får vara att träffa den dagliga gränsen.  Annars kan förlora du data under resten av den dagen, vilket kan påverka andra Azure-tjänster och lösningar som vars funktioner kan vara beroende uppdaterad information är tillgänglig i arbetsytan.  Därför kan aviseringar din förmåga att Observera och ta emot när hälsovillkoren av resurser som stödjer IT-tjänster som påverkas.  Den dagliga gränsen är avsedd att användas som ett sätt att hantera den oväntat ökningen av datavolymen från dina hanterade resurser och hålla dig inom dina gränser, eller när du vill begränsa oplanerade avgifter för arbetsytan.  
 
 När den dagliga gränsen har uppnåtts, stoppar insamlingen av fakturerbara datatyper för resten av dagen. En varning banderoll överst på sidan för den valda Log Analytics-arbetsytan och en åtgärd händelse skickas till den *åtgärden* tabellen **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen ställs in på*. Vi rekommenderar att definiera en aviseringsregel baserat på den här åtgärden-händelser som konfigurerats för att meddela när den dagliga data gränsen har uppnåtts. 
+
+> [!NOTE]
+> Den dagliga gränsen inte att stoppa insamlingen av data från Azure Security Center.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 
@@ -105,7 +108,7 @@ Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i di
 
 ## <a name="legacy-pricing-tiers"></a>Äldre prisnivåer
 
-Kunder med ett Enterprise-avtal som signerats före den 1 juli 2018 eller som redan har skapat en Log Analytics-arbetsyta i en prenumeration kan du fortfarande har åtkomst till den *kostnadsfri* plan. Om din prenumeration inte är kopplat till en befintlig EA-registrering i *kostnadsfri* nivån är inte tillgänglig när du skapar en arbetsyta i en ny prenumeration efter 2 April 2018.  Data är begränsad till sju dagars kvarhållning för den *kostnadsfri* nivå.  För äldre *fristående* eller *Per nod* nivåer, samt den aktuella 2018 enda prisnivån, data som samlas in är tillgängligt under de senaste 31 dagarna. Den *kostnadsfri* nivån har en gräns på 500 MB dagliga datainmatning och om du upptäcker att konsekvent överstiger de mängder som tillåts volym, kan du ändra din arbetsyta till en annan plan att samla in data utöver den här gränsen. 
+Prenumerationer som har en Log Analytics-arbetsyta eller en Application Insights-resurs i den innan den 2 April 2018 eller är länkade till ett Enterprise-avtal som har startat före den 1 februari 2019 fortsätter att ha åtkomst till äldre prisnivåer: Kostnadsfri, fristående (Per GB) och Per nod (OMS).  Arbetsytor i den kostnadsfria prisnivån har begränsad till 500 MB (utom data säkerhetstyper som samlas in av Azure Security Center) dagliga datainmatning och datalagring är begränsad till 7 dagar. Den kostnadsfria prisnivån är avsedd endast för utvärdering. Arbetsytor i fristående eller Per nod prisnivåer ha åtkomst till datakvarhållning upp till 2 år. 
 
 > [!NOTE]
 > Välj Log Analytics för att använda rättigheter som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägget för System Center, *Per nod* prisnivå.
@@ -131,7 +134,9 @@ Om du vill flytta din arbetsyta till aktuell prisnivå du behöver ändra din pr
 
 Om du är på den äldre kostnadsfria prisnivån och skicka fler än 500 MB data under en dag, stoppar insamling av data under resten av dagen. Når den dagliga gränsen är en vanlig orsak som Log Analytics slutar att samla in data eller data verkar sakna.  Log Analytics skapar en händelse av typen igen när datainsamlingen startar och stoppar. Kör följande fråga i sökningen för att kontrollera om du når den dagliga gränsen och saknade data: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 När datainsamlingen slutar OperationStatus är **varning**. När datainsamlingen startar OperationStatus är **lyckades**. I följande tabell beskrivs skäl som stoppar insamling av data och en rekommenderad åtgärd för att återuppta insamling av data:  
 
@@ -153,51 +158,63 @@ Högre användning orsakas av en eller båda:
 
 För att förstå hur många datorer som rapporterar pulsslag varje dag under den senaste månaden, använda
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Om du vill hämta en lista över datorer som kommer att debiteras som noder om arbetsytan finns i den äldre Per nod prisnivå, leta efter noder som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria). Gör detta genom att använda den `_IsBillable` [egenskapen](log-standard-properties.md#_isbillable) och använda fältet längst till vänster för det fullständigt kvalificerade domännamnet. Detta returnerar en lista över datorer med faktureras data:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 Antalet fakturerbara noder sett kan beräknas som: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra. Den här frågan ersätter det gamla sättet att hämtar information om varje dator med datatypen användning.  
 
 En mer exakt beräkning av vad debiteras faktiskt är att få antalet datorer per timme som skickar faktureras datatyper. (För arbetsytor i den äldre prisnivån Per nod beräknar Log Analytics antalet noder som behöver faktureras på timbasis.) 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Förstå som matas in datavolym
 
 På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Observera att i satsen ”där IsBillable = true” filtrerar ut datatyper från vissa lösningar som är gratis inmatning. 
 
 Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatyper, till exempel om du vill undersöka data på grund av IIS-loggar:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Datavolym efter dator
 

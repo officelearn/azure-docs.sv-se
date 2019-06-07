@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297704"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480415"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa data flöden prestanda- och justeringsguide
 
@@ -29,15 +29,28 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 
 ![Felsöka knappen](media/data-flow/debugb1.png "felsöka")
 
+## <a name="monitor-data-flow-performance"></a>Övervaka prestanda för data-flöde
+
+När du utformar din mappningsdata som flödar i webbläsaren, kan du enhetstest varje enskild transformering genom att klicka på fliken data förhandsversion längst ned i fönstret inställningar för varje transformering. Du bör ta nästa steg är att testa din data flow slutpunkt till slutpunkt i pipelinedesignern. Lägg till en aktivitet kör dataflöde och Använd Debug-knappen för att testa prestanda hos ditt dataflöde. I rutan längst ned i fönstret pipeline visas en ikon för eyeglass under ”åtgärder”:
+
+![Dataflöde övervakaren](media/data-flow/mon002.png "dataflöde övervakaren 2")
+
+Klicka på ikonen visas Körningsplan och efterföljande prestanda profilen för ditt dataflöde. Du kan använda den här informationen för att uppskatta prestanda för ditt dataflöde mot olika storlekar datakällor. Observera att kan du anta att 1 minut körningstid för installation på klustret jobbet i din övergripande prestanda beräkningar och om du använder standard Azure Integration Runtime kan du behöva lägga till 5 minuter från klustret snurra upp samt tid.
+
+![Övervakning av data Flow](media/data-flow/mon003.png "dataflöde övervakaren 3")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimera för Azure SQL Database och Azure SQL Data Warehouse
 
 ![Käll-del](media/data-flow/sourcepart2.png "käll-delen")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>Du kan matcha Spark Datapartitionering till källan Databaspartitionering baserat på en tabell kolumnen databasnyckeln i käll-transformering
+### <a name="partition-your-source-data"></a>Partitionera dina källdata
 
 * Gå till ”optimera” och Välj ”källa”. Ange antingen en specifik tabellkolumn eller en typ i en fråga.
 * Om du väljer ”kolumn”, väljer du partitionskolumnen.
 * Ange dessutom det maximala antalet anslutningar till din Azure SQL-databas. Du kan prova en högre inställning för att få parallella anslutningar till databasen. Ibland kan dock leda snabbare prestanda med ett begränsat antal anslutningar.
+* Dina tabeller behöver inte vara partitionerade.
+* Ställa en fråga i din käll-omvandling som matchar partitioneringsschemat för databastabellen kan databasmotorn källkod utnyttja partitionseliminering.
+* Om källan redan inte är partitionerad ADF fortfarande att använda i Spark-omvandling miljö baserat på den nyckel som du väljer i käll-transformering för partitionering.
 
 ### <a name="set-batch-size-and-query-on-source"></a>Ange batchstorlek och fråga på källan
 
@@ -51,7 +64,7 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 
 ![Mottagare](media/data-flow/sink4.png "mottagare")
 
-* Ange ”batchstorlek” i mottagarinställningarna för för Azure SQL DB för att undvika rad för rad bearbetning av data-floes. Detta talar om ADF om du vill bearbeta databasen skriver i skalningsuppsättningarna baserat på storleken anges.
+* Ange ”batchstorlek” i mottagarinställningarna för för Azure SQL DB för att undvika rad för rad bearbetning av dina data. Detta talar om ADF om du vill bearbeta databasen skriver i skalningsuppsättningarna baserat på storleken anges.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>Ange partitionering alternativ på dina mottagare
 
@@ -84,7 +97,7 @@ Azure Data Factory mappning Data flödar ger en kodfria Webbläsargränssnittet 
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Använd mellanlagring att läsa in data i bulk via Polybase
 
-* För att undvika rad för rad bearbetning av data-floes, använder du alternativet ”mellanlagring” i inställningar för mottagare så att ADF kan dra nytta av Polybase för att undvika rad för rad infogningar till DW. Detta instruerar ADF om du vill använda Polybase så att data kan läsas samtidigt.
+* Ange alternativet ”mellanlagring” i inställningarna för mottagare för att undvika rad för rad bearbetning av dina data, så att ADF kan dra nytta av Polybase för att undvika rad för rad infogningar till DW. Detta instruerar ADF om du vill använda Polybase så att data kan läsas samtidigt.
 * När du kör din flödesaktivitet för data från en pipeline med mellanlagring aktiverat, du måste välja Blob-lagringsplatsen för dina mellanlagring massinläsning.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Öka storleken på din Azure SQL DW
@@ -113,4 +126,4 @@ Se andra dataflöde artiklar:
 
 - [Översikt över flödet av data](concepts-data-flow-overview.md)
 - [Data flödesaktivitet](control-flow-execute-data-flow-activity.md)
-
+- [Övervaka prestanda för dataflöde](concepts-data-flow-monitoring.md)

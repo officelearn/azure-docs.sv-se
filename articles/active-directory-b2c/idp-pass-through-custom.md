@@ -2,20 +2,20 @@
 title: Skicka en åtkomst-token via en anpassad princip till ditt program i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du överföra en åtkomsttoken för OAuth2.0 Identitetsproviders som ett anspråk genom en anpassad princip till ditt program i Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d752af1860d76e59df045907c11d16b4e1d20b0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702940"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511053"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via en anpassad princip till ditt program i Azure Active Directory B2C
 

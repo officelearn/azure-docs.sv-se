@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851439"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515299"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Hantera hemligheter när du arbetar med ett adressutrymme för Azure-utveckling
 
 Dina tjänster kan kräva viss lösenord, anslutningssträngar och andra hemligheter som för databaser eller andra säkra Azure-tjänster. Genom att ange värdena för dessa hemligheter i konfigurationsfiler, kan du göra dem tillgängliga i din kod som miljövariabler.  Dessa måste vara försiktig med att undvika att kompromettera säkerheten för hemligheterna.
 
-Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra hemligheter: i values.dev.yaml fil- och infogade direkt i azds.yaml. Vi rekommenderar inte för att lagra hemligheter i values.yaml.
- 
+Azure Dev blanksteg ger två alternativ för att lagra hemligheter i Helm-diagram som genereras av Azure Dev blanksteg klienten verktyg som rekommenderas, effektiv: i values.dev.yaml fil- och infogade direkt i azds.yaml. Vi rekommenderar inte för att lagra hemligheter i values.yaml. Utanför de två metoderna för Helm diagram som genererats av klienten verktyg definieras i den här artikeln om du skapar dina egna Helm-diagrammet kan du använda Helm-diagrammet direkt för att hantera och lagra hemligheter.
+
 ## <a name="method-1-valuesdevyaml"></a>Metod 1: values.dev.yaml
 1. Öppna VS Code med ditt projekt som är aktiverad för Azure Dev blanksteg.
 2. Lägg till en fil med namnet _values.dev.yaml_ i samma mapp som befintliga _azds.yaml_ och definiera hemlig nyckel och värden, som i följande exempel:

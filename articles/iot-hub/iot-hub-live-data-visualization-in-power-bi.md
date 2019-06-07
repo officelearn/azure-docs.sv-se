@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780161"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479878"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT Hub med Power BI
 
@@ -25,7 +25,7 @@ ms.locfileid: "60780161"
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-Du lär dig att visualisera sensordata i realtid som din Azure-IoT-hubb tar emot via Power BI. Om du vill prova toe visualisera data i IoT hub med Web Apps, se [Använd Azure Web Apps att visualisera sensordata i realtid från Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Du lär dig att visualisera sensordata i realtid som din Azure-IoT-hubb tar emot via Power BI. Om du vill prova toe visualisera data i IoT hub med en webbapp, se [använda en webbapp för att visualisera sensordata i realtid från Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -179,6 +179,6 @@ Microsoft erbjuder även den [Power BI-mobilapparna](https://powerbi.microsoft.c
 
 Du har använt Power BI för att visualisera sensordata i realtid från Azure IoT hub.
 
-Det finns ett annat sätt att visualisera data från Azure IoT Hub. Se [Använd Azure Web Apps att visualisera sensordata i realtid från Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Ett annat sätt att visualisera data från Azure IoT Hub finns [använda en webbapp för att visualisera sensordata i realtid från Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

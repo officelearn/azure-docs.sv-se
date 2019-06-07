@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953785"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688800"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -48,8 +48,8 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
      |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
-     |Direkt    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
+     |Direct    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
+     |Direct    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
 
      Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 
@@ -137,13 +137,21 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
    <a id="tune-page-size"></a>
 1. **Finjustera sidstorleken för frågor/läsning feeds för bättre prestanda**
 
-    När du utför en massinläsning läsa dokument genom att använda Läs feed-funktioner (till exempel ReadDocumentFeedAsync) eller när en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i segment om 100 objekt eller 1 MB som standard, uppnås för beroende på vilken gräns först.
+   När du utför en massinläsning läsa dokument genom att använda Läs feed-funktioner (till exempel ReadDocumentFeedAsync) eller när en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i segment om 100 objekt eller 1 MB som standard, uppnås för beroende på vilken gräns först.
 
-    För att minska antalet nätverk nätverksförfrågningar som krävs för att hämta alla tillämpliga resultat, kan du öka storleken sida med [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel, om ditt användar-gränssnittet eller ett program-API returnerar endast 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska det dataflöde som används för läsningar och frågor.
+   För att minska antalet nätverk nätverksförfrågningar som krävs för att hämta alla tillämpliga resultat, kan du öka storleken sida med [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel, om ditt användar-gränssnittet eller ett program-API returnerar endast 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska det dataflöde som används för läsningar och frågor.
 
-    Du kan också ange sidstorleken med tillgängliga Azure Cosmos DB SDK.  Exempel:
+   > [!NOTE] 
+   > Egenskapen maxItemCount bör inte användas för sidbrytning syfte. Är det huvudsakliga användningen dem till att förbättra prestanda för frågor genom att minska det maximala antalet objekt som returneras i en enda sida.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   Du kan också ange sidstorleken med tillgängliga Azure Cosmos DB SDK. Den [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) -egenskapen i FeedOptions kan du ange det maximala antalet objekt som ska returneras i enmuration igen. När `maxItemCount` anges till-1, SDK: N automatiskt hittar det mest optimala värdet beroende på dokumentstorleken. Exempel:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   När en fråga körs skickas resultatet i ett TCP-paket. Om du anger för lågt värde för `maxItemCount`, antalet turer krävs för att skicka data i TCP-paketet är hög, vilket påverkar prestanda. Om du inte är säker på vilket värde som ska ange för `maxItemCount` -egenskapen är det bäst att ange den till -1 och låta SDK välja standardvärdet. 
+
 10. **Öka antalet trådar/uppgifter**
 
     Se [öka antalet trådar/uppgifter](#increase-threads) i avsnittet nätverk.

@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357067"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472743"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
@@ -38,7 +38,7 @@ I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill s
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rolltilldelningar.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -52,9 +52,9 @@ I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill s
 
     | Filter | Beskrivning |
     | --- | --- |
-    | `$filter=atScope()` | Lista över rolltilldelningar för endast det angivna omfånget, exklusive rolltilldelningar i subscopes. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Lista över rolltilldelningar för en angiven användare, grupp eller tjänstens huvudnamn. |
-    | `$filter=assignedTo('{objectId}')` | Lista över rolltilldelningar för en viss användare, inklusive de som ärvts från grupper. |
+    | `$filter=atScope()` | Visar endast den angivna omfattningen får inte inklusive rolltilldelningar i subscopes-rolltilldelningar. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Visar rolltilldelningar för en angiven användare, grupp eller tjänstens huvudnamn. |
+    | `$filter=assignedTo('{objectId}')` | Visar en lista över rolltilldelningar för en angiven användare eller tjänstens huvudnamn. Om användaren är medlem i en grupp som har en rolltilldelning, visas också den rolltilldelningen. Det här filtret är transitiva för grupper, vilket innebär att om användaren är medlem i en grupp och den är medlem i en annan grupp som har en rolltilldelning, den rolltilldelningen visas också. Det här filtret accepterar endast objekt-id för en användare eller ett huvudnamn för tjänsten. Du kan inte skicka ett objekt-id för en grupp. |
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
@@ -81,7 +81,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Du kan skapa en roll
     
 1. I URI: N, Ersätt *{omfång}* med omfånget för rolltilldelningen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -109,7 +109,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Ta bort en r
 
 1. I URI: N, Ersätt *{omfång}* med omfattning för att ta bort rolltilldelningen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |

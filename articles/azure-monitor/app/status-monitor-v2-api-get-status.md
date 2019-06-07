@@ -1,6 +1,6 @@
 ---
-title: 'Azure-Status Monitor v2 API-referens: Hämta status | Microsoft Docs'
-description: Status Monitor v2 API-referens Get-ApplicationInsightsMonitoringStatus. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Azure statusövervakaren v2 API-referens: Hämta status | Microsoft Docs'
+description: Status Monitor v2 API-referens. Get-ApplicationInsightsMonitoringStatus. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,37 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416004"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514311"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>Status Monitor v2 API: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-Det här dokumentet beskriver en cmdlet som levereras som en medlem i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Beskrivning
 
-Denna cmdlet har angetts för felsökning av PowerShell-modulen används.
-Denna cmdlet rapporterar versionsinformation och viktiga filer som krävs för att övervaka.
-Ytterligare parametrar ger extra rapporter om den aktuella statusen för övervakning.
+Möjliggör felsökning av PowerShell-modulen som används.
+Denna cmdlet rapporterar versionsinformation och information om viktiga filer som krävs för att övervaka.
+Ytterligare parametrar ger extra rapporter om statusen för övervakning.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-Session med administratörsbehörighet.
+> Denna cmdlet kräver en PowerShell-session med administratörsbehörigheter.
 
 ## <a name="examples"></a>Exempel
 
 
-### <a name="example-basic-information"></a>Exempel: grundläggande information
+### <a name="example-basic-information"></a>Exempel: Grundläggande information
 
-Kör kommandot: `Get-ApplicationInsightsMonitoringStatus` att hämta utdata för information om den här modulen:
+Kör `Get-ApplicationInsightsMonitoringStatus` att visa information om den aktuella modulen:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -79,9 +79,9 @@ Machine Identifier:
 
 ### <a name="example-runtime-status"></a>Exempel: Körningsstatus
 
-Du kan granska processen på instrumenterade maskinen för att se om alla DLL: er har lästs in. Om övervakning fungerar, ska minst 12 DLL-filer läsas.
+Du kan granska processen på instrumenterade datorn för att se om alla DLL: er har lästs in. Om övervakning fungerar, ska minst 12 DLL-filer läsas.
 
-- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parametrar 
+## <a name="parameters"></a>Parametrar
 
-### <a name="no-params"></a>(Inga parametrar)
+### <a name="no-parameters"></a>(Inga parametrar)
 
-Genom att **standard**, den här cmdleten rapporterar versionsnummer och sökvägar för DLL-filer som krävs för att övervaka.
+Som standard rapporterar denna cmdlet versionsnummer och sökvägar för DLL-filer som krävs för att övervaka.
 
 Använd det här alternativet om du vill identifiera alla DLL-filen, inklusive Application Insights SDK-version.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Valfritt**. Denna cmdlet rapporterar om IIS körs.
-Denna cmdlet hämtar också externa verktyg för att kontrollera om de nödvändiga DLL-filerna läses in i IIS-runtime.
+**Valfritt**. Använd den här parametern om du vill rapportera om IIS körs.
+Det kommer också hämta externa verktyg för att avgöra om de nödvändiga DLL-filerna läses in i IIS-runtime.
 
 
 Om den här processen misslyckas av någon anledning, kan du köra dessa kommandon manuellt:
@@ -138,10 +138,10 @@ Om den här processen misslyckas av någon anledning, kan du köra dessa kommand
 
 ### <a name="-force"></a>-Force
 
-**Valfritt**. Används endast med InspectProcess. Den här växeln hoppar över användaren tillfrågas om du vill hämta ytterligare verktyg.
+**Valfritt**. Används endast med InspectProcess. Använd den här växeln om du vill hoppa över användaruppmaning som visas innan ytterligare verktyg som hämtas.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
  Gör mer med Status Monitor v2:
- - Använd vår guide om hur du [Felsök](status-monitor-v2-troubleshoot.md) statusövervakaren v2.
+ - Använd vår guide om hur du [felsöka](status-monitor-v2-troubleshoot.md) statusövervakaren v2.

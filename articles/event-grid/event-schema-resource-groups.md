@@ -236,9 +236,9 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för resurs-grupp. |
@@ -249,8 +249,8 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
-| anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | objekt | Den begärda auktoriseringen för åtgärden. |
+| claims | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | En Operations-ID för felsökning. |
 | httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
 | resourceProvider | string | Resource provider för åtgärden. |

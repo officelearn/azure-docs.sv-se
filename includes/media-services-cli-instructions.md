@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155714"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814714"
 ---
 ## <a name="cli-shell"></a>CLI-gränssnittet
 
 Det rekommenderas att använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) att köra CLI-kommandon. **Cloud Shell** är ett kostnadsfritt, interaktivt gränssnitt som du kan använda för att köra stegen i den här artikeln. Vanliga Azure-verktyg förinstalleras och konfigureras i Cloud Shell och kan användas med kontot. Det ger dig flexibilitet att välja den skalupplevelse som passar bäst för ditt sätt att arbeta. Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Du kan också installera CLI lokalt. Se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar för din plattform.
 
-### <a name="login"></a>Inloggning
+### <a name="sign-in"></a>Logga in
 
-Att börja använda CLI-gränssnittet (i molnet eller lokalt), kör `az login` att skapa en anslutning till Azure.
+Om du använder en lokal installation av CLI måste du logga in på Azure. Det här steget krävs inte för Azure Cloud Shell. Logga in med den `az login` kommando.
 
 Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. I annat fall måste du öppna en Webbläsarsida och följ anvisningarna på kommandoraden för att ange en auktoriseringskod när du har lämnat till https://aka.ms/devicelogin i din webbläsare.
 
@@ -31,7 +31,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 Många Media Services CLI-kommandon kan du skicka en parameter med ett filnamn. Om du använder **Cloud Shell**, du kan överföra filen till din clouddrive (med Bash eller PowerShell). 
 
-![Ladda upp filer]
+![Överföra filer]
 
 Om du använder en lokal CLI eller **Cloud Shell**, måste du ange sökvägen till filen enligt OS- eller Cloud Shell (Bash eller PowerShell) som du använder. Nedan visas några exempel:
 

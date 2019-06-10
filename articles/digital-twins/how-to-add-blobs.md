@@ -51,16 +51,16 @@ JSON-blob-metadata överensstämmer med följande modell:
   }
 ```
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Typ | Description |
 | --- | --- | --- |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
 | **name** |String | Ett mänskliga eget namn för blobben |
 | **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **subtype** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **Beskrivning** | String | Anpassade beskrivning av blob |
-| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Anpassade beskrivning av blob |
+| **sharing** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.
 
@@ -108,19 +108,19 @@ Individuellt returnerade blobar överensstämmer med följande JSON-schemat:
 }
 ```
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Typ | Description |
 | --- | --- | --- |
-| **ID** | String | Den unika identifieraren för bloben |
+| **id** | String | Den unika identifieraren för bloben |
 | **name** |String | Ett mänskliga eget namn för blobben |
 | **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
 | **type** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **subtype** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
-| **Beskrivning** | String | Anpassade beskrivning av blob |
+| **sharing** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Anpassade beskrivning av blob |
 | **contentInfos** | Matris | Anger Ostrukturerade metadatainformation inklusive version |
-| **FullName** | String | Det fullständiga namnet på bloben |
+| **fullName** | String | Det fullständiga namnet på bloben |
 | **spacePaths** | String | Sökvägen utrymme |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.

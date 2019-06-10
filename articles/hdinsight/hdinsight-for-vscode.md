@@ -306,20 +306,20 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
 
     | name | description | type | 
     | :- | :- | :- | 
-    | Filen | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
+    | file | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
     | proxyUser | Användaren att personifiera när jobbet körs | string | 
     | className | Programmet Java/Spark-huvudklass | string |
     | args | Kommandoradsargument för programmet | lista med strängar | 
-    | JAR-filer | JAR-filer som ska användas i den här sessionen | Lista över strängar | 
+    | jars | JAR-filer som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
-    | Filer | filer som ska användas i den här sessionen | Lista över strängar |
+    | files | filer som ska användas i den här sessionen | Lista över strängar |
     | driverMemory | Mängden minne som ska användas för processen för drivrutinen | string |
     | driverCores | Antalet kärnor som ska användas för processen för drivrutinen | int |
     | executorMemory | Mängden minne för att använda per körningsprocess | string |
     | executorCores | Antalet kärnor som ska användas för varje executor | int |
     | numExecutors | Antal executors att starta för den här sessionen | int |
-    | Arkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
-    | kön | Namnet på YARN-kö som har skickats | string |
+    | archives | Arkiv som ska användas i den här sessionen | Lista över strängar |
+    | queue | Namnet på YARN-kö som har skickats | string |
     | name | Namnet på den här sessionen | string |
     | conf | Egenskaper för Spark-konfiguration | Karta över nyckel = värde |
 
@@ -332,7 +332,7 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
     | appId | Program-id för den här sessionen |  String |
     | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
     | log | Log-rader | lista med strängar |
-    | tillstånd |   Batch-tillstånd | string |
+    | state |   Batch-tillstånd | string |
 
 >[!NOTE]
 >Tilldelade livy konfig visas i utdatafönstret när skicka skript.

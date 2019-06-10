@@ -35,14 +35,14 @@ Händelsen prenumerationens namn måste vara 3 – 64 tecken långt och får bar
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| mål | objekt | Det objekt som definierar slutpunkten. |
+| destination | objekt | Det objekt som definierar slutpunkten. |
 | filter | objekt | Ett valfritt fält för att filtrera typerna av händelser. |
 
 ### <a name="destination-object"></a>Målobjekt
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| EndpointType | sträng | Typ av slutpunkt för prenumerationen (webhook/HTTP, Event Hub eller kön). | 
+| endpointType | sträng | Typ av slutpunkt för prenumerationen (webhook/HTTP, Event Hub eller kön). | 
 | endpointUrl | sträng | Mål-URL för händelser i den här händelseprenumerationen. | 
 
 ### <a name="filter-object"></a>filterobjekt

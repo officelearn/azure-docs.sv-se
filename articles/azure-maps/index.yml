@@ -13,7 +13,7 @@ metadata:
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: 'Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för Maps, Search, routning, trafik, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.'
+  description: 'Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för kartor, sökning, routning, trafik, mobilitet, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.'
 sections:
   - title: Snabbstarter på 5 minuter
     items:
@@ -54,4 +54,4 @@ sections:
           - title: JavaScript
             html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p>'
           - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">Mobilitetstjänsten</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>'

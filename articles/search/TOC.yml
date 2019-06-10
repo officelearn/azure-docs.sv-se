@@ -163,25 +163,29 @@
       items:
         - name: Översikt över indexerare
           href: search-indexer-overview.md
-        - name: Blob Storage-indexeraren
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Table Storage-indexeraren
+        - name: Azure Table Storage-indexerare
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB-indexerare
+        - name: Azure SQL DB-indexerare
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Cosmos DB-indexeraren
+        - name: Azure Cosmos DB-indexeraren
           href: search-howto-index-cosmosdb.md
-        - name: Blobindexering för en-till-många
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV-blob-indexering
-          href: search-howto-index-csv-blobs.md
-        - name: JSON-blob-indexering
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob Storage-indexerare
+          items:
+            - name: Konfigurera en blobindexerare
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexera en-till-många blobar
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indexera CSV-blobar
+              href: search-howto-index-csv-blobs.md
+            - name: Indexera JSON-blobar
+              href: search-howto-index-json-blobs.md
+        - name: Schema för indexerare
+          href: search-howto-schedule-indexers.md
+        - name: Mappa fält
+          href: search-indexer-field-mappings.md
         - name: Ansluta till virtuella SQL Server-datorer
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Fältmappningar
-          href: search-indexer-field-mappings.md
-        - name: Felsöka vanliga problem
+        - name: Felsök vanliga problem
           href: search-indexer-troubleshooting.md
     - name: Berika med AI
       items:

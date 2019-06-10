@@ -86,24 +86,27 @@
     - name: Arbetsyta
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: Beräkningsmål
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: Visuellt gränssnitt
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: Automatiserad maskininlärning
+    - name: Automatisk ML
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: Modellhantering (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: Återanvändbara ML-pipelines
+      href: concept-ml-pipelines.md
     - name: Modelltolkning
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: Accelerera med FPGA
+    - name: 'Översikt över FPGA:er'
       href: concept-accelerate-with-fpgas.md
-    - name: Optimera med ONNX- och ONNX-körning
+    - name: ONNX- och ONNX-körning
       href: concept-onnx.md
-    - name: Pipelines för maskininlärning
-      href: concept-ml-pipelines.md
     - name: Säkerhet
       items:
         - name: Översikt över Enterprise Security

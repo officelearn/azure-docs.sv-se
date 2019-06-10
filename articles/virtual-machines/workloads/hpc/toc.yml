@@ -1,0 +1,30 @@
+- name: Dokumentation om beräkning med höga prestanda
+  items:
+    - name: Översikt
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: Konfiguration
+      items:
+        - name: Optimering för Linux
+          href: configure.md
+        - name: Aktivera Infiniband
+          href: enable-infiniband.md
+    - name: Konfigurera MPI
+      href: setup-mpi.md
+    - name: Skala program
+      href: compiling-scaling-applications.md
+    - name: Virtuella datorer
+      items:
+        - name: HB-serien
+          items:
+            - name: Översikt
+              href: hb-series-overview.md
+            - name: Prestanda
+              href: hb-series-performance.md
+        - name: HC-serien
+          items:
+            - name: Översikt
+              href: hc-series-overview.md
+            - name: Prestanda
+              href: hc-series-performance.md
+        - name: Kända problem med virtuella datorer i HB-serien och HC-serien
+          href: hb-hc-known-issues.md

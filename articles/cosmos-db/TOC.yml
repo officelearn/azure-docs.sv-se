@@ -533,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: Ändringsflöde
       items:
-        - name: Azure Cosmos DB-utlösarloggar
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Anslutningsprincip för Azure Cosmos DB-utlösare
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Flera Azure Cosmos DB-utlösare
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Felsöka Azure Cosmos DB-utlösare

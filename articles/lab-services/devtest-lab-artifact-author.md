@@ -56,7 +56,7 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
 | $schema |Nej |Plats för JSON-schemafilen. Med hjälp av JSON-schema-fil kan du testa giltighet definitionsfilen. |
-| rubrik |Ja |Namnet på den artefakt som visas i laboratoriet. |
+| title |Ja |Namnet på den artefakt som visas i laboratoriet. |
 | description |Ja |Beskrivning av den artefakt som visas i laboratoriet. |
 | iconUri |Nej |URI för den ikon som visas i laboratoriet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
@@ -78,7 +78,7 @@ För att definiera parametrar, använder du följande struktur:
 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
-| typ |Ja |Typ av parametervärdet. Se följande lista innehåller de tillåtna typerna. |
+| type |Ja |Typ av parametervärdet. Se följande lista innehåller de tillåtna typerna. |
 | displayName |Ja |Namnet på parametern som visas för en användare i laboratoriet. |
 | description |Ja |Beskrivning av den parameter som visas i laboratoriet. |
 

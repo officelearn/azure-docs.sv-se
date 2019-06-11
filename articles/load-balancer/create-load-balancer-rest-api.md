@@ -35,10 +35,10 @@ Använd följande HTTP PUT-begäran för att skapa en ny Azure belastningsutjäm
 
 |Namn  |I  |Krävs |Typ |Beskrivning |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  sökväg       |  True       |   sträng      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
-|resourceGroupName     |     sökväg    | True        |  sträng       |   Namnet på resursgruppen.     |
-|loadBalancerName     |  sökväg       |      True   |    sträng     |    Namnet på belastningsutjämnaren.    |
-|API-versionen    |   DocumentDB     |  True       |     sträng    |  API-klientversionen.      |
+|subscriptionId   |  sökväg       |  True       |   string      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
+|resourceGroupName     |     sökväg    | True        |  string       |   Namnet på resursgruppen.     |
+|loadBalancerName     |  sökväg       |      True   |    string     |    Namnet på belastningsutjämnaren.    |
+|api-version    |   query     |  True       |     string    |  API-klientversionen.      |
 
 
 
@@ -48,7 +48,7 @@ Den enda obligatoriska parametern är `location`. Om du inte definierar den *SKU
 
 | Namn | Typ | Beskrivning |
 | :--- | :--- | :---------- |
-| location | sträng | Resursplats. Hämta en aktuell lista över platser med hjälp av den [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) igen. |
+| location | string | Resursplats. Hämta en aktuell lista över platser med hjälp av den [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) igen. |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Exempel: Skapa och uppdatera en grundläggande belastningsutjämnare

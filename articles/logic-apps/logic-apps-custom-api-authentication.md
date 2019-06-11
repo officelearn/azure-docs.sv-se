@@ -191,10 +191,10 @@ Den tidigare mallen har redan det här avsnittet för auktorisering som ställer
 | Element | Obligatoriskt | Beskrivning | 
 | ------- | -------- | ----------- | 
 | tenant | Ja | GUID för Azure AD-klient | 
-| Målgrupp | Ja | GUID för vilken resurs som du vill komma åt, vilket är klient-ID från programidentitet för din webbapp eller API-app | 
+| audience | Ja | GUID för vilken resurs som du vill komma åt, vilket är klient-ID från programidentitet för din webbapp eller API-app | 
 | clientId | Ja | GUID för klienten som begärde åtkomst, vilket är klient-ID från programidentitet för din logikapp | 
-| hemlig | Ja | Nyckeln eller lösenordet från programidentitet för den klient som begär åtkomst-token | 
-| typ | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
+| secret | Ja | Nyckeln eller lösenordet från programidentitet för den klient som begär åtkomst-token | 
+| type | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
 |||| 
 
 Exempel:
@@ -236,7 +236,7 @@ I den **auktorisering** avsnittet, innehåller den här raden:
 
 | Element | Obligatoriskt | Beskrivning | 
 | ------- | -------- | ----------- | 
-| typ | Ja | Autentiseringstypen. För SSL-klientcertifikat, värdet måste vara `ClientCertificate`. | 
+| type | Ja | Autentiseringstypen. För SSL-klientcertifikat, värdet måste vara `ClientCertificate`. | 
 | password | Ja | Lösenord för att komma åt klientcertifikatet (PFX-fil) | 
 | pfx | Ja | Base64-kodad innehållet i klientcertifikatet (PFX-fil) | 
 |||| 
@@ -253,7 +253,7 @@ I den **auktorisering** avsnittet, innehåller den här raden:
 
 | Element | Krävs | Beskrivning | 
 | ------- | -------- | ----------- | 
-| typ | Ja | Den autentiseringstyp som du vill använda. För grundläggande autentisering, värdet måste vara `Basic`. | 
+| type | Ja | Den autentiseringstyp som du vill använda. För grundläggande autentisering, värdet måste vara `Basic`. | 
 | username | Ja | Det användarnamn som du vill använda för autentisering | 
 | password | Ja | Det lösenord som du vill använda för autentisering | 
 |||| 

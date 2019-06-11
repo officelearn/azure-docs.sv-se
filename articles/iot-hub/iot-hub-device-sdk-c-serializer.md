@@ -68,8 +68,8 @@ Följande datatyper som stöds i modeller som skapats med den **serialiserare** 
 | --- | --- |
 | double |dubbel precision flyttalsnummer |
 | int |32-bitars heltal |
-| flyt |med enkel precision flyttalsnummer |
-| lång |långt heltal |
+| float |med enkel precision flyttalsnummer |
+| long |långt heltal |
 | int8\_t |8-bitars heltal |
 | int16\_t |16-bitars heltal |
 | int32\_t |32-bitars heltal |
@@ -79,7 +79,7 @@ Följande datatyper som stöds i modeller som skapats med den **serialiserare** 
 | EDM\_DATE\_TIME\_OFFSET |förskjutning av slutdatum tid |
 | EDM\_GUID |GUID |
 | EDM\_BINARY |binary |
-| DEKLARERA\_STRUCT |Komplex datatyp |
+| DECLARE\_STRUCT |Komplex datatyp |
 
 Låt oss börja med den senaste datatypen. Den **DECLARE\_STRUCT** kan du definiera komplexa datatyper som är grupperingar av primitiva typer. Dessa grupperingar att vi kan definiera en modell som ser ut så här:
 

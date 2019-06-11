@@ -83,7 +83,7 @@ Schemat som publicerats för en Azure Blob storage-händelse är till exempel:
 
 Alla händelser har samma följande översta data:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
 | subject | string | Publisher-definierade sökvägen till ämne för händelsen. |

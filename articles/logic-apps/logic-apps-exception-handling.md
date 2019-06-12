@@ -73,7 +73,7 @@ Du kan också manuellt ange återförsöksprincipen i den `inputs` för en åtg�
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*återförsöksprincipstyp-*> | String | Den typen av återförsöksprincip du vill använda: `default`, `none`, `fixed`, eller `exponential` | 
+| <*retry-policy-type*> | String | Den typen av återförsöksprincip du vill använda: `default`, `none`, `fixed`, eller `exponential` | 
 | <*retry-interval*> | String | Återförsöksintervallet där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Är standardintervallet för minsta `PT5S` och maximalt intervall är `PT1D`. När du använder exponentiell intervallprincip, kan du ange olika lägsta och högsta värden. | 
 | <*retry-attempts*> | Integer | Antal nya försök, vilket måste vara mellan 1 och 90 | 
 ||||
@@ -82,7 +82,7 @@ Du kan också manuellt ange återförsöksprincipen i den `inputs` för en åtg�
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*Minsta intervall*> | String | För exponentiell intervallprincip, det minsta intervallet för slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | För exponentiell intervallprincip, det minsta intervallet för slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | String | För exponentiell intervallprincip, det största intervallet för slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 

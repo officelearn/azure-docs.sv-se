@@ -128,7 +128,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
    | Slutpunkten svarsfältet rubrik | Typ | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segmentstorleken i byte |
-   | **Plats** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
+   | **Location** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
    ||||
 
 3. Logikappen skapar och skickar Uppföljnings HTTP KORRIGERA meddelanden – var och en med den här informationen:
@@ -140,7 +140,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
      | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*Adressintervall*> | String | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
-     | **Innehållstyp** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
+     | **Content-Type** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
      | **Content-Length** | <*content-length*> | String | Längden på storlek i byte för det aktuella segmentet |
      |||||
 

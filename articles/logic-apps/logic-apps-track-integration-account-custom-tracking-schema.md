@@ -59,19 +59,19 @@ Den här artikeln innehåller anpassad kod som du kan använda i lagren utanför
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
 | sourceType |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **anpassade**. (Obligatorisk) |
-| Källa |   | Om typ av datakälla är **Microsoft.Logic/workflows**, information om källdatorn måste följa det här schemat. Om typ av datakälla är **anpassade**, schemat är en JToken. (Obligatorisk) |
+| source |   | Om typ av datakälla är **Microsoft.Logic/workflows**, information om källdatorn måste följa det här schemat. Om typ av datakälla är **anpassade**, schemat är en JToken. (Obligatorisk) |
 | systemId | String | Logic app system-ID. (Obligatorisk) |
 | runId | String | Logikappskörningen ID. (Obligatorisk) |
 | operationName | String | Namnet på åtgärden (till exempel åtgärd eller utlösare). (Obligatorisk) |
 | repeatItemScopeName | String | Upprepa objektnamn om åtgärden finns i en `foreach` / `until` loop. (Obligatorisk) |
 | repeatItemIndex | Integer | Om åtgärden finns i en `foreach` / `until` loop. Anger det upprepade objekt indexet. (Obligatorisk) |
-| spårnings-ID | String | Spårnings-ID för att knyta samman meddelanden. (Valfritt) |
+| trackingId | String | Spårnings-ID för att knyta samman meddelanden. (Valfritt) |
 | correlationId | String | Korrelations-ID, att korrelera meddelanden. (Valfritt) |
 | clientRequestId | String | Klienten kan fylla i den för att korrelera meddelanden. (Valfritt) |
 | eventLevel |   | Nivån på händelsen. (Obligatorisk) |
 | eventTime |   | Tid för händelse, i UTC-format åååå-MM-DDTHH:MM:SS.00000Z. (Obligatorisk) |
-| RecordType |   | Typ av bevisade framgångar. Tillåtna värde är **anpassade**. (Obligatorisk) |
-| post |   | Anpassad posttyp. Formatet är JToken. (Obligatorisk) |
+| recordType |   | Typ av bevisade framgångar. Tillåtna värde är **anpassade**. (Obligatorisk) |
+| record |   | Anpassad posttyp. Formatet är JToken. (Obligatorisk) |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B-protokollet-spårningsscheman

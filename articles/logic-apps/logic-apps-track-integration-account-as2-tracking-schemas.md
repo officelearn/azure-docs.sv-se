@@ -63,7 +63,7 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 | as2To | String | Mottagare AS2-meddelandet namnet från rubriker för AS2-meddelandet. (Obligatorisk) |
 | as2From | String | AS2 meddelandets avsändare namnet från rubriker för AS2-meddelandet. (Obligatorisk) |
 | agreementName | String | Namnet på AS2-avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | messageId | String | AS2 meddelande-ID, från rubriker för AS2-meddelande (valfritt) |
 | dispositionType |String | Meddelandet Disposition-Notification (MDN) disposition TYPVÄRDE. (Valfritt) |
 | fileName | String | Namnet på filen från rubriken för AS2-meddelandet. (Valfritt) |
@@ -116,7 +116,7 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 | as2To | String | Partnernamn som tar emot AS2-meddelandet. (Obligatorisk) |
 | as2From | String | Partnernamn som skickar AS2-meddelandet. (Obligatorisk) |
 | agreementName | String | Namnet på AS2-avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning |String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction |String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | messageId | String | AS2-meddelande-ID. (Valfritt) |
 | originalMessageId |String | AS2 ursprungliga meddelande-ID. (Valfritt) |
 | dispositionType | String | MDN disposition TYPVÄRDE. (Valfritt) |

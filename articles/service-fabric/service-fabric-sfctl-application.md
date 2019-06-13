@@ -28,25 +28,25 @@ Skapa, ta bort och hantera program och program.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| skapa | Skapar ett Service Fabric-program med den angivna beskrivningen. |
+| create | Skapar ett Service Fabric-program med den angivna beskrivningen. |
 | delete | Tar bort ett befintligt Service Fabric-program. |
-| distribuerat | Hämtar information om ett program som distribueras på en Service Fabric-nod. |
+| deployed | Hämtar information om ett program som distribueras på en Service Fabric-nod. |
 | deployed-health | Hämtar information om hälsotillståndet för ett program som distribuerats på en Service Fabric-nod. |
-| distribuerat lista | Hämtar listan över program som distribueras på en Service Fabric-nod. |
-| hälsa | Hämtar hälsotillståndet för service fabric-program. |
+| deployed-list | Hämtar listan över program som distribueras på en Service Fabric-nod. |
+| health | Hämtar hälsotillståndet för service fabric-program. |
 | info | Hämtar information om Service Fabric-program. |
-| lista | Hämtar listan över program som har skapats i Service Fabric-klustret och som matchar de angivna filtren har använts. |
-| läsa in | Hämtar att läsa in information om Service Fabric-program. |
-| Manifest | Hämtar manifestet som beskriver en typ av program. |
-| etablera | Etablerar eller registrerar skriver ett Service Fabric-program till klustret med hjälp av .sfpkg-paketet i extern lagring eller med hjälp av programpaketet i avbildningsarkivet. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-program. |
-| typ | Hämtar listan över typer av program i Service Fabric-klustret som matchar exakt det angivna namnet. |
-| typ-list | Hämtar listan över typer av program i Service Fabric-klustret. |
-| avetablera | Tar bort eller Avregistrerar en Service Fabric-programtypen från klustret. |
-| uppgradering | Börjar uppgradera ett program i Service Fabric-klustret. |
-| uppgraderingen återuppta | Återupptar uppgradera ett program i Service Fabric-klustret. |
-| uppgraderingen-återställning | Börjar återställa för närvarande pågående uppgradering av ett program i Service Fabric-klustret. |
-| uppgraderingen-status | Hämtar information för den senaste uppgraderingen utförs på det här programmet. |
+| list | Hämtar listan över program som har skapats i Service Fabric-klustret och som matchar de angivna filtren har använts. |
+| load| Hämtar att läsa in information om Service Fabric-program. |
+| manifest | Hämtar manifestet som beskriver en typ av program. |
+| provision | Etablerar eller registrerar skriver ett Service Fabric-program till klustret med hjälp av .sfpkg-paketet i extern lagring eller med hjälp av programpaketet i avbildningsarkivet. |
+| report-health | Skickar en hälsorapport på Service Fabric-program. |
+| type | Hämtar listan över typer av program i Service Fabric-klustret som matchar exakt det angivna namnet. |
+| type-list | Hämtar listan över typer av program i Service Fabric-klustret. |
+| unprovision | Tar bort eller Avregistrerar en Service Fabric-programtypen från klustret. |
+| upgrade | Börjar uppgradera ett program i Service Fabric-klustret. |
+| upgrade-resume | Återupptar uppgradera ett program i Service Fabric-klustret. |
+| upgrade-rollback | Börjar återställa för närvarande pågående uppgradering av ett program i Service Fabric-klustret. |
+| upgrade-status | Hämtar information för den senaste uppgraderingen utförs på det här programmet. |
 | upload | Kopiera ett Service Fabric-programpaket till avbildningsarkivet. |
 
 ## <a name="sfctl-application-create"></a>sfctl programmet skapa

@@ -56,7 +56,7 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | AS2 meddelandets avsändare Partnernamn. (Valfritt) |
 | receiverPartnerName | String | Mottagare AS2-meddelandet Partnernamn. (Valfritt) |
@@ -109,7 +109,7 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | AS2 meddelandets avsändare Partnernamn. (Valfritt) |
 | receiverPartnerName | String | Mottagare AS2-meddelandet Partnernamn. (Valfritt) |

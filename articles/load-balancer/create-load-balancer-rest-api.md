@@ -38,7 +38,7 @@ Använd följande HTTP PUT-begäran för att skapa en ny Azure belastningsutjäm
 |subscriptionId   |  sökväg       |  True       |   string      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
 |resourceGroupName     |     sökväg    | True        |  string       |   Namnet på resursgruppen.     |
 |loadBalancerName     |  sökväg       |      True   |    string     |    Namnet på belastningsutjämnaren.    |
-|api-version    |   query     |  True       |     string    |  API-klientversionen.      |
+|API-versionen    |   DocumentDB     |  True       |     string    |  API-klientversionen.      |
 
 
 

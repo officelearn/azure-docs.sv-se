@@ -116,11 +116,11 @@ Om du inte anger en återförsöksprincip åtgärden använder standardprincipen
 
 ### <a name="none"></a>Ingen
 
-Om du vill ange att åtgärden eller utlösaren inte gör misslyckade förfrågningar, ange den <*återförsöksprincipstyp-*> till `none`.
+Om du vill ange att åtgärden eller utlösaren inte gör misslyckade förfrågningar, ange den <*återförsöksprincipstyp-* > till `none`.
 
 ### <a name="fixed-interval"></a>Fast intervall
 
-Om du vill ange att åtgärd eller utlösare väntar det angivna intervallet innan nästa förfrågan skickas, ange den <*återförsöksprincipstyp-*> till `fixed`.
+Om du vill ange att åtgärd eller utlösare väntar det angivna intervallet innan nästa förfrågan skickas, ange den <*återförsöksprincipstyp-* > till `fixed`.
 
 *Exempel*
 
@@ -145,7 +145,7 @@ En sådan återförsöksprincip försöker få de senaste nyheterna två gånger
 
 ### <a name="exponential-interval"></a>Exponentiellt intervall
 
-Om du vill ange att åtgärd eller utlösare väntar ett slumpmässigt intervall innan nästa förfrågan skickas, ange den <*återförsöksprincipstyp-*> till `exponential`. Slumpmässigt intervall väljs från ett växande exponentiellt intervall. Du kan eventuellt även åsidosätta standard minsta och största intervall genom att ange dina egna minsta och största intervall.
+Om du vill ange att åtgärd eller utlösare väntar ett slumpmässigt intervall innan nästa förfrågan skickas, ange den <*återförsöksprincipstyp-* > till `exponential`. Slumpmässigt intervall väljs från ett växande exponentiellt intervall. Du kan eventuellt även åsidosätta standard minsta och största intervall genom att ange dina egna minsta och största intervall.
 
 **Variabeln slumpmässiga intervall**
 

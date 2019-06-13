@@ -66,7 +66,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
 | functionalGroupControlNumber | String | Funktionella kontrollnummer. (Valfritt) |
 | transactionSetControlNumber | String | Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
@@ -122,7 +122,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
 | functionalGroupControlNumber | String | Funktionell gruppkontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
 | isaSegment | String | ISA-segmentet för meddelandet. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
@@ -180,7 +180,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
 | isaSegment | String | Meddelandet ISA-segmentet. (Valfritt) |
 | isTechnicalAcknowledgmentExpected | Boolean | Om teknisk bekräftelse har konfigurerats i X12 avtal. (Obligatorisk) |
@@ -231,7 +231,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer av teknisk bekräftelsen som tas emot från partner. (Valfritt) |
 | isaSegment | String | ISA-segmentet för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
 | respondingInterchangeControlNumber |String | Interchange-kontrollnummer för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
@@ -284,7 +284,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
 | functionalGroupControlNumber | String | Funktionella kontrollnummer. (Valfritt) |
 | gsSegment | String | Meddelandet GS segment. (Valfritt) |
@@ -340,7 +340,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
 | receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
 | agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
-| riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
+| direction | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
 | interchangeControlNumber | String | Interchange-kontrollnummer som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
 | functionalGroupControlNumber | String | Funktionell gruppkontrollnummer av den tekniska bekräftelse som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
 | isaSegment | String | Samma som utbytet styr många, men endast i vissa fall. (Valfritt) |

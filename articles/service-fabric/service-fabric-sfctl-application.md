@@ -36,7 +36,7 @@ Skapa, ta bort och hantera program och program.
 | health | Hämtar hälsotillståndet för service fabric-program. |
 | info | Hämtar information om Service Fabric-program. |
 | list | Hämtar listan över program som har skapats i Service Fabric-klustret och som matchar de angivna filtren har använts. |
-| load| Hämtar att läsa in information om Service Fabric-program. |
+| load | Hämtar att läsa in information om Service Fabric-program. |
 | manifest | Hämtar manifestet som beskriver en typ av program. |
 | provision | Etablerar eller registrerar skriver ett Service Fabric-program till klustret med hjälp av .sfpkg-paketet i extern lagring eller med hjälp av programpaketet i avbildningsarkivet. |
 | report-health | Skickar en hälsorapport på Service Fabric-program. |

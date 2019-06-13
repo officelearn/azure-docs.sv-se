@@ -66,15 +66,15 @@ Följande JSON visar schemat för tillägget programmets hälsotillstånd. Till�
 | Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| utgivare | `Microsoft.ManagedServices` | string |
-| typ | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Inställningar
 
 | Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ----
-| protokoll | `http` eller `tcp` | string |
+| protocol | `http` eller `tcp` | string |
 | port | Valfritt när protokollet är `http`obligatorisk när protokollet är `tcp` | int |
 | requestPath | Obligatoriskt när protokollet är `http`, inte tillåts när protokollet är `tcp` | string |
 

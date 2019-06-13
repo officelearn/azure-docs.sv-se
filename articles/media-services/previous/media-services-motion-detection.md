@@ -95,20 +95,20 @@ I följande tabell beskriver elementen i JSON-filen för utdata.
 | Element | Beskrivning |
 | --- | --- |
 | Version |Detta refererar till versionen av Video-API. Den aktuella versionen är 2. |
-| Tidsskala |”Ticken” per sekund av videon. |
+| Timescale |”Ticken” per sekund av videon. |
 | Offset |Tidsförskjutningen för tidsstämplar i ”ticken”. Det kommer alltid ske 0 i version 1.0 av Video-API: er. I framtiden scenarier som vi har stöd för det här värdet kan ändras. |
-| Bildfrekvens |Bildrutor per sekund i videon. |
-| Bredd, höjd |Refererar till bredden och höjden för videon i bildpunkter. |
+| Framerate |Bildrutor per sekund i videon. |
+| Width, Height |Refererar till bredden och höjden för videon i bildpunkter. |
 | Start |Starta tidsstämpeln i ”ticken”. |
-| Varaktighet |Längden på händelsen i ”ticken”. |
+| Duration |Längden på händelsen i ”ticken”. |
 | Interval |Intervall för varje post i händelsen i ”ticken”. |
-| Händelser |Händelsen i varje fragment innehåller rörelse identifieras inom den varaktigheten. |
-| Typ |I den aktuella versionen är det alltid ”2” för allmän rörelse. Den här etiketten ger Video-API: er flexibiliteten att kategorisera rörelser i framtida versioner. |
+| Events |Händelsen i varje fragment innehåller rörelse identifieras inom den varaktigheten. |
+| Type |I den aktuella versionen är det alltid ”2” för allmän rörelse. Den här etiketten ger Video-API: er flexibiliteten att kategorisera rörelser i framtida versioner. |
 | RegionID |Enligt beskrivningen ovan, är det här alltid 0 i den här versionen. Den här etiketten kan Video-API att hitta rörelse i olika regioner i framtida versioner. |
-| Regioner |Refererar till området i din video där du bryr dig om rörelse. <br/><br/>-”id” representerar området region – i den här versionen finns bara en, ID 0. <br/>-”type” representerar formen på den region som intresserar dig för rörelse. För närvarande stöds ”rektangel” och ”polygon”.<br/> Om du har angett ”rektangel” regionen har dimensioner i X, Y, bredd och höjd. X- och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredd och höjd representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen fasta X, Y, bredd och höjd alltid på 0, 0 och 1, 1. <br/>Om du har angett ”polygon” har regionen dimensioner i punkter. <br/> |
-| Fragment |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment med inga händelser anger att ingen rörelse identifierades under den starttid och varaktighet. |
+| Regions |Refererar till området i din video där du bryr dig om rörelse. <br/><br/>-”id” representerar området region – i den här versionen finns bara en, ID 0. <br/>-”type” representerar formen på den region som intresserar dig för rörelse. För närvarande stöds ”rektangel” och ”polygon”.<br/> Om du har angett ”rektangel” regionen har dimensioner i X, Y, bredd och höjd. X- och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredd och höjd representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen fasta X, Y, bredd och höjd alltid på 0, 0 och 1, 1. <br/>Om du har angett ”polygon” har regionen dimensioner i punkter. <br/> |
+| Fragments |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment med inga händelser anger att ingen rörelse identifierades under den starttid och varaktighet. |
 | Hakparenteser] |Varje hakparentes representerar ett intervall i händelsen. Tom hakparenteser för det här intervallet innebär att inga rörelse har identifierats. |
-| platser |Den nya posten under händelser visar platsen där rörelsen ägde. Det här är mer specifik än zonerna identifiering. |
+| locations |Den nya posten under händelser visar platsen där rörelsen ägde. Det här är mer specifik än zonerna identifiering. |
 
 I följande JSON-exempel visar utdata:
 

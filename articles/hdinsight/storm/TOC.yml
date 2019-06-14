@@ -233,7 +233,5 @@
   items:
     - name: Windows-kluster
       items:
-        - name: Migrera Windows-kluster till Linux-kluster
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Migrera .NET-lösningar till Linux-kluster
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

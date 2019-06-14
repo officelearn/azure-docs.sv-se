@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370975"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå Microsoft kundavtal administrativa roller i Azure
@@ -32,19 +32,19 @@ I följande tabell beskrivs fakturering roller som du använder för att hantera
 
 |Roll|Beskrivning|
 |---|---|
-|Faktureringskontoinnehavare|Hantera allt för fakturering konto|
-|Faktureringskontodeltagare|Hantera allt utom behörigheterna på faktureringskontot|
-|Faktureringskontoläsare|Skrivskyddad vy av allt på fakturering konto|
-|Faktureringsprofilsägare|Hantera allt för fakturering profil|
-|Faktureringsprofilsdeltagare|Hantera allt utom behörigheterna på fakturering profilen|
-|Faktureringsprofilsläsare|Skrivskyddad vy av allt på fakturering profil|
-|Fakturahanterare|Visa och betala fakturor för fakturering profil|
-|Fakturaavsnittsägare|Hantera allt på fakturan avsnittet|
-|Fakturaavsnittsdeltagare|Hantera allt, men behörigheter i avsnittet faktura|
-|Fakturaavsnittsläsare|Skrivskyddad vy av allt i avsnittet faktura|
-|Skapare av Azure-prenumeration|Skapa Azure-prenumerationer|
+|Fakturering Kontoägare|Hantera allt för fakturering konto|
+|Fakturerings-kontodeltagare|Hantera allt utom behörigheterna på faktureringskontot|
+|Faktureringsläsare för konto|Skrivskyddad vy av allt på fakturering konto|
+|Fakturering profilens ägare|Hantera allt för fakturering profil|
+|Profil faktureringsdeltagare|Hantera allt utom behörigheterna på fakturering profilen|
+|Faktureringsläsare profil|Skrivskyddad vy av allt på fakturering profil|
+|Faktura manager|Visa och betala fakturor för fakturering profil|
+|Faktura avsnittet ägare|Hantera allt på fakturan avsnittet|
+|Faktura avsnittet deltagare|Hantera allt, men behörigheter i avsnittet faktura|
+|Faktura avsnittet läsare|Skrivskyddad vy av allt i avsnittet faktura|
+|Azure-prenumeration skapare|Skapa Azure-prenumerationer|
 
-## <a name="billing-account-roles-and-tasks"></a>Faktureringskontoroller och uppgifter
+## <a name="billing-account-roles-and-tasks"></a>Fakturering kontoroller och uppgifter
 
 Ett faktureringskonto kan du hantera faktureringen för din organisation. Du kan använda faktureringskonto för att organisera kostnader, övervaka kostnader och fakturor och fakturering åtkomstkontroll för din organisation. Mer information finns i [förstå faktureringskonto](billing-mca-overview.md#understand-billing-account).
 
@@ -52,7 +52,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-billing-account-permissions-and-properties"></a>Hantera behörighet för fakturering och egenskaper
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa befintliga behörigheter för fakturering konto|✔|✔|✔|
 |Ge andra användare behörighet att visa och hantera faktureringskontot|✔|✘|✘|
@@ -60,37 +60,37 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-billing-profiles-for-billing-account"></a>Hantera fakturering profiler för fakturering konto
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa alla fakturering profiler i kontot|✔|✔|✔|
 
 ### <a name="manage-invoices-for-billing-account"></a>Hantera fakturor för fakturering konto
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa alla fakturor i kontot|✔|✔|✔|
 |Ladda ned fakturor, Azure files för användning och avgifter, prisdokument och skatt dokument i kontot|✔|✔|✔|
 
 ### <a name="manage-invoice-sections-for-billing-account"></a>Hantera faktura avsnitt för faktureringskonto
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa alla faktura-avsnitt i kontot|✔|✔|✔|
 
 ### <a name="manage-transactions-for-billing-account"></a>Hantera transaktioner för fakturering konto
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa alla fakturering transaktioner för kontot|✔|✔|✔|
 |Visa alla produkter som har köpt för kontot|✔|✔|✔|
 
 ### <a name="manage-subscriptions-for-billing-account"></a>Hantera prenumerationer för fakturering konto
 
-|Aktivitet|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare|
+|Aktivitet|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto|
 |---|---|---|---|
 |Visa alla Azure-prenumerationer i fakturerings-konto|✔|✔|✔|
 
-## <a name="billing-profile-roles-and-tasks"></a>Faktureringsprofilsroller och uppgifter
+## <a name="billing-profile-roles-and-tasks"></a>Fakturering profil roller och uppgifter
 
 En profil för fakturering kan du hantera dina fakturor och betalningsmetoder. En månadsfaktura genereras för Azure-prenumerationer och andra produkter som har köpt med hjälp av fakturering profilen. Du kan använda metoderna betalningar för att betala fakturan. Mer information finns i [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
 
@@ -98,7 +98,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-billing-profile-permissions-properties-and-policies"></a>Hantera fakturering behörighet, egenskaper och principer
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa befintliga behörigheter för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 |Ge andra användare behörighet att visa och hantera faktureringen profilen|✔|✘|✘|✘|✘|✘|✘|
@@ -109,38 +109,38 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-invoices-for-billing-profile"></a>Hantera fakturor för fakturering profil
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla fakturor för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 |Ladda ned fakturor, Azure files för användning och avgifter, prisdokument och skatt dokument för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-invoice-sections-for-billing-profile"></a>Hantera faktura avsnitt för fakturering profilen
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla faktura avsnitt för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 |Skapa nytt faktura avsnitt för fakturerings-profilen|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-transactions-for-billing-profile"></a>Hantera transaktioner för fakturering profil
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla fakturering transaktioner för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-payment-methods-for-billing-profile"></a>Hantera betalningsmetoder för fakturering profil
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa betalningsmetoder för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 |Spåra Azure-krediter saldo för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-subscriptions-for-billing-profile"></a>Hantera prenumerationer för fakturering profil
 
-|Aktivitet|Faktureringsprofilsägare|Faktureringsprofilsdeltagare|Faktureringsprofilsläsare|Faktura Manager|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Aktivitet|Fakturering profilens ägare|Profil faktureringsdeltagare|Faktureringsläsare profil|Faktura Manager|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla Azure-prenumerationer för fakturerings-profilen|✔|✔|✔|✔|✔|✔|✔|
 
-## <a name="invoice-section-roles-and-tasks"></a>Fakturaavsnittsroller och uppgifter
+## <a name="invoice-section-roles-and-tasks"></a>Faktura avsnittet roller och uppgifter
 
 En faktura-avsnittet kan du organisera kostnader på din faktura. Du kan skapa ett avsnitt för att organisera dina kostnader per avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning och köp i prenumerationer därefter visa på avsnittet i fakturan. Mer information finns i [förstå fakturan avsnittet](billing-mca-overview.md#understand-invoice-sections).
 
@@ -148,7 +148,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Hantera behörigheter för faktura-avsnittet och egenskaper
 
-|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Skapare av Azure-prenumeration|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare | |
+|Uppgifter|Faktura avsnittet ägare|Faktura avsnittet deltagare|Faktura avsnittet läsare|Azure-prenumeration skapare|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto | |
 |---|---|---|---|---|---|---|---|---|
 |Visa alla behörigheter på fakturan avsnittet|✔|✔|✔|✔|✔|✔|✔| |
 |Ge andra användare behörighet att visa och hantera avsnittet faktura|✔|✘|✘|✘|✘|✘|✘| |
@@ -157,25 +157,25 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ### <a name="manage-products-for-invoice-section"></a>Hantera produkter för faktura-avsnitt
 
-|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Skapare av Azure-prenumeration|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Uppgifter|Faktura avsnittet ägare|Faktura avsnittet deltagare|Faktura avsnittet läsare|Azure-prenumeration skapare|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla produkter som har köpt i avsnittet faktura|✔|✔|✔|✘|✔|✔|✔|
 |Hantera faktureringen för produkter för faktura-avsnitt som Avbryt, inaktivera automatisk förnyelse och mycket mer|✔|✔|✘|✘|✘|✘|✘|
 |Ändra faktura avsnittet för produkterna|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Hantera prenumerationer för fakturaavsnitt
+### <a name="manage-subscriptions-for-invoice-section"></a>Hantera prenumerationer för faktura-avsnitt
 
-|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Skapare av Azure-prenumeration|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Uppgifter|Faktura avsnittet ägare|Faktura avsnittet deltagare|Faktura avsnittet läsare|Azure-prenumeration skapare|Fakturering Kontoägare|Fakturerings-kontodeltagare|Faktureringsläsare för konto
 |---|---|---|---|---|---|---|---|
 |Visa alla Azure-prenumerationer för faktura-avsnitt|✔|✔|✔|✘|✔|✔|✔|
 |Ändra faktura avsnittet för prenumerationer|✔|✔|✘|✘|✘|✘|✘|
 |Begära faktureringsägarskapet för prenumerationer från användare i andra fakturering konton|✔|✔|✘|✘|✘|✘|✘|
 
-## <a name="subscription-billing-roles-and-tasks"></a>Prenumerationsfaktureringsroller och uppgifter
+## <a name="subscription-billing-roles-and-tasks"></a>Prenumeration fakturering roller och uppgifter
 
 I följande tabell visar vilken roll som du behöver utföra uppgifter i samband med en prenumeration.
 
-|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Skapare av Azure-prenumeration|
+|Uppgifter|Faktura avsnittet ägare|Faktura avsnittet deltagare|Faktura avsnittet läsare|Azure-prenumeration skapare|
 |---|---|---|---|---|
 |Skapa Azure-prenumerationer|✔|✔|✘|✔|
 |Uppdatera kostnadsställe för prenumerationen|✔|✔|✘|✘|
@@ -185,7 +185,7 @@ I följande tabell visar vilken roll som du behöver utföra uppgifter i samband
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

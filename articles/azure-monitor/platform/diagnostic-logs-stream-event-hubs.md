@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237717"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
@@ -24,7 +24,7 @@ Här är några sätt som du kan använda den strömmande kapaciteten för diagn
 * **Stream loggar till 3 part loggning och telemetri system** – du kan strömma alla dina diagnostikloggar till en enda händelsehubb till pipe loggdata till en tredje parts SIEM- eller log analytics-verktyget.
 * **Visa tjänstehälsa med strömmande ”heta sökvägen” data till Power BI** – med hjälp av Event Hubs, Stream Analytics och Power BI, kan du enkelt omvandla diagnostics-data i att nästan i realtid insikter om dina Azure-tjänster. [Den här dokumentationen artikeln ger en bra översikt över hur du ställer in Event Hubs, bearbeta data med Stream Analytics och använda Power BI som utdata](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Här följer några tips för att komma som konfigurerats med diagnostikloggar:
 
-  * En händelsehubb för en viss kategori av diagnostikloggar skapas automatiskt när du markerar alternativet i portalen eller aktivera via PowerShell, så att du vill välja händelsehubben i namnområdet med namn som börjar med **insights -**.
+  * En händelsehubb för en viss kategori av diagnostikloggar skapas automatiskt när du markerar alternativet i portalen eller aktivera via PowerShell, så att du vill välja händelsehubben i namnområdet med namn som börjar med **insights -** .
   * Följande SQL-kod är en exempelfråga för Stream Analytics som du kan använda för att parsa alla loggdata i till en Power BI-tabell:
 
     ```sql

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864536"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050710"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -89,7 +89,7 @@ Mer information finns i [Functions klassbiblioteksprojektet](functions-dotnet-cl
 
 ## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
-Ett Azure Storage-konto används internt i Functions-körning. För alla utlösa andra typer än HTTP och webhooks, måste du ställa in den **Values.AzureWebJobsStorage** avgörande för att en giltig anslutningssträng för Azure Storage-konto. Funktionsappen kan också använda den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) för den **AzureWebJobsStorage** anslutning inställningen att krävs av projektet. Om du vill använda emulatorn, ange värdet för **AzureWebJobsStorage** till `UseDevelopmentStorage=true`. Du måste ändra den här inställningen till en verkligt lagringsutrymme som anslutning före distributionen.
+Ett Azure Storage-konto används internt i Functions-körning. För alla utlösa andra typer än HTTP och webhooks, måste du ställa in den **Values.AzureWebJobsStorage** avgörande för att en giltig anslutningssträng för Azure Storage-konto. Funktionsappen kan också använda den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) för den **AzureWebJobsStorage** anslutning inställningen att krävs av projektet. Om du vill använda emulatorn, ange värdet för **AzureWebJobsStorage** till `UseDevelopmentStorage=true`. Ändra inställningen till en verkligt lagringsutrymme som anslutning före distributionen.
 
 Ange anslutningssträng för lagringskonto:
 
@@ -184,6 +184,10 @@ Mer information om hur du använder Azure Functions Core Tools finns [kod och te
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+### <a name="deployment-technology"></a>Distributionstekniken
+
+När du publicerar från Visual Studio, för en av två teknikerna att utföra distributionen: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) och [Zip distribuera med aktiverad kör-från-Package (rekommenderas)](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>Funktionsappinställningar
 

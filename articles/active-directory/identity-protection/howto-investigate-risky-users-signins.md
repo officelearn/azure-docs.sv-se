@@ -18,10 +18,10 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296052"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instruktioner: Undersöka riskfyllda användare och inloggningar 
@@ -30,7 +30,7 @@ ms.locfileid: "60296052"
 Använda rapporter för riskfyllda inloggningar och riskfylld användare du undersöka och få insyn i risker i din miljö. Möjlighet att filtrera och sortera riskfyllda inloggningar och användare, kan du bättre förstår potentiella intrång i din organisation. 
 
 
-## <a name="risky-users-report"></a>Rapport om riskanvändare
+## <a name="risky-users-report"></a>Riskfylld användare rapport
 
 Med den information som tillhandahålls av rapporten över riskfyllda användare, kan du hitta svar på frågor som:
 
@@ -41,38 +41,38 @@ Med den information som tillhandahålls av rapporten över riskfyllda användare
 
 Din startpunkt för den här rapporten är den **Undersök** avsnitt på sidan.
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/01.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/01.png)
 
 
 Rapporten över riskfyllda användare har en standard-vy som visar:
 
 - Namn
 
-- Riskstatus
+- Risktillstånd
 
 - Risknivå
 
-- Riskinformation
+- Detalj för risk
 
-- Risk senast uppdaterad
+- Risken uppdaterades senast
 
 - Typ
 
 - Status
  
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/03.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/03.png)
 
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/04.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/04.png)
 
 Dialogrutan kolumner kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/05.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/05.png)
 
 
 Visar Informationsvyn:
@@ -81,7 +81,7 @@ Visar Informationsvyn:
 
 - Senaste riskfyllda inloggningar
 
-- Riskhändelser är inte länkade till någon inloggning
+- Riskhändelser som inte har länkats till en inloggning
 
 - Riskhistorik
 
@@ -89,7 +89,7 @@ Visar Informationsvyn:
 
 Dessutom kan du:
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/08.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/08.png)
 
 - Visa alla inloggningar genväg om du vill visa rapporten inloggningar för den användaren.
 
@@ -109,7 +109,7 @@ Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtr
 
 - Användarnamn
 
-- Riskstatus
+- Risktillstånd
 
 - Risknivå
 
@@ -117,7 +117,7 @@ Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtr
 
 - Status
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/06.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/06.png)
 
 
 
@@ -126,9 +126,9 @@ Den **namn** filter kan du ange namn eller användarens huvudnamn (UPN) för den
 
 Den **riskerar tillstånd** filter kan du välja:
 
-- I farozonen
+- I fara
 - Åtgärdad
-- Avvisad
+- Avvisade
 
 
 Den **risknivå** filter kan du välja:
@@ -145,15 +145,15 @@ Den **typ** filter kan du välja:
 
 Den **Status** filter kan du välja:
 
-- Borttagen
-- Active
+- Borttaget
+- Aktiv
 
 
 ### <a name="download-risky-users-data"></a>Ladda ned riskabla användare
 
 Du kan hämta data riskabla användare om du vill arbeta med dem utanför Azure-portalen. Klicka på ladda ned skapar en CSV-fil för de senaste 2 500 posterna. 
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/07.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/07.png)
 
 
 Du kan anpassa listvyn genom att klicka på kolumner i verktygsfältet.
@@ -193,7 +193,7 @@ Rapporten över riskfyllda inloggningar har en standard-vy som visar:
 
 - Inloggningsstatus
 
-- Riskstatus
+- Risktillstånd
 
 - Risknivå (aggregering)
 
@@ -209,13 +209,13 @@ Rapporten över riskfyllda inloggningar har en standard-vy som visar:
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/11.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/11.png)
 
 Dialogrutan kolumner kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/12.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/12.png)
 
 
 Visar Informationsvyn:
@@ -224,7 +224,7 @@ Visar Informationsvyn:
 
 - Enhetsinformation
 
-- Riskinformation
+- Risk info
 
 - MFA-information
 
@@ -236,9 +236,9 @@ Visar Informationsvyn:
 
 Dessutom kan du:
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/13.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/13.png)
 
-- Bekräfta kompromettering 
+- Bekräfta komprometteras 
 
 - Bekräfta säker
 
@@ -254,7 +254,7 @@ Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtr
 - Användare
 - Program
 - Inloggningsstatus
-- Riskstatus
+- Risktillstånd
 - Risknivå (aggregering)
 - Risknivå (realtid)
 - Villkorlig åtkomst
@@ -278,10 +278,10 @@ Med filtret **Inloggningsstatus** kan du välja något av följande filter:
 
 Den **riskerar tillstånd** filter kan du välja:
 
-- I farozonen
-- Bekräftat komprometterad
+- I fara
+- Bekräftat komprometteras
 - Bekräftat säker
-- Avvisad
+- Avvisade
 - Åtgärdad
 
 
@@ -302,7 +302,7 @@ Den **villkorlig åtkomst** filter kan du välja:
 
 - Alla
 - Används inte
-- Lyckades
+- Klart
 - Fel
 
 
@@ -311,7 +311,7 @@ Möjliga värden:
 
 - Senaste månaden
 - Senaste 7 dagarna
-- De senaste 24 timmarna
+- Senaste 24 timmarna
 - Anpassat tidsintervall
 
 
@@ -322,7 +322,7 @@ Möjliga värden:
 
 Om du vill arbeta med dem utanför Azure-portalen kan du hämta data för riskfyllda inloggningar. Klicka på ladda ned skapar en CSV-fil för de senaste 2 500 posterna. 
 
-![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/15.png)
+![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/15.png)
 
 
 

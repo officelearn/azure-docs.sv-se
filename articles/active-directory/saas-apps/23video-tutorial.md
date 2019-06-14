@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Självstudier: Azure Active Directory-integrering med 23 Video
@@ -44,7 +44,7 @@ Om du vill konfigurera Azure AD-integrering med 23 Video, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,17 +60,17 @@ För att konfigurera integrering av 23 Video i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till 23 Video från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Appar][2]
+    ![Program][2]
     
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
-    ![Appar][3]
+    ![Program][3]
 
 4. I sökrutan skriver **23 Video**.
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/23video-tutorial/tutorial_23video_url.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.23video.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.23video.com`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.23video.com/saml/trust/<uniqueid>`
 
@@ -124,7 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/23video-tutorial/tutorial_23video_certificate.png) 
 
-5. Klicka på knappen **Spara**.
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/23video-tutorial/tutorial_general_400.png)
 
@@ -132,14 +132,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/23video-tutorial/tutorial_23video_configure.png) 
 
-7. Att konfigurera enkel inloggning på **23 Video** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [23 Video-supportteamet](mailto:support@23company.com). 
+7. Att konfigurera enkel inloggning på **23 Video** sida, som du behöver skicka de hämtade **certifikat (Base64)** , **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [23 Video-supportteamet](mailto:support@23company.com). 
 
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på webbplatsen företagets 23 Video som administratör.
 
-2. Gå till **Inställningar**.
+2. Gå till **inställningar**.
  
 3. I **användare** klickar du på **konfigurera**.
    
@@ -233,7 +233,7 @@ När du klickar på panelen 23 Video i åtkomstpanelen du bör få automatiskt l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

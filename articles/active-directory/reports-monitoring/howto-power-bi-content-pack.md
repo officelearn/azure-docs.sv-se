@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437702"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Hur du använder Azure Active Directory Power BI-innehållspaket
@@ -112,7 +112,7 @@ När du arbetar med Innehållspaketet, är det möjligt att du får följande fe
 
 Läs de här [hjälpartiklarna](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) för allmän hjälp med Power BI.
 
-### <a name="refresh-failed"></a>Det gick inte att uppdatera 
+### <a name="refresh-failed"></a>Uppdateringen misslyckades 
  
 **Hur det här felet visas**: E-post från Power BI- eller felstatus i historiken för uppdatering. 
 

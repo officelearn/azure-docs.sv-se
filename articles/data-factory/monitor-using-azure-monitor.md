@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319333"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | storageAccountId |String | Resurs-ID för det lagringskonto som du vill skicka diagnostikloggar |
 | serviceBusRuleId |String | Service bus regeln ID för service bus-namnområde som du vill ha Händelsehubbar som skapats för direktuppspelning diagnostikloggar. Regel-ID är i formatet ”: {service bus resurs-ID} /authorizationrules/ {namn}”.|
@@ -273,7 +273,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap  | Typ | Beskrivning | Exempel |
+| Egenskap | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Nivå 4 är alltid fallet för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -319,7 +319,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap  | Typ | Beskrivning | Exempel |
+| Egenskap | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Nivå 4 gäller för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -363,7 +363,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Egenskap  | Typ | Beskrivning | Exempel |
+| Egenskap | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Inställd på nivå 4 för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |

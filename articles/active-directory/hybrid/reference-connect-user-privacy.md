@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455796"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Användarsekretess och Azure AD Connect 
@@ -77,7 +77,7 @@ Använd följande steg för att schemalägga skriptet att köra varje 48 timmar.
 5.  Välj **dagliga** för aktivitetsutlösare och klicka på **nästa**.
 6.  Ställa in återkommande **2 dagar** och klicka på **nästa**.
 7.  Välj **programstart** som åtgärden och klicka på **nästa**.
-8.  Typ **PowerShell** i rutan för Program eller skript och i rutan **lägga till argument (valfritt)**, ange den fullständiga sökvägen till det skript som du skapade tidigare och sedan på **nästa**.
+8.  Typ **PowerShell** i rutan för Program eller skript och i rutan **lägga till argument (valfritt)** , ange den fullständiga sökvägen till det skript som du skapade tidigare och sedan på **nästa**.
 9.  Nästa skärm visar en sammanfattning av uppgiften som du håller på att skapa. Kontrollera värdena och klicka på **Slutför** att skapa uppgiften.
 
 

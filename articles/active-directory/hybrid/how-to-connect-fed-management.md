@@ -19,16 +19,16 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353796"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga aktiviteter för AD FS som du kan behöva göra en fullständig konfiguration av AD FS-servergrupp.
 
-| Avsnitt | Den behandlar |
+| Ämne | Den behandlar |
 |:--- |:--- |
 | **Hantera AD FS** | |
 | [Reparera förtroendet](#repairthetrust) |Så här att reparera federationsförtroende med Office 365. |
@@ -172,7 +172,7 @@ Det är enkelt att lägga till en domän ska vara federerad med Azure AD med hj�
 
 4. På nästa sida innehåller i guiden en lista över Azure AD-domäner som du kan federera din lokala katalog med. Välj domänen i listan.
 
-   ![Microsoft Azure Active Directory-domän](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
+   ![Azure AD-domän](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
     När du har valt domänen får i guiden du lämplig information om ytterligare åtgärder som ska utföras i guiden och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD ger guiden dig information som hjälper dig verifiera domänen. Se [lägga till ett anpassat domännamn i Azure Active Directory](../active-directory-domains-add-azure-portal.md) för mer information.
 

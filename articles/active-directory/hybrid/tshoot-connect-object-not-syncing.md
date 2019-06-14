@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455238"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Felsök ett objekt som inte synkroniseras med Azure Active Directory
@@ -81,7 +81,7 @@ Den **Status** kolumn som innehåller den viktigaste informationen och visar det
 | completed-\*-warnings |Körningen är klar, men vissa data är inte i det förväntade tillståndet. Om du har fel kan det här meddelandet är vanligtvis bara ett tecken. Inte Undersök varningar förrän du har åtgärdat felen. |
 | lyckades |Inga problem. |
 
-När du väljer en rad, längst ned på den **Operations** fliken uppdateras för att visa information om den körningen. Du kan ha en lista med titeln på längst till vänster sida av det här området, **steg #**. Den här listan visas bara om du har flera domäner i skogen och domänerna representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under den **Synkroniseringsstatistik** rubrik, kan du hitta mer information om antalet ändringar som har bearbetats. Välj länken för att hämta en lista med ändrade objekt. Om du har objekt med fel felen som visas den **synkroniseringsfel** rubrik.
+När du väljer en rad, längst ned på den **Operations** fliken uppdateras för att visa information om den körningen. Du kan ha en lista med titeln på längst till vänster sida av det här området, **steg #** . Den här listan visas bara om du har flera domäner i skogen och domänerna representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under den **Synkroniseringsstatistik** rubrik, kan du hitta mer information om antalet ändringar som har bearbetats. Välj länken för att hämta en lista med ändrade objekt. Om du har objekt med fel felen som visas den **synkroniseringsfel** rubrik.
 
 ### <a name="errors-on-the-operations-tab"></a>Fel på fliken åtgärder
 När du har fel visas hanteraren för synkroniseringstjänsten både objektet i fel och själva felet som länkar som innehåller mer information.
@@ -91,7 +91,7 @@ Starta genom att välja felsträngen. (I bilden ovan är felsträngen **sync-reg
 
 Högerklicka på den **anropa Stackinformation** klickar du på **Markera alla**, och välj sedan **kopiera**. Kopiera stacken och titta på fel i din favoritredigerare, till exempel Anteckningar.
 
-Om felet är från **SyncRulesEngine**, stack samtalsinformation först visar en lista över alla attribut för objektet. Rulla nedåt tills du ser rubriken **InnerException = >**.  
+Om felet är från **SyncRulesEngine**, stack samtalsinformation först visar en lista över alla attribut för objektet. Rulla nedåt tills du ser rubriken **InnerException = >** .  
 
   ![Skärmbild av hanteraren för synkroniseringstjänsten, som visar information om fel under rubriken InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   

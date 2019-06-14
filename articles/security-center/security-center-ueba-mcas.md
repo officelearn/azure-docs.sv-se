@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332405"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA för Azure-resurser och användare 
 
-Azure Security Center partner med Microsoft Cloud App Security för att få aviseringar baserat på användar- och beteendeanalyser entitet (UEBA) för dina Azure-resurser och användare (Azure-aktivitet). Dessa aviseringar identifiera avvikelser i användarnas beteende och baseras på användar- och entiteten beteendeanalys och maskininlärning (ML) så att du kan omedelbart köra avancerad hotidentifiering över aktiviteter i dina prenumerationer. Eftersom de aktiveras automatiskt, ange nya avvikelseidentifiering identifieringar omedelbart resultat genom att tillhandahålla omedelbar identifieringar, målgrupper flera avvikande användaraktiviteter i användare och resurser som är associerade med din prenumeration. Dessutom kan utnyttja de här aviseringarna ytterligare data som redan finns i Microsoft Cloud App Security identifieringsmotor, för att påskynda undersökningsprocessen och innehålla pågående hot. 
+Azure Security Center partner med Microsoft Cloud App Security för att få aviseringar baserat på användar- och beteendeanalyser entitet (UEBA) för dina Azure-resurser och användare (Azure-aktivitet). Dessa aviseringar identifierar avvikelser i användarnas beteende med hjälp av analys av användar- och entitetsbeteende samt maskininlärning (ML) så att du kan köra avancerad hotidentifiering omedelbart på aktiviteter i dina prenumerationer. Eftersom de aktiveras automatiskt, ger de nya avvikelseidentifieringarna omedelbart resultat genom att tillhandahålla omedelbara identifieringar av flera avvikande användaraktiviteter över alla användare och resurser som är associerade med din prenumeration. Dessutom utnyttjar aviseringarna ytterligare data som redan finns i Microsoft Cloud App Security-identifieringsmotorn för att stöda dig i undersökningsprocessen och hindra pågående hot. 
 
 > [!NOTE]
 > Azure Security Center, som kan lagra en kopia av säkerhetsrelaterade kunddata, som samlas in från eller som är associerade med en kund-resurs (t.ex. virtuella datorer eller Azure Active Directory-klient): (a) i samma geografiska område som resursen, utom i de geografiska områdena där Microsoft har än att distribuera Azure Security Center, i vilket fall en kopia av sådana data lagras i USA. och (b) om Azure Security Center använder en annan Microsoft-onlinetjänst för att bearbeta dessa data, det kan lagra dessa data i enlighet med geoplats reglerna för den andra onlinetjänst.

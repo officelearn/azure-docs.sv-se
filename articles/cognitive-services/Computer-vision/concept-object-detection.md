@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368055"
 ---
 # <a name="detect-common-objects-in-images"></a>Identifiera vanliga objekt i bilder
@@ -95,7 +95,7 @@ Det är viktigt att notera begränsningarna i objektidentifiering så att du kan
 * Objekt identifieras vanligtvis inte om de är placerade nära tillsammans (en stack med nivåer, till exempel).
 * Objekt särskiljs inte med hjälp av varumärke eller produkt-namn (olika typer av sodavatten på en store-hylla, till exempel). Men du kan få varumärke information från en avbildning med hjälp av den [varumärken identifiering](concept-brand-detection.md) funktionen.
 
-## <a name="use-the-api"></a>Använda API: et
+## <a name="use-the-api"></a>Använda API:et
 
 Funktionen för identifiering av objekt är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. Inkludera `Objects` i den **visualFeatures** frågeparameter. Sedan, när du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"objects"` avsnittet.
 

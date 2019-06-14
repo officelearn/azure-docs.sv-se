@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488944"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsversion)
@@ -165,7 +165,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Varje integration runtime-noden måste lita på det här certifikatet, samt den klientdator som kör Autentiseringshanteraren. 
   > [!NOTE]
   > Autentiseringshanteraren används när du anger autentiseringsuppgifter på ett säkert sätt från Kopieringsguiden / Azure-portalen. Och det kan vara aktiverade från valfri dator i samma nätverk som lokalt / privat datalager.
-- Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
+- Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda * **. domain.contoso.com** som ämnesnamnet för certifikatet.
 - SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.
@@ -189,8 +189,8 @@ Du kan aktivera **avancerade inställningar** i den **Gateway** sidan för att s
 Namn | Namnet på logisk gateway och noder som är associerade med gatewayen.  
 Status | Status för logisk gateway och gateway-noderna. Exempel: Online/Offline/Limited/osv. Läs om hur dessa statusar [gatewaystatus](#gateway-status) avsnittet. 
 Version | Visar vilken version av logiska gatewayen och varje gateway-noden. Version av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logisk gateway-installationen endast noder med samma versionsnummer som funktionen logisk gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering misslyckas). 
-Ledigt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 
-Processoranvändning | CPU-utnyttjande på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 
+Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 
+CPU-användning | CPU-utnyttjande på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 
 Nätverk (In/ut) | Nätverksanvändningen för en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 
 Samtidiga jobb (körs / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier där CPU / minne / nätverk är underutnyttjade, men Tidsgränsen nåddes för aktiviteter. Den här funktionen är också tillgängliga med en enda nod gateway (även om funktionen för skalbarhet och tillgänglighet inte är aktiverad). Mer information finns i [skala överväganden](#scale-considerations) avsnittet. 
 Roll | Det finns två typer av roller – Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-noden som används för att hämta uppgifter/jobb från cloud services och skicka dem till olika arbetsnoder (inklusive själva). 
@@ -205,14 +205,14 @@ Status  | Kommentarer/scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory-tjänsten.
 Offline | Noden är offline.
-Uppgraderar | Noden uppdateras automatiskt.
+Uppgradera | Noden uppdateras automatiskt.
 Begränsad | På grund av anslutningsproblem. Kanske på grund av HTTP-port 8050 problemet, service bus-anslutningsproblem eller synkroniseringsproblem för autentiseringsuppgifter. 
-Inaktiv | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
+Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
 
 
 Följande tabell innehåller olika statusar av en **logisk gateway**. Status för gateway beror på status för gateway-noderna. 
 
-Status | Kommentarer
+Status | Kommentar
 :----- | :-------
 Needs Registration | Någon nod är ännu registrerad på den här logiska gatewayen
 Online | Gateway-noderna är online

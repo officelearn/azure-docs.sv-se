@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381154"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
@@ -363,7 +363,7 @@ Funktionen CGuid konverterar strängrepresentation av en GUID till dess binär r
 * En sträng formaterad i det här mönstret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx eller {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>innehåller
 **Beskrivning:**  
 Contains-funktionen returnerar en sträng inuti ett flervärdesattribut
 
@@ -396,13 +396,13 @@ Funktionen ConvertFromBase64 konverterar det angivna base64-kodad värdet till e
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Källa: Base64-kodad sträng  
-* Kodning: Unicode, ASCII, UTF8
+* Encoding: Unicode, ASCII, UTF8
 
 **Exempel**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Båda exemplen ger ”*Hello world!*”
+Båda exemplen ger ”*Hello world!* ”
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -420,7 +420,7 @@ Det här formatet används av Azure Active Directory som unikt namn.
 
 **Exempel:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Returnerar ”*Hello world!*”
+Returnerar ”*Hello world!* ”
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -451,7 +451,7 @@ Utdataformatet för den här funktionen används av Azure Active Directory som D
 Returns 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Antal
+### <a name="count"></a>Count
 **Beskrivning:**  
 Count-funktionen returnerar antalet element i ett flervärdesattribut
 
@@ -846,7 +846,7 @@ ItemOrNull-funktionen är användbar tillsammans med funktionen innehåller efte
 Om indexet är utanför intervallet, returnerar du värdet Null.
 
 - - -
-### <a name="join"></a>Slå ihop
+### <a name="join"></a>Anslut
 **Beskrivning:**  
 Join-funktionen tar en sträng med flera värden och returnerar en enstaka sträng med angiven avgränsare infogas mellan varje element.
 
@@ -956,7 +956,7 @@ Returnerar ”hn gör”.
 Returnerar ”Berg”
 
 - - -
-### <a name="now"></a>Nu
+### <a name="now"></a>nu
 **Beskrivning:**  
 Funktionen nu returnerar ett datetime-värde som anger aktuellt datum och tid, beroende på datorns systemdatum och tid.
 
@@ -1184,7 +1184,7 @@ Processen för alla värden i en med flera värden attribut (eller resultatet av
 Returnera alla värden i flervärdesattribut Annantelefon när bindestreck (-) har tagits bort.
 
 - - -
-### <a name="split"></a>Delat
+### <a name="split"></a>dela upp
 **Beskrivning:**  
 Funktionen Split tar en sträng som avgränsas med en avgränsare och gör den till en sträng med flera värden.
 
@@ -1246,7 +1246,7 @@ Värdet kan också vara funktionen fel som returneras en anpassad sträng.
 Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
 
 - - -
-### <a name="trim"></a>Trimma
+### <a name="trim"></a>trim
 **Beskrivning:**  
 Rensa-funktionen tar bort inledande och avslutande blanksteg från en sträng.
 
@@ -1295,7 +1295,7 @@ Returnera certifikatvärden i den flervärdesattribut userCertificate som inte h
 **Beskrivning:**  
 Med funktionen är ett sätt att förenkla ett komplext uttryck med hjälp av en variabel som representerar en underuttryck som visas en eller flera gånger i ett komplext uttryck.
 
-**Syntax:**
+**Syntax:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variabel: Representerar underuttryck.
 * underuttryck: underuttryck som representeras av variabeln.

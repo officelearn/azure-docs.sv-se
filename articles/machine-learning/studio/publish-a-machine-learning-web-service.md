@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334036"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
@@ -47,7 +47,7 @@ Processen för att skapa och hantera utbildning experiment beskrivs mer i detalj
 * [Importera dina utbildningsdata till Azure Machine Learning Studio](import-data.md)
 * [Hantera iterationer av experiment i Azure Machine Learning Studio](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägelseexperiment
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägbart experiment
 
 När du har tränat modellen, är du redo att konvertera din träningsexperiment till ett förutsägbart experiment att rangordna nya data.
 
@@ -65,7 +65,7 @@ Följande steg beskriver distribuera ett förutsägelseexperiment som en ny webb
 
 Nu när förutsägbart experiment har förberetts, kan du distribuera den som en ny (Resource Manager-baserade) Azure web-tjänst. Med hjälp av webbtjänsten användare kan skicka data till din modell och modellen returnerar dess förutsägelser.
 
-För att distribuera din förutsägelseexperiment, klickar du på **kör** längst ned på arbetsytan för experimentet. När experimentet har körts, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [Ny]**.  Distributionssidan av Machine Learning Studio-webbtjänsten portalen öppnas.
+För att distribuera din förutsägelseexperiment, klickar du på **kör** längst ned på arbetsytan för experimentet. När experimentet har körts, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [Ny]** .  Distributionssidan av Machine Learning Studio-webbtjänsten portalen öppnas.
 
 > [!NOTE] 
 > Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
@@ -77,7 +77,7 @@ Välj en prisplanen. Om du har ett existerande prisplan kan du välja den, måst
 
 1. I den **prisplan** listrutan väljer du en befintlig plan eller den **väljer ny plan** alternativet.
 2. I **Plannamnet**, Skriv ett namn som identifierar prenumerationen på fakturan.
-3. Välj en av de **månatliga planera nivåerna**. Planen får som standard nivåerna för planer i din standardregion och din webbtjänst distribueras till den regionen.
+3. Välj en av de **månatliga planera nivåerna**. Plan för nivåerna standard för planer för din standardregion och din webbtjänst distribueras till den regionen.
 
 Klicka på **distribuera** och **snabbstarten** för webbtjänsten öppnas.
 

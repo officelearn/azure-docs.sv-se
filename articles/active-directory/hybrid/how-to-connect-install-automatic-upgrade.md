@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349852"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
@@ -40,8 +40,8 @@ Det aktuella tillståndet för automatisk uppgradering kan visas med PowerShell-
 | Status | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering är aktiverat. |
-| Tillfälligt avbruten |Ange endast i systemet. Systemet är **för närvarande inte** berättigade att ta emot automatiska uppgraderingar. |
-| Disabled |Automatisk uppgradering har inaktiverats. |
+| Uppehåll |Ange endast i systemet. Systemet är **för närvarande inte** berättigade att ta emot automatiska uppgraderingar. |
+| Inaktiverad |Automatisk uppgradering har inaktiverats. |
 
 Du kan ändra mellan **aktiverad** och **inaktiverad** med `Set-ADSyncAutoUpgrade`. Endast systemet bör ställa in tillståndet **pausad**.  Innan du 1.1.750.0 skulle cmdlet Set-ADSyncAutoUpgrade blockera Autoupgrade om automatiska uppgraderingar tillståndet var inställd på pausad. Den här funktionen har ändrats så att den inte blockerar AutoUpgrade.
 
@@ -69,7 +69,7 @@ Resultatkoden har ett prefix med en översikt över tillstånd.
 
 | Prefixet resultat | Beskrivning |
 | --- | --- |
-| Lyckades |Installationen har uppgraderats. |
+| Klart |Installationen har uppgraderats. |
 | UpgradeAborted |Ett tillfälligt tillstånd stoppas uppgraderingen. Det kommer att göras igen och förutsätts att det lyckas senare. |
 | UpgradeNotSupported |Systemet har en konfiguration som blockerar systemet från uppgraderas automatiskt. Det görs för att se om tillståndet ändras, men förutsätts att systemet måste uppgraderas manuellt. |
 

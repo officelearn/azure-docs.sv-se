@@ -13,10 +13,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295388"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
@@ -29,7 +29,7 @@ Azure AD Connect synkroniserar Active Directory till Azure AD. Den här servern 
 | Skala| Antalet objekt som användare, grupper och organisationsenheter som ska hanteras av Azure AD Connect. |
 | Maskinvara| Maskinvaran (fysisk eller virtuell) för Azure AD Connect och beroende prestanda kapaciteten för varje maskinvarukomponent inklusive processor, minne, nätverk och hårddiskkonfigurationen. |
 | Konfiguration| Hur Azure AD Connect processer katalogerna och information. |
-| Läsa in| Frekvens för objektet ändras. Belastningar som kan variera under en timme, dag eller vecka. Beroende på komponenten, kan du behöva utforma för hög belastning eller genomsnittlig belastning. |
+| Laddning| Frekvens för objektet ändras. Belastningar som kan variera under en timme, dag eller vecka. Beroende på komponenten, kan du behöva utforma för hög belastning eller genomsnittlig belastning. |
 
 Syftet med det här dokumentet är att beskriva de faktorer som påverkar prestanda för Azure AD Connect etablering motorn. Stora och komplexa organisationer (organisationer etablering mer än 100 000 objekt) kan använda rekommendationerna för att optimera sina Azure AD Connect-implementering, om de stöter på några prestandaproblem som beskrivs här. De andra komponenterna i Azure AD Connect, till exempel [Azure AD Connect health](how-to-connect-health-agent-install.md) och agenter inte som beskrivs här.
 

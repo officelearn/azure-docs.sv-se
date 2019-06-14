@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356071"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Kräv appskyddsprincip för cloud app-åtkomst med villkorlig åtkomst (förhandsversion)
@@ -111,7 +111,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)**:
+4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** :
 
     a. I **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -121,7 +121,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
 
-5. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)**.
+5. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
  
@@ -141,13 +141,13 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
     a. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
 
-    b. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)**.
+    b. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
 
@@ -194,7 +194,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
  
     a. I **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -230,7 +230,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
     I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -296,7 +296,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
  
     a. I **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -332,7 +332,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
     I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -403,7 +403,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/02.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)**. 
+4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
  
     a. I **enhetsplattformar**väljer **Android** och **iOS**.
 

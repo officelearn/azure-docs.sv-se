@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452967"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Säkerhetsöversikt
@@ -39,11 +39,11 @@ Security översikt är brett uppdelad i två delar:
   
 ## <a name="trends"></a>Trends
 
-### <a name="new-risky-users-detected"></a>En ny riskanvändare har identierats
+### <a name="new-risky-users-detected"></a>Ny riskfylld användare som har identifierats
 
 Det här diagrammet visar hur många nya riskfylld användare som identifierades under den valda tidsperioden. Du kan filtrera visningen av det här diagrammet genom att användaren risknivå (låg, medelhög och hög). Hovra över steg för UTC-datum att se hur många riskfylld användare som har identifierats för den dagen. Klicka på det här diagrammet kommer du till rapporten ”riskfylld användare”. Om du vill åtgärda användare i farozonen, Överväg att ändra sina lösenord.
 
-### <a name="new-risky-sign-ins-detected"></a>En ny riskfylld inloggning har identierats
+### <a name="new-risky-sign-ins-detected"></a>Ny riskfyllda inloggningar har identifierats
 
 Det här diagrammet visar antalet riskfyllda inloggningar som har identifierats under den valda tidsperioden. Du kan filtrera visningen av det här diagrammet efter inloggningsrisk-typ (i realtid eller sammanställd) och logga in risknivån (låg, medelhög och hög). Oskyddade inloggningar är lyckad i realtid risk inloggningar som inte är MFA Avvisad. (Obs: Sign-INS som kan utgöra en risk på grund av offline identifieringar kan inte skyddas i realtid av inloggningsrisk principer). Hovra över steg för UTC-datum att se antalet inloggningar som har identifierats i fara för den dagen. Klicka på det här diagrammet kommer du till rapporten 'Riskfyllda inloggningar ”.
 
@@ -56,7 +56,7 @@ Panelen ”hög risk användare” visar senaste antal användare med hög sanno
 ![Säkerhetsöversikt](./media/security-overview/02.png)
 
 
-### <a name="medium-risk-users"></a>Mellanriskanvändare
+### <a name="medium-risk-users"></a>Medelrisk-användare
 Panelen ”Medelrisk-användare” visar senaste antal användare med medelhög sannolikheten för identitet har komprometterats. Klicka på ”Medelrisk-användare”-ikonen omdirigerar till en filtrerad vy av ”riskfylld användare”-rapport som visar endast användare med en risknivå medium. Med den här rapporten kan du ytterligare undersöka och åtgärda dessa användare.
 
 ### <a name="unprotected-risky-sign-ins"></a>Oskyddade riskfyllda inloggningar
@@ -69,7 +69,7 @@ Panelen ”oskyddade riskfyllda inloggningar” visar den senaste veckan antal l
 Panelen ”äldre autentisering” visar den senaste veckan uppräkning av äldre autentiseringar i din organisation. Äldre autentiseringsprotokoll stöder inte moderna säkerhetsmetoder, till exempel en MFA. Du kan tillämpa principer för villkorlig åtkomst för att förhindra att äldre autentisering. Klicka på panelen för ”äldre autentisering” omdirigera dig till 'Identity skydda poäng ”.
 
 
-### <a name="identity-secure-score"></a>Identitetsäkerhetspoäng
+### <a name="identity-secure-score"></a>Säker identitets-poäng
 
 Identitet skyddar Score mäter och jämför din säkerhetsposition till bransch-mönster. Om du klickar på 'Identity skydda poäng (förhandsversion), sida vid sida, kommer den omdirigera till bladet 'Identity skydda poäng (förhandsversion), där du kan lära dig mer om att förbättra din säkerhetsposition.
 

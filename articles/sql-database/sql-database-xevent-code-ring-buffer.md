@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331034"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ringbuffertens målkod för utökade händelser i SQL-databas
@@ -30,7 +30,7 @@ Det här avsnittet anger ett Transact-SQL-kodexempel som:
 1. Skapar en tabell med data för att visa med.
 2. Skapar en session för en befintlig utökade händelser, nämligen **sqlserver.sql_statement_starting**.
    
-   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdatering-sträng: **instruktionen som '% UPDATE tabEmployee %'**.
+   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdatering-sträng: **instruktionen som '% UPDATE tabEmployee %'** .
    * Väljer att skicka utdata för händelsen till ett mål av typen Ringbuffert, nämligen **package0.ring_buffer**.
 3. Startar händelsesessionen.
 4. Problem med några enkla SQL-UPDATE-instruktioner.

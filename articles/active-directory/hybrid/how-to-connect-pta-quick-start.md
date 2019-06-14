@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243586"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
@@ -140,7 +140,7 @@ Först måste kan du göra det interaktivt genom att bara köra den hämtade kö
 Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är användbart när du vill distribuera flera Autentiseringsagenter samtidigt eller installera Autentiseringsagenter på Windows-servrar som inte har aktiverat användargränssnittet eller som du inte kommer åt via ett fjärrskrivbord. Här följer instruktioner om hur du använder den här metoden:
 
 1. Kör följande kommando för att installera en Agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>*:
+2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

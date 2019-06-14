@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453308"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Instruktioner: Förbättra identifieringen 
@@ -49,7 +49,7 @@ Det finns tre sätt att förbättra identifieringen: Bekräfta komprometterade i
 Din feedback bearbetas av Azure AD för att förbättra resultaten av programuppdateringsidentifieringen. Normalt kan ge du feedback som en del av en användarrisk eller inloggningsrisk undersökning. Mer information finns i [hur du undersöker riskabla användare och inloggningar](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Bekräfta kompromettering
+## <a name="confirm-compromised"></a>Bekräfta komprometteras
 
 Bekräfta en händelse som inloggning som komprometteras signalerar till Azure AD att inloggningen inte har behörighet av ägaren identitet. När du väljer ”bekräfta komprometteras”, kommer Azure AD
 
@@ -65,11 +65,11 @@ Kontrollera en komprometterad inloggning:
 
 - **Rapporten över riskfyllda inloggningar** – det här alternativet kan du bekräfta en komprometterad inloggning för en eller flera inloggningshändelser.
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/07.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/07.png)
 
 - **Detaljer om rapporten över riskfyllda inloggningar** – det här alternativet kan du bekräfta ett komprometterat konto för den valda inloggning händelsen i rapporten över riskfyllda inloggningar. 
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/04.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/04.png)
 
 
  
@@ -91,16 +91,16 @@ Kontrollera en säker inloggning i:
 
 - **Rapporten över riskfyllda inloggningar** – det här alternativet kan du bekräfta en säker inloggning för en eller flera inloggningshändelser.
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/08.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/08.png)
 
 - **Detaljer om rapporten över riskfyllda inloggningar** – det här alternativet kan du bekräfta en säker inloggning för den valda inloggning händelsen i rapporten över riskfyllda inloggningar. 
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/05.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/05.png)
 
 
 
 
-## <a name="dismiss-user-risk"></a>Ignorera användarrisken
+## <a name="dismiss-user-risk"></a>Stäng användarrisk
 
 Om du har redan vidtagit åtgärder för en användare för risker eller tror att de har felaktigt markerats som riskfylld, kan du stänga risken för en användare. Stänger en användarrisk återställer du till ett icke-riskfyllda tillstånd. Alla tidigare riskfyllda inloggningar och risk kommer händelser för den valda användaren att avvisas.
 
@@ -109,11 +109,11 @@ Du kan ignorera det rapporterade användarrisk i:
 
 - **Riskfylld användare rapporten** – det här alternativet kan du stänga användaren risken för en eller flera markerade användare.
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/02.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/02.png)
 
 - **Vyn Detaljer** – det här alternativet kan du ignorera användarrisk för den valda användaren i risk över användare. 
 
-    ![Ignorera användarrisken](./media/howto-improve-detection-accuracy/01.png)
+    ![Stäng användarrisk](./media/howto-improve-detection-accuracy/01.png)
 
 
 **Vad du bör känna till:**

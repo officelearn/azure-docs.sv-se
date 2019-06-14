@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382133"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
@@ -25,7 +25,7 @@ Värdet för attributet UserPrincipalName är Azure AD-användarnamn för använ
 ## <a name="upn-terminology"></a>UPN-terminologi
 De följande termer som används i den här artikeln:
 
-|Period|Beskrivning|
+|Term|Beskrivning|
 |-----|-----|
 |Initial domän|Standarddomän (onmicrosoft.com) i Azure AD-klient. Exempel: contoso.onmicrosoft.com.|
 |Microsoft Online-routning epostadress (MOERA)|Azure AD beräknar MOERA från Azure AD MailNickName-attributet och första Azure AD-domän som &lt;MailNickName&gt;&#64;&lt;initial domän&gt;.|

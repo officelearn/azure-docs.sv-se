@@ -16,10 +16,10 @@ ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 712cc5ce62225987f8cc3ea13b5e4fd10a7d5eaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515804"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
@@ -72,7 +72,7 @@ Målet med det här avsnittet som beskriver hur du aktiverar etableringen av anv
 
 4. Ange den **Etableringsläge** till **automatisk**.
 
-    ![etablering](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Etablering](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet tillhandahåller följande konfigurationsinställningar:
 

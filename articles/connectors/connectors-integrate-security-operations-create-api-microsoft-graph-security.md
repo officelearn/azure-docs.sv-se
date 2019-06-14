@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448060"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra skydd genom att integrera säkerhetsåtgärder med Microsoft Graph säkerhets- och Azure Logic Apps
@@ -36,7 +36,7 @@ Läs mer om Microsoft Graph-säkerhet i den [Microsoft Graph Security API-övers
 
 * Om du vill använda Microsoft Graph-Security-anslutningstjänsten måste du ha *explicit angivna* Azure Active Directory (AD) klient administratörens godkännande, som är en del av den [autentiseringskrav för Microsoft Graph-säkerhet ](https://aka.ms/graphsecurityauth). Den här medgivande kräver Microsoft Graph-Security-kopplingens program-ID och namn, som du kan också hitta i den [Azure-portalen](https://portal.azure.com):
 
-   | Egenskap  | Värde |
+   | Egenskap | Värde |
    |----------|-------|
    | **Programnamn** | `MicrosoftGraphSecurityConnector` |
    | **Program-ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -75,7 +75,7 @@ Läs mer om Microsoft Graph-säkerhet i den [Microsoft Graph Security API-övers
 
 1. Ange informationen som krävs för din valda åtgärd och fortsätt att utveckla logikappens arbetsflöde.
 
-## <a name="add-actions"></a>Lägg till åtgärder
+## <a name="add-actions"></a>Lägga till åtgärder
 
 Här följer mer information om hur du använder olika åtgärder som är tillgängliga med Microsoft Graph Security connector.
 

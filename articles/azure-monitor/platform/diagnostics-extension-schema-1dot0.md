@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237846"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema för Azure Diagnostics 1.0-konfiguration
@@ -103,7 +103,7 @@ Attribut:
 
 |Attribut  |Typ   |Obligatoriskt| Standard | Beskrivning|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|varaktighet|Valfri | PT1M| Anger intervall för diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
+|**configurationChangePollInterval**|Varaktighet|Valfri | PT1M| Anger intervall för diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
 |**overallQuotaInMB**|unsignedInt|Valfri| 4000 MB. Om du anger ett värde får inte överskrida den mängden |Den totala mängden lagringsutrymme för filsystem tilldelat för alla buffertar för loggning.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs Element  
@@ -117,7 +117,7 @@ Attribut:
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|string|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="logs-element"></a>Loggar Element  
  Definierar konfigurationen buffert för grundläggande Azure loggar.
@@ -130,7 +130,7 @@ Attribut:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|string|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="directories-element"></a>Directories Element  
 Definierar konfigurationen av buffert för filbaserade loggar som du kan definiera.
@@ -143,7 +143,7 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
  Definierar kraschen Dumpar katalogen.
@@ -207,7 +207,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**path**|string|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
+|**Sökväg**|string|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
 |**expandEnvironment**|boolesk|Krävs. Om inställd **SANT**, miljövariabler i sökvägen expanderas.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
@@ -219,7 +219,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|string|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
+|**name**|string|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
 |**relativePath**|string|Krävs. Sökväg i förhållande till den lokala resursen du övervakar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters Element  
@@ -233,7 +233,7 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
  Definierar prestandaräknaren för att samla in.
@@ -245,7 +245,7 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Krävs. Sökvägen till prestandaräknaren för att samla in.|  
-|**sampleRate**|varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
+|**sampleRate**|Varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Definierar händelseloggar för att övervaka.
@@ -258,7 +258,7 @@ Attribut:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|string|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="datasource-element"></a>DataSource Element  
  Definierar händelseloggen för att övervaka.
@@ -269,5 +269,5 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|string|Krävs. Ett XPath-uttryck som anger att samla in loggen.|  
+|**name**|string|Krävs. Ett XPath-uttryck som anger att samla in loggen.|  
 

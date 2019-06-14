@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440653"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
@@ -143,7 +143,7 @@ Följ dessa steg för att tillämpa principen om lägsta behörighet för din Az
 
 1. Lista som har privilegierad roller i din organisation. Du kan använda den [PIM guiden](pim-security-wizard.md#run-the-wizard) att komma till en sida som liknar följande.
 
-    ![Identifiera privilegierade roller](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Identifiera Privilegierade roller](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Ta reda på varför de måste rollen för alla globala administratörer i din organisation. Baserat på läser den föregående dokumentationen om personens jobbet kan utföras av en eller flera detaljerade administratörsroller, bör du ta bort dem från den globala administratörsrollen och Ställ därefter tilldelningar i Azure Active Directory (som referens: Microsoft har för närvarande bara cirka 10 administratörer med rollen Global administratör. Läs mer på [hur Microsoft använder PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -153,7 +153,7 @@ Du kan använda funktionen åtkomst granska i PIM för att automatisera steg 3 o
 
 ![Skapa en åtkomstgranskning](./media/pim-deployment-plan/create-access-review.png)
 
-Du bör ange granskarna **medlemmar (själv)**. Detta skickar ett e-postmeddelande till alla medlemmar i rollen att få dem att bekräfta om de behöver åtkomst. Du bör också aktivera **Kräv orsak vid godkännande** i de avancerade inställningarna så att användarna kan ange varför de måste rollen. Baserat på den här informationen kan kommer du att kunna ta bort användare från onödiga roller och delegera mer detaljerade administratörsroller när det gäller globala administratörer.
+Du bör ange granskarna **medlemmar (själv)** . Detta skickar ett e-postmeddelande till alla medlemmar i rollen att få dem att bekräfta om de behöver åtkomst. Du bör också aktivera **Kräv orsak vid godkännande** i de avancerade inställningarna så att användarna kan ange varför de måste rollen. Baserat på den här informationen kan kommer du att kunna ta bort användare från onödiga roller och delegera mer detaljerade administratörsroller när det gäller globala administratörer.
 
 Åtkomstgranskningar är beroende av e-postmeddelanden att meddela dem att granska åtkomsten till rollerna. Om du har Privilegierade konton som inte har e-postmeddelanden länkad, måste du fylla i fältet sekundära e-postadress för dessa konton. Mer information finns i [proxyAddresses attribut i Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -186,7 +186,7 @@ Det är viktigt att prioritera skydda Azure AD-roller som har flest antal behör
 1. Säkerhetsläsare
 1. Tjänstadministratör
 1. Faktureringsadministratör
-1. Skype for Business-administratör
+1. Skype för företag-administratör
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft rekommenderar att du** du hantera alla globala administratörer och säkerhetsadministratörer med PIM som ett första steg som de är de som kan göra de skada när äventyras.
@@ -240,7 +240,7 @@ Innan du implementerar din PIM-lösning är det bra att utkast PIM inställninga
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>PIM-inställningar för Azure AD-roller
 
-| Roll | Kräv MFA | Avisering | Biljett för incident | Godkännande krävs | Godkännare | Varaktighet för rollaktivering | Permanent administratör |
+| Roll | Kräv MFA | Avisering | Biljett för incident | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | För åtkomst vid akutfall |
 | Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Ingen | 2 timmar | Ingen |
@@ -248,11 +248,11 @@ Innan du implementerar din PIM-lösning är det bra att utkast PIM inställninga
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>PIM-inställningar för Azure-resursroller
 
-| Roll | Kräv MFA | Avisering | Godkännande krävs | Godkännare | Varaktighet för rollaktivering | Active-administratör | Aktiva upphör att gälla | Berättigade upphör att gälla |
+| Roll | Kräv MFA | Avisering | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Active-administratör | Aktiva upphör att gälla | Berättigade upphör att gälla |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Ägare av kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | Saknas | 3-månaders |
 | Administratör för användaråtkomst mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :x: | Ingen | 1 timme | Ingen | Saknas | 3-månaders |
-| Virtuell datordeltagare | :x: | :heavy_check_mark: | :x: | Ingen | 3 timme | Ingen | Saknas | 6 månader |
+| Virtuell Datordeltagare | :x: | :heavy_check_mark: | :x: | Ingen | 3 timme | Ingen | Saknas | 6 månader |
 
 I följande tabell beskrivs var och en av inställningarna.
 
@@ -260,10 +260,10 @@ I följande tabell beskrivs var och en av inställningarna.
 | --- | --- |
 | Roll | Namnet på den roll som du definierar inställningarna för. |
 | Kräv MFA | Om behörig användare behöver utföra MFA innan du aktiverar rollen.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** du införa MFA för alla administratörsroller, särskilt om rollerna har gästanvändare. |
-| Avisering | Om sant, Global administratör, privilegierad Rolladministratör och säkerhetsadministratörer i organisationen får ett e-postmeddelande när en behörig användare aktiverar rollen.<br/><br/>**Obs!** Vissa organisationer har inte en e-postadress som är kopplad till deras administratörskonton, att få dessa e-postmeddelanden, bör du gå anger en alternativ e-postadress så administratörer får dessa e-postmeddelanden. |
+| Avisering | Om sant, Global administratör, privilegierad Rolladministratör och säkerhetsadministratörer i organisationen får ett e-postmeddelande när en behörig användare aktiverar rollen.<br/><br/>**Obs:** Vissa organisationer har inte en e-postadress som är kopplad till deras administratörskonton, att få dessa e-postmeddelanden, bör du gå anger en alternativ e-postadress så administratörer får dessa e-postmeddelanden. |
 | Biljett för incident | Om behörig användare behöver registrera en incident Biljettnummer när du aktiverar deras roll. Den här inställningen hjälper en organisation att identifiera varje aktivering med en intern incident för att undvika oönskad aktiveringar.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** att utnyttja incident Biljettnummer att knyta PIM med ditt interna system. Detta är särskilt användbart för godkännare som behöver kontext för aktiveringen. |
-| Godkännande krävs | Om behörig användare behöver få godkännande för att aktivera rollen.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** du ställer in godkännande för roller med mest behörighet. Baserat på användningsmönster för alla PIM-kunder, är Global administratör, Användaradministratör, Exchange-administratör, säkerhetsadministratör och Lösenordsadministratör de vanligaste rollerna med för godkännande. |
-| Godkännare | Om godkännande krävs för att aktivera rollen berättigade lista ut de personer som ska godkänna begäran. Som standard anger PIM godkännaren ska vara alla användare som är en privilegierad rolladministratör oavsett om de är permanenta eller berättigade.<br/><br/>**Obs!** Om en användare finns både som är berättigade till en Azure AD-rollen och godkännare för rollen, kan de inte godkänna själva.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** som du väljer godkännare vara personer som är mest kunskap om den specifika-rollen och dess frekventa användare i stället för en Global administratör. |
+| Kräv godkännande | Om behörig användare behöver få godkännande för att aktivera rollen.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** du ställer in godkännande för roller med mest behörighet. Baserat på användningsmönster för alla PIM-kunder, är Global administratör, Användaradministratör, Exchange-administratör, säkerhetsadministratör och Lösenordsadministratör de vanligaste rollerna med för godkännande. |
+| Godkännare | Om godkännande krävs för att aktivera rollen berättigade lista ut de personer som ska godkänna begäran. Som standard anger PIM godkännaren ska vara alla användare som är en privilegierad rolladministratör oavsett om de är permanenta eller berättigade.<br/><br/>**Obs:** Om en användare finns både som är berättigade till en Azure AD-rollen och godkännare för rollen, kan de inte godkänna själva.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** som du väljer godkännare vara personer som är mest kunskap om den specifika-rollen och dess frekventa användare i stället för en Global administratör. |
 | Varaktighet för rollaktivering | Hur lång tid som en användare kommer att aktiveras i rollen innan den upphör. |
 | Permanent administratör | Lista över användare som kommer att vara en permanent administratör för rollen (aldrig måste aktivera).<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** du har noll stående administratör för alla roller utom globala administratörer. Läs mer om det i den som ska göras berättigade och vilka som ska vara permanent aktiv avsnitt i den här planen. |
 | Active-administratör | För Azure-resurser är active administratör listan över användare som aldrig måste du aktivera om du vill använda rollen. Detta är inte kallas permanent administratör som i Azure AD-roller eftersom du kan ställa in en förfallotid för när användaren förlorar den här rollen. |
@@ -353,7 +353,7 @@ Om PIM inte kunde fungerar korrekt i produktionsmiljön, kan följande steg för
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Öppna **Azure AD Privileged Identity Management**.
 1. Klicka på **Azure AD-roller** och klicka sedan på **roller**.
-1. För varje roll som du har konfigurerat, klicka på ellipsen (**...** ) för alla användare med en berättigad uppgift.
+1. För varje roll som du har konfigurerat, klicka på ellipsen ( **...** ) för alla användare med en berättigad uppgift.
 1. Klicka på den **göra permanenta** alternativ för att göra rolltilldelningen permanent.
 
 #### <a name="azure-resource-roles"></a>Azure-resursroller
@@ -362,7 +362,7 @@ Om PIM inte kunde fungerar korrekt i produktionsmiljön, kan följande steg för
 1. Öppna **Azure AD Privileged Identity Management**.
 1. Klicka på **Azure-resurser** och klicka sedan på en prenumeration eller resursgrupp som du vill återställa.
 1. Klicka på **roller**.
-1. För varje roll som du har konfigurerat, klicka på ellipsen (**...** ) för alla användare med en berättigad uppgift.
+1. För varje roll som du har konfigurerat, klicka på ellipsen ( **...** ) för alla användare med en berättigad uppgift.
 1. Klicka på den **göra permanenta** alternativ för att göra rolltilldelningen permanent.
 
 ## <a name="step-4-next-steps-after-deploying-pim"></a>Steg 4. Nästa steg när du har distribuerat PIM

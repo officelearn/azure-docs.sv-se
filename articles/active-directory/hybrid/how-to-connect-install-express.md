@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244509"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
@@ -71,7 +71,7 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 ## <a name="related-documentation"></a>Relaterad dokumentation
 
-| Avsnitt | Länk |
+| Ämne | Länk |
 | --- | --- |
 | Översikt över Azure AD Connect | [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 | Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](how-to-connect-install-custom.md) |

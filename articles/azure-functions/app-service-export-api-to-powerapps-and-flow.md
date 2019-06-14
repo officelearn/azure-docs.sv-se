@@ -12,10 +12,10 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499637"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserade API till PowerApps och Microsoft Flow
@@ -170,7 +170,7 @@ Följande konfigurationsvärden krävs:
 > [!IMPORTANT]
 > Om någon annan importeras API-definition till PowerApps och Microsoft Flow som en del av manuell flödet, måste du ange dem med klient-ID och klienthemlighet för den *registreringen av anslutningsverktyget*, samt resurs-URL för ditt API. Se till att dessa hemligheter hanteras på ett säkert sätt. **Dela inte säkerhetsreferenser för själva API: T.**
 
-### <a name="generic-oauth-20"></a>Generic OAuth 2.0
+### <a name="generic-oauth-20"></a>Generisk OAuth 2.0
 När du använder generisk OAuth 2.0 kan integrera du med valfri provider som OAuth 2.0. På så sätt kan du arbeta med anpassade providers som inte stöds.
 
 Följande konfigurationsvärden krävs:

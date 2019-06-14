@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382308"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
@@ -175,7 +175,7 @@ Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid akt
 
 ![Lägga till nya kataloger till befintlig distribution](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD-inloggning
+## <a name="azure-ad-sign-in"></a>Azure AD-inloggningen
 När du integrerar din lokala katalog med Azure AD, är det viktigt att förstå hur synkroniseringsinställningarna kan påverka hur användaren autentiseras. Azure AD använder userPrincipalName (UPN) för att autentisera användaren. När du synkroniserar dina användare, måste du välja attribut som ska användas för värdet för userPrincipalName noggrant.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Välja attributet för userPrincipalName

@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509348"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
@@ -170,7 +170,7 @@ Det enklaste sättet att utlösa den **ADL: Registrera sammansättningen** komma
 
 **Så här registrerar via ADL: Registrera kommandot sammansättningen (Avancerat)**
 1.  Välj Ctrl + Skift + P för att öppna kommandopaletten.
-2.  Ange **ADL: Registrera sammansättningen (Avancerat)**. 
+2.  Ange **ADL: Registrera sammansättningen (Avancerat)** . 
 3.  Ange sökväg för lokala sammansättning. 
 4.  JSON-filen visas. Granska och redigera paketberoenden och Resursparametrar, om det behövs. Instruktioner visas i den **utdata** fönster. Om du vill gå vidare till den för registreringen, spara (Ctrl + S) JSON-filen.
 
@@ -366,10 +366,10 @@ Du kan [övervaka Överföringsstatusen](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Hämta en fil 
-Du kan hämta en fil med hjälp av kommandot **ADL: Ladda ned filen** eller **ADL: Ladda ned filen (Avancerat)**.
+Du kan hämta en fil med hjälp av kommandot **ADL: Ladda ned filen** eller **ADL: Ladda ned filen (Avancerat)** .
 
 **Att hämta en fil med ADL: Hämta fil (Avancerat) (kommando)**
-1. Högerklicka på Skriptredigeraren och välj sedan **ladda ned fil (Avancerat)**.
+1. Högerklicka på Skriptredigeraren och välj sedan **ladda ned fil (Avancerat)** .
 2. VS Code visar en JSON-fil. Du kan ange sökvägar och hämta flera filer samtidigt. Instruktioner visas i den **utdata** fönster. Spara (Ctrl + S) JSON-filen om du vill fortsätta att ladda ned filen eller filerna.
 
     ![JSON-fil med sökvägar för filhämtning](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)

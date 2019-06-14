@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326156"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en Always On-tillgänglighetsgrupp i Azure
@@ -140,7 +140,7 @@ Belastningsutjämningsregler konfigurera hur belastningsutjämnaren dirigerar tr
    | **Namn** |Ett namn som representerar regler för belastningsutjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
    | **Port** |*1433* |
-   | **Serverdelsport** |*1433*. Det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt serverreturnering)**. |
+   | **Serverdelsport** |*1433*. Det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt serverreturnering)** . |
    | **Avsökningen** |Använd namnet på avsökningen som du skapade för den här belastningsutjämnaren. |
    | **Sessionspermanens** |**Ingen** |
    | **Timeout för inaktivitet (minuter)** |*4* |

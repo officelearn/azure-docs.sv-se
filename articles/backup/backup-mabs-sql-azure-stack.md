@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254471"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Säkerhetskopiera SQL Server på Stack
@@ -66,7 +66,7 @@ Hantering av säkerhetskopiering av SQL Server-databas till Azure och återstäl
 
 8. I den **väljer Replikskapandemetod**, Välj hur du skapar din första återställningspunkt. Du kan överföra den första säkerhetskopieringen manuellt (av network) för att undvika överbelastning av bandbredd eller via nätverket. Om du väljer att vänta med att överföra den första säkerhetskopian måste ange du tiden för inledande överföring. Klicka på **Nästa**.
 
-    ![Inledande replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Inledande Replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
 
     Den första säkerhetskopian måste överföra hela datakällan (SQL Server-databas) från produktionsservern (SQL Server-dator) till Azure Backup Server. Dessa data kan vara stora och överföra data via nätverket kan överstiga bandbredd. Därför kan du välja att överföra den första säkerhetskopieringen: **Manuellt** (med flyttbara medier) att undvika överbelastning av bandbredd, eller **automatiskt över nätverket** (vid en viss tidpunkt).
 

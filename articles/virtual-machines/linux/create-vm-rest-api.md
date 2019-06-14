@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391369"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
@@ -55,7 +55,7 @@ Följande huvuden krävs:
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
 | *Content-Type:*  | Krävs. Ange `application/json`. |
-| *Auktorisering:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Allmän information om hur du arbetar med REST API-begäranden finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -66,7 +66,7 @@ Följande vanliga definitioner används för att skapa en brödtext i begäran:
 | Namn                       | Obligatoriskt | Typ                                                                                | Beskrivning  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Resursplats. |
-| namn                       |          | string                                                                              | Namnet för den virtuella datorn. |
+| name                       |          | string                                                                              | Namnet för den virtuella datorn. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Anger maskinvaruinställningarna för den virtuella datorn. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Anger lagringsinställningar för för virtuella diskar. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger inställningar för operativsystemet för den virtuella datorn. |
@@ -133,7 +133,7 @@ En fullständig lista över tillgängliga definitioner i begärandetexten, se [v
 
 Du kan använda klienten om vill skicka den här HTTP-begäran. Du kan också använda en [webbläsarbaserade verktyget](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) genom att klicka på den **prova** knappen.
 
-### <a name="responses"></a>Svar
+### <a name="responses"></a>Responses
 
 Det finns två lyckades för åtgärden att skapa eller uppdatera en virtuell dator:
 

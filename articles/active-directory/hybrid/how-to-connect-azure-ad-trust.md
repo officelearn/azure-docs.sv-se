@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245722"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med Azure AD Connect
@@ -41,7 +41,7 @@ Azure AD Connect hanterar **endast** inställningar som är relaterade till Azur
 
 | Inställning | Beskrivning |
 | :--- | :--- |
-| Tokensigneringscertifikat | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
+| Certifikat för tokensignering | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
 | Token Signeringsalgoritm | Microsoft rekommenderar att du använder SHA-256 som algoritmen för tokensignering. Azure AD Connect kan känna av om token Signeringsalgoritm anges till ett värde mindre säkert än SHA-256. Det kommer att uppdatera inställningen till SHA-256 nästa möjliga konfigurationen igen. Andra förlitande part måste uppdateras för att använda det nya certifikatet för tokensignering. |
 | Azure AD-förtroende identifierare | Azure AD Connect anger värdet för rätt identifierare för Azure AD-förtroende. AD FS identifierar Azure AD-förtroende med hjälp av ID-värde. |
 | Azure AD-slutpunkter | Azure AD Connect säkerställer att de slutpunkter som konfigurerats för Azure AD-förtroende är alltid enligt de senaste rekommenderade värdena för flexibilitet och prestanda. |

@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452832"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
@@ -85,7 +85,7 @@ En åtgärd för att förhindra i organisationen via missbruk av en identitet el
 ### <a name="privileged-user"></a>Privilegierad (användare)
 En användare som vid tidpunkten för en riskhändelse hade permanenta eller tillfälliga administratörsbehörighet till en eller flera resurser i Azure Active Directory, exempelvis en Global administratör faktureringsadministratör, tjänstadministratör, Användaradministratör och Lösenordsadministratör. 
 
-### <a name="real-time"></a>Realtid
+### <a name="real-time"></a>I realtid
 Se realtidsidentifiering.
 
 ### <a name="real-time-detection"></a>Realtidsidentifiering
@@ -154,13 +154,13 @@ Se Risk nivå (användaren kompromettering)
 ### <a name="user-risk"></a>Användarrisk
 Se Risk nivå (användaren kompromettering).
 
-### <a name="user-risk-policy"></a>Riskprincip för användare
+### <a name="user-risk-policy"></a>Princip för användarrisk
 En princip för villkorlig åtkomst som tar hänsyn till inloggningen och tillämpar åtgärder baserat på fördefinierade villkor och regler.
 
 ### <a name="users-flagged-for-risk"></a>Användare som har flaggats för risk
 Användare som har riskhändelser som är aktiva eller åtgärdade
 
-### <a name="vulnerability"></a>Sårbarhet
+### <a name="vulnerability"></a>Säkerhetsproblem
 En konfiguration eller ett villkor i Azure Active Directory, vilket gör att katalogen mottaglig för säkerhetsrisker eller hot.
 
 ## <a name="see-also"></a>Se också

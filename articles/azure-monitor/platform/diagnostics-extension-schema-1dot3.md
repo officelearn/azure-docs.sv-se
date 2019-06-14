@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238057"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** elementet lagras i tabellen mått förutom tabellen prestandaräknaren.  
 
- Den **resourceId** attributet är obligatoriskt.  Resurs-ID för den virtuella datorn eller Virtual Machine Scale Sets du distribuerar Azure Diagnostics-data till. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** -> **< namn\>**. Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fält.  
+ Den **resourceId** attributet är obligatoriskt.  Resurs-ID för den virtuella datorn eller Virtual Machine Scale Sets du distribuerar Azure Diagnostics-data till. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** ->  **< namn\>** . Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fält.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -644,7 +644,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|string|En sträng som identifierar sinkname.|  
+|**name**|string|En sträng som identifierar sinkname.|  
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
@@ -672,7 +672,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
 |**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**Namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
+|**name**|**sträng**|Ett unikt namn för kanalen att referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element

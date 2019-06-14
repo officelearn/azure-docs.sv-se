@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: d04d62d66b4ba22437e6d854566f8bbf5536a6fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121077"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-principer för S2S VPN- eller VNet-till-VNet-anslutningar
@@ -170,7 +170,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3 Skapa virtuellt nätverk, VPN-gateway och lokal nätverksgateway
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Skapa virtuellt nätverk, VPN-gateway och lokal nätverksgateway
 
 Följande exempel skapar det virtuella nätverket, TestVNet1 med tre undernät och en VPN-gateway. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
@@ -390,7 +390,7 @@ DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
-#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3 Ta bort en IPsec/IKE-princip från en anslutning
+#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Ta bort en IPsec/IKE-princip från en anslutning
 
 När du tar bort den anpassade principen från en anslutning Azure VPN-gatewayen återgår till den [standardlistan med IPsec/IKE-förslag](vpn-gateway-about-vpn-devices.md) och gör en omförhandling igen med din lokala VPN-enhet.
 

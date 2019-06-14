@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319521"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka en RDP-Allmänt fel i Azure VM
@@ -67,7 +67,7 @@ Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapsho
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Steg 1: Öppna CMD-instans i seriekonsol
 
-1. Åtkomst till den [Seriekonsolen](serial-console-windows.md) genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)**. Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
+1. Åtkomst till den [Seriekonsolen](serial-console-windows.md) genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)** . Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
 
 2. Skapa en ny kanal för en CMD-instans. Typ **CMD** att starta kanalen för att få dess namn.
 

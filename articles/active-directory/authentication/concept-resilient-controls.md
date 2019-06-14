@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414961"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
@@ -145,28 +145,28 @@ I följande exempel: **Exempel A – Contingency CA: N för att återställa åt
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Alla
   * Ge kontroll: Kräv domänansluten
-  * Status: Disabled
+  * Status: Inaktiverad
 * Princip för 2: Blockera andra plattformar än Windows
   * Namn: EM002 - AKTIVERA I NÖDFALL: MFA-avbrott [2/4] - Exchange SharePoint – blockera åtkomst utom Windows
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta Windows
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Inaktiverad
 * Princip 3: Blockera nätverk än CorpNetwork
   * Namn: EM003 - AKTIVERA I NÖDFALL: MFA-avbrott [3 och 4] - Exchange SharePoint – blockera åtkomst förutom företagets nätverk
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Platser är valfri plats, undanta CorpNetwork
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Inaktiverad
 * Princip 4: Blockera EAS uttryckligen
   * Namn: EM004 - AKTIVERA I NÖDFALL: MFA-avbrott [4/4] - Exchange - Block EAS för alla användare
   * Användare och grupper: Inkludera alla användare
   * Appar i molnet: Innehåller Exchange Online
   * Villkor: Klientappar: Exchange Active Sync
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Inaktiverad
 
 Ordningen för aktivering:
 
@@ -187,14 +187,14 @@ I den här nästa exempel **exempel B - Contingency CA-principer för att tillå
   * Appar i molnet: Salesforce.
   * Villkor: Ingen
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Inaktiverad
 * Princip för 2: Blockera säljteamet från valfri plattform än mobile (för att minska ytan på attack)
   * Namn: EM002 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [2/2] - Salesforce - Block på alla plattformar förutom iOS och Android
   * Användare och grupper: Inkludera SalesforceContingency. Exkludera SalesAdmins
   * Appar i molnet: Salesforce
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta iOS och Android
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Inaktiverad
 
 Ordningen för aktivering:
 

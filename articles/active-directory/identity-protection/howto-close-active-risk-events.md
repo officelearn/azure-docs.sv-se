@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453503"
 ---
 # <a name="how-to-close-active-risk-events"></a>Instruktioner: Stäng aktiva riskhändelser
@@ -50,7 +50,7 @@ Om du vill stänga active riskhändelser har följande alternativ:
 
 Genom att konfigurera [användarriskprincipen för villkorsstyrd åtkomst](howto-user-risk-policy.md) kan du kräva att lösenordet ändras om en viss användarrisknivå har identifierats automatiskt. 
 
-![Återställa lösenord](./media/howto-close-active-risk-events/13.png)
+![Återställ lösenord](./media/howto-close-active-risk-events/13.png)
 
 En lösenordsåterställning stängs alla aktiva risker händelser för den relaterade användaren och hämtar tillbaka identiteten till säkert läge. Med hjälp av en princip för användarrisk är det bästa sättet att Stäng active riskhändelser eftersom den här metoden är automatisk. Det finns ingen interaktion krävs mellan den berörda användaren och hjälper dig att supportavdelningen eller en administratör.
 
@@ -65,12 +65,12 @@ Men gäller med hjälp av en princip för användarrisk inte alltid. Detta gäll
 
 Om att kräva ett lösenord återställs via en princip för användarrisk inte är ett alternativ, kan du hämta alla riskhändelser för en användare som avslutas med en manuell lösenordsåterställning.
 
-![Återställa lösenord](./media/howto-close-active-risk-events/04.png)
+![Återställ lösenord](./media/howto-close-active-risk-events/04.png)
 
 
 Relaterade dialogrutan innehåller två olika metoder för att återställa ett lösenord:
 
-![Återställa lösenord](./media/howto-close-active-risk-events/05.png)
+![Återställ lösenord](./media/howto-close-active-risk-events/05.png)
 
 
 **Skapa ett tillfälligt lösenord** -genom att skapa ett tillfälligt lösenord, du kan omedelbart sätta en identitet tillbaka i säkert läge. Den här metoden kräver att interagera med de berörda användarna eftersom de måste veta vad det tillfälliga lösenordet är. Du kan till exempel skicka ett nytt tillfälligt lösenord till en alternativ e-postadressen för användaren eller till användarens chef. Eftersom lösenordet är tillfällig, uppmanas användaren att ändra lösenordet vid nästa inloggningen.
@@ -83,7 +83,7 @@ Relaterade dialogrutan innehåller två olika metoder för att återställa ett 
 
 Om ett lösenord återställning är inte ett alternativ för dig, du kan också stänga alla riskhändelser. 
 
-![Återställa lösenord](./media/howto-close-active-risk-events/03.png)
+![Återställ lösenord](./media/howto-close-active-risk-events/03.png)
 
 När du klickar på **Ignorera alla händelser**, alla händelser är stängda och den berörda användaren inte längre är i fara. Men eftersom den här metoden inte kan påverka det befintliga lösenordet, se den inte relaterade identiteten till säkert läge. Det prioriterade användningsfallet för den här metoden är en borttagen användare med aktiva riskhändelser. 
 

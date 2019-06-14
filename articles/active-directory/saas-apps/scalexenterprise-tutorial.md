@@ -16,10 +16,10 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Självstudier: Azure Active Directory-integrering med ScaleX Enterprise
@@ -44,7 +44,7 @@ Om du vill konfigurera Azure AD-integrering med ScaleX Enterprise, behöver du f
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Använd inte din produktionsmiljö såvida inte detta är nödvändigt.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,17 +60,17 @@ Om du vill konfigurera integreringen av ScaleX Enterprise i Azure AD, som du beh
 
 **Utför följande steg för att lägga till ScaleX Enterprise från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Appar][2]
+    ![Program][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Appar][3]
+    ![Program][3]
 
 1. I sökrutan skriver **ScaleX Enterprise**.
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textrutan skriver du värdet med följande mönster: `https://platform.rescale.com/saml2/<company id>/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://platform.rescale.com/saml2/<company id>/acs/`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://platform.rescale.com/saml2/<company id>/acs/`
 
 1. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-1. Klicka på knappen **Spara**.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
@@ -188,7 +188,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -261,7 +261,7 @@ Klicka på panelen ScaleX Enterprise i åtkomstpanelen, du kommer få automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

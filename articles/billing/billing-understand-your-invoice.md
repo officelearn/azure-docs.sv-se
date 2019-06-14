@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369962"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
@@ -44,7 +44,7 @@ Avsnittet med kontoinformationen för fakturan är överst på första sidan som
 
 ![Avsnittet med kontoinformationen av faktura](./media/billing-understand-your-invoice/1.png)
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | Kundens Inköpsordernummer |Ett valfritt inköpsordernummer som tilldelats av dig för spårning |
 | Fakturanr |Ett unikt, Microsoft genererade fakturanummer som används i spårningssyfte |
@@ -65,7 +65,7 @@ Prenumerationsnamn (”Produktionslagring”) är namnet på prenumerationen fö
 #### <a name="understand-the-previous-charges"></a>Förstå tidigare debiteringar
 Föregående saldo, betalningar och utestående saldo delen av fakturan sammanfattar transaktionerna sedan din senaste faktureringsperiod.
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | Föregående saldo |Totalsumman från din senaste faktureringsperiod |
 | Betalningar |Totala betalningar och krediter som tillämpats på din senaste faktureringsperiod |
@@ -74,7 +74,7 @@ Föregående saldo, betalningar och utestående saldo delen av fakturan sammanfa
 #### <a name="understand-the-current-charges"></a>Förstå aktuella debiteringar
 I avsnittet aktuella debiteringar på fakturan visar information om dina månatliga debiteringar för den aktuella faktureringsperioden.
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | Avgifter för användning |Användningsdebitering är totala månadsdebiteringar i en prenumeration för den aktuella faktureringsperioden|
 | Rabatter |Tjänstrabatter på den aktuella faktureringsperioden|
@@ -84,7 +84,7 @@ I avsnittet aktuella debiteringar på fakturan visar information om dina månatl
 
 I följande tabell beskrivs de Utsålt till och betalningsanvisningar som visas på den andra sidan i din faktura.
 
-| Period |Beskrivning |
+| Term |Beskrivning |
 | --- | --- |
 | Såldes till |Profil-adress som ligger på kontot. <br/><br/>Om du vill ändra adressen kan se [så här ändrar du profilinformation för ditt Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer](billing-how-to-change-azure-account-profile.md).|
 | Betalningsanvisningar |Anvisningar om hur du betalar beroende på betalningsmetod (till exempel med kredit kortet eller med faktura). |
@@ -97,11 +97,11 @@ Avsnittet användning avgifter på fakturan visar mätaren nivåinformation på 
 
 I följande tabell beskrivs kolumnrubrikerna för användning avgifter visas på fakturan.
 
-| Period |Beskrivning |
+| Term |Beskrivning |
 | --- | --- |
 | Namn |Identifierar huvudtjänst för användning |
 | Typ |Definierar den Azure-tjänst-typ som kan påverka priset |
-| Resurs |Anger måttenhet för den mätning som används |
+| Resource |Anger måttenhet för den mätning som används |
 | Region |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
 | Förbrukad |Hur mycket av används under faktureringsperioden |
 | Ingår |Mängden mätaren som ingår utan kostnad i den aktuella faktureringsperioden |

@@ -1,18 +1,18 @@
 ---
 title: Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API
 description: Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253884"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API
@@ -39,11 +39,11 @@ Ge appen som skapats i steg 1, övervakning av mått utgivare och behörigheter 
 Öppna en kommandotolk och kör följande kommando:
 
 ```shell
-curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Spara åtkomsttoken från svaret.
 
-![Åtkomsttoken](./media/metrics-store-custom-rest-api/accesstoken.png)
+![åtkomsttoken](./media/metrics-store-custom-rest-api/accesstoken.png)
 
 ## <a name="emit-the-metric-via-the-rest-api"></a>Skapa mått via REST API 
 
@@ -77,7 +77,7 @@ Spara åtkomsttoken från svaret.
     } 
     ``` 
 
-2. Efter måttdata i Kommandotolk-fönster: 
+1. Efter måttdata i Kommandotolk-fönster: 
    - **azureRegion**. Måste matcha distributionsregionen för resursen som du de mått för. 
    - **resourceID**.  Resurs-ID för Azure-resursen du spårar mått jämfört med.  
    - **AccessToken**. Klistra in den token som du hämtade tidigare.
@@ -85,8 +85,8 @@ Spara åtkomsttoken från svaret.
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-3. Ändra tidsstämpel och värdena i JSON-filen. 
-4. Upprepa föregående två steg ett par gånger, så att du har data i flera minuter.
+1. Ändra tidsstämpel och värdena i JSON-filen. 
+1. Upprepa föregående två steg ett par gånger, så att du har data i flera minuter.
 
 ## <a name="troubleshooting"></a>Felsökning 
 Om du får ett felmeddelande med en del av processen, bör följande felsökningsinformation:
@@ -119,3 +119,4 @@ Om du får ett felmeddelande med en del av processen, bör följande felsökning
  
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md).
+

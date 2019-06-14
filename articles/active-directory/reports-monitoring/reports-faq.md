@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437047"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor om Azure Active Directory-rapporter
@@ -150,14 +150,14 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 **S:** Statusen för villkorlig åtkomst kan ha följande värden:
 
 * **Tillämpas inte**: Det innebär att det fanns ingen CA-princip med användaren och appen i omfånget. 
-* **Success**: Det innebär att det var en CA-princip med användaren och appen i omfånget och CA-principer har uppfylls. 
+* **Lyckade**: Det innebär att det var en CA-princip med användaren och appen i omfånget och CA-principer har uppfylls. 
 * **Fel**: Det innebär att det var en CA-princip med användaren och appen i omfånget och principer för CA: N inte har uppfyllts. 
     
 **F: Vilka är de möjliga värdena för villkorlig åtkomst princip resultatet?**
 
 **S:** Principer för villkorlig åtkomst kan ha följande resultat:
 
-* **Success**: Principen uppfylldes har.
+* **Lyckade**: Principen uppfylldes har.
 * **Fel**: Principen uppfylldes inte.
 * **Tillämpas inte**: Det kan bero på Principvillkor inte uppfyllde.
 * **Inte aktiverad**: Detta beror på principen i inaktiverat tillstånd. 

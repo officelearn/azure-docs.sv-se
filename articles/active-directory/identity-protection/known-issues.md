@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452694"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory
@@ -32,7 +32,7 @@ ms.locfileid: "60452694"
 **Stäng användarrisk** i klassisk Identity Protection anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **Azure AD**.
 
 
-**Stäng användarrisk** i Identity Protection (uppdateras) anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **\<administratörens namn med en hyperlänk som pekar på användarens blad\>**.
+**Stäng användarrisk** i Identity Protection (uppdateras) anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **\<administratörens namn med en hyperlänk som pekar på användarens blad\>** .
 
 Det finns en aktuell känt problem som orsakar fördröjningar i användarflödet risk avsked. Om du har en ”användarprincip” sluta den här principen att använda avvisade användare inom minuter efter att klicka på ”Stäng användarrisk”. Men finns det kända förseningar med UX uppdaterar ”Risk statusen” Avvisade användare. Uppdatera sidan på nivå webbläsare om du vill se senaste användare ”risktillstånd” som en lösning.
 
@@ -43,7 +43,7 @@ Frågar på den **användarnamn** fält är skiftlägeskänsliga, vid frågor om
 
 Växla **visa datum som** döljer den **risken SENAST UPPDATERADES** kolumn. Att readd kolumnen Klicka **kolumner** överst på bladet riskfylld användare.
 
-**Stäng alla händelser** i klassisk Identity Protection anger statusen för riskhändelser till **stängd (löst)**.
+**Stäng alla händelser** i klassisk Identity Protection anger statusen för riskhändelser till **stängd (löst)** .
 
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Rapporten om riskfyllda inloggningar kända problem
@@ -76,7 +76,7 @@ IP-geoplats mappningen är en branschomfattande utmaning. Om du anser att den pl
 
 **Bekräfta säker** (på en inloggning) – informerar du Azure AD Identity Protection att inloggningen har utförts av ägaren identitet och anger inte en kompromettering.
 
-- Vid mottagning av denna feedback kan vi flytta inloggning (inte användare) riskerar tillstånd att **bekräftat safe** och risknivå till **-**.
+- Vid mottagning av denna feedback kan vi flytta inloggning (inte användare) riskerar tillstånd att **bekräftat safe** och risknivå till **-** .
 
 - Dessutom ger vi informationen till vår machine learning-system för framtida förbättringar i riskbedömning.
 

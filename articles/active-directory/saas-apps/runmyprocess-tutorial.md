@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Självstudier: Azure Active Directory-integrering med RunMyProcess
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med RunMyProcess, behöver du följa
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte din produktionsmiljö om det inte behövs.
+- Använd inte din produktionsmiljö, om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här:[– prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,17 +60,17 @@ För att konfigurera integrering av RunMyProcess i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till RunMyProcess från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Appar][2]
+    ![Program][2]
     
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
-    ![Appar][3]
+    ![Program][3]
 
 1. I sökrutan skriver **RunMyProcess**.
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://live.runmyprocess.com/live/<tenant id>`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE] 
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [RunMyProcess klienten supportteamet](mailto:support@runmyprocess.com) att hämta värdet. 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
 
-1. Klicka på knappen **Spara**.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/runmyprocess-tutorial/tutorial_general_400.png)
 
@@ -157,7 +157,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -253,7 +253,7 @@ När du klickar på panelen RunMyProcess i åtkomstpanelen du bör få automatis
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

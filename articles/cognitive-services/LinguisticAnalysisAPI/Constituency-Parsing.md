@@ -12,10 +12,10 @@ ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7611f5f16111b5d8b0d2d293750f658125e50837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60535446"
 ---
 # <a name="constituency-parsing"></a>Parsning av valkrets
@@ -58,7 +58,7 @@ Målet med en parser är att hitta alla fraser.
 Därför, på naturligt språk brukar fraserna vara kapslad i varandra.
 En naturlig representation av dessa fraser är ett träd, till exempel följande:
 
-![Träd](./Images/tree.png)
+![trädet](./Images/tree.png)
 
 I den här trädstrukturen är grenarna markerats ”NP” substantivfraser.
 Det finns flera fraser: *Jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybrid bil med Bluetooth*.

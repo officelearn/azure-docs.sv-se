@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 03/15/2019
+ms.date: 10/09/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350498"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect och federation
@@ -30,12 +29,12 @@ Azure Active Directory (Azure AD) Connect kan du konfigurera federation med en l
 Det här avsnittet är hittar du information om federation-relaterade funktioner för Azure AD Connect. Den visar länkar till alla närliggande ämnen. Länkar till Azure AD Connect finns i [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: federation ämnen
-| Avsnitt | Den beskriver hur och när du ska läsa den |
+| Ämne | Den beskriver hur och när du ska läsa den |
 |:--- |:--- |
 | **Azure AD Connect user sign-in options** (Alternativ för användarinloggning i Azure AD Connect) | |
 | [Förstå inloggningsalternativ för användare](plan-connect-user-signin.md) |Läs mer om olika användare logga in alternativ och hur de påverkar Azure-inloggning användarupplevelsen. |
 | **Installera AD FS med hjälp av Azure AD Connect** | |
-| [Förutsättningar](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Se kraven för en lyckad AD FS-installation via Azure AD Connect. |
+| [Krav](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Se kraven för en lyckad AD FS-installation via Azure AD Connect. |
 | [Konfigurera AD FS-servergrupp](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installera en ny AD FS-servergrupp med hjälp av Azure AD Connect. |
 | [Federera med Azure AD med hjälp av alternativa inloggnings-ID](how-to-connect-fed-management.md#alternateid) | Konfigurera federation med hjälp av alternativa inloggnings-ID  |
 | **Ändra AD FS-konfigurationen** | |
@@ -56,5 +55,3 @@ Det här avsnittet är hittar du information om federation-relaterade funktioner
 * [Federera två Azure AD med en enda AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [AD FS-distribution i Azure](how-to-connect-fed-azure-adfs.md)
 * [Hög tillgänglighet över geografiska områden AD FS-distribution i Azure med Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-<!-- Update_Description: update metedata properties -->

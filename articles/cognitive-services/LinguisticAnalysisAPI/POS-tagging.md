@@ -11,10 +11,10 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394497"
 ---
 # <a name="part-of-speech-tagging"></a>En del av tal-märkning
@@ -30,18 +30,18 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista över taggar som en del av tal
 
-| Tagga | Beskrivning | Exempel ord |
+| Tagg | Beskrivning | Exempel ord |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | inledande citattecken | \` \`\` |
 | '' | avslutande citattecken | ' '' |
 | ( | vänsterparentes | ( [ { |
 | ) | högerparentes | ) ] } |
-| ,  | kommaavgränsad | ,  |
+| , | kommaavgränsad | , |
 | -- | streck | -- |
 | . | mening Begränsare | . ! ? |
 | : | kolon eller ellipsen | : ; ... |
-| Kopia | tillsammans, samordna | och men eller ännu|
+| CC | tillsammans, samordna | och men eller ännu|
 | CD | siffror, väsentliga | nio 20 1980 ' 96 |
 | DT | determiner |en på en alla båda varken|
 | T.EX. | existentiell där | Det |
@@ -65,7 +65,7 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | RBS | ett adverb superlative | bästa största bluntest tidigaste längst bort första längst svåraste heartiest högsta största minst mindre de flesta närmaste andra hårdaste sämsta |
 | RP | Particle | på av uppåt reda på om |
 | SYM | symbol | % & |
-| Till | ”till” som preposition eller infinitive markör | till |
+| ATT | ”till” som preposition eller infinitive markör | till |
 | UH | interjection | hoppsan hurra howdy hello |
 | VB | verb, basformulär | ge tilldela direkt |
 | VBD | verb, tidigare Tempus | gav tilldelade reste |

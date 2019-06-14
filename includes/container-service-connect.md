@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202829"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808916"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Skapa en fjärranslutning till ett Kubernetes-, DC/OS- eller Docker Swarm-kluster
 När du har skapat ett Azure Container Service-kluster måste du ansluta till klustret för att distribuera och hantera arbetsbelastningar. Den här artikeln beskriver hur du ansluter till den virtuella huvuddatorn i klustret från en fjärrdator. 
@@ -32,7 +32,7 @@ Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
-Ett sätt att installera det här verktyget är att använda den `az acs kubernetes install-cli` Azure CLI-kommando. Om du vill köra det här kommandot, se till att du [installerat](/cli/azure/install-az-cli2) den senaste versionen av Azure CLI och är inloggad på ett Azure-konto (`az login`).
+Ett sätt att installera det här verktyget är att använda den `az acs kubernetes install-cli` Azure CLI-kommando. Att köra det här kommandot [installera Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -78,7 +78,7 @@ kubectl proxy
 
 Nu är användargränssnittet för Kubernetes tillgängligt på: `http://localhost:8001/ui`.
 
-Mer information finns i [snabbstarten för Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
+Mer information finns i den [Kubernetes-snabbstarten](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Ansluta till ett DC/OS- eller Swarm-kluster
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394514"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
@@ -66,7 +66,7 @@ Datautforskaren i Azure-anslutningsappen använder autentisering av tjänstens h
 
 Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **AzureDataExplorer** | Ja |
 | endpoint | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.<regionName>.kusto.windows.net`. | Ja |
@@ -104,7 +104,7 @@ Om du vill kopiera data till Azure Data Explorer, ange typegenskapen på dataupp
 
 Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **AzureDataExplorerTable** | Ja |
 | table | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagaren; Nej för källa |
@@ -135,7 +135,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen i kopieringskälla för aktiviteten till **AzureDataExplorerSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till: **AzureDataExplorerSource** | Ja |
 | query | En skrivskyddad begäran som anges i en [KQL format](/azure/kusto/query/). Använd anpassade KQL fråga som referens. | Ja |
@@ -181,7 +181,7 @@ Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen 
 
 För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera aktivitet mottagare till **AzureDataExplorerSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
 | ingestionMappingName | Namnet på en förskapad **[mappning](/azure/kusto/management/mappings#csv-mapping)** för en Kusto-tabell. Mappa kolumner från källan till Datautforskaren i Azure - som gäller för **[alla stöds källans datalager/format](copy-activity-overview.md#supported-data-stores-and-formats)** inklusive CSV/JSON/Avro formaterar osv, kan du använda kopieringsaktiviteten [kolumn mappning av](copy-activity-schema-and-type-mapping.md) (implicit efter namn eller uttryckligen som konfigurerats) och/eller Azure Data Explorer mappningar. | Nej |

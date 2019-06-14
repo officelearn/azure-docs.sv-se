@@ -15,10 +15,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386242"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Användarsekretess och Azure AD Connect Health 
@@ -31,7 +31,7 @@ ms.locfileid: "60386242"
 ## <a name="user-privacy-classification"></a>Användaren sekretess klassificering
 Azure AD Connect Health hamnar i den **registerförare** kategorin för GDPR-klassificering. Som en registerförare pipeline tillhandahåller tjänsten bearbetning av tjänster till viktiga partner och konsumenter i slutet. Azure AD Connect Health genererar inte användardata och har ingen oberoende kontroll över vilka personliga data samlas in och hur de används. Datahämtning, aggregering, analys och rapportering i Azure AD Connect Health baseras på befintliga lokala data. 
 
-## <a name="data-retention-policy"></a>Datakvarhållningsprincip
+## <a name="data-retention-policy"></a>Policy för datalagring
 Azure AD Connect Health inte generera rapporter, utföra analyser, och ge insikter äldre än 30 dagar. Därför kan Azure AD Connect Health inte lagra, bearbeta eller kvarhålla data äldre än 30 dagar. Den här designen är kompatibel med GDPR bestämmelser, Microsoft sekretessbestämmelser för efterlevnad och Azure AD-principer för kvarhållning av data. 
 
 Servrar med aktiv **hälsotjänstinformationen är inte uppdaterad** **fel** aviseringar för över 30 dagar i rad föreslå att inga data har nått Connect Health under det angivna tidsintervallet. Servrarna ska inaktiveras och visas inte i Connect Health-portalen. Om du vill återaktivera servrarna, måste du avinstallera och [återinstallera hälsoagenten](how-to-connect-health-agent-install.md). Observera att detta inte gäller för **varningar** med samma aviseringstyp. Varningar visar att ofullständiga data saknas från den server som du aviseras för. 

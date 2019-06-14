@@ -2,17 +2,16 @@
 title: Begrepp - lagring i Azure Kubernetes-tjänster (AKS)
 description: Lär dig mer om lagring i Azure Kubernetes Service (AKS), inklusive volymer, beständiga volymer, lagringsklasser och anspråk
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/01/2019
+ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466825"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagringsalternativ för program i Azure Kubernetes Service (AKS)
@@ -26,7 +25,7 @@ Den här artikeln innehåller grundläggande begrepp som tillhandahåller lagrin
 - [Volymer](#volumes)
 - [Beständiga volymer](#persistent-volumes)
 - [Storage-klasser](#storage-classes)
-- [Beständig volym anspråk](#persistent-volume-claims)
+- [Beständiga volymanspråk](#persistent-volume-claims)
 
 ## <a name="volumes"></a>Volymer
 

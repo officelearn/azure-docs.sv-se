@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242767"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
@@ -117,7 +117,7 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
 
 | Alternativ | Admin-överväganden | Användarupplevelse |
 | --- | --- | --- |
-| Grupprincip | Admin-Lås ned redigering av Zoninställningar för intranätet | Användare kan inte ändra sina egna inställningar |
+| En Grupprincip | Admin-Lås ned redigering av Zoninställningar för intranätet | Användare kan inte ändra sina egna inställningar |
 | Grupp principen till inställningar |  Administratören tillåter redigering i Zoninställningar för intranätet | Användarna kan ändra sina egna inställningar |
 
 ### <a name="group-policy-option---detailed-steps"></a>”Grupprincip” alternativet - detaljerade steg

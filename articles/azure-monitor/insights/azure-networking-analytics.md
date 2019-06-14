@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048635"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure-nätverk övervakningslösningar i Azure Monitor
 
@@ -221,8 +221,8 @@ Att använda de uppdaterade lösningarna:
 
      | Istället för: | Användning: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; där ResourceType = ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayAccess” |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName = ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayAccess” |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayPerformance” |
      | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener

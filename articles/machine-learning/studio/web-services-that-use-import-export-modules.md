@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345149"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio-webbtjänster som använder moduler för dataimport och dataexport
@@ -67,7 +67,7 @@ Att läsa data från Azure SQL-tabell:
 ## <a name="create-the-predictive-experiment"></a>Skapa förutsägbart experiment
 Därefter konfigurerar du förutsägbart experiment som du distribuerar din webbtjänst.
 
-1. Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänst (rekommenderas)**.
+1. Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänst (rekommenderas)** .
 2. Ta bort den *Webbtjänstindata* och *Web Service utdata moduler* från förutsägbart experiment.
 3. Skriv i sökrutan komponenter export.
 4. Lägg till från listan med resultat en *exportera Data* modulen till experimentarbetsytan.
@@ -100,10 +100,10 @@ Du kan distribuera till en klassisk eller en ny webbtjänst.
 Du distribuerar som en klassiska webbtjänst och skapar ett program att använda den:
 
 1. Klicka på Kör längst ned på arbetsytan för experimentet.
-2. När körningen har slutförts klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]**.
+2. När körningen har slutförts klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]** .
 3. På instrumentpanelen för webbtjänsten, letar du upp din API-nyckel. Kopiera och spara den för senare användning.
 4. I den **standard-slutpunkt** tabellen, klickar du på den **batchkörning** länk för att öppna API-hjälpsidan.
-5. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
+5. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)** .
 6. På sidan API hitta den **exempelkoden** avsnittet längst ned på sidan.
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs och ta bort alla referenser till blob-lagringen.
 8. Uppdatera värdet för den *apiKey* variabeln med API-nyckel som sparats tidigare.
@@ -128,11 +128,11 @@ Körningen har slutförts, är en ny tabell läggs till i databasen som innehål
 Distribuera som en ny webbtjänst och skapa ett program att använda den:
 
 1. Längst ned på arbetsytan för experimentet klickar du på **kör**.
-2. När körningen har slutförts klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [nyhet]**.
+2. När körningen har slutförts klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [nyhet]** .
 3. Ange ett namn för din webbtjänst på sidan distribuera Experiment och en prisplanen och sedan klicka på **distribuera**.
 4. På den **snabbstarten** klickar du på **förbruka**.
 5. I den **exempelkoden** klickar du på **Batch**.
-6. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
+6. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)** .
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs.
 8. Uppdatera värdet för den *apiKey* variabeln med den **primärnyckel** finns i den **grundläggande förbrukning info** avsnittet.
 9. Leta upp den *scoreRequest* deklarationen och uppdaterar värdet för Webbtjänstparametrar som skickas till den *importdata* och *exportera Data* moduler. I det här fallet du använda den ursprungliga frågan, men definiera ett nytt tabellnamn.

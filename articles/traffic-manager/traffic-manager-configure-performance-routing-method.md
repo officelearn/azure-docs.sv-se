@@ -2,21 +2,22 @@
 title: Konfigurera prestanda trafikroutningsmetod med Azure Traffic Manager | Microsoft Docs
 description: Den här artikeln förklarar hur du konfigurerar Traffic Manager kan dirigera trafik till slutpunkten med kortast svarstid
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048471"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera routningsmetod för prestanda-trafik
 
@@ -31,7 +32,7 @@ Routningsmetod för prestanda-trafik kan du dirigera trafik till slutpunkten med
     1. För **trafik routning metodinställningar**, för **routningsmetod** Välj **prestanda**.
     2. Ange den **inställningar för Slutpunktsövervakning** identiska för alla alla slutpunkter i den här profilen på följande sätt:
         1. Välj lämpliga **protokollet**, och ange den **Port** tal. 
-        2. För **sökväg** skriver ett snedstreck */*. Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
+        2. För **sökväg** skriver ett snedstreck */* . Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
         3. Överst på sidan klickar du på **spara**.
 5.  Testa ändringarna i konfigurationen på följande sätt:
     1.  I portalens sökfältet, Sök efter namnet på Traffic Manager-profilen och klickar på Traffic Manager-profilen i resultaten som visas.

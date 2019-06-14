@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430820"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Ta bort avbildningar i Azure Container Registry
@@ -20,7 +20,7 @@ För att underhålla storleken på Azure container registry, bör du regelbundet
 
 Eftersom du kan ta bort avbildningsdata på flera olika sätt, är det viktigt att förstå hur varje borttagningsåtgärd påverkar lagringsanvändning. Den här artikeln kan du först introducerar komponenterna i en Docker-avbildningar i registret och behållare och sedan omfattar flera metoder för att ta bort avbildningsdata. Exempelskript tillhandahålls för att automatisera delete-åtgärder.
 
-## <a name="registry"></a>Register
+## <a name="registry"></a>Registret
 
 En behållare *registret* är en tjänst som lagrar och distribuerar behållaravbildningar. Docker Hub är en offentlig Docker-behållarregister, medan Azure Container Registry ger privata Docker-behållarregister i Azure.
 
@@ -48,7 +48,7 @@ product-returns/legacy-integrator:20180715
 
 En behållaravbildning i ett register är associerad med en eller flera taggar, har ett eller flera lager och identifieras med ett manifest. Förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att avgöra den bästa metoden för att frigöra utrymme i registret.
 
-### <a name="tag"></a>Tagga
+### <a name="tag"></a>Tagg
 
 En bild *taggen* anger dess version. En enda avbildning i en databas kan tilldelas en eller flera taggar och kan också vara ”ej taggade”. Det vill säga kan du ta bort alla taggar från en avbildning, medan avbildningsdata (lager) är i registret.
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400614"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
@@ -37,11 +37,11 @@ Du kan bevilja [behörigheter](#iot-hub-permissions) på följande sätt:
 
 * **IoT hub-nivå delade åtkomstprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#iot-hub-permissions). Du kan definiera principer i den [Azure-portalen](https://portal.azure.com), via programmering med hjälp av den [IoT Hub Resource REST API: er](/rest/api/iothub/iothubresource), eller med hjälp av den [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. En nyligen skapade IoT-hubb har följande standardprinciper:
   
-  | Policy för delad åtkomst | Behörigheter |
+  | Princip för delad åtkomst | Behörigheter |
   | -------------------- | ----------- |
   | iothubowner | Alla behörigheter |
   | tjänst | **ServiceConnect** behörigheter |
-  | enhet | **DeviceConnect** behörigheter |
+  | enheten | **DeviceConnect** behörigheter |
   | registryRead | **RegistryRead** behörigheter |
   | registryReadWrite | **RegistryRead** och **RegistryWrite** behörigheter |
 
@@ -108,7 +108,7 @@ När du använder SASL OFORMATERAD med AMQP kan kan en klient som ansluter till 
 
 ## <a name="scope-iot-hub-level-credentials"></a>Definiera autentiseringsuppgifter för IoT hub-nivå
 
-Du kan begränsa säkerhetsprinciper för IoT hub-nivå genom att skapa token med en begränsad resurs-URI. Slutpunkt för att skicka meddelanden från enhet till moln från en enhet är till exempel **/devices/ {deviceId} / meddelanden/händelser**. Du kan också använda en IoT hub-nivån delad åtkomstprincip med **DeviceConnect** behörighet för att signera en token vars resourceURI är **/devices/ {deviceId}**. Den här metoden skapar en token som endast kan användas för att skicka meddelanden för enhet **deviceId**.
+Du kan begränsa säkerhetsprinciper för IoT hub-nivå genom att skapa token med en begränsad resurs-URI. Slutpunkt för att skicka meddelanden från enhet till moln från en enhet är till exempel **/devices/ {deviceId} / meddelanden/händelser**. Du kan också använda en IoT hub-nivån delad åtkomstprincip med **DeviceConnect** behörighet för att signera en token vars resourceURI är **/devices/ {deviceId}** . Den här metoden skapar en token som endast kan användas för att skicka meddelanden för enhet **deviceId**.
 
 Den här mekanismen liknar den [Händelsehubbar utgivarprincip](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab), och du kan implementera anpassade autentiseringsmetoder.
 

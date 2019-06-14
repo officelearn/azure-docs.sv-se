@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627277"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: er
@@ -21,7 +21,7 @@ En *enhetsregistrering* skapar en post för en enstaka enhet eller en grupp av e
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * Hämta anslutningssträngen från din instans av Device Provisioning-tjänsten.
 * Hämta enheten säkerhetsartefakterna för den [attesteringsmetod](concepts-security.md#attestation-mechanism) används:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Enskild registrering: Registrerings-ID och TPM-bekräftelsenyckeln från en fysisk enhet eller från TPM-simulatorn.
         * Grupp för registrering gäller inte för TPM-attestering.
     * [**X.509**](/azure/iot-dps/concepts-security):

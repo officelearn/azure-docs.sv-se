@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048589"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -29,7 +29,7 @@ Du kan kopiera data från Azure SQL Database Managed Instance till alla datalage
 
 Mer specifikt stöder den här anslutningen för Azure SQL Database Managed Instance:
 
-- Kopiera data med hjälp av SQL- eller Windows-autentisering.
+- Kopiera data med hjälp av SQL-autentisering.
 - Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
 - Som en mottagare, lägga till data till en måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
 
@@ -37,9 +37,9 @@ SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-database
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda data från en Azure SQL Database Managed Instance som befinner sig i ett virtuellt nätverk måste du konfigurera en lokal integration runtime som har åtkomst till databasen. Mer information finns i [integration runtime med egen värd](create-self-hosted-integration-runtime.md).
+Åtkomst till Azure SQL Database Managed Instance  **[offentlig slutpunkt](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)** , du kan använda ADF hanterade Azure IR. Kontrollera att du inte bara aktivera den offentliga slutpunkten, men även tillåta trafik för offentlig slutpunkt på nätverkssäkerhetsgrupp med Se ADF som går att ansluta till din databas, genom att följa [den här vägledningen](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-Om du etablerar din lokal integration runtime i samma virtuella nätverk som din hanterade instans kan du se till att din datorn är i ett annat undernät än din hanterade instans. Om du etablerar din lokal integration runtime i ett annat virtuellt nätverk än din hanterade instans kan du använda en virtuell nätverkspeering eller i virtuella nätverk virtuell nätverksanslutning. Mer information finns i [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+Åtkomst till Azure SQL Database Managed Instance **privat slutpunkt**, Ställ in en [integration runtime med egen värd](create-self-hosted-integration-runtime.md) som har åtkomst till databasen. Om du etablerar den lokala integreringskörningen i samma virtuella nätverk som din hanterade instans kan du kontrollera att din integration runtime-datorn är i ett annat undernät än din hanterade instans. Om du etablerar din lokal integration runtime i ett annat virtuellt nätverk än din hanterade instans kan du använda en virtuell nätverkspeering eller i virtuella nätverk virtuell nätverksanslutning. Mer information finns i [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="get-started"></a>Kom igång
 
@@ -54,13 +54,8 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SqlServer**. | Ja. |
-| connectionString |Den här egenskapen anger connectionString information som behövs för att ansluta till den hanterade instansen med hjälp av SQL-autentisering eller Windows-autentisering. Mer information finns i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja. |
-| userName |Den här egenskapen anger ett användarnamn om du använder Windows-autentisering. Ett exempel är **domainname\\användarnamn**. |Nej. |
-| password |Den här egenskapen anger ett lösenord för det användarkonto som du angav för användarnamnet. Välj **SecureString** att lagra connectionString-information på ett säkert sätt i Data Factory eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej. |
-| connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Etablera den lokala integreringskörningen i samma virtuella nätverk som din hanterade instans. |Ja. |
-
->[!TIP]
->Du kan se felkoden ”UserErrorFailedToConnectToSqlServer” med ett meddelande som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”. Om det här felet uppstår, lägger du till `Pooling=false` till din anslutningssträng och försök igen.
+| connectionString |Den här egenskapen anger connectionString information som behövs för att ansluta till den hanterade instansen med SQL-autentisering. Mer information finns i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja. |
+| connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om din hanterade instans har offentlig slutpunkt och Tillåt ADF om du vill komma åt). Om den inte anges används standard Azure Integration Runtime. |Ja. |
 
 **Exempel 1: Använda SQL-autentisering**
 
@@ -72,7 +67,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -112,39 +107,13 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 }
 ```
 
-**Exempel 3: Använd Windows-autentisering**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för användning att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database Managed Instance-datauppsättningen.
 
 För att kopiera data till och från Azure SQL Database Managed Instance, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **SqlServerTable**. | Ja. |
 | tableName |Den här egenskapen är namnet på tabellen eller vyn i den databasinstans som den länkade tjänsten refererar till. | Nej för källa. Ja för mottagaren. |
@@ -278,6 +247,9 @@ GO
 
 ### <a name="azure-sql-database-managed-instance-as-a-sink"></a>Azure SQL Database Managed Instance som mottagare
 
+> [!TIP]
+> Läs mer om stöds skrivning beteenden, konfigurationer och bästa praxis från [bästa praxis för inläsning av data i Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+
 Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagartyp i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitet mottagare:
 
 | Egenskap | Beskrivning | Krävs |
@@ -286,14 +258,11 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 | writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är heltal för hur många rader. Som standard Data Factory dynamiskt kan bestämma lämpliga batchstorleken baserat på radstorleken.  |Nej |
 | writeBatchTimeout |Denna egenskap anger väntetiden batch Infoga åtgärd ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är för tidsintervallet. Ett exempel är ”00: 30:00”, som är 30 minuter. |Nej. |
 | preCopyScript |Den här egenskapen anger en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till den hantera instansen. Den anropas bara en gång per kopia som kör. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej. |
-| sqlWriterStoredProcedureName |Det här namnet är för den lagrade proceduren som definierar hur du använder källdata i måltabellen. Exempel på procedurer är att göra upsertar eller transformeringar med egen affärslogik. <br/><br/>Den här lagrade proceduren är *anropas per batch*. För att göra en åtgärd som körs bara en gång och har inget att göra med källdata, till exempel ta bort eller trunkera använder den `preCopyScript` egenskapen. |Nej. |
+| sqlWriterStoredProcedureName |Det här namnet är för den lagrade proceduren som definierar hur du använder källdata i måltabellen. <br/>Den här lagrade proceduren är *anropas per batch*. För att göra en åtgärd som körs bara en gång och har inget att göra med källdata, till exempel ta bort eller trunkera använder den `preCopyScript` egenskapen. |Nej. |
 | storedProcedureParameters |Dessa parametrar används för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrarna måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej. |
 | sqlWriterTableType |Den här egenskapen anger ett tabellnamn typ som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data som flyttas i en temporär tabell med den här tabellen. Lagrad procedur kod kan sedan sammanfoga de data som ska kopieras med befintliga data. |Nej. |
 
-> [!TIP]
-> När data har kopierats till Azure SQL Database Managed Instance, läggs kopieringsaktiviteten data till tabellen mottagare som standard. Använd den lagrade proceduren i SqlSink för att utföra en upsert eller ytterligare affärslogik. Mer information finns i [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
-
-**Exempel 1: Lägga till data**
+**Exempel 1: Lägg till data**
 
 ```json
 "activities":[
@@ -325,9 +294,9 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 ]
 ```
 
-**Exempel 2: Anropa en lagrad procedur vid kopiering för upsert**
+**Exempel 2: anropa en lagrad procedur vid kopiering**
 
-Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
+Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -364,80 +333,69 @@ Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Identitetskolumner i måldatabasen
+## <a name="best-practice-for-loading-data-into-azure-sql-database-managed-instance"></a>Bästa praxis för inläsning av data i Azure SQL Database Managed Instance
 
-I följande exempel kopierar data från en källtabellen med någon identity-kolumn till en måltabell med en identity-kolumn.
+När du kopierar data till Azure SQL Database Managed Instance kan du kräva olika skrivning beteende:
 
-**Källtabellen**
+- **[Lägg till](#append-data)** : min källdata har bara nya poster;
+- **[Upsert](#upsert-data)** : min källdata har både infogningar och uppdateringar.
+- **[Skriv över](#overwrite-entire-table)** : Jag vill fylla på hela dimensionstabellen varje gång;
+- **[Skriva med anpassad logik](#write-data-with-custom-logic)** : Jag behöver ytterligare bearbetning innan den slutliga infogningen i måltabellen.
+
+Finns i respektive avsnitt om hur du konfigurerar i ADF och bästa praxis.
+
+### <a name="append-data"></a>Lägga till data
+
+Det här är standardinställningen för den här anslutningen för Azure SQL Database Managed Instance mottagare och ADF gör **massinfogning** att skriva till din tabell effektivt. Du kan helt enkelt konfigurera källa och mottagare i enlighet med detta i kopieringsaktiviteten.
+
+### <a name="upsert-data"></a>Upserta data
+
+**Alternativet jag** (föreslås särskilt när du har stora mängder data att kopiera): den **metod för de flesta högpresterande** göra upsert är följande: 
+
+- Det första utnyttja en [temporära tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) till massinläsning alla poster med hjälp av Kopieringsaktivitet. Eftersom åtgärder mot tillfälliga tabeller inte loggas, du kan läsa in miljontals poster i sekunder.
+- Kör en lagringsprocedur-aktivitet i ADF att tillämpa en [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (eller infoga/uppdatera)-instruktionen och Använd temporära tabellen som källa för att utföra alla uppdaterar eller infogar som en enda transaktion vilket minskar mängden görs och logga åtgärder. Temporär tabell kan trunkeras för att vara redo för nästa cykel för upsert i slutet av aktiviteten lagringsprocedur. 
+
+I Azure Data Factory, till exempel skapa en pipeline med en **Kopieringsaktivitet** sammankedjade med en **lagringsprocedur-aktivitet** om åtgärden lyckades. Tidigare kopierar data från din källagringen till en tillfällig tabell, exempelvis ” **##UpsertTempTable**” som tabellnamnet i datauppsättningen, sedan det senare anropar en lagringsprocedur för att sammanfoga information från den temporära tabellen i måltabellen och rensa temporär tabell.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+Definiera en lagringsprocedur med MERGE logik som liknar följande, som refereras till från aktiviteten ovan lagringsprocedur i din databas. Förutsatt att målet **marknadsföring** tabell med tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**, och gör upsert baserat på den **profil-ID** kolumn.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Måltabell**
+**Alternativ II:** du kan också välja att [anropa lagrade proceduren i kopieringsaktiviteten](#invoking-stored-procedure-for-sql-sink), vid Obs den här metoden körs för varje rad i källtabellen i stället för att utnyttja bulk insert som standard-metoden i kopieringsaktiviteten, alltså plats inte för storskaliga upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Skriv över hela tabellen
 
-Observera att måltabellen har en identitetskolumn.
+Du kan konfigurera **preCopyScript** -egenskapen i kopieringsaktiviteten mottagare, i vilket fall för varje körningen av kopieringsaktiviteten, ADF kör skriptet först kör kopia om du vill infoga data. Om du vill skriva över hela tabellen med den senaste informationen, kan du till exempel ange ett skript för att först ta bort alla poster innan massinläsning nya data från källan.
 
-**Källa dataset JSON-definition**
+### <a name="write-data-with-custom-logic"></a>Skriva data med anpassad logik
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
+Liknande enligt beskrivningen i [Upsert data](#upsert-data) avsnittet när du ska använda ytterligare bearbetning innan sista inmatningen av källdata i tabellen, kan du en) för stor skala in till en tillfällig tabell och sedan anropa en lagrad proceduren eller b) anropar en lagrad procedur vid kopiering.
 
-**Mål dataset JSON-definition**
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Anropa en lagrad procedur från en SQL-mottagare
 
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
+När du kopierar data till Azure SQL Database Managed Instance kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar.
 
-Observera att din käll- och tabell har olika schema. Måltabellen har en identitetskolumn. Ange egenskapen ”struktur” i datauppsättningsdefinitionen mål som inte innehåller en identity-kolumn i det här scenariot.
+> [!TIP]
+> Anropa lagrade proceduren bearbetar den data rad för rad i stället för massredigering, vilket inte rekommenderas för storskaliga kopia. Läs mer i [bästa praxis för inläsning av data i Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Anropa en lagrad procedur från en SQL-mottagare
-
-När data har kopierats till Azure SQL Database Managed Instance, kan en lagrad procedur konfigureras och anropas med ytterligare parametrar som du anger.
-
-Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar. Den används vanligtvis när en upsert (uppdatering + insert) eller extra bearbetning måste göras innan sista inmatningen av källdata i tabellen. Extra bearbetningen kan innehålla uppgifter såsom sammanfoga kolumner, leta upp ytterligare värden och infogning i flera tabeller.
+Du kan använda en lagrad procedur när inbyggd kopiera mekanismer som inte servar syfte, t.ex. tillämpa ytterligare bearbetning innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är merge kolumner, leta upp ytterligare värden och infogning i mer än en tabell.
 
 I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 
@@ -514,32 +472,32 @@ När data kopieras till och från Azure SQL Database Managed Instance, används 
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |Datetimeoffset |
+| date |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeriskt |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| ROWVERSION |Byte[] |
-| smalldatetime |Datetime |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

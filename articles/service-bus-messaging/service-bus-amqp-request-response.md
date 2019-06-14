@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402691"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 i Microsoft Azure Service Bus: begäran-svar-baserade åtgärder
@@ -118,8 +118,8 @@ Service Bus-entiteter måste åtgärdas på följande sätt:
   
 |Entitetstyp|Adress|Exempel|  
 |-----------------|-------------|-------------|  
-|kö|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|ämne|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |prenumeration|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Meddelandeåtgärder  
@@ -134,7 +134,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:renew-lock`|  
+|Åtgärden|string|Ja|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
  Meddelandetexten begäran måste bestå av ett avsnitt för amqp-värde som innehåller en karta med följande poster:  
@@ -172,14 +172,14 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:peek-message`|  
+|Åtgärden|string|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|lång|Ja|Serienummer som du vill starta peek från.|  
+|`from-sequence-number`|long|Ja|Serienummer som du vill starta peek från.|  
 |`message-count`|int|Ja|Maximalt antal meddelanden för att granska.|  
   
 #### <a name="response"></a>Svar  
@@ -201,7 +201,7 @@ Kartan som representerar ett meddelande måste innehålla följande poster:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|meddelande|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
+|message|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
   
 ### <a name="schedule-message"></a>Schema-meddelande  
 
@@ -213,7 +213,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:schedule-message`|  
+|Åtgärden|string|Ja|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -230,7 +230,7 @@ Kartan som representerar ett meddelande måste innehålla följande poster:
 |sessions-id|string|Nej|`amqpMessage.Properties.GroupId as string`|  
 |partitionsnyckel|string|Nej|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
 |via-partition-key|string|Nej|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|meddelande|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
+|message|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
   
 #### <a name="response"></a>Svar  
 
@@ -257,7 +257,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:cancel-scheduled-message`|  
+|Åtgärden|string|Ja|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -293,7 +293,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:renew-session-lock`|  
+|Åtgärden|string|Ja|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -315,7 +315,7 @@ Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehål
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|upphörande|tidsstämpel|Ja|Ny upphör att gälla.|  
+|upphör att gälla|timestamp|Ja|Ny upphör att gälla.|  
   
 ### <a name="peek-session-message"></a>Granska Session meddelande  
 
@@ -327,14 +327,14 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:peek-message`|  
+|Åtgärden|string|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|från sekvensnummer|lång|Ja|Serienummer som du vill starta peek från.|  
+|från sekvensnummer|long|Ja|Serienummer som du vill starta peek från.|  
 |Antal meddelanden|int|Ja|Maximalt antal meddelanden för att granska.|  
 |sessions-id|string|Ja|Sessions-ID.|  
   
@@ -357,7 +357,7 @@ Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehål
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|meddelande|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
+|message|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
   
 ### <a name="set-session-state"></a>Set-sessionstillstånd  
 
@@ -369,7 +369,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:set-session-state`|  
+|Åtgärden|string|Ja|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -398,7 +398,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:get-session-state`|  
+|Åtgärden|string|Ja|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -432,15 +432,15 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:get-message-sessions`|  
+|Åtgärden|string|Ja|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|tidsstämpel|Ja|Filtrera om du vill inkludera endast sessioner som har uppdaterats efter en viss tid.|  
-|hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
+|last-updated-time|timestamp|Ja|Filtrera om du vill inkludera endast sessioner som har uppdaterats efter en viss tid.|  
+|Hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
 |längst upp|int|Ja|Maximalt antal sessioner.|  
   
 #### <a name="response"></a>Svar  
@@ -456,7 +456,7 @@ Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehål
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|hoppa över|int|Ja|Antal överhoppade sessioner om statuskoden är 200.|  
+|Hoppa över|int|Ja|Antal överhoppade sessioner om statuskoden är 200.|  
 |sessioner-ID: n|matris med strängar|Ja|Matris med sessions-ID. Om statuskoden är 200.|  
   
 ## <a name="rule-operations"></a>Åtgärder för regeln  
@@ -469,7 +469,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:add-rule`|  
+|Åtgärden|string|Ja|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -501,7 +501,7 @@ Den **korrelationsfiltret** karta måste innehålla minst en av följande poster
 |message-id|string|Nej||  
 |till|string|Nej||  
 |Svara till|string|Nej||  
-|etikett|string|Nej||  
+|label|string|Nej||  
 |sessions-id|string|Nej||  
 |svars-till-sessions-id|string|Nej||  
 |innehållstyp|string|Nej||  
@@ -530,7 +530,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:remove-rule`|  
+|Åtgärden|string|Ja|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -556,7 +556,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
 
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:enumerate-rules`|  
+|Åtgärden|string|Ja|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
 
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -564,7 +564,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |längst upp|int|Ja|Antal regler för att hämta på sidan.|  
-|hoppa över|int|Ja|Antal regler för att hoppa över. Definierar startIndex (+ 1) i listan med regler. | 
+|Hoppa över|int|Ja|Antal regler för att hoppa över. Definierar startIndex (+ 1) i listan med regler. | 
 
 #### <a name="response"></a>Svar
 
@@ -611,10 +611,10 @@ Varje post i matrisen innehåller följande egenskaper:
 | 0 | string | Korrelations-ID |
 | 1 | string | Meddelande-ID |
 | 2 | string | Till |
-| 3 | string | Svara |
+| 3 | string | Svara till |
 | 4 | string | Label (Etikett) |
 | 5 | string | Sessions-ID |
-| 6 | string | Svar på sessions-ID|
+| 6 | string | Svara till sessions-ID|
 | 7 | string | Innehållstyp |
 | 8 | Karta | Karta över egenskaper för program som har definierats |
 
@@ -639,7 +639,7 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:receive-by-sequence-number`|  
+|Åtgärden|string|Ja|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
@@ -669,7 +669,7 @@ Kartan som representerar ett meddelande måste innehålla följande poster:
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |Lås token|uuid|Ja|Lås token om `receiver-settle-mode` är 1.|  
-|meddelande|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
+|message|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
   
 ### <a name="update-disposition-status"></a>Uppdateringsstatus för disposition  
 
@@ -681,14 +681,14 @@ Meddelandet med begäran måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|åtgärd|string|Ja|`com.microsoft:update-disposition`|  
+|Åtgärden|string|Ja|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
   
 Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
 |Nyckel|Värdetyp|Obligatoriskt|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|string|Ja|completed<br /><br /> övergivna<br /><br /> Har pausats|  
+|disposition-status|string|Ja|Slutfört<br /><br /> övergivna<br /><br /> Har pausats|  
 |Lås token|matris med uuid|Ja|Meddelandet Lås token för att uppdatera disposition status.|  
 |deadletter-reason|string|Nej|Kan anges om disposition status anges till **pausats**.|  
 |deadletter-description|string|Nej|Kan anges om disposition status anges till **pausats**.|  

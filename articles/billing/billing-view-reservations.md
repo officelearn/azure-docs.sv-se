@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369226"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Visa Azure reservationer i Azure portal
@@ -49,7 +49,7 @@ Om du vill ändra omfattningen för en reservation kan dela en reservation eller
 Visa transaktioner för reserverade Azure-portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök på **Cost Management + fakturering**.
 
     ![Skärmbild som visar Azure portal-sökning](./media/billing-view-reservation/portal-cm-billing-search.png)
 

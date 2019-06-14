@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295793"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
@@ -127,7 +127,7 @@ Riskprincip för användare är en automatisk åtgärd som du kan konfigurera f�
    
 Riskprincip för användare som tillhör den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Riskprincip för användare](./media/howto-configure-risk-policies/11014.png)
+![Princip för användarrisk](./media/howto-configure-risk-policies/11014.png)
 
 
 
@@ -141,7 +141,7 @@ När du konfigurerar riskprincip för användare, måste du ange:
 
 - Nivå för inloggningsrisk som utlöser principen:
 
-    ![Användarisknivå](./media/howto-configure-risk-policies/112.png)
+    ![Nivå för användarrisk](./media/howto-configure-risk-policies/112.png)
 
 - Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
 
@@ -159,7 +159,7 @@ Dialogrutan princip konfiguration får du ett alternativ för att beräkna effek
 
 Du kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
 
-![Blockerar](./media/howto-configure-risk-policies/116.png)
+![Blockera](./media/howto-configure-risk-policies/116.png)
 
 
 Blockera en inloggning:

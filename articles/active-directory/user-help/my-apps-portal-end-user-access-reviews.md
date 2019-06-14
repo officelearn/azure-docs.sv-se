@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482888"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomstgranskning från portalen Mina appar
@@ -63,7 +63,7 @@ Om din administratör har gett dig behörighet att utföra egna åtkomstgranskni
 
     ![Åtkomst Granska sidan som visar rutan orsak med exempeltext](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Välj **Skicka**.
+7. Välj **skicka**.
 
     Din åtkomstgranskning är klar och du kommer tillbaka till den **Mina appar** portal.
 

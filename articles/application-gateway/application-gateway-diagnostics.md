@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048714"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -155,8 +155,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
 
 ### <a name="access-log"></a>Åtkomstlogg
 
-Åtkomst-loggen skapas endast om du har aktiverat det på varje Application Gateway-instans, enligt beskrivningen i föregående steg. Data lagras i lagringskontot som du angav när du har aktiverat loggning. Varje åtkomst till Application Gateway loggas i JSON-format, som visas i följande exempel:
-
+Åtkomst-loggen skapas endast om du har aktiverat det på varje Application Gateway-instans, enligt beskrivningen i föregående steg. Data lagras i lagringskontot som du angav när du har aktiverat loggning. Varje åtkomst till Application Gateway loggas i JSON-format, som visas i följande exempel för v1:
 
 |Värde  |Beskrivning  |
 |---------|---------|
@@ -193,6 +192,58 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+För Programgatewayen och WAF v2 visar loggarna lite mer information:
+
+|Värde  |Beskrivning  |
+|---------|---------|
+|instanceId     | Application Gateway-instans som hanteras av begäran.        |
+|clientIP     | Ursprungliga IP-Adressen för begäran.        |
+|clientPort     | Ursprungliga port för begäran.       |
+|httpMethod     | HTTP-metod som används i begäran.       |
+|requestUri     | URI för fick begäran.        |
+|RequestQuery     | **Server-dirigerat**: Backend-poolen-instans som har skickats begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som användes för begäran. Det kan användas för att felsöka problem med trafik på backend servrarna. </br>**SERVER-STATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.       |
+|UserAgent     | Användaragent från HTTP-frågehuvudet.        |
+|httpStatus     | HTTP-statuskoden som returneras till klienten från Programgatewayen.       |
+|httpVersion     | HTTP-version för begäran.        |
+|ReceivedBytes     | Storleken på paket togs emot i byte.        |
+|SentBytes| Storleken på paketet som skickades i byte.|
+|timeTaken| Lång tid (i millisekunder) som det tar för en begäran att bearbetas och svaret skickas. Detta beräknas som intervall från den tidpunkt när Application Gateway får den första byten i en HTTP-begäran till den tidpunkt när svaret skickar åtgärden har slutförts. Det är viktigt att notera att fältet Time-Taken vanligtvis innehåller den tid som begäran och svar-paket är på resande fot över nätverket. |
+|sslEnabled| Om kommunikation till backend-adresspooler används för SSL. Giltiga värden är på och stänga av.|
+|sslCipher| Chiffersvit som används för SSL-kommunikation (om SSL är aktiverat).|
+|sslProtocol| SSL-protokollet som används (om SSL är aktiverat).|
+|serverRouted| Backend-servern som application gateway dirigerar begäran till.|
+|serverStatus| HTTP-statuskod för backend-servern.|
+|serverResponseLatency| Svarstid för svaret från backend-servern.|
+|host| Adress som anges i värdhuvudet i begäran.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```

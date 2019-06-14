@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554701"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
@@ -82,12 +82,12 @@ Klicka på **aktivitetsloggen** att visa åtgärder som utförs för cacheminnet
 
 Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkontroll (RBAC i Azure-portalen). Den här konfigurationen hjälper organisationer att uppfylla sina krav för hantering av åtkomst bara och exakt. Mer information finns i [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Taggar
+### <a name="tags"></a>Tags
 
 Den **taggar** avsnitt hjälper dig att organisera dina resurser. Mer information finns i [med taggar för att organisera Azure-resurser](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Diagnosticera och lösa problem
+### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
 
 Klicka på **diagnostisera och lösa problem** måste anges med vanliga problem och strategier för att lösa dem.
 
@@ -263,7 +263,7 @@ Den **Geo-replikering** bladet är en mekanism för att länka två Premium-niv�
 > 
 > 
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtuellt nätverk
 Den **virtuellt nätverk** avsnittet kan du konfigurera inställningar för virtuella nätverk för cacheminnet. Stöd för information om hur du skapar en premium-cache med ett virtuellt nätverk och uppdaterar sina inställningar, se [så här konfigurerar du stöd för virtuella nätverk för Premium Azure Cache för Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -404,7 +404,7 @@ Den nya Azure Cache för Redis-instanser har konfigurerats med följande Redis c
 | `maxclients` |Beror på prisnivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stängs Redis alla nya anslutningar kommer tillbaka ett högsta antal klienter nått fel. |
 | `maxmemory-policy` |`volatile-lru` |Princip för max. minne är inställningen för hur Redis väljer vad du ska ta bort när `maxmemory` (storleken på den cache-erbjudande du valde när du har skapat cacheminnet) har nåtts. Med Azure Cache för Redis standardinställningen är `volatile-lru`, som tar bort nycklarna med ett förfallodatum som anges med en LRU-algoritm. Den här inställningen kan konfigureras i Azure-portalen. Mer information finns i [minne principer](#memory-policies). |
 | `maxmemory-samples` |3 |Är uppskattade algoritmer i stället för exakta algoritmer för att spara minne, LRU- och minimal TTL-algoritmer. Redis kontrollerar tre nycklar och plockningar det som har använts nyligen mindre som standard. |
-| `lua-time-limit` |5 000 |Maximal körningstid för ett Lua-skript i millisekunder. Om den högsta körningstiden har nåtts loggar Redis att ett skript är fortfarande i körningen efter att den längsta tillåtna tid och börjar svarar på frågor med ett fel. |
+| `lua-time-limit` |5,000 |Maximal körningstid för ett Lua-skript i millisekunder. Om den högsta körningstiden har nåtts loggar Redis att ett skript är fortfarande i körningen efter att den längsta tillåtna tid och börjar svarar på frågor med ett fel. |
 | `lua-event-limit` |500 |Maxstorlek på skriptet händelsekön. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata bufferten gränserna kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern som är tillräckligt fort av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
@@ -466,7 +466,7 @@ Mer information om databaser finns i [vad är Redis-databaser?](cache-faq.md#wha
 > * CONFIG
 > * DEBUG
 > * MIGRERA
-> * Spara
+> * SPARA
 > * STÄNG AV
 > * SLAVEOF
 > * KLUSTER - kluster skrivna kommandon är inaktiverade, men skrivskyddade kluster kommandon tillåts.

@@ -2,7 +2,7 @@
 title: Azure Batch Sluthändelse för uppgift | Microsoft Docs
 description: Referens för Batch Sluthändelse för uppgift.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549979"
 ---
 # <a name="task-complete-event"></a>Sluthändelse för uppgift
@@ -56,7 +55,7 @@ ms.locfileid: "60549979"
 |Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |jobId|String|Id för jobbet som innehåller aktiviteten.|
-|id|String|ID för uppgiften.|
+|id|String|Id för uppgiften.|
 |taskType|String|Typ av uppgiften. Detta kan vara som anger det är en job manager-aktivitet ' JobManager ”eller” användare ”som anger det inte är en job manager-aktivitet. Den här händelsen genereras inte för jobbförberedelse, jobbpubliceringsaktiviteter eller startaktiviteter.|
 |systemTaskVersion|Int32|Det här är räknaren interna återförsök för en aktivitet. Batch-tjänsten kan internt gör en uppgift för tillfälliga problem. De här problemen kan omfatta interna schemaläggning fel eller försök att komma tillrätta med compute-noder i ett felaktigt tillstånd.|
 |[nodeInfo](#nodeInfo)|Komplex typ|Innehåller information om Beräkningsnoden som aktiviteten kördes.|
@@ -92,5 +91,3 @@ ms.locfileid: "60549979"
 |Slutkod|Int32|Slutkoden för uppgiften.|
 |RetryCount|Int32|Hur många gånger uppgiften avslutas av Batch-tjänsten. Uppgiften görs om avslutas med en slutkod, upp till den angivna MaxTaskRetryCount.|
 |requeueCount|Int32|Antal gånger som aktiviteten har åter placerats i kö av Batch-tjänsten som ett resultat av en användarbegäran.<br /><br /> När användaren tar bort noder från en pool (genom att ändra storlek på eller minska storleken på poolen) eller när jobbet är inaktiverad och användaren kan ange att uppgifter som körs på noderna ska placeras i kö för körning. Det här antalet spårar hur många gånger uppgiften har åter placerats i kö av dessa skäl.|
-
-<!-- Update_Description: update metedata properties -->

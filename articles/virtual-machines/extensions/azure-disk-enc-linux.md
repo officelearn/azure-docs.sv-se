@@ -75,8 +75,8 @@ Azure Disk Encryption för Linux kräver en Internetanslutning för åtkomst til
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| utgivare | Microsoft.Azure.Security | string |
-| typ | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | AADClientSecret | password | string |
@@ -86,7 +86,7 @@ Azure Disk Encryption för Linux kräver en Internetanslutning för åtkomst til
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| Lösenfras | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS-, Data, alla | string |
 

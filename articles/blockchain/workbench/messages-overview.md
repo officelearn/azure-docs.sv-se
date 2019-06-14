@@ -40,7 +40,7 @@ Begäran kräver följande fält:
 | lastName             | Efternamn för användaren                               |
 | emailAddress         | E-postadressen för användaren                           |
 | externalId           | Azure AD-objekt-ID för användaren                      |
-| ConnectionId         | Unik identifierare för blockchain-anslutning |
+| connectionId         | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion | Meddelanden schemaversion                            |
 | messageName          | **CreateUserRequest**                               |
 
@@ -66,11 +66,11 @@ Blockchain Workbench returnerar ett svar med följande fält:
 | requestId             | Klienten angivna GUID |
 | userId                | ID för den användare som har skapats |
 | userChainIdentifier   | Adress för den användare som har skapats i blockchain-nätverket. I Ethereum, adressen är användarens **i kedjan** adress. |
-| ConnectionId          | Unik identifierare för blockchain-anslutning|
+| connectionId          | Unik identifierare för blockchain-anslutning|
 | messageSchemaVersion  | Meddelanden schemaversion |
 | messageName           | **CreateUserUpdate** |
 | status                | Status för skapa användarbegäran.  Om lyckas, är värdet **lyckades**. Värdet är på fel, **fel**.     |
-| AdditionalInformation | Ytterligare informationen baserat på status |
+| additionalInformation | Ytterligare informationen baserat på status |
 
 Exempel lyckad **skapa användare** svar från Blockchain Workbench:
 

@@ -64,7 +64,7 @@ sections:
         className: cardsD
         items:
           - title: Förhandsgranskningar
-            html: '<p><a href="stream-analytics-previews#public-previews">Allmänt tillgängliga förhandsversioner</a></p><p><a href="stream-analytics-previews#private-previews">Privat förhandsgranskning</a></p>'
+            html: '<p><a href="stream-analytics-previews#public-previews">Allmänt tillgängliga förhandsversioner</a></p><p><a href="stream-analytics-previews#other-previews">Privat förhandsgranskning</a></p>'
           - title: Kommandorad
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
           - title: Språk

@@ -77,8 +77,8 @@ Följande JSON visar schemat för tillägget för Azure VM beroende-agent på en
 | Namn | Värdet / exempel |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| utgivare | Microsoft.Azure.Monitoring.DependencyAgent |
-| typ | DependencyAgentLinux |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
+| type | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Malldistribution

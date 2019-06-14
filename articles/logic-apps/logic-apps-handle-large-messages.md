@@ -140,7 +140,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
      | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*Adressintervall*> | String | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
-     | **Innehållstyp** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
+     | **Content-Type** | <*content-type*> | String | Typ av segmenterat innehåll |
      | **Content-Length** | <*content-length*> | String | Längden på storlek i byte för det aktuella segmentet |
      |||||
 

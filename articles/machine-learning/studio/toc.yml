@@ -7,8 +7,7 @@
       displayName: overview
       href: what-is-ml-studio.md
     - name: Jämför våra ML-produkter
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: Självstudier
   items:
     - name: Skapa ditt första experiment

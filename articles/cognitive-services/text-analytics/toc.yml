@@ -8,6 +8,7 @@
     - name: Exempel på användarscenarier
       href: text-analytics-user-scenarios.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: REST-API
       items:
@@ -33,6 +34,8 @@
           href: quickstarts/go-sdk.md
         - name: Ruby
           href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
 - name: Självstudier
   items:
     - name: Integrera Power BI för att analysera kundfeedback

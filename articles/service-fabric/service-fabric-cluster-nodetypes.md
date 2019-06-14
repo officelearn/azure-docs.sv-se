@@ -76,10 +76,10 @@ Här följer Egenskapsbeskrivningar:
 
 | **Namn** | **Tillåtna värden** | ** --- ** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| namn | string | --- | unikt namn för tillägg |
-| typ | ”ServiceFabricLinuxNode” eller ”ServiceFabricWindowsNode | --- | Identifierar OS Service Fabric bootstrapping till |
+| name | string | --- | unikt namn för tillägg |
+| type | ”ServiceFabricLinuxNode” eller ”ServiceFabricWindowsNode | --- | Identifierar OS Service Fabric bootstrapping till |
 | autoUpgradeMinorVersion | SANT eller FALSKT | --- | Aktivera automatisk uppgradering av SF Runtime delversioner |
-| utgivare | Microsoft.Azure.ServiceFabric | --- | Service Fabric-tillägget utgivarens namn |
+| publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric-tillägget utgivarens namn |
 | clusterEndpont | string | --- | URI:port till hanteringsslutpunkten |
 | nodeTypeRef | string | --- | namnet på nodeType |
 | durabilityLevel | Brons, silver, guld, Platina | --- | tiden som tillåts att pausa oföränderlig infrastruktur i Azure |

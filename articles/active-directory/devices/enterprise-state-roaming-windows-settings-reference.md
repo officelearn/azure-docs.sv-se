@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353259"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
@@ -30,7 +30,7 @@ Följande är en fullständig lista över alla inställningar som ska flyttade e
 ## <a name="devices-and-endpoints"></a>Enheter och slutpunkter
 Se följande tabell för en sammanfattning av enheter och typer som stöds av sync, säkerhetskopiering, och Återställ framework i Windows 10.
 
-| Kontotyp och åtgärd | Skrivbord | Mobil |
+| Kontotyp och åtgärd | Skrivbord | mobila |
 | --- | --- | --- |
 | Azure Active Directory: synkronisering |Ja |Nej |
 | Azure Active Directory: säkerhetskopiering/återställning |Nej |Nej |
@@ -67,7 +67,7 @@ I följande tabell, andra posterna i kolumnen Enhetsinställningsgruppen referer
 Intern posterna i kolumnen Enhetsinställningsgruppen avser inställningar och program som kan endast inaktiveras synkroniseras i själva appen eller genom att inaktivera synkronisering för hela enheten med hjälp av hantering av mobilenheter (MDM) eller inställningarna för Grupprincip.
 Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 
-| Inställningar | Skrivbord | Mobil | Grupp |
+| Inställningar | Skrivbord | mobila | Grupp |
 | --- | --- | --- | --- |
 | **Konton**: kontobild |Synkronisering |X |Tema |
 | **Konton**: andra kontoinställningar |X |X | |
@@ -145,25 +145,25 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **Språk**: Spell check - Autokorrigering och markera felstavningar |Synkronisering |säkerhetskopiering |Språk |
 | **Språk**: lista över tangentbord |Synkronisering |säkerhetskopiering |Språk |
 | **Lås skärmen**: alla låsa skärminställningar |X |X | |
-| **Skärmförstoraren**: aktivera eller inaktivera (master växla) |X |X |Hjälpmedel |
-| **Skärmförstoraren**: aktivera invertering färg eller inaktivera (inaktiverat som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmförstoraren**: spåra - Följ tangentbordsfokus |Synkronisering |X |Hjälpmedel |
-| **Skärmförstoraren**: spåra - Följ markören |Synkronisering |X |Hjälpmedel |
-| **Skärmförstoraren**: starta när användare loggar in (inaktiverat som standard) |Synkronisering |X |Hjälpmedel |
+| **Skärmförstoraren**: aktivera eller inaktivera (master växla) |X |X |hjälpmedel |
+| **Skärmförstoraren**: aktivera invertering färg eller inaktivera (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmförstoraren**: spåra - Följ tangentbordsfokus |Synkronisering |X |hjälpmedel |
+| **Skärmförstoraren**: spåra - Följ markören |Synkronisering |X |hjälpmedel |
+| **Skärmförstoraren**: starta när användare loggar in (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
 | **Mus**: ändra storlek på markören |Synkronisering |X |övrigt |
 | **Mus**: ändra färg på markören |Synkronisering |X |övrigt |
 | **Mus**: alla andra inställningar |X |X | |
-| **Skärmläsaren**: Snabbstart |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: användare kan ändra Skärmläsaren talar försäljningsargument |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: användare kan aktivera eller inaktivera Skärmläsaren läser tips för vanliga objekt (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: användare kan aktivera eller inaktivera om de kan höra tecken (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: användare kan aktivera eller inaktivera om de kan höra skrivna ord (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: har insert markören följa Skärmläsaren (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: aktivera visuella markeringar för Skärmläsaren markören (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: spela upp ljud (på som standard) |Synkronisering |X |Hjälpmedel |
-| **Skärmläsaren**: aktivera nycklar på skärmtangentbordet när du lyfter fingret (inaktiverat som standard) |Synkronisering |X |Hjälpmedel |
-| **Hjälpmedel**: ange tjockleken på blinkande markör |Synkronisering |X |Hjälpmedel |
-| **Hjälpmedel**: tar bort bakgrundsbilder (inaktiverat som standard) |Synkronisering |X |Hjälpmedel |
+| **Skärmläsaren**: Snabbstart |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: användare kan ändra Skärmläsaren talar försäljningsargument |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: användare kan aktivera eller inaktivera Skärmläsaren läser tips för vanliga objekt (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: användare kan aktivera eller inaktivera om de kan höra tecken (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: användare kan aktivera eller inaktivera om de kan höra skrivna ord (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: har insert markören följa Skärmläsaren (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: aktivera visuella markeringar för Skärmläsaren markören (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: spela upp ljud (på som standard) |Synkronisering |X |hjälpmedel |
+| **Skärmläsaren**: aktivera nycklar på skärmtangentbordet när du lyfter fingret (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
+| **Hjälpmedel**: ange tjockleken på blinkande markör |Synkronisering |X |hjälpmedel |
+| **Hjälpmedel**: tar bort bakgrundsbilder (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
 | **Kraften och strömsparläge**: alla inställningar |X |X | |
 | **Starta skärmen personanpassning**: dekorfärg färg (endast mobil) |X |Synkronisering |Tema |
 | **Att skriva**: stavningsordlista |Synkronisering |säkerhetskopiering |Språk |

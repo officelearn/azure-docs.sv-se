@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583849"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållarinstanser som använder GPU-resurser
@@ -45,7 +45,7 @@ Om du vill använda GPU: er i en behållarinstans, ange en *GPU resource* med f�
 * **Antal** -antalet GPU: er: **1**, **2**, eller **4**.
 * **SKU** -GPU-SKU: **K80**, **P100**, eller **V100**. Varje SKU som mappar till NVIDIA Tesla GPU i ett familjerna Azure GPU-aktiverad virtuell dator:
 
-  | SKU | VM-familj |
+  | SKU | VM-serie |
   | --- | --- |
   | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |

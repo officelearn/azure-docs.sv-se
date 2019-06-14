@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387833"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Aktuell version](transform-data-using-spark.md)
 
@@ -60,16 +60,16 @@ Här är exempel JSON-definition för en Spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-| Egenskap               | Beskrivning                              | Obligatoriskt |
+| Egenskap              | Beskrivning                              | Krävs |
 | --------------------- | ---------------------------------------- | -------- |
-| namn                  | Namnet på aktiviteten i pipelinen.    | Ja      |
+| name                  | Namnet på aktiviteten i pipelinen.    | Ja      |
 | description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
-| typ                  | För Spark-aktivitet är aktivitetstypen HDInsightSpark. | Ja      |
+| type                  | För Spark-aktivitet är aktivitetstypen HDInsightSpark. | Ja      |
 | linkedServiceName     | Namnet på den HDInsight Spark länkade tjänst som Spark-programmet körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | SparkJobLinkedService | Azure Storage-länkade tjänst som innehåller Spark jobbfilen, beroenden och loggar.  Om du inte anger ett värde för den här egenskapen används den lagring som är associerad med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en länkad Azure Storage-tjänst. | Nej       |
 | rootPath              | Azure Blob-behållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänsligt. Referera till mappstrukturen avsnitt (nästa avsnitt) för ytterligare information om strukturen för den här mappen. | Ja      |
 | entryFilePath         | Relativa sökvägen till rotmappen för koden/paketet Spark. Post-filen måste vara antingen en Python-fil eller en .jar-fil. | Ja      |
-| Klassnamn             | Programmets Java/Spark-huvudklass      | Nej       |
+| className             | Programmets Java/Spark-huvudklass      | Nej       |
 | argument             | En lista med kommandoradsargument till Spark-programmet. | Nej       |
 | proxyUser             | Användarkonto för att personifiera för att köra Spark-programmet | Nej       |
 | sparkConfig           | Ange värden för Spark-konfigurationsegenskaper som anges i avsnittet: [Spark-konfiguration – programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej       |
@@ -80,7 +80,7 @@ Spark-jobb är mer omfattande än Pig/Hive-jobb. För Spark-jobb kan du ange fle
 
 Skapa följande mappstrukturen i Azure Blob storage som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel överföra python till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas Data Factory-tjänsten följande mappstrukturen i Azure Blob storage:     
 
-| Sökväg                  | Beskrivning                              | Obligatoriskt | Typ   |
+| `Path`                  | Beskrivning                              | Obligatoriskt | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (rot)            | Rotsökvägen för Spark-jobb i länkade storage-tjänsten | Ja      | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar startfil Spark-jobb | Ja      | Fil   |

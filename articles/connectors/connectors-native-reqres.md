@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538148"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Kom igång med begäranden och svar-komponenter
@@ -88,7 +88,7 @@ Följande är ett inmatningsfält för utlösaren från en inkommande HTTP-begä
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| JSON-Schema |schemat |JSON-schemat för HTTP-begärandetexten |
+| JSON-Schema |schema |JSON-schemat för HTTP-begärandetexten |
 
 <br>
 
@@ -108,7 +108,7 @@ Här följer inmatningsfält för HTTP-svar-åtgärden. A * innebär att det är
 | --- | --- | --- |
 | Status för kod * |statusCode |HTTP-statuskod |
 | Rubriker |Rubriker |Ett JSON-objekt för alla svarshuvuden att inkludera |
-| Innehåll |brödtext |Svarstexten |
+| Innehåll |body |Svarstexten |
 
 ## <a name="next-steps"></a>Nästa steg
 Nu kan prova att använda plattformen och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga anslutningsappar i logic apps genom att titta på våra [API: er lista](apis-list.md).

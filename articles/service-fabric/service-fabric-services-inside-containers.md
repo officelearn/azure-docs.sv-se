@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050470"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Behållaranpassa dina Service Fabric Reliable Services och Reliable Actors i Windows
 
@@ -119,6 +119,16 @@ Det här dokumentet innehåller riktlinjer för att få din tjänst som körs i 
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Som standard om Service Fabric-program till Service Fabric-körningen i form av en slutpunkt som accepterar programspecifika begäranden. Överväg att inaktivera den här åtkomsten när programmet är värd för icke betrodd kod. Mer information finns i [säkerhetsmetoder i Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Lägg till följande inställning i principavsnittet i applikationsmanifestet motsvarar importerade tjänstmanifestet på följande sätt om du vill inaktivera åtkomst till Service Fabric-körningen:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Om du vill testa det här programmet, måste du distribuera den till ett kluster som kör version 5.7 eller högre. För körningsversioner 6.1 eller lägre måste du redigera och uppdatera inställningarna för klustret om du vill aktivera den här funktionen för förhandsgranskning. Följ stegen i den här [artikeln](service-fabric-cluster-fabric-settings.md) och Lägg till inställning visas nästa.
     ```

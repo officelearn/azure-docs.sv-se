@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556380"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -30,24 +30,24 @@ Skapa, ta bort och hantera tjänsten, tjänsttyper och paket.
 | --- | --- |
 | appens namn | Hämtar namnet på Service Fabric-program för en tjänst. |
 | code-package-list | Hämtar listan över kodpaket som distribuerats på en Service Fabric-nod. |
-| skapa | Skapar den angivna Service Fabric-tjänsten. |
+| create | Skapar den angivna Service Fabric-tjänsten. |
 | delete | Tar bort en befintlig Service Fabric-tjänst. |
 | distribuerat typ | Hämtar information om en angiven tjänsttyp av program som distribuerats på en nod i ett Service Fabric-kluster. |
 | distribuerat-type-list | Hämtar listan som innehåller information om tjänsttyper från program som har distribuerats på en nod i ett Service Fabric-kluster. |
 | description | Hämtar en beskrivning av en befintlig Service Fabric-tjänst. |
 | Hämta behållarloggar | Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod. |
-| hälsa | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten. |
+| health | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten. |
 | info | Hämtar information om den tjänst som hör till Service Fabric-program. |
-| lista | Hämtar information om alla tjänster som hör till programmet som anges av program-ID. |
-| Manifest | Hämtar manifestet som beskriver en typ av tjänst. |
+| list | Hämtar information om alla tjänster som hör till programmet som anges av program-ID. |
+| manifest | Hämtar manifestet som beskriver en typ av tjänst. |
 | package-deploy | Laddar ned paket som är associerade med angivna tjänstmanifestet till image cache på angivna noden. |
 | paket-health | Hämtar information om hälsotillståndet i ett abonnemang för ett visst program som distribueras för en Service Fabric-nod och program. |
 | package-info | Hämtar listan över paket distribueras på en Service Fabric-nod som matchar exakt det angivna namnet. |
 | package-list | Hämtar listan över paket distribueras på en Service Fabric-nod. |
 | återställa | Anger att den ska försöka återställa den angivna tjänsten som för närvarande har fastnat förlorar kvorum till Service Fabric-klustret. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-tjänst. |
-| lös | Lösa en Service Fabric-partition. |
-| typ-list | Hämtar listan som innehåller information om typer av tjänster som stöds av en etablerad programtyp i Service Fabric-kluster. |
+| report-health | Skickar en hälsorapport på Service Fabric-tjänst. |
+| lösa | Lösa en Service Fabric-partition. |
+| type-list | Hämtar listan som innehåller information om typer av tjänster som stöds av en etablerad programtyp i Service Fabric-kluster. |
 | update | Uppdaterar den angivna tjänsten med hjälp av en viss uppdatering beskrivning. |
 
 ## <a name="sfctl-service-app-name"></a>sfctl app-tjänstnamn

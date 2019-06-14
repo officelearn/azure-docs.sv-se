@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415641"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självåterställning av lösenord i Azure AD
@@ -61,8 +61,8 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den. Mer information om de metoder som anges nedan finns i artikeln [vad är autentiseringsmetoder?](concept-authentication-methods.md).
 
-* Mobilappmeddelande (förhandsgranskning)
-* Mobilappkod (förhandsversion)
+* Mobilapp (förhandsversion)
+* Kod för mobilapp (förhandsversion)
 * E-post
 * Mobiltelefon
 * Arbetstelefon

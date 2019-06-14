@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d0d0c3683d8855418bdafa204325525c4cd3943c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050780"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Lodrätt skalning av virtuella Linux-datorer med Azure Automation
 Vertikal skalning är processen för att öka eller minska resurser på en dator som svar på arbetsbelastningen. I Azure kan detta åstadkommas genom att ändra storleken på den virtuella datorn. Det kan hjälpa dig i följande scenarier
@@ -83,6 +83,7 @@ Kantlinje för stegen för att åstadkomma detta är som nedan
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Konfigurera Azure Automation för att komma åt dina virtuella datorer
 Det första du behöver göra är att skapa ett Azure Automation-konto som är värd för runbooks som används för att skala VM Scale Set-instanser. Automation-tjänsten införde nyligen funktionen ”Kör som-konto” som gör att du kan konfigurera tjänstens huvudnamn för att automatiskt köra runbooks på användarens vägnar lättare än någonsin. Mer information finns i artikeln nedan:

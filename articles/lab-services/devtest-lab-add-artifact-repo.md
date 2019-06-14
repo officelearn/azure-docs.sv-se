@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311732"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Lägg till en Git-lagringsplats för att lagra anpassade artefakter och Resource Manager-mallar
@@ -74,7 +74,7 @@ Om du vill lägga till en lagringsplats i labbet, först få viktig information 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan över tjänster.
 3. Listan över labbar, väljer du ditt labb. 
-4. Välj **konfiguration och principer** > **databaser** > **+ Lägg till**.
+4. Välj **konfiguration och principer** > **databaser** >  **+ Lägg till**.
 
     ![Knappen Lägg till databasen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. På andra **databaser** anger du följande information:

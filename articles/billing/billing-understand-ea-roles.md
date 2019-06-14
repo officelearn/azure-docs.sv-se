@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
 ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370721"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Förstå Azure Enterprise-avtal administrativa roller i Azure
@@ -26,7 +26,7 @@ Kunder med ett Enterprise Agreement (EA) kan tilldela fem olika administrativa r
 
 - Företagsadministratör
 - Företagsadministratör (skrivskyddat)
-- Avdelningsadministratör
+- Avdelning administratör
 - Avdelning administratör (skrivskyddat)
 - Kontoägare
  
@@ -40,7 +40,7 @@ I följande avsnitt beskrivs de begränsningar och funktionerna för varje roll.
 |---|---|
 |Företagsadministratör|Obegränsat|
 |Företagsadministratör (skrivskyddat)|Obegränsat|
-|Avdelningsadministratör|Obegränsat|
+|Avdelning administratör|Obegränsat|
 |Avdelning administratör (skrivskyddat)|Obegränsat|
 |Kontoägare|1 per konto<sup>1</sup>|
 
@@ -48,7 +48,7 @@ I följande avsnitt beskrivs de begränsningar och funktionerna för varje roll.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Organisationsstruktur och behörigheter efter roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelningsadministratör|Avdelning administratör (skrivskyddat)|Kontoägare|
+|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelning administratör|Avdelning administratör (skrivskyddat)|Kontoägare|
 |---|---|---|---|---|---|
 |Visa Företagsadministratörer|✔|✔|✘|✘|✘|
 |Lägg till eller ta bort Företagsadministratörer|✔|✘|✘|✘|✘|
@@ -67,7 +67,7 @@ I följande avsnitt beskrivs de begränsningar och funktionerna för varje roll.
 
 ## <a name="usage-and-costs-access-by-role"></a>Användning och kostnader för åtkomst av roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelningsadministratör|Avdelning administratör (skrivskyddat) |Kontoägare|
+|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddat)|Avdelning administratör|Avdelning administratör (skrivskyddat) |Kontoägare|
 |---|---|---|---|---|---|
 |Visa kreditsaldo inklusive åtagandebelopp|✔|✔|✘|✘|✘|
 |Visa avdelningens utgiftsgränser|✔|✔|✘|✘|✘|
@@ -95,8 +95,8 @@ I följande tabell visar förhållandet mellan administratörsroller Enterprise-
 |---|---|---|---|
 |Ägare eller administratör för avdelning|✔ Aktiverat|Ägare|Organisations EA-priser|
 |Ägare eller administratör för avdelning|✘ Inaktiverad|Ägare|Återförsäljarpriset|
-|Ägare eller administratör för avdelning|✔ Aktiverat |inga|Ingen prissättning|
-|Ägare eller administratör för avdelning|✘ Inaktiverad |inga|Ingen prissättning|
+|Ägare eller administratör för avdelning|✔ Aktiverat |Ingen|Ingen prissättning|
+|Ägare eller administratör för avdelning|✘ Inaktiverad |Ingen|Ingen prissättning|
 |Ingen|Inte tillämpligt |Ägare|Återförsäljarpriset|
 
 Du ställer in administratörsrollen för Enterprise och visa debiterar principer i Enterprise portal. RBAC-roll kan uppdateras i Azure-portalen. Mer information finns i [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).

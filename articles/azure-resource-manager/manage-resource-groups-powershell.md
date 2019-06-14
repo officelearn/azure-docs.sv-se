@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550503"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure PowerShell
@@ -27,7 +27,7 @@ Andra artiklar om hur du hanterar resursgrupper:
 - [Hantera Azure-resursgrupper med hjälp av Azure-portalen](./manage-resources-portal.md)
 - [Hantera Azure-resursgrupper med hjälp av Azure CLI](./manage-resources-cli.md)
 
-## <a name="what-is-a-resource-group"></a>Vad är ett resursgrupp
+## <a name="what-is-a-resource-group"></a>Vad är en resursgrupp
 
 En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. I allmänhet ska du lägga till resurser som delar samma livscykel i samma resursgrupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 Get-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="list-resource-groups"></a>Lista resursgrupper
+## <a name="list-resource-groups"></a>Lista över resursgrupper
 
 Följande PowerShell-skript visar resursgrupper i din prenumeration.
 

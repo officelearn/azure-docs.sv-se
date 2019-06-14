@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348747"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synkronisering: Förstå och anpassa synkronisering
@@ -31,7 +31,7 @@ Det här avsnittet är hem för **Azure AD Connect-synkronisering** (kallas äve
 Synkroniseringstjänsten består av två komponenter, lokalt **Azure AD Connect-synkronisering** komponent- och serversidan i Azure AD kallas **Azure AD Connect-synkroniseringstjänsten**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect sync-ämnen
-| Avsnitt | Den beskriver hur och när du ska läsa |
+| Ämne | Den beskriver hur och när du ska läsa |
 | --- | --- |
 | **Azure AD Connect sync-grunderna** | |
 | [Förstå arkitekturen](concept-azure-ad-connect-sync-architecture.md) |För de som är nya i Synkroniseringsmotorn och vill veta om arkitekturen och de termer som används. |

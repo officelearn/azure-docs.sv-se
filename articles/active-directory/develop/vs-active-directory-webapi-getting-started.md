@@ -9,15 +9,15 @@ ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-origin.date: 03/12/2018
-ms.date: 09/03/2018
-ms.author: v-junlch
+ms.date: 03/12/2018
+ms.author: ghogen
 ms.custom: aaddev, vs-azure
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: 662d958fc7ef6fe5c9d0e61a1d8e48983d10196f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353813"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Kom igång med Azure Active Directory (WebApi-projekt)
@@ -38,5 +38,3 @@ Alla domänkontrollanter i ditt projekt har adorned med den `[Authorize]` attrib
 
 - [Autentiseringsscenarier för Azure Active Directory](authentication-scenarios.md)
 - [Lägga till logga in med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)
-
-<!-- Update_Description: link update -->

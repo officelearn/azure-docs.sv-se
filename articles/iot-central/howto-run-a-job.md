@@ -9,10 +9,10 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519231"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
@@ -76,7 +76,7 @@ När ett jobb har skapats kan den **Status** kolumnen uppdateringar med det sena
 | -------------------- | ------------------------------------------------------- |
 | Slutfört            | Det här jobbet har körts på alla enheter.              |
 | Misslyckad               | Det här jobbet har misslyckades och inte helt körs på enheter.  |
-| Väntande åtgärder              | Det här jobbet har inte ännu har startat körs på enheter.         |
+| Väntande              | Det här jobbet har inte ännu har startat körs på enheter.         |
 | Körs              | Det här jobbet körs för tillfället på enheter.             |
 | Stoppad              | Det här jobbet har stoppats manuellt av en användare.           |
 
@@ -95,7 +95,7 @@ Välj jobbet för att visa status för jobbet och alla de berörda enheterna. Om
 | -------------------- | ----------------------------------------------------------------------------- |
 | Slutfört            | Jobbet har körts på den här enheten.                                     |
 | Misslyckad               | Jobbet har inte kunnat köra på den här enheten. Ett felmeddelande visas mer information.  |
-| Väntande åtgärder              | Jobbet har inte ännu körs på den här enheten.                                   |
+| Väntande              | Jobbet har inte ännu körs på den här enheten.                                   |
 
 > [!NOTE]
 > Om en enhet har tagits bort, du kan inte välja enheten och visar tagits bort med enhets-ID.

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050594"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
-Security Center samlar in data från Azure-datorer (VM), VM-skalningsuppsättningar, IaaS-behållare och icke-Azure (inklusive lokalt) datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Agenten Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
+Security Center samlar in data från dina virtuella Azure-datorer (VM), VM-skalningsuppsättningar, IaaS-behållare och icke-Azure (inklusive lokalt) datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Agenten Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
 
 Insamling av data krävs för att ge dig information om saknade uppdateringar, felkonfigurerad OS-säkerhetsinställningar, aktivering av endpoint protection och hälsa och threat identifieringar. 
 
@@ -31,12 +31,11 @@ Den här artikeln innehåller råd om hur du installerar Microsoft Monitoring Ag
 > [!NOTE]
 > - Datainsamling krävs endast för beräkningsresurser (virtuella datorer, skalningsuppsättningar för virtuella datorer, IaaS-behållare och Azure-datorer). Du kan dra nytta av Azure Security Center även om du inte etablera agenter; men du har begränsad säkerhet och de funktioner som anges ovan stöds inte.  
 > - Lista över plattformar som stöds finns i [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
-> - Insamling av data för Virtual machine scale Sets stöds inte för närvarande.
-> - Lagra data i Log Analytics, oavsett om du använder en ny eller befintlig arbetsyta kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
+> - Lagra data i Log Analytics, oavsett om du använder en ny eller befintlig arbetsyta kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Aktivera automatisk etablering av Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
-Om du vill samla in data från datorerna bör du ha Microsoft Monitoring Agent installerad.  Installationen av agenten kan vara automatiskt (rekommenderas) eller så kan du välja att installera agenten manuellt.  
+Om du vill samla in data från datorerna, bör du ha Microsoft Monitoring Agent installerad.  Installationen av agenten kan göras automatiskt (rekommenderas) eller så kan du installera agenten manuellt.  
 
 >[!NOTE]
 > Automatisk etablering är inaktiverat som standard. Om du vill ange Security Center för att installera Automatisk etablering som standard, ange den till **på**.
@@ -87,10 +86,8 @@ Välja den arbetsyta som skapats av Security Center:
 1. Security Center aktiverar automatiskt en Security Center-lösning på arbetsytan per prisnivån för prenumerationen. 
 
 > [!NOTE]
-> Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. För standardnivån aktiverar Security Center lösningen *Security* på standardarbetsytan.
-> Lagra data i Log Analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
-
-Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
+> Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
+> Lagra data i Log Analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mer information om befintliga log analytics-konton finns i [befintliga log analytics-kunder](security-center-faq.md#existingloganalyticscust).
 
@@ -102,7 +99,7 @@ Om du vill använda din befintliga Log Analytics-arbetsyta som du måste ha läs
 
 > [!NOTE]
 > Lösningar som aktiverats på den befintliga arbetsytan tillämpas på Azure virtuella datorer som är anslutna till den. Detta kan resultera i ytterligare avgifter för betalda lösningar. För data överväganden av datasekretess, kontrollera att din valda arbetsyta är i rätt geografisk region.
-> Lagra data i log analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
+> Lagra data i log analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 Att välja en befintlig Log Analytics-arbetsyta:
 
@@ -150,7 +147,7 @@ När du väljer en arbetsyta där du vill lagra dina data finns alla arbetsytor 
 ## <a name="data-collection-tier"></a>Samling datanivå
 Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Log Analytics-agenten kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
 > [!NOTE]
-> Lagra data i log analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
+> Lagra data i log analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska lagras i din arbetsyta: 
 
@@ -179,7 +176,7 @@ Här är en fullständig uppdelning av säkerhets- och AppLocker händelse-ID f�
 | --- | --- |
 | Minimalt | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Delad | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
+| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -205,8 +202,10 @@ Följande användningsfall ange hur automatisk etablering i fall när det finns 
 
 - Microsoft Monitoring Agent är installerad på datorn, men inte som ett tillägg (Direct agent)<br>
 Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), Security Center installeras Microsoft Monitoring Agent-tillägget och uppgradera Microsoft Monitoring agent till den senaste versionen.
-Agenten installerad fortsätter att rapportera till sin redan konfigurerade arbetsytor och dessutom rapporterar till arbetsytan som konfigurerats i Security Center (flera värdar stöds).
+Agenten installerad fortsätter att rapportera till sin redan konfigurerade arbetsytor och dessutom rapporterar till arbetsytan som konfigurerats i Security Center (flera värdar stöds på Windows-datorer).
 Om den konfigurerade arbetsytan är en användararbetsytan (inte Security Center standard-arbetsytan) så du måste installera den ”säkerhet /” securityFree ”-lösning på det för Security Center för att börja bearbeta händelser från virtuella datorer och datorer som rapporterar till arbetsytan.<br>
+<br>
+För Linux-datorer, multihoming för agenten ännu är inte stöd för – därför om en befintlig agentinstallation av identifieras Automatisk etablering inte inträffar och konfigurationen ändras inte.
 <br>
 För befintliga datorer på prenumerationer har integrerats i Security Center innan 2019-03-17, när en befintlig agent identifieras, kommer inte att installera Microsoft Monitoring Agent-tillägget och datorn påverkas inte. För dessa datorer finns i ”Lös övervaka problem med hälsotillstånd på dina datorer” rekommendationen för att lösa installationsproblem för agenten på dessa datorer.
 

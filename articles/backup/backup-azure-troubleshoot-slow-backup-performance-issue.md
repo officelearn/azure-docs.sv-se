@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337637"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
@@ -38,7 +38,7 @@ Windows tillhandahåller ett inbyggda verktyg som kallas [Prestandaövervakaren]
 
 Här följer några prestandaräknare och adressintervall som kan vara till hjälp diagnosticera flaskhalsar för optimal säkerhetskopiering.
 
-| Räknare | Status |
+| Räknaren | Status |
 | --- | --- |
 | Logisk Disk (fysiska disken)--% inaktiv |• 100% inaktiv till 50% inaktiv = felfri</br>• 49% inaktiv till 20% inaktiv = varnings- eller Övervakare</br>• 19% inaktiv till 0% inaktiv = kritiska eller av Spec |
 | Logisk Disk (fysiska disken)--% genomsn. Disk sek läsning eller skrivning |• 0,001 ms till 0.015 ms = felfri</br>• 0.015 ms till 0.025 ms = varnings- eller Övervakare</br>• 0.026 ms eller längre = kritiska eller av Spec |

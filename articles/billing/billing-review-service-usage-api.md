@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370993"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-Resursanvändning med hjälp av REST-API
@@ -46,7 +46,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*| Krävs. Ange `application/json`. |  
-|*Auktorisering:*| Krävs. Ange att ett giltigt `Bearer` token. |
+|*Authorization:*| Krävs. Ange att ett giltigt `Bearer` token. |
 
 Konfigurera parametrarna för rapporten i HTTP-begärandetexten. I exemplet nedan anges rapporten att generera varje dag när aktiv, är en CSV-fil som skrivs till en Azure Storage blob-behållare och per timme innehåller kostnadsinformation för alla resurser i resursgruppen `westus`.
 
@@ -89,7 +89,7 @@ Konfigurera parametrarna för rapporten i HTTP-begärandetexten. I exemplet neda
 }
 ```
 
-den
+Filtypen
 
 ## <a name="filtering-reports"></a>Filtrera rapporter
 

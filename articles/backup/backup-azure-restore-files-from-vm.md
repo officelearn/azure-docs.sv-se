@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240101"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
@@ -179,7 +179,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Om RAID-disk har en annan LVM som konfigurerats i den, sedan använder föregående procedur för LVM partitioner utan volymens namn i stället för RAID diskens namn
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="system-requirements"></a>Systemkraven
 
 ### <a name="for-windows-os"></a>För Windows OS
 

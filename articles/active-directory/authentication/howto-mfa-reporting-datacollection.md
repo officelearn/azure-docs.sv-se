@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359049"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Datainsamling för Azure Multi-Factor Authentication-användare
@@ -78,7 +78,7 @@ Aktiveringar (försök att aktivera ett konto i Microsoft Authenticator-mobilapp
 - Aktivering Status resultat
 - Enhetsnamn
 - Typ av enhet
-- Programversion
+- Appversion
 - OATH-Token som aktiverats
 
 Block (används för att fastställa blockerade tillståndet och att rapportera):
@@ -103,7 +103,7 @@ Block (används för att fastställa blockerade tillståndet och att rapportera)
 Förbikopplingar (används för rapportering):
 
 - Kringgå tidsstämpel
-- Förbikopplingssekunder
+- Åsidosättning i sekunder
 - Förbikoppling av användarnamn
 - Användarnamn
 - Landskod
@@ -122,14 +122,14 @@ Förbikopplingar (används för rapportering):
 - Användarnamn
 - Ny landskod
 - Nytt telefonnummer
-- Ny anknytning
+- Nytt tillägg
 - Ny landskod för säkerhetskopiering
 - Ny reservtelefonnummer
 - Nytt tillägg för säkerhetskopiering
 - Ny PIN-kod
-- PIN-koden måste ändras
+- Ändra PIN-kod krävs
 - Gamla Enhetstoken
-- Ny enhetstoken
+- Ny Enhetstoken
 
 ## <a name="gather-data-from-mfa-server"></a>Samla in data från MFA Server
 

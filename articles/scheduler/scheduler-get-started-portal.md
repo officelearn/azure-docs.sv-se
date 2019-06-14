@@ -11,10 +11,10 @@ ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531868"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Skapa och schemalägga ditt första jobb med Azure Scheduler – Azure-portalen
@@ -38,7 +38,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 1. Under **Scheduler-jobb**, ange den här informationen:
 
-   | Egenskap  | Exempelvärde | Beskrivning |
+   | Egenskap | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Namn** | getMicrosoft | Ange ett namn för ditt jobb | 
    | **Jobbsamling** | <*jobbsamlingsnamnet*> | Skapa en jobbsamling eller välj en befintlig samling. | 
@@ -47,7 +47,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 1. Välj **Åtgärdsinställningar – konfigurera**, ange den här informationen och välj sedan **OK** när du är klar:
 
-   | Egenskap  | Exempelvärde | Beskrivning |
+   | Egenskap | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Åtgärd** | **Http** | Typ av åtgärd som ska köras | 
    | **Metod** | **Hämta** | Anropsmetod | 
@@ -60,7 +60,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
    Även om du kan skapa ett engångsjobb ställer det här exemplet in ett återkommande schema.
 
-   | Egenskap  | Exempelvärde | Beskrivning |
+   | Egenskap | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Frekvens** | **Återkommande** | Antingen ett engångsjobb eller ett återkommande jobb | 
    | **Starta den** | <*dagens-datum*> | Jobbets startdatum | 

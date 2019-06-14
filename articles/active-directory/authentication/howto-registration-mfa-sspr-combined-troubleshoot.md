@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414637"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombineras security information registrering (förhandsversion)
@@ -35,16 +35,16 @@ Händelser som har loggats för kombinerade registrering finns i kategorin auten
 
 I följande tabell visas alla granskningshändelserna som genereras av kombinerade registrering:
 
-| Aktivitet | Status | Orsak | Beskrivning |
+| Aktivitet | Status | Reason | Beskrivning |
 | --- | --- | --- | --- |
-| Användare registrerad all säkerhetsinformation som krävs | Lyckades | Användare registrerad all säkerhetsinformation som krävs. | Den här händelsen inträffar när en användare har slutfört registreringen.|
+| Användare registrerad all säkerhetsinformation som krävs | Klart | Användare registrerad all säkerhetsinformation som krävs. | Den här händelsen inträffar när en användare har slutfört registreringen.|
 | Användare registrerad all säkerhetsinformation som krävs | Fel | Användaren avbröt security info registrering. | Den här händelsen inträffar när en användare avbryter registreringen från interrupt läge.|
-| Användare registrerad säkerhetsinformation | Lyckades | Användaren har registrerats *metoden*. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metoden* kan vara Authenticator app, telefon, e-post, säkerhet frågor, App lösenord, Alternativ telefon och så vidare.| 
-| Användare som har granskat säkerhetsinformation | Lyckades | Användaren granskat har säkerhetsinformation. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan Granska säkerhetsinformation.|
+| Användare registrerad säkerhetsinformation | Klart | Användaren har registrerats *metoden*. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metoden* kan vara Authenticator app, telefon, e-post, säkerhet frågor, App lösenord, Alternativ telefon och så vidare.| 
+| Användare som har granskat säkerhetsinformation | Klart | Användaren granskat har säkerhetsinformation. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan Granska säkerhetsinformation.|
 | Användare som har granskat säkerhetsinformation | Fel | Det gick inte att granska säkerhetsinformation användare. | Den här händelsen inträffar när en användare väljer **ser bra ut** på säkerhetsinformationen granskar du sidan men något inte fungerar på serverdelen.|
-| Användaren tog bort säkerhetsinformation | Lyckades | Användaren tog bort *metoden*. | Den här händelsen inträffar när användaren tar bort en enskild metod. *Metoden* kan vara Authenticator app, telefon, e-post, säkerhet frågor, App lösenord, Alternativ telefon och så vidare.|
+| Användaren tog bort säkerhetsinformation | Klart | Användaren tog bort *metoden*. | Den här händelsen inträffar när användaren tar bort en enskild metod. *Metoden* kan vara Authenticator app, telefon, e-post, säkerhet frågor, App lösenord, Alternativ telefon och så vidare.|
 | Användaren tog bort säkerhetsinformation | Fel | Det gick inte att ta bort användaren *metoden*. | Den här händelsen inträffar när en användare försöker att ta bort en metod men försöket misslyckas av någon anledning. *Metoden* kan vara Authenticator app, telefon, e-post, säkerhet frågor, App lösenord, Alternativ telefon och så vidare.|
-| Användare har ändrats standard säkerhetsinformation | Lyckades | Användare ändrade standard säkerhetsinformationen för *metoden*. | Den här händelsen inträffar när en användare ändrar standardmetoden. *Metoden* kan vara en kod från min authenticator-appen eller token, anrop + X XXXXXXXXXX, Text i appmeddelande Authenticator en kod till + X XXXXXXXXX och så vidare.|
+| Användare har ändrats standard säkerhetsinformation | Klart | Användare ändrade standard säkerhetsinformationen för *metoden*. | Den här händelsen inträffar när en användare ändrar standardmetoden. *Metoden* kan vara en kod från min authenticator-appen eller token, anrop + X XXXXXXXXXX, Text i appmeddelande Authenticator en kod till + X XXXXXXXXX och så vidare.|
 | Användare har ändrats standard säkerhetsinformation | Fel | Det gick inte att ändra standard säkerhetsinformationen för användaren *metoden*. | Den här händelsen inträffar när en användare försöker ändra standardmetoden men försöket misslyckas av någon anledning. *Metoden* kan vara en kod från min authenticator-appen eller token, anrop + X XXXXXXXXXX, Text i appmeddelande Authenticator en kod till + X XXXXXXXXX och så vidare.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Felsökningsläge avbrott

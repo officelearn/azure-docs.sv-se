@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311020"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
@@ -30,7 +30,7 @@ När en producent skickar ett meddelande i en kö, sker det vanligtvis i omfång
 Microsoft Azure Service Bus-meddelanden har definierat nyttolast-egenskaper som producenter och konsumenter som ska använda för att skicka sådana spår kontext.
 Protokollet som baseras på den [korrelation av HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Namn på egenskap        | Beskrivning                                                 |
+| Egenskapsnamn        | Beskrivning                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Unik identifierare för ett externt anrop från producent till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för sker, överväganden och format |
 |  Correlation-Context | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden utförs. Mer information finns i [Korrelations-kontexten i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 I det här exemplet loggar lyssnare varaktighet, resultatet, unik identifierare och starttid för varje Service Bus-åtgärd.
 
-#### <a name="events"></a>Händelser
+#### <a name="events"></a>Events
 
 För varje åtgärd skickas två händelser: ”Start” och ”stoppa”. Du är mest förmodligen bara intresserad ”stoppa” händelser. De ger resultatet av åtgärden, samt starttid och varaktighet som Aktivitetsegenskaper för en.
 
@@ -153,7 +153,7 @@ Varje händelse som ”stoppa” har `Status` egenskap med `TaskStatus` async-å
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
-| Åtgärdsnamn | Spårade API | Egenskaper för specifika nyttolast|
+| Åtgärdens namn | Spårade API | Egenskaper för specifika nyttolast|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lista med meddelanden som skickas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Meddelande som bearbetas<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Offset schemalagt meddelande<br/>`long SequenceNumber` -Sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |

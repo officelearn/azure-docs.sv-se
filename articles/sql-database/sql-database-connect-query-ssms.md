@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f2edf0adbfd740ce552449125ae69ab50a8586
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051082"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -87,7 +87,7 @@ Anslut till din Azure SQL Database-server i SMSS.
 
 5. Om du vill se databasens objekt expanderar du **Databaser** och **mySampleDatabase**.
 
-   ![visa databasobjekt](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase objekt](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Söka i data
 
@@ -106,7 +106,7 @@ Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transac
 
 3. I verktygsfältet väljer du **Kör** för att hämta data från tabellerna `Product` och `ProductCategory`.
 
-    ![fråga för att hämta data från två tabeller](./media/sql-database-connect-query-ssms/query2.png)
+    ![fråga för att hämta data från tabellen produkt och produktkategori](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Infoga data
 
@@ -133,7 +133,7 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
            ,GETDATE() );
    ```
 
-2. Välj **Kör** för att infoga en ny rad i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att infoga en ny rad i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)** .
 
 ## <a name="view-the-result"></a>Visa resultatet
 
@@ -146,7 +146,7 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 
 2. Välj **Kör**. Följande resultat visas.
 
-   ![Resultatet](./media/sql-database-connect-query-ssms/result.png)
+   ![resultatet av produkten tabellfråga](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Uppdatera data
 
@@ -160,7 +160,7 @@ Kör det här [uppdatering](https://msdn.microsoft.com/library/ms177523.aspx) Tr
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)** .
 
 ## <a name="delete-data"></a>Ta bort data
 
@@ -173,7 +173,7 @@ Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transac
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)** .
 
 ## <a name="next-steps"></a>Nästa steg
 

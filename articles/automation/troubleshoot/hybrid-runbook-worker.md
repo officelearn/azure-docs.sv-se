@@ -10,10 +10,10 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564267"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka Hybrid Runbook Worker
@@ -56,7 +56,7 @@ Datorer som kör Hybrid Runbook Worker ska uppfylla minimikraven för maskinvara
 
 Bekräfta att den dator som ska köra Hybrid Runbook Worker-funktionen uppfyller minimikraven på maskinvara. I annat fall använda övervaka CPU och minne för att fastställa alla samband mellan prestanda för Hybrid Runbook Worker-processer och Windows. Om minne eller hög CPU-belastning kan detta tyda på att uppgradera resurser. Du kan också välja en annan beräkningsresurs som stöder de minimikrav och skala när arbetsbelastning visar en ökning krävs.
 
-Kontrollera den **Microsoft SMA** händelseloggen för motsvarande händelse med beskrivningen *Win32 processen avslutades med koden [4294967295]*. Orsaken till felet är du inte har konfigurerat autentisering i dina runbooks eller angivna kör som-autentiseringsuppgifterna för Hybrid worker-gruppen. Granska [Runbook-behörigheter](../automation-hrw-run-runbooks.md#runbook-permissions) att bekräfta att du har korrekt konfigurerat autentisering för dina runbooks.
+Kontrollera den **Microsoft SMA** händelseloggen för motsvarande händelse med beskrivningen *Win32 processen avslutades med koden [4294967295]* . Orsaken till felet är du inte har konfigurerat autentisering i dina runbooks eller angivna kör som-autentiseringsuppgifterna för Hybrid worker-gruppen. Granska [Runbook-behörigheter](../automation-hrw-run-runbooks.md#runbook-permissions) att bekräfta att du har korrekt konfigurerat autentisering för dina runbooks.
 
 ### <a name="no-cert-found"></a>Scenario: Inget certifikat hittades i certifikatarkivet på Hybrid Runbook Worker
 

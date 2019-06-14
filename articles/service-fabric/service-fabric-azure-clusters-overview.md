@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310931"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric-kluster på Azure
@@ -31,9 +31,9 @@ Service Fabric-kluster på Azure är en Azure-resurs som använder och samverkar
 * Virtuella datorer och virtuella nätverkskort
 * VM-skalningsuppsättningar
 * virtuella nätverk
-* lastbalanserare
-* lagringskonton
-* offentliga ip-adresser
+* Belastningsutjämnare
+* Storage-konton
+* Offentliga IP-adresser
 
 ![Service Fabric-kluster][Image]
 
@@ -55,7 +55,7 @@ Du kan använda skalningsuppsättningar för att distribuera och hantera en upps
 Mer information finns i [Service Fabric-nodtyper och VM-skalningsuppsättningar](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-VM-instanser som är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentliga IP-adressen](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) och DNS-etikett.  När du etablerar ett kluster med  *&lt;clustername&gt;*, DNS-namnet  *&lt;clustername&gt;.&lt; plats&gt;. cloudapp.azure.com* är DNS-etikett som är associerade med belastningsutjämnaren framför skalningsuppsättningen.
+VM-instanser som är anslutna bakom en [Azure-belastningsutjämnare](/azure/load-balancer/load-balancer-overview), som är associerad med en [offentliga IP-adressen](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) och DNS-etikett.  När du etablerar ett kluster med  *&lt;clustername&gt;* , DNS-namnet  *&lt;clustername&gt;.&lt; plats&gt;. cloudapp.azure.com* är DNS-etikett som är associerade med belastningsutjämnaren framför skalningsuppsättningen.
 
 Virtuella datorer i ett kluster har endast [privata IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Hantering av trafik och -tjänstens trafik dirigeras via offentliga belastningsutjämnare.  Trafik dirigeras till dessa datorer via NAT-regler (klienterna ansluter till specifika noder/instanser) eller belastningsutjämningsregler (trafik skickas till virtuella datorer (round robin)).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet:  *&lt;clustername&gt;.&lt; plats&gt;. cloudapp.azure.com*.  En offentlig IP-adress är en annan Azure-resurser i resursgruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för typen/skalningsuppsättning varje nod. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten  *&lt;clustername&gt;.&lt; plats&gt;. cloudapp.azure.com*, andra nodtyper har DNS-etiketten  *&lt;clustername&gt;-&lt;nodetype&gt;.&lt; plats&gt;. cloudapp.azure.com*.
 
@@ -95,7 +95,7 @@ Programbegäran ändras med tiden. Du kan behöva öka klusterresurser för att 
 
 Mer information finns i [skala Azure-kluster](service-fabric-cluster-scaling.md).
 
-## <a name="upgrading"></a>Uppgraderar
+## <a name="upgrading"></a>Uppgradera
 Ett Azure Service Fabric-kluster är en resurs som du äger, men delvis hanteras av Microsoft. Microsoft ansvarar för uppdatering av det underliggande Operativsystemet och utför Service Fabric runtime uppgraderingar i klustret. Du kan ange att ta emot automatiska runtime uppgraderingar, när Microsoft publicerar en ny version eller välja en stöds runtime-versionen som du vill. Du kan också uppdatera klusterkonfiguration som certifikat och programportar förutom runtime uppgraderingar.
 
 Mer information finns i [uppgradera kluster](service-fabric-cluster-upgrade.md).

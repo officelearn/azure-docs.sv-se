@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
 ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238394"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Återställa filer till Windows med hjälp av Azure Resource Manager-distributionsmodellen
@@ -44,7 +44,7 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
 
     ![Skärmbild av Azure Backup med Återställ Data markerat](./media/backup-azure-restore-windows-server/recover.png)
 
-3. På den **komma igång** att återställa data på samma server eller dator, väljer du **den här servern (`<server name>`)** > **nästa**.
+3. På den **komma igång** att återställa data på samma server eller dator, väljer du **den här servern (`<server name>`)**  > **nästa**.
 
     ![Skärmbild av återställa Data guiden komma igång-sidan](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 

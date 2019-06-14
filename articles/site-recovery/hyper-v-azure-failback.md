@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552424"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Köra en återställning efter fel för Hyper-V-datorer
@@ -29,11 +29,11 @@ Den replikerade virtuella datorer som inte skyddas av Site Recovery efter en red
 1. Välj **Återställningsplaner** > *recoveryplan_name*. Klicka på **redundans** > **planerad redundans**.
 2. På den **bekräfta planerad redundans** väljer käll- och målplatserna. Observera redundansriktningen. Om redundansväxling från den primära fungerade som förväntat och alla virtuella datorer finns i den sekundära platsen som detta är endast i informationssyfte.
 3. Om du växlar tillbaka från Azure Välj inställningar i **datasynkronisering**:
-    - **Synkronisera data före redundansväxling (synkronisera deltaändringar endast)**– det här alternativet minimerar avbrottstid för virtuella datorer eftersom den synkroniserar utan att de stängs av. Det gör du följande steg:
+    - **Synkronisera data före redundansväxling (synkronisera deltaändringar endast)** – det här alternativet minimerar avbrottstid för virtuella datorer eftersom den synkroniserar utan att de stängs av. Det gör du följande steg:
         - Fas 1: Hämtar ögonblicksbild av den virtuella datorn i Azure och kopieras till en lokal Hyper-V-värd. Datorn fortsätter att köra i Azure.
         - Fas 2: Stänger av den virtuella datorn i Azure så att inga nya ändringar sker det. Den slutgiltiga uppsättningen av deltaändringar överförs till den lokala servern och den lokala virtuella datorn startas.
 
-    - **Synkronisera data under endast redundans (fullständig nedladdning)**– det här alternativet är snabbare.
+    - **Synkronisera data under endast redundans (fullständig nedladdning)** – det här alternativet är snabbare.
         - Det här alternativet är snabbare eftersom vi förväntar oss att de flesta av disken har ändrats och vi vill inte använda kontrollsummeberäkningen. Den utför en nedladdning av disken. Det är också användbart när den lokala virtuella datorn har tagits bort.
         - Vi rekommenderar att du använder det här alternativet om du har kört Azure ett tag (en månad eller mer) eller en lokal virtuell dator har tagits bort. Det här alternativet utföra inte några beräkningar av kontrollsumma.
 

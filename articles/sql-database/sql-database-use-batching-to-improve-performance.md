@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331136"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmets prestanda för SQL-databas
@@ -105,7 +105,7 @@ I följande tabell visas några ad hoc-testresultaten. Testerna utförs samma se
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure-datorer (samma datacenter)**:
+**Azure-datorer (samma datacenter)** :
 
 | Åtgärder | Ingen transaktion (ms) | Transaktion (ms) |
 | --- | --- | --- |

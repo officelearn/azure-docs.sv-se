@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370380"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Förstå användningen av Azure reservation för prenumerationen med användningsbaserad betalning
@@ -44,7 +44,7 @@ Maskinvara-delen av den virtuella datorn ingår eftersom den distribuerade virtu
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Instruktionen i CSV-fil för virtuella datorer
 
-Det här avsnittet av CSV-filen visar den totala användningen av din reservation. Använder du filtret på den **Mätarunderkategori** fält som innehåller **”Reservation-”**. Det se ut ungefär som på följande skärmbild:
+Det här avsnittet av CSV-filen visar den totala användningen av din reservation. Använder du filtret på den **Mätarunderkategori** fält som innehåller **”Reservation-”** . Det se ut ungefär som på följande skärmbild:
 
 ![Skärmbild som visar filtrerade reservationsinformation för användning och kostnader](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 

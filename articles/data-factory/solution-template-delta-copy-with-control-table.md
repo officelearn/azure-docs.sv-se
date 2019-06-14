@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312515"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Deltakopiering från en databas med en kontroll-tabell
@@ -108,11 +108,11 @@ Mallen definierar fem parametrar:
 
      ![Granska pipelinen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Välj **lagrade proceduren**. För **namn på lagrad procedur**, Välj **[update_watermark]**. Välj **importera parameter**, och välj sedan **Lägg till dynamiskt innehåll**.  
+9. Välj **lagrade proceduren**. För **namn på lagrad procedur**, Välj **[update_watermark]** . Välj **importera parameter**, och välj sedan **Lägg till dynamiskt innehåll**.  
 
      ![Ange aktivitet för lagrad procedur](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. Skriv innehållet  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, och välj sedan **Slutför**.  
+10. Skriv innehållet  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** , och välj sedan **Slutför**.  
 
      ![Skriva innehållet i parametrarna för den lagrade proceduren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      

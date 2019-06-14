@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384194"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Med hjälp av kopplingar med Azure AD Connect Sync Service Manager
@@ -42,7 +42,7 @@ Fliken för anslutningar används för att hantera alla system som Synkroniserin
 | Exportera Connector |Använd inte. |
 | Importera Connector |Använd inte. |
 | Uppdatera anslutningsprogrammet |Använd inte. |
-| Uppdatera schema |Uppdaterar cachelagrade schemat. Det rekommenderas att använda alternativet i installationsguiden i stället sedan som också uppdateringar synkroniseras regler. |
+| Uppdatera Schema |Uppdaterar cachelagrade schemat. Det rekommenderas att använda alternativet i installationsguiden i stället sedan som också uppdateringar synkroniseras regler. |
 | [Search Connector Space](#search-connector-space) |För att hitta objekt och följa ett objekt och dess data genom systemet. |
 
 ### <a name="delete"></a>Ta bort

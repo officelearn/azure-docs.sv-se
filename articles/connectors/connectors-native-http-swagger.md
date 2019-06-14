@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448656"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Anropa REST-slutpunkter med HTTP + Swagger anslutning i Azure Logic Apps
@@ -94,19 +94,19 @@ En asterisk (*) innebär ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Metoden * |metod |HTTP-verb som använder. |
-| URI: N * |URI |URI för HTTP-begäran. |
+| Metoden * |method |HTTP-verb som använder. |
+| URI: N * |URI: N |URI för HTTP-begäran. |
 | Rubriker |Rubriker |En JSON-objekt för HTTP-huvuden att inkludera. |
-| Innehåll |brödtext |HTTP-begärandetexten. |
+| Innehåll |body |HTTP-begärandetexten. |
 | Autentisering |autentisering |Autentisering som ska användas för begäran. Mer information finns i den [HTTP-anslutningsappen](connectors-native-http.md#authentication). |
 
 **Utdatainformation**
 
 HTTP-svar
 
-| Namn på egenskap | Datatyp | Beskrivning |
+| Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |objekt |Svarshuvud |
+| Rubriker |objekt |Svarshuvuden |
 | Innehåll |objekt |Svarsobjekt |
 | Statuskod |int |HTTP-statuskod |
 
@@ -116,11 +116,11 @@ När du anropar olika åtgärder, kan du få vissa svar. Följande är en tabell
 | Namn | Beskrivning |
 | --- | --- |
 | 200 |Ok |
-| 202 |Accepterad |
+| 202 |Accepterat |
 | 400 |Felaktig förfrågan |
 | 401 |Behörighet saknas |
 | 403 |Förbjudna |
-| 404 |Kunde inte hittas |
+| 404 |Det gick inte att hitta |
 | 500 |Internt serverfel. Okänt fel uppstod. |
 
 ## <a name="next-steps"></a>Nästa steg

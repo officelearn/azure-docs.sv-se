@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60280434"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Concur för automatisk användaretablering
@@ -101,7 +101,7 @@ Av följande skäl bör den här åtgärden inte utföras med de använder för 
 
 9. Ange den **Etableringsläge** till **automatisk**. 
  
-    ![etablering](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Etablering](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Under den **administratörsautentiseringsuppgifter** anger den **användarnamn** och **lösenord** administratörens Concur.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193721"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Serverdelar och backend-pooler i Azure ytterdörren Service
@@ -71,7 +71,7 @@ Ytterdörren Service skickar regelbundna begäranden för HTTP/HTTPS-avsökning 
 
 - **Protokollet**. Definierar om du vill skicka hälsotillstånd avsökningen begäranden från ytterdörren tjänsten till serverdelen med HTTP eller HTTPS-protokollet.
 
-- **Intervall (sekunder)**. Definierar hur ofta hälsoavsökningar för serverdelen, eller hur ofta som var och en av miljöerna som ytterdörren skickar en avsökning.
+- **Intervall (sekunder)** . Definierar hur ofta hälsoavsökningar för serverdelen, eller hur ofta som var och en av miljöerna som ytterdörren skickar en avsökning.
 
     >[!NOTE]
     >Ange intervallet för snabbare redundans till ett lägre värde. Ju lägre värde, desto högre volymen för health-avsökningen får serverdelen. Till exempel om intervallet har angetts till 30 sekunder med 90 ytterdörren miljöer eller POP globalt varje serverdel får om 3-5 avsökningen begäranden per sekund.
@@ -85,7 +85,7 @@ Belastningsutjämning inställningarna för serverdelspoolen definierar hur vi u
 
 - **Lyckad exempelstorlek**. Definierar den exempelstorlek som tidigare nämnts antalet lyckade exempel som behövs för att anropa serverdelen felfritt. Anta exempelvis att en ytterdörren hälsotillstånd avsökningsintervallet är 30 sekunder, exempelstorlek är 5 och lyckade exempelstorlek är 3. Varje gång det utvärdera hälsan avsökningar för din serverdel, vi tittar på de sista fem exempel över 150 sekunder (5 x 30). Minst tre lyckad avsökningar krävs för att deklarera serverdel som felfri.
 
-- **Svarstid känslighet (ytterligare fördröjning)**. Definierar om du vill att dörren att skicka begäran till serverdelar i svarstidsintervallet mätning känslighet eller vidarebefordra begäran till den närmaste serverdelen.
+- **Svarstid känslighet (ytterligare fördröjning)** . Definierar om du vill att dörren att skicka begäran till serverdelar i svarstidsintervallet mätning känslighet eller vidarebefordra begäran till den närmaste serverdelen.
 
 Mer information finns i [lägsta svarstid baserat routningsmetod](front-door-routing-methods.md#latency).
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407992"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
@@ -80,7 +80,7 @@ I följande tabell visar ett exempel på hur du definierar dina virtuella nätve
 
 **Exempel**
 
-| Virtual Network | Adressutrymme | Region | Ansluter till lokal nätverksplats |
+| Virtuellt nätverk | Adressutrymme | Region | Ansluter till lokal nätverksplats |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Östra USA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Västra USA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -142,7 +142,7 @@ Till exempel ansluter TestVNet1 till en lokal nätverksplats som du skapar med n
 
 Den lokala platsen för varje virtuellt nätverk är det andra virtuella nätverket. Följande Exempelvärden används för vår konfiguration:
 
-| Virtual Network | Adressutrymme | Region | Ansluter till lokal nätverksplats |
+| Virtuellt nätverk | Adressutrymme | Region | Ansluter till lokal nätverksplats |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Östra USA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Västra USA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

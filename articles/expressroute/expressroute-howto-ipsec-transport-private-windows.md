@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367361"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPSec-transportläge för ExpressRoute privat peering
@@ -176,7 +176,7 @@ Skapa en filterlista som anger krypterade HTTP-trafik med målport 8080.
 7. På den **IP-protokolltyp** väljer **TCP**. Klicka sedan på **Nästa**.
 
    [![30]][30]
-8. På den **IP-protokollet, porten** väljer **från alla portar** och **till den här porten:**. Typ **8080** i textrutan. Dessa inställningar anger HTTP-trafik på målport 8080 krypteras. Klicka sedan på **Nästa**.
+8. På den **IP-protokollet, porten** väljer **från alla portar** och **till den här porten:** . Typ **8080** i textrutan. Dessa inställningar anger HTTP-trafik på målport 8080 krypteras. Klicka sedan på **Nästa**.
 
    [![31]][31]
 9. Visa IP-filterlistan.  Konfigurationen av IP-filterlistan **azure – den lokala-HTTP8080** utlöser kryptering för all trafik som matchar följande kriterier:
@@ -252,7 +252,7 @@ Lägg till IPSec-principen i den **IP-filterlistan** och **filteråtgärd** som 
 6. Markerar du den befintliga **myEncryption** som du skapade tidigare.
 
    [![46]][46]
-7. Windows stöder fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)**, och klicka sedan på **nästa**.
+7. Windows stöder fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)** , och klicka sedan på **nästa**.
 
    [![47]][47]
 8. Den nya principen skapar säkerhetsregeln: **azure – den lokala-HTTP8080**. Klicka på **OK**.

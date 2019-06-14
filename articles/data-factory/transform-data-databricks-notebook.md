@@ -13,10 +13,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311673"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks notebook
@@ -57,11 +57,11 @@ Här är exempel JSON-definition för en Databricks Notebook-aktiviteten:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Obligatoriskt|
+|Egenskap|Beskrivning|Krävs|
 |---|---|---|
-|namn|Namnet på aktiviteten i pipelinen.|Ja|
+|name|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|typ|För Databricks Notebook-aktiviteten är aktivitetstypen DatabricksNotebook.|Ja|
+|type|För Databricks Notebook-aktiviteten är aktivitetstypen DatabricksNotebook.|Ja|
 |linkedServiceName|Namnet på den länkade tjänsten för Databricks som Databricks notebook körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |notebookPath|Den absoluta sökvägen till anteckningsboken för att köras i Databricks-arbetsytan. Den här sökvägen måste börja med ett snedstreck.|Ja|
 |baseParameters|En matris med nyckel / värde-par. Grundläggande parametrar kan användas för varje aktivitet kör. Om anteckningsboken tar en parameter som inte anges, används standardvärdet från anteckningsboken. Hitta mer information om parametrar i [Databricks-anteckningsböcker](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|

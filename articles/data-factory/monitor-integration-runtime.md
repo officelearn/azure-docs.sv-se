@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122628"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
@@ -41,7 +41,7 @@ Beräkningsresurs för en Azure integration runtime är fullständigt hanterad E
 ### <a name="properties"></a>Egenskaper
 Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdlet: en för en Azure integration runtime:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 -------- | ------------- | 
 | Namn | Namnet på Azure integration runtime. |  
 | Status | Status för Azure integration runtime. | 
@@ -68,13 +68,13 @@ Det här avsnittet innehåller beskrivningar av egenskaper som returneras av cmd
 
 Följande tabell innehåller beskrivningar av övervakning av egenskaper för **varje nod**:
 
-| Egenskap  | Beskrivning | 
+| Egenskap | Beskrivning | 
 | -------- | ----------- | 
 | Namn | Namnet på den lokala integreringskörningen och noder som är kopplade till den. Noden är en lokal Windows-dator som har en lokal integration runtime installerad. |  
 | Status | Status för övergripande lokal integration runtime och varje nod. Exempel: Online/Offline/Limited/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av lokal integration runtime och varje nod. Versionen av den lokala integreringskörningen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i lokal integration runtime-installationsprogrammet kan egenvärdbaserade endast noderna med samma versionsnummer som den logiska integration runtime funktionen korrekt. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering misslyckas). | 
-| Ledigt minne | Tillgängligt minne på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
-| Processoranvändning | CPU-utnyttjande på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. |
+| Tillgängligt minne | Tillgängligt minne på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
+| CPU-användning | CPU-utnyttjande på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. |
 | Nätverk (In/ut) | Nätverksanvändningen för en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
 | Samtidiga jobb (körs / begränsa) | **Kör**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. <br/><br/>**Gränsen**. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier när tidsgränsen nåddes även när CPU, minne eller nätverket är underutnyttjade för aktiviteter. Den här funktionen är också tillgängliga med en enda nod lokal integration runtime. |
 | Roll | Det finns två typer av roller i ett flernodigt lokal integration runtime – dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-noden som används för att hämta uppgifter/jobb från cloud services och skicka dem till olika arbetsnoder. Dispatcher-noden är också en underordnad nod. |
@@ -96,9 +96,9 @@ Följande tabell innehåller olika statusar en lokal integration runtime-noden:
 | ------ | ------------------ | 
 | Online | Noden är ansluten till Data Factory-tjänsten. |
 | Offline | Noden är offline. |
-| Uppgraderar | Noden uppdateras automatiskt. |
+| Uppgradera | Noden uppdateras automatiskt. |
 | Begränsad | På grund av ett problem med anslutningen. Kanske på grund av HTTP-port 8050 problemet, service bus-anslutningsproblem eller ett problem för synkronisering av autentiseringsuppgifter. |
-| Inaktiv | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder. |
+| Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder. |
 
 En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
@@ -175,7 +175,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | VNetId | Det virtuella resource ID för din Azure-SSIS integration runtime att ansluta till. |
 | Undernät | Namnet på undernätet för din Azure-SSIS integration runtime kan anslutas till. |
 | ID | Resurs-ID för din Azure-SSIS integration runtime. |
-| Type | Typen (hanterade/Self-signed-Hosted) på din Azure-SSIS integration runtime. |
+| Typ | Typen (hanterade/Self-signed-Hosted) på din Azure-SSIS integration runtime. |
 | ResourceGroupName | Namnet på din Azure-resursgrupp som din data factory och Azure-SSIS integration runtime har skapats. |
 | DataFactoryName | Namnet på din Azure data factory. |
 | Namn | Namnet på din Azure-SSIS integration runtime. |
@@ -187,9 +187,9 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | Status | Beskrivning |
 | ------ | ----------- | 
 | Startar | Den här noden förbereds. |
-| Tillgänglig | Den här noden är redo att distribuera/köra SSIS-paket. |
+| Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Återvinning | Den här noden är att reparera/omstart. |
-| Inte tillgängligt | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
+| Ej tillgänglig | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration runtime)
 
@@ -197,7 +197,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | -------------- | ----------- | 
 | Inledande | Noderna på din Azure-SSIS integration runtime har inte allokerats/förberett. | 
 | Startar | Noderna på din Azure-SSIS integration runtime som ska allokeras/förberedd och fakturering har startats. |
-| Startade | Noderna på din Azure-SSIS integration runtime har allokerats/förberedd och de är redo att distribuera/köra SSIS-paket. |
+| Igång | Noderna på din Azure-SSIS integration runtime har allokerats/förberedd och de är redo att distribuera/köra SSIS-paket. |
 | Stoppar  | Noderna på din Azure-SSIS integration runtime släpps. |
 | Stoppad | Noderna på din Azure-SSIS integration runtime har publicerats och fakturering har stoppats. |
 

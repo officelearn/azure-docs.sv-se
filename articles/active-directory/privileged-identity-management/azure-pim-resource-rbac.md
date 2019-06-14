@@ -17,10 +17,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441452"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visa aktivitet och granskningshistorik för Azure-resursroller i PIM
@@ -43,7 +43,7 @@ Om du vill se vilka åtgärder som en viss användare har gjort i olika resurser
 
     Du kan se en grafisk vy över användaråtgärder i Azure-resurser efter datum. Den visar även de senaste rollaktiveringar under den samma tidsperioden.
 
-    ![Användarinformationen](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Användarinformation](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Klicka på en specifik rollaktivering om du vill visa detaljer och motsvarande Azure-resurs-aktivitet som inträffade när användaren var aktiv.
 
@@ -85,7 +85,7 @@ Resursgranskning ger dig en överblick över alla roll-aktivitet för en resurs.
 
     ![Filtrera resursgranskning](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. För **granskningstyp**väljer **aktivera (tilldelad + aktiverad)**.
+1. För **granskningstyp**väljer **aktivera (tilldelad + aktiverad)** .
 
     ![Aktivitetsinformation](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 

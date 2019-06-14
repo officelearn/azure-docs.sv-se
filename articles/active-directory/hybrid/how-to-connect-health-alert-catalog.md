@@ -15,10 +15,10 @@ ms.date: 03/15/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64f9f835393c5ad2bf6022e4a274e8e2eeb1830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349869"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health-Åtgärdskatalog 
@@ -39,7 +39,7 @@ Azure AD Connect Health-aviseringar supportärendena går att på ett lyckat til
 | --- | --- | ----- |
 | Azure AD Connect-synkroniseringstjänsten körs inte | Microsoft Azure AD Sync Windows-tjänsten körs inte eller kunde inte starta. Därför synkroniseras objekt inte med Azure Active Directory. | Starta Microsoft Azure Active Directory Sync Services</b> <ol> <li>Klicka på <b>starta</b>, klickar du på <b>kör</b>, typ <b>Services.msc</b>, och klicka sedan på <b>OK</b>.</li> <li>Leta upp den <b>Microsoft Azure AD-synkroniseringstjänsten</b>, och kontrollera sedan om tjänsten har startats. Om tjänsten inte är igång, högerklicka på den och klicka sedan på <b>starta</b>. | 
 | Importera från Azure Active Directory misslyckades | Det gick inte att importåtgärden från Azure Active Directory-koppling. |  Undersök fel i händelseloggen för importen för mer information.  |
-| Anslutningen till Azure Active Directory misslyckades pga ett autentiseringsfel | Anslutningen till Azure Active Directory misslyckades pga ett autentiseringsfel. Därmed kommer objekt inte att synkroniseras med Azure Active Directory.  | Undersök fel i händelseloggen för mer information. |
+| Anslutning till Azure Active Directory misslyckades p.g.a. autentiseringsfel | Anslutning till Azure Active Directory misslyckades p.g.a. autentiseringsfel. Därmed kommer objekt inte att synkroniseras med Azure Active Directory.  | Undersök fel i händelseloggen för mer information. |
 | Exportera till Active Directory misslyckades | Exportåtgärden till Active Directory Connector har misslyckats. | Undersök fel i händelseloggen för exportåtgärden för mer information. | 
 | Importera från Active Directory misslyckades | Importera från Active Directory misslyckades. Därför kan objekten från vissa domäner i den här skogen inte importeras. | <li>Verifiera DC-anslutning</li> <li>Kör import manuellt</li> <li> Undersök felen i händelseloggen för mer information om importen. | 
 | Exportera till Azure Active Directory misslyckades | Exportåtgärden till Azure Active Directory Connector har misslyckats. Därför kan exporteras vissa objekt inte har till Azure Active Directory. | Undersök fel i händelseloggen för exportåtgärden för mer information. |

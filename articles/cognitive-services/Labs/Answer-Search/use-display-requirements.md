@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345761"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Projektet Svarssökning användning och visa krav
@@ -36,7 +36,7 @@ Gör inte:
 - ”Search API: er” innebär kallas gemensamt Bing Custom Search, API för Entitetssökning, bildsökning, nyhetssökning, Videosökningsresultat, Visual Search och Web Search API: er. 
 
 
-## <a name="3-search-apis"></a>3. Sök API:er
+## <a name="3-search-apis"></a>3. Sök-API: er
 
 Kraven i detta avsnitt 3 gäller för API: er för sökresultat.
 

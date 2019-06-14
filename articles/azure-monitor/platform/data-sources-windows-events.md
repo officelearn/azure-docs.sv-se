@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236921"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-händelseloggen datakällor i Azure Monitor
@@ -28,7 +28,7 @@ Windows-händelseloggar är en av de vanligaste [datakällor](agent-data-sources
 ## <a name="configuring-windows-event-logs"></a>Konfigurera Windows-händelse loggar
 Konfigurera Windows-händelseloggar från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-Azure Monitor samlar endast in händelser från händelseloggarna för Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på **+**.  Endast händelser med valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
+Azure Monitor samlar endast in händelser från händelseloggarna för Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på **+** .  Endast händelser med valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
 
 När du skriver namnet på en händelselogg innehåller Azure Monitor förslag på vanliga Händelseloggnamn. Om du vill lägga till loggen inte visas i listan, du kan fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du hittar det fullständiga namnet på loggen med hjälp av Loggboken. I Loggboken, öppna den *egenskaper* för loggen och kopierar du strängen från den *fullständigt namn* fält.
 
@@ -44,7 +44,7 @@ Azure Monitor samlar in varje händelse som matchar en vald allvarlighetsgrad fr
 ## <a name="windows-event-records-properties"></a>Egenskaper för Windows händelse-poster
 Windows-händelseposter har en typ av **händelse** och har egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Computer |Namnet på den dator som händelsen har samlats in från. |
 | EventCategory |Händelsens kategori. |
@@ -56,10 +56,10 @@ Windows-händelseposter har en typ av **händelse** och har egenskaperna i följ
 | ParameterXml |Händelsen parametervärden i XML-format. |
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations Manager-agenter.  För övriga agenter är är det här värdet `AOI-<workspace ID>` |
 | RenderedDescription |Händelsebeskrivning med parametervärden |
-| Källa |Källa för händelsen. |
+| source |Källa för händelsen. |
 | SourceSystem |Typ av händelsen har samlats in från agenten. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller Operations Manager-hanterad <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Datum och tid då händelsen skapades i Windows. |
-| Användarnamn |Användarnamn för det konto som loggade händelsen. |
+| UserName |Användarnamn för det konto som loggade händelsen. |
 
 ## <a name="log-queries-with-windows-events"></a>Loggfrågor med Windows-händelser
 I följande tabell innehåller olika exempel på loggfrågor som hämtar Windows händelseposter.

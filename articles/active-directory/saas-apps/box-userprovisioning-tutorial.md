@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431764"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Rutan Konfigurera för automatisk användaretablering
@@ -41,8 +41,8 @@ Du behöver följande saker för att konfigurera Azure AD-integrering med Box:
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Tilldela användare till Box 
 
@@ -95,7 +95,7 @@ Målet med det här avsnittet som beskriver hur du aktivera etablering av Active
 
 4. Ange den **Etableringsläge** till **automatisk**. 
 
-    ![etablering](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Etablering](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** klickar du på **auktorisera** att öppna en dialogruta för inloggning i ett nytt webbläsarfönster.
 

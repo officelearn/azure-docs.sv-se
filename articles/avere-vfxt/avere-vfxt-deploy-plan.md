@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409891"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
@@ -42,7 +42,7 @@ Följ dessa riktlinjer när du planerar Avere vFXT systemets nätverksinfrastruk
 
 * Klustret skapas mallen kan skapa de flesta av de nödvändiga infrastrukturresurser för klustret, inklusive resursgrupper, virtuella nätverk, undernät och storage-konton. Om du vill använda resurser som redan finns, kontrollera att de uppfyller kraven i den här tabellen. 
 
-  | Resurs | Använd befintlig? | Krav |
+  | Resource | Använd befintlig? | Krav |
   |----------|-----------|----------|
   | Resursgrupp | Ja, om den är tom | Måste vara tom| 
   | Lagringskonto | Ja om du ansluter en befintlig Blob-behållaren när klustret har skapats <br/>  Nej om du skapar en ny Blob-behållaren när klustret skapas | Befintlig Blob-behållare måste vara tom <br/> &nbsp; |
@@ -74,7 +74,7 @@ De virtuella datorerna som fungerar som klusternoder fastställa begäran datafl
 
 Each vFXT node will be identical. Det vill säga om du skapar ett kluster med tre noder har tre virtuella datorer av samma typ och storlek. 
 
-| Instanstyp | vCPU:er | Minne  | Lokal SSD-lagring  | Maximalt antal datadiskar | Icke cachelagrat diskgenomflöde | Nätverkskort (antal) |
+| Instanstyp | virtuella processorer | Minne  | Lokal SSD-lagring  | Maximalt antal datadiskar | Icke cachelagrat diskgenomflöde | Nätverkskort (antal) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E32s_v3 | 32  | 256 GB | 512 GiB  | 32 | 51,200 IOPS <br/> 768 Mbit/s | 16 000 Mbit/s (8)  |
 

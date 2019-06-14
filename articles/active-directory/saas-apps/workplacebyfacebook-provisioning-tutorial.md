@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72c2e23b0d60ca242549ebf2c058ea8f44f2b1c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520137"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering
@@ -36,7 +36,7 @@ Du behöver följande saker för att konfigurera Azure AD-integrering med Workpl
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -76,7 +76,7 @@ Azure AD stöder möjligheten att automatiskt synkronisera information om kontot
 
 4. Ange den **Etableringsläge** till **automatisk**. 
 
-    ![etablering](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Etablering](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange åtkomst-Token från din arbetsplats av Facebook-administratör och anger du klient-URL-värdet till `https://www.facebook.com/scim/v1/` . Se dessa [instruktioner](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) om hur du skapar en åtkomsttoken för arbetsplats. 
 

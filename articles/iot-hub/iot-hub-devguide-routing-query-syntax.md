@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400651"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub meddelanderoutning frågesyntax
@@ -51,7 +51,7 @@ IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construc
 
 Systemegenskaper att identifiera innehåll och källan för meddelanden. 
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | contentType | string | Användaren anger innehållstypen för meddelandet. För att fråga på meddelandets brödtext ska sättas det här värdet application/JSON. |
 | contentEncoding | string | Användaren anger kodningstyp för meddelandet. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType har angetts till application/JSON. |

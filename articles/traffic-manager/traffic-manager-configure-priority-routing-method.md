@@ -3,20 +3,21 @@ title: Konfigurera prioritet trafikroutningsmetod med Azure Traffic Manager | Mi
 description: Den här artikeln förklarar hur du konfigurerar prioritet trafikroutningsmetod i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048482"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Konfigurera prioriterad routningsmetod för trafik i Traffic Manager
 
@@ -33,7 +34,7 @@ Ett vanligt mönster för-redundans är att skicka trafik till en primär tjäns
     1. För **trafik routning metodinställningar**, kontrollera att trafikroutningsmetod är **prioritet**. Om det inte är det, klickar du på **prioritet** från den nedrullningsbara listan.
     2. Ange den **inställningar för Slutpunktsövervakning** identiska för alla alla slutpunkter i den här profilen på följande sätt:
         1. Välj lämpliga **protokollet**, och ange den **Port** tal. 
-        2. För **sökväg** skriver ett snedstreck */*. Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
+        2. För **sökväg** skriver ett snedstreck */* . Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
         3. Överst på sidan klickar du på **spara**.
 5. I den **inställningar** klickar du på **slutpunkter**.
 6. I den **slutpunkter** bladet granska prioritetsordning för dina slutpunkter. När du väljer den **prioritet** trafikroutningsmetod, ordningen på de valda slutpunkter frågor. Kontrollera prioritetsordningen för slutpunkter.  Den primära slutpunkten är längst upp. Kontrollera i den ordning som visas. alla begäranden som kommer att dirigeras till den första slutpunkten och om Traffic Manager identifierar den vara felaktig, trafiken växlar automatiskt över till nästa slutpunkten. 

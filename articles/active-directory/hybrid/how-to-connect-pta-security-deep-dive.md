@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348098"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
@@ -186,7 +186,7 @@ Förnya ett autentiseringsagent förtroende med Azure AD:
 
 Updater-programmet uppdateras automatiskt den autentiseringsagent när en ny version (med felkorrigeringar eller prestandaförbättringar) har släppts. Updater-programmet hanterar inte några förfrågningar för verifiering av lösenord för din klient.
 
-Azure AD är värd för den nya versionen av programvaran som loggat **Windows Installer-paketet (MSI)**. MSI signeras med hjälp av [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) med SHA256 som digest-algoritm. 
+Azure AD är värd för den nya versionen av programvaran som loggat **Windows Installer-paketet (MSI)** . MSI signeras med hjälp av [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) med SHA256 som digest-algoritm. 
 
 ![Automatisk uppdatering](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 

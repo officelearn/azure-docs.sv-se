@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498533"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
@@ -103,7 +103,7 @@ När du klickar på den **Key Vault-analys** panelen, du kan visa sammanfattning
 ## <a name="azure-monitor-log-records"></a>Azure Monitor-loggposter
 Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som samlas in från [AuditEvent-loggarna](../../key-vault/key-vault-logging.md) i Azure-diagnostik.  Egenskaper för dessa poster finns i följande tabell:  
 
-| Egenskap  | Beskrivning |
+| Egenskap | Description |
 |:--- |:--- |
 | Typ |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
@@ -117,13 +117,13 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | OperationName |Namnet på åtgärden, som beskrivs i [Azure Key Vault-loggning](../../key-vault/key-vault-logging.md) |
 | OperationVersion |REST API-version som begärs av klienten (till exempel *2015-06-01*) |
 | requestUri_s |URI för begäran |
-| Resurs |Namnet på nyckelvalvet |
+| Resource |Namnet på nyckelvalvet |
 | ResourceGroup |Resursgrupp för nyckelvalvet |
 | ResourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |HTTP-status (till exempel *OK*) |
-| resultType |Resultatet av REST API-begäran (till exempel *lyckades*) |
+| ResultType |Resultatet av REST API-begäran (till exempel *lyckades*) |
 | SubscriptionId |Azure-prenumerations-ID för prenumerationen som innehåller Nyckelvalvet |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrera från den gamla Key Vault-lösningen

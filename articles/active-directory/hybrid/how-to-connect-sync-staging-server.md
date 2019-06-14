@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381594"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server för mellanlagring och haveriberedskap
@@ -65,9 +65,9 @@ Om du har gjort egna ändringar till den primära servern och vill jämföra kon
 
 #### <a name="import-and-synchronize"></a>Importera och synkronisera
 1. Välj **Anslutningsappar**, och välj den första anslutningen med typen **Active Directory Domain Services**. Klicka på **kör**väljer **fullständig import**, och **OK**. Utföra de här stegen för alla kopplingar av den här typen.
-2. Välj kopplingen med typen **Azure Active Directory (Microsoft)**. Klicka på **kör**väljer **fullständig import**, och **OK**.
+2. Välj kopplingen med typen **Azure Active Directory (Microsoft)** . Klicka på **kör**väljer **fullständig import**, och **OK**.
 3. Kontrollera att fliken kopplingar fortfarande är markerat. För varje koppling med typen **Active Directory Domain Services**, klickar du på **kör**väljer **Deltasynkronisering**, och **OK**.
-4. Välj kopplingen med typen **Azure Active Directory (Microsoft)**. Klicka på **kör**väljer **Deltasynkronisering**, och **OK**.
+4. Välj kopplingen med typen **Azure Active Directory (Microsoft)** . Klicka på **kör**väljer **Deltasynkronisering**, och **OK**.
 
 Du har nu mellanlagrade export i Azure AD och lokalt AD (om du använder Exchange-hybridinstallation). Nästa steg kan du granska nyheter ska ändras innan du startar export till katalogerna.
 

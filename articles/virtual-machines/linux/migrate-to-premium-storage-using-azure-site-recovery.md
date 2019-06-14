@@ -11,10 +11,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543691"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med hjälp av Azure Site Recovery
@@ -77,7 +77,7 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 ### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: skapar ett Recovery Services-valv
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **skapa en resurs** > **Management** > **Backup** och **Site Recovery (OMS)**. Du kan även välja **Bläddra** > **Recovery Services-valv** > **Lägg till**. 
+2. Välj **skapa en resurs** > **Management** > **Backup** och **Site Recovery (OMS)** . Du kan även välja **Bläddra** > **Recovery Services-valv** > **Lägg till**. 
 3. Ange en region som virtuella datorer kommer att replikeras till. Välj den region där din virtuella källdatorer och källa storage-konton är huruvida i samma region. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välja skyddsmål 
@@ -142,7 +142,7 @@ Så här kontrollerar du att konfigurationsservern är har associerats med den r
 ### <a name="step-6-plan-capacity"></a>Steg 6: Planera kapacitet
 
 1. Använd den [kapacitetsplaneringsverktyget](../../site-recovery/site-recovery-capacity-planner.md) för att beräkna bandbredd, lagring och andra krav för dina behov. 
-2. När du är klar väljer du **Ja, jag har gjort det** i **har du slutfört kapacitetsplanering?**.
+2. När du är klar väljer du **Ja, jag har gjort det** i **har du slutfört kapacitetsplanering?** .
 
    ![Kryssrutan för att bekräfta att du slutfört kapacitetsplanering][11]
 

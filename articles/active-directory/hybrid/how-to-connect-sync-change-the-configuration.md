@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244337"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
@@ -60,7 +60,7 @@ Den [scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut 
 1. Klicka på **Lägg till ny regel**.
 2. På den **beskrivning** anger du följande:  
    ![Inkommande regel filtrering](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Namn**: Ge regeln ett beskrivande namn.
+   * **Namn på**: Ge regeln ett beskrivande namn.
    * **Beskrivning**: Ge klargöranden så att någon annan kan förstå vad regeln för.
    * **Anslutna System**: Det här är systemet där objektet finns. I det här fallet väljer **Active Directory-koppling**.
    * **Anslutna System/metaversum-objekttyp**: Välj **användaren** och **Person**respektive.
@@ -71,7 +71,7 @@ Den [scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut 
    ![Regel för inkommande trafik Omfångsfilter](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Det här avsnittet används för att definiera vilka objekt som regeln gäller. Om det lämnas tomt används skulle regeln gälla för alla användarobjekt. Dock innehålla som konferensrum tjänstkonton och andra icke-personer användarobjekt.
 4. På den **ansluta regler** lämnar fältet tomt.
-5. På den **transformationer** , ändra **ExchangeRate för FlowType** till **uttryck**. För **målattribut**väljer **givenName**. Och för **källa**, ange **PCase([givenName])**.
+5. På den **transformationer** , ändra **ExchangeRate för FlowType** till **uttryck**. För **målattribut**väljer **givenName**. Och för **källa**, ange **PCase([givenName])** .
    ![Regel för inkommande trafik omvandlingar](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Synkroniseringsmotorn är skiftlägeskänsliga för både funktionsnamnet och namnet på attributet. Om du skriver något fel, visas en varning när du lägger till regeln. Du kan spara och fortsätta, men du måste öppna och rätta till regeln.
 6. Klicka på **Lägg till** spara regeln.
@@ -286,15 +286,15 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 
 6. Gå till den **omvandling** fliken och implementera den önskade omvandlingsregeln. Exempel: Om du har angett en oanvända lokala AD-attribut (till exempel extensionAttribute1) som källattributet för UserType, du kan implementera en direkt attributflöde:
 
-    | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatering |
+    | Direct | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatera |
 
     Ett annat exempel är som du vill erhålla värde för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName-attribut som slutar med domändelen <em>@partners.fabrikam123.org</em>. Du kan implementera ett uttryck så här:
 
-    | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Uttryck | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(Instr(LCase([userPrincipalName]) ”,@partners.fabrikam123.org”)=0) ”medlem”, ”Gäst”), fel (”UserPrincipalName finns inte att fastställa UserType”)) | Alternativet är avmarkerat | Uppdatering |
+    | uttryck | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(Instr(LCase([userPrincipalName]) ”,@partners.fabrikam123.org”)=0) ”medlem”, ”Gäst”), fel (”UserPrincipalName finns inte att fastställa UserType”)) | Alternativet är avmarkerat | Uppdatera |
 
 7. Klicka på **Lägg till** att skapa regel för inkommande trafik.
 
@@ -329,9 +329,9 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
 6. Gå till den **omvandling** fliken och implementera följande omvandlingsregeln:
 
-    | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Alternativet är avmarkerat | Uppdatering |
+    | Direct | UserType | UserType | Alternativet är avmarkerat | Uppdatera |
 
 7. Klicka på **Lägg till** att skapa regel för utgående trafik.
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60462596"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
@@ -112,7 +112,7 @@ Definierar informationen om en webbsida i förhandsversion.
 
 |Namn|Värde|Typ|
 |----------|-----------|----------|
-|namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
+|name|En rubrik, inte nödvändigtvis HTML-rubrik|String|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|
 |description|Kort beskrivning på sidan och innehåll|String|
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|

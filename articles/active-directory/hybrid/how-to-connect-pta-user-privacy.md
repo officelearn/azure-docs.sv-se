@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242384"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
@@ -98,7 +98,7 @@ Om du vill schemalägga det här skriptet ska köras så varje 48 timmar här:
 6.  Välj ”**dagliga**” för den **aktivitetsutlösare** och klicka på **nästa**.
 7.  Ställa in återkommande till två dagar och klickar på **nästa**.
 8.  Välj ”**programstart**” som åtgärd och klicka på **nästa**.
-9.  Typen ”**PowerShell**” i rutan för Program eller skript och i rutan med texten ”**lägga till argument (valfritt)**”, ange den fullständiga sökvägen till det skript som du skapade tidigare och sedan på **nästa**.
+9.  Typen ”**PowerShell**” i rutan för Program eller skript och i rutan med texten ”**lägga till argument (valfritt)** ”, ange den fullständiga sökvägen till det skript som du skapade tidigare och sedan på **nästa**.
 10. Nästa skärm visar en sammanfattning av uppgiften som du håller på att skapa. Kontrollera värdena och klicka på **Slutför** att skapa aktiviteten:
  
 ### <a name="note-about-domain-controller-logs"></a>Observera om Domain controller loggar

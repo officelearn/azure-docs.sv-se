@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237544"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
@@ -78,10 +78,10 @@ Följande reserverade ord kan inte användas enskilt projekt-ID: N. De här rese
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| om | konto | administration | api | blog | classroom |
+| Om | konto | administration | api | blog | classroom |
 | innehåll | instrumentpanel | Utforska | vanliga frågor och svar | Hjälp | html |
-| hem | Importera | biblioteket | hantering | nytt | Notebook |
-| Bärbara datorer | pdf | förhandsversion | prissättning | profil | sök |
+| Startsida | Importera | biblioteket | Hantering | nytt | Notebook |
+| Bärbara datorer | pdf | förhandsversion | Priser | Profil | Sök |
 | status | support | test | | | |
 
 Om du försöker använda en av dessa ord som ett projekt-ID, den **Skapa nytt projekt** och **Projektinställningar** popup-fönster visar, ”Biblioteks-id är en reserverad identifierare”.
@@ -120,7 +120,7 @@ Att klona ett projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
+- [Utforska exempelanteckningsböcker](azure-notebooks-samples.md)
 - [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
 - [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
 - [Anvisningar: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)

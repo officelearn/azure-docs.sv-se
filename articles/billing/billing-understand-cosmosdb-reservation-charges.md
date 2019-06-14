@@ -10,10 +10,10 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370755"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas på Azure Cosmos DB
@@ -67,9 +67,9 @@ Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per tim
 |Azure Cosmos DB - 100 RU/s/timme – Australien, Öst|     Australien, Öst    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/timme – Kanada, centrala|  Kanada, centrala       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/timme - Frankrike, centrala|   Frankrike, centrala      |    1.25      |
-|Azure Cosmos DB - 100 RU/s/timme – Brasilien, Syd|  Brasilien, Syd       |   1.5      |
-|Azure Cosmos DB - 100 RU/s/timme – Australien, centrala|   Australien, centrala      |   1.5      |
-|Azure Cosmos DB - 100 RU/s/timme – Australien, centrala 2| Australien, centrala 2        |    1.5     |
+|Azure Cosmos DB - 100 RU/s/timme – Brasilien, Syd|  Brasilien, Syd       |   1,5      |
+|Azure Cosmos DB - 100 RU/s/timme – Australien, centrala|   Australien, centrala      |   1,5      |
+|Azure Cosmos DB - 100 RU/s/timme – Australien, centrala 2| Australien, centrala 2        |    1,5     |
 |Azure Cosmos DB - 100 RU/s/timme - Frankrike, Syd|    Frankrike, södra     |    1.625     |
 
 ## <a name="scenarios-that-show-how-the-reservation-discount-is-applied"></a>Scenarier som visar hur reservationsrabatten tillämpas

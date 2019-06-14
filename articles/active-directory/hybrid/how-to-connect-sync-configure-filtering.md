@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243511"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
@@ -218,7 +218,7 @@ I inkommande filtrering, använder du kraften hos **omfång** att avgöra vilka 
 
 Låt oss titta på ett exempel:  
 ![Omfång](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Detta ska läsas som **(avdelning = IT) eller (avdelning = försäljning och c = US)**.
+Detta ska läsas som **(avdelning = IT) eller (avdelning = försäljning och c = US)** .
 
 Du använder för user-objektet som ett exempel i följande exempel och steg, men du kan använda detta för alla typer av objekt.
 

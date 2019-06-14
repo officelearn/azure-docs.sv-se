@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 3b3bbe45c4850d1bb37a4d991e323d5f6d9a8a0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532432"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Tjänster och verktyg som är tillgängliga för migreringsscenarion
@@ -75,7 +75,7 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 | Sybase | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | | | | | |
 
-## <a name="migration-phase"></a>Migreringsfas
+## <a name="migration-phase"></a>Migrering: fas
 
 | **Källa** | **Mål** | **schemat** | **Data**<br/>**(Offline)** | **Data**<br/>**(Online)** |
 | --- | --- | --- | --- | --- |

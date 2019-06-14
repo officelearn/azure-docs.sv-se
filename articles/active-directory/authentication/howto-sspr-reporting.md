@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357550"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
@@ -96,8 +96,8 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
 * **Aktivitetsstatus**:
-  * _Success_: Anger att en användare begränsades från utföra eventuella ytterligare återställningar, försök eventuella ytterligare autentiseringsmetoder eller verifieringen av eventuella ytterligare telefonnummer för nästkommande 24 timmar.
-* **Aktivitetens status felorsak**: Inte tillämpligt.
+  * _Lyckade_: Anger att en användare begränsades från utföra eventuella ytterligare återställningar, försök eventuella ytterligare autentiseringsmetoder eller verifieringen av eventuella ytterligare telefonnummer för nästkommande 24 timmar.
+* **Aktivitetens status felorsak**: Ej tillämpligt.
 
 ### <a name="activity-type-change-password-self-service"></a>Aktivitetstyp: Ändra lösenord (självbetjäning)
 
@@ -107,7 +107,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
-  * _Success_: Anger att en användare har ändrat sitt lösenord.
+  * _Lyckade_: Anger att en användare har ändrat sitt lösenord.
   * _Fel_: Anger att en användare Det gick inte att ändra sina lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 * **Aktivitetens status felorsak**:
   * _FuzzyPolicyViolationInvalidPassword_: Användaren har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
@@ -120,7 +120,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Administratören som utförs åt en annan användare eller administratör om återställning av lösenord. Måste vara en lösenordsadministratör eller Användaradministratör supportavdelningens administratör.
 * **Mål för aktiviteten**: Den användare vars lösenord har återställts. Användaren kan vara en användare eller en annan administratör.
 * **Aktivitet statusar**:
-  * _Success_: Anger att en administratör har återställts en användares lösenord.
+  * _Lyckade_: Anger att en administratör har återställts en användares lösenord.
   * _Fel_: Anger att en administratör gick inte att ändra en användares lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 
 ### <a name="activity-type-reset-password-self-service"></a>Aktivitetstyp: Återställ lösenord (självbetjäning)
@@ -131,7 +131,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Den användare som kan återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Den användare som kan återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
-  * _Success_: Anger att en användare har återställts sina egna lösenord.
+  * _Lyckade_: Anger att en användare har återställts sina egna lösenord.
   * _Fel_: Visar att en användare misslyckades med att återställa sina egna lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 * **Aktivitetens status felorsak**:
   * _FuzzyPolicyViolationInvalidPassword_: Administratören har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
@@ -144,7 +144,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
-  * _Success_: Anger att en användare har slutfört ett specifikt steg till flödet för återställning av lösenord.
+  * _Lyckade_: Anger att en användare har slutfört ett specifikt steg till flödet för återställning av lösenord.
   * _Fel_: Anger att ett specifikt steg av lösenordet återställa flöde misslyckades. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 * **Aktivitetens statusorsaker**:   Se följande tabell för [alla tillåtna återställning aktivitetens statusorsaker](#description-of-the-report-columns-in-the-azure-portal).
 
@@ -156,7 +156,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Tillåtna aktivitet statusar**:
-  * _Success_: Anger att en användare har olåst sitt eget konto.
+  * _Lyckade_: Anger att en användare har olåst sitt eget konto.
   * _Fel_: Anger att en användare Det gick inte att låsa upp sitt konto. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Aktivitetstyp: Användare registrerad för lösenordsåterställning via självbetjäning
@@ -167,7 +167,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Aktivitet aktören**: Användaren som registrerad för lösenordsåterställning. Användaren kan vara en användare eller administratör.
 * **Mål för aktiviteten**: Användaren som registrerad för lösenordsåterställning. Användaren kan vara en användare eller administratör.
 * **Tillåtna aktivitet statusar**:
-  * _Success_: Anger att en användare har registrerats för lösenordsåterställning i enlighet med den aktuella principen. 
+  * _Lyckade_: Anger att en användare har registrerats för lösenordsåterställning i enlighet med den aktuella principen. 
   * _Fel_: Visar att en användare misslyckades med att registrera för återställning av lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 
      >[!NOTE]

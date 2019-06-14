@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296324"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
@@ -76,7 +76,7 @@ I November 2015 eller senare versioner av Windows 10 stöds Enterprise State Roa
 När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, måste du uppdatera enhetsregistret att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
 
 1. Hitta GUID för varje Azure AD-klient. Öppna Azure portal och välj en Azure AD-klient. GUID för klienten är på egenskapssidan för den valda klientorganisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), namngivna **katalog-ID**. 
-2. När du har GUID som du behöver lägga till registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klient-ID GUID >**.
+2. När du har GUID som du behöver lägga till registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klient-ID GUID >** .
    Från den **klient-ID GUID** nyckeln, skapa ett nytt flersträngsvärde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**. Ange licensiering distribution point URL: er i andra Azure-klienter som har åtkomst till enheten för sina data.
 3. Du kan hitta licensiering distribution point URL: er genom att köra den **Get-AadrmConfiguration** från AADRM-modulen. Om värdena för den **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** är olika, ange båda värdena. Om värdena är samma, ange värdet bara en gång.
 

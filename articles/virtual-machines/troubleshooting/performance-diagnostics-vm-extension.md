@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307938"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
@@ -70,10 +70,10 @@ Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det
 |   **Namn**   |**Värdet / exempel**|       **Beskrivning**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versionen av API: et.
-|utgivare|Microsoft.Azure.Performance.Diagnostics|Publisher-namnområde för tillägget.
-|typ|AzurePerformanceDiagnostics|Typ av VM-tillägget.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Publisher-namnområde för tillägget.
+|type|AzurePerformanceDiagnostics|Typ av VM-tillägget.
 |typeHandlerVersion|1.0|Versionen av tillägget hanteraren.
-|performanceScenario|grundläggande|Prestanda-scenario som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
+|performanceScenario|Grundläggande|Prestanda-scenario som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
 |traceDurationInSeconds|300|Varaktigheten för spårningar, om något av spårningsalternativ för har valts.
 |perfCounterTrace|p|Alternativet för att aktivera prestandaräknaren spårningen. Giltiga värden är **p** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
 |networkTrace|n|Alternativet för att aktivera nätverksspårning. Giltiga värden är **n** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
@@ -113,7 +113,7 @@ Följ dessa instruktioner för att installera tillägget på Windows-datorer:
 Följ dessa steg om du vill ta bort tillägget från en virtuell dator:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn från vilken du vill ta bort tillägget och välj sedan den **tillägg** bladet. 
-2. Välj den (**...** ) för prestanda Diagnostics-tillägg-posten i listan och välj **avinstallera**.
+2. Välj den ( **...** ) för prestanda Diagnostics-tillägg-posten i listan och välj **avinstallera**.
 
     ![Skärmbild av tillägg bladet avinstalleras markerat](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ Verktyget PerfInsights samlar in olika loggar, konfiguration och diagnostiska da
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultatet
 
-Utdata från tillägget finns i en zip-fil som laddats upp till det lagringskonto som angetts under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zipfilen innehåller diagnostikloggar och en rapport med resultat och rekommendationer. En SAS-länk till utdata zip-filen finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version >**. Alla som har den här länken kan ladda ned zip-filen.
+Utdata från tillägget finns i en zip-fil som laddats upp till det lagringskonto som angetts under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zipfilen innehåller diagnostikloggar och en rapport med resultat och rekommendationer. En SAS-länk till utdata zip-filen finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version >** . Alla som har den här länken kan ladda ned zip-filen.
 
 För att hjälpa supporttekniker som arbetar på ditt supportärende kan Microsoft använda SAS-länk för nedladdning av diagnostikdata.
 

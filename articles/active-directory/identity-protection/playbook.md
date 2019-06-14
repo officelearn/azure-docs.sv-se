@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294386"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection spelbok
@@ -51,7 +51,7 @@ Slutför följande procedur måste du använda:
 - Den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) att simulera anonyma IP-adresser. Du kan behöva använda en virtuell dator om din organisation begränsar webbläsaren Tor.
 - Ett testkonto som ännu inte har registrerats för multifaktorautentisering.
 
-**Utför följande steg för att simulera en inloggning från en anonym IP-adress,**:
+**Utför följande steg för att simulera en inloggning från en anonym IP-adress,** :
 
 1. Med hjälp av den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gå till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Ange autentiseringsuppgifterna för det konto som du vill ska visas i den **inloggningar från anonyma IP-adresser** rapporten.

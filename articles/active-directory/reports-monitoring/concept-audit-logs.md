@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441144"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
@@ -98,7 +98,7 @@ Den **Service** filter kan du välja från en listruta för följande tjänster:
 - B2C
 - Villkorlig åtkomst
 - Kärnkatalog
-- Berättigandehantering
+- Hantering av behörighet
 - Identity Protection
 - Inbjudna användare
 - PIM
@@ -113,7 +113,7 @@ Den **kategori** filter kan du välja något av följande filter:
 - ApplicationManagement
 - Autentisering
 - Auktorisering
-- Kontakt
+- Kontakta
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
@@ -127,7 +127,7 @@ Den **kategori** filter kan du välja något av följande filter:
 
 Den **aktivitet** filter baserat på kategori och aktivitet resursen typ du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
+Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
 
 Den **Status** filter kan du filtrera baserat på status för en åtgärd för granskning. Statusen kan vara något av följande:
 

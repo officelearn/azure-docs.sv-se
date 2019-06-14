@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050644"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -25,13 +25,13 @@ Du kan vara värd för funktionsappar i ett par olika sätt:
 
 * Det finns en uppsättning med alternativ som körs på en infrastruktur för flera innehavare, med olika nivåer av virtuell nätverksanslutning och skalningsalternativ:
     * Den [förbrukningsplan](functions-scale.md#consumption-plan), som kan skalas dynamiskt som svar på Läs in och erbjuder alternativ för minimal nätverk isolering.
-    * Den [premiumplan](functions-scale.md#premium-plan-public-preview), som också kan skalas dynamiskt, och erbjuder mer omfattande isolering av nätverk.
+    * Den [premiumplan](functions-scale.md#premium-plan), som också kan skalas dynamiskt, och erbjuder mer omfattande isolering av nätverk.
     * Azure [apptjänstplan](functions-scale.md#app-service-plan), som fungerar i fasta skala och erbjuder liknande isolering av nätverk till Premium-prenumerationen.
 * Du kan köra funktioner i en [App Service Environment](../app-service/environment/intro.md). Den här metoden distribuerar din funktion i ditt virtuella nätverk och erbjuder fullständig Klusternätverkets kontroll- och isolering.
 
 ## <a name="matrix-of-networking-features"></a>Matris av nätverksfunktioner
 
-|                |[Förbrukningsplan](functions-scale.md#consumption-plan)|[Premiumprenumerationen (förhandsversion)](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[Förbrukningsplan](functions-scale.md#consumption-plan)|[Premiumprenumerationen (förhandsversion)](functions-scale.md#premium-plan)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkommande IP-adressbegränsningar](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Utgående IP-begränsningar](#private-site-access)|❌NO| ❌NO|❌NO|✅Yes|

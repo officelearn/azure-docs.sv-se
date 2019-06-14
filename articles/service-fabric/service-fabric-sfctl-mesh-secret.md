@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: acc5862a8794da4fde991025eacfcccf6e16916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607685"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
@@ -29,7 +29,7 @@ Hämta och ta bort nät hemliga resurser.
 |Kommando|Beskrivning|
 | --- | --- |
 | delete | Tar bort den hemliga resursen. |
-| lista | Visar en lista över alla hemliga resurser. |
+| list | Visar en lista över alla hemliga resurser. |
 | visa | Hämtar den hemliga resursen med det angivna namnet. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl nät secret delete

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387320"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
@@ -31,7 +31,7 @@ Följande dokument är en teknisk referens på de nödvändiga portar och protok
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Tabell 1 – Azure AD Connect och en lokal AD
 Den här tabellen beskriver de portar och protokoll som krävs för kommunikation mellan Azure AD Connect-servern och lokala AD.
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |DNS-sökning på målskogen. |
 | Kerberos |88 (TCP/UDP) |Kerberos-autentisering till AD-skogen. |
@@ -44,7 +44,7 @@ Den här tabellen beskriver de portar och protokoll som krävs för kommunikatio
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabell 2 – Azure AD Connect och Azure AD
 Den här tabellen beskriver de portar och protokoll som krävs för kommunikation mellan Azure AD Connect-servern och Azure AD.
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Används för att hämta listor över återkallade certifikat (listor över återkallade certifikat) att verifiera SSL-certifikat. |
 | HTTPS |443(TCP/UDP) |Används för att synkronisera med Azure AD. |
@@ -54,7 +54,7 @@ En lista över URL: er och IP-adresser som du behöver öppna i brandväggen, se
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabell 3 – Azure AD Connect och AD FS federationsservrar/WAP
 Den här tabellen beskriver de portar och protokoll som krävs för kommunikation mellan Azure AD Connect-server och AD FS-federationsservrar/WAP-servrar.  
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Används för att hämta listor över återkallade certifikat (listor över återkallade certifikat) att verifiera SSL-certifikat. |
 | HTTPS |443(TCP/UDP) |Används för att synkronisera med Azure AD. |
@@ -63,14 +63,14 @@ Den här tabellen beskriver de portar och protokoll som krävs för kommunikatio
 ## <a name="table-4---wap-and-federation-servers"></a>Tabell 4 - WAP och federationsservrar
 Den här tabellen beskriver de portar och protokoll som krävs för kommunikation mellan federationsservrar och WAP-servrarna.
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Används för autentisering. |
 
 ## <a name="table-5---wap-and-users"></a>Tabell 5 - WAP och användare
 Den här tabellen beskriver de portar och protokoll som krävs för kommunikation mellan användare och WAP-servrarna.
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Används för autentisering. |
 | TCP |49443 (TCP) |Används för autentisering med datorcertifikat. |
@@ -79,7 +79,7 @@ Den här tabellen beskriver de portar och protokoll som krävs för kommunikatio
 Följande tabeller beskriver de portar och protokoll som krävs för kommunikation mellan Azure AD Connect och Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabellen 6a - direktautentisering med enkel inloggning
-|Protokoll|Portnummer|Beskrivning
+|Protocol|Portnummer|Beskrivning
 | --- | --- | ---
 |HTTP|80|Aktivera utgående HTTP-trafik för Säkerhetsvalidering, till exempel SSL. Dessutom behövs för funktionen för automatisk uppdatering anslutningen ska fungera korrekt.
 |HTTPS|443| Aktivera utgående HTTPS-trafik för åtgärder som aktiverar och inaktiverar funktionen, registrera kopplingar, hämtar uppdateringar för anslutningen och begäranden som alla användare logga in.
@@ -88,7 +88,7 @@ Dessutom kan Azure AD Connect behöver för att kunna ansluta direkt IP till den
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabellen 6b - Lösenordshashsynkronisering med enkel inloggning
 
-|Protokoll|Portnummer|Beskrivning
+|Protocol|Portnummer|Beskrivning
 | --- | --- | ---
 |HTTPS|443| Aktivera SSO-registrering (krävs endast för registreringsprocessen för enkel inloggning).
 
@@ -100,7 +100,7 @@ I följande tabeller beskrivs de slutpunkter, portar och protokoll som krävs f�
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabellen 7a - portar och protokoll för Azure AD Connect Health agent för (AD FS/Sync) och Azure AD
 Den här tabellen beskriver följande utgående portar och protokoll som krävs för kommunikation mellan Azure AD Connect Health-agenterna och Azure AD.  
 
-| Protokoll | Portar | Beskrivning |
+| Protocol | Portar | Beskrivning |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Utgående |
 | Azure Service Bus |5671 (TCP/UDP) |Utgående |

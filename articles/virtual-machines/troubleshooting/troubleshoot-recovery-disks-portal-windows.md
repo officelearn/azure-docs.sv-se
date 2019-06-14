@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320931"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator med Azure-portalen för återställning
@@ -105,7 +105,7 @@ De efterföljande stegen använder du en annan virtuell dator för felsökning. 
 
     ![Välj fil- och lagringstjänster i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. Datadisken har identifierats och anslutna automatiskt. Om du vill se en lista över de anslutna diskarna **diskar**. Du kan välja din datadisk för att visa volume information, inklusive enhetsbeteckningen. I följande exempel visas datadisken ansluten och använder **F:**:
+3. Datadisken har identifierats och anslutna automatiskt. Om du vill se en lista över de anslutna diskarna **diskar**. Du kan välja din datadisk för att visa volume information, inklusive enhetsbeteckningen. I följande exempel visas datadisken ansluten och använder **F:** :
 
     ![Disk som är ansluten och volyminformation i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395007"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportera eller ta bort personliga data från Azure DevTest Labs
@@ -39,10 +39,10 @@ DevTest Labs använder användarens e-postadress för att skicka e-postmeddeland
 ### <a name="user-object-id"></a>Användarens objekt-ID
 DevTest Labs använder objekt-ID för användaren för att visa månad för månad kostnadstrender och kostnad genom resursinformation till lab administratörer. Det gör att de kan spåra kostnader och hantera tröskelvärden för sina labb. 
 
-**Beräknad kostnad trenden för den aktuella kalendermånaden:**
+**Beräknad kostnad trenden för den aktuella kalendermånaden:** 
 ![uppskattad kostnad trenden för den aktuella kalendermånaden](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Beräknad kostnad för månad hittills efter resurs:**
+**Beräknad kostnad för månad hittills efter resurs:** 
 ![beräknad kostnad för månad hittills efter resurs](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -69,7 +69,7 @@ Som en lab-användare kan du begära en export på dina personliga data som lagr
     ![Välj Blobar panel](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Välj behållaren med namnet **labresourceusage** i listan över behållare.
 
-    ![Välj blobcontainer](./media/personal-data-delete-export/select-blob-container.png)
+    ![Välj blob-behållare](./media/personal-data-delete-export/select-blob-container.png)
 6. Välj den **mappen** namnges efter ditt labb. Du hittar **csv** filer för **diskar** och **virtuella datorer** i labbet i den här mappen. Du kan hämta dessa csv-filer, filtrera innehåll för övningen användaren begär en åtkomst och dela den med dem.
 
     ![Hämta CSV-fil](./media/personal-data-delete-export/download-csv-file.png)

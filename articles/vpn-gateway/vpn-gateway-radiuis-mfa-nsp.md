@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458142"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrera Azure VPN gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering 
@@ -55,7 +55,7 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
 2. Öppna konsolen NSP:, högerklicka på **RADUIS klienter**, och välj sedan **New**. Skapa RADUIS-klienten genom att ange följande inställningar:
 
     - **Eget namn**: Skriv ett namn.
-    - **Adress (IP eller DNS)**: Ange gateway-undernätet som du skapade i steg 1.
+    - **Adress (IP eller DNS)** : Ange gateway-undernätet som du skapade i steg 1.
     - **Delad hemlighet**: Skriv alla hemlig nyckel och spara den för senare användning.
 
       ![Bild som visar RADUIS-klientinställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)

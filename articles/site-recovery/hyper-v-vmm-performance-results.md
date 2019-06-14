@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363604"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testresultat för Hyper-V-replikering till en sekundär plats
@@ -106,7 +106,7 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 ![Primära maskinvarukraven](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hyper-V-servrar i klustret: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
 | VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databas 2012 R2 (x 64) och VMM 2012 R2 |
@@ -118,7 +118,7 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 ![Primära maskinvarukraven](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hyper-V-servrar i klustret: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
@@ -135,7 +135,7 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 | --- | --- | --- | --- | --- | --- |
 | Filserver |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Alla 100% slumpmässiga |
 | SQL Server (volym 1) SQL Server (volym 2) |864 |100%100% |70%0% |88 |100% random100% sekventiella |
-| Exchange |32 |100 % |67% |8 |100% slumpmässiga |
+| Exchange |32 |100% |67% |8 |100% slumpmässiga |
 | Workstation/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
 | Web-filserver |4864 |33%34%33% |95%95%95% |888 |Alla 75% slumpmässiga |
 
@@ -170,10 +170,10 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 Tabellen sammanfattas de prestandamått och räknare som har mätt i distributionen.
 
-| Mått | Räknare |
+| Mått | Räknaren |
 | --- | --- |
 | Processor |\Processor(_Total)\% processortid |
-| Ledigt minne |\Memory\Available megabyte |
+| Tillgängligt minne |\Memory\Available megabyte |
 | IOPS |\PhysicalDisk (_Total) \Disk disköverföringar/sek |
 | VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (\<VHD >) \Read/sek |
 | VM skrivåtgärder (IOPS) / sek |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |

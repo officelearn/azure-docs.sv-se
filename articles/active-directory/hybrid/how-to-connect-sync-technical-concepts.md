@@ -4,23 +4,23 @@ description: Beskriver de tekniska begrepp för Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/15/2018
-ms.date: 11/12/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 01/15/2018
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347588"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synkronisering: Tekniska begrepp
@@ -34,11 +34,11 @@ Azure Active Directory Sync Services innehåller bygger på MIIS, ILM och FIM n�
 
 Följande avsnitt innehåller mer information om följande aspekter av FIM-synkroniseringstjänsten:
 
-- Koppling
-- Attributflöde
-- Anslutarplats
-- Metaversum
-- Etablering
+* Koppling
+* Attributflöde
+* Anslutarplats
+* Metaversum
+* Etablering
 
 ## <a name="connector"></a>Koppling
 Kodmoduler som används för att kommunicera med en ansluten katalog kallas kopplingar (kallades tidigare hanteringsagenter (MAs)).
@@ -87,9 +87,8 @@ Detta skapar en länk för sin natur och attributflöde kan fortsätta riktninga
 När en regel anger att en ny anslutarplatsen måste skapas, kallas etablering. Men eftersom den här åtgärden endast sker i anslutarplatsen, innehåller den inte till den anslutna datakällan förrän en export utförs.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-- [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
-- [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

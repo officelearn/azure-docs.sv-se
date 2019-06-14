@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/13/2017
-ms.date: 04/09/2019
+ms.date: 03/13/2017
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383294"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering
@@ -354,14 +353,14 @@ I statuskolumnen kan ha följande värden:
 
 | Status | Beskrivning |
 | --- | --- |
-| Lyckades |Lösenordet har synkroniserats. |
+| Klart |Lösenordet har synkroniserats. |
 | FilteredByTarget |Lösenordet är inställt på **användaren måste byta lösenord vid nästa inloggning**. Lösenordet har inte synkroniserats. |
 | NoTargetConnection |Inga objekt i metaversumet eller i Azure AD-anslutningsplatsen. |
 | SourceConnectorNotPresent |Inga objekt hittades i den lokala Active Directory-anslutarplatsen. |
 | TargetNotExportedToDirectory |Objektet i Azure AD-anslutarplatsen har inte ännu exporterats. |
 | MigratedCheckDetailsForMoreInfo |Loggpost skapades före version 1.0.9125.0 och visas i det tidigare tillståndet. |
 | Fel |Tjänsten returnerade ett okänt fel. |
-| Inte tillgängligt |Ett fel uppstod vid försök att bearbeta en batch med lösenords-hash.  |
+| Okänt |Ett fel uppstod vid försök att bearbeta en batch med lösenords-hash.  |
 | MissingAttribute |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services är inte tillgängliga. |
 | RetryRequestedByTarget |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services var inte tillgängliga tidigare. Det görs ett försök att omsynkronisera användarens lösenords-hash. |
 
@@ -372,7 +371,7 @@ I statuskolumnen kan ha följande värden:
 ```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
@@ -448,5 +447,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
-
-<!-- Update_Description: wording update -->

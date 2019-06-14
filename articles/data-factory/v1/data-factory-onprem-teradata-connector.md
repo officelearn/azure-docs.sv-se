@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610746"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-teradata-connector.md)
 > * [Version 2 (aktuell version)](../connector-teradata.md)
 
@@ -67,7 +67,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | type |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
-| username |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
+| användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Teradata-databas. |Ja |
 
@@ -83,7 +83,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
@@ -287,7 +287,7 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | --- | --- |
 | char |String |
 | Clob |String |
-| Bild |String |
+| Graphic |String |
 | VarChar |String |
 | VarGraphic |String |
 | Blob |Byte[] |
@@ -302,27 +302,27 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | SmallInt |Int16 |
 | Date |DateTime |
 | Tid |TimeSpan |
-| Tid med tidszon |String |
+| Time With Time Zone |String |
 | Tidsstämpel |DateTime |
-| Tidsstämpel med tidszon |Datetimeoffset |
-| Intervall för dag |TimeSpan |
-| Dag för intervall och timme |TimeSpan |
-| Intervall dag till minut |TimeSpan |
-| Intervall dag till andra |TimeSpan |
-| Intervall timme |TimeSpan |
-| Intervall för timme och minut |TimeSpan |
-| Intervall timme till andra |TimeSpan |
-| Intervall minut |TimeSpan |
-| Intervall minut till andra |TimeSpan |
-| Intervall för andra |TimeSpan |
-| Intervall år |String |
-| Intervall årets månad |String |
-| Intervall för månad |String |
+| Timestamp With Time Zone |Datetimeoffset |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
 | Period(Date) |String |
 | Period(Time) |String |
-| Period (tid med tidszon) |String |
+| Period(Time With Time Zone) |String |
 | Period(Timestamp) |String |
-| Period (tidsstämpel med tidszon) |String |
+| Period(Timestamp With Time Zone) |String |
 | Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare

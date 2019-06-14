@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476276"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807728"
 ---
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator (VM) kan du enkelt koppla bort den. När du kopplar bort en disk från den virtuella datorn tas den inte bort från lagringsutrymmet. Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator eller till en annan.  
 
@@ -19,7 +19,7 @@ När du inte längre behöver en datadisk som är ansluten till en virtuell dato
 ## <a name="find-the-disk"></a>Hitta disken
 Innan du kan koppla bort en disk från en virtuell dator måste du ta reda på LUN-numret, som är en identifierare för disken som ska kopplas från. Det gör du genom att följa dessa steg:
 
-1. Öppna Azure CLI och [anslut till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
+1. Öppna Azure CLI och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
 2. Ta reda på vilka diskar som är anslutna till den virtuella datorn. I följande exempel visas diskar för den virtuella datorn med namnet `myVM`:
 
     ```azurecli

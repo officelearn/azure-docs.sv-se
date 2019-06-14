@@ -14,10 +14,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289470"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Tilldela Azure AD-roller i PIM
@@ -126,7 +126,7 @@ Följ dessa steg om du vill tilldela rollen Administratör för användaråtkoms
 
 1. Välj din prenumeration.
 
-1. Välj **Åtkomstkontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)** .
 
 1. Välj **rolltilldelningar** att se den aktuella listan över rolltilldelningar prenumerationsområde.
 

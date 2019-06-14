@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370241"
 ---
 # <a name="azure-software-plan-discount"></a>Azure-programvara plan rabatt
@@ -71,7 +71,7 @@ Namn på Azure portal marketplace:
 
 - SLES 12 SP3 för HPC (prioritet)
 
-|SUSE-VM | Mätar-ID| Förhållandet mellan| Exempel VM-storlek|
+|SUSE-VM | MeterId| Förhållandet mellan| Exempel VM-storlek|
 | -------| ------------------------| --- |--- |
 |SLES för HPC 1 – 2 virtuella processorer|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
 |SLES för HPC 3 – 4 virtuella processorer|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
@@ -83,7 +83,7 @@ Namn på Azure portal marketplace:
 
 - SLES 12 SP3 för HPC
 
-|SUSE-VM | Mätar-ID | Förhållandet mellan|Exempel VM-storlek|
+|SUSE-VM | MeterId | Förhållandet mellan|Exempel VM-storlek|
 | ------- | --- | ------------------------| --- |
 |SLES för HPC 1 – 2 virtuella processorer |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
 |SLES för HPC 3 – 4 virtuella processorer|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
@@ -97,7 +97,7 @@ Azure portal marketplace-namn:
 - SLES för SAP 12 SP3 (prioritet)
 - SLES för SAP 12 SP2 (prioritet)
 
-|SUSE-VM | Mätar-ID | Förhållandet mellan|Exempel VM-storlek|
+|SUSE-VM | MeterId | Förhållandet mellan|Exempel VM-storlek|
 | ------- |------------------------| --- | --- |
 |SLES för SAP Priority 1 – 2 virtuella processorer|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
 |SLES för SAP Priority 3 – 4 virtuella processorer |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
@@ -111,7 +111,7 @@ Azure portal marketplace-namn:
 - SLES 12 SP3 (prioritet)
 - SLES 11 SP4 (prioritet)
 
-|SUSE-VM | Mätar-ID | Förhållandet mellan|Exempel VM-storlek|
+|SUSE-VM | MeterId | Förhållandet mellan|Exempel VM-storlek|
 | ------- |------------------------| --- |--- |
 |SLES 1 vCPU|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
 |SLES 2 – 4 virtuella processorer |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
@@ -137,7 +137,7 @@ Azure portal marketplace-namn:
 - SLES 15 (Standard)
 - SLES 12 SP3 (Standard)
 
-|SUSE-VM | Mätar-ID | Förhållandet mellan|Exempel VM-storlek|
+|SUSE-VM | MeterId | Förhållandet mellan|Exempel VM-storlek|
 | ------- |------------------------| --- |--- |
 |SLES 1 – 2 kärnor virtuella processorer |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
 |SLES 3 – 4 kärnor virtuella processorer |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562601"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
@@ -44,7 +44,7 @@ Följande steg vägleder dig genom processen att skapa en formel från en anpass
 
 3. Listan över labbar, Välj önskade labbet.  
 
-4. På sidan för den testmiljön väljer **formler (återanvändbara baser)**.
+4. På sidan för den testmiljön väljer **formler (återanvändbara baser)** .
    
     ![Formeln menyn](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -88,7 +88,7 @@ Följande steg vägleder dig genom processen att skapa en formel som baseras på
 4. På testmiljön **översikt** väljer du den virtuella datorn från vilken du vill skapa formeln.
    
     ![Labs virtuella datorer](./media/devtest-lab-create-formulas/my-vms.png)
-5. På sidan för den Virtuella datorns väljer **skapa formeln (återanvändbara base)**.
+5. På sidan för den Virtuella datorns väljer **skapa formeln (återanvändbara base)** .
    
     ![Skapa formeln](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. På den **skapa formeln** anger en **namn** och **beskrivning** för din nya formel.
@@ -102,7 +102,7 @@ Följ dessa steg om du vill ändra en formel:
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 3. Listan över labbar, Välj önskade labbet.  
-4. På sidan för den testmiljön väljer **formler (återanvändbara baser)**.
+4. På sidan för den testmiljön väljer **formler (återanvändbara baser)** .
    
     ![Formeln menyn](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. På den **Lab formler** väljer formeln som du vill ändra.

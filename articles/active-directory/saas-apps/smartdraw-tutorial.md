@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a2322636aab2e0f38e29063d958cb670b5e062f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Självstudier: Azure Active Directory-integrering med SmartDraw
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av SmartDraw i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till SmartDraw från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartDr
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Du uppdaterar värdet för inloggnings-URL med den faktiska inloggnings-URL:en, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. SmartDraw program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. SmartDraw program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
     ![image](common/edit-attribute.png)
 
@@ -175,13 +175,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartDr
 
     a. I den **din domän (till exempel acme.com)** textrutan skriver din domän.
 
-    b. Kopiera den **Your SP initierade inloggnings-Url kommer att** för din instans och klistra in den i inloggnings-URL-textrutan i **SAML grundkonfiguration** på Azure-portalen.
+    b. Kopiera den **Your SP initierade inloggnings-Url kommer att** för din instans och klistra in den i inloggnings-URL-textrutan i **SAML grundkonfiguration** på Azure-portalen.
     
     c. I den **säkerhetsgrupper för att tillåta åtkomst för SmartDraw** textrutan typ **alla**.
 
     d. I den **din Url för SAML-utfärdare** textrutan klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
-    e. I anteckningar, öppna XML-Metadata för filen som du hämtade från Azure-portalen, kopiera innehållet och klistra in den i den **Your SAML-MetaData** box.
+    e. I anteckningar, öppna XML-Metadata för filen som du hämtade från Azure-portalen, kopiera innehållet och klistra in den i den **Your SAML-MetaData** box.
 
     f. Klicka på **spara konfigurationen** 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
 ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586239"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool, uppdaterad version 7.1.60126.1 – 2019-01-29
@@ -42,7 +42,7 @@ Alternativet att växla modellen verifiering och inaktivera finns i filen -> Ins
 
 ![Modellen verifieringsalternativ](./media/azure-security-threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="system-requirements"></a>Systemkraven
 
 - Operativsystem som stöds
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
@@ -59,7 +59,7 @@ Alternativet att växla modellen verifiering och inaktivera finns i filen -> Ins
 
 Användare av Windows 10-system som är det går inte att installera .NET 4.7.1 eller senare, till exempel Windows 10 Enterprise LTSB (version 1507), kommer inte att öppna verktyget när du har uppgraderat. Dessa äldre versioner av Windows är inte längre plattformar som stöds för Threat Modeling Tool och bör inte installera den senaste uppdateringen.
 
-#### <a name="workaround"></a>Lösning
+#### <a name="workaround"></a>Lösning:
 
 Användare av Windows 10 Enterprise LTSB (version 1507) som har installerat den senaste uppdateringen kan återgå till den tidigare versionen av Threat Modeling Tool genom avinstallera dialogrutan i appar och funktioner.
 

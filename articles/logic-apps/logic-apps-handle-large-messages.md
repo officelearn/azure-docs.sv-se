@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303798"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med storlekar i Azure Logic Apps
@@ -57,7 +57,7 @@ Om en slutpunkt har aktiverat storlekar för nedladdningar eller överföringar,
 
 Även om en HTTP-åtgärd inte redan aktiverar storlekar kan du också ställa in storlekar i åtgärdens `runTimeConfiguration` egenskapen. Du kan ange den här egenskapen i åtgärden, direkt i Kodredigeraren i vyn som beskrivs senare eller i Logic Apps Designer enligt nedan:
 
-1. I HTTP-åtgärden övre högra hörnet väljer du knappen med tre punkter (**...** ), och välj sedan **inställningar**.
+1. I HTTP-åtgärden övre högra hörnet väljer du knappen med tre punkter ( **...** ), och välj sedan **inställningar**.
 
    ![Öppna inställningsmenyn på åtgärden,](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -128,7 +128,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
    | Slutpunkten svarsfältet rubrik | Typ | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segmentstorleken i byte |
-   | **Location** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
+   | **Plats** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
    ||||
 
 3. Logikappen skapar och skickar Uppföljnings HTTP KORRIGERA meddelanden – var och en med den här informationen:
@@ -140,7 +140,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
      | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*Adressintervall*> | String | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
-     | **Content-Type** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
+     | **Innehållstyp** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
      | **Content-Length** | <*content-length*> | String | Längden på storlek i byte för det aktuella segmentet |
      |||||
 

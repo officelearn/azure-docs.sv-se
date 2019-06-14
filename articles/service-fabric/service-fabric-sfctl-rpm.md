@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556363"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -30,7 +30,7 @@ Fråga efter och skicka kommandon till reparera manager-tjänsten.
 | --- | --- |
 | Godkänn-force | Tvingar godkännande av angivna reparationsuppgiften. |
 | delete | Tar bort en slutförd reparationsuppgiften. |
-| lista | Hämtar en lista över reparera uppgifter som matchar de angivna filtren. |
+| list | Hämtar en lista över reparera uppgifter som matchar de angivna filtren. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl godkänna rpm-force
 Tvingar godkännande av angivna reparationsuppgiften.

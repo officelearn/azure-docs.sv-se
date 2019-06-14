@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050578"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -173,7 +173,7 @@ Mer information finns i [Azure Functions-utlösare och bindningar begrepp](./fun
 
 ## <a name="local-settings-file"></a>Fil för lokala inställningar
 
-Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Inställningarna i filen local.settings.json används endast av Functions tools när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Observera att värdena i **ConnectionStrings** aldrig har publicerats. Filen har följande struktur:
+Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Inställningarna i filen local.settings.json används endast av Functions tools när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Värdena i **ConnectionStrings** aldrig har publicerats. Filen har följande struktur:
 
 ```json
 {
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publicera till Azure
 
-Core Tools stöder två typer av distribution, distribuera funktionen projektfilerna direkt till din funktionsapp och distribuera en anpassad Linux-behållare, vilket stöds bara i version 2.x. Du måste redan ha [skapat en funktionsapp i Azure-prenumerationen](functions-cli-samples.md#create).
+Azure Functions Core Tools stöder två typer av distribution: distribuera funktionen projektfilerna direkt till din funktionsapp via [Zip distribuera](functions-deployment-technologies.md#zip-deploy) och [en anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Du måste redan ha [skapat en funktionsapp i Azure-prenumerationen](functions-cli-samples.md#create), som du ska distribuera din kod. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras.
 
-I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras.
+### <a name="project-file-deployment"></a>Distribution (projektfiler)
 
-### <a name="project-file-deployment"></a>Projektet filen distribution
-
-Den vanligaste distributionsmetoden innebär att med hjälp av Core Tools att paketera ditt funktionsappsprojekt, binärfiler och beroenden och distribuera dem till din funktionsapp. Du kan eventuellt [köra dina funktioner direkt från distributionspaketet](run-functions-from-deployment-package.md).
-
-Om du vill publicera en Functions-projekt till en funktionsapp i Azure, använda den `publish` kommando:
+Om du vill publicera din lokal kod till en funktionsapp i Azure, använda den `publish` kommando:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Läs hur du skapar en funktionsapp från Kommandotolken eller med hjälp av Azure CLI-terminalfönstret i [skapa en Funktionsapp för serverlös körning](./scripts/functions-cli-create-serverless.md).
-
-Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].
+Det här kommandot publicerar till en befintlig funktionsapp i Azure. Du får ett fel om du försöker publicera till en `<FunctionAppName>` som inte finns i din prenumeration. Läs hur du skapar en funktionsapp från Kommandotolken eller med hjälp av Azure CLI-terminalfönstret i [skapa en Funktionsapp för serverlös körning](./scripts/functions-cli-create-serverless.md). Som standard det här kommandot aktiverar din app ska köras [kör från paketet](run-functions-from-deployment-package.md) läge.
 
 >[!IMPORTANT]
 > När du skapar en funktionsapp i Azure-portalen används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, följer du anvisningarna i [kör version 1.x](functions-versions.md#creating-1x-apps).
 > Du kan inte ändra runtime-versionen för en funktionsapp som har befintliga funktioner.
 
-Följande projektet publiceringsalternativ tillkommer för versioner, 1.x och 2.x:
+Följande alternativ för publicera gäller för både versioner, 1.x och 2.x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan. Om du använder lagringsemulatorn kan du ändra appinställningen en [faktiska lagringsanslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Ignorera skrivs appinställningar när `--publish-local-settings -i` används.|
 
-Följande projektet publiceringsalternativ stöds bara i version 2.x:
+Följande alternativ för publicera stöds bara i version 2.x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Endast Publiceringsinställningar och hoppa över innehållet. Standardvärdet är fråga. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på .funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över filer som har publicerats som baseras på .funcignore-filen. |
-| **`--nozip`** | Aktiverar standard `Run-From-Zip` läge av. |
+| **`--nozip`** | Aktiverar standard `Run-From-Package` läge av. |
 | **`--build-native-deps`** | Hoppar över skapandet .wheels mapp när du publicerar python funktionsappar. |
 | **`--additional-packages`** | Lista över paket som ska installeras när du skapar inbyggda beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera före publicering verifiering i vissa scenarier. |
@@ -463,9 +457,9 @@ Följande projektet publiceringsalternativ stöds bara i version 2.x:
 | **`--no-build`** | Hoppa över att skapa dotnet-funktioner. |
 | **`--dotnet-cli-params`** | När publicering kompileras C# (.csproj)-funktioner, de viktigaste verktygen anropar ”dotnet build--utdata bin/publicera'. Alla parametrar som skickas till detta kommer att läggas till kommandoraden. |
 
-### <a name="custom-container-deployment"></a>Anpassade behållardistribution
+### <a name="deployment-custom-container"></a>Distribution (anpassad behållare)
 
-Functions kan du distribuera function-projekt i en anpassad Linux-behållare. Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Version 2.x av Core Tools har stöd för en anpassad behållare. Anpassad behållare måste ha en Dockerfile. Använd alternativet--dockerfile på `func init`.
+Azure Functions kan du distribuera function-projekt i en [dockerbehållare](functions-deployment-technologies.md#docker-container). Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Anpassad behållare måste ha en Dockerfile. Om du vill skapa en app med en docker-fil, använder du alternativet--dockerfile på `func init`.
 
 ```bash
 func deploy

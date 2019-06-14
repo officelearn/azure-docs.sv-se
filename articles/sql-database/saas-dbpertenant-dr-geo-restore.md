@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557077"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använda geo-återställning för att återställa en SaaS-program med flera klienter från säkerhetskopior av databasen
@@ -80,7 +80,7 @@ DR-skripten som används i den här självstudien är tillgängliga i den [Wingt
 ## <a name="review-the-healthy-state-of-the-application"></a>Granska felfri statusen för programmet
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
 
-1. Öppna i webbläsaren, evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net, Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
+1. Öppna i webbläsaren, evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt ; användare&gt;. trafficmanager.net, Ersätt &lt; användaren&gt; med värdet för användarnamn för din distribution).
     
    Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.    
 
@@ -200,7 +200,7 @@ Programslutpunkten är inaktiverad i Traffic Manager, är programmet inte tillg�
  
     ![Återställningsprocessen](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Om du öppnar en klients händelser sidan direkt medan klienten är offline, visar sidan ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall.
+  * Om du öppnar en klients händelser sidan direkt medan klienten är offline, visar sidan ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt ; användare&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Återställningsprocessen](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ I den här uppgiften ska uppdatera du en av de återställda klientdatabaserna. 
 
 3. Tryck på F5 för att köra skriptet.
 
-4. Uppdatera sidan Contosos Konserthall händelser (http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall), och Lägg märke till att händelsen allvarligt Strauss saknas.
+4. Uppdatera sidan Contosos Konserthall händelser (http://events.wingtip-dpt.&lt ; användare&gt;.trafficmanager.net/contosoconcerthall), och Lägg märke till att händelsen allvarligt Strauss saknas.
 
 Nu har du återställt programmet, vilket körs nu i återställningsregionen i självstudien. Du har etablerat en ny klient i återställningsregionen och ändra data i en av de återställda innehavarna.  
 
@@ -330,7 +330,7 @@ Om du har följt självstudierna reaktiverar Fabrikam Jazzklubb och skogskornell
 
     Om du vill köra skriptet för återställning i ett nytt PowerShell-fönster, tryck på F5. Hemtransport tar några minuter och kan övervakas i PowerShell-fönstret.
 
-3. När skriptet körs, uppdatera hubbsidan händelser (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net).
+3. När skriptet körs, uppdatera hubbsidan händelser (http://events.wingtip-dpt.&lt ; användare&gt;. trafficmanager.net).
 
     Observera att alla klienter är online och tillgängliga under hela processen.
 

@@ -9,10 +9,10 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563891"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installera klienten Chef i Azure Portal
@@ -74,7 +74,7 @@ I det här avsnittet ska du först använda Azure-portalen för att skapa en Lin
 
      ![Välj Lägg till tillägg för att lägga till ett tillägg till en virtuell dator](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. På den **ny resurs** fliken **Linux Chef-tillägget (1.2.3)**.
+1. På den **ny resurs** fliken **Linux Chef-tillägget (1.2.3)** .
 
      ![Chef har tillägg för Linux och Windows-datorer](./media/chef-extension-portal/select-linux-chef-extension.png)
 
@@ -82,7 +82,7 @@ I det här avsnittet ska du först använda Azure-portalen för att skapa en Lin
 
 1. På den **installera tillägget** fliken, ange följande värden och därefter **OK**.
 
-    - **Chef-Serveradress** – ange Webbadressen för Chef-Server som innehåller organisationsnamnet på, till exempel *https://api.chef.io/organization/mycompany*.
+    - **Chef-Serveradress** – ange Webbadressen för Chef-Server som innehåller organisationsnamnet på, till exempel *https://api.chef.io/organization/mycompany* .
     - **Chef nodnamnet** – ange namnet på Chef noden. Detta kan vara vilket värde som helst.
     - **Kör listan** -ange Chef kör-lista som har lagts till datorn. Detta kan vara tomt.
     - **Verifiering klientnamn** -ange namn för Chef verifiering klient. till exempel *tarcher verifieraren*.

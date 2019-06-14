@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285203"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Tolka Azure AD-inloggningen loggar schemat i Azure Monitor
@@ -151,7 +151,7 @@ Den här artikeln beskrivs Azure Active Directory (Azure AD)-inloggningen log sc
 | OperationVersion | REST API-versionen som begärs av klienten. |
 | Category | För inloggningar, det här värdet är alltid *inloggning från*. | 
 | TenantId | Klient-GUID som är associerat med loggarna. |
-| resultType | Resultatet av åtgärden logga in kan vara *lyckades* eller *fel*. | 
+| ResultType | Resultatet av åtgärden logga in kan vara *lyckades* eller *fel*. | 
 | ResultSignature | Innehåller felkoden för inloggning igen. |
 | ResultDescription | Innehåller felbeskrivningen för logga in igen. |
 | . durationMs |  Det här värdet är omappade och du kan ignorera det här fältet.|

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312856"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer av LastModifiedDate med Azure Data Factory
@@ -60,12 +60,12 @@ Mallen definierar fyra parametrar:
     ![Visa pipelinen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Välj **felsöka**, skriva-värdet för den **parametrar** och välj **Slutför**.  I bilden nedan är vi ange parametrarna som följande.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     I exemplet är som anger de filer som senast ändrades i tiden från att *2019-02-01T00:00:00Z* och *2019-03-01T00:00:00Z* ska kopieras från en mapp */source/*  till en mapp */destination/*.  Du kan ersätta dem med dina egna parametrar.
+     I exemplet är som anger de filer som senast ändrades i tiden från att *2019-02-01T00:00:00Z* och *2019-03-01T00:00:00Z* ska kopieras från en mapp */source/*  till en mapp */destination/* .  Du kan ersätta dem med dina egna parametrar.
     
      ![Köra en pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -86,10 +86,10 @@ Mallen definierar fyra parametrar:
     ![Skapa utlösare](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Skriva-värdet för den **parametrar för Objektutlösare kör** som följande och välj **Slutför**.
-    - **FolderPath_Source** = **/source/**.  Du kan ersätta med din mapp i källdatalagret.
-    - **FolderPath_Destination** = **/destination/**.  Du kan ersätta med din mapp i måldatalager.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipelinen utlöstes senast.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipeline utlöses den här gången.
+    - **FolderPath_Source** =  **/source/** .  Du kan ersätta med din mapp i källdatalagret.
+    - **FolderPath_Destination** =  **/destination/** .  Du kan ersätta med din mapp i måldatalager.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipelinen utlöstes senast.
+    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipeline utlöses den här gången.
     
     ![Indataparametrar](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

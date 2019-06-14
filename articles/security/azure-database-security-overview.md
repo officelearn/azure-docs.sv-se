@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587650"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
@@ -179,7 +179,7 @@ Det finns två metoder för granskning:
 -   **Blobbgranskning**: Loggarna skrivs till Azure Blob Storage. Det här är en metod för senare granskning. Det ger högre prestanda, stöder högre kornighet på objektnivå granskning och kostnadseffektivt alternativ mer.
 -   **Tabellgranskning**: Loggarna skrivs till Azure Table storage.
 
-### <a name="threat-detection"></a>Hotidentifiering
+### <a name="threat-detection"></a>Identifiering av hot
 
 [Avancerat skydd för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) identifierar misstänkta aktiviteter som kan innebära potentiella säkerhetshot. Du kan använda hotidentifiering för att reagera på misstänkta händelser i databasen, som SQL-injektioner, när de inträffar. Det ger aviseringar och tillåter användning av Azure SQL Database-granskning för att utforska misstänkta händelser.
 

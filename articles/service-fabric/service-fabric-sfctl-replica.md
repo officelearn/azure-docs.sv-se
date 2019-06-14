@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544678"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -28,13 +28,13 @@ Hantera replikerna som hör till tjänstpartitioner.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| distribuerat | Hämtar information om repliken som distribuerats på en Service Fabric-nod. |
-| distribuerat lista | Hämtar listan över kopior som distribueras på en Service Fabric-nod. |
-| hälsa | Hämtar hälsotillståndet för en Service Fabric tillståndskänslig tjänst målreplik eller tillståndslös tjänst. |
+| deployed | Hämtar information om repliken som distribuerats på en Service Fabric-nod. |
+| deployed-list | Hämtar listan över kopior som distribueras på en Service Fabric-nod. |
+| health | Hämtar hälsotillståndet för en Service Fabric tillståndskänslig tjänst målreplik eller tillståndslös tjänst. |
 | info | Hämtar information om en replik av en Service Fabric-partition. |
-| lista | Hämtar information om repliker för en partition för Service Fabric-tjänsten. |
+| list | Hämtar information om repliker för en partition för Service Fabric-tjänsten. |
 | ta bort | Tar bort en replik för tjänsten som körs på en nod. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-replik. |
+| report-health | Skickar en hälsorapport på Service Fabric-replik. |
 | restart | Startar om en tjänst replik av en bestående tjänst som körs på en nod. |
 
 ## <a name="sfctl-replica-deployed"></a>sfctl repliken distribueras

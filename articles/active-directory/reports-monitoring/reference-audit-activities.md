@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285489"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
@@ -66,10 +66,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Åtkomstgranskningar|Uppdatera åtkomstgranskning|
 |Åtkomstgranskningar|Uppdatera Azure AD Access granskningar Publiceringsstatus|
 |Åtkomstgranskningar|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för upprepningsantal för åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för varaktigheten i dagar för upprepning av åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för sluttyp för åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera inställningen för upprepningstyp för åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera åtkomst granska antalet upprepningar för inställningen|
+|Åtkomstgranskningar|Uppdatera upprepning åtkomstgranskningens varaktighet i dagar inställning|
+|Åtkomstgranskningar|Uppdatera åtkomst granska upprepning end-typen inställning|
+|Åtkomstgranskningar|Uppdatera åtkomst granska intervalltyp inställning|
 |Åtkomstgranskningar|Uppdatera inställningar för påminnelse om åtkomstgranskning|
 |Åtkomstgranskningar|Uppdatera program|
 |Åtkomstgranskningar|Uppdatera godkännande av begäran|
@@ -103,9 +103,9 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Ta bort OAuth2PermissionGrant|
 |Kataloghantering|Ta bort approlltilldelning från tjänstens huvudnamn|
 |Kataloghantering|Ta bort ägare från program|
-|Resurs|Ta bort ägare från tjänstens huvudnamn|
-|Resurs|Ta bort princip från tjänstens huvudnamn|
-|Resurs|Ta bort tjänstens huvudnamn|
+|Resource|Ta bort ägare från tjänstens huvudnamn|
+|Resource|Ta bort princip från tjänstens huvudnamn|
+|Resource|Ta bort tjänstens huvudnamn|
 
 
 ## <a name="automated-password-rollover"></a>Automatiserad lösenordsförnyelse
@@ -269,79 +269,79 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Nyckel|Katalog borttagen|
 |Annat|Katalog borttagen permanent|
 |Annat|Katalog schemalagd för borttagning|
-|Resurs|Flytta upp företag till partner|
-|Resurs|Rensa egenskaper för Rights Management|
-|Resurs|Ta bort partner från företag|
-|Resurs|Ta bort overifierad domän|
-|Resurs|Ta bort verifierad domän|
-|Resurs|Ange företagsinformation|
-|Resurs|Ange Dirsync-funktion|
-|Resurs|Ange flaggan Dirsyncenabled|
-|Resurs|Ange partnerskap|
-|Resurs|Ange tröskelvärde för oavsiktlig borttagning|
-|Resurs|Ange företagstillåten dataplats|
-|Resurs|Ange företagsfunktionen Multinationell som aktiverad|
-|Resurs|Ange katalogfunktion för klientorganisation|
-|Resurs|Ange domänautentisering|
-|Resurs|Ange federationsinställningar för domän|
-|Resurs|Ange lösenordsprincip|
-|Resurs|Ange egenskaper för Rights Management|
-|Resurs|Uppdatera företag|
-|Resurs|Uppdatera företagsinställningar|
-|Resurs|Uppdatera domän|
-|Resurs|Verifiera domän|
-|Resurs|Verifiera e-postverifierad domän|
-|Resurs|Publicering|
-|Resurs|Uppdatera aviseringsinställningar|
-|Resurs|Uppdatera inställningar för sammandrag av veckan|
-|Resurs|Inaktivera lösenordstillbakaskrivning för katalog|
-|Resurs|Aktivera lösenordstillbakaskrivning för katalog|
-|Resurs|Lägg till approlltilldelning till grupp|
-|Resurs|Lägg till grupp|
-|Resurs|Lägg till medlem i grupp|
-|Resurs|Lägg till ägare till grupp|
-|Resurs|Skapa gruppinställningar|
-|Resurs|Ta bort grupp|
-|Resurs|Ta bort gruppinställningar|
-|Resurs|Slutför tillämpning av gruppbaserad licens för användare|
-|Resurs|Ta bort grupp permanent|
-|Resurs|Ta bort approlltilldelning från grupp|
-|Resurs|Ta bort medlem från grupp|
-|Resurs|Ta bort ägare från grupp|
-|Resurs|Återställ grupp|
-|Resurs|Ange grupplicens|
-|Resurs|Ange grupp som ska hanteras av användare|
-|Resurs|Börja tillämpa gruppbaserad licens för användare|
-|Resurs|Utlös omberäkning för grupplicens|
-|Resurs|Uppdatera grupp|
-|Resurs|Uppdatera gruppinställningar|
-|Resurs|Lägg till medlem|
-|Resurs|Skapa grupp|
-|Resurs|Ta bort grupp|
-|Resurs|Ta bort medlem|
-|Resurs|Uppdatera grupp|
-|Resurs|Godkänn en väntande begäran om att gå med i en grupp|
-|Resurs|Avbryt en väntande begäran om att gå med i en grupp|
-|Resurs|Skapa princip för livscykelhantering|
-|Resurs|Ta bort en väntande begäran om att gå med i en grupp|
-|Resurs|Avvisa en väntande begäran om att gå med i en grupp|
-|Resurs|Förnya grupp|
-|Resurs|Begäran om att gå med i en grupp|
-|Resurs|Ange dynamiska gruppegenskaper|
-|Resurs|Uppdatera princip för livscykelhantering|
-|Resurs|Lägga till en nyckel som baseras på en ASCII-hemlighet till en CPIM-nyckelcontainer|
-|Resurs|Lägg till en nyckel till en CPIM-nyckelcontainer|
-|Resurs|Ta bort en CPIM-nyckelcontainer|
-|Resurs|Ta bort nyckelcontainer|
-|Resurs|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
-|Resurs|Hämta metadata för nyckelcontainer|
-|Resurs|Hämtar en CPIM-nyckelcontainer i jwk-format|
-|Resurs|Hämtar lista över nyckelcontainrar i klienten|
-|Resurs|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
-|Resurs|Spara nyckelcontainer|
-|Resurs|Ladda upp en CPIM-krypterad nyckel|
-|Resurs|Utfärda en auktoriseringskod till programmet|
-|Resurs|Utfärda ett id_token för programmet|
+|Resource|Flytta upp företag till partner|
+|Resource|Rensa egenskaper för Rights Management|
+|Resource|Ta bort partner från företag|
+|Resource|Ta bort overifierad domän|
+|Resource|Ta bort verifierad domän|
+|Resource|Ange företagsinformation|
+|Resource|Ange Dirsync-funktion|
+|Resource|Ange flaggan Dirsyncenabled|
+|Resource|Ange partnerskap|
+|Resource|Ange tröskelvärde för oavsiktlig borttagning|
+|Resource|Ange företagstillåten dataplats|
+|Resource|Ange företagsfunktionen Multinationell som aktiverad|
+|Resource|Ange katalogfunktion för klientorganisation|
+|Resource|Ange domänautentisering|
+|Resource|Ange federationsinställningar för domän|
+|Resource|Ange lösenordsprincip|
+|Resource|Ange egenskaper för Rights Management|
+|Resource|Uppdatera företag|
+|Resource|Uppdatera företagsinställningar|
+|Resource|Uppdatera domän|
+|Resource|Verifiera domän|
+|Resource|Verifiera e-postverifierad domän|
+|Resource|Publicering|
+|Resource|Uppdatera aviseringsinställningar|
+|Resource|Uppdatera inställningar för sammandrag av veckan|
+|Resource|Inaktivera lösenordstillbakaskrivning för katalog|
+|Resource|Aktivera lösenordstillbakaskrivning för katalog|
+|Resource|Lägg till approlltilldelning till grupp|
+|Resource|Lägg till grupp|
+|Resource|Lägg till medlem i grupp|
+|Resource|Lägg till ägare till grupp|
+|Resource|Skapa gruppinställningar|
+|Resource|Ta bort grupp|
+|Resource|Ta bort gruppinställningar|
+|Resource|Slutför tillämpning av gruppbaserad licens för användare|
+|Resource|Ta bort grupp permanent|
+|Resource|Ta bort approlltilldelning från grupp|
+|Resource|Ta bort medlem från grupp|
+|Resource|Ta bort ägare från grupp|
+|Resource|Återställ grupp|
+|Resource|Ange grupplicens|
+|Resource|Ange grupp som ska hanteras av användare|
+|Resource|Börja tillämpa gruppbaserad licens för användare|
+|Resource|Utlös omberäkning för grupplicens|
+|Resource|Uppdatera grupp|
+|Resource|Uppdatera gruppinställningar|
+|Resource|Lägg till medlem|
+|Resource|Skapa grupp|
+|Resource|ta bort grupp|
+|Resource|Ta bort medlem|
+|Resource|Uppdatera grupp|
+|Resource|Godkänn en väntande begäran om att gå med i en grupp|
+|Resource|Avbryt en väntande begäran om att gå med i en grupp|
+|Resource|Skapa princip för livscykelhantering|
+|Resource|Ta bort en väntande begäran om att gå med i en grupp|
+|Resource|Avvisa en väntande begäran om att gå med i en grupp|
+|Resource|Förnya grupp|
+|Resource|Begäran om att gå med i en grupp|
+|Resource|Ange dynamiska gruppegenskaper|
+|Resource|Uppdatera princip för livscykelhantering|
+|Resource|Lägga till en nyckel som baseras på en ASCII-hemlighet till en CPIM-nyckelcontainer|
+|Resource|Lägg till en nyckel till en CPIM-nyckelcontainer|
+|Resource|Ta bort en CPIM-nyckelcontainer|
+|Resource|Ta bort nyckelcontainer|
+|Resource|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
+|Resource|Hämta metadata för nyckelcontainer|
+|Resource|Hämtar en CPIM-nyckelcontainer i jwk-format|
+|Resource|Hämtar lista över nyckelcontainrar i klienten|
+|Resource|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
+|Resource|Spara nyckelcontainer|
+|Resource|Ladda upp en CPIM-krypterad nyckel|
+|Resource|Utfärda en auktoriseringskod till programmet|
+|Resource|Utfärda ett id_token för programmet|
 
 
 ## <a name="core-directory"></a>Grundläggande katalog
@@ -432,18 +432,18 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Principhantering|GetIEFPolicies|
 |Principhantering|GetIdentityProviders|
 |Principhantering|GetTrustFrameworkPolicy|
-|Resurs|MigrateTenantMetadata|
-|Resurs|Flytta resurser|
-|Resurs|Korrigera IdentityProvider|
-|Resurs|PutTrustFrameworkPolicy|
-|Resurs|PutTrustFrameworkpolicy|
-|Resurs|Ta bort en användarresa|
-|Resurs|Uppdatera anpassad IDP|
-|Resurs|Uppdatera IDP|
-|Resurs|Uppdatera den lokala IdP:n|
-|Resurs|Uppdatera en B2C-katalogresurs|
-|Resurs|Uppdatera princip|
-|Resurs|Uppdatera prenumerationsstatus|
+|Resource|MigrateTenantMetadata|
+|Resource|Flytta resurser|
+|Resource|Korrigera IdentityProvider|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|Ta bort en användarresa|
+|Resource|Uppdatera anpassad IDP|
+|Resource|Uppdatera IDP|
+|Resource|Uppdatera den lokala IdP:n|
+|Resource|Uppdatera en B2C-katalogresurs|
+|Resource|Uppdatera princip|
+|Resource|Uppdatera prenumerationsstatus|
 |Rollhantering|Uppdatera användarattribut|
 |Rollhantering|Verifiera flytta resurser|
 |Rollhantering|Lägg till enhet|
@@ -518,10 +518,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Grupphantering|Granska begäran om godkännande|
 |Grupphantering|Uppdatera åtkomstgranskning|
 |Grupphantering|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för upprepningsantal för åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för varaktigheten i dagar för upprepning av åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för sluttyp för åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för upprepningstyp för åtkomstgranskning|
+|Grupphantering|Uppdatera åtkomst granska antalet upprepningar för inställningen|
+|Grupphantering|Uppdatera upprepning åtkomstgranskningens varaktighet i dagar inställning|
+|Användarhantering|Uppdatera åtkomst granska upprepning end-typen inställning|
+|Användarhantering|Uppdatera åtkomst granska intervalltyp inställning|
 
 
 

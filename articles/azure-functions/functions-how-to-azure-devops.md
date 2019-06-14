@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050700"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Kontinuerlig leverans med Azure DevOps
 
@@ -36,9 +36,7 @@ Varje språk har specifika steg för att skapa en distribution av artefakt som k
 Du kan använda följande exempel för att skapa en YAML-fil för att bygga din .NET-app.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -69,9 +67,7 @@ steps:
 Du kan använda följande exempel för att skapa en YAML-fil för att skapa din JavaScript-app:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -99,9 +95,7 @@ steps:
 Du kan använda följande exempel för att skapa en YAML-fil för att skapa din app med Python, Python stöds endast för Linux Azure Functions:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -118,6 +112,25 @@ steps:
     source worker_venv/bin/activate
     pip3.6 install setuptools
     pip3.6 install -r requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
+#### <a name="powershell"></a>PowerShell
+
+Du kan använda följande exempel för att skapa en YAML-fil om du vill paketera din PowerShell-app, PowerShell stöds endast för Windows Azure Functions:
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -175,6 +188,10 @@ Sök efter Azure Functions build-mallar när du har konfigurerat källan för di
 
 ![Skapa mallar för Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
 
+I vissa fall kan byggartefakterna har en specifik mappstruktur och du kan behöva kontrollera den **Prepend namn på rapportrotmappen att arkivera sökvägar** alternativet.
+
+![Lägg till åtkomstgruppen rotmappen](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### <a name="javascript-apps"></a>JavaScript-appar
 
 Om JavaScript-app är beroende av Windows inbyggda moduler, kommer du behöva uppdatera:
@@ -182,10 +199,6 @@ Om JavaScript-app är beroende av Windows inbyggda moduler, kommer du behöva up
 - Versionen för Agentpoolen att **finns VS2017**
 
   ![Ändra Skapandeagent OS](media/functions-how-to-azure-devops/change-agent.png)
-
-- Skriptet i den **skapa tillägg** steg i mallen för att `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![Ändra skriptet](media/functions-how-to-azure-devops/change-script.png)
 
 ### <a name="deploy-your-app"></a>Distribuera din app
 
@@ -206,7 +219,7 @@ Förutsättningar för det här kommandot är beroende av platsen för din kod:
 
     - Du har behörighet att skapa en GitHub personlig åtkomst-Token med tillräcklig behörighet. [GitHub PAT behörighet som krävs.](https://aka.ms/azure-devops-source-repos)
 
-    - Du har behörighet att byta till huvudgrenen i ditt GitHub-lagringsplats för att genomföra den automatiskt genererade YAML-fil.
+    - Du har behörighet att byta till huvudgrenen i ditt GitHub-lagringsplats för att genomföra den automatiskt genererade YAML-filen.
 
 - Om din kod i Azure-databaser:
 

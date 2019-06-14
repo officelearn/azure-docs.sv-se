@@ -10,10 +10,10 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308765"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
@@ -29,7 +29,7 @@ Med färre SUs-resultat i en proportionellt lägre kostnader. Fakturering har ak
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 Repliker och partitioner är de viktigaste resurserna som stöder en söktjänst.
 
-| Resurs | Definition |
+| Resource | Definition |
 |----------|------------|
 |*Partitioner* | Innehåller indexet lagring och i/o för läs-/ skrivåtgärder (till exempel när återskapa eller uppdatera ett index).|
 |*Repliker* | Instanser för search-tjänsten används främst för att läsa in saldo frågeåtgärder. Varje replik värd alltid en kopia av ett index. Om du har 12 repliker har du 12 kopior av alla index som har lästs in på tjänsten.|

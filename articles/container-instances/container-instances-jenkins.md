@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
 ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584191"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
@@ -26,7 +26,7 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
 
 2. Ange följande information den **grunderna** formuläret och välj sedan **OK**.
 
-   - **Namn**: Ange ett namn för Jenkins-distribution.
+   - **Namn på**: Ange ett namn för Jenkins-distribution.
    - **Användarnamnet**: Ange ett namn för administratören för den virtuella Jenkins-datorn.
    - **Autentiseringstyp**: Vi rekommenderar en offentlig SSH-nyckel för autentisering. Om du väljer det här alternativet kan du klistra in en offentlig SSH-nyckel som ska användas för att logga in på Jenkins-dator.
    - **Prenumeration**: Välj en Azure-prenumeration.

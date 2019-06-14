@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236197"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Felsöka System Center Data Protection Manager
@@ -22,7 +22,7 @@ Den här artikeln beskriver lösningar på problem som kan uppstå när du anvä
 De senaste viktig information för System Center Data Protection Manager, finns det [dokumentation för System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Du kan läsa mer om stöd för Data Protection Manager i [matrisen](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
-## <a name="error-replica-is-inconsistent"></a>Fel: Replikeringen är inkonsekvent
+## <a name="error-replica-is-inconsistent"></a>Fel: Repliken är inkonsekvent
 
 En replik kan vara inkonsekvent av följande skäl:
 - Det går inte att skapa replikeringar.
@@ -42,7 +42,7 @@ Lös problemet genom att utföra följande åtgärder:
 - Se till att disken är felfri och att det finns tillräckligt med diskutrymme för repliken.
 - Se till att det finns inga dubbla säkerhetskopieringsjobb som körs samtidigt.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Fel: Det gick inte att skapa onlineåterställningspunkt
+## <a name="error-online-recovery-point-creation-failed"></a>Fel: Det gick inte att skapa återställningspunkten online
 
 Lös problemet genom att utföra följande åtgärder:
 - Se till att du använder den senaste versionen av Azure Backup-agenten.
@@ -53,7 +53,7 @@ Lös problemet genom att utföra följande åtgärder:
 - Kontrollera att repliken är närvarande och inte saknas.
 - Kontrollera att repliken har tillräckligt med utrymme för att skapa update sequence number (USN) journalen.
 
-## <a name="error-unable-to-configure-protection"></a>Fel: Det gick inte att konfigurera skydd
+## <a name="error-unable-to-configure-protection"></a>Fel: Det går inte att konfigurera skydd
 
 Det här felet inträffar när Data Protection Manager-servern inte kan kontakta den skyddade servern. 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333000"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
@@ -50,7 +50,7 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
    Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
 
    - **CCEID**: Den unika identifieraren CCE för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
-   - **Namn**: Namnet på den misslyckade regeln.
+   - **Namn på**: Namnet på den misslyckade regeln.
    - **Regeltyp**: Den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
    - **Nej. VM: ar och datorer**: Det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
    - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
@@ -66,7 +66,7 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
 
    I den detaljerade vyn visas följande information:
 
-   - **Namn**: Namnet på regeln.
+   - **Namn på**: Namnet på regeln.
    - **CCIED**: Den unika identifieraren CCE för regeln.
    - **OS-version**: OS-versionen av den virtuella datorn eller datorn.
    - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240862"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
@@ -54,7 +54,7 @@ Log Analytics-agenten för Linux endast samlar in händelser med anläggningar o
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurera Syslog i Azure portal
 Konfigurera Syslog från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources). Den här konfigurationen levereras till konfigurationsfilen på varje Linux-agent.
 
-Du kan lägga till en ny resurs genom att skriva dess namn och klicka på **+**. Endast meddelanden med de valda allvarlighetsgraderna kommer att samlas in för varje resurs.  Kontrollera allvarlighetsgraderna för en viss tjänst du vill samla in. Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
+Du kan lägga till en ny resurs genom att skriva dess namn och klicka på **+** . Endast meddelanden med de valda allvarlighetsgraderna kommer att samlas in för varje resurs.  Kontrollera allvarlighetsgraderna för en viss tjänst du vill samla in. Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
 
 ![Konfigurera Syslog](media/data-sources-syslog/configure.png)
 
@@ -201,7 +201,7 @@ När du har slutfört ändringarna, gälla Syslog och agent-tjänsten måste sta
 ## <a name="syslog-record-properties"></a>Egenskaper för Syslog-post
 Syslog-poster har en typ av **Syslog** och har egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Dator |Datorn där händelsen har samlats in från. |
 | Anläggning |Definierar en del av systemet som genererade meddelandet. |

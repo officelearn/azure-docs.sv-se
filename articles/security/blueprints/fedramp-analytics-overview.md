@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586295"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Blueprint för säkerhet och efterlevnad: Analytics for FedRAMP
@@ -90,7 +90,7 @@ Var och en av NSG: erna har specifika portar och protokoll som är öppna så at
 Arkitekturen skyddar data i vila med kryptering, database-granskning och andra åtgärder.
 
 **Datareplikering** Azure Government har två alternativ för [datareplikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy):
- - Standardinställningen för replikering av data är **Geo-Redundant lagring (GRS)**, som lagrar kunddata asynkront i ett separat Datacenter utanför den primära regionen. Detta säkerställer att återställning av data i ett strömavbrott evenemang för det primära datacentralen.
+ - Standardinställningen för replikering av data är **Geo-Redundant lagring (GRS)** , som lagrar kunddata asynkront i ett separat Datacenter utanför den primära regionen. Detta säkerställer att återställning av data i ett strömavbrott evenemang för det primära datacentralen.
  - **Lokalt Redundant lagring (LRS)** kan också konfigureras via Azure Storage-konto. LRS replikeras data i en lagringsskalningsenhet som ligger i samma region där kunden skapar sitt konto. Alla data replikeras samtidigt, se till att inga säkerhetskopierade data förloras primärlagring skala enhet fel.
 
 **Azure Storage** för att uppfylla krypterade data vid rest krav, alla tjänster som distribueras i den här referensen arkitektur utnyttjar [Azure Storage](https://azure.microsoft.com/services/storage/), som lagrar data med [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/storage-service-encryption).

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778262"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050524"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista Batch-resurser effektivt
 
@@ -89,7 +89,7 @@ Expandera strängen minskar antalet API-anrop som krävs för att erhålla viss 
 * Det här exemplet Expandera sträng Anger att statistikinformation ska returneras för varje objekt i listan: `stats`.
 
 > [!NOTE]
-> När någon av tre fråga strängtyper (filtrera, markera och expandera), måste du se till att egenskapsnamn och fallet matchar det som deras motsvarigheter för REST API-element. Till exempel när du arbetar med .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) klass, måste du ange **tillstånd** i stället för **tillstånd**, även om .NET-egenskapen är [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Finns i tabellen nedan för egenskapsmappningar mellan .NET och REST API: er.
+> När någon av tre fråga strängtyper (filtrera, markera och expandera), måste du se till att egenskapsnamn och fallet matchar det som deras motsvarigheter för REST API-element. Till exempel när du arbetar med .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) klass, måste du ange **tillstånd** i stället för **tillstånd**, även om .NET-egenskapen är [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Finns i tabellen nedan för egenskapsmappningar mellan .NET och REST API: er.
 > 
 > 
 
@@ -110,7 +110,7 @@ I den [Batch .NET] [ api_net] API, den [ODATADetailLevel] [ odata] klassen anvä
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Ange vilka egenskapsvärden som returneras med varje objekt.
 * [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Hämta data för alla objekt i ett enda API-anrop i stället för separata anrop för varje objekt.
 
-Följande kodavsnitt använder Batch .NET-API för att effektivt fråga Batch-tjänsten för statistik för en specifik uppsättning pooler. I det här scenariot har Batch-användaren både test- och pooler. Testa poolen ID: N har prefixet ”test” och produktionspoolen ID: N har prefixet ”prod”. I kodfragmentet *myBatchClient* är en korrekt initierad instans av den [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) klass.
+Följande kodavsnitt använder Batch .NET-API för att effektivt fråga Batch-tjänsten för statistik för en specifik uppsättning pooler. I det här scenariot har Batch-användaren både test- och pooler. Testa poolen ID: N har prefixet ”test” och produktionspoolen ID: N har prefixet ”prod”. I kodfragmentet *myBatchClient* är en korrekt initierad instans av den [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) klass.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> En instans av [ODATADetailLevel] [ odata] som har konfigurerats med särskilda och expandera-satser kan även skickas till lämplig Get-metoder, till exempel [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), för att begränsa mängden data som returneras.
+> En instans av [ODATADetailLevel] [ odata] som har konfigurerats med särskilda och expandera-satser kan även skickas till lämplig Get-metoder, till exempel [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), för att begränsa mängden data som returneras.
 > 
 > 
 
@@ -179,7 +179,7 @@ Egenskapsnamn i filtret, markera och utöka strängar *måste* återspeglar mots
 ## <a name="example-construct-a-filter-string"></a>Exempel: skapa en Filtersträng
 När du skapar en Filtersträng för [ODATADetailLevel.FilterClause][odata_filter], med hjälp av tabellen ovan under ”mappningar för filtersträngar” att hitta REST API-dokumentationssida som motsvarar den liståtgärden som du vill utföra. Du hittar filtrerbara egenskaper och deras operatorer som stöds i tabellen för första försök för på sidan. Om du vill hämta alla uppgifter vars avslutskoden var inte är noll, till exempel detta rad på [lista de uppgifter som är associerade med ett jobb] [ rest_list_tasks] anger egenskapssträng och tillåten operatorer:
 
-| Egenskap  | Tillåtna åtgärder | Typ |
+| Egenskap | Tillåtna åtgärder | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Därför är Filtersträngen för att lista alla uppgifter med en slutkod:
 ## <a name="example-construct-a-select-string"></a>Exempel: skapa en väljer sträng
 Att konstruera [ODATADetailLevel.SelectClause][odata_select], med hjälp av tabellen ovan under ”mappningar för väljer strängar” och gå till sidan REST API som motsvarar typ av enhet som du visar. Du hittar valbar egenskaperna och deras operatorer som stöds i tabellen för första försök för på sidan. Om du vill hämta endast ID och kommandoraden för varje aktivitet i en lista, till exempel du hittar dessa rader i tabellen gäller på [hämta information om en aktivitet][rest_get_task]:
 
-| Egenskap  | Typ | Anteckningar |
+| Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

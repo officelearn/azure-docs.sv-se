@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243702"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
@@ -40,7 +40,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 [Efter installationen](how-to-connect-post-installation.md) bör du kontrollera att allt fungerar som förväntat och tilldela licenser till användarna.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Nästa steg för att installera Azure AD Connect
-|Avsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./how-to-connect-install-express.md)|
@@ -51,7 +51,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
 Det är bra att vara förberedd om det skulle uppstå [driftproblem](how-to-connect-sync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-staging-server.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-staging-server.md).
 
-|Avsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Topologier som stöds | [Topologier för Azure AD Connect](plan-connect-topologies.md)|
 |Designbegrepp | [Designbegrepp för Azure AD Connect](plan-connect-design-concepts.md)|
@@ -95,7 +95,7 @@ Om du inte har arbetat med en synkroniseringstopologi förut är det bäst att b
 Konfigurationsmodellen i synkroniseringsverktyget kallas för [deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md). De avancerade attributflödena använder [funktioner](reference-connect-sync-functions-reference.md) för att uttrycka attributtransformationer. Du kan se och granska hela konfigurationen med hjälp av verktyg som medföljer Azure AD Connect. Om du behöver göra konfigurationsändringar ser du till att du följer [metodtipsen](how-to-connect-sync-best-practices-changing-default-configuration.md) så att det är lättare att integrera nya versioner.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Nästa steg för att anpassa Azure AD Connect-synkroniseringen
-|Avsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Alla artiklar om Azure AD Connect-synkronisering | [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md)|
 |Tekniska begrepp | [Azure AD Connect-synkronisering: Tekniska begrepp](how-to-connect-sync-technical-concepts.md)|
@@ -119,7 +119,7 @@ AD FS kan konfigureras att ge stöd för [flera domäner](how-to-connect-install
 Om ADFS-servern inte har konfigurerats att automatiskt uppdatera certifikat från Azure AD eller om du använder en annan lösning än en ADFS-lösning så meddelas du när du behöver [uppdatera certifikaten](how-to-connect-fed-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Nästa steg för att konfigurera federationsfunktioner
-|Avsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Alla AD FS-artiklar | [Azure AD Connect och federation](how-to-connect-fed-whatis.md)|
 |Konfigurera AD FS med underdomäner | [Stöd för flera domäner för federering med Azure AD](how-to-connect-install-multiple-domains.md)|
@@ -160,7 +160,7 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
 ![Azure AD Connect Health-portalen](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **Snabbstart**: När du väljer det här alternativet öppnas bladet **Snabbstart**. Du kan hämta Azure AD Connect Health-agenten genom att välja **Hämta verktyg**. Du kan också komma åt dokumentationen och ge feedback.
-* **Azure Active Directory Connect (synkronisering)**: När du väljer det här alternativet visas de Azure AD Connect-servrar som Azure AD Connect Health övervakar för tillfället. Posten **Sync errors** (Synkroniseringsfel) visar grundläggande synkroniseringsfel för din första publicerade tjänst efter kategorier. När du väljer posten **Sync services** (Synkroniseringstjänster) öppnas ett blad som visar information om dina Azure AD Connect-servrar. Läs mer om funktionerna i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md).
+* **Azure Active Directory Connect (synkronisering)** : När du väljer det här alternativet visas de Azure AD Connect-servrar som Azure AD Connect Health övervakar för tillfället. Posten **Sync errors** (Synkroniseringsfel) visar grundläggande synkroniseringsfel för din första publicerade tjänst efter kategorier. När du väljer posten **Sync services** (Synkroniseringstjänster) öppnas ett blad som visar information om dina Azure AD Connect-servrar. Läs mer om funktionerna i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md).
 * **Active Directory Federation Services**: När du väljer det här alternativet visas alla de AD FS-tjänster som Azure AD Connect Health övervakar för tillfället. När du väljer en instans visas information om tjänstinstansen på bladet som öppnas. Den här informationen innehåller en översikt, egenskaper, aviseringar, övervakning och användningsanalys. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md).
 * **Active Directory Domain Services**: När du väljer det här alternativet visas alla de AD DS-skogar som Azure AD Connect Health övervakar för tillfället. När du väljer en skog visas information om skogen på bladet som öppnas. Denna information innehåller en översikt över viktig information, instrumentpanelerna Domänkontrollanter och Replikeringsstatus, aviseringar och övervakning. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
 * **Konfigurera**: Det här avsnittet innehåller alternativ för att aktivera eller inaktivera följande:

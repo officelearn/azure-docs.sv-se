@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386779"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory-direktautentisering: Uppgradera förhandsversioner av Autentiseringsagenter
@@ -69,7 +69,7 @@ Du måste uppgradera Azure AD Connect innan du uppgraderar Autentiseringsagenten
 
 1. **Uppgradera Azure AD Connect**: Följ den här [artikeln](how-to-upgrade-previous-version.md) och uppgradera till den senaste versionen av Azure AD Connect.
 2. **Avinstallera förhandsversionen av Autentiseringsagenten**: Ladda ned [den här PowerShell.skript](https://aka.ms/rmpreviewagent) och köra den som en administratör på servern.
-3. **Hämta den senaste versionen av Autentiseringsagenten (versioner 1.5.389.0 eller senare)**: Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med Global administratörsbehörighet för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direktautentisering -> ladda ned agenten**. Acceptera den [användarvillkoren](https://aka.ms/authagenteula) och hämta den senaste versionen av Autentiseringsagenten. Du kan också hämta Autentiseringsagenten från [här](https://aka.ms/getauthagent).
+3. **Hämta den senaste versionen av Autentiseringsagenten (versioner 1.5.389.0 eller senare)** : Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med Global administratörsbehörighet för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direktautentisering -> ladda ned agenten**. Acceptera den [användarvillkoren](https://aka.ms/authagenteula) och hämta den senaste versionen av Autentiseringsagenten. Du kan också hämta Autentiseringsagenten från [här](https://aka.ms/getauthagent).
 4. **Installera den senaste versionen av Autentiseringsagenten**: Kör den körbara filen som hämtades i steg3. Ange autentiseringsuppgifterna för din klient Global administratör när du tillfrågas.
 5. **Kontrollera att den senaste versionen har installerats**: Enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post för ”**Microsoft Azure AD Connect-Autentiseringsagenten**”.
 
@@ -81,7 +81,7 @@ Du måste uppgradera Azure AD Connect innan du uppgraderar Autentiseringsagenten
 Följ dessa steg om du vill uppgradera Autentiseringsagenter på andra servrar (där Azure AD Connect är inte installerat):
 
 1. **Avinstallera förhandsversionen av Autentiseringsagenten**: Ladda ned [den här PowerShell.skript](https://aka.ms/rmpreviewagent) och köra den som en administratör på servern.
-2. **Hämta den senaste versionen av Autentiseringsagenten (versioner 1.5.389.0 eller senare)**: Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med Global administratörsbehörighet för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direktautentisering -> ladda ned agenten**. Godkänn villkoren och hämta den senaste versionen.
+2. **Hämta den senaste versionen av Autentiseringsagenten (versioner 1.5.389.0 eller senare)** : Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med Global administratörsbehörighet för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direktautentisering -> ladda ned agenten**. Godkänn villkoren och hämta den senaste versionen.
 3. **Installera den senaste versionen av Autentiseringsagenten**: Kör den körbara filen som hämtades i steg 2. Ange autentiseringsuppgifterna för din klient Global administratör när du tillfrågas.
 4. **Kontrollera att den senaste versionen har installerats**: Enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post med namnet **Microsoft Azure AD Connect-Autentiseringsagenten**.
 

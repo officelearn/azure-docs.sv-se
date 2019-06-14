@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587928"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition funktioner
@@ -164,7 +164,7 @@ I följande exempel returneras `true`:
 "[contains(steps('foo').element1, 'key1')]"
 ```
 
-### <a name="length"></a>Längd
+### <a name="length"></a>length
 Returnerar antalet tecken i en sträng antalet värden i en matris eller antalet nycklar i ett objekt.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -335,7 +335,7 @@ I följande exempel returneras `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>hoppa över
+### <a name="skip"></a>Hoppa över
 Kringgår ett angivet antal element i en samling och returnerar sedan de återstående element.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -370,7 +370,7 @@ I följande exempel returneras `{"key2": "raboof"}`:
 ## <a name="logical-functions"></a>Logiska funktioner
 Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder alla typer av JSON-data.
 
-### <a name="equals"></a>lika med
+### <a name="equals"></a>är lika med
 Returnerar `true` om båda parametrarna har samma typ och värde. Den här funktionen har stöd för alla typer av JSON-data.
 
 I följande exempel returneras `true`:
@@ -511,7 +511,7 @@ I följande exempel returneras `2`:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>flyt
+### <a name="float"></a>float
 Konverterar parametern till ett flyttal. Den här funktionen stöder parametrar av typen tal och sträng.
 
 I följande exempel returneras `1.0`:

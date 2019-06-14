@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387990"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808392"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -85,7 +85,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Eclipse Azure-konfigurationsmeny](./media/java-quick-start/0007-j.png)
 
-5. När du har konfigurerat Application Insights-plugin-programmet behöver du [publicera/publicera](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure) programmet igen innan det kan börja skicka telemetri.
+5. När du har konfigurerat Application Insights-plugin-programmet behöver du [publicera/publicera](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app) programmet igen innan det kan börja skicka telemetri.
 
 > [!NOTE]
 > Application Insights SDK för Java kan registrera och visualisera livemått men när du först aktiverar telemetriinsamling kan det ta några minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det finns aktiva begäranden eller åtgärder.

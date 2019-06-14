@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60396435"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway i Azure Monitor
@@ -163,7 +163,7 @@ Följande tabell visar de parametrar som stöds av installationsprogrammet.
 |PROXY | IP-adressen för proxyservern |
 |INSTALLDIR | Fullständigt kvalificerad sökväg till ange installationskatalogen för gateway-programvarufiler |
 |ANVÄNDARNAMN | Användar-Id för autentisering med proxyservern |
-|LÖSENORD | Lösenordet för användar-Id för att autentisera med proxy |
+|PASSWORD | Lösenordet för användar-Id för att autentisera med proxy |
 |LicenseAccepted | Ange ett värde av **1** att verifiera att du godkänner licensavtalet |
 |HASAUTH | Ange ett värde av **1** när användarnamn/lösenord parametrar anges |
 |HASPROXY | Ange ett värde av **1** när du anger IP-adress för **PROXY** parameter |
@@ -412,7 +412,7 @@ I följande tabell visas prestandaräknarna som är tillgängliga för Log Analy
 
 ![Skärmbild av Log Analytics gatewaygränssnitt som visar prestandaräknare](./media/gateway/counters.png)
 
-## <a name="assistance"></a>Få hjälp
+## <a name="assistance"></a>Hjälp
 När du har loggat in på Azure Portal, kan du få hjälp med Log Analytics-gateway eller andra Azure-tjänst eller funktion.
 Om du behöver hjälp, väljer du frågetecknet i det övre högra hörnet av portalen och välj **ny supportbegäran**. Slutför formuläret för begäran av nytt stöd.
 

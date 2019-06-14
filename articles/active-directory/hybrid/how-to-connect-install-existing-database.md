@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245193"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
@@ -98,7 +98,7 @@ Använd tabellen nedan för att kontrollera eventuella ytterligare steg som krä
 
 |Funktion|Steg|
 |-----|-----|
-|Synkronisering av lösenordshash| Synkronisering av Lösenordshash och inställningar för tillbakaskrivning av lösenord är helt återställas för versioner av Azure AD Connect från och med 1.2.65.0.  Om återställning använder en äldre version av Azure AD Connect, granska alternativet synkroniseringsinställningar för dessa funktioner för att säkerställa att de matchar din aktiva synkroniseringsserver.  Några andra konfigurationssteg bör vara nödvändigt.|
+|Synkronisering av Lösenordshash| Synkronisering av Lösenordshash och inställningar för tillbakaskrivning av lösenord är helt återställas för versioner av Azure AD Connect från och med 1.2.65.0.  Om återställning använder en äldre version av Azure AD Connect, granska alternativet synkroniseringsinställningar för dessa funktioner för att säkerställa att de matchar din aktiva synkroniseringsserver.  Några andra konfigurationssteg bör vara nödvändigt.|
 |Federation med AD FS|Azure-autentiseringar kommer att fortsätta att använda AD FS-princip som konfigurerats för din aktiva synkroniseringsserver.  Om du använder Azure AD Connect för att hantera din AD FS-servergrupp, kan du om du vill ändra metoden logga in till AD FS-federation inför din standby-server blir den aktiva synkronisering-instansen.   Om Enhetsalternativ är aktiverade på den aktiva synkronisering-servern kan du konfigurera dessa alternativ på den här servern genom att köra uppgiften ”konfigurera enhetsalternativ”.|
 |Direktautentisering och Desktop enkel inloggning|Uppdatera inloggningen metod så att den matchar konfigurationen på servern för aktiva synkroniseringen.  Om detta inte följs innan uppgradera servern till primär, direkt autentisering tillsammans med sömlös enkelinloggning på kommer att inaktiveras och din klient låsas ute om du inte har lösenordshashsynkronisering som säkerhetskopiera loggar du in alternativet. Observera att när du aktiverar direktautentisering i mellanlagringsläge kan en ny autentiseringsagent kommer att installeras, registrerat och körs som en agent för hög tillgänglighet som ska ta emot begäranden inloggning.|
 |Federation med PingFederate|Azure-autentiseringar kommer fortsätta att använda PingFederate-principen som konfigurerats för din aktiva synkroniseringsserver.  Du kan också ändra inloggningsmetoden till PingFederate inför din standby-server blir den aktiva synkronisering-instansen.  Det här steget kan fördröjas tills du behöver federera ytterligare domäner med PingFederate.|

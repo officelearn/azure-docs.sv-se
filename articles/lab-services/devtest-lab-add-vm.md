@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311626"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Lägg till en virtuell dator i ett labb i Azure DevTest Labs
@@ -46,7 +46,7 @@ Den här artikeln beskriver också hur du hanterar artefakter för en virtuell d
         Du kan också spara hemligheter i nyckelvalvet först och sedan använda den när du skapar en virtuell dator i labbet. Mer information finns i [Store hemligheter i key vault](devtest-lab-store-secrets-in-key-vault.md). Om du vill använda lösenord som lagras i nyckelvalvet, Välj **använder en sparad hemlighet**, och ange ett nyckelvärde som motsvarar din hemlighet (lösenord).
     4. I den **fler alternativ** väljer **ändra storleken på**. Välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
     5. Välj **lägga till eller ta bort artefakter**. Välj och konfigurera de artefakter som du vill lägga till i basavbildningen.
-    **Obs!** Om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
+    **Obs:** Om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
 2. Växla till den **avancerade inställningar** fliken högst upp och göra följande:
     1. Om du vill ändra det virtuella nätverk som Virtuellt datorn, Välj **ändra VNet**.
     2. Om du vill ändra undernätet, Välj **ändra undernätet**.
@@ -91,7 +91,7 @@ Följande steg illustrerar hur du ändrar den ordning i vilken artefakterna kör
 1. Överst på den **tillämpa artefakter** fönstret, klicka på länken som anger antalet artefakter som har lagts till den virtuella datorn.
 
     ![Antal artefakter som lagts till i virtuell dator](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. På den **valt artefakter** fönstret dra och släpp artefakter i önskad ordning. **Obs!** Om du har problem med att dra artefakten kan du se till att du drar från vänster sida av artefakten.
+1. På den **valt artefakter** fönstret dra och släpp artefakter i önskad ordning. **Obs:** Om du har problem med att dra artefakten kan du se till att du drar från vänster sida av artefakten.
 1. Välj **OK** när du är klar.
 
 ## <a name="view-or-modify-an-artifact"></a>Visa eller ändra en artefakt

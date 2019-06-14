@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473914"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till icke-Microsoft-konton
@@ -39,7 +39,7 @@ Lägg till ditt Google-konto genom att aktivera tvåfaktorsautentisering verifie
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåfaktorsautentisering verifiering
 
-1. På din dator, går du till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomeväljer **börjar**, och verifiera din identitet.
+1. På din dator, går du till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome väljer **börjar**, och verifiera din identitet.
 
 2. Följ stegen på sidan Aktivera tvåstegsverifiering för ditt personliga Google-konto.
 

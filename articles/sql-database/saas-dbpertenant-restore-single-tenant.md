@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326366"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställ en enskild klientorganisation med ett databas-per-klient SaaS-program
@@ -76,7 +76,7 @@ För att demonstrera hur dessa scenarion för återställning, först ”av miss
 
 1. I PowerShell ISE öppnar du... \\Inlärningsmoduler\\affärskontinuitet och Haveriberedskap\\RestoreTenant\\*Demo-RestoreTenant.ps1*, och ange följande värde:
 
-   * **$DemoScenario** = **1**, *ta bort senaste händelse (med inga biljettförsäljningar)*.
+   * **$DemoScenario** = **1**, *ta bort senaste händelse (med inga biljettförsäljningar)* .
 2. Tryck på F5 för att köra skriptet och ta bort den sista händelsen. Följande bekräftelsemeddelande visas:
 
    ```Console

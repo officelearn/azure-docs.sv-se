@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356648"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv godkända klientappar för cloud app-åtkomst med villkorlig åtkomst 
@@ -145,7 +145,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)** . 
 
     a. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -412,7 +412,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)** . 
 
     Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 

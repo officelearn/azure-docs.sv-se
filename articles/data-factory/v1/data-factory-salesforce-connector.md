@@ -14,14 +14,14 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309208"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-salesforce-connector.md)
 > * [Version 2 (aktuell version)](../connector-salesforce.md)
 
@@ -286,24 +286,24 @@ Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över ege
 
 | Salesforce-typ | . NET-baserade typ |
 | --- | --- |
-| Automatisk numrering |String |
-| Kryssrutan |Boolean |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Valuta |Decimal |
 | Date |Datetime |
 | Datum/tid |Datetime |
 | E-post |String |
 | Id |String |
-| Uppslagsrelation |String |
-| Flervalsplocklista |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Tal |Decimal |
 | Procent |Decimal |
 | Telefon |String |
-| Listruta |String |
+| Picklist |String |
 | Text |String |
-| Textområde |String |
-| Textområde (Long) |String |
-| Textområde (Rich) |String |
-| Text (krypterad) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 > [!NOTE]

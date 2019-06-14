@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60354330"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
@@ -86,11 +86,11 @@ IP-adressen är en enskild IPv4-adress för att efterlikna de [platsvillkoret](l
 
 ### <a name="device-platforms"></a>Enhetsplattformar
 
-Den här inställningen imiterar den [enheten plattformar villkor](conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)**. 
+Den här inställningen imiterar den [enheten plattformar villkor](conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)** . 
 ### <a name="client-apps"></a>Klientappar
 
 Den här inställningen imiterar den [klient apps villkor](conditions.md#client-apps).
-Som standard den här inställningen gör en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda har valt. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)**. Du kan begränsa den här inställningen genom att välja:
+Som standard den här inställningen gör en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda har valt. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)** . Du kan begränsa den här inställningen genom att välja:
 
 - **Webbläsaren** att utvärdera alla principer som har minst **webbläsare** valda. 
 

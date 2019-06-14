@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456175"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
@@ -77,7 +77,7 @@ Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Di
 
 ## <a name="authentication-agent-installation-issues"></a>Autentiseringsproblem Agent installation
 
-### <a name="an-unexpected-error-occurred"></a>Det uppstod ett oväntat fel
+### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
 
 [Samla in agentloggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
 
@@ -91,7 +91,7 @@ Kontrollera att servern där autentisering-agenten har installerats kan kommunic
 
 Kontrollera att du använder ett globalt administratörskonto enbart i molnet för alla Azure AD Connect eller fristående autentiseringsagent installation och registreringsåtgärder. Det finns ett känt problem med MFA-aktiverade globala administratörskonton; inaktivera MFA tillfälligt (endast för att genomföra åtgärderna) som en tillfällig lösning.
 
-### <a name="an-unexpected-error-occurred"></a>Det uppstod ett oväntat fel
+### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
 
 [Samla in agentloggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
 
@@ -133,7 +133,7 @@ För detaljerad analys, aktivera ”” sessionsloggen (Högerklicka i Loggboken
 
 ### <a name="detailed-trace-logs"></a>Detaljerad spårningsloggar
 
-Om du vill felsöka användaren inloggningar, leta efter spårningsloggar på **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\\**. Dessa loggar innehåller orsaker till varför en viss användare logga in som misslyckats med att använda funktionen direktautentisering. De här felen är även mappas till inloggningsfel skälen visas i tabellen ovan inloggningsfel orsaker. Nedan följer ett exempel på post i loggen:
+Om du vill felsöka användaren inloggningar, leta efter spårningsloggar på **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\\** . Dessa loggar innehåller orsaker till varför en viss användare logga in som misslyckats med att använda funktionen direktautentisering. De här felen är även mappas till inloggningsfel skälen visas i tabellen ovan inloggningsfel orsaker. Nedan följer ett exempel på post i loggen:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -161,7 +161,7 @@ Om granskning har aktiverats, finns mer information i säkerhetsloggar för dom�
 
 ## <a name="performance-monitor-counters"></a>Prestandaräknare
 
-Ett annat sätt att övervaka Autentiseringsagenter är att spåra specifika prestandaräknare på varje server där autentisering-agenten är installerad. Använd följande globala räknare (**# PTA autentiseringar**, **#PTA misslyckades autentiseringar** och **#PTA lyckade autentiseringar**) och fel räknare (**# PTA autentiseringsfel**):
+Ett annat sätt att övervaka Autentiseringsagenter är att spåra specifika prestandaräknare på varje server där autentisering-agenten är installerad. Använd följande globala räknare ( **# PTA autentiseringar**, **#PTA misslyckades autentiseringar** och **#PTA lyckade autentiseringar**) och fel räknare ( **# PTA autentiseringsfel**):
 
 ![Räknare för prestandaövervakning för autentisering av direktautentisering](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

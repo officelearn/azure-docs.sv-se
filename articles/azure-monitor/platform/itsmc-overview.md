@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395873"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
@@ -89,7 +89,7 @@ Beroende på ITSM-produkten som du ansluter till, använder du följande steg:
 
 När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en anslutning:
 
-1. Gå till **alla resurser**, leta efter **ServiceDesk(YourWorkspaceName)**.
+1. Gå till **alla resurser**, leta efter **ServiceDesk(YourWorkspaceName)** .
 2. Under **DATAKÄLLOR för ARBETSYTA** i den vänstra rutan klickar du på **ITSM-anslutningar**.
    ![ITSM-anslutningar](media/itsmc-overview/itsm-connections.png)
 
@@ -116,7 +116,7 @@ När du har skapat ITSM-anslutningen kan du skapa work objekt i dina ITSM-verkty
 
 Åtgärdsgrupper är ett modulära och återanvändbara sätt att utlösa åtgärder för dina Azure-aviseringar. Du kan använda åtgärdsgrupper med måttaviseringar, aktivitetslogg aviseringar och Azure Log Analytics-aviseringar i Azure-portalen.
 
-Följ dessa steg:
+Följ anvisningarna nedan:
 
 1. I Azure-portalen klickar du på **övervakaren**.
 2. I den vänstra rutan klickar du på **åtgärdsgrupper**. Den **Lägg till åtgärdsgrupp** fönster visas.
@@ -187,18 +187,18 @@ ServiceDeskWorkItemType_s="Incident"
 - Påverkan
 - Prioritet
 - Eskalering
-- Skapad av
+- Skapat av
 - Löst av
 - Stängts av
-- Källa
-- Tilldelat till
+- source
+- Tilldelad till
 - Category
-- Rubrik
+- Titel
 - Beskrivning
-- Skapad
+- Skapad datum
 - Stängningsdatum
 - Lösningsdatum
-- Ändrades senast datum
+- Datum för senaste ändring
 - Computer
 
 
@@ -209,11 +209,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 **Fält**
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Skapad av
+- Skapat av
 - Stängts av
-- Källa
-- Tilldelat till
-- Rubrik
+- source
+- Tilldelad till
+- Titel
 - Typ
 - Category
 - Status
@@ -223,10 +223,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Prioritet
 - Risk
 - Påverkan
-- Tilldelat till
-- Skapad
+- Tilldelad till
+- Skapad datum
 - Stängningsdatum
-- Ändrades senast datum
+- Datum för senaste ändring
 - Begärda datum
 - Planerat startdatum
 - Planerat slutdatum
@@ -245,14 +245,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
 | CreatedBy_s | Öppnas av |
-| ResolvedBy_s | Matchad av|
+| ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängts av |
 | Source_s| Kontakttyp |
-| AssignedTo_s | Tilldelat till  |
+| AssignedTo_s | Tilldelad till  |
 | Category_s | Category |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Öppnat |
+| CreatedDate_t|  Öppnas |
 | ClosedDate_t| Stängd|
 | ResolvedDate_t|Löst|
 | Computer  | Konfigurationsobjekt |
@@ -262,9 +262,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
 | ServiceDeskId_s| Tal |
-| CreatedBy_s | Efterfrågad av |
+| CreatedBy_s | Begärt av |
 | ClosedBy_s | Stängts av |
-| AssignedTo_s | Tilldelat till  |
+| AssignedTo_s | Tilldelad till  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Category |

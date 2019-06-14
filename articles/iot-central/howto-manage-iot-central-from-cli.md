@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151960"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Hantera IoT Central från Azure CLI
@@ -54,7 +54,7 @@ Dessa kommandon kan du först skapa en resursgrupp i östra USA för programmet.
 | ----------------- | ----------- |
 | resource-group    | Den resursgrupp som innehåller programmet. Den här resursgruppen måste redan finnas i din prenumeration. |
 | location          | Som standard använder det här kommandot platsen från resursgruppen. För närvarande kan du skapa en IoT Central-program i den **USA, östra**, **västra USA**, **Nordeuropa**, eller **Västeuropa** regioner. |
-| namn              | Namnet på programmet i Azure-portalen. |
+| name              | Namnet på programmet i Azure-portalen. |
 | subdomain         | Underdomänen i URL: en för programmet. I det här exemplet programmets URL är https://mysubdomain.azureiotcentral.com. |
 | sku               | Det enda värdet som är för närvarande **S1** (standard-nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | mall          | Mall för program att använda. Mer information finns i följande tabell: |

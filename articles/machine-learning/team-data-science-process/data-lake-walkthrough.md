@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400090"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: En slutpunkt till slutpunkt genomgång
@@ -148,7 +148,7 @@ För att köra U-SQL, öppna Visual Studio klickar du på **Arkiv--> Ny--> proje
 
 ### <a name="ingest"></a>Datainmatning: Läsa data från offentliga blob
 
-Platsen för data i Azure-blobben refereras som **wasb://container\_namn\@blob\_storage\_konto\_name.blob.core.windows.net/blob_name**och extraherade med **Extractors.Csv()**. Ersätt behållarnamn och lagringskontonamn i följande skript för behållaren\_namn\@blob\_storage\_konto\_i wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resans\_data\_\{\*\}.csv** att läsa i alla 12 resans filer.
+Platsen för data i Azure-blobben refereras som **wasb://container\_namn\@blob\_storage\_konto\_name.blob.core.windows.net/blob_name**och extraherade med **Extractors.Csv()** . Ersätt behållarnamn och lagringskontonamn i följande skript för behållaren\_namn\@blob\_storage\_konto\_i wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resans\_data\_\{\*\}.csv** att läsa i alla 12 resans filer.
 
     ///Read in Trip data
     @trip0 =

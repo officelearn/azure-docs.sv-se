@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589726"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
@@ -27,7 +27,7 @@ En katastrof har definierats som permanent förlusten av en Service Bus-skalning
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Skydd mot avbrott och katastrofer - Service Bus Premium
 Hög tillgänglighet och katastrofåterställning begrepp finns inbyggda i Azure Service Bus Premium-nivå, både inom samma region (via Tillgänglighetszoner) och över olika regioner (via Geohaveriberedskap).
 
-### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
+### <a name="geo-disaster-recovery"></a>GEO-Haveriberedskap
 
 Service Bus Premium har stöd för geohaveriberedskap på namnområdesnivå. Mer information finns i [Azure Service Bus geohaveriberedskap](service-bus-geo-dr.md). Disaster recovery funktionen tillgänglig för den [Premium-SKU](service-bus-premium-messaging.md) , implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden.
 

@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295353"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Logga in upplevelser med Azure AD Identity Protection
@@ -104,7 +104,7 @@ För att få en användare som har blockerats av en riskprincip avblockerad, må
 
 ![Reparation](./media/flows/104.png "reparation")
 
-## <a name="reset-password"></a>Återställa lösenord
+## <a name="reset-password"></a>Återställ lösenord
 Om komprometterade användare blockeras från att logga in, kan en administratör skapa ett tillfälligt lösenord för dessa. Användarna måste ändra sina lösenord under en nästa inloggning.
 
 ![Reparation](./media/flows/160.png "reparation")

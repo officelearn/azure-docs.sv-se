@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531776"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb med Azure Logic Apps
@@ -102,7 +102,7 @@ Skicka ett anrop till slutpunkts-URL för din logikapp begäransutlösare för a
 
 Till exempel med hjälp av Postman-appen, du kan skapa en POST-begäran med inställningarna som liknar det här exemplet och välj sedan **skicka** att utföra begäran.
 
-| Frågemetod | URL | Innehåll | Rubriker |
+| Begärandemetod | URL | Innehåll | Rubriker |
 |----------------|-----|------|---------| 
 | **POST** | <*endpoint-URL*> | **rådata** <p>**JSON(application/json)** <p>I den **raw** anger nyttolasten som du vill skicka i begäran. <p>**Obs!** Den här inställningen automatiskt konfigurerar den **rubriker** värden. | **nyckeln**: Content-Type <br>**Värdet**: application/json
  |||| 
@@ -159,7 +159,7 @@ Här finns andra sätt som du kan anpassa dina jobb.
 
 Om du vill styra hur en åtgärd som försöker igen i din logikapp när återkommande fel inträffa, kan du ange den [återförsöksprincip](../logic-apps/logic-apps-exception-handling.md#retry-policies) i inställningarna för varje åtgärd, till exempel:
 
-1. Öppna åtgärdens (**...** ) menyn och välj **inställningar**.
+1. Öppna åtgärdens ( **...** ) menyn och välj **inställningar**.
 
    ![Öppna åtgärdsinställningar](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,7 +179,7 @@ Om standardåtgärden som inte kan köras, i Azure Scheduler kan du köra en alt
 
    ![Lägg till parallell åtgärd](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. På den alternativa åtgärden, öppna den (**...** ) menyn och välj **konfigurera körning efter**.
+1. På den alternativa åtgärden, öppna den ( **...** ) menyn och välj **konfigurera körning efter**.
 
    ![Konfigurera körningen efter](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538251"
 ---
 # <a name="get-started-with-the-query-action"></a>Kom igång med frågeåtgärden
@@ -58,18 +58,18 @@ Här följer information om vad som har stöd för den här anslutningen. Koppli
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| Filtermatris |Utvärderar ett villkor för varje objekt i en matris och returnerar resultaten |
+| Filtrera matris |Utvärderar ett villkor för varje objekt i en matris och returnerar resultaten |
 
 ## <a name="action-details"></a>Åtgärdsinformation
 Frågeåtgärden levereras med en möjlig åtgärd. I följande tabeller beskrivs de obligatoriska och valfria inmatningsfält för åtgärden och de motsvarande utdatainformation som är associerade med hjälp av åtgärden.
 
-### <a name="filter-array"></a>Filtermatris
+### <a name="filter-array"></a>Filtrera matris
 Här följer inmatningsfält för åtgärden, vilket gör en utgående HTTP-begäran.
 A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| From* |från |Matris att filtrera |
+| From* |from |Matris att filtrera |
 | Villkor * |där |Villkor att utvärdera för varje objekt |
 
 <br>

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556615"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -30,16 +30,16 @@ Fråga och hantera partitioner för alla tjänster.
 | --- | --- |
 | förlust av data | Detta API kan orsaka förlust av data för den angivna partitionen. |
 | data-loss-status | Hämtar förloppet för en partition förlust dataåtgärd igång med hjälp av StartDataLoss-API. |
-| hälsa | Hämtar hälsotillståndet för den angivna Service Fabric-partitionen. |
+| health | Hämtar hälsotillståndet för den angivna Service Fabric-partitionen. |
 | info | Hämtar information om en Service Fabric-partition. |
-| lista | Hämtar listan över partitioner för en Service Fabric-tjänst. |
-| läsa in | Hämtar information belastningen av den angivna Service Fabric-partitionen. |
+| list | Hämtar listan över partitioner för en Service Fabric-tjänst. |
+| load | Hämtar information belastningen av den angivna Service Fabric-partitionen. |
 | load-reset | Återställer den aktuella belastningen för en Service Fabric-partition. |
 | quorum-loss | Startar förlorar kvorum för en viss tillståndskänslig tjänst-partition. |
 | quorum-loss-status | Hämtar förloppet för en kvorum förlust-åtgärd i en partition som startats med hjälp av StartQuorumLoss-API. |
 | återställa | Anger att den ska försöka att återställa en specifik partition som för närvarande har fastnat förlorar kvorum till Service Fabric-klustret. |
 | recover-all | Anger att den ska försöka att återställa alla tjänster (inklusive systemtjänster) som för närvarande har fastnat i förlorar kvorum till Service Fabric-klustret. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-partitionen. |
+| report-health | Skickar en hälsorapport på Service Fabric-partitionen. |
 | restart | Detta API startar om vissa eller alla repliker eller instanser av den angivna partitionen. |
 | omstart-status | Hämtar en PartitionRestart åtgärdens komma igång med StartPartitionRestart förlopp. |
 | svc-name | Hämtar namnet på Service Fabric-tjänst för en partition. |

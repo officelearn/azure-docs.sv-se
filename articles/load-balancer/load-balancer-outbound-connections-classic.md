@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595047"
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassiska)
@@ -108,7 +108,7 @@ Azure preallocates SNAT portar när en instans har distribuerats utifrån hur m�
 
 I följande tabell visas SNAT port preallocations för nivåerna för backend-poolstorlekar:
 
-| Instanser | Den förallokerade SNAT portar per instans |
+| instanser | Den förallokerade SNAT portar per instans |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |

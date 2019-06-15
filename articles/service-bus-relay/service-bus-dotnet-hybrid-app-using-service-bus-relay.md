@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420213"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay 
@@ -81,7 +81,7 @@ Först skapar du ett simulerat lokalt produktkatalogsystem.  Det här projektet 
 ### <a name="create-the-project"></a>Skapa projektet
 1. Starta Microsoft Visual Studio med administratörsbehörighet. För att göra det högerklickar du på programikonen för Visual Studio och sedan på **Kör som administratör**.
 2. I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
-3. Klicka på **Konsolprogram (.NET Framework** från **Installerade mallar** under **Visual C#**. I rutan **Namn** anger du namnet **ProductsServer**:
+3. Klicka på **Konsolprogram (.NET Framework** från **Installerade mallar** under **Visual C#** . I rutan **Namn** anger du namnet **ProductsServer**:
 
    ![Dialogrutan Nytt projekt][11]
 4. Klicka på **OK** för att skapa **ProductsServer**-projektet.
@@ -229,7 +229,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 
 1. Se till att Visual Studio körs med administratörsbehörighet.
 2. I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
-3. Klicka på **ASP.NET webbapp (.NET Framwork)** från **Installerade mallar** under **Visual C#**. Ge projektet namnet **ProductsPortal**. Klicka sedan på **OK**.
+3. Klicka på **ASP.NET webbapp (.NET Framwork)** från **Installerade mallar** under **Visual C#** . Ge projektet namnet **ProductsPortal**. Klicka sedan på **OK**.
 
    ![Dialogrutan Nytt projekt][15]
 

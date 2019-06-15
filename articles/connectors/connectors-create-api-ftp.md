@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408604"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
@@ -61,7 +61,7 @@ Du kan använda utlösare som få svar från FTP-servern och göra utdata som ä
    Välj vilken åtgärd du önska under åtgärder.
 
    Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange informationen som krävs för anslutningen och välj sedan **skapa**.
 
@@ -69,7 +69,7 @@ Du kan använda utlösare som få svar från FTP-servern och göra utdata som ä
 
 När du begär filinnehåll hämta utlösaren inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret:
 
-* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)** .
 
 * Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -85,7 +85,7 @@ Den här utlösaren startar en logikapparbetsflöde när utlösaren identifierar
 
 När du begär innehåll, kan inte utlösare hämta filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
 
-* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)** .
 
 * Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Här är ett exempel som visar den här utlösaren: **När en fil läggs till el
 
    ![Skapa FTP-server-anslutning](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Bredvid den **mappen** väljer du mappikonen så visas en lista. För att hitta mappen som du vill övervaka för nya eller redigerade filer, väljer du pilen rätvinkliga (**>**), bläddra till mappen och välj sedan mappen.
+1. Bredvid den **mappen** väljer du mappikonen så visas en lista. För att hitta mappen som du vill övervaka för nya eller redigerade filer, väljer du pilen rätvinkliga ( **>** ), bläddra till mappen och välj sedan mappen.
 
    ![Hitta och Välj mapp som ska övervakas](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Den här åtgärden hämtar innehållet från en fil på en FTP-server när den 
 
 När du begär innehåll, kan inte utlösare hämta filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
 
-* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)** .
 
 * Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
 

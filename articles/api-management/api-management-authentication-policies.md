@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708787"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
@@ -49,7 +49,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Krävs|  
+|Namn|Beskrivning|Obligatoriskt|  
 |----------|-----------------|--------------|  
 |autentisering-grundläggande|Rotelement.|Ja|  
   
@@ -57,7 +57,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|användarnamn|Anger användarnamnet för grundläggande autentiseringsuppgift.|Ja|Gäller inte|  
+|username|Anger användarnamnet för grundläggande autentiseringsuppgift.|Ja|Gäller inte|  
 |password|Anger lösenordet för grundläggande autentiseringsuppgift.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
@@ -89,7 +89,7 @@ I det här exemplet identifieras klientcertifikat efter resursnamn.
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Krävs|  
+|Namn|Beskrivning|Obligatoriskt|  
 |----------|-----------------|--------------|  
 |certifikat för serverautentisering|Rotelement.|Ja|  
   
@@ -124,7 +124,7 @@ I det här exemplet identifieras klientcertifikat efter resursnamn.
   
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Krävs|  
+|Namn|Beskrivning|Obligatoriskt|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Rotelement.|Ja|  
   
@@ -132,7 +132,7 @@ I det här exemplet identifieras klientcertifikat efter resursnamn.
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|resurs|sträng. App-ID URI för webb-mål-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|  
+|resource|sträng. App-ID URI för webb-mål-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|  
 |output-token-variable-name|sträng. Namnet på sammanhangsvariabeln som ska ta emot token-värde som en objekttyp `string`.|Nej|Gäller inte|  
 |ignore-error|Booleskt värde. Om inställd `true`, princip pipelinen fortsätter att köras även om en åtkomst-token inte hämtas.|Nej|false|  
   

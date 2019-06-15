@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401927"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsökning av anslutningsproblem för utgående SMTP i Azure
@@ -36,7 +36,7 @@ Det finns ingen ändring i teknisk möjlighet att skicka e-post utan att använd
 ## <a name="pay-as-you-go"></a>Betala per användning
 Om du har registrerat dig innan den 15 November 2017 för användningsbaserade eller Microsoft Partner Network-prenumerationen erbjuder det blir ingen ändring i teknisk möjlighet att prova utgående e-postleverans. Du kommer att fortsätta att kunna testa utgående e-postleverans från virtuella Azure-datorer inom dessa prenumerationer direkt till externa e-postleverantörer utan begränsningar från Azure-plattformen. Igen, är det inte säkert att e-postleverantörerna godkänner inkommande e-post från en viss användare och användarna måste arbeta direkt med e-postleverantörer åtgärda eventuella meddelandeleverans eller skicka skräppost filtrering problem som rör specifika providers.
 
-För användningsbaserad betalning eller Microsoft Partner Network-prenumerationer som har skapats efter den 15 November 2017 kan finnas det tekniska begränsningar som blockerar e-postmeddelande som skickas direkt från virtuella datorer inom dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna kommer granskas och godkänns enligt Microsofts bedömning, och de beviljas endast efter att bedrägerikontroller har utförts. Öppna ett supportärende för att göra en begäran, med hjälp av följande problem: **Teknisk** > **virtuellt nätverk** > **anslutning** > **kan inte skicka e-post (SMTP/Port 25)**. Se till att du lägger till information om varför din distribution har skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
+För användningsbaserad betalning eller Microsoft Partner Network-prenumerationer som har skapats efter den 15 November 2017 kan finnas det tekniska begränsningar som blockerar e-postmeddelande som skickas direkt från virtuella datorer inom dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna kommer granskas och godkänns enligt Microsofts bedömning, och de beviljas endast efter att bedrägerikontroller har utförts. Öppna ett supportärende för att göra en begäran, med hjälp av följande problem: **Teknisk** > **virtuellt nätverk** > **anslutning** > **kan inte skicka e-post (SMTP/Port 25)** . Se till att du lägger till information om varför din distribution har skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
 
 När en prenumeration med användningsbaserad betalning eller Microsoft Partner Network undantas kan är virtuella datorer i den aktuella prenumerationen endast undantagna framöver.
 

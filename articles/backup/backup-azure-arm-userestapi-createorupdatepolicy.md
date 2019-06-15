@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648813"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa Azure Recovery Services-säkerhetskopieringsprinciper via REST API
@@ -50,10 +50,10 @@ Den `{policyName}` och `{vaultName}` finns i URI: N. Mer information finns i beg
 
 Om du vill skapa en princip för säkerhetskopiering av Azure virtuella datorer är till exempel följande komponenter i begärandetexten.
 
-|Namn  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource egenskaper        |
-|tags     |         | Object        |  Resurstaggar       |
+|taggar     |         | Object        |  Resurstaggar       |
 
 Den fullständiga listan med definitioner i begärandetexten finns i den [säkerhetskopieringsprincip REST API-dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -152,7 +152,7 @@ Principen säger:
 > [!IMPORTANT]
 > Tidsformat för schema och kvarhållning stöder endast DateTime. De stöder inte fristående tidsformat.
 
-## <a name="responses"></a>Svar
+## <a name="responses"></a>Responses
 
 Princip för säkerhetskopiering skapande/uppdatering är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
@@ -161,7 +161,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [Skydd PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Ok       |
-|202-accepterad     |         |     Accepterad    |
+|202-accepterad     |         |     Accepterat    |
 
 ### <a name="example-responses"></a>Exempelsvar
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
 ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64690039"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Metodtips för prestanda för Apache Phoenix
@@ -31,21 +31,21 @@ Den primära nyckeln som definierats i en tabell i Phoenix avgör hur data lagra
 
 Till exempel har en tabell för kontakter i förnamn, senaste namn, telefonnummer och adress, allt i samma kolumnserie. Du kan definiera en primärnyckel som baseras på ett ökande sekvensnummer:
 
-|rowkey|       adress|   phone| firstName| lastName|
+|rowkey|       Adress|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Men om du frågar ofta efter efternamn kan den här primära nyckeln inte utföra, eftersom varje fråga kräver en fullständig tabellsökning att läsa värdet för varje efternamn. I stället kan du definiera en primärnyckel på lastName, firstName och personnummer kolumner. Det här sista kolumnen är att undvika två invånare med samma adress med samma namn, till exempel en far och son.
 
-|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Med den här nya primärnyckel raden skulle nycklar som genereras av Phoenix bli:
 
-|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -54,7 +54,7 @@ I den första raden ovan visas data för rowkey som visas:
 
 |rowkey|       key|   value| 
 |------|--------------------|---|
-|  Dole-John-111|adress |1111 San Gabriel Dr.|  
+|  Dole-John-111|Adress |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
@@ -113,7 +113,7 @@ Skyddad index är index som innehåller data från rad förutom de värden som i
 
 Till exempel i det här exemplet kontaktar du tabellen som du kan skapa ett sekundärt index på bara kolumnen socialSecurityNum. Den här sekundära index skulle snabba upp frågorna som filtrera efter socialSecurityNum värden, men hämtning av andra fältvärden kräver en annan läsa mot huvudtabell.
 
-|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |

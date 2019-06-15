@@ -13,10 +13,10 @@ ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900718"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri kontext: Application Insights-datamodell
@@ -38,14 +38,14 @@ IP-adressen för klientenheten. IPv4 och IPv6 stöds. När telemetri skickas fr�
 Maxlängd: 46
 
 
-## <a name="device-type"></a>Enhetstyp
+## <a name="device-type"></a>Typ av enhet
 
 Det här fältet har ursprungligen används för att ange vilken typ av enhet med hjälp av slutanvändaren av programmet. Idag används främst för att skilja JavaScript telemetri med typ av enhet ange webbläsare om du från serversidan telemetri med enheten ”dator”.
 
 Maxlängd: 64
 
 
-## <a name="operation-id"></a>Åtgärds-ID
+## <a name="operation-id"></a>Åtgärds-id
 
 En unik identifierare för rotåtgärden. Den här identifieraren kan gruppen telemetri över flera komponenter. Se [telemetrikorrelation](../../azure-monitor/app/correlation.md) information. Åtgärds-id skapas av en begäran eller en Sidvisning. All telemetri anger det här fältet till värdet för den som innehåller förfrågan eller sidvisning. 
 
@@ -59,7 +59,7 @@ Den unika identifieraren för telemetri-objektets omedelbart överordnade objekt
 Maxlängd: 128
 
 
-## <a name="operation-name"></a>Åtgärdsnamn
+## <a name="operation-name"></a>Åtgärdens namn
 
 Namn (grupp) för åtgärden. Åtgärdens namn skapas av en begäran eller en Sidvisning. Alla andra objekt i telemetrin ange fältet till värdet för den som innehåller förfrågan eller sidvisning. Åtgärdens namn används för att söka efter alla objekt på telemetri för en grupp av åtgärder (till exempel ”GET Home/Index”). Den här Kontextegenskapen används för att besvara frågor som ”vad är de vanliga undantag på den här sidan”.
 
@@ -73,7 +73,7 @@ Namnet på syntetiska källa. Telemetri från programmet kan representera syntet
 Maxlängd: 1024
 
 
-## <a name="session-id"></a>Sessions-ID
+## <a name="session-id"></a>Sessions-id
 
 Sessions-ID - instansen av användarens interaktion med appen. Informationen i fälten session kontext är alltid om användaren. När telemetri skickas från en tjänst är sessionskontexten om användaren som initierade åtgärden i tjänsten.
 
@@ -112,7 +112,7 @@ Namnet på rollen programmet är en del av. Mappar direkt till rollnamn i azure.
 Maxlängd: 256
 
 
-## <a name="cloud-role-instance"></a>Instans av molntjänstroll (klassisk)
+## <a name="cloud-role-instance"></a>Molnet rollinstans
 
 Namnet på den instans där programmet körs. Namnet på den dator på plats, instansnamn för Azure.
 

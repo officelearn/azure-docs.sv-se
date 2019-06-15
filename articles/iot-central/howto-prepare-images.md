@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236479"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
@@ -59,7 +59,7 @@ I följande tabell sammanfattas bildstorleken som du kan använda:
 | Location | Storlekar |
 | -------- | ------ |
 | Programhanterare | 268 x 160 bpt |
-| Enhetsmall | 64x64 px |
+| Mall för enhet | 64x64 px |
 | Paneler på instrumentpanelen | Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter |
 
 För bästa utseende i programmet, bör du skapa bilder som motsvarar de dimensioner som visas i föregående tabell.
@@ -86,7 +86,7 @@ Under **konfigurera bild**väljer den **bild** panelen för att ladda upp en bil
 
 **Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Välj **klar** när du är klar.
 
-### <a name="device-template"></a>Enhetsmall
+### <a name="device-template"></a>Mall för enhet
 
 Om du vill ladda upp en bild i en mall för enhet, gå till **enheten mallar** och välj mallen för enheten. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 

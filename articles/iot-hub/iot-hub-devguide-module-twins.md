@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363630"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och använda modultvillingar i IoT Hub
@@ -184,7 +184,7 @@ Lösningens backend-server körs på modultvillingen med hjälp av följande ato
     $content-encoding | utf-8 |
     deviceId | ID för enheten |
     moduleId | ID för modulen |
-    HubName | Namnet på IoT Hub |
+    hubName | Namnet på IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpeln för åtgärden |
     iothub-message-schema | deviceLifecycleNotification |
     opType | ”replaceTwin” eller ”updateTwin” |

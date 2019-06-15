@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632507"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätt en ström och kylning modulen på StorSimple-enheten
@@ -92,8 +92,8 @@ Följ dessa anvisningar när du är redo att ta bort en ström och kylning modul
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Kontrollenhet 0 |
-   | 4 |Kontrollenhet 1 |
+   | 3 |Kontrollant 0 |
+   | 4 |Kontrollant 1 |
 5. Stäng av felaktiga PCM och koppla från strömsladd för leverans. Du kan nu ta bort PCM.
 6. Rapportelementen låset och serversidan referensens PCM mellan tummen och pekfingret och klämma dem tillsammans för att öppna referensen.
    

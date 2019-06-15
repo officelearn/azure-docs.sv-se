@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61483064"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använda Resource Health felsökning av anslutningar för Azure SQL Database
@@ -55,7 +55,7 @@ Statusen **ej tillgänglig** innebär att Resource Health har identifierat konse
 
 Hälsostatus **okänd** indikerar att Resource Health inte har fått information om den här resursen för mer än 10 minuter. Denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig datapunkt i felsökningen. Om resursen körs som förväntat, ändras status för resursen till tillgänglig efter ett par minuter. Om du har problem med resursen kan okänd hälsostatus föreslå att en händelse i plattformen påverkar resursen.
 
-![Inte tillgängligt](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Okänt](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Historisk information
 

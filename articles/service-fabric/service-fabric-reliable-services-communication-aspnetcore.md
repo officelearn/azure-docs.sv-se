@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 638c06e1854504dcb7ff34b1d9df56694556c421
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939783"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
@@ -62,9 +62,9 @@ En tillförlitlig tjänstinstans representeras av din tjänstklass som härleds 
 Den `ICommunicationListener` implementeringar för Kestrel och HTTP.sys i den `Microsoft.ServiceFabric.AspNetCore.*` NuGet-paket har liknande användningsmönster. Men de utföra något annorlunda åtgärder som är specifika för varje webbserver. 
 
 Båda kommunikationslyssnarna innehåller en konstruktor som använder följande argument:
- - **`ServiceContext serviceContext`**: Det här är den `ServiceContext` objekt som innehåller information om tjänsten som körs.
- - **`string endpointName`**: Det här är namnet på en `Endpoint` konfigurationen i ServiceManifest.xml. Det är främst där två kommunikationslyssnarna skiljer sig åt. HTTP.sys *kräver* en `Endpoint` konfiguration, medan Kestrel inte.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: Det här är en lambda som du implementerar i som du skapar och returnera ett `IWebHost`. Du kan konfigurera `IWebHost` på sätt som du vanligtvis använder i ett ASP.NET Core-program. Lambda får en URL som har genererats åt dig, beroende på vilka alternativ för Service Fabric-integrering som du använder och `Endpoint` konfiguration som du anger. Du kan ändra eller Använd URL: en för att starta webbservern.
+ - **`ServiceContext serviceContext`** : Det här är den `ServiceContext` objekt som innehåller information om tjänsten som körs.
+ - **`string endpointName`** : Det här är namnet på en `Endpoint` konfigurationen i ServiceManifest.xml. Det är främst där två kommunikationslyssnarna skiljer sig åt. HTTP.sys *kräver* en `Endpoint` konfiguration, medan Kestrel inte.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : Det här är en lambda som du implementerar i som du skapar och returnera ett `IWebHost`. Du kan konfigurera `IWebHost` på sätt som du vanligtvis använder i ett ASP.NET Core-program. Lambda får en URL som har genererats åt dig, beroende på vilka alternativ för Service Fabric-integrering som du använder och `Endpoint` konfiguration som du anger. Du kan ändra eller Använd URL: en för att starta webbservern.
 
 ## <a name="service-fabric-integration-middleware"></a>Mellanprogram för Service Fabric-integrering
 Den `Microsoft.ServiceFabric.AspNetCore` NuGet-paketet innehåller den `UseServiceFabricIntegration` tilläggsmetod på `IWebHostBuilder` som lägger till Service Fabric-medvetna mellanprogram. Den här mellanprogram konfigurerar Kestrel eller HTTP.sys `ICommunicationListener` att registrera en unik tjänst-URL med Service Fabric Naming-tjänst. Sedan kontrolleras klientbegäranden för att se till att klienter ansluter till en tjänst. 
@@ -479,7 +479,7 @@ När du är exponerade för internet, bör en tillståndslös tjänst använda e
 |  |  | **Anteckningar** |
 | --- | --- | --- |
 | Webbserver | Kestrel | Kestrel är den primära webbservern, eftersom den stöds i Windows och Linux. |
-| Portkonfiguration | statisk | En känd statisk port ska ställas in på den `Endpoints` konfiguration av ServiceManifest.xml, till exempel 80 för HTTP och port 443 för HTTPS. |
+| Portkonfiguration | Statisk | En känd statisk port ska ställas in på den `Endpoints` konfiguration av ServiceManifest.xml, till exempel 80 för HTTP och port 443 för HTTPS. |
 | ServiceFabricIntegrationOptions | Ingen | Använd den `ServiceFabricIntegrationOptions.None` alternativ när du konfigurerar Service Fabric-integrering middleware, så att tjänsten inte försöker verifiera inkommande förfrågningar för en unik identifierare. Externa användare av ditt program vet inte unika identifieringsinformation som använder mellanprogrammet. |
 | Antal instanser | -1 | I vanliga användningsfall instansantalet inställningen ska vara inställd på *-1*. Det gör du så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
 
@@ -506,7 +506,7 @@ Tillståndslösa tjänster som endast anropas från i klustret ska använda unik
 | Webbserver | Kestrel | Men du kan använda HTTP.sys för interna tillståndslösa tjänster, är Kestrel bästa servern så att flera instanser av tjänsten att dela en värd.  |
 | Portkonfiguration | dynamiskt tilldelade | Flera kopior av en tillståndskänslig tjänst kan dela en värdprocess eller värdoperativsystemet och därför måste unika portar. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar felaktiga identitet problemet som beskrivs ovan med dynamisk porttilldelning. |
-| InstanceCount | valfri | Ange instansantalet kan ställas in till ett värde krävs för att driva tjänsten. |
+| InstanceCount | Alla | Ange instansantalet kan ställas in till ett värde krävs för att driva tjänsten. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Endast internt tillståndskänslig ASP.NET Core-tjänst
 Tillståndskänsliga tjänster som endast anropas från i klustret ska använda dynamiskt tilldelade portar för samarbete mellan flera tjänster. Vi rekommenderar följande konfiguration:

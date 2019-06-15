@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607153"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Språkstöd för Content Moderator-API
@@ -32,8 +32,8 @@ ms.locfileid: "60607153"
 | Bengali | Amhariska | Traditionell kinesiska     | Nederländska | |
 | Buginesisk skrift | Arabiska | Tjeckiska                     | Svenska | |
 | Buhid | Armeniska | Danska                     | Finska | |
-| Carian | Assamesiska | Nederländska                     | Franska | |
-| Förenklad kinesiska | Azerbajdzjanska | Svenska  | Grekiska (modern) | |
+| Carian | Assamese | Nederländska                     | Franska | |
+| Förenklad kinesiska | Azerbajdzjansk | Svenska  | Grekiska (modern) | |
 | Traditionell kinesiska | Bengali - Bangladesh | Finska  | Italienska | |
 | Kyrka (Slaviska) | Bengali - Indien | Franska     | Koreanska | |
 | Koptiska | Baskiska | Tyska                      | Norska | |
@@ -65,7 +65,7 @@ ms.locfileid: "60607153"
 | Norska (bokmål) | Gujarati | | | |
 | Norska (nynorsk) |  Hausa | | | |
 | Gamla (persiska) | Hebreiska | | | |
-| Afghanska | Hindi | | | |
+| Pashtu | Hindi | | | |
 | Polska | Ungerska | | | |
 | Portugisiska | Isländska | | | |
 | Punjabi | Igbo | | | |
@@ -84,12 +84,12 @@ ms.locfileid: "60607153"
 | Syriska | Kiswahili | | | |
 | Tagbanwa | Konkani | | | |
 | Tai (Nua) | Koreanska | | | |
-| Tamashek | Kirgisiska | | | |
-| Turkiska | Laotiska | | | |
+| Tamashek | Kirgiziska | | | |
+| Turkiska | Lao | | | |
 | Ugaritisk skrift | Lettiska | | | |
-| Uzbekiska (kyrillisk) | Litauiska | | | |
-| Uzbekiska (latinsk) | Luxemburgiska | | | |
-| Vai | Makedonska | | | |
+| Uzbek (Cyrillic) | Litauiska | | | |
+| Uzbekiska (latinsk) | Luxemburgska | | | |
+| Vai | Makedoniska | | | |
 | Yi | Malajiska | | | |
 | Zhuang, Chuang | Malayalam | | | |
 | | Maltesiska | | | |
@@ -100,7 +100,7 @@ ms.locfileid: "60607153"
 | | Norska (Bokmål) | | | |
 | | Norska (nynorsk) | | | |
 | | Odia | | | |
-| | Afghanska | | | |
+| | Pashtu | | | |
 | | Persiska | | | |
 | | Polska | | | |
 | | Portugisiska - Brasilien | | | |
@@ -111,12 +111,12 @@ ms.locfileid: "60607153"
 | | Quechua (Peru) | | | |
 | | Rumänska | | | |
 | | Ryska | | | |
-| | Skotsk gaeliska | | | |
+| | Scottish Gaelic | | | |
 | | Serbiska (kyrillisk) | | | |
 | | Serbiska (kyrillisk, Bosnien och Hercegovina) | | | |
 | | Serbiska (latinsk) | | | |
 | | Sesotho | | | |
-| | Nordsotho | | | |
+| | Sesotho sa Leboa | | | |
 | | Setswana | | | |
 | | Sindhi | | | |
 | | Sinhala | | | |
@@ -126,16 +126,16 @@ ms.locfileid: "60607153"
 | | Svenska | | | |
 | | Tadzjikiska | | | |
 | | Tamilska | | | |
-| | Tatar | | | |
+| | Tatariska | | | |
 | | Telugu | | | |
 | | Thai | | | |
-| | Tigrinja | | | |
+| | Tigrinya | | | |
 | | Turkiska | | | |
-| | Turkmen | | | |
+| | Turkmeniska | | | |
 | | Ukrainska | | | |
 | | Urdu | | | |
 | | Uiguriska | | | |
-| | Uzbekiska | | | |
+| | Uzbek | | | |
 | | Valencianska | | | |
 | | Vietnamesiska | | | |
 | | Walesiska | | | |

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761998"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ansluta Excel till Apache Hadoop med Power Query
@@ -41,7 +41,7 @@ Power Query-tillägget för Excel gör det enkelt att importera data från ditt 
 
    - Excel 2016
 
-     - Klicka på den **Data** -menyn klickar du på **hämta Data** från den **hämta och transformera Data** menyfliksområdet, klickar du på **från Azure**, och klicka sedan på **Från Azure HDInsight(HDFS)**.
+     - Klicka på den **Data** -menyn klickar du på **hämta Data** från den **hämta och transformera Data** menyfliksområdet, klickar du på **från Azure**, och klicka sedan på **Från Azure HDInsight(HDFS)** .
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
@@ -54,10 +54,10 @@ Power Query-tillägget för Excel gör det enkelt att importera data från ditt 
        **Obs:** Om du inte ser den **Power Query** gå till menyn **filen** > **alternativ** > **tillägg**, och välj  **COM-tillägg** från listrutan **hantera** rutan längst ned på sidan. Välj den **gå...**  knappen och kontrollera att kryssrutan för den Power Query för Excel-tillägget har kontrollerats.
        
        **Obs:** Power Query kan du importera data från HDFS genom att klicka på **från andra källor**.
-4. För **kontonamn**, anger du namnet på Azure Blob storage-konto som är associerade med klustret och klicka sedan på **OK**. Det här kontot kan vara standardkontot för lagring eller ett länkat lagringskonto.  Formatet är *https://&lt;StorageAccountName >.blob.core.windows.net/*.
+4. För **kontonamn**, anger du namnet på Azure Blob storage-konto som är associerade med klustret och klicka sedan på **OK**. Det här kontot kan vara standardkontot för lagring eller ett länkat lagringskonto.  Formatet är *https://&lt;StorageAccountName >.blob.core.windows.net/* .
 5. För **Kontonyckel**, ange nyckeln för Blob storage-kontot och klicka sedan på **spara**. (Du måste ange konto information endast första gång som du har åtkomst till det här arkivet.)
 6. I den **Navigator** till vänster i frågeredigeraren, dubbelklicka på namnet på Blob storage-behållare. Behållarens namn är som standard samma namn som klusternamnet.
-7. Leta upp **HiveSampleData.txt** i den **namn** kolumnen (mappsökvägen är **... / hive/datalager/hivesampletable/**), och klicka sedan på **binära** till vänster om HiveSampleData.txt. HiveSampleData.txt ingår i klustret. Du kan även använda en egen fil.
+7. Leta upp **HiveSampleData.txt** i den **namn** kolumnen (mappsökvägen är **... / hive/datalager/hivesampletable/** ), och klicka sedan på **binära** till vänster om HiveSampleData.txt. HiveSampleData.txt ingår i klustret. Du kan även använda en egen fil.
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Om du vill kan du byta namn på kolumnnamnen. När du är klar klickar du på **Stäng och Läs in**.  Data har lästs in till din arbetsbok:

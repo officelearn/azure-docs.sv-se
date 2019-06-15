@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478461"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Förhandsgranska diskanvändning för ett exportjobb
@@ -26,12 +26,12 @@ Du kan använda följande parametrar när du använder den `PreviewExport` komma
 
 |Kommandoradsparametern|Beskrivning|  
 |--------------------------|-----------------|  
-|**/logdir:**< LogDirectory\>|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
-|**/sn:**<StorageAccountName\>|Krävs. Namnet på lagringskontot för export-jobbet.|  
-|**/sk:**<StorageAccountKey\>|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
-|**/csas:**< ContainerSas\>|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs) driften av REST-API för Import/Export-tjänsten.|  
-|**/ DriveSize:**< DriveSize\>|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
+|**/logdir:** < LogDirectory\>|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
+|**/sn:** <StorageAccountName\>|Krävs. Namnet på lagringskontot för export-jobbet.|  
+|**/sk:** <StorageAccountKey\>|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+|**/csas:** < ContainerSas\>|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
+|**/ExportBlobListFile:** <ExportBlobListFile\>|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs) driften av REST-API för Import/Export-tjänsten.|  
+|**/ DriveSize:** < DriveSize\>|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.* , 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exempel-kommandorad
 

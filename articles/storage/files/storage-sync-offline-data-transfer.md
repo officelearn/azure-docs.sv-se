@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700276"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrera stora mängder data till Azure File Sync
@@ -49,9 +49,9 @@ Här är hur du konfigurerar Azure File Sync på ett sätt som är kompatibel me
 
 ![Diagram som visar hur du konfigurerar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Steg | Information |
+| Steg | Detalj |
 |---|---------------------------------------------------------------------------------------|
-| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Data Box family erbjudanden [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som uppfyller dina behov. När du får din Data box-enhet kan du följa dess [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till UNC-sökvägen på Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. Här kan *ShareName* är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
+| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Data Box family erbjudanden [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som uppfyller dina behov. När du får din Data box-enhet kan du följa dess [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till UNC-sökvägen på Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>* . Här kan *ShareName* är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
 | ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna som visas i Azure-filresurser som du har valt som tillfällig mellanlagring resurser. *Aktivera inte synkroniseras till dessa resurser.* |
 | ![Steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Skapa en ny tom resurs för varje resurs som Data Box har skapat för dig. Den här nya resursen måste vara i samma lagringskonto som Data Box-resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md). |
 | ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Skapa en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en lagringssynkroniseringstjänst. Referens till tom resursen som en molnslutpunkt. Upprepa det här steget för varje Data Box-filresurs. [Konfigurera Azure File Sync](storage-sync-files-deployment-guide.md). |

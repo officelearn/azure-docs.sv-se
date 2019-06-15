@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
 ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232671"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
@@ -209,7 +209,7 @@ Detta kan inträffa om en eller flera är sant:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Tjänstens svarstid är NA i funktionen för övervakning av tjänstens anslutning, men nätverksförluster samt svarstid är giltiga
 Detta kan inträffa om Måltjänsten är inte ett webbprogram men testet har konfigurerats som ett webbtest. Redigera testkonfigurationen och välj testtypen som nätverk istället för webben.
 
-## <a name="miscellaneous"></a>Diverse
+## <a name="miscellaneous"></a>Övrigt
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Finns det en prestandapåverkan på noden som används för övervakning?
 NPM-processen har konfigurerats för att stoppa om det använder mer än 5% av processorresurserna värden. Detta är att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbetsbelastningar utan att påverka prestanda.

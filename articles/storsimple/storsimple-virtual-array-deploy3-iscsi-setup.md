@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417315"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera StorSimple Virtual Array – ange dig som en iSCSI-server via Azure-portalen
@@ -90,7 +90,7 @@ Använd följande steg för steg-instruktioner för att installera och konfigure
       > 
    4. En dialogruta visas. Ange dina autentiseringsuppgifter för domänen i formatet som anges. Klicka på kryssikonen ![kryssikon](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Autentiseringsuppgifter för domänen ska verifieras. Ett felmeddelande visas om autentiseringsuppgifterna är felaktiga.
       
-       ![autentiseringsuppgifter](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
+       ![Autentiseringsuppgifter](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Klicka på **Verkställ**. Detta gäller och validera enhetsinställningarna.
 7. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
    

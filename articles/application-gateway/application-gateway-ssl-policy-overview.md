@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-origin.date: 08/03/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 08/03/2017
+ms.author: amsriva
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122242"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Översikt över Application Gateway SSL-princip
@@ -34,7 +33,7 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Egenskap   |Värde  |
+|Egenskap  |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -43,7 +42,7 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Egenskap   |Värde  |
+|Egenskap  |Värde  |
 |   ---      |  ---       |
 |Namn     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
@@ -52,7 +51,7 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Egenskap   |Värde  |
+|Egenskap  |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
@@ -65,9 +64,9 @@ Om en fördefinierad SSL-princip måste konfigureras för dina krav, måste du d
  
 ### <a name="ssl-protocol-versions"></a>SSL-protokollsversioner
 
-- SSL 2.0 och 3.0 inaktiveras som standard för alla application gateways. Dessa protokollversioner kan inte konfigureras.
-- En anpassad SSL-princip ger dig möjlighet att välja någon av följande tre protokoll som SSL-protokollet minimiversionen för din gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
-- Om ingen policy för SSL definieras aktiveras alla tre protokoll (TLSv1_0 TLSv1_1 och TLSv1_2).
+* SSL 2.0 och 3.0 inaktiveras som standard för alla application gateways. Dessa protokollversioner kan inte konfigureras.
+* En anpassad SSL-princip ger dig möjlighet att välja någon av följande tre protokoll som SSL-protokollet minimiversionen för din gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
+* Om ingen policy för SSL definieras aktiveras alla tre protokoll (TLSv1_0 TLSv1_1 och TLSv1_2).
 
 ### <a name="cipher-suites"></a>Krypteringssviter
 
@@ -106,5 +105,3 @@ Application Gateway stöder följande krypteringssviter som du kan välja en ege
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill lära dig att konfigurera ett SSL-policy, se [Konfigurera SSL-princip på application gateway](application-gateway-configure-ssl-policy-powershell.md).
-
-<!-- Update_Description: wording update -->

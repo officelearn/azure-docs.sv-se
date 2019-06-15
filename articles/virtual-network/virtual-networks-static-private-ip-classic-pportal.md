@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125754"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Konfigurera privata IP-adresser för en virtuell dator (klassisk) med Azure portal
@@ -61,7 +61,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernät i ett vir
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Hur du hämtar statiska privata IP-adressinformation för en virtuell dator
 Utföra stegen nedan om du vill visa statiska privata IP-adressinformation för den virtuella datorn skapas med stegen ovan.
 
-1. Azure-portalen väljer du **Bläddra bland alla** > **virtuella datorer (klassiska)** > **DNS01** > **alla inställningar för** > **IP-adresser** och Lägg märke till IP-adresstilldelning och IP-adress som visas nedan.
+1. Azure-portalen väljer du **Bläddra bland alla** > **virtuella datorer (klassiska)**  > **DNS01** > **alla inställningar för** > **IP-adresser** och Lägg märke till IP-adresstilldelning och IP-adress som visas nedan.
    
     ![Skapa virtuell dator i Azure-portalen](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

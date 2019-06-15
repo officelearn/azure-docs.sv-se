@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60905008"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Datadrivna Style-uttryck (Web SDK)
@@ -79,7 +79,7 @@ Alla exempel i det här dokumentet använder följande funktion för att visar o
 
 Data-uttryck ger åtkomst till egenskapsdata i en funktion. 
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['at', number, array]` | objekt | Hämtar ett objekt från en matris. |
 | `['geometry-type']` | string | Hämtar funktionstyp geometri: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -137,7 +137,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Matematiska uttryck ger matematiska operatorer för att utföra en datadriven beräkningar inom ramen för uttrycket.
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | nummer | Beräknar summan av de angivna siffrorna. |
 | `['-', number]` | nummer | Subtraherar 0 med angivet tal. |
@@ -171,7 +171,7 @@ Booleska uttryck ger en uppsättning med booleska operatorer uttryck för att ut
 
 När du jämför värden skrivs strikt jämförelsen. Värden av olika typer anses alltid lika. Fall där typerna som har visat sig vara olika parsa när är ogiltiga och producerar en parsas. 
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolesk | Logisk negation. Returnerar `true` om indata är `false`, och `false` om indata är `true`. |
 | `['!= ', value, value]` | boolesk | Returnerar `true` om indatavärdena inte är lika med, `false` annars. |
@@ -334,7 +334,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Uttryck av typen innehåller verktyg för testning och konvertering av olika datatyper, till exempel strängar, siffror och booleska värden.
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matris \| objekt | Returnerar ett literalvärde matris eller ett objekt. Använd det här uttrycket för att förhindra att en matris eller ett objekt som utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt som ska returneras av ett uttryck. |
 | `['to-boolean', value]` | boolesk | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indata är en tom sträng, `0`, `false`, `null`, eller `NaN`, annars dess `true`. |
@@ -369,7 +369,7 @@ Uttryck av typen innehåller verktyg för testning och konvertering av olika dat
 
 Färg uttryck gör det enklare att skapa och ändra färgvärden.
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Skapar ett färgvärde från *red*, *grön*, och *blå* komponenter som måste vara mellan `0` och `255`, och en alpha -komponent`1`. Om någon komponent är utanför intervallet, är uttrycket ett fel. |
 | `['rgba', number, number, number, number]` | color | Skapar ett färgvärde från *red*, *grön*, *blå* komponenter som måste vara mellan `0` och `255`, och en alpha-komponent inom ett intervall med `0` och `1`. Om någon komponent är utanför intervallet, är uttrycket ett fel. |
@@ -397,7 +397,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Uttryck för anslutningssträng operatorn utföra konverteringen åtgärder på strängar, till exempel sammanfoga och konvertera fallet. 
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Sammanfogar flera strängar tillsammans. Varje värde måste vara en sträng. Använd den `to-string` anger uttrycket som ska konverteras andra värdetyper till sträng om det behövs. |
 | `['downcase', string]` | string | Konverterar den angivna strängen till gemener. |
@@ -751,10 +751,10 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Variabelbindning uttryck lagra resultatet av en beräkning i en variabel så att den kan referera till någon annanstans i ett uttryck flera gånger utan att behöva beräkna om den. Det här är en användbar optimering för uttryck som inbegriper många beräkningar
 
-| Uttryck | Returtyp | Beskrivning |
+| uttryck | Returtyp | Beskrivning |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: alla,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: alla,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler för användning av den `var` uttryck i det underordnade uttryck som returnerar resultatet. |
-| `['var', name: string]` | valfri | Refererar till en variabel som har skapats med den `let` uttryck. |
+| `['var', name: string]` | Alla | Refererar till en variabel som har skapats med den `let` uttryck. |
 
 **Exempel**
 

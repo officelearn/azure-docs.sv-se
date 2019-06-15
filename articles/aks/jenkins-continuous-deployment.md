@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073789"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudier: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
@@ -48,6 +48,9 @@ För att slutföra den här självstudien behöver du följande objekt:
 ## <a name="prepare-your-app"></a>Förbereda din app
 
 I den här artikeln använder du ett exempelprogram för Azure voting som innehåller ett webbgränssnitt som finns i en eller flera poddar och en andra pod som är värd för Redis för tillfällig lagring. Innan du integrerar Jenkins och AKS för automatisk distribution, först manuellt förbereda och distribuera programmet Azure voting till AKS-klustret. Den här manuell distribution är versionen av programmet och kan du se hur programmet fungerar i praktiken.
+
+> [!NOTE]
+> Exemplet Azure vote-programmet använder en Linux-pod som är schemalagda att köras på en Linux-nod. Flödet som beskrivs i den här artikeln fungerar även för en Windows Server-pod schemalagda på en Windows Server-nod.
 
 Förgrena följande GitHub-lagringsplatsen för exempelprogrammet - [ https://github.com/Azure-Samples/azure-voting-app-redis ](https://github.com/Azure-Samples/azure-voting-app-redis). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
 

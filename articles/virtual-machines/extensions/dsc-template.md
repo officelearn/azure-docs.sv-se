@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475532"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
@@ -186,7 +186,7 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 | settings.configuration.function |string |Anger namnet på din DSC-konfiguration. Den konfiguration som heter måste ingå i skriptet som **settings.configuration.script** definierar. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
 | settings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är inte krypterad. |
 | settings.configurationData.url |string |Anger den URL som du vill ladda ned konfigurationsdatafilen (.psd1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för din SAS-token. |
-| settings.privacy.dataCollection |string |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.privacy.dataCollection |string |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''** , eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''** . Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Samling |Definierar alternativa platser som ska hämta WMF från. Mer information finns i [Azure DSC-tillägget 2.8 och mappa nedladdningar av beroenden för tillägg till din egen plats](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är krypterad. |
 | protectedSettings.configurationUrlSasToken |string |Anger SAS-token för att få åtkomst till URL: en som **settings.configuration.url** definierar. Den här egenskapen är krypterad. |

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952666"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Hitta nyheter med Bing Search och Azure Logic Apps
@@ -53,7 +53,7 @@ Eller om anslutningen redan finns, ange nödvändig information för utlösaren.
 
    Ange villkor för att returnera matchande nyhetsartiklar från Bing Search i det här exemplet.
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | Search Query | Ja | <*search-words*> | Ange sökord som du vill använda. |
    | Market | Ja | <*Nationella inställningar*> | Sök nationella inställningar. Standardvärdet är ”en-US”, men du kan välja ett annat värde. |
@@ -89,7 +89,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
    ![Lägg till åtgärd](./media/connectors-create-api-bing-search/add-action.png)
 
    Flytta musen över den anslutande pilen för att lägga till en åtgärd mellan befintliga steg. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 3. I sökrutan anger du ”Bing search” som filter.
 Välj vilken åtgärd du önska från åtgärdslistan över.
@@ -104,7 +104,7 @@ Välj vilken åtgärd du önska från åtgärdslistan över.
 
    Ange kriterierna för att returnera en delmängd av utlösarens resultat i det här exemplet.
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | Search Query | Ja | <*search-expression*> | Ange ett uttryck för att fråga utlösaren resultaten. Du kan välja från fälten i listan med dynamiskt innehåll eller skapa ett uttryck med Uttrycksverktyget. |
    | Market | Ja | <*Nationella inställningar*> | Sök nationella inställningar. Standardvärdet är ”en-US”, men du kan välja ett annat värde. |
@@ -151,7 +151,7 @@ Välj vilken åtgärd du önska från åtgärdslistan över.
 
 1. När du uppmanas att ange anslutningsinformationen Tillhandahåll följande information:
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | Anslutningsnamn | Ja | <*connection-name*> | Namn för att skapa för anslutningen |
    | API-version | Ja | <*API-version*> | Bing Search API-versionen är som standard den aktuella versionen. Du kan välja en tidigare version vid behov. |

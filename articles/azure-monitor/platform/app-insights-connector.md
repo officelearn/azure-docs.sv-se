@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606739"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
@@ -142,7 +142,7 @@ Perspektivet komponenter uppdateras beroende på frågan. Det innebär att du ka
 
 Application Insights-anslutningsprogram blad är utformade så att du kan växla över till den valda appen Application Insights *när du använder Azure-portalen*. Du kan använda lösningen övervakningsplattform på hög nivå som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen fördjupa dig i den i Log Analytics-sökningen eller du kan växla över direkt till appen Application Insights.
 
-Pivottabell, klickar du på ellipserna (**...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
+Pivottabell, klickar du på ellipserna ( **...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
 
 >[!NOTE]
 >**Öppna i Application Insights** är inte tillgänglig i Azure-portalen.
@@ -181,7 +181,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 
 ### <a name="generic-fields"></a>Allmän fält
 
-| Egenskap  | Description |
+| Egenskap | Description |
 | --- | --- |
 | Typ | ApplicationInsights |
 | ClientIP |   |
@@ -207,7 +207,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 
 ### <a name="availability-specific-fields"></a>Tillgänglighet-specifika fält
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TelemetryType | Tillgänglighet |
 | AvailabilityTestName | Namnet på webbtestet |
@@ -249,7 +249,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 
 ### <a name="request-specific-fields"></a>Begäran-specifika fält
 
-| Egenskap  | Description |
+| Egenskap | Description |
 | --- | --- |
 | Typ | ApplicationInsights |
 | TelemetryType | Förfrågan |

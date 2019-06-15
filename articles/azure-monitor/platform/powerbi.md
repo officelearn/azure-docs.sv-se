@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/219
 ms.author: bwren
 ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234196"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor log-data till Power BI
@@ -36,7 +36,7 @@ Importera data från en [Log Analytics-arbetsyta](manage-access.md) i Azure Moni
 Börja med att skapa en [loggfråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
 
 1. [Skapa loggfråga i Log Analytics](../log-query/get-started-portal.md) att extrahera data för din datauppsättning.
-2. Välj **exportera** > **Power BI-fråga (M)**.  Det här exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
+2. Välj **exportera** > **Power BI-fråga (M)** .  Det här exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
 
     ![Exportera loggsökning](media/powerbi/export-analytics.png)
 

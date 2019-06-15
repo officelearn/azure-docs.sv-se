@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540270"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
@@ -40,7 +40,7 @@ Om du vill lära dig om hur du integrerar ditt program med Azure AD med öppna I
 En *program med flera innehavare* är ett program som accepterar inloggningar från användare från alla företag eller din organisation som har Azure AD utan att kräva en separat instans, konfiguration och distribution. AppSource rekommenderar att implementera program med flera innehavare för att aktivera den *klickar du på* kostnadsfria utvärderingsversionen.
 
 Följ dessa steg om du vill aktivera flera innehavare för ditt program:
-1. Ange `Multi-Tenanted` egenskap `Yes` på din programregistrering informationen i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som har skapats i Azure-portalen som  *[enda klient](#single-tenant-applications)*.
+1. Ange `Multi-Tenanted` egenskap `Yes` på din programregistrering informationen i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som har skapats i Azure-portalen som  *[enda klient](#single-tenant-applications)* .
 1. Uppdatera koden för att skicka begäranden till den `common` slutpunkt. Gör detta genom att uppdatera slutpunkten från `https://login.microsoftonline.com/{yourtenant}` till `https://login.microsoftonline.com/common*`.
 1. För vissa plattformar som ASP .NET, måste du också att uppdatera koden för att godkänna flera utfärdare.
 

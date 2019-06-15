@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231116"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
@@ -115,10 +115,10 @@ I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgär
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
 | Manipulation | Integritet | Verifiera SSL-certifikat. |
-| Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
+| Repudiation | Non-repudiation | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
-| Denial of Service | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
-| Upphöjning av rättigheter | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+| DOS-attack | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
+| Rättighetsökning | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
 [Azure App Service](../app-service/overview.md) är en PaaS-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447020"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
@@ -68,7 +68,7 @@ Basic-distributionen är anpassad för att visa upp lösningen. För att minska 
 
 En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
 
-| Antal | Resurs                       | Typ         | Används för |
+| Count | Resource                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |
@@ -89,7 +89,7 @@ En vanlig distribution är en produktionsklar-distribution som utvecklare kan an
 
 En vanlig distribution skapar följande tjänster i Azure-prenumerationen:
 
-| Antal | Resurs                                     | SKU / Size      | Används för |
+| Count | Resource                                     | SKU / Size      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes-behållare orchestration-tjänst, standardvärdet är 3 agenter|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |

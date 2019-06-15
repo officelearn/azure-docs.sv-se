@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473198"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Ta bort en katalog i Azure Active Directory
@@ -63,7 +63,7 @@ Har upphört att gälla (30 dagar) | Data som är tillgängliga för alla| Anvä
 Inaktiverad (30 dagar) | Data som är tillgängliga för enbart administratör | Användare kan inte komma åt Office 365-filerna eller apparna<br>Administratörer kan få åtkomst till Microsoft 365-administrationscentret, men det går inte att tilldela licenser till eller uppdatera användare
 Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | Användare kan inte komma åt Office 365-filerna eller apparna<br>Administratörer kan få åtkomst till Microsoft 365-administrationscentret för att köpa och hantera andra prenumerationer
 
-## <a name="delete-a-subscription"></a>Ta bort en prenumeration
+## <a name="delete-a-subscription"></a>Tar bort en prenumeration
 
 Du kan placera en prenumeration i avetablerad tillstånd som ska tas bort i tre dagar med hjälp av Administrationscenter för Microsoft 365.
 
@@ -101,7 +101,7 @@ Vad som händer när en Office 365-utvärderingsprenumeration upphör att gälla
 Produkttillstånd | Data | Åtkomst till data
 ------------- | ---- | --------------
 Aktiv (30 dagar för utvärderingsversion) | Data som är tillgängliga för alla | Användare har normal åtkomst till självbetjänad registrering produkten, filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 Administrationscenter och resurser
-Borttagen | Data som tas bort | Användare kan inte komma åt självbetjänad registrering produkten, filer eller appar<br>Administratörer kan få åtkomst till Microsoft 365-administrationscentret för att köpa och hantera andra prenumerationer
+Borttaget | Data som tas bort | Användare kan inte komma åt självbetjänad registrering produkten, filer eller appar<br>Administratörer kan få åtkomst till Microsoft 365-administrationscentret för att köpa och hantera andra prenumerationer
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Hur kan jag ta bort en självbetjäning registrering produkt i Azure-portalen?
 

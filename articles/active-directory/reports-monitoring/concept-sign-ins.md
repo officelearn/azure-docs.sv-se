@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107649"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -97,9 +97,9 @@ Markera ett objekt i listvyn för att få mer detaljerad information.
 Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan du filtrera inloggningsdata med hjälp av följande standardfält:
 
 - Användare
-- Tillämpningsprogram
+- Program
 - Inloggningsstatus
-- Villkorad åtkomst
+- Villkorlig åtkomst
 - Date
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/04.png "inloggningsaktivitet")
@@ -122,7 +122,7 @@ Den **villkorlig åtkomst** filter kan du välja CA Principstatus för att logga
 - Fel
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden är:
+Möjliga värden:
 
 - 1 månad
 - 7 dagar
@@ -190,11 +190,11 @@ Det här visas på varje rad i listan med inloggningsaktiviteter:
 
 När du klickar på ett objekt visas mer information om inloggningen:
 
-- Användar-id
+- Användar-ID
 - Användare
 - Användarnamn
 - Program-ID:t
-- Tillämpningsprogram
+- Program
 - Klient
 - Location
 - IP-adress

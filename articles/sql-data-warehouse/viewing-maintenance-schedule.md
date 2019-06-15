@@ -11,10 +11,10 @@ ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474882"
 ---
 # <a name="view-a-maintenance-schedule"></a>Visa ett underhållsschema 
@@ -27,7 +27,7 @@ Om du vill visa underhållsschemat som kopplats till ditt datalager, gör du fö
 
 1.  Logga in på [Azure Portal](https://portal.azure.com/).
 2.  Välj det datalager som du vill visa. 
-3.  Valda datalagret öppnas på översiktsbladet. Underhållsschemat som tillämpas på datalagret visas under **underhållsschema (förhandsversion)**.
+3.  Valda datalagret öppnas på översiktsbladet. Underhållsschemat som tillämpas på datalagret visas under **underhållsschema (förhandsversion)** .
 
 ![Översiktsbladet](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

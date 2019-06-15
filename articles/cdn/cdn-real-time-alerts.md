@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335784"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Aviseringar i realtid i Microsoft Azure CDN
@@ -55,7 +55,7 @@ Det här dokumentet beskriver aviseringar i realtid i Microsoft Azure CDN. Den h
     ![Nytt avisering formulär](./media/cdn-real-time-alerts/cdn-new-alert.png)
 5. Om du vill att den här aviseringen ska aktiveras när du klickar på **spara**, kontrollera den **avisering aktiverad** kryssrutan.
 6. Ange ett beskrivande namn för aviseringen i den **namn** fält.
-7. I den **medietyp** listrutan **LOB-HTTP-**.
+7. I den **medietyp** listrutan **LOB-HTTP-** .
    
     ![Medietyp med HTTP stora objekt som valts](./media/cdn-real-time-alerts/cdn-http-large.png)
    

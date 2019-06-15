@@ -16,10 +16,10 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477169"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
@@ -74,7 +74,7 @@ Tillgängliga Linux SQL Server-VM-avbildningar finns i [Översikt över SQL Serv
 ### <a id="BYOL"></a> Bring your own license (BYOL)
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering.  När du använder din egen licens kan du spara pengar långsiktigt för kontinuerliga arbetsbelastningar under produktion. Kraven för att använda det här alternativet finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md#byol) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-Om du vill använda din egen licens kan du antingen konvertera en befintlig virtuell SQL-dator med betala per användning eller distribuera en avbildning med det prefigerade **{BYOL}**. Mer information om hur du växlar licensieringsmodellen mellan betala per användning och BYOL finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
+Om du vill använda din egen licens kan du antingen konvertera en befintlig virtuell SQL-dator med betala per användning eller distribuera en avbildning med det prefigerade **{BYOL}** . Mer information om hur du växlar licensieringsmodellen mellan betala per användning och BYOL finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |

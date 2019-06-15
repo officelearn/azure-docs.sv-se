@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f66b00d60a93db20ac2092db385e9794e150ce89
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de4363930cf0a6b3b6f29d12cc4c2d3700e1662c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Självstudier: Azure Active Directory-katalogintegrering med Concur
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Concur i Azure AD så behöver du lägga til
 
 **Utför följande steg för att lägga till Concur från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -201,4 +201,4 @@ När du klickar på Concur-panelen i åtkomstpanelen så bör du automatiskt log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

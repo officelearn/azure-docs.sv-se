@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466331"
 ---
 # <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
@@ -64,7 +64,7 @@ En Widevine-licensbegäran formateras som ett JSON-meddelande.
 | --- | --- | --- |
 | nyttolast |Base64-kodad sträng |Licensbegäran som skickats av en klient. |
 | content_id |Base64-kodad sträng |Identifieraren som används för att härleda nyckel-ID och innehåll nyckel för varje content_key_specs.track_type. |
-| provider |string |Används för att söka efter innehåll nycklar och principer. Om du använder Microsoft key leverans för Widevine-licensleverans, ignoreras den här parametern. |
+| Providern |string |Används för att söka efter innehåll nycklar och principer. Om du använder Microsoft key leverans för Widevine-licensleverans, ignoreras den här parametern. |
 | policy_name |string |Namnet på en tidigare registrerad princip. Valfri. |
 | allowed_track_types |Enum |SD_ONLY eller SD_HD. Styr vilka nycklar av innehåll som ingår i en licens. |
 | content_key_specs |Matris med JSON strukturer som stöds, se avsnittet ”Content viktiga specifikationer”.  |En mer detaljerad kontroll på vilka nycklar ska returneras. Mer information finns i avsnittet ”innehåll viktiga specifikationer”. Endast en av de allowed_track_types och content_key_specs värdena kan anges. |

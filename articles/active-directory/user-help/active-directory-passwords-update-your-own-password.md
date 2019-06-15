@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60862269"
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa lösenordet för arbets- eller skolkonto
@@ -122,7 +122,7 @@ Du bör nu kunna komma åt ditt konto. Om inte, kontakta din organisations IT-av
 | Felsituation| Vilka fel ser du?| Lösning |
 | --- | --- | --- |
 | Jag ser ett fel när jag försöker ändra mitt lösenord. | Tyvärr innehåller ditt lösenord ett ord, en fras eller ett mönster som gör det enkelt att gissa ditt lösenord. Försök igen med ett annat lösenord. | Välj ett lösenord som är svårare att gissa. |
-| Jag får en ”Kontakta administratören”-sida när du har angett mitt användar-ID | Kontakta administratören. <br> <br> Vi har upptäckt att lösenordet till ditt användarkonto inte hanteras av Microsoft. Vi kan därför inte att automatiskt återställa ditt lösenord. <br> <br> Du måste kontakta IT-avdelningen för mer hjälp. | Du får det här meddelandet eftersom din IT-personal hanterar ditt lösenord i din lokala miljö. Du kan inte återställa ditt lösenord från länken ”det går inte att komma åt ditt konto”. <br> <br> Kontakta din IT-personal direkt för att få hjälp om du vill återställa ditt lösenord och informera dem om du vill återställa lösenordet så att de kan aktivera den här funktionen för dig.|
+| Jag får en ”Kontakta administratören”-sida när du har angett mitt användar-ID | Kontakta din administratör. <br> <br> Vi har upptäckt att lösenordet till ditt användarkonto inte hanteras av Microsoft. Vi kan därför inte att automatiskt återställa ditt lösenord. <br> <br> Du måste kontakta IT-avdelningen för mer hjälp. | Du får det här meddelandet eftersom din IT-personal hanterar ditt lösenord i din lokala miljö. Du kan inte återställa ditt lösenord från länken ”det går inte att komma åt ditt konto”. <br> <br> Kontakta din IT-personal direkt för att få hjälp om du vill återställa ditt lösenord och informera dem om du vill återställa lösenordet så att de kan aktivera den här funktionen för dig.|
 | Jag får felet ”ditt konto har inte aktiverats för återställning av lösenord” när du har angett mitt användar-ID | Ditt konto har inte aktiverats för återställning av lösenord. <br> <br> Vi beklagar, men IT-avdelningen har inte konfigurerat ditt konto att använda tjänsten. <br> <br> Om du vill kan kontakta vi en administratör i din organisation som återställer lösenordet åt dig. | Du får det här meddelandet eftersom din IT-personal inte har aktiverat återställning av lösenord för din organisation från länken ”det går inte att komma åt ditt konto” eller har inte licensierats du om du vill använda funktionen. <br> <br> Om du vill återställa ditt lösenord, väljer du ”kontakta en administratör länken” att skicka ett e-postmeddelande till ditt företag är IT-personal och informera dem om du vill återställa lösenordet så att de kan aktivera den här funktionen för dig. |
 | Jag får felet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Det gick inte att verifiera ditt konto. <br> <br> Om du vill kan kontakta vi en administratör i din organisation som återställer lösenordet åt dig. | Du får det här meddelandet eftersom du har aktiverats för återställning av lösenord, men du har inte registrerats för användning av tjänsten. Registrera för återställning av lösenord genom att gå till https://aka.ms/ssprsetup när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, väljer du länken ”kontakta en administratör” för att skicka ett e-postmeddelande till ditt företags IT-personal. |
 

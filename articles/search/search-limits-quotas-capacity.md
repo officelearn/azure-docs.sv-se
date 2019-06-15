@@ -11,10 +11,10 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024643"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
@@ -47,7 +47,7 @@ Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, do
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Lediga | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
 | Maximal enkel fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -82,7 +82,7 @@ Om portalen meddelar en dokumentgräns, din tjänst skapades antingen före sent
 
 Följande maximala begränsningar gäller för tjänster som omfattas av dokumentet begränsningar:
 
-|  Kostnadsfri | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Lediga | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10 000 |1&nbsp;miljoner |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
 
@@ -105,7 +105,7 @@ Kom ihåg att undanta inte kan frågas data från begäran för att hålla dokum
 Maximalt tillåtna antalet gånger som körs finns för att ge belastningsutjämning och stabilitet till tjänsten som helhet, men större datauppsättningar kan behöva mer indexering tid än maximalt tillåter. Om ett indexeringsjobb inte kan slutföras inom den maximala tiden som tillåts, kan du försöka köra det enligt ett schema. Scheduler håller reda på status för indexering. Om en schemalagd indexeringsjobb avbryts av någon anledning, kan indexeraren ta vid där det senast slutade vid nästa schemalagda körning.
 
 
-| Resurs | Kostnadsfria&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Kostnadsfria&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |

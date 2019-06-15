@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736809"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Övervaka mått och loggar i Azure ytterdörren Service
@@ -31,7 +31,7 @@ Mått är en funktion för vissa Azure-resurser så att du kan visa prestandarä
 
 | Mått | Metrisk visningsnamn | Enhet | Dimensioner | Beskrivning |
 | --- | --- | --- | --- | --- |
-| RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klientbegäranden som hanteras av ytterdörren.  |
+| RequestCount | Antal begäranden | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klientbegäranden som hanteras av ytterdörren.  |
 | RequestSize | Begärandestorlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antal byte som skickas när begäranden från klienter till ytterdörren. |
 | ResponseSize | Svarsstorlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antal byte som skickas som svar från åtkomsten till klienter. |
 | TotalLatency | Total svarstid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tid beräknas från klientbegäran tas emot av ytterdörren tills klienten godkänt den sista byten svar från ytterdörren. |
@@ -73,7 +73,7 @@ Så här konfigurerar du diagnostikloggar för ytterdörren tjänsten:
 
 Ytterdörren Service erbjuder för närvarande diagnostikloggar (i batchar per timme). Diagnostikloggar innehåller enskilda API-begäranden där varje inmatning har följande schema:
 
-| Egenskap   | Beskrivning |
+| Egenskap  | Beskrivning |
 | ------------- | ------------- |
 | ClientIp | IP-adressen för klienten som gjorde begäran. |
 | ClientPort | IP-porten för den klient som gjorde begäran. |

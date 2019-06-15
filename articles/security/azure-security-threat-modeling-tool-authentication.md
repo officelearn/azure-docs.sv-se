@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951708"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
@@ -44,18 +44,18 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| Information | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord. Det finns flera autentiseringsprotokoll tillgängliga som kan betraktas. Vissa av dem anges nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserad</li><li>Formulärbaserad</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identitetsserver</li></ul><p>Överväg att använda en standard autentiseringsmekanism för att identifiera Källprocessen</p>|
+| Information | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord. Det finns flera autentiseringsprotokoll tillgängliga som kan betraktas. Vissa av dem anges nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserade</li><li>Formulärbaserad</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identitetsserver</li></ul><p>Överväg att använda en standard autentiseringsmekanism för att identifiera Källprocessen</p>|
 
 ## <a id="handle-failed-authn"></a>Program måste hantera misslyckade autentiseringsscenarier på ett säkert sätt
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -66,7 +66,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -77,7 +77,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -88,7 +88,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -99,7 +99,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -110,7 +110,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -121,7 +121,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | OnPrem |
 | **Attribut**              | Version av SQL - alla |
 | **Referenser**              | [SQLServer – Välj ett autentiseringsläge](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -132,7 +132,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | SQL Azure |
 | **Attribut**              | SQL Version - V12 |
 | **Referenser**              | [Ansluta till SQL Database med hjälp av Azure Active Directory-autentisering](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -143,7 +143,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [SQL Server-lösenordsprincip](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -154,7 +154,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Attribut**              | SQL-Version - MSSQL2012, SQL-Version - V12 |
 | **Referenser**              | [Rekommenderade säkerhetsmetoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -165,7 +165,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentisering och säkerhet modellen översikt över Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -231,7 +231,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [IdentityServer3 - helheten](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -264,7 +264,7 @@ ms.locfileid: "65951708"
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -304,7 +304,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Typ av autentiseringsuppgift för klient - ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
@@ -320,7 +320,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generic, .NET Framework 3 |
 | **Attribut**              | Typ av autentiseringsuppgift för klient - ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
@@ -336,18 +336,18 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentisering och auktorisering i ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [extern autentiseringstjänster med ASP.NET webb-API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Steg** | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord. Det finns flera autentiseringsprotokoll tillgängliga som kan betraktas. Vissa av dem anges nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserad</li><li>Formulärbaserad</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identitetsserver</li></ul><p>Länkarna i referensavsnittet innehåller detaljer om hur var och en av autentiseringsscheman kan implementeras för att skydda ett webb-API.</p>|
+| **Steg** | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord. Det finns flera autentiseringsprotokoll tillgängliga som kan betraktas. Vissa av dem anges nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserade</li><li>Formulärbaserad</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identitetsserver</li></ul><p>Länkarna i referensavsnittet innehåller detaljer om hur var och en av autentiseringsscheman kan implementeras för att skydda ett webb-API.</p>|
 
 ## <a id="authn-aad"></a>Använd standard autentiseringsscenarier som stöds av Azure Active Directory
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentiseringsscenarier för Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [kodexempel för Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Utvecklarhandbok för Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -358,7 +358,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webbprogram](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [använda Redis som ADAL-tokencache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -369,7 +369,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webbprogram](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -430,7 +430,7 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -441,7 +441,7 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
@@ -452,7 +452,7 @@ Tänk på att för att testa effektiviteten i den här konfigurationen måste lo
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk, C#, Node.JS,  |
 | **Attribut**              | Inte aktuellt, Gateway - valet i Azure IoT Hub |
 | **Referenser**              | Inte aktuellt, [Azure IoT hub med .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [komma igång med IoT hub och Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [skydda IoT med SAS och certifikat](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git-lagringsplats](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
@@ -490,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-  #### <a name="sas-token"></a>SAS-token
+  #### <a name="sas-token"></a>SAS-Token
 * Hämtar genereras internt när du använder symmetrisk nyckel, men vi kan skapa och använda det uttryckligen samt
 * Definiera ett protokoll: `var Http = require('azure-iot-device-http').Http;`
 * Skapa en sas-token:
@@ -552,7 +552,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway  | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gateway - valet i Azure IoT Hub |
 | **Referenser**              | [Azure IoT Hub säkerhetstoken](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -563,7 +563,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | StorageType - Blob |
 | **Referenser**              | [Hantera anonym läsbehörighet till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -574,7 +574,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL fas**               | Skapa |  
+| **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte |
 | **Referenser**              | [Signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [hur du delegerar åtkomst till objekt i ditt konto med signaturer för delad åtkomst och lagrade åtkomstprinciper](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

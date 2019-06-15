@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751864"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
@@ -52,7 +52,7 @@ En av affärshemligheter för datavetenskap får andra personer att göra arbete
 
 Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) när är du Välkommen att testa kostnadsfritt. Den ger dig en arbetsyta där du kan experimentera med olika machine learning-algoritmer, och när du har fått din lösning som genereras, kan du starta den som en webbtjänst.
 
-En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.azure.ai/)**. Den innehåller resurser, till exempel en samling med Azure Machine Learning Studio-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
+En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.azure.ai/)** . Den innehåller resurser, till exempel en samling med Azure Machine Learning Studio-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
 
 ![Azure AI-galleriet](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 

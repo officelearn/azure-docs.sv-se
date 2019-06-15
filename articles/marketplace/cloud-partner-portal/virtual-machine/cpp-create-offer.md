@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938364"
 ---
 # <a name="create-virtual-machine-offer"></a>Skapa erbjudande för virtuell dator
@@ -24,7 +24,7 @@ Där:
 
 |  **Grupp**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
-|    SKU:er            |  Den minsta köpbara enheten i ett erbjudande. Ett erbjudande (produkten klassen) kan ha flera SKU: er som är associerade med den att skilja mellan funktioner som stöds och VM-avbildningstyper faktureringsmodeller. |
+|    SKUs            |  Den minsta köpbara enheten i ett erbjudande. Ett erbjudande (produkten klassen) kan ha flera SKU: er som är associerade med den att skilja mellan funktioner som stöds och VM-avbildningstyper faktureringsmodeller. |
 |  Marketplace       | Innehåller marknadsföring, juridiska och inverka management tillgångar och specifikationer.  <ul><li> Marknadsföring-material inkluderar erbjudandenamn, beskrivning och logotyper</li> <li> Juridiska tillgångar är en sekretesspolicy, användningsvillkor och andra juridisk dokumentation</li>  <li> Lead princip kan du ange hur du hanterar leads från Azure Marketplace slutanvändarportal.</li> </ul> |
 | Support            | Innehåller information om support kontakta och princip |
 | Test Drive         | Definierar tillgångar som gör det möjligt för användare att testa ditt erbjudande innan de köper det |

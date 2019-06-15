@@ -9,10 +9,10 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320575"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
@@ -34,7 +34,7 @@ Det här exemplet importerar följande data till ett Azure storage-konto med nam
 
 Importjobbet importerar data till med följande mål i storage-konto:
 
-|Källa|Virtuell katalog för mål- eller blob|
+|source|Virtuell katalog för mål- eller blob|
 |------------|-------------------------------------------|
 |H:\Video\ |video/|
 |H:\Photo\ |foto /|

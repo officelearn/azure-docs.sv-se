@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729387"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamn och service-plan identifierare för licensiering
@@ -31,7 +31,7 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 - **Sträng-ID**: Används av PowerShell v1.0-cmdletar när du utför åtgärder på licenser
 - **GUID**: GUID som används av Azure AD Graph och Microsoft Graph
 - **Tjänsten planer som ingår**: En lista över service-planer i produkten som motsvarar sträng-ID och GUID
-- **Tjänsten planer som ingår (eget namn)**: En lista över service-planer (eget namn) i produkten som motsvarar sträng-ID och GUID
+- **Tjänsten planer som ingår (eget namn)** : En lista över service-planer (eget namn) i produkten som motsvarar sträng-ID och GUID
 
 >[!NOTE]
 >Den här informationen är korrekt vid den 15 April 2019.

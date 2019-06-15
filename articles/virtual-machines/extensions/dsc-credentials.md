@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705940"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Skicka autentiseringsuppgifter till Azure DSCExtension-hanteraren
 
 Den här artikeln beskriver tillägget Desired State Configuration (DSC) för Azure. En översikt över hanteraren för DSC-tillägg finns i [introduktion till Azure Desired State Configuration-tilläggshanterare](dsc-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Skicka in autentiseringsuppgifter
 
@@ -61,7 +61,7 @@ configuration Main
 }
 ```
 
-Det är viktigt att inkludera **noden localhost** som en del av konfigurationen. Tillägg för hanteraren söker specifikt efter den **noden localhost** instruktionen. Följande steg fungerar inte om den här instruktionen saknas. Det är också viktigt att inkludera den typecast **[PsCredential]**. Den här specifika typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
+Det är viktigt att inkludera **noden localhost** som en del av konfigurationen. Tillägg för hanteraren söker specifikt efter den **noden localhost** instruktionen. Följande steg fungerar inte om den här instruktionen saknas. Det är också viktigt att inkludera den typecast **[PsCredential]** . Den här specifika typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
 
 Att publicera det här skriptet till Azure Blob storage:
 
@@ -84,7 +84,7 @@ $vm | Update-AzVM
 
 Kör den här koden efterfrågar autentiseringsuppgifter. När autentiseringsuppgifterna har angetts, lagras den kort i minnet. När autentiseringsuppgifterna har publicerats med hjälp av den **Set-AzVMDscExtension** cmdlet, autentiseringsuppgifter skickas över HTTPS till den virtuella datorn. I den virtuella datorn lagrar autentiseringsuppgifterna krypteras på disk med hjälp av lokal VM-certifikatet i Azure. Autentiseringsuppgifterna dekrypteras kort i minnet och sedan krypteras det igen för att skicka dem till DSC.
 
-Den här processen skiljer sig från [använder säker konfigurationer utan tillägg hanteraren](/powershell/dsc/securemof). Azure-miljön är ett sätt att överföra konfigurationsdata på ett säkert sätt via certifikat. När du använder DSC-tilläggshanterare, behöver du inte ange **$CertificatePath** eller en **$CertificateID**/ **$Thumbprint** post i **ConfigurationData**.
+Den här processen skiljer sig från [använder säker konfigurationer utan tillägg hanteraren](/powershell/dsc/securemof). Azure-miljön är ett sätt att överföra konfigurationsdata på ett säkert sätt via certifikat. När du använder DSC-tilläggshanterare, behöver du inte ange **$CertificatePath** eller en **$CertificateID**/  **$Thumbprint** post i **ConfigurationData**.
 
 ## <a name="next-steps"></a>Nästa steg
 

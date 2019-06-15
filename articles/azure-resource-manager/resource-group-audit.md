@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606669"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitetsloggar för att övervaka åtgärder på resurser
@@ -185,7 +185,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 
 Du kan använda resursen Graph för att visa ändringshistoriken för en resurs. Mer information finns i [hämta resursändringar](../governance/resource-graph/how-to/get-resource-changes.md).
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [Insights REST API](/rest/api/monitor/). Om du vill hämta händelser i aktivitetsloggen, se [management-händelser i en prenumeration](/rest/api/monitor/activitylogs).
 

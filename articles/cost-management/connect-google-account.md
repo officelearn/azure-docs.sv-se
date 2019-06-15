@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002080"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ansluta ett Google Cloud Platform-konto
@@ -63,7 +63,7 @@ För att samla in information om användning och tillgången Cloudyn måste du h
 
 1. Öppna Cloudyn-portalen från Azure-portalen eller navigera till [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) och logga in.
 2. Klicka på **inställningar** (kugghjulet symbol) och välj sedan **Molnkonton**.
-3. I **kontohantering**väljer den **Google-konton** fliken och klicka sedan på **Lägg till ny +**.
+3. I **kontohantering**väljer den **Google-konton** fliken och klicka sedan på **Lägg till ny +** .
 4. I **Google kontonamn**, ange den e-postadressen för fakturering kontot och klicka sedan på **nästa**.
 5. Välj eller ange ett Google-konto i dialogrutan för Google-autentisering och sedan **TILLÅT** cloudyn.com åtkomst till ditt konto.
 6. Lägga till projektinformation begäran som användes tidigare anges. De innehåller **projekt-ID**, **projekt** namn, **fakturering** bucketnamnet, och **fakturering filen** rapportera prefix och klicka sedan på  **Spara**.  

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596075"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Varaktiga funktioner 2.0 preview (Azure Functions)
@@ -154,8 +154,8 @@ Entitet-support omfattar flera API: er. För en finns det ett nytt API för att 
 Körningen av en åtgärd på en entitet kan anropa dessa medlemmar på context-objektet (`IDurableEntityContext` i .NET):
 
 * **OperationName**: hämtar namnet på åtgärden.
-* **GetInput\<T >**: hämtar indata för åtgärden.
-* **GetState\<T >**: hämtar det aktuella tillståndet för entiteten.
+* **GetInput\<T >** : hämtar indata för åtgärden.
+* **GetState\<T >** : hämtar det aktuella tillståndet för entiteten.
 * **SetState**: uppdaterar tillståndet för entiteten.
 * **SignalEntity**: skickar ett enkelriktat meddelande till en entitet.
 * **Self**: hämtar ID för entiteten.
@@ -172,7 +172,7 @@ Körningen av en åtgärd på en entitet kan anropa dessa medlemmar på context-
 
 Hållbar entiteter kan anropas från vanliga funktioner via de `orchestrationClient` bindning (`IDurableOrchestrationClient` i .NET). Följande stöds:
 
-* **ReadEntityStateAsync\<T >**: läser tillståndet för en entitet.
+* **ReadEntityStateAsync\<T >** : läser tillståndet för en entitet.
 * **SignalEntityAsync**: skickar ett enkelriktat meddelande till en entitet och väntar tills den placeras i kö.
 
 Dessa metoder prioritera prestanda över konsekvens: `ReadEntityStateAsync` kan returnera ett värde i inaktuella och `SignalEntityAsync` kan returnera innan åtgärden har slutförts. Anropa entiteter från orkestreringar (enligt beskrivningen nedan) är däremot starkt konsekventa.
@@ -183,7 +183,7 @@ Orkestreringar har åtkomst till entiteter med hjälp av context-objektet. De ka
 
 * **SignalEntity**: skickar ett enkelriktat meddelande till en entitet.
 * **CallEntityAsync**: skickar ett meddelande till en entitet och väntar på ett svar som anger att åtgärden har slutförts.
-* **CallEntityAsync\<T >**: skickar ett meddelande till en entitet och väntar på svar som innehåller ett resultat av typen T.
+* **CallEntityAsync\<T >** : skickar ett meddelande till en entitet och väntar på svar som innehåller ett resultat av typen T.
 
 När du använder dubbelriktad kommunikation är också alla undantag vid körning av åtgärden skickas tillbaka till anropande orchestration och rethrown. När du använder fire-and-forget observerats däremot inte undantag.
 

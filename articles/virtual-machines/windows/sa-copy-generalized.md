@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708411"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure-dator
 
@@ -89,7 +89,7 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Den *Status* för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)**.
+    Den *Status* för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)** .
 2. Ange status för den virtuella datorn till **generaliserad**. 
    
     ```powershell

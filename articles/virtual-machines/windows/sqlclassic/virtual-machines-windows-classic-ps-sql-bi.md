@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609279"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
@@ -113,7 +113,7 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
 ## <a name="example-deployment-topologies"></a>Exempeltopologier för distribution
 Följande är exempeldistributioner som använder Microsoft Azure Virtual Machines. Topologier i dessa diagram är endast några av de möjliga topologier som du kan använda med SQL Server BI-funktioner och Microsoft Azure Virtual Machines.
 
-### <a name="single-virtual-machine"></a>Enstaka virtuell dator
+### <a name="single-virtual-machine"></a>Virtuell dator
 Analysis Services, Reporting Services, SQL Server Database Engine och datakällor på en virtuell dator.
 
 ![BI IAS-scenario med 1 virtuell dator](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -174,7 +174,7 @@ I **Windows Server 2008 R2**:
 
 Eller:
 
-1. Klicka på **Starta**.
+1. Klicka på **Start**.
 2. I den **Sök program och filer** dialogrutan skriver **Rapporteringstjänster**. Om den virtuella datorn kör Windows Server 2012, Skriv **Rapporteringstjänster** på startskärmen i Windows Server 2012.
 3. Högerklicka på **Konfigurationshanteraren för Reporting Services** och klicka på **kör som administratör**.
    

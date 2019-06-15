@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126689"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Distribuera Azure Databricks i ditt virtuella nätverk (förhandsversion)
@@ -121,7 +121,7 @@ Om du använder den här mallen utan att också använda mallen network security
 
 Om du inte använder den [Azure-portalen](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) eller [Azure Resource Manager-mallar](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) för att skapa säkerhetsgrupper för ditt nätverk, måste du manuellt godkänna följande trafik på dina undernät.
 
-|Direction|Protokoll|Källa|Källport|Mål|Målport|
+|Direction|Protocol|source|Källport|Mål|Målport|
 |---------|--------|------|-----------|-----------|----------------|
 |Inkommande|\*|VirtualNetwork|\*|\*|\*|
 |Inkommande|\*|Kontrollen plan NAT IP|\*|\*|22|

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799098"
 ---
 # <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
@@ -26,14 +26,14 @@ Det här avsnittet visar sökalternativ som hjälper dig att hitta speciella ög
 
     I följande exempel söker vi du efter alla videor som pratar om säkerhet och i vilket Satya visas
 
-    ![Sökning](./media/video-indexer-search/video-indexer-search01.png)
+    ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Sök sammanfattade insikter om videon.
 
     Du kan sedan söka i en video genom att klicka på **spela upp** för videon. Sedan kan du söka i videon genom att välja den **Search** fliken. 
 
     I följande exempel söker vi du efter ”skydda” i den markerade videon.
 
-    ![Sökning](./media/video-indexer-search/video-indexer-search02.png)
+    ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     Om du klickar på ett av resultaten ger spelaren du till den tidpunkten i videon. Du kan uppnå player/bra överblick och synkronisering i ditt program. Mer information finns i [bädda in Video Indexer widgetar i ditt program](video-indexer-embed-widgets.md). 
 4. Sök specificering av videon.
@@ -44,7 +44,7 @@ Det här avsnittet visar sökalternativ som hjälper dig att hitta speciella ög
     
     I följande exempel sökte vi texten ”Mixad verklighet”. Vi kan även tillämpas ytterligare filter som visas på skärmen nedan.
     
-    ![Sökning](./media/video-indexer-search/video-indexer-search03.png)
+    ![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Nästa steg 
 

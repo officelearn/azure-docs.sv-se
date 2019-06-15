@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995659"
 ---
 # <a name="limits-and-quotas"></a>Begränsningar och kvoter
@@ -26,7 +26,7 @@ Antalet inlärningsbilder per projekt och taggar per projekt förväntas öka me
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projekt|2|100|
-|Inlärningsbilder per projekt |5 000|100 000|
+|Inlärningsbilder per projekt |5,000|100,000|
 |Förutsägelser / månad|10 000 |Obegränsat|
 |Taggar / project|50|500|
 |Iterationer |10|10|

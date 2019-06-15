@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848256"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med Hadoop Streaming activity i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-streaming.md)
 
@@ -68,11 +68,11 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| namn              | Namn på aktiviteten                     | Ja      |
+| name              | Namn på aktiviteten                     | Ja      |
 | description       | Text som beskriver vad aktiviteten används till | Nej       |
-| typ              | Aktivitetstyp av är Hadoop Streaming Activity HDInsightStreaming | Ja      |
+| type              | Aktivitetstyp av är Hadoop Streaming Activity HDInsightStreaming | Ja      |
 | linkedServiceName | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | händelsemappning            | Anger namnet på den körbara mapparen | Ja      |
 | Reducer           | Anger namnet på den körbara reducer | Ja      |
@@ -83,7 +83,7 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 | utdata            | Anger WASB-sökväg till utdatafilen för Reducer. | Ja      |
 | getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges med scriptLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
 | argument         | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
-| definierar           | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       | 
+| defines           | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       | 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 

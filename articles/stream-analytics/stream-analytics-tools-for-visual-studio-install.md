@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.openlocfilehash: 673f4935dce28b30c10e6abf4c7d22e00c1dd73a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60762243"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installera Azure Stream Analytics-verktyg för Visual Studio
@@ -43,7 +43,7 @@ Aktivera den **Azure development** arbetsbelastning som visas:
 * Installera Microsoft Azure SDK för .NET version 2.7.1 eller senare med hjälp av den [installationsprogram för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx).
 * Installera [Azure Stream Analytics-verktyg för Visual Studio](https://www.microsoft.com/en-us/download/details.aspx?id=49504).
 
-## <a name="update"></a>Uppdatering
+## <a name="update"></a>Uppdatera
 
 ### <a name="visual-studio-2019-and-2017"></a>Visual Studio-2019 och 2017
 Den nya versionen påminnelsen som visas i Visual Studio-meddelandet.

@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104926"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Kom igång med OneDrive för företag-anslutningsapp
@@ -26,9 +26,9 @@ Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../lo
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Skapa en anslutning till OneDrive för företag
 För att skapa logikappar med OneDrive för företag, måste du först skapa en **anslutning** anger du detaljerna för följande egenskaper:
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Ange autentiseringsuppgifter för OneDrive för företag |
+| Token |Ja |Ange OneDrive för företag-autentiseringsuppgifter |
 
 När du har skapat anslutningen kan använda du det och köra åtgärderna som du kan lyssna efter utlösare som beskrivs i den här artikeln.
 

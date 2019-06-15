@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61276745"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
@@ -263,7 +263,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 |-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara antingen av typen generell användning v1 (GPv1).|
-| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
+| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > < *[lagringskontots namn]* > Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure US Government eller Azure Kina 21Vianet. |
 

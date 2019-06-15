@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595274"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara aktivitetsdata till Azure Storage med API: et för Batch-tjänsten
@@ -72,7 +72,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Om du vill ange utdatafilerna för en aktivitet, skapar du en samling med [utdatafil](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objekt och tilldela den till den [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) egenskapen när du skapar uppgiften.
 
-Följande C# kodexempel skapar en uppgift som skriver slumptal till en fil med namnet `output.txt`. I exemplet skapas en utdatafil för `output.txt` som ska skrivas till behållaren. Exemplet skapar också utdatafilerna för alla loggfiler som matchar filmönstret `std*.txt` (_t.ex._, `stdout.txt` och `stderr.txt`). Behållarens Webbadress kräver SAS som skapades tidigare för behållaren. Batch-tjänsten använder SAS för att autentisera åtkomst till behållaren:
+Följande C# kodexempel skapar en uppgift som skriver slumptal till en fil med namnet `output.txt`. I exemplet skapas en utdatafil för `output.txt` som ska skrivas till behållaren. Exemplet skapar också utdatafilerna för alla loggfiler som matchar filmönstret `std*.txt` (_t.ex._ , `stdout.txt` och `stderr.txt`). Behållarens Webbadress kräver SAS som skapades tidigare för behållaren. Batch-tjänsten använder SAS för att autentisera åtkomst till behållaren:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")

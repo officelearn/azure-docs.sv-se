@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453647"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database-anslutning
@@ -105,13 +105,13 @@ Den här artikeln visar hur du använder Oracle Database-anslutningen i en logik
 
 **Orsak**: Oracle-klientens SDK är inte installerad på datorn där den lokala datagatewayen körs.  
 
-**Upplösning**: Ladda ned och installera Oracle-klientens SDK på samma dator som den lokala datagatewayen.
+**Lösning**: Ladda ned och installera Oracle-klientens SDK på samma dator som den lokala datagatewayen.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fel**: Tabellen ”[tabellnamn]” definierar inga nyckelkolumner
 
 **Orsak**: Tabellen har inte någon primärnyckel.  
 
-**Upplösning**: Oracle Database-anslutningen kräver att en tabell med en primärnyckelkolumn.
+**Lösning**: Oracle Database-anslutningen kräver att en tabell med en primärnyckelkolumn.
 
 #### <a name="currently-not-supported"></a>För närvarande inte
 

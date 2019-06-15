@@ -18,10 +18,10 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473917"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
@@ -31,7 +31,7 @@ Det är enkelt att göra från kommandoraden eller från portalen att skapa en L
 Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([kostnadsfria registreringsstegen](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator på Azure-prenumerationen. Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in på Azure-prenumerationen med [az-inloggning](/cli/azure/reference-index) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-Disk
-När du skapar en Linux VM i Azure har två diskar som är kopplade till den. **/ dev/sda** är din OS-disk, **/dev/sdb** din temporär disk.  Använd inte den huvudsakliga OS-disken (**/dev/sda**) för något annat än operativsystemet som det är optimerat för snabb VM boot-tid och ger inte bra prestanda för dina arbetsbelastningar. Du vill koppla en eller flera diskar till den virtuella datorn ska hämta beständiga och optimerad lagring för dina data. 
+När du skapar en Linux VM i Azure har två diskar som är kopplade till den. **/ dev/sda** är din OS-disk, **/dev/sdb** din temporär disk.  Använd inte den huvudsakliga OS-disken ( **/dev/sda**) för något annat än operativsystemet som det är optimerat för snabb VM boot-tid och ger inte bra prestanda för dina arbetsbelastningar. Du vill koppla en eller flera diskar till den virtuella datorn ska hämta beständiga och optimerad lagring för dina data. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Att lägga till diskar för storlek och mål
 Baserat på virtuella datorstorlek, kan du lägga till upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serien och 64 diskar på en G-serien machine - varje upp till 1 TB i storlek. Du kan lägga till extra diskar som behövs per dina utrymme och IOps-krav. Varje disk har ett mål för prestanda på 500 IOps för Standard-lagring och upp till 5000 IOps per disk för Premium Storage.
@@ -51,7 +51,7 @@ När hantera hög IOps arbetsbelastningar och du har valt standardlagring för d
  
 
 ## <a name="your-vm-temporary-drive"></a>Den virtuella datorn tillfälligt enheten
-Som standard när du skapar en virtuell dator, erbjuder Azure dig en OS-disk (**/dev/sda**) och en tillfällig disk (**/dev/sdb**).  Alla ytterligare diskar som du lägger till visa upp som **/dev/sdc**, **/dev/sdd**, **/dev/sde** och så vidare. Alla data på den temporära disken (**/dev/sdb**) är inte beständiga och kan gå förlorad om specifika händelser som virtuell dator vid storleksändring, ny distribution eller underhåll tvingar en omstart av den virtuella datorn.  Storlek och typ för den temporära disken är relaterat till virtuella datorstorlek som du har valt vid tidpunkten för distribution. Alla premium ändra storlek på virtuella datorer (DS, G och DS_V2-serien) den temporära enheten backas upp av en lokal SSD för att ytterligare prestanda med upp till 48 kB IOps. 
+Som standard när du skapar en virtuell dator, erbjuder Azure dig en OS-disk ( **/dev/sda**) och en tillfällig disk ( **/dev/sdb**).  Alla ytterligare diskar som du lägger till visa upp som **/dev/sdc**, **/dev/sdd**, **/dev/sde** och så vidare. Alla data på den temporära disken ( **/dev/sdb**) är inte beständiga och kan gå förlorad om specifika händelser som virtuell dator vid storleksändring, ny distribution eller underhåll tvingar en omstart av den virtuella datorn.  Storlek och typ för den temporära disken är relaterat till virtuella datorstorlek som du har valt vid tidpunkten för distribution. Alla premium ändra storlek på virtuella datorer (DS, G och DS_V2-serien) den temporära enheten backas upp av en lokal SSD för att ytterligare prestanda med upp till 48 kB IOps. 
 
 ## <a name="linux-swap-file"></a>Växlingsfil för Linux
 Om din Azure VM från en Ubuntu eller CoreOS-avbildning, kan du använda CustomData för att skicka en molnkonfiguration till cloud-init. Om du [ladda upp en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder cloud-init kan du också konfigurera växling partitioner med cloud-init.

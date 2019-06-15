@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
 ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942618"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge-modul erbjuder översikt över publicering
@@ -34,7 +34,7 @@ Anvisningar för att publicera ett erbjudande för IoT Edge-modulen är:
 
 I följande artiklar beskriver de viktigaste delarna av ett erbjudande för IoT Edge-modulen.
 
-- [Förutsättningar](./cpp-prerequisites.md) <br>Den här artikeln innehåller tekniska och företagets krav innan du kan skapa eller publicera en IoT Edge-modul erbjuder.
+- [Krav](./cpp-prerequisites.md) <br>Den här artikeln innehåller tekniska och företagets krav innan du kan skapa eller publicera en IoT Edge-modul erbjuder.
 - [Förbereda IoT Edge-modulen tekniska resurser](./cpp-create-technical-assets.md) <br>Den här artikeln beskriver hur du förbereder tekniska resurser för en IoT Edge-modul. Dessa resurser måste uppfylla alla nödvändiga tekniska villkor innan IoT Edge-modul kan publiceras på Azure Marketplace.
 - [Skapa ett erbjudande för IoT Edge-moduler](./cpp-create-offer.md) <br>Den här artikeln innehåller anvisningar för att skapa en ny IoT Edge modulen erbjudandet posten med den [Cloud Partner Portal](https://cloudpartner.azure.com).
 - [Publicera erbjudande för IoT Edge-moduler](./cpp-publish-offer.md)<br> Den här artikeln beskriver hur du skickar in erbjudande för publicering på Azure Marketplace.

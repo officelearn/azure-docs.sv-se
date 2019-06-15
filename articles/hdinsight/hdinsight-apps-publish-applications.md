@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685329"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
@@ -91,8 +91,8 @@ Publicera ett HDInsight-program:
 3. Ange en rubrik och välj sedan **skapa en ny lösningsmall**.
 4. Om du inte redan har registrerat din organisation väljer **skapa Dev Center-konto och delta i Azure program**.  Mer information finns i [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
 5. Välj **definiera några topologier för att komma igång**. En lösningsmall är ”överordnad” till alla dess topologier. Du kan definiera flera topologier i en mall för erbjudandet eller lösningen. När ett erbjudande skickas till mellanlagringen, skickas det med alla dess topologier. 
-6. Ange ett topologinamn och välj sedan **+**.
-7. Ange en ny version och välj sedan **+**.
+6. Ange ett topologinamn och välj sedan **+** .
+7. Ange en ny version och välj sedan **+** .
 8. Ladda upp ZIP-filen som du skapade när du paketeras programmet.  
 9. Välj **begär certifiering**. Microsofts certifieringsteam granskar filerna och certifierar topologin.
 

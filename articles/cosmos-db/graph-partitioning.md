@@ -1,22 +1,20 @@
 ---
 title: Datapartitionering i Azure Cosmos DB Gremlin-API
 description: Lär dig hur du kan använda en partitionerad graph i Azure Cosmos DB. Den här artikeln beskriver också krav och bästa praxis för en partitionerad graf.
-author: rockboyfor
-ms.author: v-yeche
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 03/18/2019
+ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888425"
 ---
-<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Med hjälp av ett partitionerade diagram i Azure Cosmos DB
 
 En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalning. Horisontell skalning uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md). Behållarna som kan skalas oberoende vad gäller lagring och dataflöde. Du kan skapa behållare i Azure Cosmos DB som kan skalas automatiskt för att lagra en diagramdata. Data fördelas automatiskt baserat på den angivna **partitionsnyckel**.
@@ -39,26 +37,27 @@ Nedan visas information som behöver förstå när du skapar en partitionerad gr
 
     - `/id` och `/label` stöds inte som partitionsnycklar för en behållare i Gremlin-API.
 
-    - Att välja ett hörn med ID: T, sedan **med hjälp av den `.has()` steg för att ange egenskapen partitions**: 
 
+    - Att välja ett hörn med ID: T, sedan **med hjälp av den `.has()` steg för att ange egenskapen partitions**: 
+    
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-
+    
     - Att välja ett hörn av **att ange en tuppel inklusive partitionsnyckelvärde och ID**: 
-
+    
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-
+        
     - Ange en **mängd tupplar partitionsnyckelvärdena och ID: N**:
-
+    
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-
+        
     - Att välja en uppsättning hörn och **att ange en lista över partitionsnyckelvärdena**: 
-
+    
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -82,6 +81,3 @@ Du kan sedan fortsätta att läsa följande artiklar:
 * Lär dig mer om [partitionera och skala i Azure Cosmos DB](partition-data.md).
 * Lär dig mer om den [Gremlin-support i Gremlin-API: et](gremlin-support.md).
 * Lär dig mer om [introduktion till Gremlin-API](graph-introduction.md).
-
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787739"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Kopiera Data-verktyg i Azure Data Factory
@@ -78,7 +78,7 @@ I följande skärmbild visas en SQL-fråga för att filtrera data.
 ![Filtrera data i en databas](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrera data i en Azure blobbmapp
-Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp. Variablerna som stöds är: **{year}**, **{month}**, **{day}**, **{hour}**, och **{minute}**. Till exempel: inputfolder / {year} / {month} / {day}. 
+Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp. Variablerna som stöds är: **{year}** , **{month}** , **{day}** , **{hour}** , och **{minute}** . Till exempel: inputfolder / {year} / {month} / {day}. 
 
 Anta att du har anger mappar i följande format: 
 
@@ -91,7 +91,7 @@ Anta att du har anger mappar i följande format:
 
 Klicka på den **Bläddra** för **fil eller mapp**, bläddra till någon av dessa mappar (exempel: 2016 -> 03 -> 02-01 >), och klicka på **Välj**. Du bör se 2016/03/01/02 i textrutan. 
 
-Ersätt sedan **2016** med **{year}**, **03** med **{month}**, **01** med **{day}** , och **02** med **{hour}**, och tryck på den **fliken** nyckel. Du bör se listrutorna för att välja formatet för dessa fyra variabler:
+Ersätt sedan **2016** med **{year}** , **03** med **{month}** , **01** med **{day}** , och **02** med **{hour}** , och tryck på den **fliken** nyckel. Du bör se listrutorna för att välja formatet för dessa fyra variabler:
 
 ![Filtret fil eller mapp](./media/copy-data-tool/filter-file-or-folder.png)
 

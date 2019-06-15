@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148203"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
@@ -81,7 +81,7 @@ Möjliga fel är:
 
     Om du vill exportera en tränad men inte ännu publicerade modell ska använda med LUIS-behållaren, går du till den **versioner** sidan och exportera därifrån. 
 
-## <a name="delete-app"></a>Ta bort app
+## <a name="delete-app"></a>Ta bort appen
 
 1. På **Mina appar** väljer du de tre punkterna (...) i slutet av appraden.
 1. Välj **ta bort** på menyn.

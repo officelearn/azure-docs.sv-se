@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808911"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiera data från Concur med Azure Data Factory (förhandsversion)
@@ -45,7 +45,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Concur länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Concurs** | Ja |
 | clientId | Programmet client_id som tillhandahålls av Concurs Apphantering.  | Ja |
@@ -80,7 +80,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Kopiera data från Concur genom att ange typegenskapen på datauppsättningen till **ConcurObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **ConcurObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
@@ -110,7 +110,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Concur, ange typ av datakälla i kopieringsaktiviteten till **ConcurSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ConcurSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Opportunities where Id = xxx "`. | Nej (om ”tableName” i datauppsättningen har angetts) |

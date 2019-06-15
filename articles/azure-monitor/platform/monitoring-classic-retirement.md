@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069360"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
 Azure Monitor har nu blivit en enhetlig fullständig stack övervakningstjänst som nu har stöd för ”ett mått” och ”en aviseringar' mellan resurser. Mer information finns i vår [blogginlägget på den nya Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Den nya Azure övervakning och avisering plattformar har skapats för att vara snabbare, smartare och utökningsbara – att se till att takt med växande expanse med molnbaserad databehandling och i linje med Microsoft Intelligent moln filosofin. 
 
-Med den nya Azure-övervakning och avisering plattform på plats kan vi tas ur bruk ”klassiska” övervakning och avisering plattform - finns i *Visa klassiska aviseringar* avsnitt av Azure-aviseringar **kommer att bli inaktuell från Augusti 2019 i Azures offentliga moln**. [Azure Government-molnet](../../azure-government/documentation-government-welcome.md) påverkas inte.
+Med den nya Azure-övervakning och avisering plattform på plats kan vi tas ur bruk ”klassiska” övervakning och avisering plattform - finns i *Visa klassiska aviseringar* avsnitt av Azure-aviseringar **kommer att bli inaktuell från Augusti 2019 i Azures offentliga moln**. [Azure Government-molnet](../../azure-government/documentation-government-welcome.md) och [Azure Kina](https://docs.azure.cn/) påverkas inte.
 
 > [!NOTE]
 > Fördröjning i lansering av migreringsverktyget slutdatum för klassiska aviseringar migrering har [utökats till den 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) ursprungligen presenterade efter den 30 juni 2019.

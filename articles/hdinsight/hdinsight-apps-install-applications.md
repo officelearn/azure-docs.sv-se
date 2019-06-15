@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
 ms.openlocfilehash: b916cbf690544d5887569e052a0456ca952140c8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409542"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera från tredje part Apache Hadoop-program på Azure HDInsight
@@ -23,10 +23,10 @@ Ett HDInsight-program är ett program som användarna kan installera på ett HDI
 
 I följande lista visas de publicerade programmen:
 
-|Tillämpningsprogram |Kluster-typer | Beskrivning |
+|Program |Kluster-typer | Beskrivning |
 |---|---|---|
 |[AtScale Intelligence-plattform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale har visat ditt HDInsight-kluster i en skalbar OLAP-servern, så att du kan fråga miljarder rader med data interaktivt med hjälp av BI-verktyg du redan vet, äger och gillar – från Microsoft Excel, Power BI, Tableau Software till QlikView. |
-|[CDAP för HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |Hbase |CDAP är den första enhetliga plattformen för big data som går det snabbare tid till värde för Hadoop och möjliggör för IT att tillhandahålla självbetjäning data. Öppen och utökningsbar, CDAP tar bort hinder för innovation. Krav: 4 region noder i min D3 v2. |
+|[CDAP för HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP är den första enhetliga plattformen för big data som går det snabbare tid till värde för Hadoop och möjliggör för IT att tillhandahålla självbetjäning data. Öppen och utökningsbar, CDAP tar bort hinder för innovation. Krav: 4 region noder i min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop |Datameers självbetjäning skalbar plattform för att förbereda, utforska och styr dina data för analys går det snabbare att omvandla komplexa flerkällig data till värdefull information i business ready, leverera snabbare, smartare insikter på en företagsnivå. |
 |[Dataiku DSS på HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS på en enterprise data science-plattform som gör att datavetare och dataanalytiker samarbetar för att designa och köra den nya data produkter och tjänster mer effektivt omvandla rådata till effektfulla förutsägelser. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Som data förblir konsekventa i en distribuerad miljö är en utmaning för åtgärder av massiva data. WANdisco Fusion, en plattform för företagsklass, löser detta problem genom att aktivera konsekvens för Ostrukturerade data i alla miljöer. |
@@ -81,7 +81,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
     ![HDInsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Välj en av de installerade programmen att visa egenskaperna. Egenskapslistor:
 
-    |Egenskap  | Beskrivning |
+    |Egenskap | Beskrivning |
     |---|---|
     |Appnamn |Programnamnet. |
     |Status |Programmets status. |

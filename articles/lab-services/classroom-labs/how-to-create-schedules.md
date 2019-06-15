@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60696040"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klassrum labb i Azure Lab Services 
@@ -32,10 +32,10 @@ Scheman kan du konfigurera ett klassrumslabb så att virtuella datorer i labbet 
 
     ![Lägg till schemaknapp på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
 2. På den **Lägg till schema** bekräftar som **när** alternativet är markerat längst upp. Om du inte väljer **när**. 
-3. För **schemalägga datum (krävs)**, ange ett datum eller välja kalenderikonen för att välja ett datum. 
+3. För **schemalägga datum (krävs)** , ange ett datum eller välja kalenderikonen för att välja ett datum. 
 4. För **starttid**, väljer du den tid när du vill att de virtuella datorerna startas. Starttiden är obligatorisk om sluttid har angetts. Välj **Remove Starthändelse** om du vill ange endast sluttid. Om den **starttid** är inaktiverat, Välj **Lägg till Starthändelse** bredvid listrutan så att den. 
 5. För **stopptid**, väljer du den tid när du vill att de virtuella datorerna ska stängas. Sluttid krävs om starttiden inte anges. Välj **händelsen för ta bort stoppa** om du vill ange endast starttid. Om den **stopptid** är inaktiverat, Välj **Lägg till Stoppa händelse** bredvid listrutan så att den.
-6. För **tidszon (krävs)**, Välj tidszon för start och stopptider som du har angett. 
+6. För **tidszon (krävs)** , Välj tidszon för start och stopptider som du har angett. 
 7. För **anteckningar**, ange en beskrivning av eller anteckningar för schemat. 
 8. Välj **Spara**. 
 
@@ -47,12 +47,12 @@ Scheman kan du konfigurera ett klassrumslabb så att virtuella datorer i labbet 
 
     ![Lägg till schemaknapp på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
 2. På den **Lägg till schema** växlar du till **veckovisa** högst upp. 
-3. För **schemalägga dagar (obligatoriskt)**, Välj de dagar som du vill att schemat ska börja gälla. I följande exempel, har måndag – fredag valts. 
+3. För **schemalägga dagar (obligatoriskt)** , Välj de dagar som du vill att schemat ska börja gälla. I följande exempel, har måndag – fredag valts. 
 4. För den **från** fältet, anger du den **schemalägga startdatum** eller välj ett datum genom att välja den **kalender** knappen. Det här fältet är obligatoriskt. 
 5. För **det schemalagda slutdatumet**anger eller väljer ett slutdatum där de virtuella datorerna är stängs av. 
 6. För **starttid**, väljer du den tid då du vill att de virtuella datorerna startas. Starttiden är obligatorisk om sluttid har angetts. Välj **Remove Starthändelse** om du vill ange endast sluttid. Om den **starttid** är inaktiverat, Välj **Lägg till Starthändelse** bredvid listrutan så att den. 
 7. För **stopptid**, väljer du den tid då du vill att de virtuella datorerna ska stängas. Sluttid krävs om starttiden inte anges. Välj **händelsen för ta bort stoppa** om du vill ange endast starttid. Om den **stopptid** är inaktiverat, Välj **Lägg till Stoppa händelse** bredvid listrutan så att den.
-8. För **tidszon (krävs)**, Välj tidszon för start och stopptider som du har angett.  
+8. För **tidszon (krävs)** , Välj tidszon för start och stopptider som du har angett.  
 9. För **anteckningar**, ange en beskrivning av eller anteckningar för schemat. 
 10. Välj **Spara**. 
 

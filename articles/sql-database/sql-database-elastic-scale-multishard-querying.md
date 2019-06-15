@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761700"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard-frågor med hjälp av verktyg för elastiska databaser
@@ -61,7 +61,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 En viktig skillnad är konstruktion av Multi-shard-anslutningar. Där **SqlConnection** körs på en enskild databas i **MultiShardConnection** tar en ***samling shards*** som indata. Lägg till i samlingen med shards från en skärvkarta. Frågan körs sedan i samling av shards med **UNION ALL** semantik sätta ihop ett enskilt övergripande resultat. Du kan också namnet på den shard som raden kommer från kan läggas till utdata med den **ExecutionOptions** -egenskapen i kommandot.
 
-Observera anropet till **myShardMap.GetShards()**. Den här metoden hämtar alla shards från fragmentkartan och gör det enkelt att köra en fråga över alla relevanta databaser. Insamling av shards för en Multi-shard-fråga kan vara förfinade ytterligare genom att utföra en LINQ-fråga över denna datainsamling returneras vid anrop till **myShardMap.GetShards()**. I kombination med ofullständiga resultat principen, har den aktuella funktionen Multi-shard-frågor utformats för att fungera bra med tiotals upp till hundratals shards.
+Observera anropet till **myShardMap.GetShards()** . Den här metoden hämtar alla shards från fragmentkartan och gör det enkelt att köra en fråga över alla relevanta databaser. Insamling av shards för en Multi-shard-fråga kan vara förfinade ytterligare genom att utföra en LINQ-fråga över denna datainsamling returneras vid anrop till **myShardMap.GetShards()** . I kombination med ofullständiga resultat principen, har den aktuella funktionen Multi-shard-frågor utformats för att fungera bra med tiotals upp till hundratals shards.
 
 En begränsning med Multi-shard-frågor finns för närvarande bristen på validering av fragment och shardletar som efterfrågas. Databeroende routning verifierar att en viss shard är en del av fragmentkartan vid tidpunkten för fråga, men Multi-shard-frågor utför inte den här kontrollen. Detta kan leda till Multi-shard-frågor som körs på databaser som har tagits bort från fragmentkartan.
 

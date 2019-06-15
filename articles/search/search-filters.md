@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062381"
 ---
 # <a name="filters-in-azure-search"></a>Filter i Azure Search 
 
@@ -158,11 +158,11 @@ Språk-ID är skiftlägeskänsliga. Det finns inga lägre skiftläge alltid i ö
 
 ### <a name="approaches-for-filtering-on-text"></a>Metoder för att filtrera efter text
 
-| Metoden | Beskrivning | När du ska använda detta | 
+| Metoden | Beskrivning | När du ska använda detta |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och eventuella filter som där många rå text-värden måste matchas med ett strängfält. Den **search.in** funktionen är avsedd för hastighet och är mycket snabbare än att uttryckligen jämföra fältet mot varje sträng med hjälp av `eq` och `or`. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. | Använd **search.ismatch** (eller motsvarande bedömnings, **search.ismatchscoring**) när du vill att flera kombinationer av Sök-filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |
-| [$filter = fältet operatorsträng](query-odata-filter-orderby-syntax.md) | Ett uttryck för användardefinierade består av fält, operatorer och värden. | Använd det här alternativet när du vill hitta exakta matchningar mellan ett strängfält och ett strängvärde. |
+| [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och eventuella filter som där många rå text-värden måste matchas med ett strängfält. Den **search.in** funktionen är avsedd för hastighet och är mycket snabbare än att uttryckligen jämföra fältet mot varje sträng med hjälp av `eq` och `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. | Använd **search.ismatch** (eller motsvarande bedömnings, **search.ismatchscoring**) när du vill att flera kombinationer av Sök-filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Ett uttryck för användardefinierade består av fält, operatorer och värden. | Använd det här alternativet när du vill hitta exakta matchningar mellan ett strängfält och ett strängvärde. |
 
 ## <a name="numeric-filter-fundamentals"></a>Numeriska filter grunderna
 

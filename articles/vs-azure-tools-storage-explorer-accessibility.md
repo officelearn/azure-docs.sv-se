@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457280"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer-hjälpmedel
@@ -58,7 +58,7 @@ Temat ändras färgen på de flesta UI-element. Rekommenderar vi att du även ak
 Kommando       | Kortkommando
 --------------|--------------------
 Nytt fönster    | **CTRL + SKIFT + N**
-Stäng redigeringsprogrammet  | **Kontroll + F4**
+Stäng redigeraren  | **Kontroll + F4**
 Avsluta          | **CTRL + SKIFT + W**
 
 ### <a name="navigation-commands"></a>Kommandon
@@ -67,7 +67,7 @@ Kommando                | Kortkommando
 -----------------------|----------------------
 Nästa Panel i fokus       | **F6**
 Föregående Panel i fokus   | **SKIFT + F6**
-Utforskaren               | **CTRL + SKIFT + E**
+Explorer               | **CTRL + SKIFT + E**
 Kontohantering     | **CTRL + SKIFT + A**
 Visa/Dölj Sidopanel        | **CTRL + B**
 Aktivitetslogg           | **CTRL + SKIFT + L**
@@ -80,7 +80,7 @@ Föregående redigeraren        | **Ctrl + Page Up**
 
 Kommando  | Kortkommando
 ---------|------------------
-Zooma in  | **CTRL + =**
+Zooma In  | **CTRL + =**
 Zooma ut | **CTRL +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>BLOB- och dela Textfilsredigeraren kommandon
@@ -88,7 +88,7 @@ Zooma ut | **CTRL +-**
 Kommando | Kortkommando
 --------|--------------------
 Tillbaka    | **ALT + VÄNSTERPIL**
-Framåt | **ALT + HÖGERPIL**
+Vidarebefordra | **ALT + HÖGERPIL**
 Upp      | **ALT + UPPIL**
 
 ### <a name="editor-commands"></a>Redigeraren för kommandon

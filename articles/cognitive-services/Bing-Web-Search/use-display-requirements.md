@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499893"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
@@ -34,12 +34,12 @@ Dessa användning och visa krav gäller för varje tillämpning av innehåll och
 ## <a name="definitions"></a>Definitioner
 
 
-|Period  |Beskrivning  |
+|Term  |Beskrivning  |
 |---------|---------|
 |Svar     | En kategori med resultatet som returneras i svaret. Ett svar från Bing Web Search API kan exempelvis innehålla svar i kategorier av webbsidan resultat, bild, video, visuella objekt och nyheter. |
 |Svar     | Eventuella och alla svar och associerade data som tas emot som svar på ett enda anrop till ett Search-API. |
 |Resultat    | Objekt av informationen i ett svar. Till exempel är uppsättning data anslutna med en enda nyhetsartikel ett resultat i ett nytt svar. |
-|Sök API:er    | sammantaget, Bing Custom Search, API för Entitetssökning, bildsökning, nyhetssökning, Videosökningsresultat, Visual Search, lokala företag Sök och Web Search API: er. |
+|Sök-API: er    | sammantaget, Bing Custom Search, API för Entitetssökning, bildsökning, nyhetssökning, Videosökningsresultat, Visual Search, lokala företag Sök och Web Search API: er. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Begränsningar för stavningskontroll i Bing och automatiska förslag i Bing
 

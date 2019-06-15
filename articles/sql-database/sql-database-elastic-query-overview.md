@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067062"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -140,7 +140,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database-databaser. Observera 
 * Kör skript på externa datakällor eller externa tabeller från SSMS eller SSDT stöds inte ännu.
 * Import/Export för SQL DB stöder ännu inte externa datakällor och externa tabeller. Om du behöver använda Import/Export, ta bort dessa objekt innan du exporterar och sedan återskapa dem när du har importerat.
 * Elastisk fråga stöder för närvarande endast skrivskyddad åtkomst till externa tabeller. Du kan dock använda alla T-SQL-funktioner på databasen där den externa tabellen definieras. Detta kan vara användbart att t.ex. Spara tillfällig resultat med till exempel, väljer < column_list > i < local_table > eller definiera lagrade procedurer för elastisk fråga i databasen som refererar till externa tabeller.
-* Förutom nvarchar(max) stöds LOB-typerna inte i extern tabelldefinitioner. Som en lösning kan du skapa en vy på fjärrdatabasen som kastar LOB-typ till nvarchar(max), definiera din extern tabell över vyn i stället för bastabellen och skicka den tillbaka till den ursprungliga LOB-typen i dina frågor.
+* Förutom nvarchar(max) stöds inte LOB-typerna (inklusive spatial typer) i extern tabelldefinitioner. Som en lösning kan du skapa en vy på fjärrdatabasen som kastar LOB-typ till nvarchar(max), definiera din extern tabell över vyn i stället för bastabellen och skicka den tillbaka till den ursprungliga LOB-typen i dina frågor.
 * Kolumner av datatypen nvarchar(max) i resultatet set inaktivera avancerade batchbearbetning technics som används i elastisk fråga implementering och kan påverka prestanda för fråga om en storleksordning eller två i storlek i icke-kanoniska användningsfall där det är stor mängd ej sammanräknade data överförs till följd av frågan.
 * Kolumnstatistik via externa tabeller stöds inte för närvarande. Tabellstatistik stöds, men måste därför skapas manuellt.
 

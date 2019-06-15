@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318960"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Servern för fjärrskrivbordslicenser är inte tillgängligt när du ansluter till en Azure-dator
@@ -63,7 +63,7 @@ Du löser problemet, [säkerhetskopiera OS-disken](../windows/snapshot-copy-mana
 
     Om du inte kan ansluta till den virtuella datorn med hjälp av en administrativ session, kan du använda den [Virtual Machine Serial Console på Azure](serial-console-windows.md) att komma åt den virtuella datorn på följande sätt:
 
-    1. Komma åt Seriekonsolen genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)**. Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
+    1. Komma åt Seriekonsolen genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)** . Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
 
     2. Skapa en ny kanal för en CMD-instans. Ange **CMD** att starta kanalen och hämtar kanalnamnet på.
 

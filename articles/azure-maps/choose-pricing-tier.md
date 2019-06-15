@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60796307"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
-Azure Maps erbjuder två prisnivåer. Syftet med den här artikeln är att hjälpa dig att välja rätt prisnivån för dina behov. För att välja rätt prisnivå kan du fråga dig själv följande två.
+Azure Maps finns i två prisnivåer. Syftet med den här artikeln är att hjälpa dig att välja rätt prisnivån för dina behov. För att välja rätt prisnivå kan du fråga dig själv följande två.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Vilka geospatiala funktioner jag tänker använda?
 S0 prisnivån är rätt för dig om core geospatiala API: er som uppfyller dina tjänstekrav på. Om du vill ha mer avancerade funktioner för ditt program bör du du väljer du prisnivån S1. Exempel-funktioner är areal plus hybridbilder komma vägen intervall och batch-geokodning. Den **priser funktioner** tabellen nedan ger dig en bättre uppfattning om programmets behov. Du kan också välja en prisnivå som är mest lämpliga för ditt program.

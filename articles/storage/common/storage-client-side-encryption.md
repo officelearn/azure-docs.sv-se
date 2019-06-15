@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911919"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault för Microsoft Azure Storage
@@ -125,7 +125,7 @@ Key Vault är utformat för högt värde huvudnycklar och begränsningar gränse
 
 Mer information om Key Vault fungerar finns i den [kryptering kodexempel](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 Stöd för kryptering är endast tillgänglig i storage-klientbiblioteket för .NET. Windows Phone och Windows Runtime stöder för närvarande inte kryptering.
 
 > [!IMPORTANT]

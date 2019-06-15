@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111262"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skrivbordsappen som anropar webb-API: er – hämta en token
 
@@ -173,7 +173,7 @@ Om du vill att logga in en domänanvändare i en domän eller Azure AD ansluten 
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 - AcquireTokenByIntegratedWindowsAuth (IWA) kan endast användas för **federerade** användare, som är, användare skapas i en Active Directory och backas upp av Azure Active Directory. Användare som skapas direkt i AAD, utan AD säkerhetskopiering - **hanteras** användare - kan inte använda det här autentiseringsflödet. Den här begränsningen påverkar inte flödet användarnamn/lösenord.
 - IWA är för appar som är skrivna för .NET Framework, .NET Core och UWP-plattformar
@@ -300,7 +300,7 @@ Det här flödet är **rekommenderas inte** eftersom ditt program som en använd
 > - användare som behöver du MFA kommer inte kunna logga in (eftersom det finns inga åtgärder från)
 > - Användare kommer inte att kunna enkel inloggning
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 Det gäller även följande begränsningar:
 

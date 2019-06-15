@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837274"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
@@ -28,13 +28,13 @@ Skapa, ta bort och hantera Docker Compose-program.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| skapa | Skapar ett Service Fabric compose-distributionen. |
-| lista | Hämtar listan över compose-distributioner som skapats i Service Fabric-klustret. |
+| create | Skapar ett Service Fabric compose-distributionen. |
+| list | Hämtar listan över compose-distributioner som skapats i Service Fabric-klustret. |
 | ta bort | Tar bort ett befintligt Service Fabric compose-distributionen från klustret. |
 | status | Hämtar information om ett Service Fabric compose-distributionen. |
-| uppgradering | Börjar uppgradera en Skriv-distribution i Service Fabric-klustret. |
-| uppgraderingen-återställning | Återställa en compose-distributionen startar uppgraderingen i Service Fabric-klustret. |
-| uppgraderingen-status | Hämtar information om den senaste uppgraderingen utförs på den här Service Fabric compose-distributionen. |
+| upgrade | Börjar uppgradera en Skriv-distribution i Service Fabric-klustret. |
+| upgrade-rollback | Återställa en compose-distributionen startar uppgraderingen i Service Fabric-klustret. |
+| upgrade-status | Hämtar information om den senaste uppgraderingen utförs på den här Service Fabric compose-distributionen. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose skapa
 Skapar ett Service Fabric compose-distributionen.

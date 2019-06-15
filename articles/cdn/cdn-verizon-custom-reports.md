@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323610"
 ---
 # <a name="custom-reports-from-verizon"></a>Anpassade rapporter från Verizon
@@ -79,11 +79,11 @@ Du kan exportera data i Excel-format genom att klicka på symbolen Excel till h�
 | Överförda data (MB)     | Anger den totala mängden data som överförs (MB) från edge-servrar till http-klienter (webbläsare) för edge CNAME. Mängden data som överförs beräknas genom att lägga till HTTP-svarshuvuden svarstexten. Därför är mängden data som överförs för varje tillgången större än den faktiska filstorleken. |
 | Beskrivning               | Identifierar en kant CNAME av dess värdnamn |
 | Träffar                      | Anger det totala antalet begäranden till gränsen CNAME |
-| Missar                    | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME som resulterar i en cachemiss (till exempel TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS eller TCP_MISS). En cachemiss inträffar när det begärda innehållet inte var cachelagras på edge-servern som lösts in begäran. | 
+| Cachemissar                    | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME som resulterar i en cachemiss (till exempel TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS eller TCP_MISS). En cachemiss inträffar när det begärda innehållet inte var cachelagras på edge-servern som lösts in begäran. | 
 | Ingen cachelagring                  | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME som resulterar i en CONFIG_NOCACHE cache-statuskod.  |
 | Annat                     | Anger det totala antalet begäranden eller data överförda (MB) för edge CNAME anges som resulterar i HTTP-statuskoden som faller utanför 2xx – 5xx-intervallet. |
 | Plattform                  | Anger den plattform som hanterar CNAME edge-trafik. |
-| Otilldelad               | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME för vilka cache-statuskod eller HTTP-statuskod information inte har loggats.  |
+| Otilldelade               | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME för vilka cache-statuskod eller HTTP-statuskod information inte har loggats.  |
 | Uncacheable               | Anger det totala antalet begäranden eller data som överförs (MB) för edge CNAME som resulterar i en UNCACHEABLE cache-statuskod.  |
 
 

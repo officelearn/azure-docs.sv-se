@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60795874"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
@@ -127,15 +127,15 @@ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dat
 
 ### <a name="elements"></a>Element
 
-| Element   | Beskrivning                                                                                                                                                                                                                                                               | Krävs |
+| Element   | Beskrivning                                                                                                                                                                                                                                                               | Obligatoriskt |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Välj    | Rotelement.                                                                                                                                                                                                                                                             | Ja      |
-| när      | De villkor du vill använda för den `if` eller `ifelse` delar av den `choose` principen. Om den `choose` princip har flera `when` avsnitt, utvärderas de sekventiellt. När den `condition` av ett när element utvärderas till `true`, ingen ytterligare `when` villkoren utvärderas. | Ja      |
+| När      | De villkor du vill använda för den `if` eller `ifelse` delar av den `choose` principen. Om den `choose` princip har flera `when` avsnitt, utvärderas de sekventiellt. När den `condition` av ett när element utvärderas till `true`, ingen ytterligare `when` villkoren utvärderas. | Ja      |
 | Annars | Innehåller i princip kodfragment som ska användas om ingen av de `when` villkor som utvärderas till `true`.                                                                                                                                                                               | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut                                              | Beskrivning                                                                                               | Krävs |
+| Attribut                                              | Beskrivning                                                                                               | Obligatoriskt |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | villkor = ”booleskt uttryck &#124; booleskt konstant” | Booleska uttryck eller konstant som utvärderas när den som innehåller `when` Principframställning utvärderas. | Ja      |
 
@@ -245,7 +245,7 @@ Den här åtgärden säkerhetsnivå för vidarebefordrar inte begäranden till b
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning   | Krävs |
+| Element         | Beskrivning   | Obligatoriskt |
 | --------------- | ------------- | -------- |
 | forward-request | Rotelement. | Ja      |
 
@@ -296,7 +296,7 @@ I följande exempel visar hur du begränsar antalet begäranden som vidarebeford
 
 ### <a name="elements"></a>Element
 
-| Element           | Beskrivning   | Krävs |
+| Element           | Beskrivning   | Obligatoriskt |
 | ----------------- | ------------- | -------- |
 | gränsen för samtidighet | Rotelement. | Ja      |
 
@@ -349,13 +349,13 @@ Valfri sträng kan användas som värde som ska loggas i Event Hubs. I det här 
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning                                                                     | Krävs |
+| Element         | Beskrivning                                                                     | Obligatoriskt |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Rotelement. Värdet för det här elementet är en sträng att logga in till din event hub. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut     | Beskrivning                                                               | Krävs                                                             |
+| Attribut     | Beskrivning                                                               | Obligatoriskt                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | Id för loggaren registrerad med API Management-tjänsten.         | Ja                                                                  |
 | partition-id  | Anger index för partitionen där meddelanden skickas.             | Valfri. Det här attributet kan inte användas om `partition-key` används. |
@@ -394,7 +394,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Element
 
-| Element       | Beskrivning   | Krävs |
+| Element       | Beskrivning   | Obligatoriskt |
 | ------------- | ------------- | -------- |
 | mock-response | Rotelement. | Ja      |
 
@@ -453,7 +453,7 @@ I följande exempel görs begäran vidarebefordran upp till tio gånger med en a
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning                                                         | Krävs |
+| Element | Beskrivning                                                         | Obligatoriskt |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Rotelement. Kan innehålla andra principer som dess underordnade element. | Ja      |
 
@@ -461,7 +461,7 @@ I följande exempel görs begäran vidarebefordran upp till tio gånger med en a
 
 | Attribut        | Beskrivning                                                                                                                                           | Krävs | Standard |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| villkor        | En boolesk literal eller [uttryck](api-management-policy-expressions.md) att ange om återförsök ska stoppas (`false`) eller fortsatt (`true`).      | Ja      | Gäller inte     |
+| condition        | En boolesk literal eller [uttryck](api-management-policy-expressions.md) att ange om återförsök ska stoppas (`false`) eller fortsatt (`true`).      | Ja      | Gäller inte     |
 | count            | Ett positivt tal som anger det maximala antalet nya försök att försöka.                                                                                | Ja      | Gäller inte     |
 | interval         | Det görs försök att ett positivt tal på några sekunder att ange väntetidsintervallet mellan återförsök.                                                                 | Ja      | Gäller inte     |
 | max-interval     | Ett positivt tal på några sekunder att ange maximalt vänta intervall mellan nya försök. Den används för att implementera en algoritm för exponentiellt återförsök. | Nej       | Gäller inte     |
@@ -510,7 +510,7 @@ Den `return-response` principen avbryter pipeline-åtgärd och returnerar en sta
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning                                                                               | Krävs |
+| Element         | Beskrivning                                                                               | Obligatoriskt |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | returnera svar | Rotelement.                                                                             | Ja      |
 | set-header      | En [angivet sidhuvud](api-management-transformation-policies.md#SetHTTPheader) Principframställning. | Nej       |
@@ -519,7 +519,7 @@ Den `return-response` principen avbryter pipeline-åtgärd och returnerar en sta
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut              | Beskrivning                                                                                                                                                                          | Krävs  |
+| Attribut              | Beskrivning                                                                                                                                                                          | Obligatoriskt  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | Namnet på sammanhangsvariabeln refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt | Valfri. |
 
@@ -580,13 +580,13 @@ Princip för det här exemplet visar ett exempel på hur du använder den `send-
 
 ### <a name="elements"></a>Element
 
-| Element                    | Beskrivning                                                                                                 | Krävs                        |
+| Element                    | Beskrivning                                                                                                 | Obligatoriskt                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Rotelement.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Inga om läge = kopia. Annars Ja. |
-| metod                     | HTTP-metoden för begäran.                                                                            | Inga om läge = kopia. Annars Ja. |
+| method                     | HTTP-metoden för begäran.                                                                            | Inga om läge = kopia. Annars Ja. |
 | sidhuvud                     | Huvudet i begäran. Använda flera huvudelement för flera begärandehuvuden.                                  | Nej                              |
-| brödtext                       | Begärantexten.                                                                                           | Nej                              |
+| body                       | Begärantexten.                                                                                           | Nej                              |
 | certifikat för serverautentisering | [Certifikat för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Nej                              |
 
 ### <a name="attributes"></a>Attribut
@@ -594,7 +594,7 @@ Princip för det här exemplet visar ett exempel på hur du använder den `send-
 | Attribut     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nej       | Ny      |
-| namn          | Anger namnet på rubriken anges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
+| name          | Anger namnet på rubriken anges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
 | exists-action | Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet. | Nej       | åsidosättning |
 
 ### <a name="usage"></a>Användning
@@ -664,13 +664,13 @@ Det här exemplet visar ett sätt att kontrollera en referens token med en aukto
 
 ### <a name="elements"></a>Element
 
-| Element                    | Beskrivning                                                                                                 | Krävs                        |
+| Element                    | Beskrivning                                                                                                 | Obligatoriskt                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Rotelement.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Inga om läge = kopia. Annars Ja. |
-| metod                     | HTTP-metoden för begäran.                                                                            | Inga om läge = kopia. Annars Ja. |
+| method                     | HTTP-metoden för begäran.                                                                            | Inga om läge = kopia. Annars Ja. |
 | sidhuvud                     | Huvudet i begäran. Använda flera huvudelement för flera begärandehuvuden.                                  | Nej                              |
-| brödtext                       | Begärantexten.                                                                                           | Nej                              |
+| body                       | Begärantexten.                                                                                           | Nej                              |
 | certifikat för serverautentisering | [Certifikat för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Nej                              |
 
 ### <a name="attributes"></a>Attribut
@@ -681,7 +681,7 @@ Det här exemplet visar ett sätt att kontrollera en referens token med en aukto
 | response-variable-name="string" | Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter en lyckad körning av principen och blir tillgängliga via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.                                                                                                                                                                                                                                                                                                                          | Ja      | Gäller inte      |
 | timeout="integer"               | Det går inte att timeout-intervall i sekunder innan anropet till URL: en.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nej       | 60       |
 | ignore-error                    | Om SANT och begäran resulterar i ett fel:<br /><br /> – Om svar-variabeln-name har angetts innehåller ett null-värde.<br />– Om variabeln svarsnamnet inte har angetts, kontext. Begäran kommer inte att uppdateras.                                                                                                                                                                                                                                                                                                                                                                                   | Nej       | false    |
-| namn                            | Anger namnet på rubriken anges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
+| name                            | Anger namnet på rubriken anges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
 | exists-action                   | Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet. | Nej       | åsidosättning |
 
 ### <a name="usage"></a>Användning
@@ -714,7 +714,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning  | Krävs |
+| Element | Beskrivning  | Obligatoriskt |
 | ------- | ------------ | -------- |
 | Proxy   | Rotelement | Ja      |
 
@@ -777,7 +777,7 @@ Det här exemplet-princip som använder den `set-method` principen visar ett exe
 
 ### <a name="elements"></a>Element
 
-| Element    | Beskrivning                                                       | Krävs |
+| Element    | Beskrivning                                                       | Obligatoriskt |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-metod | Rotelement. Värdet för elementet anger HTTP-metoden. | Ja      |
 
@@ -820,7 +820,7 @@ Det här exemplet visar hur du skickar tillbaka ett 401-svar om autentiseringsto
 
 ### <a name="elements"></a>Element
 
-| Element    | Beskrivning   | Krävs |
+| Element    | Beskrivning   | Obligatoriskt |
 | ---------- | ------------- | -------- |
 | set-status | Rotelement. | Ja      |
 
@@ -858,7 +858,7 @@ I följande exempel visar en uppsättning variabeln princip under inkommande. De
 
 ### <a name="elements"></a>Element
 
-| Element      | Beskrivning   | Krävs |
+| Element      | Beskrivning   | Obligatoriskt |
 | ------------ | ------------- | -------- |
 | set-variable | Rotelement. | Ja      |
 
@@ -866,7 +866,7 @@ I följande exempel visar en uppsättning variabeln princip under inkommande. De
 
 | Attribut | Beskrivning                                                              | Krävs |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| namn      | Namnet på variabeln.                                                | Ja      |
+| name      | Namnet på variabeln.                                                | Ja      |
 | value     | Värdet på variabeln. Detta kan vara ett uttryck eller ett literalvärde. | Ja      |
 
 ### <a name="usage"></a>Användning
@@ -928,7 +928,7 @@ Den `trace` principen lägger till en sträng i den [API Inspector](https://azur
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning   | Krävs |
+| Element | Beskrivning   | Obligatoriskt |
 | ------- | ------------- | -------- |
 | Spårning   | Rotelement. | Ja      |
 
@@ -936,7 +936,7 @@ Den `trace` principen lägger till en sträng i den [API Inspector](https://azur
 
 | Attribut | Beskrivning                                                                             | Krävs | Standard |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| källa    | Exakt sträng är meningsfulla för visningsprogram och ange källan för meddelandet. | Ja      | Gäller inte     |
+| source    | Exakt sträng är meningsfulla för visningsprogram och ange källan för meddelandet. | Ja      | Gäller inte     |
 
 ### <a name="usage"></a>Användning
 
@@ -998,7 +998,7 @@ I följande exempel finns två `choose` principer som direkt underordnade princi
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning                                                                                                   | Krävs |
+| Element | Beskrivning                                                                                                   | Obligatoriskt |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | Vänta    | Rotelement. Kan innehålla som underordnade element endast `send-request`, `cache-lookup-value`, och `choose` principer. | Ja      |
 

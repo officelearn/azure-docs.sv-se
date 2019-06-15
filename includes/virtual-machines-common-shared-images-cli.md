@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 841027fe8d6b97e661faa038dc9381edbb3d4cd8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814710"
 ---
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en befintlig hanterad avbildning av en generaliserad virtuell dator för att utföra exemplet i den här artikeln. Mer information finns i [Självstudie: Skapa en anpassad avbildning av en Azure-dator med Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Om hanterad avbildning innehåller en datadisk, får inte datadiskstorleken vara mer än 1 TB.
+Du måste ha en befintlig hanterad avbildning av en generaliserad virtuell dator för att utföra exemplet i den här artikeln. Mer information finns i [Självstudie: Skapa en anpassad avbildning av en Azure-dator med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Om hanterad avbildning innehåller en datadisk, får inte datadiskstorleken vara mer än 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 

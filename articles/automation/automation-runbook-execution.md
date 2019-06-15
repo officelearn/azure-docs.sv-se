@@ -10,10 +10,10 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711580"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
@@ -208,12 +208,12 @@ Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb.
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom den har nått den [rättmätiga del](#fair-share) begränsa tre gånger och startas från samma kontrollpunkten eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser från en Automation arbetare blir tillgängliga så det kan starta. |
 | Startar |Jobbet har tilldelats en arbetare och systemet börjar den. |
-| Fortsätter |Systemet är återuppta jobbet efter att det pausades. |
+| Återupptar |Systemet är återuppta jobbet efter att det pausades. |
 | Körs |Jobbet körs |
 | Kör, väntar på resurser |Jobbet har inaktiverats eftersom den har nått den [rättmätiga del](#fair-share) gränsen. Återupptas från den senaste kontrollpunkten inom kort. |
 | Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
-| Stoppas |Systemet håller på att stoppas jobbet. |
-| Tillfälligt avbruten |Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en runbook inte har en kontrollpunkt, börjar den från början av runbooken. Om den har en kontrollpunkt för den startar igen och återupptas från den senaste kontrollpunkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard anges ErrorActionPreference till **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är inställt på **stoppa**, och sedan jobbet pausar på ett fel. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
+| Stoppar |Systemet håller på att stoppas jobbet. |
+| Uppehåll |Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en runbook inte har en kontrollpunkt, börjar den från början av runbooken. Om den har en kontrollpunkt för den startar igen och återupptas från den senaste kontrollpunkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard anges ErrorActionPreference till **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är inställt på **stoppa**, och sedan jobbet pausar på ett fel. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
 | Pausar |Systemet försöker att pausa arbetet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den pausas. Om den redan passerat den sista kontrollpunkten sedan slutförs den innan den pausas. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobbstatus från Azure portal

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052086"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -129,14 +129,14 @@ Om du upptäcker en avvikelse, gör du följande:
 * Om programmet är långsamt, kan du avgöra om dålig programprestanda beror på att nätverket eller ett problem på leverantören programmet att göra.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office URL: er för amerikanska myndigheter
-Endast DOD URL: er finns inbyggda NPM för US Government Virginia region. Kunder som använder GCC URL: er måste du skapa anpassade tester och Lägg till varje URL-inidividually.
+Endast DOD URL: er finns inbyggda NPM för US Government Virginia region. Kunder som använder GCC URL: er måste du skapa anpassade tester och lägga till varje URL: en i taget.
 
 | Fält | GCC |
 |:---   |:--- |
 | Office 365-portalen och delade | portal.apps.mil |
 | Office 365-autentisering och identitet | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
 | Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| exchange online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Nästa steg

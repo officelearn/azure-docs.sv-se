@@ -13,10 +13,10 @@ ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484768"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Flera klienter, rapportering med hjälp av distribuerade frågor
@@ -93,7 +93,7 @@ Att granska definitionen av den *platser* vy:
 
 1. I **Object Explorer**, expandera **contosoconcerthall** > **vyer**:
 
-   ![visningar](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Vyer](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Högerklicka på **dbo. Platser**.
 3. Välj **skript vyn som** > **skapar till** > **nya Query Editor-fönstret**
@@ -128,7 +128,7 @@ Den här övningen lägger till schemat (extern datakälla och extern tabelldefi
 
     ![Skapa extern datakälla](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   De externa tabeller som refererar till de globala vyerna som beskrivs i föregående avsnitt och definierats med **DISTRIBUTION = SHARDED(VenueId)**. Eftersom varje *VenueId* mappas till en individuell databas detta förbättrar prestanda för många scenarier som du ser i nästa avsnitt.
+   De externa tabeller som refererar till de globala vyerna som beskrivs i föregående avsnitt och definierats med **DISTRIBUTION = SHARDED(VenueId)** . Eftersom varje *VenueId* mappas till en individuell databas detta förbättrar prestanda för många scenarier som du ser i nästa avsnitt.
 
     ![Skapa externa tabeller](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 

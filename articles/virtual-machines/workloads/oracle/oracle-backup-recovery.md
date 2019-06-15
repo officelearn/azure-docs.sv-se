@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567079"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator
@@ -303,7 +303,7 @@ Mer information finns i [programkonsekvent säkerhetskopiering för virtuella Li
 
     ![Recovery Services-valv myVault detaljsidan](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  På den **Säkerhetskopieringsobjekt (Azure virtuell dator)** bladet till höger på sidan, klicka på ellipsen (**...** ) och klickar sedan på **Säkerhetskopiera nu**.
+9.  På den **Säkerhetskopieringsobjekt (Azure virtuell dator)** bladet till höger på sidan, klicka på ellipsen ( **...** ) och klickar sedan på **Säkerhetskopiera nu**.
 
     ![Recovery Services-valv säkerhetskopiering nu kommandot](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -351,7 +351,7 @@ Om du vill återställa de borttagna filerna, gör du följande:
 
     ![Antal säkerhetskopieringsobjekt för virtuell dator i Azure Recovery Services-valv](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. På den **myvm1** bladet klickar du på **filåterställning (förhandsversion)**.
+3. På den **myvm1** bladet klickar du på **filåterställning (förhandsversion)** .
 
     ![Skärmbild av Recovery Services-valv filen återställningssidan](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -472,7 +472,7 @@ Du kan återställa en hel virtuell dator i stället för att återställa de bo
 
     ![Återställningssidan för virtuell dator](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  På den **myvm1** bladet klickar du på ellipsen (**...** ) och klickar sedan på **återställa en virtuell dator**.
+4.  På den **myvm1** bladet klickar du på ellipsen ( **...** ) och klickar sedan på **återställa en virtuell dator**.
 
     ![Återställ VM-kommando](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -503,7 +503,7 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
 
     ![Lista över offentliga IP-adresser](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  På den **offentliga IP-adresser** bladet klickar du på **Lägg till**. På den **skapa offentlig IP-adress** bladet för **namn**, Välj det offentliga IP-namnet. För **resursgrupp**, väljer du **använd befintlig**. Klicka på **Skapa**.
+2.  På den **offentliga IP-adresser** bladet klickar du på **Lägg till**. På den **skapa offentlig IP-adress** bladet för **namn**, Välj det offentliga IP-namnet. För **resursgrupp**, väljer du **använd befintlig**. Klicka sedan på **skapa**.
 
     ![Skapa IP-adress](./media/oracle-backup-recovery/create_ip_01.png)
 

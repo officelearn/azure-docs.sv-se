@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035767"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
@@ -406,7 +406,7 @@ Du kan förvänta dig ungefär nio gånger prestandaökning för den här fråga
 
 - Se [vanliga mönster för arbetsbelastningen och överväganden vid migrering](https://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbetsbelastningmönster där In-Memory OLTP ofta ger betydande prestandavinster)
 
-#### <a name="application-design"></a>Programmets design
+#### <a name="application-design"></a>Programdesign
 
 - [Minnesintern OLTP (minnesoptimering)](https://msdn.microsoft.com/library/dn133186.aspx)
 

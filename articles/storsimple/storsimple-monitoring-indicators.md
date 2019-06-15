@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630656"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använda StorSimple övervakningsindikatorer för att hantera din enhet
@@ -239,7 +239,7 @@ I följande tabell beskrivs de olika larm-villkor.
 | Enheten Strömfel kontroll |Varning – inga strömavbrott enhet |S1 |Modulen fel |
 | Enheten Strömfel kontroll |Fel – kritiska; strömavbrott enhet |S1 |Modulen fel |
 | Enheten tas bort |Varning |Ingen |Modulen fel |
-| Otillräckligt med ström som är tillgängliga |Varning |inga |Modulen fel |
+| Otillräckligt med ström som är tillgängliga |Varning |Ingen |Modulen fel |
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [StorSimple maskinvarukomponenter och status](storsimple-8000-monitor-hardware-status.md).

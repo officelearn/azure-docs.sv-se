@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
 ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66492704"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-prenumeration (förhandsversion)
@@ -99,7 +99,7 @@ När du skapar eller skala din plan, kan du välja mellan tre instansstorlekar. 
 |EP2|2|7GB|250 GB|
 |EP3|4|14GB|250 GB|
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 
 Nedan visas regionerna som stöds för tillfället för den offentliga förhandsversionen.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298822"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Att tänka på för instanser
@@ -33,7 +33,7 @@ Den [Microsoft Cloud Tyskland](https://www.microsoft.de/cloud-deutschland) är e
 | --- |
 | \*.microsoftonline.de |
 | \*.windows.net |
-| + Listor över återkallade certifikat |
+| \+ Listor över återkallade certifikat |
 
 När du loggar in på Azure AD-klienten måste du använda ett konto i domänen onmicrosoft.de.
 
@@ -53,7 +53,7 @@ Det här molnet har stöd av tidigare versioner av DirSync. Nästa generation av
 | \*.microsoftonline.us |
 | \*. windows.net (krävs för automatisk identifiering av Azure Government-klient) |
 | \*.gov.us.microsoftonline.com |
-| + Listor över återkallade certifikat |
+| \+ Listor över återkallade certifikat |
 
 > [!NOTE]
 > Från och med Azure AD Connect version 1.1.647.0, inställningsvärde AzureInstance i registret behövs inte längre förutsatt att *. windows.net är öppen på proxyservrar. För kunder som inte tillåter Internet-anslutning från sina Azure AD Connect-servrar, men användas följande manuell konfiguration.

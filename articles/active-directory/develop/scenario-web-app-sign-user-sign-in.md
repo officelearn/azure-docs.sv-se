@@ -16,17 +16,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074627"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Webbapp som loggar in användare – logga in
 
 Lär dig mer om att lägga till inloggning till koden för din webbapp som loggar in användare.
 
-## <a name="sign-in"></a>logga in
+## <a name="sign-in"></a>Logga in
 
 Koden som vi har i föregående artikel [appkonfiguration kod](scenario-web-app-sign-user-app-configuration.md) är allt du behöver implementera utloggning. När användaren har loggat in till din app, vill du förmodligen att de kan logga ut. ASP.NET core hanterar utloggning åt dig.
 
@@ -124,7 +124,7 @@ public void SignOut()
 }
 ```
 
-## <a name="protocol"></a>Protokoll
+## <a name="protocol"></a>Protocol
 
 Om du inte vill använda ASP.NET Core och ASP.NET, kan du titta på i dokumentationen för protokoll, som är tillgänglig från [öppna ID Connect](./v2-protocols-oidc.md).
 

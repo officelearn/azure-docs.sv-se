@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875742"
 ---
 # <a name="paper-entity"></a>Dokumentet entitet
@@ -24,13 +24,13 @@ ms.locfileid: "64875742"
 
 Namn    |Beskrivning                                        |Typ       | Åtgärder
 ------- | ------------------------------------------------- | --------- | ----------------------------
-Id      |Enhets-id                                          |Int64      |Lika med
+Id      |Entitets-ID                                          |Int64      |Lika med
 Ti      |Dokumentet rubrik                                        |String     |Är lika med,<br/>StartsWith
 L       |Språkkod för dokumentet avgränsade med ”\@\@\@”          |String     |Lika med
 Y       |Dokumentet år                                         |Int32      |Är lika med,<br/>IsBetween
 D       |Dokumentet datum                                         |Date       |Är lika med,<br/>IsBetween
-Kopia      |Antalet källhänvisningar                                     |Int32      |inga  
-ECC     |Beräknad citat antal                           |Int32      |inga
+CC      |Antalet källhänvisningar                                     |Int32      |Ingen  
+ECC     |Beräknad citat antal                           |Int32      |Ingen
 AA.AuN  |Upphovsmannens namn                                        |String     |Är lika med,<br/>StartsWith
 AA.AuId |Författare-ID                                          |Int64      |Lika med
 AA.AfN  |Författarens namn i anknytning                            |String     |Är lika med,<br/>StartsWith
@@ -44,7 +44,7 @@ C.CN    |Konferensen serienamn                             |String     |Är lika
 C.CId   |ID för konferens-serien                               |Int64      |Lika med
 RId     |Refererade dokument-ID                              |Int64[]    |Lika med
 W       |Ord från papper rubrik och sammanfattning                |String[]   |Lika med
-E       |Utökade metadata (se tabellen nedan)                |String     |inga  
+E       |Utökade metadata (se tabellen nedan)                |String     |Ingen  
         
 
 
@@ -52,10 +52,10 @@ E       |Utökade metadata (se tabellen nedan)                |String     |inga
 
 Namn    | Beskrivning               
 --------|---------------------------    
-DN      | Visningsnamnet för dokumentet 
+UNIKT NAMN      | Visningsnamnet för dokumentet 
 S       | Källor - lista över webbadresser av dokumentet, sorterade efter statiska rangordning
 S.Ty    | Typ av datakälla (1:HTML, 2:Text, 3:PDF, 4:DOC, 5:PPT, 6:XLS, 7:PS)
-S.U     | URL för källa
+S.U     | Käll-URL
 VFN     | Fullständigt namn för plats - fullständigt namn i journalen eller konferens
 VSN     | Kort namn för plats - korta namnet för ändringsjournalen eller konferens
 V       | Volym - journalen volym
@@ -66,7 +66,7 @@ I       | Problem - journalen problemet
 FP      | Förstasida - första sidan i dokumentet
 LP      | SistaSida - sista sidan i dokumentet
 DOI     | Digitala objekt-ID:
-Kopia      | Citat kontexter – lista över refererade dokument-ID: n och motsvarande kontexten i dokumentet (t.ex. [{123: [”bruna rävar är kända för att hoppa som anges i dokumentet 123”, ”lazy hundar är en historisk misnomer enligt dokumentet 123”]})
+CC      | Citat kontexter – lista över refererade dokument-ID: n och motsvarande kontexten i dokumentet (t.ex. [{123: [”bruna rävar är kända för att hoppa som anges i dokumentet 123”, ”lazy hundar är en historisk misnomer enligt dokumentet 123”]})
 IA      | Vägar i inverterad abstrakt
 IA.IndexLength| Antal objekt i indexet (abstrakts ordräkning)
 IA.InvertedIndex| Lista över abstrakt ord och deras motsvarande position i det ursprungliga abstract (t.ex. [{”den”: [0, 15, 30]}, {”bruna”: [1]}, {”fox":[2]}])

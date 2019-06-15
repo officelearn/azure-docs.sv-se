@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393517"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144007"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Självstudier: Använda funktionsflaggor i en .NET Core-app
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudier: Använd funktionen flaggor i en ASP.NET Core-app
 
 Hanteringsbibliotek för .NET Core funktionen ger idiomatiskt support för att implementera funktionen flaggor i en .NET- eller ASP.NET Core-program. Dessa bibliotek kan du deklarativt lägga till funktionen flaggor i koden så att du inte behöver skriva alla de `if` -uttryck för dem manuellt.
 
@@ -109,7 +109,7 @@ Funktionen flaggvärden förväntas ändras med tiden. Som standard uppdaterar f
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```

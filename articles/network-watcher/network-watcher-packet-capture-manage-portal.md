@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714697"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera infångade paket med Azure Network Watcher med hjälp av portalen
@@ -54,7 +54,7 @@ Om en nätverkssäkerhetsgrupp är kopplad till nätverksgränssnitt eller under
 
    - **Maximalt antal byte per paket**: Antal byte från varje paket som har hämtats. Om inget anges används som alla byte avbildas.
    - **Maximalt antal byte per session**: Det totala antalet byte som har hämtats. När värdet har nåtts packet capture stoppas.
-   - **Tidsgräns (sekunder)**: Tidsgränsen innan paketfångsten har stoppats. Standardvärdet är 18 000 sekunder.
+   - **Tidsgräns (sekunder)** : Tidsgränsen innan paketfångsten har stoppats. Standardvärdet är 18 000 sekunder.
    - Filtrering (valfritt). Välj **+ Lägg till filter**
      - **Protokoll**: Protokollet som används för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.
      - **Lokal IP-adress**: Filtrerar infångade för paket där den lokala IP-adressen matchar det här värdet.

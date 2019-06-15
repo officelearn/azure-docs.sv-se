@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094530"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-mall referens för datamodell
@@ -60,7 +60,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="API"></a> API: ET  
  Den `API` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`id`|string|Resurs-ID. Identifierar API: et i den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
 |`name`|string|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -74,7 +74,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="APISummary"></a> API-sammanfattning  
  Den `API summary` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`id`|string|Resurs-ID. Identifierar API: et i den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
 |`name`|string|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -83,12 +83,12 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Application"></a> Programmet  
  Den `application` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Den unika identifieraren för programmet.|  
 |`Title`|string|Rubrik för programmet.|  
 |`Description`|string|Beskrivning av programmet.|  
-|`Url`|URI|URI för programmet.|  
+|`Url`|URI: N|URI för programmet.|  
 |`Version`|string|Versionsinformation för programmet.|  
 |`Requirements`|string|En beskrivning av kraven för programmet.|  
 |`State`|nummer|Det aktuella tillståndet för programmet.<br /><br /> -0 - registrerad<br /><br /> -1 - har skickats<br /><br /> -2 - publicerade<br /><br /> -3 - avvisades<br /><br /> -4 - opublicerade|  
@@ -101,7 +101,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Attachment"></a> Bifogad fil  
  Den `attachment` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`UniqueId`|string|Den unika identifieraren för den bifogade filen.|  
 |`Url`|string|URL till resursen.|  
@@ -110,7 +110,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
   
 ##  <a name="Sample"></a> Kodexempel  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`title`|string|Namnet på åtgärden.|  
 |`snippet`|string|Den här egenskapen är inaktuell och ska inte användas.|  
@@ -128,7 +128,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Comment"></a> Kommentar  
  Den `API` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|nummer|Id för kommentaren.|  
 |`CommentText`|string|Kommentarens text. Kan omfatta HTML.|  
@@ -138,11 +138,11 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Issue"></a> Problemet  
  Den `issue` entitet har följande egenskaper.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Den unika identifieraren för problemet.|  
 |`ApiID`|string|Id för API: et för vilken det här problemet har rapporterats.|  
-|`Title`|string|Ärendets rubrik.|  
+|`Title`|string|Rubrik för problemet.|  
 |`Description`|string|Beskrivning av problemet.|  
 |`SubscriptionDeveloperName`|string|Förnamn i utvecklarens som rapporterade problemet.|  
 |`IssueState`|string|Det aktuella tillståndet för problemet. Möjliga värden är föreslagen, öppnat, stängd.|  
@@ -154,7 +154,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Filtering"></a> Filtrering  
  Den `filtering` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Pattern`|string|Den aktuella söktermen; eller `null` om det finns inga sökord.|  
 |`Placeholder`|string|Texten som visas i sökrutan när det finns inga sökord som angetts.|  
@@ -162,7 +162,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Header"></a> Rubrik  
  Det här avsnittet beskrivs de `parameter` representation.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|-----------------|----------|  
 |`name`|string|Parameternamnet.|  
 |`description`|string|Beskrivning av parameter.|  
@@ -175,7 +175,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="HTTPRequest"></a> HTTP-begäran  
  Det här avsnittet beskrivs de `request` representation.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`description`|string|Beskrivning för begäran för åtgärden.|  
 |`headers`|matris med [rubrik](#Header) entiteter.|Rubriker i begäran.|  
@@ -185,7 +185,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="HTTPResponse"></a> HTTP-svar  
  Det här avsnittet beskrivs de `response` representation.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`statusCode`|positivt heltal|Åtgärden Svarets statuskod.|  
 |`description`|string|Beskrivning av åtgärden svar.|  
@@ -194,7 +194,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Operation"></a> Åtgärden  
  Den `operation` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`id`|string|Resurs-ID. Identifierar åtgärden inom den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `apis/{aid}/operations/{id}` där `{aid}` är en API-identifierare och `{id}` är en identifierare för åtgärden. Den här egenskapen är skrivskyddad.|  
 |`name`|string|Åtgärdens namn. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -209,7 +209,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Menu"></a> Åtgärd-menyn  
  Den `operation menu` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`ApiId`|string|Id för den aktuella API: T.|  
 |`CurrentOperationId`|string|Id för den aktuella åtgärden.|  
@@ -219,7 +219,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="MenuItem"></a> Menyalternativet för åtgärden  
  Den `operation menu item` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Id för åtgärden.|  
 |`Title`|string|Beskrivning av åtgärden.|  
@@ -228,7 +228,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Paging"></a> Växling  
  Den `paging` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Page`|nummer|Det aktuella sidnumret.|  
 |`PageSize`|nummer|Maximalt antal resultat som ska visas på en enda sida.|  
@@ -239,7 +239,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Parameter"></a> Parametern  
  Det här avsnittet beskrivs de `parameter` representation.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|-----------------|----------|  
 |`name`|string|Parameternamnet.|  
 |`description`|string|Beskrivning av parameter.|  
@@ -252,7 +252,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Product"></a> Produkten  
  Den `product` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Resurs-ID. Identifierar produkten inom den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare. Den här egenskapen är skrivskyddad.|  
 |`Title`|string|Namnet på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -265,7 +265,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Provider"></a> Providern  
  Den `provider` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Properties`|sträng-ordlista|Egenskaper för den här autentiseringsprovider.|  
 |`AuthenticationType`|string|Providertyp. (Azure Active Directory, Facebook-inloggning, Google-konto, Account, Twitter).|  
@@ -274,7 +274,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Representation"></a> Representation  
  Det här avsnittet beskrivs en `representation`.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`contentType`|string|Anger en registrerad eller anpassade innehållstyp för den här representation, till exempel `application/xml`.|  
 |`sample`|string|Ett exempel på en representation.|  
@@ -282,7 +282,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Subscription"></a> Prenumeration  
  Den `subscription` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Resurs-ID. Unikt ID för prenumeration inom den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
 |`ProductId`|string|Resurs-ID för produkt för prenumererar på produkten. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare.|  
@@ -308,7 +308,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="SubscriptionSummary"></a> Prenumerationsöversikt  
  Den `subscription summary` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Id`|string|Resurs-ID. Unikt ID för prenumeration inom den aktuella API Management-tjänstinstansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
 |`DisplayName`|string|Visningsnamnet för prenumerationen|  
@@ -316,7 +316,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="UserAccountInfo"></a> Information om användarkonto  
  Den `user account info` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`FirstName`|string|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`LastName`|string|Efternamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -329,7 +329,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="UseSignIn"></a> Användarinloggning  
  Den `user sign in` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Email`|string|E-postadress. Får inte vara tomt och måste vara unikt inom tjänstinstansen. Maximal längd är 254 tecken.|  
 |`Password`|string|Lösenordet för användarkontot.|  
@@ -347,7 +347,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="UserSignUp"></a> Användarregistrering  
  Den `user sign up` entitet har följande egenskaper:  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolesk|Värdet som används av den [registrering](api-management-page-controls.md#sign-up)registrering kontroll.|  
 |`Password`|string|Lösenordet för användarkontot.|  

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60705297"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center-behållare
@@ -32,7 +32,7 @@ Azure Security Center innehåller följande funktioner för att skydda dina beh�
     ![behållare-fliken](./media/security-center-container-recommendations/docker-recommendation.png)
 
 
-- **Säkerhetsrekommendationer baserat på tillgängligheten för CIS-benchmark för Docker**<br>Security Center söker igenom din Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller riktlinjer för att hjälpa dig att lösa dessa problem snabbt och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.
+- **Säkerhetsrekommendationer baserat på tillgängligheten för CIS-benchmark för Docker**<br>Security Center söker igenom dina Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller riktlinjer för att hjälpa dig att lösa dessa problem snabbt och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.
 
     ![behållare-fliken](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
@@ -45,7 +45,7 @@ Använd tabellen nedan som referens för att förstå tillgängliga behållare p
 
 | Rekommendation | Beskrivning | Åtgärd |
 | --- | --- | --- |
-|Åtgärda sårbarheter i containerns säkerhetskonfigurationer |Åtgärda sårbarheter i behållaren säkerhetskonfigurationer baserat på bästa metoderna för konfiguration.| Åtgärda sårbarheter i säkerhetskonfigurationer behållare:<br>1. Granska listan över misslyckade regler.<br>2. Åtgärda varje regel enligt angivna instruktionerna.|
+|Åtgärda sårbarheter i behållaren säkerhetskonfigurationer |Åtgärda sårbarheter i behållaren säkerhetskonfigurationer baserat på bästa metoderna för konfiguration.| Åtgärda sårbarheter i säkerhetskonfigurationer behållare:<br>1. Granska listan över misslyckade regler.<br>2. Åtgärda varje regel enligt angivna instruktionerna.|
 
 
 ## <a name="next-steps"></a>Nästa steg

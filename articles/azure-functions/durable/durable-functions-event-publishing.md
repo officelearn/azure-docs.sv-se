@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733769"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Functions-Durable publicering till Azure Event Grid (förhandsversion)
@@ -250,19 +250,19 @@ Se loggar från den funktion som du skapade i Azure-portalen.
 
 I följande lista beskriver händelseschemat livscykel:
 
-* **`id`**: Unik identifierare för event grid-händelse.
-* **`subject`**: Sökväg till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
-* **`data`**: Varaktiga funktioner specifika parametrar.
-  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) namn.
-  * **`functionName`**: Orchestrator-funktionsnamn.
-  * **`instanceId`**: Varaktiga funktioner instanceId.
-  * **`reason`**: Ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`**: Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits.
-* **`eventType`**: ”orchestratorEvent”
-* **`eventTime`**: Händelsetid (UTC).
-* **`dataVersion`**: Version av händelseschemat livscykel.
-* **`metadataVersion`**:  Version av metadata.
-* **`topic`**: Event grid avsnittet resursen.
+* **`id`** : Unik identifierare för event grid-händelse.
+* **`subject`** : Sökväg till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
+* **`data`** : Varaktiga funktioner specifika parametrar.
+  * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) namn.
+  * **`functionName`** : Orchestrator-funktionsnamn.
+  * **`instanceId`** : Varaktiga funktioner instanceId.
+  * **`reason`** : Ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** : Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits.
+* **`eventType`** : ”orchestratorEvent”
+* **`eventTime`** : Händelsetid (UTC).
+* **`dataVersion`** : Version av händelseschemat livscykel.
+* **`metadataVersion`** :  Version av metadata.
+* **`topic`** : Event grid avsnittet resursen.
 
 ## <a name="how-to-test-locally"></a>Hur du testar lokalt
 

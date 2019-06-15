@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416135"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
@@ -59,7 +59,7 @@ Om du vill aktivera en automatiskt genererad hanterad identitet för din logikap
 
    ![GUID för objekt-ID](./media/create-managed-service-identity/object-id.png)
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **Objekt-ID** | <*identity-resource-ID*> | En globalt unik identifierare (GUID) som representerar den systemtilldelade hanterad identitet för din logikapp i en Azure AD-klient | 
    ||| 
@@ -111,7 +111,7 @@ När Azure skapar din logikapp kan innehåller den logikapp arbetsflödesdefinit
 }
 ```
 
-| Egenskap  | Värde | Beskrivning | 
+| Egenskap | Värde | Beskrivning | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | En globalt unik identifierare (GUID) som representerar logikappen i Azure AD-klient och ibland visas som ”objekt-ID” eller `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | En globalt unik identifierare (GUID) som representerar den Azure AD-klient där logikappen är nu medlem. Tjänstens huvudnamn har samma namn som den logic app-instansen i Azure AD-klient. | 
@@ -132,7 +132,7 @@ Följ dessa steg om du vill ge åtkomst till en annan Azure-resurs för din logi
 
 1. Gå till Azure-resursen som du vill tilldela åtkomst för din hanterade identitet i Azure-portalen. 
 
-1. Resursens menyn och välj **åtkomstkontroll (IAM)**. I verktygsfältet, välja **Lägg till** > **Lägg till rolltilldelning**.
+1. Resursens menyn och välj **åtkomstkontroll (IAM)** . I verktygsfältet, välja **Lägg till** > **Lägg till rolltilldelning**.
 
    ![Lägg till rolltilldelning](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

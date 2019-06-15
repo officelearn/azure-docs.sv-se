@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler
 ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942991"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Förbereda dina tekniska resurser för Azure-program
@@ -71,9 +71,9 @@ Vi rekommenderar att lägga till följande verktyg i utvecklingsmiljön:
 - [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) med följande filtillägg:
 
-  - Anknytning: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-  - Anknytning: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-  - Anknytning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+  - Tillägg: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+  - Tillägg: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+  - Tillägg: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Vi rekommenderar också granska de tillgängliga verktyg i den [Azure-utvecklarverktyg](https://azure.microsoft.com/tools/) sidan och, om du använder Visual Studio i [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

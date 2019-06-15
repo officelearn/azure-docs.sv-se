@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860516"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installera uppdatering 4 på din StorSimple-enhet
@@ -45,7 +45,7 @@ Utför följande steg om du vill uppdatera enheten till [uppdatering 4](storsimp
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Kontrollera att enheten kör **StorSimple 8000-serien uppdatering 4 (6.3.9600.17820)**. Den **senast uppdaterad datum** bör också ändras.
+Kontrollera att enheten kör **StorSimple 8000-serien uppdatering 4 (6.3.9600.17820)** . Den **senast uppdaterad datum** bör också ändras.
 
 * Du ser nu att uppdateringarna i underhållsläge är tillgängliga (det här meddelandet kan visas fortfarande i upp till 24 timmar efter installation av uppdateringar). Uppdateringar av underhållsläge är störande uppdateringar som resulterar i driftstopp för enheten och kan endast tillämpas via Windows PowerShell-gränssnittet på enheten.
 
@@ -76,10 +76,10 @@ Du måste hämta och installera följande snabbkorrigeringar i föreskrivna ordn
 
 | Beställa | kB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Uppdatering av programvara |Normal <br></br>STÖRNINGSFRI |~ 25 minuter |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |LSI-drivrutinen och uppdateringar av inbyggd programvara <br> USM firmware-uppdatering (version 3.38) |Normal <br></br>STÖRNINGSFRI |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS-säkerhetspaketet uppdateringar <br> Ladda ned Windows Server 2012 R2 |Normal <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket för OS-uppdateringar <br> Ladda ned Windows Server 2012 R2 |Normal <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
+| 1. |KB4011839 |Programuppdatering |Vanliga <br></br>STÖRNINGSFRI |~ 25 minuter |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |LSI-drivrutinen och uppdateringar av inbyggd programvara <br> USM firmware-uppdatering (version 3.38) |Vanliga <br></br>STÖRNINGSFRI |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS-säkerhetspaketet uppdateringar <br> Ladda ned Windows Server 2012 R2 |Vanliga <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket för OS-uppdateringar <br> Ladda ned Windows Server 2012 R2 |Vanliga <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
 
 Du kan också behöva installera uppdateringar av disk av inbyggd programvara på alla uppdateringar som visas i föregående tabeller. Du kan kontrollera om du behöver firmwareuppdateringar disk genom att köra den `Get-HcsFirmwareVersion` cmdlet. Om du kör dessa versioner av inbyggd programvara: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, behöver du inte installera uppdateringarna.
 

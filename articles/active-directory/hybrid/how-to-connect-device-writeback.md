@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109503"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -46,7 +46,7 @@ Installera Azure AD Connect med anpassade eller standardinställningar. Microsof
 ## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Del 2: Aktivera tillbakaskrivning av enheter i Azure AD Connect
 1. Kör installationsguiden igen. Välj **konfigurera Enhetsalternativ** från ytterligare uppgifter och klickar på **nästa**. 
 
-    ![Konfigurera enhetsalternativ](./media/how-to-connect-device-writeback/deviceoptions.png)
+    ![Konfigurera Enhetsalternativ](./media/how-to-connect-device-writeback/deviceoptions.png)
 
     >[!NOTE]
     > De nya konfigurera Enhetsalternativ är endast tillgängliga i version 1.1.819.0 och nyare.

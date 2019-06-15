@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61448159"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera fjärrövervakning data med Power BI
@@ -42,7 +42,7 @@ Den här självstudien vägleder dig genom hur du ansluter din fjärrövervaknin
 
 5. Klicka på avsnittet ”nycklar” på panelen till vänster och anteckna följande värden som ska användas i Power BI:
 
-   - URI
+   - URI: N
    - Primär nyckel
 
      ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
@@ -59,7 +59,7 @@ Den här självstudien vägleder dig genom hur du ansluter din fjärrövervaknin
   
 3. Ange den information som du har spelat in ovan:
 
-    * URI
+    * URI: N
     * Primär nyckel
 
 4. Markera alla tabeller som ska importeras till Power BI. Den här åtgärden startar inläsning av data. Ju längre din lösning har körts, desto längre tid det kan ta att läsa in data (upp till några timmar). 

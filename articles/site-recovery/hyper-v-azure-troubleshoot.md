@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719810"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
@@ -145,7 +145,7 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 
 Alla Hyper-V-replikering händelse loggas i Hyper-V-VMMS\Admin loggen, finns i **applikationer och tjänsteloggar** > **Microsoft** > **Windows**. Dessutom kan aktivera du en analytiska logg för Hyper-V Virtual Machine Management-tjänsten på följande sätt:
 
-1. Kontrollera de analytiska loggarna och felsökningsloggar kan visas i Loggboken. Om du vill göra loggarna tillgängliga i Loggboken, klickar du på **visa** > **visa analytiska loggar och felsökningsloggar.**. Analytiska loggen visas under **Hyper-V-VMMS**.
+1. Kontrollera de analytiska loggarna och felsökningsloggar kan visas i Loggboken. Om du vill göra loggarna tillgängliga i Loggboken, klickar du på **visa** > **visa analytiska loggar och felsökningsloggar.** . Analytiska loggen visas under **Hyper-V-VMMS**.
 2. I den **åtgärder** fönstret klickar du på **aktivera loggning**. 
 
     ![Aktivera log](media/hyper-v-azure-troubleshoot/enable-log.png)

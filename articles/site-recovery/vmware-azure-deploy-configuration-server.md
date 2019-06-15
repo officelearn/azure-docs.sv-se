@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125703"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
@@ -59,7 +59,7 @@ Storlekskraven för konfigurationsservern är beroende av potentiella förändri
 | --- | --- | --- | --- | --- |
 | 8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) |16 GB |300 GB |500 GB eller mindre |Replikera färre än 100 virtuella datorer. |
 | 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) |18 GB |600 GB |500 GB till 1 TB |Replikera 100 150 datorer. |
-| 16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) |32 GB |1 TB |1 TB till 2 TB |Replikera 150 – 200 datorer. |
+| 16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) |32 GB |1 TB |1 TB till 2 TB |Replikera 150 – 200 datorer. |
 
 Om du replikerar mer än en VMware VM läsa [överväganden vid kapacitetsplanering](site-recovery-plan-capacity-vmware.md). Kör den [verktyget Distributionshanteraren](site-recovery-deployment-planner.md) för VMWare-replikering.
 

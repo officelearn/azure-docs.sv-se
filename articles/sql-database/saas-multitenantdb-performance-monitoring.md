@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485635"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
@@ -98,7 +98,7 @@ Databas för flera klienter i Wingtip biljetter SaaS är en SaaS-app och verklig
 
 För att övervaka Resursanvändning som resulterar från den tillämpade belastningen, öppnar du portalen till databas för flera innehavare **tenants1**, som innehåller innehavarna som:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till servern *tenants1-mt -&lt;användaren&gt;*.
+1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till servern *tenants1-mt -&lt;användaren&gt;* .
 1. Rulla nedåt och leta upp databaser och klickar på **tenants1**. Den här fragmenterade (sharded) databas för flera innehavare innehåller alla klienter som skapats än så länge.
 
 ![databas-diagram](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)

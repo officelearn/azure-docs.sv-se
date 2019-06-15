@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711320"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
@@ -38,7 +38,7 @@ I Structured Streaming data anländer till systemet och omedelbart matas in i en
 
 Data i resultatet tabeller får bara innehålla de data som är nytt sedan senast gången frågan bearbetades (*lägga till*), eller tabellen kan inte helt uppdateras varje gång det finns nya data, så tabellen innehåller alla utdata eftersom strömmande frågan började (*fullständig läge*).
 
-### <a name="append-mode"></a>Tilläggsläge
+### <a name="append-mode"></a>Lägga till
 
 Lägg till läget endast de rader som läggs till i resultattabellen eftersom den senaste körningen av frågan finns i resultattabellen och skrivs till extern lagring i. Till exempel kopierar den enklaste frågan bara alla data från indatatabellen till resultattabellen utan ändringar. Varje gång som ett intervall för utlösare går ut den nya data har bearbetats och rader som representerar den nya data visas i resultattabellen. 
 

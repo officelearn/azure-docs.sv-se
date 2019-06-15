@@ -13,123 +13,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be006cd49041a33c13b5cc5c459a1d54c46c3b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092771"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Självstudier: Azure Active Directory-integrering med Replicon
+# <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Självstudier: Integrera Replicon med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Replicon med Azure Active Directory (AD Azure).
-Integrera Replicon med Azure AD ger dig följande fördelar:
+I de här självstudierna lär du dig att integrera Replicon med Azure Active Directory (AD Azure). När du integrerar Replicon med Azure AD, kan du:
 
-* Du kan styra i Azure AD som har åtkomst till Replicon.
-* Du kan aktivera användarna att vara automatiskt inloggad till Replicon (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Styr i Azure AD som har åtkomst till Replicon.
+* Ge dina användare att automatiskt inloggad till Replicon med sina Azure AD-konton.
+* Hantera konton på en central plats – Azure portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Replicon, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Replicon enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
+* Aktiverat prenumeration replicon enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
-
-* Har stöd för replicon **SP** -initierad SSO
+I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för replicon **SP** -initierad SSO.
 
 ## <a name="adding-replicon-from-the-gallery"></a>Att lägga till Replicon från galleriet
 
 För att konfigurera integrering av Replicon i Azure AD, som du behöver lägga till Replicon från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Replicon från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
+1. Gå till **företagsprogram** och välj sedan **alla program**.
+1. Om du vill lägga till nytt program, Välj **nytt program**.
+1. I den **Lägg till från galleriet** Skriv **Replicon** i sökrutan.
+1. Välj **Replicon** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD enkel inloggning med Replicon med en testanvändare kallas **B.Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Replicon för SSO ska fungera.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Replicon, utför du följande byggblock:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
+2. **[Konfigurera Replicon SSO](#configure-replicon-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med B.Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera B.Simon att använda Azure AD enkel inloggning.
+5. **[Skapa testanvändare Replicon](#create-replicon-test-user)**  – du har en motsvarighet för B.Simon i Replicon som är länkad till en Azure AD-representation av användaren.
+6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
 
-4. I sökrutan skriver **Replicon**väljer **Replicon** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Replicon** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
+1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
+1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
 
-    ![Replicon i resultatlistan](common/search-new-app.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+1. På den **SAML grundkonfiguration** ange värdena för följande fält:
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Replicon baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Replicon upprättas.
+    1. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://global.replicon.com/!/saml2/<client name>/sp-sso/post`
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Replicon, måste du utföra följande byggblock:
+    1. I rutan **Identifierare** skriver du en URL med följande mönster: `https://global.replicon.com/!/saml2/<client name>`
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Replicon Single Sign-On](#configure-replicon-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa testanvändare Replicon](#create-replicon-test-user)**  – du har en motsvarighet för Britta Simon i Replicon som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Replicon:
-
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Replicon** application integration markerar **enkel inloggning**.
-
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Replicon domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
-
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
-
-    b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://global.replicon.com/<companyname>`
-
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
+    1. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://global.replicon.com/!/saml2/<client name>/sso/post`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Replicon klienten supportteamet](https://www.replicon.com/customerzone/contact-support) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+1. Klicka på ikonen Redigera/penna för **SAML-signeringscertifikat** att redigera inställningarna.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Signeringsalgoritm](common/signing-algorithm.png)
 
-6. På den **konfigurera Replicon** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+    1. Välj **inloggning SAML-försäkran** som den **signering alternativet**.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    1. Välj **SHA-256** som den **Signeringsalgoritm**.
 
-    a. Inloggnings-URL
+1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **XML-Metadata för Federation** och välj **hämta** att hämta certifikatet och spara den på din dator.
 
-    b. Azure AD-identifierare
+   ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-    c. Utloggnings-URL
-
-### <a name="configure-replicon-single-sign-on"></a>Konfigurera Replicon enkel inloggning
+### <a name="configure-replicon-sso"></a>Konfigurera Replicon SSO
 
 1. Logga in på webbplatsen Replicon företag som en administratör i ett annat webbläsarfönster.
 
@@ -145,61 +117,43 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Replico
 
    c. Klicka på den **+** att expandera den **metaDataConfiguration** avsnittet.
 
-   d. Klicka på **Välj fil**, för att välja din identitet providern XML-fil och klicka på **skicka**.
+   d. Välj **SHA256** för xmlSignatureAlgorithm
+
+   e. Klicka på **Välj fil**, för att välja din identitet providern XML-fil och klicka på **skicka**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I den **användaren** egenskaper, Följ dessa steg:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Replicon.
+I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Replicon.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Replicon**.
+1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I listan med program väljer **Replicon**.
+1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Replicon**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Länken Replicon i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-replicon-test-user"></a>Skapa Replicon testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Replicon.
+Målet med det här avsnittet är att skapa en användare som kallas B.Simon i Replicon.
 
 **Om du behöver skapa användare manuellt så gör du följande:**
 
@@ -217,24 +171,27 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     ![Användarprofil](./media/replicon-tutorial/ic777808.png "användarprofil")
 
-    a. I den **inloggningsnamn** textrutan Ange Azure AD-e-postadress för Azure AD-användare som du vill etablera som `BrittaSimon\@contoso.com`.
+    a. I den **inloggningsnamn** textrutan Ange Azure AD-e-postadress för Azure AD-användare som du vill etablera som `B.Simon@contoso.com`.
+
+    > [!NOTE]
+    > Inloggningsnamn måste matcha användarens e-postadress i Azure AD
 
     b. Som **autentiseringstyp**väljer **SSO**.
 
-    c. I den **avdelning** textrutan skriver användarens avdelning.
+    c. Ange ID för autentisering till samma värde som inloggningsnamn (Azure AD e-postadressen för användaren)
 
-    d. Som **typ av anställd**väljer **administratör**.
+    d. I den **avdelning** textrutan skriver användarens avdelning.
 
-    e. Klicka på **spara användarprofil**.
+    e. Som **typ av anställd**väljer **administratör**.
+
+    f. Klicka på **spara användarprofil**.
 
 > [!NOTE]
 > Du kan använda alla andra Replicon användare konto verktyg för att skapa eller API: er som tillhandahålls av Replicon att etablera användarkonton i Azure AD.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Replicon i åtkomstpanelen, bör det vara loggas in automatiskt till Replicon som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Replicon i åtkomstpanelen, bör det vara loggas in automatiskt till Replicon som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -242,4 +199,4 @@ När du klickar på panelen Replicon i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

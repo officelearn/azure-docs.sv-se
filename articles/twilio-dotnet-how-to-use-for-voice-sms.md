@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329501"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Använda Twilio för röst- och SMS-funktioner från Azure
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 När programmet startar ett anrop till Twilio-API – till exempel den **CallResource.Create** metoden - Twilio skickar din begäran till en URL som kan förväntas returnera ett TwiML svar. I exemplet i [så här: Göra ett externt anrop](#howto_make_call) använder URL: en med Twilio-angivna [ https://twimlets.com/message ] [ twimlet_message_url] att returnera svaret.
 
 > [!NOTE]
-> Medan TwiML är avsedd för användning av webbtjänster, kan du visa TwiML i webbläsaren. Klicka till exempel [ https://twimlets.com/message ] [ twimlet_message_url] att se en tom `<Response>` elementet; Klicka på ett annat exempel är [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) att se en `<Response>` element som innehåller en &lt;Say&gt; element.
+> Medan TwiML är avsedd för användning av webbtjänster, kan du visa TwiML i webbläsaren. Klicka till exempel [ https://twimlets.com/message ] [ twimlet_message_url] att se en tom `<Response>` elementet; Klicka på ett annat exempel är [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) att se en `<Response>` element som innehåller en &lt; Say&gt; element.
 >
 
 I stället för en Twilio-angivna URL: en, kan du skapa en egen URL-plats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar HTTP-svar. Det här avsnittet förutsätter att du ska vara värd för URL: en från en allmän ASP.NET-hanteraren.

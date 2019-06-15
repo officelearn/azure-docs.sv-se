@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204024"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
@@ -184,7 +184,7 @@ Metoden har några viktiga komponenter som du behöver för att förstå:
 
    b. Välj **Arkiv** > **Nytt** > **Projekt**.
 
-   c. Expandera **mallar**, och välj **Visual C\#**. I den här genomgången ska du använda C\#, men du kan använda valfritt .NET-språk för att utveckla den anpassade aktiviteten.
+   c. Expandera **mallar**, och välj **Visual C\#** . I den här genomgången ska du använda C\#, men du kan använda valfritt .NET-språk för att utveckla den anpassade aktiviteten.
 
    d. Välj **klassbiblioteket** i listan över projekttyper till höger.
 

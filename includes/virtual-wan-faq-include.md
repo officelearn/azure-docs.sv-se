@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077499"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Vad är skillnaden mellan en virtuell nätverksgateway i Azure (VPN Gateway) och en Azure Virtual WAN-vpngateway?
 
 Virtual WAN tillhandahåller storskalig plats-till-plats-anslutning och byggs för dataflöde, skalbarhet och användarvänlighet. Funktionen med ExpressRoute- och punkt-till-plats-anslutning är för närvarande i förhandsversion. CPE grenen enheter autoprovision och Anslut till Azure virtuellt WAN-nätverk. Enheterna finns tillgängliga från ett växande ekosystem av SD-WAN- och VPN-partner. Se [listan över föredragna partner](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Vad är en gren anslutning till Azure virtuellt WAN-nätverk?
+
+En anslutning från en gren-enhet till Azure virtuellt WAN-nätverk, består av två aktiva IPsec-tunnlar.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Vilken enhetsprovider (Virtual WAN-partner) stöds vid start?
 
@@ -45,7 +49,7 @@ Ja, Virtual WAN introducerar ny Resource Manager-resurser. Mer information finns
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Hur många VPN-enheter kan ansluta till en enda hubb?
 
-Upp till 1 000 anslutningar stöds per virtuell hubb. Varje anslutning består av två tunnlar i konfigurationen aktiv-aktiv. Tunnlarna avslutas i en Azure Virtual Hub-vpngateway.
+Upp till 1 000 anslutningar stöds per virtuell hubb. Varje anslutning består av två tunnlar i konfigurationen aktiv-aktiv. Tunnlarna avslutas i en Azure Virtual Hub-vpngateway.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Kan den lokala VPN-enheten ansluta till flera hubbar?
 
@@ -105,7 +109,7 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Hur skiljer sig Virtual WAN från den befintliga Azure Virtual Network-gatewayen?
 
-Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 grenanslutningar med 2 Gb/s i hubben för alla regioner förutom regionen Västra centrala. För regionen Västra centrala är 20 Gbit/s är tillgängligt. Vi kommer att lansera 20 Gbit/s till ytterligare regioner i framtiden. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb per region, vilket innebär att du kan ansluta fler än 1 000 grenar mellan hubbar.
+Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 anslutningar för avdelningskontor med 2 Gbit/s i en hubb för alla regioner utom västra centrala regionen. För regionen Västra centrala är 20 Gbit/s är tillgängligt. Vi kommer att lansera 20 Gbit/s till ytterligare regioner i framtiden. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb för varje region, vilket innebär att du kan ansluta fler än 1 000 grenar på hubs.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hur virtuellt WAN-nätverk stöder SD-WAN-enheter?
 
@@ -118,6 +122,14 @@ Nej, Virtual WAN kräver inte ExpressRoute från varje plats. Virtual WAN använ
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Finns det någon gräns för nätverksdataflöde vid användning av Azure Virtual WAN?
 
 Antalet grenar är begränsat till 1 000 anslutningar per hubb/region och totalt 2 G i hubben. Undantaget är USA, västra centrala, som har högst 20 Gbit/s. Vi kommer att lansera 20 Gbit/s till andra regioner i framtiden.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Hur många VPN-anslutningar stöder en virtuellt WAN-nätverk hubb?
+
+En Azure virtuellt WAN-hubb kan stöda upp till 1 000 anslutningar för S2S och 10 000 P2S-anslutningar samtidigt.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Vad är den totala genomströmningen för VPN i en VPN-tunnel och en anslutning?
+
+Den totala genomströmningen för VPN i en hubb är upp till 20 Gbit/s baserat på valda skalningsenheten. Dataflödet är gemensam för alla befintliga anslutningar.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Tillåter Virtual WAN att den lokala enheten använder flera Internetleverantörer samtidigt eller är det alltid en enda VPN-tunnel?
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606431"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
@@ -319,7 +319,7 @@ Nu när du har din provkörning som skapats beskriver i det här avsnittet var o
 
 Fältet första och viktigaste är att ange om du vill Test Drive aktiverats för ditt erbjudande eller inte. När du väljer **Ja,** resten av formuläret med alla de obligatoriska fälten visas för att fylla. När du väljer **Nej,** formuläret blir inaktiverad och om du publicerar med Test Drive inaktiverat din provkörning tas bort från produktionen.
 
-Anteckning: Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
+Obs! Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
 
 ### <a name="details"></a>Information
 

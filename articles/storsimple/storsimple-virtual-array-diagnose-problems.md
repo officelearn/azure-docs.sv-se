@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9d222097f9fb99a24f6213584a3419ed777f4a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61408446"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att felsöka StorSimple Virtual Array
@@ -26,7 +26,7 @@ ms.locfileid: "61408446"
 
 StorSimple Device Manager ger en **diagnostisera och lösa problem** inställningen inom sammanfattningsbladet för tjänsten, som visar några av de ofta förekommande problemen som kan uppstå med din virtuella matris och hur du löser dem. Den här självstudien introducerar självbetjäning felsökning funktioner i StorSimple Device Manager-tjänsten.
 
-![Diagnosticera och lösa problem](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
+![Diagnostisera och lösa problem](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
 
 ## <a name="diagnose-and-solve-issues"></a>Diagnostisera och lösa problem
 

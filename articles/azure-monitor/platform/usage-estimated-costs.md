@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453826"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervaka användning och uppskattade kostnader i Azure Monitor
@@ -68,7 +68,7 @@ På sidan visas även en annan uppsättning mätare som motsvarar den nya prismo
 
 Den nya prismodellen har inte nod-baserade inkluderade data-allokeringar. Därför mätarnas datainmatning kombineras till en ny vanliga datainmatning mätare som kallas **delade Services\Data inmatning**. 
 
-Det finns en annan ändring som matas in i Log Analytics eller Application Insights i regioner med högre kostnader. Data för dessa regioner för hög kostnad visas med de nya regionala mätarna. Ett exempel är **datainmatning (USA, västra centrala)**.
+Det finns en annan ändring som matas in i Log Analytics eller Application Insights i regioner med högre kostnader. Data för dessa regioner för hög kostnad visas med de nya regionala mätarna. Ett exempel är **datainmatning (USA, västra centrala)** .
 
 > [!NOTE]
 > Den uppskattade kostnader inte ta med i kontonivå per nod rättigheter för Operations Management Suite (OMS)-prenumeration per prenumeration. Kontakta representanten för ditt konto för en mer detaljerad beskrivning av den nya prissättningsmodellen i det här fallet.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872113"
 ---
 # <a name="templates"></a>Mallar
@@ -131,7 +131,7 @@ Mallar är begränsade till XML eller JSON-dokument-format. Du kan också bara p
 
 I följande tabell visas de språk som tillåts i mallar:
 
-| Uttryck       | Beskrivning |
+| uttryck       | Beskrivning |
 | ---------------- | --- |
 | $(prop)          | Referens till en händelseegenskap med det angivna namnet. Egenskapsnamn är inte skiftlägeskänsliga. Det här uttrycket matchas till egenskapsvärdet text eller till en tom sträng om egenskapen inte finns. |
 | $(prop, n)       | Som ovan, men texten är uttryckligen klipps n tecken, till exempel $(rubrik, 20) klipp innehållet i egenskapen Rubrik på 20 tecken. |

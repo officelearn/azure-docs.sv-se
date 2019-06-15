@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808843"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör Pipeline-aktivitet i Azure Data Factory
@@ -60,11 +60,11 @@ Kör Pipeline-aktiviteten kan Data Factory-pipeline anropa en annan pipeline.
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-namn | Namnet på execute pipeline-aktivitet. | String | Ja
-typ | Måste anges till: **ExecutePipeline**. | String | Ja
-pipelina | Pipelinereferens till beroende pipelinen som anropar denna pipeline. En pipeline-referensobjektet har två egenskaper: **referenceName** och **typ**. Egenskapen referenceName anger namnet på referens-pipeline. Type-egenskapen måste anges till PipelineReference. | PipelineReference | Ja
+name | Namnet på execute pipeline-aktivitet. | String | Ja
+type | Måste anges till: **ExecutePipeline**. | String | Ja
+pipeline | Pipelinereferens till beroende pipelinen som anropar denna pipeline. En pipeline-referensobjektet har två egenskaper: **referenceName** och **typ**. Egenskapen referenceName anger namnet på referens-pipeline. Type-egenskapen måste anges till PipelineReference. | PipelineReference | Ja
 parameters | Parametrar som ska skickas till anropad pipeline | En JSON-objekt som motsvarar argumentvärden parameternamn | Nej
 waitOnCompletion | Definierar om körningsmiljön för aktiviteten ska vänta tills beroende pipeline-åtgärd ska slutföras. Standardvärdet är false. | Boolean | Nej
 

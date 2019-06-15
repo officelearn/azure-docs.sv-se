@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682042"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologi för Azure-nätverk
@@ -134,18 +134,18 @@ Alla resurser som returneras i en topologi ha någon av följande typer av relat
 | Relationstyp | Exempel                                                                                                |
 | ---               | ---                                                                                                    |
 | Inneslutning       | Ett virtuellt nätverk innehåller ett undernät. Ett undernät innehåller ett nätverksgränssnitt.                            |
-| Associerad        | Ett nätverksgränssnitt är associerad med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverksgränssnitt. |
+| Som är associerade        | Ett nätverksgränssnitt är associerad med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverksgränssnitt. |
 
 ## <a name="properties"></a>Egenskaper
 
 Alla resurser som returneras i en topologi har följande egenskaper:
 
-- **Namn**: Namnet på resursen
+- **Namn på**: Namnet på resursen
 - **ID**: URI för resursen.
 - **Plats**: Azure-regionen som resursen finns i.
 - **Associationer**: En lista över kopplingar till det refererade objektet. Varje association har följande egenskaper:
     - **AssociationType**: Refererar till förhållandet mellan ett underordnat objekt och överordnat. Giltiga värden är *innehåller* eller *associerade*.
-    - **Namn**: Namnet på den refererade resursen.
+    - **Namn på**: Namnet på den refererade resursen.
     - **ResourceId**:-URI: N av resursen som refereras i kopplingen.
 
 ## <a name="next-steps"></a>Nästa steg

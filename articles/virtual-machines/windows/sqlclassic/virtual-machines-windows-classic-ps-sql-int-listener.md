@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097736"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en ILB-lyssnare för AlwaysOn-Tillgänglighetsgrupper i Azure
@@ -105,7 +105,7 @@ Skapa en belastningsutjämnad slutpunkt för varje virtuell dator som är värd 
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. När du har angett variabeln, kopiera skriptet från textredigeraren till din PowerShell-session för att köra den. Om meddelandet visas fortfarande **>>**, tryck på RETUR igen för att kontrollera att skriptet börjar köras.
+13. När du har angett variabeln, kopiera skriptet från textredigeraren till din PowerShell-session för att köra den. Om meddelandet visas fortfarande **>>** , tryck på RETUR igen för att kontrollera att skriptet börjar köras.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Kontrollera att KB2854082 installeras vid behov
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Skapa tillgänglighetsgruppens lyssnare i två steg. Först skapar klienten åtk
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. När du har angett variabeln, öppna en upphöjd Windows PowerShell-fönster, klistra in skriptet från textredigeraren i din PowerShell-session för att köra den. Om meddelandet visas fortfarande **>>**, tryck på RETUR igen för att se till att skriptet börjar köras.
+3. När du har angett variabeln, öppna en upphöjd Windows PowerShell-fönster, klistra in skriptet från textredigeraren i din PowerShell-session för att köra den. Om meddelandet visas fortfarande **>>** , tryck på RETUR igen för att se till att skriptet börjar köras.
 
 4. Upprepa föregående steg för varje virtuell dator.  
     Det här skriptet konfigurerar IP-adressresurs med IP-adressen för Molntjänsten och anger andra parametrar, till exempel avsökningsporten. När IP-adressresurs är online, kan det svara på avsökningen på avsökningsporten från den belastningsutjämnade slutpunkten som du skapade tidigare.

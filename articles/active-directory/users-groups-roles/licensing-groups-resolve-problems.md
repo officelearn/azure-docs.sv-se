@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466289"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licensproblem för tilldelning för en grupp i Azure Active Directory
@@ -52,7 +52,7 @@ När du använder gruppbaserad licensiering, samma fel inträffar, men de sker i
 
 I följande avsnitt ger en beskrivning av varje potentiella problem och sätt att lösa problemet.
 
-## <a name="not-enough-licenses"></a>Det finn inte tillräckligt med licenser
+## <a name="not-enough-licenses"></a>Det finns inte tillräckligt med licenser
 
 **Problem:** Det finns inte tillräckligt med tillgängliga licenser för en av de produkter som har angetts i gruppen. Du måste antingen köpa flera licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
 
@@ -62,7 +62,7 @@ Välj en produkt om du vill se vilka användare och grupper förbrukar licenser.
 
 **PowerShell:** PowerShell-cmdletar rapportera felet som _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Tjänstplanerna är i konflikt
+## <a name="conflicting-service-plans"></a>Tjänstplanerna
 
 **Problem:** En av de produkter som har angetts i gruppen innehåller en serviceplan som står i konflikt med en annan service-plan som redan har tilldelats till användaren via en annan produkt. Vissa service-planer är konfigurerade på ett sätt att de inte kan tilldelas samma användare som en annan, relaterade service-plan.
 
@@ -77,7 +77,7 @@ Beslut om hur du löser motstridiga produktlicenser alltid tillhör administrat�
 
 **PowerShell:** PowerShell-cmdletar rapportera felet som _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Andra produkter är beroende av den här licensen
+## <a name="other-products-depend-on-this-license"></a>Andra produkter är beroende av denna licens
 
 **Problem:** En av de produkter som har angetts i gruppen innehåller en tjänstplan som måste aktiveras för en annan service-plan i en annan produkt ska fungera. Det här felet uppstår när Azure AD försöker ta bort den underliggande service-planen. Detta kan till exempel hända när du tar bort användaren från gruppen.
 

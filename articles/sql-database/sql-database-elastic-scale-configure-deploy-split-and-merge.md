@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585516"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
@@ -142,7 +142,7 @@ Om din arbetsroll inte går att använda, men din webbroll lyckas, är det troli
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Se till att servernamnet inte börjar med **https://**.
+* Se till att servernamnet inte börjar med **https://** .
 * Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. Gör detta genom att öppna databasen i portalen och se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på ** på ***.
 
 ## <a name="test-the-service-deployment"></a>Testa service-distributionen

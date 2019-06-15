@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036071"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med Azure portal
@@ -79,40 +79,40 @@ När du har skapat en avisering, kan du välja den och:
 | --- | --- | --- | --- | --- |
 | SQL-databas | cpu_percent | CPU-procent | Medel | 5 minuter |
 | SQL-databas | physical_data_read_percent | Data IO-procent | Medel | 5 minuter |
-| SQL-databas | log_write_percent | Logg I/O-procent | Medel | 5 minuter |
+| SQL-databas | log_write_percent | Logg-IO-procent | Medel | 5 minuter |
 | SQL-databas | dtu_consumption_percent | DTU-procent | Medel | 5 minuter |
 | SQL-databas | lagring | Totala databasstorleken | Maximal | 30 minuter |
 | SQL-databas | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL-databas | deadlock | Dödlägen | Totalt | 10 minuter |
+| SQL-databas | deadlock | Låsningar | Totalt | 10 minuter |
 | SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Percent(Preview) för in-Memory OLTP-lagring | Medel | 5 minuter |
-| SQL-databas | workers_percent | Arbetarprocent | Medel | 5 minuter |
+| SQL-databas | workers_percent | Arbetare procent | Medel | 5 minuter |
 | SQL-databas | sessions_percent | Sessioner procent | Medel | 5 minuter |
 | SQL-databas | dtu_limit | DTU-gräns | Medel | 5 minuter |
 | SQL-databas | dtu_used | DTU används | Medel | 5 minuter |
 ||||||
 | Elastisk pool | cpu_percent | CPU-procent | Medel | 10 minuter |
 | Elastisk pool | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| Elastisk pool | log_write_percent | Logg I/O-procent | Medel | 10 minuter |
+| Elastisk pool | log_write_percent | Logg-IO-procent | Medel | 10 minuter |
 | Elastisk pool | dtu_consumption_percent | DTU-procent | Medel | 10 minuter |
 | Elastisk pool | storage_percent | Lagringsprocent | Medel | 10 minuter |
-| Elastisk pool | workers_percent | Arbetarprocent | Medel | 10 minuter |
+| Elastisk pool | workers_percent | Arbetare procent | Medel | 10 minuter |
 | Elastisk pool | eDTU_limit | eDTU-gränsen | Medel | 10 minuter |
 | Elastisk pool | storage_limit | Gränsen för lagring | Medel | 10 minuter |
 | Elastisk pool | eDTU_used | edtu: er används | Medel | 10 minuter |
 | Elastisk pool | storage_used | Använt lagringsutrymme | Medel | 10 minuter |
 ||||||               
-| SQL Data Warehouse | cpu_percent | CPU-procent | Medel | 10 minuter |
-| SQL Data Warehouse | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| SQL Data Warehouse | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
-| SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
-| SQL Data Warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL Data Warehouse | service_level_objective | Tjänstenivå för databasen | Totalt | 10 minuter |
-| SQL Data Warehouse | dwu_limit | dwu-gräns | Maximal | 10 minuter |
-| SQL Data Warehouse | dwu_consumption_percent | DWU-procent | Medel | 10 minuter |
-| SQL Data Warehouse | dwu_used | Använda DWU | Medel | 10 minuter |
+| SQL data warehouse | cpu_percent | CPU-procent | Medel | 10 minuter |
+| SQL data warehouse | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
+| SQL data warehouse | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
+| SQL data warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
+| SQL data warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
+| SQL data warehouse | service_level_objective | Tjänstenivå för databasen | Totalt | 10 minuter |
+| SQL data warehouse | dwu_limit | dwu-gräns | Maximal | 10 minuter |
+| SQL data warehouse | dwu_consumption_percent | DWU-procent | Medel | 10 minuter |
+| SQL data warehouse | dwu_used | Använda DWU | Medel | 10 minuter |
 ||||||
 
 

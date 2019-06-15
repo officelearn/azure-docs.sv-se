@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: de24b64ecd95eec79d7508f978acda9f0ae5a8d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097538"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Lägga till push-meddelanden i en Xamarin.iOS-App
@@ -147,7 +147,7 @@ Din app har uppdaterats för att stödja push-meddelanden.
    > [!NOTE]
    > Du måste uttryckligen godkänna push-meddelanden från din app. Den här begäran inträffar bara första gången som appen körs.
 
-2. Skriv en uppgift i appen, och klicka sedan på plustecknet (**+**) ikonen.
+2. Skriv en uppgift i appen, och klicka sedan på plustecknet ( **+** ) ikonen.
 3. Kontrollera att ett meddelande tas emot och klicka sedan på **OK** att stänga meddelandet.
 4. Upprepa steg 2 och omedelbart stänga appen och sedan kontrollera att ett meddelande visas.
 

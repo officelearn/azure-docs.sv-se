@@ -10,17 +10,17 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133146"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
 Azure Automation tillhandahåller lösningar för att hantera säkerhet för operativsystemuppdateringar, spåra ändringar och inventering vad som är installerat på datorerna. Det finns flera sätt att registrera datorer, du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), från din [automatiseringskontot](automation-onboard-solutions-from-automation-account.md), när du bläddrar efter virtuella datorer eller genom att [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar när du bläddrar efter virtuella datorer i Azure.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in i Azure på https://portal.azure.com
 

@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487426"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-create-pipelines.md)
 > * [Version 2 (aktuell version)](../concepts-pipelines-activities.md)
 
@@ -94,7 +94,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 }
 ```
 
-| Tagga | Beskrivning | Obligatoriskt |
+| Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”,\*”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | description | Ange texten som beskriver vad pipeline används till. |Ja |
@@ -132,7 +132,7 @@ Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje ak
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-| Tagga | Beskrivning | Obligatoriskt |
+| Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
 | name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | description | Text som beskriver vad aktiviteten används till |Ja |

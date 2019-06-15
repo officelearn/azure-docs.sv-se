@@ -17,10 +17,10 @@ ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594276"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
@@ -95,7 +95,7 @@ Om det inte går att webbappen Linux Git-distribution, väljer du något av föl
 
    Om du får ett felmeddelande som den `curl` kommando inte hittas, måste du installera curl med hjälp av `apt-get install curl` innan du kör den tidigare `curl` kommando.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 **Jag vill använda webbsockets i mitt Node.js-program, eventuella specialinställningar eller konfigurationer för att ställa in?**
 

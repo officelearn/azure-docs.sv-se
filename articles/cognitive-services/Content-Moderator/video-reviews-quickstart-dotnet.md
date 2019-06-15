@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726844"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med hjälp av .NET
 
@@ -174,7 +174,7 @@ Skapa en video granskning med **ContentModeratorClient.Reviews.CreateVideoReview
 - **Status för**. Ange värdet till ”Opublicerat”. Om du inte anger den standard som ”väntande”, vilket innebär att video granskningen har publicerats och väntar på mänsklig granskning. När en granskning av videon har publicerats kan du inte längre lägga till bildrutor, en avskrift eller en avskrift moderering resultatet till den.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en IList<string>. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: N är ett GUID och inte är samma som värde för den **ContentId** egenskapen. 
+> **CreateVideoReviews** returnerar en IList\<sträng >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: N är ett GUID och inte är samma som värde för den **ContentId** egenskapen. 
 
 Lägg till följande metoddefinitionen i namnområdet VideoReviews, klassen Program.
 

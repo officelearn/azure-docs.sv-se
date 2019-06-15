@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733580"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay licenskrav och konfiguration 
@@ -35,7 +35,7 @@ Följande krävs när du använder Media Services för att kryptera ditt HLS-inn
 * Apple kräver innehållets ägare att hämta den [distributionspaketet](https://developer.apple.com/contact/fps/). Tillstånd att du redan implementerat nyckel Security modulen (KSM) med Media Services och att du begär slutpaketet FPS. Det finns instruktioner i slutpaketet FPS att generera certifiering och få programmet hemlig nyckel (ASK). Du kan använda fråga för att konfigurera FairPlay.
 * Följande måste anges för Media Services nyckel/licens leverans sida:
 
-    * **App-certifikat (AC)**: Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord. PFX-filen ska vara i Base64-format.
+    * **App-certifikat (AC)** : Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord. PFX-filen ska vara i Base64-format.
 
         Följande steg beskriver hur du skapar en PFX-fil för FairPlay:
 
@@ -54,7 +54,7 @@ Följande krävs när du använder Media Services för att kryptera ditt HLS-inn
     
 * Följande måste anges av klientsidan FPS:
 
-  * **App-certifikat (AC)**: Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
+  * **App-certifikat (AC)** : Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
 
 * Få en verklig be första om du vill spela upp en krypterad FairPlay-dataström, och sedan generera ett verkligt certifikat. Den här processen skapar alla tre delar:
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31738c43756da14ba6c2c92afbcb2882561c8001
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722869"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop i HDInsight
@@ -54,7 +54,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 ### <a name="apache-hive-udf"></a>Apache Hive UDF
 
-1. Öppna Visual Studio och skapa en lösning. Projekttyp, Välj **Konsolapp (.NET Framework)**, och namnge det nya projektet **HiveCSharp**.
+1. Öppna Visual Studio och skapa en lösning. Projekttyp, Välj **Konsolapp (.NET Framework)** , och namnge det nya projektet **HiveCSharp**.
 
     > [!IMPORTANT]
     > Välj __.NET Framework 4.5__ om du använder en Linux-baserade HDInsight-kluster. Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
@@ -163,7 +163,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
     ![Server Explorer visar storage-konto för klustret](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Om den här posten kan utökas, som du använder en __Azure Storage-konto__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, expanderar du posten och dubbelklicka sedan på den __(standardbehållaren)__.
+    * Om den här posten kan utökas, som du använder en __Azure Storage-konto__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, expanderar du posten och dubbelklicka sedan på den __(standardbehållaren)__ .
 
     * Om den här posten inte kan expanderas, använder du __Azure Data Lake Storage__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, dubbelklickar du på den __(standard Storage-konto)__ posten.
 

@@ -3,18 +3,18 @@ title: IoT-alternativ för Microsoft Azure | Microsoft Azure
 description: Välj hur du vill implementera din Azure IoT-lösning – med Azure IoT Central, IoT-lösningsacceleratorer eller IoT Hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 571c703609bac2e4414baf19edc39cf5e9f8820a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19ec7afeb71f0e9d5602f1c4ba1a2456162cdfae
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077395"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Jämför alternativen Azure IoT Central och Azure IoT
 

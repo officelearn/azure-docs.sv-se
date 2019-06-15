@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120655"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Azure Monitor
@@ -63,7 +63,7 @@ Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operati
 SQL-hälsokontroll samlar in data från följande källor med hjälp av agent som du har aktiverat:
 
 * Windows Management Instrumentation (WMI)
-* Register
+* Registret
 * Prestandaräknare
 * SQL Server dynamic management visa resultat
 
@@ -230,7 +230,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Moni
 
 * Följande typer av data har samlats in:
   * WMI
-  * Register
+  * Registret
   * Prestandaräknare
   * SQL dynamiska hanteringsvyer (DMV).
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 29e23d5919a953566c803f2b7825a75a2993723c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ba8ab07edc4fd036b82c97f0ae3fb565d5eed72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078388"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
 
@@ -26,9 +26,6 @@ Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShel
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Ett kluster i Azure HDInsight (Hadoop på HDInsight)**
-
-  > [!IMPORTANT]  
-  > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **En arbetsstation med Azure PowerShell**.
 

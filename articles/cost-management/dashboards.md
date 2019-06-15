@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002057"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visa nyckeln kostnad mått med instrumentpaneler
@@ -42,7 +42,7 @@ Om du vill komma igång snabbt med en anpassad instrumentpanel kan duplicera du 
 
 Skapa en anpassad instrumentpanel:
 
-1. På startsidan klickar du på **Lägg till ny +**. Sidan Min instrumentpanel visas.  
+1. På startsidan klickar du på **Lägg till ny +** . Sidan Min instrumentpanel visas.  
     ![Min instrumentpanelssida där du lägger till nya rapporter](./media/dashboards/my-dashboard.png)
 2. Klicka på **Lägg till ny rapport**. Rutan Lägg till rapport visas.
 3. Välj den rapport som du vill lägga till en instrumentpanelwidget. Widgeten har lagts till på instrumentpanelen.

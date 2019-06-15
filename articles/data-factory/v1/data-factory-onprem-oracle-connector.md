@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462419"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (aktuell version)](../connector-oracle.md)
 
@@ -55,7 +55,7 @@ Gatewayen krävs även om Oracle finns i en Azure-infrastruktur som en tjänst (
 
 Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
 
-- **Microsoft-drivrutin för Oracle (rekommenderas)**: Från och med Data Management Gateway version 2.7, installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera för att upprätta en anslutning till Oracle-drivrutinen. Du kan också använda ger kopieringen bättre prestanda med hjälp av den här drivrutinen. Dessa versioner av Oracle-databaser som stöds:
+- **Microsoft-drivrutin för Oracle (rekommenderas)** : Från och med Data Management Gateway version 2.7, installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera för att upprätta en anslutning till Oracle-drivrutinen. Du kan också använda ger kopieringen bättre prestanda med hjälp av den här drivrutinen. Dessa versioner av Oracle-databaser som stöds:
   - Oracle 12c R1 (12.1)
   - Oracle 11g R1, R2 (11.1, 11.2)
   - Oracle 10g R1, R2 (10.1, 10,2)
@@ -100,9 +100,9 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 
 I följande tabell beskrivs JSON-element som är specifika för Oracle-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Den **typ** egenskapen måste anges till **OnPremisesOracle**. |Ja |
+| type |Den **typ** egenskapen måste anges till **OnPremisesOracle**. |Ja |
 | driverType | Ange vilka drivrutiner som ska använda för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [stöds version och vilka](#supported-versions-and-installation) för mer information. | Nej |
 | connectionString | Ange den information som behövs för att ansluta till Oracle database-instans för den **connectionString** egenskapen. | Ja |
 | gatewayName | Namnet på den gateway som används för att ansluta till en lokal Oracle-server. |Ja |
@@ -151,7 +151,7 @@ Avsnitt i en datauppsättning JSON-fil som struktur, tillgänglighet och princip
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **OracleTable** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Oracle-databas som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** eller **OracleSource** har angetts) |
 
@@ -170,7 +170,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd anpassad fråga för att läsa data. |En SQL-sträng. Till exempel ”Välj \* från **MyTable**”. <br/><br/>Om inte anges den här SQL-instruktionen körs ”: Välj \* från **MyTable**” |Nej<br />(om **tableName** av **datauppsättning** har angetts) |
 
@@ -178,12 +178,12 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 
 **OracleSink** har stöd för följande egenskaper:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Väntetid för batch Infoga åtgärden har slutförts innan tidsgränsen uppnås. |**timespan**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
 | writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
 | sqlWriterCleanupScript |Anger en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
-| sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn. Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)**. |Nej |
+| sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn. Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)** . |Nej |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
@@ -571,7 +571,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
     1. Öppna datorkonfigurationsfilen för .NET 2.0 från mappen < systemdisken\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Sök efter **Oracle dataprovider för .NET**. Du ska kunna hitta en post som du ser i följande exempel under **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Kopiera den här posten i Machine.config i .NET 4.0 följande mapp: < systemdisken\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Sedan kan ändra versionen till 4.xxx.x.x.
-* Installera < ODP.NET installerat sökväg\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i den globala sammansättningscachen (GAC) genom att köra **gacutil /i [providersökvägen]**.
+* Installera < ODP.NET installerat sökväg\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i den globala sammansättningscachen (GAC) genom att köra **gacutil /i [providersökvägen]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problem 2: Datum/tid
 
@@ -602,22 +602,22 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLYTTAL |Decimal, sträng (om precision > 28) |
-| HELTAL |Decimal, sträng (om precision > 28) |
+| FLOAT |Decimal, String (om precision > 28) |
+| INTEGER |Decimal, String (om precision > 28) |
 | INTERVALL ÅRETS MÅNAD |Int32 |
 | INTERVALL DAG TILL ANDRA |TimeSpan |
 | LONG |String |
-| LÄNGE RÅDATA |Byte[] |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, sträng (om precision > 28) |
+| NUMBER |Decimal, String (om precision > 28) |
 | NVARCHAR2 |String |
-| RÅDATA |Byte[] |
-| RAD-ID |String |
+| RAW |Byte[] |
+| ROWID |String |
 | TIDSSTÄMPEL |DateTime |
-| TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |
-| TIDSSTÄMPEL MED TIDSZON |DateTime |
-| HELTALET |Tal |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

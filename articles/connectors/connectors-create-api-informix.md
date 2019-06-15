@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691009"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-anslutningsapp
@@ -44,7 +44,7 @@ Den här anslutningsappen stöder de följande åtgärderna för logikappar:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lista tabeller
+## <a name="list-tables"></a>Lista över tabeller
 Skapa en logikapp för alla åtgärder som består av många steg som utförs via Microsoft Azure-portalen.
 
 I logic app, kan du lägga till en åtgärd lista tabellerna i en Informix-databas. Den här åtgärden instruerar connector att bearbeta en Informix schema-instruktionen som `CALL SYSIBM.SQLTABLES`.
@@ -58,7 +58,7 @@ I logic app, kan du lägga till en åtgärd lista tabellerna i en Informix-datab
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**.  
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Get-tabeller (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Get-tabeller (förhandsversion)** .
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
 6. I den **Informix - Get-tabeller** configuration väljer **kryssrutan** att aktivera **Anslut via lokal datagateway**. Observera att inställningarna ändras från molnet till lokala.
@@ -80,14 +80,14 @@ I logic app, kan du lägga till en åtgärd lista tabellerna i en Informix-datab
 ## <a name="create-the-connections"></a>Skapa anslutningarna
 Den här anslutningen har stöd för anslutningar till databas lokalt och i molnet med följande anslutningsegenskaper. 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | server |Krävs. Accepterar ett strängvärde som representerar en TCP/IP-adress eller ett alias i IPv4 eller IPv6-format, följt (kolon för avgränsade) av ett TCP/IP-portnummer. |
-| databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix godkänner en 128 byte-sträng (databas kallas en IBM Informix-databasnamnet (dbname)). |
+| database |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix godkänner en 128 byte-sträng (databas kallas en IBM Informix-databasnamnet (dbname)). |
 | autentisering |Valfri. Accepterar en lista över Objektvärde, antingen grundläggande eller Windows (kerberos). |
-| användarnamn |Krävs. Accepterar ett strängvärde. |
+| username |Krävs. Accepterar ett strängvärde. |
 | password |Krävs. Accepterar ett strängvärde. |
-| gateway |Krävs. Accepterar en lista över objekt-värde som representerar den lokala datagatewayen definierats till Logic Apps i lagringsgruppen. |
+| Gateway |Krävs. Accepterar en lista över objekt-värde som representerar den lokala datagatewayen definierats till Logic Apps i lagringsgruppen. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutning
 Den här anslutningen kan komma åt en lokal Informix-databas som använder den lokala datagatewayen. I gatewayen ämne finns mer information. 
@@ -128,7 +128,7 @@ Du kan skapa en logic app-åtgärd för att hämta alla rader i tabellen Informi
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)** .
 6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**.
 7. I den **anslutningar** configuration väljer **Skapa ny**. 
    
@@ -165,7 +165,7 @@ Du kan skapa en logic app-åtgärd för att lägga till en rad i en Informix-tab
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - infogningsraden (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - infogningsraden (förhandsversion)** .
 6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
 7. I den **anslutningar** konfigurationsruta väljer du att välja en anslutning. Välj exempelvis **hisdemo2**.
    
@@ -192,7 +192,7 @@ Du kan skapa en logic app-åtgärd för att hämta en rad i en Informix-tabell. 
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)** .
 6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
 7. I den **anslutningar** konfigurationer väljer att välja en befintlig anslutning. Välj exempelvis **hisdemo2**.
    
@@ -220,7 +220,7 @@ Du kan skapa en logic app-åtgärd om du vill ändra en rad i en Informix-tabell
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Uppdatera rad (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Uppdatera rad (förhandsversion)** .
 6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
 7. I den **anslutningar** konfigurationer väljer att välja en befintlig anslutning. Välj exempelvis **hisdemo2**.
    
@@ -247,7 +247,7 @@ Du kan skapa en logic app-åtgärd för att ta bort en rad i en Informix-tabell.
 2. I den **utlösare** väljer **upprepning**. 
 3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
 4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - ta bort rad (förhandsversion)**.
+5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - ta bort rad (förhandsversion)** .
 6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
 7. I den **anslutningar** konfigurationer fönstret, Välj en befintlig anslutning. Välj exempelvis **hisdemo2**.
    

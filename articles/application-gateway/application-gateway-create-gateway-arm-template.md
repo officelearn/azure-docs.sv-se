@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135780"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
@@ -161,9 +161,9 @@ Följ stegen nedan om du vill distribuera Azure Resource Manager-mallen som du h
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (eller --name)**. Namnet på den nya resursgruppen. I vårt scenario är det *appgatewayRG*.
+    **-n (eller --name)** . Namnet på den nya resursgruppen. I vårt scenario är det *appgatewayRG*.
     
-    **-l (eller --location)**. Azure-region där den nya resursgruppen skapas. För vårt scenario, den har *westus*.
+    **-l (eller --location)** . Azure-region där den nya resursgruppen skapas. För vårt scenario, den har *westus*.
 
 1. Kör den `az group deployment create` cmdlet för att distribuera nya virtuella nätverket med hjälp av mall- och parameterfilerna filer du hämtade och ändrade i föregående steg. Listan som visas efter utdatan beskriver de parametrar som används.
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707149"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
@@ -51,7 +51,7 @@ Du kan använda följande protokoll med Azure Service Bus för att skicka och ta
 
 Se tabellen nedan för de utgående portar som du behöver öppna om du vill använda dessa protokoll ska kunna kommunicera med Azure Event Hubs. 
 
-| Protokoll | Portar | Information | 
+| Protocol | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokollguide](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 till 9354 | Se [anslutningsläget](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |

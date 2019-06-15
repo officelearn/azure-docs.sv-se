@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061079"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder *Azure CNI* nätverk för att skapa och
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående internet-anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
-* AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16` för Kubernetes service-adressintervall.
+* AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, eller `192.0.2.0/24` för Kubernetes service-adressintervall.
 * Tjänstens huvudnamn som används av AKS-klustret måste ha minst [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) behörigheter på undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) istället för att använda den inbyggda rollen som Nätverksdeltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -100,7 +100,7 @@ När du skapar ett AKS-kluster, konfigureras följande parametrar för Azure CNI
 * Får inte vara i virtuella nätverkets IP-adressintervall för ditt kluster
 * Får inte överlappa med andra virtuella nätverk som virtuellt klusternätverk peer-datorer
 * Får inte överlappa eventuella lokala IP-adresser
-* Får inte vara inom intervallen `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16`
+* Får inte vara inom intervallen `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, eller `192.0.2.0/24`
 
 Även om det är tekniskt möjligt att ange ett service-adressintervall inom samma virtuella nätverk som klustret rekommenderas detta så inte. Oväntade funktionssätt kan bero på att överlappande IP-adressintervall som används. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions) i den här artikeln. Mer information om Kubernetes-tjänster finns i [Services] [ services] i Kubernetes-dokumentationen.
 

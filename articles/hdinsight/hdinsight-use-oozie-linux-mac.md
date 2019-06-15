@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142832"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
@@ -665,7 +665,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: Azure Blob storage-adresser som används i den **job.xml** filen innehåller inte storage-behållare eller lagringskontonamn. Formatet för Blob storage-adress måste vara `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
-**Upplösning**: Ändra Blob storage-adresser som används av jobbet.
+**Lösning**: Ändra Blob storage-adresser som används av jobbet.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie är inte tillåtet att personifiera &lt;användare&gt;
 
@@ -675,7 +675,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: De aktuella behörighetsinställningarna för tillåter inte Oozie att personifiera det angivna användarkontot.
 
-**Upplösning**: Oozie kan personifiera användare i den **användare** grupp. Använd den `groups USERNAME` att se de grupper som användaren är medlem i. Om användaren inte är medlem i den **användare** gruppen, Använd följande kommando för att lägga till användaren i gruppen:
+**Lösning**: Oozie kan personifiera användare i den **användare** grupp. Använd den `groups USERNAME` att se de grupper som användaren är medlem i. Om användaren inte är medlem i den **användare** gruppen, Använd följande kommando för att lägga till användaren i gruppen:
 
     sudo adduser USERNAME users
 
@@ -690,7 +690,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: Sqoop kan inte läsa in databasdrivrutinen som krävs för att få åtkomst till databasen.
 
-**Upplösning**: När du använder Sqoop från ett Oozie-jobb, måste du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobb används. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
+**Lösning**: När du använder Sqoop från ett Oozie-jobb, måste du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobb används. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
 
 Till exempel för jobbet i det här dokumentet använder du följande steg:
 

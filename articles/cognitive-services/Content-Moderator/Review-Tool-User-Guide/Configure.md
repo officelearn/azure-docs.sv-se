@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61285615"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
@@ -43,7 +43,7 @@ Gå till den **undergrupper** och klicka **Lägg till undergrupper**. Ange namne
 
 Du kan inte tilldelas någon en undergrupper om de inte redan är medlem i standard-teamet, så du måste först lägga till granskare till standard-teamet. Klicka på **bjuda in** på den **Team** fliken.
 
-![Bjud in användare](images/invite-users.png)
+![Bjuda in användare](images/invite-users.png)
 
 #### <a name="assign-teammates-to-subteam"></a>Tilldela gruppmedlemmar att subteam
 
@@ -64,7 +64,7 @@ Om du är medlem i fler än en undergrupper kan växla du mellan dessa undergrup
 
 ![Växla mellan undergrupper](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Taggar
+## <a name="tags"></a>Tags
 
 Den **taggar** fliken kan du definiera anpassade moderering taggar utöver de två standardtaggar för moderering&mdash;**isadult** (**en**) och **isracy**  (**r**). När du skapar en anpassad tagg, blir den tillgänglig i granskningar tillsammans med standardtaggar. Du kan ändra vilka taggar som visas i granskningar genom att växla mellan sina synlighetsinställningar.
 
@@ -75,7 +75,7 @@ Den **taggar** fliken kan du definiera anpassade moderering taggar utöver de tv
 Om du vill skapa en ny tagg, måste du ange ett kort kod, namn och beskrivning i respektive fält.
 
 - **Kort kod**: Ange en kod för två bokstäver för din taggen. Exempel: **cb**
-- **Namn**: Ange ett kort och beskrivande taggnamn med små bokstäver utan blanksteg. Exempel: **isbullying**.
+- **Namn på**: Ange ett kort och beskrivande taggnamn med små bokstäver utan blanksteg. Exempel: **isbullying**.
 - **Beskrivning av**: (valfritt) Ange en beskrivning av typ av innehåll som tagg-mål. Exempel: **Skildringar eller instanser av cyberhot bullying**.
 
 Klicka på **Lägg till** att lägga till en tagg, och klicka på **spara** när du är klar med att skapa taggar.

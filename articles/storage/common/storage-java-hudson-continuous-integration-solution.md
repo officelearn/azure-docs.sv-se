@@ -10,10 +10,10 @@ ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 4b47af857fada453e36fcb0c23e6d89e5ad90e42
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154342"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
@@ -111,7 +111,7 @@ För anvisningar behöver vi först du skapar ett jobb som kommer att skapa fler
 8. Klicka på **offentliggöra ny behållare som standard** i det här exemplet. (Om du vill använda en privat behållare, du måste skapa en signatur för delad åtkomst för att tillåta åtkomst. Som ligger utanför omfånget för den här artikeln. Du kan läsa mer om signaturer för delad åtkomst på [med signaturer för delad åtkomst (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
 9. [Valfritt] Klicka på **ren behållaren innan du laddar upp** om du vill att behållaren tas bort av innehållet innan byggartefakter överförs (lämna det avmarkerat om du inte vill att rensa innehållet i behållaren).
 10. För **lista av artefakter för att ladda upp**, ange **text/*.txt**.
-11. För **vanliga virtuella sökvägen för överförda artefakter**, ange **${skapa\_ID} / ${skapa\_NUMBER}**.
+11. För **vanliga virtuella sökvägen för överförda artefakter**, ange **${skapa\_ID} / ${skapa\_NUMBER}** .
 12. Klicka på **spara** att spara dina inställningar.
 13. I Hudson-instrumentpanelen klickar du på **skapa nu** att köra **MyJob**. Granska konsolutdata för status. Statusmeddelanden för Azure Storage inkluderas i konsolens utdata när instruktionen efter skapandet börjar ladda upp byggartefakter.
 14. Du kan undersöka byggartefakterna genom att öppna den offentliga blobben vid slutförande av jobbet.
@@ -134,7 +134,7 @@ Följande steg visar hur du konfigurerar ett byggsteg för att hämta objekt fr�
 1. I den **skapa** avsnittet jobbkonfigurationen, klickar du på **Lägg till byggsteg** och välj **ladda ned från Azure Blob storage**.
 2. För **lagringskontonamn**, Välj lagringskontot som du använder.
 3. För **behållarnamn**, ange namnet på behållaren som innehåller de blobar som du vill hämta. Du kan använda miljövariabler.
-4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\*** anger alla blobbar vars namn börjar på **projekt**.
+4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\** * anger alla blobbar vars namn börjar på **projekt**.
 5. [Valfritt] För **hämtningssökvägen**, ange sökvägen på den Hudson-datorn där du vill ladda ned filer från Azure Blob storage. Miljövariabler kan också användas. (Om du inte anger ett värde för **hämtningssökvägen**, hämtas filer från Azure Blob storage till arbetsytan för jobbets.)
 
 Om du har ytterligare objekt som du vill ladda ned från Azure Blob storage kan skapa du ytterligare byggsteg.
@@ -153,7 +153,7 @@ Följande innehåller en översikt över tjänstkomponenter Blob.
   
     (Formatet som ovan gäller till offentliga Azure-molnet. Om du använder en annan Azure-molnet kan använda slutpunkten inom den [Azure-portalen](https://portal.azure.com) att fastställa din URL-slutpunkt.)
   
-    I formatet som ovan, `storageaccount` representerar namnet på ditt lagringskonto `container_name` representerar namnet på din behållare och `blob_name` respektive representerar namnet på din blob. Du kan ha flera sökvägar, avgränsade med ett snedstreck inom behållarnamn, **/**. Exempel behållarens namn i den här självstudien har **MyJob**, och **${skapa\_ID} / ${skapa\_NUMBER}** har använts för den vanliga virtuella sökvägen, vilket resulterar i blobben med en URL för den följande format:
+    I formatet som ovan, `storageaccount` representerar namnet på ditt lagringskonto `container_name` representerar namnet på din behållare och `blob_name` respektive representerar namnet på din blob. Du kan ha flera sökvägar, avgränsade med ett snedstreck inom behållarnamn, **/** . Exempel behållarens namn i den här självstudien har **MyJob**, och **${skapa\_ID} / ${skapa\_NUMBER}** har använts för den vanliga virtuella sökvägen, vilket resulterar i blobben med en URL för den följande format:
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 

@@ -8,10 +8,10 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015611"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered logikappar och runbooks för migrering av klassiska Varningsregler
@@ -31,7 +31,7 @@ I följande tabell är en referens till programgränssnitt för både klassiska 
 
 |         |Klassiska aviseringar  |Nya aviseringar för mått |
 |---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST-API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [avisering för AZ-Övervakare](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor metrics avisering](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya måttaviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190042"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files-prestandaproblem
@@ -55,7 +55,7 @@ Du kan använda samma steg som ovan för att bekräfta om de flesta av dina beg�
 
 ![Filter för API-namn i dina mått](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Kontrollera om programmet kan ändras för att minska antalet metadataåtgärder.
 
@@ -82,7 +82,7 @@ Virtuella klientdatorer kan finnas i en annan region än premium-filresurs.
 
 En möjlig orsak till detta är en brist fo SMB stöd för flera kanaler. För närvarande stöder Azure-filresurser endast en kanal så det finns bara en anslutning från VM-klienten till servern. Den här enda anslutningen är knuten till en enda kärna på klienten virtuell dator, så det maximala dataflöden som kan uppnås från en virtuell dator är bunden av en enda kärna.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Hämta en virtuell dator med en större kärna kan hjälpa att förbättra genomflödet.
 - Kör klientprogrammet från flera virtuella datorer kommer att öka dataflödet.
@@ -94,7 +94,7 @@ En möjlig orsak till detta är en brist fo SMB stöd för flera kanaler. För n
 
 Det här är ett känt problem med implementeringen av SMB-klienten på Linux.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Belastningen fördelas på flera virtuella datorer
 - På samma virtuella dator, använder flera monteringspunkter med **nosharesock** alternativet och spridning belastningen mellan dessa monteringspunkter.
@@ -105,7 +105,7 @@ Det här är ett känt problem med implementeringen av SMB-klienten på Linux.
 
 Avsaknaden av stöd för katalogleasing.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Du bör undvika överdriven inledande/avslutande referens till samma katalog inom en kort tidsperiod.
 - Öka tidsgränsen för cachen directory posten för virtuella Linux-datorer genom att ange **actimeo =<sec>**  som ett alternativ för montering. Som standard är det en sekund, så att ett större värde som tre eller fem kan hjälpa dig att.
@@ -117,7 +117,7 @@ Avsaknaden av stöd för katalogleasing.
 
 I/o-djup som är större än ett stöds inte på CentOS/RHEL.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Uppgradera till CentOS 8 / RHEL 8.
 - Ändra till Ubuntu.
@@ -128,7 +128,7 @@ I/o-djup som är större än ett stöds inte på CentOS/RHEL.
 
 Klientprogrammet överskrider upprepade gånger baslinje IOPS. För närvarande finns ingen serversidan Utjämning av belastning för begäranden, så om klienten överskrider baslinje IOPS, begränsas av tjänsten. Den begränsning kan resultera i klienten upplever ett darrig/saw-tooth IOPS-mönster. I det här fallet kan genomsnittlig IOPS som uppnås genom att klienten vara lägre än baslinjen IOPS.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Minska belastning för begäranden från klientprogram, så att resursen inte begränsas.
 - Öka kvoten för resursen så att resursen inte begränsas.
@@ -139,7 +139,7 @@ Klientprogrammet överskrider upprepade gånger baslinje IOPS. För närvarande 
 
 Om antalet DirectoryOpen/DirectoryClose anrop är ett av de främsta API-anrop och du inte tror att klienten kan vara vilket gör att många anrop, kan det vara ett problem med antivirusprogram installerat på Azure VM-klienten.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - En korrigering av det här problemet finns i den [April plattform uppdatering för Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
@@ -149,7 +149,7 @@ Om antalet DirectoryOpen/DirectoryClose anrop är ett av de främsta API-anrop o
 
 Arbetsbelastningar som förlitar sig på att skapa ett stort antal filer visas inte en betydande skillnad mellan prestanda med premium-filresurser och standard-filresurser.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Ingen.
 
@@ -159,6 +159,6 @@ Arbetsbelastningar som förlitar sig på att skapa ett stort antal filer visas i
 
 Högre än förväntat svarstid åtkomst till Azure Files för i/o-intensiva arbetsbelastningar.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 - Installera de tillgängliga [snabbkorrigering](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).

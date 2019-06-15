@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656817"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Mallar i Azure API Management
@@ -226,7 +226,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |referenceCode|string|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
 |errorCode|string|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60706292"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Lägg till en brandvägg för webbaserade program i Azure Security Center

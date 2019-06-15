@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942087"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Hantera användare på partnerportalen i molnet
@@ -28,7 +28,7 @@ Använd följande steg för att lägga till användare och tilldela roller för 
     ![Fliken användare](./media/userstab.png)
 
 
-2. Klicka på **Lägg till användare**.
+2. Klicka på **lägga till användare**.
 
     ![Välj Lägg till användare](./media/adduser.png)
 

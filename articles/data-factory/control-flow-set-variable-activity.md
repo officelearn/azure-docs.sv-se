@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767973"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ställ in variabeln aktiviteten i Azure Data Factory
@@ -24,11 +24,11 @@ Använd aktiviteten ange variabel för att ange värdet för en befintlig variab
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Krävs
+Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-namn | Namnet på aktiviteten i pipelinen | Ja
+name | Namnet på aktiviteten i pipelinen | Ja
 description | Text som beskriver vad aktiviteten används | nej
-typ | Aktivitetstyp är SetVariable | ja
+type | Aktivitetstyp är SetVariable | ja
 value | Sträng literal eller uttryck Objektvärde som används för att ange specifik variabel | ja
 variableName | Namnet på den variabel som anges av den här aktiviteten | ja
 

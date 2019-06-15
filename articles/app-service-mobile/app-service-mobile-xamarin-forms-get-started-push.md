@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098734"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Lägg till pushmeddelanden i din Xamarin.Forms-app
@@ -232,7 +232,7 @@ De två första stegen krävs bara när du testar på en emulator.
 2. Lägg till ett Google-konto till Android-enhet genom att klicka på **appar** > **inställningar** > **Lägg till konto**. Följ sedan anvisningarna för att lägga till ett befintligt Google-konto till enheten eller skapa en ny.
 3. I Visual Studio eller Xamarin Studio högerklickar du på den **Droid** projektet och klicka på **Ställ in som Startprojekt**.
 4. Klicka på **kör** att skapa projektet och starta appen på din Android-enhet eller emulator.
-5. Skriv en uppgift i appen, och klicka sedan på plustecknet (**+**) ikonen.
+5. Skriv en uppgift i appen, och klicka sedan på plustecknet ( **+** ) ikonen.
 6. Kontrollera att ett meddelande tas emot när ett objekt läggs till.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Konfigurera och köra iOS-projektet (valfritt)
@@ -326,7 +326,7 @@ Din app har uppdaterats för att stödja push-meddelanden.
    > [!NOTE]
    > Du måste uttryckligen godkänna push-meddelanden från din app. Den här begäran inträffar bara första gången som appen körs.
 
-3. Skriv en uppgift i appen, och klicka sedan på plustecknet (**+**) ikonen.
+3. Skriv en uppgift i appen, och klicka sedan på plustecknet ( **+** ) ikonen.
 4. Kontrollera att ett meddelande tas emot och klicka sedan på **OK** att stänga meddelandet.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Konfigurera och köra Windows-projekt (valfritt)
@@ -398,7 +398,7 @@ Det här avsnittet handlar om att köra Xamarin.Forms WinApp och WinPhone81 proj
 
 1. Högerklicka på en Windows-projekt i Visual Studio och klicka på **Ställ in som Startprojekt**.
 2. Tryck på **Run** (Kör) för att skapa projektet och starta appen.
-3. Skriv ett namn för en ny todoitem i appen, och klicka sedan på plustecknet (**+**) ikonen för att lägga till den.
+3. Skriv ett namn för en ny todoitem i appen, och klicka sedan på plustecknet ( **+** ) ikonen för att lägga till den.
 4. Kontrollera att ett meddelande tas emot när objektet har lagts till.
 
 ## <a name="next-steps"></a>Nästa steg

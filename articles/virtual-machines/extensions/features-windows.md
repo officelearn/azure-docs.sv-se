@@ -17,10 +17,10 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160252"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
@@ -62,7 +62,7 @@ Det finns minimiversioner av agenten för att tillhandahålla den bästa möjlig
 Windows-gästagenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'*. Dokumentationen enskilda tillägg för support.
+Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'* . Dokumentationen enskilda tillägg för support.
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
@@ -291,7 +291,7 @@ Du kan kontrollera vilken version du kör [identifiera installerade Windows-Gäs
 
 #### <a name="extension-updates"></a>Uppdateringar för tillägget
 
-När det finns en uppdatering av tillägget, laddar ned Windows-Gästagenten och uppgraderar tillägget. Tillägget för automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan anmäla eller avanmäla dig från tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i Resource Manager-mall med *autoUpgradeMinorVersion ”: true”,*:
+När det finns en uppdatering av tillägget, laddar ned Windows-Gästagenten och uppgraderar tillägget. Tillägget för automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan anmäla eller avanmäla dig från tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i Resource Manager-mall med *autoUpgradeMinorVersion ”: true”,* :
 
 ```json
     "properties": {
@@ -368,7 +368,7 @@ Följande felsökningssteg gäller för alla VM-tillägg.
 
 ### <a name="view-extension-status"></a>Visa status för tillägg
 
-När en VM-tillägget har körts mot en virtuell dator kan du använda [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visar att tillägget etableringen är klar, vilket innebär att lyckas den distribueras till den virtuella datorn, men inte det gick att köra av tillägget på den virtuella datorn, *underordnad status [1]*.
+När en VM-tillägget har körts mot en virtuell dator kan du använda [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visar att tillägget etableringen är klar, vilket innebär att lyckas den distribueras till den virtuella datorn, men inte det gick att köra av tillägget på den virtuella datorn, *underordnad status [1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

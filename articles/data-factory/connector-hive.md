@@ -3,21 +3,20 @@ title: Kopiera data från Hive med Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Hive till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 12/07/2018
+ms.author: jingwang
 ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808900"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
@@ -40,7 +39,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Hive länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Hive** | Ja |
 | host | IP-adressen eller värdnamnet namnet på Hive-servern, avgränsade med ””; för flera värdar (bara när serviceDiscoveryMode är aktivera).  | Ja |
@@ -88,7 +87,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Hive, ange typegenskapen på datauppsättningen till **HiveObject**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **HiveObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
@@ -117,7 +116,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Hive, ange typ av datakälla i kopieringsaktiviteten till **HiveSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HiveSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111312"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Med webbläsare i MSAL.NET
 Webbläsare krävs för interaktiv autentisering. Som standard MSAL.NET stöder den [system webbläsare](#system-web-browser-on-xamarinios-and-xamarinandroid) på Xamarin.iOS och [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Men [du kan också aktivera Embedded webbläsarens](#enable-embedded-webviews) beroende på dina behov (UX behovet av enkel inloggning (SSO), säkerhet) i [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) och [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) appar. Och du kan även [väljer dynamiskt](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) vilken webbläsare du använder baserat på förekomsten av Chrome eller en webbläsare som stöder Chrome anpassade flikar i Android.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61435871"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
@@ -58,7 +58,7 @@ Du kan lägga till aviseringar i din molntjänst. Klicka på **inställningar** 
 
 Härifrån kan ställa du in en avisering. Med den **mått** nedrullningsbara listrutan som du kan ställa in en avisering för följande typer av data.
 
-* Diskläsning
+* Disk-lästa
 * Diskskrivning
 * Nätverk in
 * Nätverk ut

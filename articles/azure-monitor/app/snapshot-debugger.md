@@ -13,10 +13,10 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595588"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
@@ -54,7 +54,7 @@ Om du har aktiverat Snapshot Debugger men inte ser ögonblicksbilder, kontroller
 Prenumerationsägare ska tilldela den `Application Insights Snapshot Debugger` roll till användare som inspektera ögonblicksbilder. Den här rollen kan tilldelas till enskilda användare eller grupper av prenumerationsägare för målets Application Insights-resursen eller dess resursgrupp eller prenumeration.
 
 1. Gå till Application Insights-resurs i Azure-portalen.
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 1. Klicka på den **+ Lägg till rolltilldelning** knappen.
 1. Välj **Application Insights Snapshot Debugger** från den **roller** listrutan.
 1. Sök efter och ange ett namn för att lägga till.

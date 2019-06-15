@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877728"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure portal
@@ -56,7 +56,7 @@ I det här avsnittet skapar du ett HDInsight-kluster med Data Lake Storage Gen1 
     ![Lägg till tjänstens huvudnamn till HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Lägg till tjänstens huvudnamn till HDInsight-kluster")
 
     - **Välj Data Lake Store-konto**: Välj ett befintligt Data Lake Storage Gen1-konto. Ett befintligt Data Lake Storage Gen1-konto krävs.  Se [Förutsättningar](#prerequisites).
-    - **Rotsökvägen**: Ange en sökväg där klusterspecifika filer ska lagras. På skärmbilden är den är __/kluster/myhdiadlcluster/__, där den __/kluster__ mappen måste finnas och portalen skapar *myhdicluster* mapp.  Den *myhdicluster* är klustrets namn.
+    - **Rotsökvägen**: Ange en sökväg där klusterspecifika filer ska lagras. På skärmbilden är den är __/kluster/myhdiadlcluster/__ , där den __/kluster__ mappen måste finnas och portalen skapar *myhdicluster* mapp.  Den *myhdicluster* är klustrets namn.
     - **Data Lake Store-åtkomst**: Konfigurera åtkomst mellan Data Lake Storage Gen1-kontot och HDInsight-kluster. Instruktioner finns i Konfigurera Data Lake Storage Gen1 åtkomst.
     - **Ytterligare lagringskonton**: Lägg till Azure storage-konton som ytterligare lagringskonton för klustret. Om du vill lägga till ytterligare Data Lake Storage Gen1 konton görs genom att ge behörigheterna som klustret på data i flera Data Lake Storage Gen1 konton när du konfigurerar ett Data Lake Storage Gen1-konto som primär lagring. Se Konfigurera Data Lake Storage Gen1 åtkomst.
 

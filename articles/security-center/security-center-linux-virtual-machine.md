@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
 ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909442"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center och Azure Virtual Machines med Linux
@@ -80,7 +80,7 @@ När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för r
 > 
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
+När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)** . När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
 
 ![Säkerhetshälsa](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,7 +92,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 Om du klickar på en säkerhetsavisering får du se vad det var som utlöste aviseringen och om det finns något du kan göra för att stoppa ett pågående angrepp. Säkerhetsaviseringarna är indelade i grupper efter [typ](security-center-alerts-type.md) och datum.
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
+När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)** . När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
 
 ![Säkerhetshälsa](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 

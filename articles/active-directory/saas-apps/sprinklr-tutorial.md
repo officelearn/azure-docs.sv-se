@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c3b95686b8c91552615a9014102fd6a14f8c385
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9e4025d040783bff1cd85fb46d571e3a89967892
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudier: Azure Active Directory-integrering med Sprinklr
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Sprinklr i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Sprinklr från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -275,4 +275,4 @@ När du klickar på panelen Sprinklr i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

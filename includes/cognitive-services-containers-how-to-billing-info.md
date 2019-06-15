@@ -4,14 +4,14 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052030"
 ---
-Frågor till behållaren debiteras enligt prisnivån för Azure-resursen används för den `<ApiKey>`.
+Frågor till behållaren debiteras enligt prisnivån för Azure-resursen som används för den `<ApiKey>`.
 
 Azure Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till fakturering slutpunkten för Avläsning av programvara. Du måste aktivera behållarna för att kommunicera faktureringsinformation med fakturering slutpunkten hela tiden. Cognitive Services-behållare Skicka inte kundinformation, till exempel bild eller text som analyseras, till Microsoft. 
 
@@ -21,12 +21,12 @@ Behållaren måste fakturering argumentvärden ska köras. Dessa värden kan beh
 
 ### <a name="billing-arguments"></a>Fakturering argument
 
-Alla tre av följande alternativ måste anges med giltiga värden för den `docker run` kommando för att starta behållaren.
+För den `docker run` kommando för att starta behållaren måste alla tre av följande alternativ måste anges med giltiga värden:
 
 | Alternativ | Beskrivning |
 |--------|-------------|
 | `ApiKey` | API-nyckel för Cognitive Services-resurs som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade resursen som anges i `Billing`. |
-| `Billing` | Slutpunkten för Cognitive Services-resursen som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en etablerade Azure-resurs-URI-slutpunkten.|
-| `Eula` | Anger att du godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
+| `Billing` | Slutpunkten för Cognitive Services-resurs som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en etablerade Azure-resurs-URI-slutpunkten.|
+| `Eula` | Anger att du godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till **acceptera**. |
 
 

@@ -10,10 +10,10 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: dcee8da943603fb0978caf9992be76347ca197d6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977719"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrera från Azure Container Service (ACS) till Azure Kubernetes Service (AKS)
@@ -131,7 +131,7 @@ Flera verktyg för öppen källkod kan, beroende på dina distributionsbehov:
 * [Azure Kube CLI-tillägg](https://github.com/yaron2/azure-kube-cli)
 * [ReShifter](https://github.com/mhausenblas/reshifter)
 
-## <a name="migration-steps"></a>Migreringssteg
+## <a name="migration-steps"></a>Migreringsanvisningar
 
 1. [Skapa ett AKS-kluster](https://docs.microsoft.com/azure/aks/create-cluster) via Azure portal, Azure CLI eller Azure Resource Manager-mall.
 

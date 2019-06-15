@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053324"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och Brandvägg för webbaserade program från v1 till v2
 
@@ -117,11 +117,11 @@ Kör skriptet så här:
 
       Om du vill skapa en lista över PSApplicationGatewayTrustedRootCertificate objekt [New AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: Valfritt**. En specifik privat IP-adress som du vill koppla till din nya v2-gateway.  Detta måste vara från samma virtuella nätverk som du allokera för din nya v2-gateway. Om detta inte anges i skriptet allokerar en privat IP-adress för v2-gateway.
-    * **publicIpResourceId: [String]: Valfritt**. Resurs-ID för en offentlig IP-adressresurs i din prenumeration som du vill tilldela den nya v2-gatewayen. Om detta inte anges tilldelar skriptet en ny offentlig IP-adress i samma resursgrupp. Namnet är v2-gatewayens namn med *- IP* sist.
+    * **publicIpResourceId: [String]: Valfritt**. Resurs-ID för en offentlig IP-adress (standard-SKU)-resurs i din prenumeration som du vill tilldela den nya v2-gatewayen. Om detta inte anges tilldelar skriptet en ny offentlig IP-adress i samma resursgrupp. Namnet är v2-gatewayens namn med *- IP* sist.
    * **validateMigration: [växla]: Valfritt**. Använd den här parametern om du vill att skriptet ska göra vissa grundkonfiguration jämförelse verifieringar efter v2 gateway skapande och kopiering konfiguration. Som standard görs ingen validering.
    * **enableAutoScale: [växla]: Valfritt**. Använd den här parametern om du vill att skriptet ska aktivera automatisk skalning på den nya v2-gatewayen när den har skapats. Automatisk skalning är inaktiverad som standard. Du kan alltid manuellt aktivera det senare på den nyligen skapade v2-gatewayen.
 
-1. Kör skriptet med lämpliga parametrar.
+1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
 
     **Exempel**
 
@@ -176,7 +176,11 @@ Nej. Azure PowerShell-skriptet migrerar endast konfigurationen. Faktiska trafik 
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Är den nya v2-gatewayen som skapats av Azure PowerShell-skriptet lämplig storlek för att hantera all trafik som för närvarande hanteras av min v1-gateway?
 
-Azure PowerShell-skriptet skapar en ny v2-gateway med en lämplig storlek för att hantera trafiken på din befintliga V1-gateway. Automatisk skalning är inaktiverat som standard, men du kan aktivera automatisk skalning när du kör skriptet.
+Azure PowerShell-skriptet skapar en ny v2-gateway med en lämplig storlek för att hantera trafiken på din befintliga v1-gateway. Automatisk skalning är inaktiverat som standard, men du kan aktivera automatisk skalning när du kör skriptet.
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Jag har konfigurerat min v1-gateway för att skicka loggar till Azure storage. Skriptet replikera den här konfigurationen för v2 samt?
+
+Nej. Skriptet replikera inte den här konfigurationen för v2. Du måste lägga till loggningskonfigurationen separat migrerade v2-gateway.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag fick vissa problem med det här skriptet. Hur kan jag få hjälp?
   

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167091"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrera IaaS-resurser från den klassiska distributionsmodellen till Azure Resource Manager
@@ -64,7 +64,7 @@ Verifiering analyserar endast tillståndet för resurserna i den klassiska distr
 | Alla regler för belastningsutjämnaren är giltig för distribution och det virtuella nätverket. |
 | Motstridiga privata IP-adresser mellan frigörandet av virtuella datorer i samma virtuella nätverk. |
 
-### <a name="prepare"></a>Förbered
+### <a name="prepare"></a>Förbereda
 Förberedelse är det andra steget under migreringen. Målet med det här steget är att simulera omvandlingen av IaaS-resurser från den klassiska distributionsmodellen till Resource Manager-resurser. Dessutom anger Förberedelseåtgärden denna sida vid sida vid sida.
 
 > [!NOTE] 
@@ -117,7 +117,7 @@ Det här är ett valfritt steg om du vill återställa ändringarna till den kla
 > Den här åtgärden kan inte utföras när du har aktiverat incheckning.     
 >
 
-### <a name="commit"></a>Incheckning
+### <a name="commit"></a>Checka in
 När verifieringen är klar kan du checka in migreringen. Resurser visas inte längre i den klassiska distributionsmodellen och är endast tillgängliga i Resource Manager-distributionsmodellen. De migrerade resurserna kan bara hanteras i den nya portalen.
 
 > [!NOTE]
@@ -138,7 +138,7 @@ Du hittar den klassiska distributionsmodellen och Resource Manager-representatio
 
 | Klassiskt läge | Resource Manager-läge | Anteckningar |
 | --- | --- | --- |
-| Molntjänstnamn |DNS-namn |Under migreringen skapas en ny resursgrupp för varje molntjänst med namngivningsmönstret `<cloudservicename>-migrated`. Den här resursgruppen innehåller alla dina resurser. Namnet på molntjänsten blir ett DNS-namn som kopplas till den offentliga ip-adressen. |
+| Molntjänstens namn |DNS-namn |Under migreringen skapas en ny resursgrupp för varje molntjänst med namngivningsmönstret `<cloudservicename>-migrated`. Den här resursgruppen innehåller alla dina resurser. Namnet på molntjänsten blir ett DNS-namn som kopplas till den offentliga ip-adressen. |
 | Virtuell dator |Virtuell dator |Egenskaper för virtuella datorer migreras oförändrade. Del osProfile-information, t.ex. datornamn, lagras inte i den klassiska distributionsmodellen utan förblir tom efter migreringen. |
 | Diskresurser anslutna till den virtuella datorn |Implicita diskar anslutna till den virtuella datorn |Diskarna utformas inte som toppresurser i Resource Manager-distributionsmodellen. De migreras som implicita diskar för den virtuella datorn. För närvarande finns bara stöd för diskar som är anslutna till en virtuell dator. Resource Manager-VM kan nu använda storage-konton i den klassiska distributionsmodellen, vilket gör att diskarna så att de enkelt migreras utan någon uppdatering. |
 | VM-tillägg |VM-tillägg |Alla resurstillägg utom XML-tillägg migreras från den klassiska distributionsmodellen. |
@@ -148,12 +148,12 @@ Du hittar den klassiska distributionsmodellen och Resource Manager-representatio
 | Nätverkskonfiguration på en virtuell dator |Primärt nätverksgränssnitt |Nätverkskonfigurationen på en virtuell dator visas som en resurs för primärt nätverksgränssnitt efter migreringen. För virtuella datorer som inte tillhör något virtuellt nätverk ändras den interna ip-adressen under migreringen. |
 | Flera nätverksgränssnitt på en virtuell dator |Nätverksgränssnitt |Om en virtuell dator har flera nätverksgränssnitt som är kopplade till den, blir varje nätverksgränssnitt en resurs på toppnivå under migreringen, tillsammans med alla egenskaper. |
 | Belastningsutjämnad slutpunktsuppsättning |Lastbalanserare |I den klassiska distributionsmodellen kopplade plattformen en implicit lastbalanserare till varje tjänst i molnet. Under migreringen skapas en ny belastningsutjämnarresurs och den belastningsutjämnade slutpunktsuppsättningen blir belastningsutjämnarregler. |
-| Inkommande NAT-regler |Ingående NAT-regler |Indataslutpunkter som har angetts i den virtuella datorn omvandlas till inkommande regler för nätverksadressöversättning i lastbalanseraren under migreringen. |
+| Ingående NAT-regler |Ingående NAT-regler |Indataslutpunkter som har angetts i den virtuella datorn omvandlas till inkommande regler för nätverksadressöversättning i lastbalanseraren under migreringen. |
 | Virtuell ip-adress |Offentlig ip-adress med DNS-namn |Den virtuella IP-adressen blir en offentlig IP-adress och är associerat med belastningsutjämnaren. En virtuell ip-adress kan bara migreras om en indataslutpunkt är kopplad till den. |
 | Virtuellt nätverk |Virtuellt nätverk |Det virtuella nätverket migreras, med alla egenskaper, till Resource Manager-distributionsmodellen. En ny resursgrupp skapas med namnet `-migrated`. |
 | Reserverade ip-adresser |Offentlig ip-adress med fast fördelningsmetod |Reserverade ip-adresser som är kopplade till lastbalanseraren migreras tillsammans med molntjänsten eller den virtuella datorn. För närvarande finns inte stöd för migrering av reserverade ip-adresser utan koppling. |
 | Offentlig ip-adress per virtuell dator |Offentlig ip-adress med dynamisk fördelningsmetod |Den offentliga ip-adress som är kopplad till den virtuella datorn omvandlas som offentlig ip-adressresurs med fördelningsmetoden inställd på fas. |
-| NSG:er |Nätverkssäkerhetsgrupper (NSG) |Nätverkssäkerhetsgrupper som är kopplade till ett undernät klonas under migreringen till Resource Manager-distributionsmodellen. Nätverkssäkerhetsgruppen i den klassiska distributionsmodellen tas inte bort under migreringen. Dock blockeras alla hanteringsplanåtgärder för nätverkssäkerhetsgrupperna under migreringen. |
+| NSG:er |NSG:er |Nätverkssäkerhetsgrupper som är kopplade till ett undernät klonas under migreringen till Resource Manager-distributionsmodellen. Nätverkssäkerhetsgruppen i den klassiska distributionsmodellen tas inte bort under migreringen. Dock blockeras alla hanteringsplanåtgärder för nätverkssäkerhetsgrupperna under migreringen. |
 | DNS-servrar |DNS-servrar |DNS-servrar som är kopplade till ett virtuellt nätverk eller den virtuella datorn migreras under motsvarande resursmigrering tillsammans med alla egenskaper. |
 | Användardefinierade vägar |Användardefinierade vägar |Användardefinierade vägar som är kopplade till ett undernät klonas under migreringen till Resource Manager-distributionsmodellen. Den användardefinierade vägen i den klassiska distributionsmodellen tas inte bort under migreringen. Dock blockeras alla hanteringsplanåtgärder för den användardefinierade vägen under migreringen. |
 | Egenskapen ip-vidarebefordran i en virtuell dators nätverkskonfiguration |Egenskapen ip-vidarebefordran på nätverkskortet |Egenskapen ip-vidarebefordran i en virtuell dator omvandlas till en egenskap i nätverksgränssnittet under migreringen. |

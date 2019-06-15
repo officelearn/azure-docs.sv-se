@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: eea8a919665a773c48ac3e138c19a54160f41b2e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160379"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL-migreringspartner
 Du kan välja från ett brett utbud av branschledande partners och verktyg för att stödja brett din Azure Database för MySQL-lösningen. Den här artikeln visar Microsoft-partner med lösningar som stöder Azure Database for MySQL.
 
 ## <a name="migration-partners"></a>Migreringspartner
-| Partner | Beskrivning | Länkar | Videor |
+| Partner | Beskrivning | Länkar | Videoklipp |
 | --- | --- | --- | --- |
 | ![SNP tekniker][1] |**SNP tekniker**<br>SNP Technologies är en molnbaserad leverantör, att skapa säkra och tillförlitliga lösningar för företag i framtiden. Företaget anser i genereringen av verkliga värdet för din verksamhet. Från ansedda fjärrkörning av delar SNP tekniker en gemensam syftet med klienter är att aktivera sina investeringar i en fördel.|[Webbplats][snp_website]<br>[Twitter][snp_twitter]<br>[Kontakta][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB bästa hjälper kunderna att få ut mest av en hanterad databastjänst för Azure. Företaget erbjuder flera olika sätt för dig att komma igång, inklusive [framtiden tillstånd arkitektoniska Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management optimering för Microsofts dataplattform](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure Distributionsplanerings-tjänster](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services), och [Azure Data Platform beredskap utbildning](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Webbplats][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Kontakta][dbbest_contact] | |

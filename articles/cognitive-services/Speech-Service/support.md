@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072365"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -64,7 +64,7 @@ Stack Overflow är prioriterade kanalen för utveckling-relaterade frågor. Det 
 
 Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att Stack Overflow. Använd någon av följande taggar när du formulera frågan:
 
-|Komponenten/område  |Taggar  |
+|Komponenten/område  |Tags  |
 |---------|---------|
 |Taligenkänning |[[microsoft-cognitive + tal-till-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Talsyntes |[[microsoft-cognitive + text-till-tal]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
@@ -83,7 +83,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 Exempel är ofta publiceras med öppen källkod. För frågor och problem, skapar du en *problemet* i respektive GitHub-lagringsplatsen. Du kan skicka en pull-begäran för. Följande lista innehåller länkar till exempel databaser.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Tal enheter SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Du kan skapa en felrapport, funktionsförfrågan, eller be en allmän fråga och dela bästa praxis. Följ den angivna mallen för buggrapporter:
 

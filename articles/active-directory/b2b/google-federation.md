@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891904"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
@@ -101,7 +101,7 @@ Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästa
 1. Gå till [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
 2. Välj **organisationens relationer**.
 3. Välj **identitetsprovidrar**.
-4. På den **Google** rad, väljer du snabbmenyn (**...** ) och välj sedan **ta bort**. 
+4. På den **Google** rad, väljer du snabbmenyn ( **...** ) och välj sedan **ta bort**. 
    
    ![Skärmbild som visar alternativet Ta bort för den sociala identitetsprovidern](media/google-federation/google-social-identity-providers.png)
 

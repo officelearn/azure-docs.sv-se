@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
+title: Snabbstart – blockera åtkomst när en session risk identifieras med Azure Active Directory villkorlig åtkomst | Microsoft Docs
 description: I den här snabbstarten får du lära dig hur du kan konfigurera en princip för villkorlig åtkomst för Azure Active Directory (Azure AD) för att blockera inloggningar baserat på sessionen risker.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8de4e785bbe2496ca38b33512da1c85f9ff76f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112767"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en session risk identifieras med Azure Active Directory villkorsstyrd åtkomst  
 
 Om du vill behålla din miljö skyddad, kanske du vill blockera misstänkta användare från att logga in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet [risknivåer för inloggning](conditions.md#sign-in-risk). Du kan konfigurera principer för villkorlig åtkomst för att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk.
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
-- **Åtkomst till en Azure AD Premium P2-versionen** -villkorlig åtkomst är en funktion i Azure AD Premium P1, du behöver en P2-versionen eftersom scenariot i den här snabbstarten kräver Identity Protection.
+- **Åtkomst till en Azure AD Premium P2-versionen** -medan villkorlig åtkomst är en funktion i Azure AD Premium P1, P2-versionen måste eftersom scenariot i den här snabbstarten kräver Identity Protection.
 
 - **Identitetsskydd** -scenariot i den här snabbstarten kräver Identity Protection är aktiverat. Om du inte vet hur du aktiverar du Identity Protection, se [aktiverar Azure Active Directory Identity Protection](../identity-protection/enable.md).
 
@@ -53,7 +53,7 @@ Målet med det här steget är att se till att ditt testkonto har åtkomst till 
 
 Scenariot i den här snabbstarten använder en inloggning från en Tor Browser för att generera en identifierad **inloggningar från anonyma IP-adresser** riskhändelsen. Risknivån för den här riskhändelsen är medium. Om du vill svara på den här riskhändelsen kan ange du inloggningsrisk villkoret medium. I en produktionsmiljö bör du ange villkoret inloggningsrisk till hög eller medelhög och hög.
 
-Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs. Ange i din princip:
+Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkomst. Ange i din princip:
 
 | Inställning | Värde |
 | --- | --- |
@@ -66,7 +66,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 
 **Konfigurera principer för villkorlig åtkomst:**
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 
 1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
@@ -150,7 +150,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg **vad händer om principen verktyget** att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg **vad händer om principen verktyget** att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
 När du kör den **vad händer om principen verktyget** i det här scenariot i **blockera åtkomst för medelstora risknivå** bör visas under **principer som gäller**.
 
@@ -160,7 +160,7 @@ När du kör den **vad händer om principen verktyget** i det här scenariot i *
 
 1. På den [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn längst upp på sidan klickar du på **vad händer om**.  
 
-   ![What If](./media/app-sign-in-risk/14.png)
+   ![Tänk om](./media/app-sign-in-risk/14.png)
 
 1. Klicka på **användaren**väljer **Alan Charon** på den **användare** , och klicka sedan på **Välj**.
 
@@ -172,7 +172,7 @@ När du kör den **vad händer om principen verktyget** i det här scenariot i *
 
 1. Klicka på **vad händer om**.
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
 I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst att se till att den fungerar som förväntat.
 

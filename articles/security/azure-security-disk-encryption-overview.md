@@ -1,34 +1,22 @@
 ---
-title: Översikt – Azure Disk Encryption för virtuella IaaS-datorer | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Microsoft Azure Disk Encryption för virtuella IaaS-datorer.
+title: Vad är Azure Disk Encryption?
+description: Den här artikeln innehåller en översikt över Azure Disk Encryption
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068794"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption för virtuella IaaS-datorer
+# <a name="azure-disk-encryption-overview"></a>Översikt över Azure Disk Encryption
 
-Microsoft Azure är förbundet till att se till att dina datasekretess och datasuveränitet. Med Azure kan du styra dina Azure-baserade data via ett utbud av avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar och kontroll och granskning åtkomst av data. Den här kontrollen innehåller Azure-kunder med flexibiliteten att välja den lösning som bäst uppfyller sina affärsbehov. Den här artikeln ger en introduktion till en tekniklösning: ”Azure Disk Encryption för Windows och Linux IaaS virtuella datorer (VM)”. Den här tekniken kan skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. 
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-
-## <a name="overview"></a>Översikt
-
-Azure Disk Encryption är en funktion som hjälper dig att kryptera din Windows- och Linux IaaS VM-diskar. Diskkryptering utnyttjar branschstandard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) funktion i Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funktion i Linux för att kryptera volymer OS och datadiskar. Lösningen är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklar och hemligheter. Lösningen innebär också att alla data på Virtuella datordiskar är krypterade i vila i din Azure-lagring.
-
-Disk Encryption för Windows och Linux IaaS-datorer är allmänt tillgängliga i alla offentliga Azure-regioner och Azure Government-regioner för Standard virtuella datorer och virtuella datorer med Azure Premium Storage. När du använder hanteringslösning för diskkryptering så kan du uppfylla följande affärsbehov:
-
-* Virtuella IaaS-datorer är skyddade i vila med branschstandard krypteringsteknik för att uppfylla organisationens krav för säkerhet och efterlevnad.
-* Virtuella IaaS-datorer startar under kund-kontrollerade nycklar och principer. Du kan granska deras användning i ditt nyckelvalv.
+Azure Disk Encryption kan du skydda och skydda dina data så att du uppfyller din organisations säkerhet och efterlevnad. Den använder den [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) funktion i Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funktion i Linux för att kryptera volymer i Operativsystemet och datadiskarna Azure-datorer (VM). Det är också integrerat med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklarna och hemligheterna, och ser till att alla data på VM-diskarna krypteras i vila i Azure storage. Azure Disk Encryption för Windows och Linux-datorer är allmänt tillgängliga i alla offentliga Azure-regioner och Azure Government-regioner för Standard virtuella datorer och virtuella datorer med Azure Premium Storage. 
 
 Om du använder Azure Security Center kan du en varning om du har virtuella datorer som inte är krypterade. Aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
 
@@ -40,108 +28,100 @@ Om du använder Azure Security Center kan du en varning om du har virtuella dato
 
 ## <a name="encryption-scenarios"></a>Krypteringsscenarier
 
-Disk Encryption-lösningen har stöd för följande kundscenarier:
+Med Azure Disk Encryption, kan du lösa organisationers säkerhets- och efterlevnadskrav genom att skydda dina virtuella Azure-datorer i vila med branschstandard krypteringsteknik. Du kan också konfigurera virtuella datorer att starta under kund-kontrollerade nycklar och principer (BYOK) och granska användning av dessa nycklar i ditt nyckelvalv.
 
-* Aktivera kryptering på den nya Windows virtuella IaaS-datorer skapas från förkrypterade nycklar för VHD- och kryptering.
-* Aktivera kryptering på den nya virtuella IaaS-datorer skapas från stöds galleriavbildningar för Azure.
-* Aktivera kryptering på befintliga virtuella IaaS-datorer som körs i Azure.
-* Aktivera kryptering på Windows VM scale sets.
-* Aktivera kryptering på enheter för Linux VM-skalningsuppsättningar.
-* Inaktivera kryptering på Windows virtuella IaaS-datorer.
-* Inaktivera kryptering på enheter för virtuella Linux IaaS-datorer.
-* Inaktivera kryptering på Windows VM-skalningsuppsättningar.
-* Inaktivera kryptering på enheter för Linux VM-skalningsuppsättningar.
-* Aktivera kryptering av virtuella datorer med hanterade diskar.
-* Uppdatera krypteringsinställningarna för en befintlig krypterade Premium- och icke - Premium Storage VM.
+Azure Disk Encryption har stöd för följande kundscenarier:
+
+* Aktivera och inaktivera kryptering på den nya virtuella datorer som skapas från stöds avbildningarna i Azure-galleriet.
+* Aktivera och inaktivera kryptering på den befintliga virtuella datorer som körs i Azure.
+* Aktivera och inaktivera kryptering på den nya Windows virtuella datorer skapas från förkrypterade VHD och krypteringsnycklar.
+* Aktivera och inaktivera kryptering på Windows VM-skalningsuppsättning anger.
+* Aktivera och inaktivera kryptering på data-enheter för Linux VM-skalningsuppsättningar.
+* Aktivera och inaktivera kryptering av virtuella datorer med hanterade diskar.
+* Uppdaterar krypteringsinställningarna för av en befintlig krypterade Premium och icke - Premium Storage VM.
 * Säkerhetskopiera och återställa krypterade virtuella datorer.
+* Ta med din egen kryptering (BYOE) och bring your own key (BYOK)-scenarion där kunderna använda sina egna krypteringsnycklar och lagra dem i ett Azure key vault.
 
-Lösningen stöder följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
+Det stöder också följande scenarier för virtuella datorer när de är aktiverade i Microsoft Azure:
 
 * Integrering med Azure Key Vault.
-* Standard-nivån virtuella datorer: [A, D, DS, G, GS, F och så vidare, serien virtuella IaaS-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/). [Virtuella Linux-datorer](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) inom de här nivåerna måste uppfylla minsta minnesstorlek som krävs av 7 GB.
-* Aktivera kryptering på Windows och Linux IaaS-datorer, hanterade disk och skala Konfigurera virtuella datorer från stöds avbildningarna i Azure-galleriet.
-* Inaktivera kryptering på operativsystem och enheter för Windows virtuella IaaS-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
-* Inaktivera kryptering på enheter för virtuella Linux IaaS-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
-* Aktivera kryptering på den virtuella IaaS-datorer som kör Windows klient-OS.
+* [Standard-nivån VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [Virtuella Linux-datorer](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) inom de här nivåerna måste uppfylla minsta minnesstorlek som krävs av 7 GB. 
+* Aktivera kryptering på Windows och Linux-datorer, hanterad disk och skala Konfigurera virtuella datorer från stöds avbildningarna i Azure-galleriet.
+* Inaktiverat kryptering på operativsystem och enheter för virtuella Windows-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
+* Inaktivera kryptering på enheter för virtuella Linux-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
+* Aktiverar kryptering på virtuella datorer som kör Windows klient-OS.
 * Aktivera kryptering på volymer med monteringssökvägar.
-* Aktivera kryptering på den virtuella Linux-datorer som är konfigurerade med disk-striping (RAID) med hjälp av mdadm.
-* Aktivera kryptering på den virtuella Linux-datorer som använder LVM för datadiskar.
-* Aktivera kryptering på Linux VM OS och datadiskar.
+* Aktiverar kryptering på den virtuella Linux-datorer som är konfigurerade med disk-striping (RAID) med hjälp av mdadm.
+* Aktiverar kryptering på den virtuella Linux-datorer som använder LVM för datadiskar.
+* Aktiverar kryptering på Linux VM OS och datadiskar.
 
    > [!NOTE]
    > OS-kryptering för vissa Linux-distributioner stöds inte. Mer information finns i den [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln.
    
 * Aktivera kryptering på virtuella datorer som är konfigurerade med Windows-lagringsutrymmen från och med Windows Server 2016.
-* Uppdatera krypteringsinställningar för en befintlig krypterade Premium- och icke - Premium Storage VM.
 * Säkerhetskopiera och återställa krypterade virtuella datorer för både nyckelkrypteringsnyckel (KEK) och icke-KEK-scenarier.
-* Alla offentliga Azure och Azure Government-regioner stöds.
 
-Lösningen stöder inte följande scenarier, funktioner och -teknik:
+Azure Disk Encryption fungerar inte för följande scenarier, funktioner och -teknik:
 
-* Basic-nivån virtuella IaaS-datorer.
-* Inaktivera kryptering på en operativsystemenhet för virtuella Linux IaaS-datorer.
-* Inaktivera kryptering på en dataenhet när OS-enhet är krypterad för virtuella Linux IaaS-datorer.
-* OS-kryptering för Linux VM-skalningsuppsättning anger.
-* Virtuella IaaS-datorer som skapas med hjälp av metod för skapande av klassiska virtuella datorer.
-* Aktivera kryptering av kunden anpassade avbildningar på virtuella Linux IaaS-datorer.
-* Integrering med din lokala nyckelhanteringssystem.
+* Kryptering av basic-nivån virtuell dator eller virtuella datorer som skapas via den klassiska metoden för skapande av virtuell dator.
+* Inaktivera kryptering på en OS-enhet eller en dataenhet på en Linux VM när OS-enhet är krypterad.
+* Krypterar operativsystemenheten för Linux VM-skalningsuppsättning anger.
+* Kryptering av Windows virtuella datorer som konfigurerats med programvarubaserade RAID-system.
+* Kryptering av anpassade avbildningar på virtuella Linux-datorer.
+* Integrering med ett lokalt nyckelhanteringssystem.
 * Azure Files (delade filsystem).
 * Network File System (NFS).
 * Dynamiska volymer.
-* Windows virtuella datorer som är konfigurerade med programvarubaserade RAID-system.
 
 ## <a name="encryption-features"></a>Krypteringsfunktioner
 
-När du aktiverar och distribuera Disk Encryption för virtuella Azure IaaS-datorer, är följande funktioner aktiverade beroende på den angivna konfigurationen:
+När du aktiverar och distribuera Azure Disk Encryption för virtuella Azure-datorer, kan du konfigurera följande funktioner är aktiverat:
 
 * Kryptering av OS-volymen för att skydda startvolymen i vila i lagring.
-* Kryptering av datavolymer för att skydda datavolymer i vila i lagring.
-* Inaktivera kryptering på operativsystem och enheter för Windows virtuella IaaS-datorer.
-* Inaktivera kryptering på dataenheterna för virtuella Linux IaaS-datorer (endast när Operativsystemets disk inte är krypterad).
-* Skydda krypteringsnycklar och hemligheter i Azure Key Vault-prenumerationen.
-* Rapportera krypteringsstatus av krypterade IaaS-VM.
-* Ta bort inställningar för diskkonfiguration kryptering från IaaS-VM.
+* Kryptera datavolymer för att skydda datavolymer i vila i lagring.
+* Inaktivera kryptering på operativsystem och enheter för Windows-datorer.
+* Inaktivera kryptering av data-enheter för virtuella Linux-datorer (endast när Operativsystemets disk inte är krypterad).
+* Skydda krypteringsnycklar och hemligheter i Azure Key Vault-prenumeration.
+* Rapporterar krypteringsstatus för den krypterade virtuella datorn.
+* Tar bort inställningar för diskkonfiguration kryptering från den virtuella datorn.
 * Säkerhetskopiera och återställa krypterade virtuella datorer med hjälp av Azure Backup-tjänsten.
 
-Azure Disk Encryption för IaaS VMS för Windows och Linux-lösningen innehåller:
+Azure Disk Encryption för virtuella datorer för Windows och Linux innehåller:
 
-* Kryptering av disk tillägget för Windows.
-* Kryptering av disk tillägg för Linux.
-* PowerShell disk encryption-cmdlets.
-* Cmdletar för Azure CLI disk encryption.
-* Mallar för resurshanteraren för Azure disk encryption.
+* [Disk encryption-tillägget för Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
+* [Disk encryption-tillägget för Linux](../virtual-machines/extensions/azure-disk-enc-linux.md).
+* [PowerShell-cmdlets kryptering av disk](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
+* [Disk encryption-cmdletar för Azure CLI](/cli/azure/vm/encryption?view=azure-cli-latest).
+* [Azure Resource Manager-mallar kryptering av disk](azure-security-disk-encryption-appendix.md#resource-manager-templates).
 
-Azure Disk Encryption-lösningen stöds för virtuella IaaS-datorer som kör Windows eller Linux-operativsystem. Mer information om operativsystem som stöds finns i den [krav](azure-security-disk-encryption-prerequisites.md) artikeln.
+Azure Disk Encryption stöds på virtuella datorer som kör Windows eller Linux-operativsystem. Mer information om operativsystem som stöds finns i [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Det finns ingen ytterligare avgift för att kryptera Virtuella diskar med Azure Disk Encryption. Standard [prissättning för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) gäller för nyckelvalvet som används för att lagra krypteringsnycklarna. 
-
 
 ## <a name="encryption-workflow"></a>Arbetsflöde för kryptering
 
 Om du vill aktivera diskkryptering för Windows och Linux-datorer, gör du följande:
 
-1. Välj ett scenario för kryptering från de scenarier som beskrivs i den [krypteringssituationer](#encryption-scenarios) avsnittet.
-
 1. Välj för att aktivera diskkryptering via Azure Disk Encryption Resource Manager-mallen, PowerShell-cmdletar eller Azure CLI och anger önskad krypteringskonfiguration.
 
-   * Ladda upp den krypterade virtuella Hårddisken till ditt lagringskonto och kryptering nyckelmaterial till ditt nyckelvalv för scenariot kund-krypterade virtuella Hårddisken. Ange kryptering konfigurationen för att aktivera kryptering på en ny IaaS-VM.
-   * Tillhandahåller kryptering konfigurationen för att aktivera kryptering på IaaS-VM för nya virtuella datorer som har skapats från Marketplace och befintliga virtuella datorer som redan kör i Azure.
+   * Ladda upp den krypterade virtuella Hårddisken till ditt lagringskonto och kryptering nyckelmaterial till ditt nyckelvalv för scenariot kund-krypterade virtuella Hårddisken. Ange kryptering konfigurationen för att aktivera kryptering på en ny virtuell dator.
+   * För nya virtuella datorer som skapas från galleriavbildningar som stöds, och befintliga virtuella datorer som redan kör i Azure, anger du kryptering konfigurationen för att aktivera kryptering på den virtuella datorn.
 
-1. Bevilja åtkomst till Azure-plattformen för att läsa nyckelmaterial för kryptering (BitLocker-krypteringsnycklar för Windows-System) och lösenfras för Linux från ditt nyckelvalv och aktivera kryptering på IaaS-VM.
+1. Bevilja åtkomst till Azure-plattformen för att läsa nyckelmaterial för kryptering (BitLocker-krypteringsnycklar för Windows-System) och lösenfras för Linux från ditt nyckelvalv och aktivera kryptering på den virtuella datorn.
 
 1. Azure uppdaterar tjänstmodellen virtuell dator med kryptering och konfiguration av key vault och ställer in den krypterade virtuella datorn.
 
    ![Microsoft Antimalware i Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
 ## <a name="decryption-workflow"></a>Arbetsflöde för dekryptering
-Om du vill inaktivera disk encryption för virtuella IaaS-datorer, utför du följande anvisningar:
+Om du vill inaktivera diskkryptering för virtuella datorer, utför du följande anvisningar:
 
-1. Välja att inaktivera kryptering (dekryptering) på en pågående IaaS-VM i Azure och anger önskad konfiguration för dekryptering. Du kan inaktivera via Azure Disk Encryption Resource Manager-mallen, PowerShell-cmdletar eller Azure CLI.
+1. Välja att inaktivera kryptering (dekryptering) på en virtuell dator som körs i Azure och anger konfigurationen för dekryptering. Du kan inaktivera via Azure Disk Encryption Resource Manager-mallen, PowerShell-cmdletar eller Azure CLI.
 
-   Det här steget inaktiverar kryptering av Operativsystemet datavolym och/eller som kör Windows virtuella IaaS-datorer. Som vi nämnde i föregående avsnitt, stöds inaktivering av OS-diskkryptering för Linux inte. Steg för dekryptering tillåts endast för enheter på virtuella Linux-datorer så länge som OS-disken inte är krypterad.
+   Det här steget inaktiverar kryptering av Operativsystemet eller datavolymen eller både på virtuell dator som körs Windows. Som vi nämnde i föregående avsnitt, stöds inaktivering av OS-diskkryptering för Linux inte. Steg för dekryptering tillåts endast för enheter på virtuella Linux-datorer så länge som OS-disken inte är krypterad.
 
-1. Uppdateringar för Azure VM-tjänstmodellen och IaaS-VM har markerats som dekrypteras. Innehållet i den virtuella datorn är inte längre krypterade i vila.
+1. Uppdateringar för Azure VM-tjänstmodellen och den virtuella datorn har markerats som dekrypteras. Innehållet i den virtuella datorn är inte längre krypterade i vila.
 
    > [!NOTE]
    > Åtgärden inaktivera kryptering tar inte bort nyckelvalvet och nyckelmaterial för kryptering (BitLocker-krypteringsnycklar för Windows-System) eller en lösenfras för Linux.
@@ -159,30 +139,31 @@ Den nya versionen av Azure Disk Encryption eliminerar kravet på att tillhandah�
 
 1. Välj för att aktivera diskkryptering via Azure Disk Encryption Resource Manager-mallen, PowerShell-cmdletar eller Azure CLI och anger önskad krypteringskonfiguration.
 
-   * Ladda upp den krypterade virtuella Hårddisken till ditt lagringskonto och kryptering nyckelmaterial till ditt nyckelvalv för scenariot kund-krypterade virtuella Hårddisken. Ange kryptering konfigurationen för att aktivera kryptering på en ny IaaS-VM.
-   * Tillhandahåller kryptering konfigurationen för att aktivera kryptering på IaaS-VM för nya virtuella datorer som har skapats från Marketplace och befintliga virtuella datorer som redan kör i Azure.
+   * Ladda upp den krypterade virtuella Hårddisken till ditt lagringskonto och kryptering nyckelmaterial till ditt nyckelvalv för scenariot kund-krypterade virtuella Hårddisken. Ange kryptering konfigurationen för att aktivera kryptering på en ny virtuell dator.
+   * Ange den kryptering för nya virtuella datorer som har skapats från Marketplace och befintliga virtuella datorer som redan kör i Azure för att aktivera kryptering på den virtuella datorn.
 
-1. Bevilja åtkomst till Azure-plattformen för att läsa nyckelmaterial för kryptering (BitLocker-krypteringsnycklar för Windows-System) och lösenfras för Linux från ditt nyckelvalv och aktivera kryptering på IaaS-VM.
+1. Bevilja åtkomst till Azure-plattformen för att läsa nyckelmaterial för kryptering (BitLocker-krypteringsnycklar för Windows-System) och lösenfras för Linux från ditt nyckelvalv och aktivera kryptering på den virtuella datorn.
 
-1. Ange Azure AD-identitet för programmet för att skriva krypteringsnyckeln material till ditt nyckelvalv. Det här steget aktiverar kryptering på IaaS-VM för scenarier som nämns i steg 2.
+1. Ange Azure AD-identitet för programmet för att skriva krypteringsnyckeln material till ditt nyckelvalv. Det här steget aktiverar kryptering på den virtuella datorn för de scenarier som nämns i steg 2.
 
 1. Azure uppdaterar tjänstmodellen virtuell dator med kryptering och konfiguration av key vault och ställer in den krypterade virtuella datorn.
 
 
 ## <a name="terminology"></a>Terminologi
-I följande tabell definieras några av de vanliga termer som används i den här tekniken:
+I följande tabell definieras några av de vanliga termer som används i Azure disk encryption-dokumentationen:
 
 | Terminologi | Definition |
 | --- | --- |
 | Azure AD | En [Azure AD](https://azure.microsoft.com/documentation/services/active-directory/) används för att autentisera, lagra och hämta hemligheter från key vault. |
 | Azure Key Vault | Key Vault är en kryptografisk, key management-tjänst som har baserat på FIPS Federal Information Processing Standards () validerade och maskinvarubaserade säkerhetsmoduler. Dessa standarder bidra till att skydda dina kryptografiska nycklar och känsliga hemligheter. Mer information finns i den [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dokumentation. |
-| BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) är en bransch identifieras Windows volym krypteringsteknik som används för att aktivera diskkryptering på Windows virtuella IaaS-datorer. |
+| BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) är en bransch identifieras Windows volym krypteringsteknik som används för att aktivera diskkryptering på virtuella Windows-datorer. |
 | BEK | BitLocker-krypteringsnycklar (BEK) används för att kryptera startvolymen för Operativsystemet och datavolymer. BEKs skyddas som hemligheter i key vault. |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) är optimerad för att hantera och administrera Azure-resurser från kommandoraden.|
-| DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) är undersystemet för Linux-baserade och transparent diskkryptering som används för att aktivera diskkryptering på virtuella Linux IaaS-datorer. |
-| KEK | Nyckelkrypteringsnyckel (KEK) är en asymmetrisk nyckel (RSA 2048) som du kan använda för att skydda eller packa in hemligheten. Du kan ange en maskinvarusäkerhetsmodul (HSM)-skyddade nyckel eller programvaruskyddad nyckel. Mer information finns i den [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dokumentation. |
+| DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) är undersystemet för Linux-baserade och transparent diskkryptering som används för att aktivera diskkryptering på virtuella Linux-datorer. |
+| Nyckelkrypteringsnyckel (KEK) | En asymmetrisk nyckel (RSA 2048) som du kan använda för att skydda eller packa in hemligheten. Du kan ange en maskinvarusäkerhetsmodul (HSM)-skyddade nyckel eller programvaruskyddad nyckel. Mer information finns i den [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dokumentation. |
 | PowerShell-cmdletar | Mer information finns i [Azure PowerShell-cmdlets](/powershell/azure/overview). |
 
 ## <a name="next-steps"></a>Nästa steg
-> [!div class="nextstepaction"]
-> [Krav för Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)
+
+Kom igång genom att se den [som krävs för Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md).
+

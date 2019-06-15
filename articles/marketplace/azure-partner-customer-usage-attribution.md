@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807195"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -267,11 +267,13 @@ När du distribuerar \<PARTNER > programvara, Microsoft kan identifiera installa
 
 ## <a name="get-support"></a>Få support
 
-Om du får problem med rapporten eller logga in på Partner Center skapa en supportförfrågan med Partner Center supportteamet här: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Det finns två supportkanaler, beroende på de problem som du får.
+
+Om det uppstår problem på Partner Center, till exempel se attribution kund användningsrapporten eller inloggning, kan du skapa en supportförfrågan med Partner Center supportteamet här: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Följ dessa steg om du behöver hjälp för Marketplace Onboarding och/eller attribution för användning av kunden.
+Om du behöver hjälp för Marketplace Onboarding och/eller kundens användning attribution generellt sätt, till exempel hur du ställer in kundens användning attribution, följer du stegen nedan:
 
 1. Gå till den [supportsidan](https://go.microsoft.com/fwlink/?linkid=844975).
 

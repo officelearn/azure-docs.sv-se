@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059402"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
@@ -39,7 +39,7 @@ Läs mer om att skala HDInsight [skala HDInsight-kluster](hdinsight-scaling-best
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Använda Apache Tez i stället för Map Reduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) är en alternativ Körningsmotor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
+[Apache Tez](https://tez.apache.org/) är en alternativ Körningsmotor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez är snabbare eftersom:
 * **Återanvänder behållare**. När möjligt Tez kan återanvända behållare för att säkerställa att fördröjning på grund av startar behållare minskas.
 * **Kontinuerlig optimeringstekniker**. Traditionellt gjordes optimering under fasen för kompilering. Men mer information om indata är tillgängliga som gör det möjligt att den optimeras under körning. Tez använder kontinuerlig optimeringstekniker som gör det att optimera planen i runtime-fas.
 
-Mer information om de här koncepten finns i [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+Mer information om de här koncepten finns i [Apache TEZ](https://tez.apache.org/).
 
 Du kan göra eventuella Hive-fråga Tez aktiverat genom frågan med följande set-kommando:
 

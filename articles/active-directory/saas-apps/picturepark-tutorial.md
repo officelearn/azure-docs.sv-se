@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 617c75024b45dab7ff2466b99bfb71c18cdd778a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudier: Azure Active Directory-integrering med Picturepark
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Picturepark i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till Picturepark från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -276,5 +276,5 @@ När du klickar på panelen Picturepark i åtkomstpanelen, bör det vara loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

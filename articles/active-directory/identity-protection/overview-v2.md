@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108887"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdateras)?
 
@@ -56,7 +56,7 @@ För att svara på dessa hot, hjälper Azure AD Identity Protection dig att:
 
  
 
-Azure AD Identity Protection är en funktion i Azure Active Directory Premium P2 där du kan konfigurera principer för att automatiskt svarar när en användares identitet har komprometterats eller när någon annan än Kontoägare om du försöker logga in med sina identitet. Dessa principer, utöver andra kontroller för villkorlig åtkomst som tillhandahålls av Azure AD, antingen automatiskt blockera åtkomst eller initiera minskning åtgärder, till exempel återställning av lösenord eller multifaktorautentisering tvingande. Identity Protection innehåller dessutom övervakning och rapportering funktioner för att få bättre insikt i risk och potentiella kompromisser i din organisation. 
+Azure AD Identity Protection är en funktion i Azure Active Directory Premium P2 där du kan konfigurera principer för att automatiskt svarar när en användares identitet har komprometterats eller när någon annan än Kontoägare om du försöker logga in med sina identitet. Dessa principer, utöver andra kontroller för villkorlig åtkomst som tillhandahålls av Azure AD kan antingen automatiskt blockera åtkomst eller initiera minskning åtgärder, till exempel återställning av lösenord eller multifaktorautentisering tvingande. Identity Protection innehåller dessutom övervakning och rapportering funktioner för att få bättre insikt i risk och potentiella kompromisser i din organisation. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -69,11 +69,11 @@ Azure AD Identity Protection identifierar de följande riskhändelser:
 
 | Typ av riskhändelse | Beskrivning | Identifieringstyp |
 | ---             | ---         | ---            |
-| Ovanlig resa | Logga in från en ovanlig plats baserat på användarens senaste inloggningar. | Offline |
-| Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor browser, anonymizer VPN). | Realtid |
-| Obekanta inloggningsegenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. | Realtid |
-| IP-adress länkad till skadlig kod | Logga in från en skadlig kod länkad IP-adress | Offline |
-| Läcka ut autentiseringsuppgifter | Den här riskhändelsen risk anger att användarens giltiga autentiseringsuppgifter har avslöjats | Offline |
+| Ovanliga resa | Logga in från en ovanlig plats baserat på användarens senaste inloggningar. | Offline |
+| Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor browser, anonymizer VPN). | I realtid |
+| Okänd inloggning egenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. | I realtid |
+| Skadlig kod länkad IP-adress | Logga in från en skadlig kod länkad IP-adress | Offline |
+| Läcka ut autentiseringsuppgifter | Den här riskhändelsen anger att användarens giltiga autentiseringsuppgifter har varit läcka ut | Offline |
 
 
 
@@ -153,7 +153,7 @@ Nu ska vi titta på exempel för en anställd på Contoso.
 
 2. Azure AD upptäcker att anställda loggar in från en anonym IP-adress, utlösa en inloggning Medelrisk-nivå. 
 
-3. Medarbetaren är på samma en MFA-prompt eftersom Contosos IT-administratören konfigurerat principen för villkorlig åtkomst inloggningsrisk Identity Protection. Principen kräver MFA för en risk för medelstora eller högre. 
+3. Medarbetaren är på samma en MFA-prompt eftersom Contosos IT-administratören har konfigurerat den Identity Protection inloggningsrisk princip för villkorlig åtkomst. Principen kräver MFA för en risk för medelstora eller högre. 
 
 4. Medarbetaren skickar MFA-prompten och får åtkomst till Exchange Online och deras risknivån ändras inte. 
 
@@ -203,7 +203,7 @@ Identity Protection stöder 3 roller i Azure AD för att balansera hanteringsakt
 Mer information finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 
  
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 
 >[!NOTE]
 > Allmänt tillgängliga förhandsversionen av Identity Protection (uppdateras) har endast Azure AD Premium P2-kunder åtkomst till riskabla användare rapport och rapporten över riskfyllda inloggningar.
@@ -212,9 +212,9 @@ Mer information finns i [Tilldela administratörsroller i Azure Active Directory
 
 | Funktion | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/kostnadsfritt |
 | --- | --- | --- | --- |
-| Riskprincip för användare | Ja | Nej | Nej |
+| Princip för användarrisk | Ja | Nej | Nej |
 | Riskprincip för inloggning | Ja | Nej | Nej |
-| Rapport om riskanvändare | Fullständig åtkomst | Begränsad Information | Begränsad Information |
+| Riskfylld användare rapport | Fullständig åtkomst | Begränsad Information | Begränsad Information |
 | Rapport över riskfyllda inloggningar | Fullständig åtkomst | Begränsad Information | Begränsad Information |
 | MFA-registreringsprincip | Ja | Nej | Nej |
 

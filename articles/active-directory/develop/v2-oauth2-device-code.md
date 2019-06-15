@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052242"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-plattformen och kodflöde för OAuth 2.0-enhet
 
@@ -31,9 +31,11 @@ ms.locfileid: "65544928"
 Microsoft identity-plattformen stöder den [enheten beviljande via](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), vilket gör att användare att logga in på indata begränsad enheter, till exempel en smart-TV, IoT-enheter och skrivare.  Om du vill aktivera det här flödet har enheten användaren gå till en webbsida i webbläsaren på en annan enhet för att logga in.  När användaren loggar in, kan enheten att få åtkomst-token och uppdatera token efter behov.  
 
 > [!IMPORTANT]
-> För närvarande stöder Microsoft identity-plattformen endpoint endast enheten flödet för Azure AD-klienter, men inte personliga konton.  Det innebär att du måste använda en slutpunkt som en klient eller `organizations` slutpunkt.  
+> För närvarande stöder Microsoft identity-plattformen endpoint endast enheten flödet för Azure AD-klienter, men inte personliga konton.  Det innebär att du måste använda en slutpunkt som en klient eller `organizations` slutpunkt.  Det här stödet kommer att aktiveras snart. 
 >
 > Personliga konton som är välkomna till en Azure AD-klient kommer att kunna använda det för enheten flöde, men endast i kontexten för klienten.
+>
+> Som en ytterligare anteckning den `verification_uri_complete` svarsfältet ingår inte eller stöds just nu.  
 
 > [!NOTE]
 > Microsoft identity-plattformen slutpunkt stöder inte alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).
@@ -42,7 +44,7 @@ Microsoft identity-plattformen stöder den [enheten beviljande via](https://tool
 
 Kodflöde för hela enheten ser ut ungefär så i nästa diagram. Vi beskriver varje steg nedan.
 
-![Enhetskodflöde](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![Kodflöde för enhet](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Begäran om godkännande för enhet
 
@@ -63,10 +65,10 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Obligatoriskt |Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat.  |
-| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
+| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna.  |
 
 ### <a name="device-authorization-response"></a>Svaret för auktorisering av enheten
@@ -77,8 +79,7 @@ Ett lyckat svar är ett JSON-objekt som innehåller informationen som krävs fö
 | ---              | --- | --- |
 |`device_code`     | String | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
 |`user_code`       | String | En kort sträng som visas för användaren som används för att identifiera session på en sekundär enhet.|
-|`verification_uri`| URI | URI: N som användaren bör gå till med den `user_code` för att kunna logga in. |
-|`verification_uri_complete`| URI | En URI som kombinerar de `user_code` och `verification_uri`, som används för bilder överföring för användaren (till exempel via Bluetooth till en enhet eller via en QR-kod).  |
+|`verification_uri`| URI: N | URI: N som användaren bör gå till med den `user_code` för att kunna logga in. |
 |`expires_in`      | int | Antalet sekunder innan den `device_code` och `user_code` upphör att gälla. |
 |`interval`        | int | Hur många sekunder som klienten ska vänta mellan avsökningen begäranden. |
 | `message`        | String | En läsbara sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i begäran i formatet `?mkt=xx-XX`, fylla i lämplig kultur språkkoden. |
@@ -98,11 +99,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parameter | Krävs | Beskrivning|
+| Parameter | Obligatoriskt | Beskrivning|
 | -------- | -------- | ---------- |
 | `grant_type` | Obligatoriskt | Måste vara `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Krävs | Måste matcha den `client_id` används i den första begäran. |
-| `device_code`| Krävs | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
+| `client_id`  | Obligatoriskt | Måste matcha den `client_id` används i den första begäran. |
+| `device_code`| Obligatoriskt | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
 
 ### <a name="expected-errors"></a>Förväntat fel
 

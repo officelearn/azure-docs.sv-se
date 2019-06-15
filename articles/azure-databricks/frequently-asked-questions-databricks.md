@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784715"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
@@ -99,7 +99,7 @@ Databricks-kluster använder en offentlig IP-adress per nod. Om din prenumeratio
 #### <a name="error-message"></a>Felmeddelande
 
 ”Cloud starta Providerfel: En cloud provider-fel påträffades när du konfigurerar klustret. Mer information finns i guiden Databricks.
-Azure felkod: MissingSubscriptionRegistration Azure-felmeddelande: Prenumerationen har inte registrerats för användning av namnområdet Microsoft.Compute. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer ”.
+Azure felkod: MissingSubscriptionRegistration Azure-felmeddelande: Prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Compute'. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer ”.
 
 #### <a name="solution"></a>Lösning
 

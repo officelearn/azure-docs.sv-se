@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808407"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
 Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
@@ -65,7 +65,7 @@ Det är viktigt att övervaka din diskanvändning när programmet växer. Om dis
 
 - Appen kan genereras ett felmeddelande om att det finns inte tillräckligt med utrymme på disken.
 - Du kan se diskfel när du går till Kudu-konsolen.
-- Distribution från VSTS eller Visual Studio kan misslyckas med `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Distribution från Azure DevOps- eller Visual Studio kan misslyckas med `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Långsamma prestanda sjunka för din app.
 
 <a id="NetworkDrives"></a>

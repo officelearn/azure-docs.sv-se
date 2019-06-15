@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166222"
 ---
 ## <a name="extended-iot-scenarios"></a>Utökade IoT-scenarier
@@ -24,7 +24,7 @@ Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till 
 | [Hantera meddelanden från IoT Hub](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code Azure IoT Hub Toolkit-tillägget|
 | [Hantera din IoT-enhet](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI och IoT-tillägget    |
 | [Hantera din IoT-enhet](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code Azure IoT Hub Toolkit-tillägget|
-| [Spara IoT Hub meddelanden till Azure storage](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure tabellagring                |
+| [Spara IoT Hub meddelanden till Azure storage](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
 | [Visualisera sensordata](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualisera sensordata](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |
 | [Ta fram väderprognoser med sensordata](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |

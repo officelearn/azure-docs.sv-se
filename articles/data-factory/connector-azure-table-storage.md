@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153556"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table storage med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-table-connector.md)
 > * [Aktuell version](connector-azure-table-storage.md)
 
@@ -46,7 +46,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Du kan skapa en länkad Azure Storage-tjänst med hjälp av kontonyckeln. Det ger data factory global åtkomst till lagring. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
 | connectionString | Ange information som behövs för att ansluta till lagringsutrymmet för connectionString-egenskapen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera kontonyckeln i Azure Key Vault och använda pull i `accountKey` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
@@ -121,7 +121,7 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt stor
 
 Om du vill använda autentisering med signatur för delad åtkomst, stöds följande egenskaper.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
 | sasUri | Ange SAS-URI för signaturen för delad åtkomst URI i tabellen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
@@ -192,7 +192,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data till och från Azure Table, ange typegenskapen på datauppsättningen till **AzureTable**. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **AzureTable**. |Ja |
 | tableName |Namnet på tabellen i Table storage-databasinstansen som den länkade tjänsten refererar till. |Ja |
@@ -233,7 +233,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Azure Table, ange typ av datakälla i kopieringsaktiviteten till **AzureTableSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **AzureTableSource**. |Ja |
 | azureTableSourceQuery |Använd anpassade Table storage fråga om för att läsa data. Se exemplen i följande avsnitt. |Nej |
@@ -259,7 +259,7 @@ Om du använder parametern pipeline kan du omvandla datetime-värde till rätt f
 
 Om du vill kopiera data till Azure Table, ange Mottagartyp i kopieringsaktiviteten till **AzureTableSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **AzureTableSink**. |Ja |
 | azureTableDefaultPartitionKeyValue |Standard partitionsnyckelvärdet som kan användas av mottagaren. |Nej |

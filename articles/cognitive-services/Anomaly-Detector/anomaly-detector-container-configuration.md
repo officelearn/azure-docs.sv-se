@@ -3,18 +3,18 @@ title: Konfigurera behållare - Avvikelseidentifiering detektor
 titleSuffix: Azure Cognitive Services
 description: Körningsmiljö för Avvikelseidentifiering detektor behållare konfigureras med hjälp av den `docker run` kommandot argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: aahi
-ms.openlocfilehash: 0d09ce29aa5431de3eb82e5d9fe7440d4e3352e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 8e6f7e33bf8bae3bc76074093167650813d76a8b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073337"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurera Avvikelseidentifiering detektor behållare
 
@@ -58,7 +58,7 @@ Den här inställningen kan hittas på följande plats:
 
 * Azure-portalen: **Avvikelseidentifiering detektor** översikt, märkt `Endpoint`
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatoriskt| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
@@ -89,7 +89,7 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåtet| `Input` | String | Avvikelseidentifiering detektor behållare Använd inte detta.|
+|Tillåts inte| `Input` | String | Avvikelseidentifiering detektor behållare Använd inte detta.|
 |Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 

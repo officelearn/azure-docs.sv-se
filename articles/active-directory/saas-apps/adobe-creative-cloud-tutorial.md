@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9650389d8ec641af1db0652dd09fbd7f06223956
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Självstudier: Azure Active Directory-integrering med Adobe Creative Cloud
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Adobe Creative Cloud i Azure Active Dire
 
 **Utför följande steg för att lägga till Adobe Creative Cloud från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -179,7 +179,7 @@ Utför följande steg för att konfigurera enkel inloggning till Azure Active Di
 
     f. Klicka på knappen **Spara**.
 
-3. Instrumentpanelen kommer nu att presentera XML-filen **”Ladda ner metadata”**. Den innehåller webbadressen för Adobes EntityDescriptor och för AssertionConsumerService. Öppna filen och konfigurera den i Azure Active Directory-programmet.
+3. Instrumentpanelen kommer nu att presentera XML-filen **”Ladda ner metadata”** . Den innehåller webbadressen för Adobes EntityDescriptor och för AssertionConsumerService. Öppna filen och konfigurera den i Azure Active Directory-programmet.
 
     ![Konfigurera enkel inloggning på appsidan](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -265,7 +265,7 @@ När du klickar på Adobe Creative Cloud-panelen i åtkomstpanelen bör du autom
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
   
 - [Konfigurera en domän (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
   

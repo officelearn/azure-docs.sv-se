@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6655c1f67b5655dbde8c04f09a664f64350e3d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f7e91ee9afb2bf217f97e5c9968557fe0f9cd71d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Självstudier: Azure Active Directory-integrering med Ariba
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Ariba med Azure AD behöver du lägga till A
 
 **Utför följande steg för att lägga till Ariba från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -192,5 +192,5 @@ När du klickar på Ariba-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

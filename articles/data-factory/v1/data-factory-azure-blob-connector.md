@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66168012"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till och från Azure Blob Storage med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-blob-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-blob-storage.md)
 
@@ -82,7 +82,7 @@ Data factory stöder följande CLS-kompatibel .NET baserat typvärden för att t
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om plats, formatera osv, på data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **AzureBlob** datauppsättning har följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Sökvägen till behållaren och mappen i blob storage. Exempel: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Namnet på bloben. Filnamnet är valfria och skiftlägeskänsliga.<br/><br/>Om du anger ett filename fungerar aktiviteten (inklusive kopia) på den specifika blobben.<br/><br/>Om filnamnet inte anges innehåller kopiera alla Blobbar i folderPath för datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen skulle vara i följande det här formatet: `Data.<Guid>.txt` (för Exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
@@ -128,13 +128,13 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 **BlobSource** har stöd för följande egenskaper i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT (standard), FALSKT |Nej |
 
 **BlobSink** har stöd för följande egenskaper **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | copyBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller filsystem. |<b>PreserveHierarchy</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererad namn. <br/><br/><b>MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om namnet på filen/blobben har angetts, blir namnet på sammanfogade filen det angivna namnet; annars skulle vara automatiskt genererade filnamn. |Nej |
 
@@ -252,7 +252,7 @@ Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage
     4. Välj ditt Azure storage-konto.
     5. Klicka på **Nästa**.
 10. På den **Välj utdatafil eller mapp** sidan:  
-    1. Ange **mappsökväg** som **adfblobconnector/output / {year} / {month} / {day}**. Ange **FLIKEN**.
+    1. Ange **mappsökväg** som **adfblobconnector/output / {year} / {month} / {day}** . Ange **FLIKEN**.
     1. För den **år**väljer **åååå**.
     1. För den **månad**, bekräfta att den är inställd på **MM**.
     1. För den **dag**, bekräfta att den är inställd på **dd**.
@@ -335,7 +335,7 @@ Du bör se två länkade tjänster. En för käll- och det andra för målet. I 
 
 Läs mer om Azure Storage-länkade tjänsten [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
 
-#### <a name="datasets"></a>Datamängder
+#### <a name="datasets"></a>Datauppsättningar
 Det finns två datauppsättningar: en indatauppsättning och en utdatauppsättning. Vilken typ av datauppsättningen är inställd på **AzureBlob** för båda.
 
 Den inkommande datauppsättningen pekar på den **inkommande** mappen för den **adfblobconnector** blob-behållare. Den **externa** är inställd på **SANT** för den här datauppsättningen eftersom data inte produceras av pipelinen med en Kopieringsaktivitet som använder den här datauppsättningen som indata.

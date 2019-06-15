@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070495"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -73,7 +73,7 @@ I följande steg visas hur du skapar en hanterad instans.
 11. Välj **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen. 
 
 > [!IMPORTANT]
-> För den första instansen i ett undernät tar distributionen vanligtvis mycket längre tid än för efterföljande instanser. Avbryt inte distributionsåtgärden om den tar längre tid än förväntat. Det tar bara ett par minuter att skapa den andra hantera instansen i undernätet.
+> För den första instansen i ett undernät tar distributionen vanligtvis mycket längre tid än för efterföljande instanser. Avbryt inte distributionsåtgärden om den tar längre tid än förväntat.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Granska resurser och hämta det fullständigt kvalificerade servernamnet
 
@@ -81,7 +81,7 @@ När distributionen har slutförts granskar de resurser som har skapats och häm
 
 1. Öppna resursgruppen för din hanterade instans. Visa dess resurser som har skapats för dig i den [skapa en hanterad instans](#create-a-managed-instance) Snabbstart.
 
-   ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Resurser för hanterad instans](./media/sql-database-managed-instance-get-started/resources.png)
 
 2. Välj routningstabellen med en användardefinierad väg (UDR) tabellen som har skapats för dig.
 
@@ -105,7 +105,7 @@ När distributionen har slutförts granskar de resurser som har skapats och häm
 
 7. På den **översikt** fliken, leta upp den **värden** egenskapen. Kopiera den fullständiga värd-adressen för den hanterade instansen för användning i nästa Snabbstart.
 
-   ![Värddatornamn](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![Värdnamn](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Namnet ser ut ungefär så här: **ditt_datornamn.a1b2c3d4e5f6.database.windows.net**.
 

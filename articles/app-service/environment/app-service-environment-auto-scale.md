@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955959"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisk skalning och App Service Environment v1
@@ -93,7 +93,7 @@ Frank är insatt i programmet. De vet att tiderna med högsta användningsnivå 
 |  | |
 | **Regeln för automatisk skalning (skala upp)** |**Regeln för automatisk skalning (skala upp)** |
 | **resursen:** Produktion (App Service Environment) |**resursen:** Produktion (App Service Environment) |
-| **Mått:** Processor i procent |**Mått:** Processor i procent |
+| **Mått:** PROCESSOR I PROCENT |**Mått:** PROCESSOR I PROCENT |
 | **Åtgärd:** Större än 60% |**Åtgärd:** Större än 80% |
 | **Varaktighet:** 5 minuter |**Varaktighet:** 10 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
@@ -102,9 +102,9 @@ Frank är insatt i programmet. De vet att tiderna med högsta användningsnivå 
 |  | |
 | **Regeln för automatisk skalning (skala ned)** |**Regeln för automatisk skalning (skala ned)** |
 | **resursen:** Produktion (App Service Environment) |**resursen:** Produktion (App Service Environment) |
-| **Mått:** Processor i procent |**Mått:** Processor i procent |
+| **Mått:** PROCESSOR I PROCENT |**Mått:** PROCESSOR I PROCENT |
 | **Åtgärd:** Mindre än 30% |**Åtgärd:** Mindre än 20% |
-| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
+| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Minska antal med 1 |**Åtgärd:** Minska antal med 1 |
 | **Väntetid (minuter):** 20 |**Väntetid (minuter):** 10 |
@@ -166,7 +166,7 @@ Med den här informationen kan du definiera följande profilen för automatisk s
 | **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
 | **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
 | **Åtgärd:** Mindre än 8 |**Åtgärd:** Mindre än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Öka antal med 8 |**Åtgärd:** Öka antal med 3 |
 | **Väntetid (minuter):** 180 |**Väntetid (minuter):** 180 |
@@ -175,7 +175,7 @@ Med den här informationen kan du definiera följande profilen för automatisk s
 | **resursen:** Arbetarpool 1 |**resursen:** Arbetarpool 1 |
 | **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
 | **Åtgärd:** Större än 8 |**Åtgärd:** Är större än 3 |
-| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
 | **Tidsmängd:** Medel |**Tidsmängd:** Medel |
 | **Åtgärd:** Minska antal med 2 |**Åtgärd:** Minska antal med 3 |
 | **Väntetid (minuter):** 120 |**Väntetid (minuter):** 120 |
@@ -209,16 +209,16 @@ Det här scenariot vet Frank att Felfrekvensen ökar när klientdelar når 80% C
 |  |
 | **Regeln för automatisk skalning (skala upp)** |
 | **resursen:** Adresspool på klientsidan |
-| **Mått:** Processor i procent |
+| **Mått:** PROCESSOR I PROCENT |
 | **Åtgärd:** Större än 60% |
-| **Varaktighet:** 20 minuter |
+| **Varaktighet:** 20 minuter |
 | **Tidsmängd:** Medel |
 | **Åtgärd:** Öka antal med 3 |
 | **Väntetid (minuter):** 120 |
 |  |
 | **Regeln för automatisk skalning (skala ned)** |
 | **resursen:** Arbetarpool 1 |
-| **Mått:** Processor i procent |
+| **Mått:** PROCESSOR I PROCENT |
 | **Åtgärd:** Mindre än 30% |
 | **Varaktighet:** 20 minuter |
 | **Tidsmängd:** Medel |

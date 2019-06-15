@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963228"
 ---
 # <a name="secure-azure-computing-architecture"></a>Skydda Azures databehandlingsarkitektur
@@ -157,7 +157,7 @@ Vi rekommenderar den här arkitekturen eftersom de uppfyller kraven för SCCA. D
             - Det här undernätet är där virtuella datorer och tjänster som används för VDM har distribuerats.
         - Obetrodda och betrodda undernät
             - Dessa undernät är där virtuella installationer distribueras.
-        - Gatewayundernät
+        - Gateway-undernät
             - Det här undernätet är där ExpressRoute-gatewayen distribueras.
 - Virtuella hanteringsdatorerna jump box
     - De används för out-of-band-hantering av miljön.

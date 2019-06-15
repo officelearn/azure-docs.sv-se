@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067970"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure container registry med Azure-nätverk eller brandväggsregler
 
@@ -216,7 +216,7 @@ Fortsätta att [Kontrollera åtkomst till registret](#verify-access-to-the-regis
 
 ## <a name="allow-access-from-an-ip-address"></a>Tillåta åtkomst från en IP-adress
 
-I det här avsnittet konfigurerar du ditt behållarregister för att tillåta åtkomst från ett undernät i ett Azure-nätverk. Motsvarande steg med hjälp av Azure CLI och Azure-portalen finns.
+I det här avsnittet konfigurerar du ditt behållarregister för att tillåta åtkomst från en specifik IP-adress eller ett intervall. Motsvarande steg med hjälp av Azure CLI och Azure-portalen finns.
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>Tillåta åtkomst från en IP-adress – CLI
 

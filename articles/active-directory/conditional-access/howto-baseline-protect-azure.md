@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112389"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)
 
@@ -40,7 +40,7 @@ För interaktiv inloggning med [Azure Powershell](https://docs.microsoft.com/pow
 Connect-AzAccount
 ```
 
-När du kör cmdleten visas en tokensträng. Kopiera den här strängen för att logga in och klistra in den i [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) i en webbläsare. PowerShell-sessionen autentiseras därefter för anslutning till Azure.
+När du kör cmdleten visas en tokensträng. Kopiera den här strängen för att logga in och klistra in den i [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  i en webbläsare. PowerShell-sessionen autentiseras därefter för anslutning till Azure.
 
 För interaktiv inloggning med [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), kör den [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) kommando.
 
@@ -73,7 +73,7 @@ Att aktivera den här principen och skydda dina administratörer:
 
 1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)**.
+1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
 1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.
@@ -82,6 +82,6 @@ Att aktivera den här principen och skydda dina administratörer:
 
 Mer information finns i:
 
-* [Principer för villkorlig åtkomst baslinje-skydd](concept-baseline-protection.md)
+* [Protection principer för villkorlig åtkomst baslinje](concept-baseline-protection.md)
 * [Fem steg för att skydda din infrastruktur för Identitetshantering](../../security/azure-ad-secure-steps.md)
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](overview.md)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)

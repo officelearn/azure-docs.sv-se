@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fbc4dd9ea596f32c0cd38ba04ccba5619207fe
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 953ee8aae12c4c3359eca7a601aca5a86d243c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Självstudier: Azure Active Directory-integrering med Dow Jones Factiva
 
@@ -53,7 +53,7 @@ För att kunna konfigurera integrering av Dow Jones Factiva i Azure AD, måste d
 
 **Utför följande steg för att lägga till Dow Jones Factiva från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -190,5 +190,5 @@ När du klickar på Dow Jones Factiva-ikonen i åtkomstpanelen bör du loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

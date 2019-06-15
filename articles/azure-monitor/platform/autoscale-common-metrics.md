@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129737"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
@@ -53,32 +53,32 @@ Du kan skapa en avisering för följande mått:
 
 | Måttnamn | Enhet |
 | --- | --- |
-| \Processor(_Total)\% processortid |Percent |
-| \Processor(_Total)\% privilegierad tid |Percent |
-| \Processor(_Total)\% användartid |Percent |
+| \Processor(_Total)\% processortid |Procent |
+| \Processor(_Total)\% privilegierad tid |Procent |
+| \Processor(_Total)\% användartid |Procent |
 | \Processor information (_Total) \Processor frekvens |Count |
 | \System\Processes |Count |
-| \Process (_Total) \Thread antal |Count |
+| \Process (_Total) \Thread antal |Antal |
 | \Process(_Total)\Handle Count |Count |
-| \Memory\% allokerade byte som används |Percent |
+| \Memory\% allokerade byte som används |Procent |
 | \Memory\Tillgängliga byte |Byte |
 | \Memory\Committed byte |Byte |
 | \Memory\Commit gräns |Byte |
 | \Memory\Pool systemminne-byte |Byte |
 | \Memory\Pool växlingsbart systemminne-byte |Byte |
-| \PhysicalDisk(_Total)\% disk tid |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% disk-skrivtid |Percent |
+| \PhysicalDisk(_Total)\% disk tid |Procent |
+| \PhysicalDisk(_Total)\% Disk Read Time |Procent |
+| \PhysicalDisk(_Total)\% disk-skrivtid |Procent |
 | \PhysicalDisk (_Total) \Disk disköverföringar/sek |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk Diskläsningar/sek |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk Diskskrivningar/sek |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk byte/sek |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk-lästa byte/s |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk skrivna byte/sek |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Diskkölängd |Count |
+| \PhysicalDisk(_Total)\Avg. Disk Queue Length |Count |
 | \PhysicalDisk(_Total)\Avg. Läs diskkölängd |Count |
-| \PhysicalDisk(_Total)\Avg. Diskkölängd för skrivning |Count |
-| \LogicalDisk(_Total)\% ledigt utrymme |Percent |
+| \PhysicalDisk(_Total)\Avg. Diskkölängd för skrivning |Antal |
+| \LogicalDisk(_Total)\% ledigt utrymme |Procent |
 | \LogicalDisk (_Total) \Free utrymme i MB |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gäst-OS mått virtuella Linux-datorer
@@ -95,25 +95,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Måttnamn | Enhet |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |Procent |
 | \Memory\UsedMemory |Byte |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
+| \Memory\PercentUsedMemory |Procent |
+| \Memory\PercentUsedByCache |Procent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Byte |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |Procent |
 | \Memory\UsedSwap |Byte |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
+| \Memory\PercentUsedSwap |Procent |
+| \Processor\PercentIdleTime |Procent |
+| \Processor\PercentUserTime |Procent |
+| \Processor\PercentNiceTime |Procent |
+| \Processor\PercentPrivilegedTime |Procent |
+| \Processor\PercentInterruptTime |Procent |
+| \Processor\PercentDPCTime |Procent |
+| \Processor\PercentProcessorTime |Procent |
+| \Processor\PercentIOWaitTime |Procent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -147,10 +147,10 @@ Du kan Avisera om och av de här måtten.
 
 | Måttnamn | Enhet |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
+| CpuPercentage |Procent |
+| MemoryPercentage |Procent |
 | DiskQueueLength |Count |
-| HttpQueueLength |Count |
+| HttpQueueLength |Antal |
 | BytesReceived |Byte |
 | BytesSent |Byte |
 
@@ -190,3 +190,4 @@ Du kan uppdatera autoskalningsinställning i Resource Manager-mallen som du anv�
 > Konceptet för resurs-grupp finns inte för Service Bus, men Azure Resource Manager skapas en resursgrupp för standard per region. Resursgruppen är vanligtvis i formatet ”standard - ServiceBus-[region]”. Till exempel ”standard-ServiceBus-EastUS”, ”standard-ServiceBus-WestUS', 'Standard-ServiceBus-AustraliaEast” osv.
 >
 >
+

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205870"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069303"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
@@ -45,7 +45,7 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
     |Namn|Värde|
     |----|----|
     |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
-    |**Namn**|Ge lagringskontot ett unikt namn. Lagringskontonamnet måste vara unikt för alla Azure och den bara innehålla gemena bokstäver och siffror. Namnet måste vara mellan 3 och 24 tecken. Om du får ett felmeddelande om ”lagringskontonamnet” mystorage1016 ”är redan upptagen” kan du prova med att använda  **&lt;ditt namn > storage&lt;dagens datum i MMDD >**, till exempel  **johndolestorage1016**. Mer information finns i [namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Namn**|Ge lagringskontot ett unikt namn. Lagringskontonamnet måste vara unikt för alla Azure och den bara innehålla gemena bokstäver och siffror. Namnet måste vara mellan 3 och 24 tecken. Om du får ett felmeddelande om ”lagringskontonamnet” mystorage1016 ”är redan upptagen” kan du prova med att använda  **&lt;ditt namn > storage&lt;dagens datum i MMDD >** , till exempel  **johndolestorage1016**. Mer information finns i [namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
 
@@ -64,7 +64,7 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
     Det finns sex parametrar angivna. En av dem heter **storageAccountName**. Den andra markerade delen på den föregående skärmbilden visar hur den här parametern ska anges i mallen. I nästa avsnitt kan du redigera mallen för att använda ett genererat namn för lagringskontot.
 
     En Azure-resurs har definierats i mallen. Typen är `Microsoft.Storage/storageAccounts`. Ta en titt på hur resursen definieras och definitionsstruktur.
-6. Välj **hämta** högst upp på skärmen. 
+6. Välj **hämta** högst upp på skärmen.
 7. Öppna den hämta zip-filen och spara **template.json** till datorn. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
 8. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
 
@@ -75,6 +75,9 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
 ## <a name="edit-and-deploy-the-template"></a>Redigera och distribuera mallen
 
 Du kan använda Azure-portalen för att utföra viss grundläggande redigering av mallen. I den här snabbstarten använder du portalverktyget *Malldistribution*. *Malldistribution* används i den här självstudien, vilket innebär att du kan slutföra hela självstudien med ett gränssnitt – Azure-portalen. För redigering av en mer komplex mall bör du överväga att använda [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), som tillhandahåller mer omfattande redigeringsfunktioner.
+
+> [!IMPORTANT]
+> Malldistributionen tillhandahåller ett gränssnitt för att testa enkla mallar. Du bör inte använda den här funktionen i produktion. I stället lagra dina mallar i ett Azure storage-konto eller en lagringsplatsen för källkod som GitHub.
 
 Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan misslyckas om du anger namnet på ett lagringskonto som redan finns. För att undvika det här problemet ändrar du mallen så att den använder ett mallfunktionsanrop `uniquestring()` för att generera ett unikt lagringskontonamn.
 

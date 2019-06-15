@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e0c2dc6c370e697f896e24e7d56c6eb8900601a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Självstudier: Azure Active Directory-integrering med SkyDesk e-post
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av SkyDesk e-post i Azure AD, som du behöver l
 
 **Utför följande steg för att lägga till SkyDesk e-post från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -198,11 +198,11 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till SkyDesk e-post.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SkyDesk e-**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SkyDesk e-** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SkyDesk e-**.
+2. I listan med program väljer **SkyDesk e-** .
 
     ![Länken SkyDesk e-post i listan med program](common/all-applications.png)
 
@@ -243,5 +243,5 @@ När du klickar på panelen SkyDesk e-post i åtkomstpanelen, bör det vara logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476031"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
@@ -20,7 +20,7 @@ ms.locfileid: "66476031"
 
 HTTP-huvuden kan en klient och server att skicka ytterligare information med en begäran eller ett svar. Du kan utföra viktiga uppgifter, till exempel att lägga till säkerhetsrelaterat namn på huvudfält som HSTS / X-XSS-skydd, ta bort svar huvudfält som kan röja känslig information och ta bort portinformationen från genom att skriva om dessa huvuden X-vidarebefordrade-för-huvuden.
 
-Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och backend-adresspooler. Och du kan lägga till villkor så att de angivna sidhuvudena är har skrivits bara när vissa villkor uppfylls.
+Med Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar när begäran- och svarspaketen flyttas mellan klientens och serverdelens pooler. Du kan också lägga till villkor så att de angivna rubrikerna bara skrivs om när vissa villkor uppfylls.
 
 Application Gateway stöder också flera [servervariabler](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) som hjälper dig att du lagrar ytterligare information om begäranden och svar. Detta gör det enklare för dig att skapa kraftfulla omskrivningsregler.
 

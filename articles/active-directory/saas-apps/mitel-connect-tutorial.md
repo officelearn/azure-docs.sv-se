@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 611867cf5606d5a1078706e1c0f67f673a7fa500
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: b656bbb7c5924f14b300f0352551530bb47f2a53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Självstudier: Azure Active Directory-integrering med Mitel MiCloud ansluta
 
@@ -227,4 +227,4 @@ När du klickar på panelen Mitel ansluta i åtkomstpanelen du ska omdirigeras a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

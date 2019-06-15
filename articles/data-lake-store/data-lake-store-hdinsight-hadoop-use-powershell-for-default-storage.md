@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161417"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 som standard storage med hjälp av PowerShell
@@ -45,7 +45,7 @@ Innan du börjar den här självstudien måste du kontrollera att du uppfyller f
 
 * **En Azure-prenumeration**: Gå till [skaffa Azure kostnadsfria utvärderingsversionen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 eller senare**: Se [hur du installerar och konfigurerar PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: Om du vill installera Windows SDK, gå till [laddar ned och verktyg för Windows 10](https://dev.windows.com/downloads). SDK: N används för att skapa ett säkerhetscertifikat.
+* **Windows Software Development Kit (SDK)** : Om du vill installera Windows SDK, gå till [laddar ned och verktyg för Windows 10](https://dev.windows.com/downloads). SDK: N används för att skapa ett säkerhetscertifikat.
 * **Azure Active Directory-tjänstobjekt**: Den här självstudien beskrivs hur du skapa ett tjänstobjekt i Azure Active Directory (AD Azure). Om du vill skapa ett huvudnamn för tjänsten, måste du vara en Azure AD-administratör. Om du är administratör kan du hoppa över den nödvändiga komponenten och fortsätter med självstudien.
 
     >[!NOTE]

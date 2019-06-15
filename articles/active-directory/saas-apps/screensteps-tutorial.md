@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Självstudier: Azure Active Directory-integrering med ScreenSteps
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av ScreenSteps i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till ScreenSteps från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -241,4 +241,4 @@ När du klickar på panelen ScreenSteps i åtkomstpanelen, bör det vara loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

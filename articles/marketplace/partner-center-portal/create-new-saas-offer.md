@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072636"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -72,12 +72,12 @@ Sälja via Microsoft ger bättre kunden identifiering och förvärv, kan Microso
 
 För att visa en lista över programvara som en tjänst (SaaS) erbjuder med kommersiella Marketplace på Partner Center, måste följande kriterier uppfyllas:
 
-- Erbjudandet måste vara kompatibla med Azure-klienter. (Ofta SaaS-appar finns på Azure för bästa prestanda och kompatibilitet, men detta är inte ett krav.) 
 - Erbjudandet måste använda [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) för Identitetshantering och autentisering.
 - Erbjudandet måste använda [SaaS Techtrends API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) att integrera med Azure Marketplace.
+- Mer omfattande krav finns i den [SaaS erbjuder publiceringsguide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="billing-infrastructure-costs"></a>Fakturering infrastrukturkostnader
-För SaaS-erbjudanden kan du, som utgivare, måste ta hänsyn till avgifter för användning av Azure-infrastrukturen och licensavgifter som ett enda kostnaden-objekt. Den här kostnaden representeras som en fast månadsavgift för kunden. Användning av Azure-infrastrukturen hanteras och debiteras för partner kan du direkt. Faktisk användning infrastrukturavgifter ses inte av kunden. Utgivare välja vanligtvis för att bifoga avgifter för användning av Azure-infrastrukturen i deras programvara licens priser. 
+#### <a name="saas-on-azure-billing-infrastructure-costs"></a>SaaS på Azure-fakturering infrastrukturkostnader
+Om SaaS-erbjudande finns på Azure, du, som utgivare, måste ta hänsyn till avgifter för användning av Azure-infrastrukturen och licensavgifter som ett enda kostnaden-objekt. Den här kostnaden representeras som en fast månadsavgift för kunden. Användning av Azure-infrastrukturen hanteras och debiteras för partner kan du direkt. Faktisk användning infrastrukturavgifter ses inte av kunden. Utgivare välja vanligtvis för att bifoga avgifter för användning av Azure-infrastrukturen i deras programvara licens priser. 
 
 Programvara för licensavgifter visas som en fast avgift för varje månad, återkommande platsbaserad prenumeration och mäts inte eller konsumtionsbaserat.
 

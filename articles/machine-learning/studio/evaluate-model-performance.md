@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60750657"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
@@ -48,7 +48,7 @@ Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * Bil price data (Raw)
 * [Linjär Regression][linear-regression]
-* [Train Model][train-model] (Träningsmodell)
+* [Träna modell][train-model]
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 
@@ -90,7 +90,7 @@ Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * Vuxet insamlade binära Intäktsklassificering datauppsättning
 * [Två Logistic Regression][two-class-logistic-regression]
-* [Train Model][train-model] (Träningsmodell)
+* [Träna modell][train-model]
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 
@@ -140,8 +140,8 @@ Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * [Importera Data][import-data]
 * [Beslutsskog med multiclass][multiclass-decision-forest]
-* [Split Data][split] (Dela data)
-* [Train Model][train-model] (Träningsmodell)
+* [Dela Data][split]
+* [Träna modell][train-model]
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 

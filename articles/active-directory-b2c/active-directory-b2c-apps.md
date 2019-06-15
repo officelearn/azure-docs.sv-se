@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051736"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -98,7 +98,7 @@ Ett webb-API kan ta emot token från många typer av klienter, inklusive webbpro
 6. Den `access_token` och `refresh_token` returneras till webbservern.
 7. Webb-API anropas med den `access_token` i en auktoriseringsrubrik.
 8. Webb-API: verifierar token.
-9. Säkra data returneras till webbservern.
+9. Säkra data returneras till webbprogrammet.
 
 Mer information om auktoriseringskoder, uppdateringstoken och stegen för att hämta token finns i [OAuth 2.0-protokollet](active-directory-b2c-reference-oauth-code.md).
 

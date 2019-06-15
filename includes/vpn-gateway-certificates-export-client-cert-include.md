@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150326"
 ---
 När du genererar ett klientcertifikat behöver installeras den automatiskt på den dator som du använde för att skapa den. Om du vill installera klientcertifikatet på en annan klientdator måste du exportera det klientcertifikat som du skapade.
@@ -31,10 +31,10 @@ När du genererar ett klientcertifikat behöver installeras den automatiskt på 
    ![filformat för export](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
 5. Du måste skydda den privata nyckeln på sidan **Säkerhet**. Om du väljer att använda ett lösenord måste du vara noga med att skriva ned eller komma ihåg lösenordet som du anger för det här certifikatet. Klicka sedan på **Nästa**.
 
-   ![säkerhet](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+   ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
 6. På sidan **Fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
 
    ![fil som ska exporteras](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. Klicka på **Slutför** för att exportera certifikatet.
 
-   ![slutför](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![Slutför](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427610"
 ---
 Azure Data Factory är en multitenant-tjänst som har följande standardgränser på plats för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Kontakta supporten om du vill höja gränserna upp till maximalt för din prenumeration.
@@ -49,7 +49,7 @@ Azure Data Factory är en multitenant-tjänst som har följande standardgränser
 
 <sup>2</sup> [azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) är [globalt tillgänglig](https://azure.microsoft.com/global-infrastructure/services/) för att säkerställa dataefterlevnad, effektivitet och minskade nätverk egress kostnader. 
 
-| Region-grupp | Regioner | 
+| Region-grupp | Regions | 
 | -------- | ------ |
 | Region-grupp 1 | Centrala USA, östra USA, östra usa2, Norra Europa, Västeuropa, västra USA, västra USA 2 |
 | Region-grupp 2 | Australien, östra, Australien, sydöstra Australien, södra Brasilien, centrala Indien, Japan östra, Northcentral USA, södra centrala USA, Sydostasien, USA, västra centrala |

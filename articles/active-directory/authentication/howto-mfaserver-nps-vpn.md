@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ad2b3075ae9d5ccd7e32f039fbbbc8583cde73c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055959"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Avancerade scenarier med Azure Multi-Factor Authentication och tredje parts VPN-lösningar
 
 Azure Multi-Factor Authentication kan användas för att smidigt ansluta till olika tredje parts VPN-lösningar. Den här artikeln handlar om Cisco® ASA VPN-installationen, Citrix NetScaler SSL VPN-installationen och Juniper nätverk säker åtkomst/Pulse Secure ansluta säkra SSL VPN-installationen. Vi har skapat guider för enhetskonfiguration för att åtgärda dessa tre vanliga installationer. Multi-Factor Authentication Server kan också integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller Anspråksbaserad autentisering till AD FS. Du hittar mer information finns i [MFA Server-konfigurationer](howto-mfaserver-deploy.md#next-steps).
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN-enhet och Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication integreras med din Cisco® ASA VPN-installation för att ge ytterligare säkerhet för Cisco AnyConnect® VPN inloggningar och portalåtkomst.  Du kan använda antingen RADIUS eller LDAP-protokollet.  Välj något av följande för att ladda ned de detaljerade stegvisa konfigurationsguider.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978998"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
@@ -48,7 +48,7 @@ Kontrollera att du har åtkomst till följande resurser innan du följer anvisni
 
 Du måste ha ett konto på PowerBI.com om du vill dela dina rapporter på PowerBI.com.  Läs mer om Power BI och Power BI Pro i [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Kom igång
+## <a name="lets-get-started"></a>Nu börjar vi
 I de här självstudierna Låt oss anta att du är en geologist studerat snö runt om i världen. Vulkanen data lagras i ett Azure Cosmos DB-konto och format för JSON-dokumentet är följande:
 
     {
@@ -78,7 +78,7 @@ Du hämtar vulkanen data från Azure Cosmos DB-kontot och visualisera data i en 
 
 3. Välj den **Start** menyfliksområdet och sedan på **hämta Data**.  Den **hämta Data** fönster visas.
 
-4. Klicka på **Azure**väljer **Azure Cosmos DB (Beta)**, och klicka sedan på **Connect**. 
+4. Klicka på **Azure**väljer **Azure Cosmos DB (Beta)** , och klicka sedan på **Connect**. 
 
     ![Power BI Desktop hämta Data - anslutningsprogrammet för Powerbi](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 

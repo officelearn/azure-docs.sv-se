@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 199f531485a6a6c9ea234b35a7dbb88b66b3067c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Självstudier: Azure Active Directory-integrering med SciQuest spendera Director
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av SciQuest spendera Director i Azure AD, som d
 
 **Utför följande steg för att lägga till SciQuest spendera Director från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -207,4 +207,4 @@ När du klickar på panelen SciQuest spendera Director på åtkomstpanelen, bör
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

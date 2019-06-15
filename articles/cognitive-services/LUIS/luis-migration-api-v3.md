@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123892"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Förhandsversion: Migrera till API-version 3.x för LUIS-appar
@@ -54,7 +54,7 @@ V3 svar objektet förändringarna innefattar [förskapade entiteter](luis-refere
 
 V3-API: et har olika parametrar för frågesträngen.
 
-|Parameternamn|Type|Version|Syfte|
+|Parameternamn|Typ|Version|Syfte|
 |--|--|--|--|
 |`query`|string|Endast v3|**I V2**, uttryck till att förutse finns i den `q` parametern. <br><br>**I V3**, funktionen skickas den `query` parametern.|
 |`show-all-intents`|boolesk|Endast v3|Returnera alla avsikter med motsvarande poängen på den **prediction.intents** objekt. Avsikter returneras som objekt i en överordnad `intents` objekt. På så sätt kan programmässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I V2 kan returnerade dessa i en matris. |
@@ -275,7 +275,7 @@ I den föregående uttryck i uttryck använder `him` som en referens till `Hazem
 
 Förutsägelse svaret innehåller den externa entiteten, med alla andra förväntade entiteter, eftersom det har definierats i begäran.  
 
-#### <a name="resolution"></a>Matchning
+#### <a name="resolution"></a>Lösning
 
 Den _valfritt_ `resolution` egenskapen returnerar förutsägelser svar, så att du kan skicka in metadata som associeras med den externa entitet och sedan tar emot det tillbaka i svaret. 
 

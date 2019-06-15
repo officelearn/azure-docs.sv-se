@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912171"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Vad är nytt i Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i September 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nya lägre startpunkten för SQL Data Warehouse Gen2
-I April 2018 [tillkännagav Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 som erbjuder 5 gånger prestandan, 5 x beräkning skalan, 4 x samtidighet och obegränsad lagring. Enligt vad som anges i den [datalager i molnet Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) av Gigaom, SQL-informationslager Gen2 **överlägsen Amazon Redshift med 42%**.
+I April 2018 [tillkännagav Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 som erbjuder 5 gånger prestandan, 5 x beräkning skalan, 4 x samtidighet och obegränsad lagring. Enligt vad som anges i den [datalager i molnet Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) av Gigaom, SQL-informationslager Gen2 **överlägsen Amazon Redshift med 42%** .
 
 Gen2 är nu allmänt tillgängligt på en lägre post punkt för DWU500c så att du kan köra en mindre storlek data warehouse eller dev/test-miljöer med alla de senaste förbättringarna för tjänsten. Den nya startpunkten behåller alla Gen2 funktioner inklusive [Adaptiv cachelagring](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belysning snabbt Data blandning](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), samt stöd för [i realtid datalagret](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

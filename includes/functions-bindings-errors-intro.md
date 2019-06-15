@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132470"
 ---
 Azure Functions [utlösare och bindningar](../articles/azure-functions/functions-triggers-bindings.md) kommunicera med olika Azure-tjänster. När du integrerar med dessa tjänster, kanske fel som kommer från API: er för de underliggande Azure-tjänsterna. Fel kan också inträffa när du försöker kommunicera med andra tjänster från Funktionskoden med hjälp av REST eller klientbiblioteken. För att undvika förlust av data och se till att bra beteendet för dina funktioner, är det viktigt att hantera fel från varken med källan.

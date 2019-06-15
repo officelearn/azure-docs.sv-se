@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Python- och REST API: er – Azure Search'
 description: Skapa, läsa in och fråga ett index med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056634"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Snabbstart: Skapa ett Azure Search-index med Python i Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ I den här uppgiften ska starta en Jupyter notebook och kontrollera att du kan a
 
    Däremot returnerar en tom index samling svaret: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> Du är begränsad till tre index, indexerare och datakällor på en kostnadsfri tjänst. Den här snabbstarten skapar vi en av varje. Kontrollera att det finns utrymme att skapa nya objekt innan skickas vidare.
-
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
 Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget använder den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) att skicka ett indexschema till tjänsten.
 
 Obligatoriska elementen för ett index är ett namn, en samling fält och en nyckel. Fältsamlingen definierar strukturen för en *dokumentet*. Varje fält har ett namn, typ och attribut som avgör hur fältet används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
 
-Det här indexet har namnet ”hotels-py” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
+Det här indexet har namnet ”hotels-quickstart” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
 
 1. I nästa cell, klistrar du in i följande exempel i en cell att tillhandahålla schemat. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
     }
     ```   
 
-2. Formulera begäran i en annan cell. Denna POST-begäran riktar sig mot samlingen docs indexets hotels-py och skickar de dokument som anges i föregående steg.
+2. Formulera begäran i en annan cell. Denna POST-begäran riktar sig mot samlingen docs indexets hotels-quickstart och skickar de dokument som anges i föregående steg.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
 
 Det här steget visar hur man frågar ett index med hjälp av den [REST-API för Search-dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+1. Ange ett frågeuttryck som kör en tom sökning i en cell (search = *), returnerar en unranked lista (Sök poäng = 1.0) av valfria dokument. Som standard returnerar Azure Search 50 träffar i taget. Den här frågan returnerar en struktur för hela dokumentet och värden som strukturerade. Lägg till $count = true för att få en uppräkning av alla dokument i resultaten.
 
-1. Ange ett frågeuttryck i en ny cell. I följande exempel söker på villkoren ”hotels” och ”wifi”. Den returnerar även en *antal* av dokument som matchar, och *väljer* vilka fält som ska ingå i sökresultaten.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. Ange i följande exempel för att söka på villkoren ”hotels” och ”wifi” i en ny cell. Lägg till $select om du vill ange vilka fält som ska ingå i sökresultaten.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formulera en begäran i en annan cell. Den här GET-begäran riktar sig mot samlingen docs indexets hotels-py och bifogar den fråga som du angav i föregående steg.
+1. Formulera en begäran i en annan cell. Den här GET-begäran riktar sig mot samlingen docs indexets hotels-quickstart och bifogar den fråga som du angav i föregående steg.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. Kör varje steg. Resultatet bör likna följande utdata. 
+1. Kör varje steg. Resultatet bör likna följande utdata. 
 
     ![Söka i ett index](media/search-get-started-python/search-index.png "söka i ett index")
 
-4. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan ersätta söksträngen med följande exempel och kör sedan sökbegäran. 
+1. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan ersätta söksträngen med följande exempel och kör sedan sökbegäran. 
 
    Ett filter: 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    Ta de främsta två resultat:
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     Ordna efter ett visst fält:
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>Rensa 
 
-Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte aktivt använder för att göra plats för andra självstudier.
+Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du bör ta bort alla index som du inte aktivt använder för att göra plats för andra självstudier.
+
+Det enklaste sättet att ta bort objekt är via portalen, men eftersom detta är en Python-Snabbstart följande syntax ger samma resultat:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-Du kan kontrollera indexet tas bort genom att returnera en lista över befintliga index. Om hotels-py är borta, vet du din begäran har slutförts.
+Du kan kontrollera indexet tas bort genom att begära en lista över befintliga index. Om hotels-quickstart är borta, vet du din begäran har slutförts.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

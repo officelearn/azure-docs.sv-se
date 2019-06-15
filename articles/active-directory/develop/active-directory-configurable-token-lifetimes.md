@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111808"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
@@ -44,7 +44,7 @@ Du kan ange en princip som standardprincipen för din organisation. Principen ti
 
 Du kan ange livslängd för token-principer för uppdateringstoken, åtkomst-token, session token och ID-token.
 
-### <a name="access-tokens"></a>Åtkomsttoken
+### <a name="access-tokens"></a>Åtkomsttokens
 
 Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. En åtkomsttoken kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomsttoken gick inte att återkalla och är giltiga till deras utgångsdatum. En skadliga aktörer som har fått en åtkomsttoken kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomsttoken är en kompromiss mellan förbättra systemets prestanda och öka hur lång tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme - efter 1 timme klienten måste använda uppdateringstoken (vanligtvis tyst) få en ny uppdateringstoken och få åtkomst till token. 
 
@@ -61,7 +61,7 @@ Konfidentiella klienter är program som kan på ett säkert sätt att lagra ett 
 
 Offentliga klienter kan inte på ett säkert sätt lagra ett klientlösenord (hemligt). En iOS/Android-app kan exempelvis Förvräng en hemlighet från resursägare, så att den anses vara en offentlig klient. Du kan ange principer för resurser för att förhindra uppdaterings-tokens från offentliga klienter som är äldre än en angiven period från att erhålla ett nytt åtkomst/uppdatera token par. (Gör du genom att använda egenskapen uppdatera Token inaktiva Maxtid (`MaxInactiveTime`).) Du kan också använda principer för att ställa in en period utöver som accepteras inte längre uppdaterings-tokens. (Gör du genom att använda egenskapen uppdatera Token Max-Age.) Du kan justera livslängden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter, i stället för att göra en obevakad återautentiseras, när du använder en offentlig klientprogram igen.
 
-### <a name="id-tokens"></a>ID-token
+### <a name="id-tokens"></a>ID-tokens
 ID-token som skickas till webbplatser och ursprungliga klienter. ID-token innehåller profilinformation om en användare. Ett ID-token som är kopplad till en specifik kombination av användar- och klienten. ID-token anses giltiga till deras utgångsdatum. Vanligtvis är ett webbprogram matchar en användare är sessionens livstid i programmet till livslängden för ID-token som utfärdats för användaren. Du kan justera livslängden för en ID-token för att styra hur ofta webbprogrammet upphör att gälla den program-sessionen och hur ofta det krävs att användaren autentiseras med Azure AD (tyst eller interaktivt).
 
 ### <a name="single-sign-on-session-tokens"></a>Sessionen för enkel inloggning för token
@@ -77,22 +77,22 @@ Du kan använda en princip för att ställa in efter första sessionstoken utfä
 En livslängd för token-princip är en typ av grupprincipobjekt som innehåller regler för livslängd för token. Du kan använda egenskaperna för principen för att styra angivna tokenlivslängder. Om ingen princip har angetts, tillämpar livslängd standardvärdet i systemet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Konfigurerbara livslängd för token-egenskaper
-| Egenskap  | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
+| Egenskap | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
-| Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
-| Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
-| Single-Factor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
-| Uppdatering av flera faktorer Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
-| Single-Factor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Session-token (permanent eller ickebeständig) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
-| Flera faktorer Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Session-token (permanent eller ickebeständig) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
+| Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
+| Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
+| Single-Factor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
+| Uppdatering av flera faktorer Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
+| Single-Factor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Session-token (permanent eller ickebeständig) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
+| Flera faktorer Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Session-token (permanent eller ickebeständig) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är maxlängden explicit som kan ställas in för dessa attribut.
 
 ### <a name="exceptions"></a>Undantag
-| Egenskap  | Påverkar | Standard |
+| Egenskap | Påverkar | Standard |
 | --- | --- | --- |
 | Uppdatera Token Max Age (utfärdats för federerade användare som har inte tillräckligt med återkallningsinformation<sup>1</sup>) |Uppdatera token (utfärdats för federerade användare som har inte tillräckligt med återkallningsinformation<sup>1</sup>) |12 timmar |
-| Uppdatera Token inaktiva Maxtid (utfärdats för konfidentiella klienter) |Uppdatera token (utfärdats för konfidentiella klienter) |90 dagar |
+| Uppdatera Token inaktiva Maxtid (utfärdats för konfidentiella klienter) |Uppdatera token (utfärdats för konfidentiella klienter) |90 dagar |
 | Uppdatera Token Max Age (utfärdats för konfidentiella klienter) |Uppdatera token (utfärdats för konfidentiella klienter) |Fram till återkallas |
 
 * <sup>1</sup>federerade användare som har inte tillräckligt med återkallningsinformation omfattar alla användare som inte har attributet ”LastPasswordChangeTimestamp” synkroniseras. Dessa användare får den här korta Max Age eftersom AAD inte kan verifiera när du ska återkalla token som är knutna till en gammal autentiseringsuppgift (till exempel ett lösenord som har ändrats) och måste checka in mer ofta för att se till att användar- och associerade token är fortfarande i bra  Ständiga. Innehavaradministratörer måste för att förbättra den här ska se till att de synkroniserar attributet ”LastPasswordChangeTimestamp” (Detta kan ställas in på användarobjektet med hjälp av Powershell eller via AADSync).

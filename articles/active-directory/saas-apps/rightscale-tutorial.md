@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: aef06c94d8a2fe8cbaf7768d275959a20942a21e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Självstudier: Azure Active Directory-integrering med Rightscale
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Rightscale i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Rightscale från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -227,4 +227,4 @@ När du klickar på panelen Rightscale i åtkomstpanelen, bör det vara loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

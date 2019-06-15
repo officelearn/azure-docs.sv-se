@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117881"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformering av källa för mappning av dataflöde 
 
@@ -65,13 +65,13 @@ Du kan senare ändra kolumnnamnen i en select transformation. Använd en härled
 
 På den **optimera** fliken för käll-omvandling visas en **källa** partitionstyp. Det här alternativet är tillgängligt endast när källan är Azure SQL Database. Det beror på att Data Factory försöker upprätta anslutningar parallellt för att köra stora frågor mot din SQL Database-källan.
 
-![Datakällan partitionsinställningar](media/data-flow/sourcepart2.png "partitionering")
+![Datakällan partitionsinställningar](media/data-flow/sourcepart3.png "partitionering")
 
 Partitioner är användbara för stora frågor när du behöver att partitionera data på din SQL Database-källan. Du kan basera din partition på en kolumn eller en fråga.
 
 ### <a name="use-a-column-to-partition-data"></a>Använda en kolumn att partitionera data
 
-Välj en kolumn till partition på din källtabellen. Också ange det maximala antalet anslutningar.
+Välj en kolumn till partition på din källtabellen. Också ange antalet partitioner.
 
 ### <a name="use-a-query-to-partition-data"></a>Använd en fråga för att partitionera data
 
@@ -84,9 +84,39 @@ Välj inställningar för att hantera filer i källan.
 ![Nya inställningar för datakälla](media/data-flow/source2.png "nya inställningar")
 
 * **Jokersökväg**: Välj ett antal filer som matchar ett mönster från din källmapp. Den här inställningen åsidosätter alla filer i definitionen av datauppsättningen.
+
+Jokertecken exempel:
+
+* ```*``` Representerar en uppsättning tecken
+* ```**``` Representerar rekursiv directory kapsling
+* ```?``` Ersätter ett tecken
+* ```[]``` Matchar ett av flera tecken i hakparenteserna
+
+* ```/data/sales/**/*.csv``` Hämtar alla csv-filer under /data/sales
+* ```/data/sales/20??/**``` Hämtar alla filer på 20 talet
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Hämtar alla csv-filer i 2004 i December som börjar med X eller Y prefixet 2 siffror
+
+Behållaren måste anges i datauppsättningen. Din jokersökväg måste därför även innehålla din mappsökväg från rotmappen.
+
 * **Lista över filer**: Det här är en uppsättning. Skapa en textfil som innehåller en lista över filer som relativ sökväg ska bearbetas. Peka på den här filen.
 * **Kolumnen för att lagra filnamn**: Store namnet på källfilen i en kolumn i dina data. Ange ett nytt namn för att lagra filen namnsträngen.
 * **När du har slutfört**: Välja att göra något med källfilen när data flödeskörningar, ta bort källfilen eller flytta källfilen. Sökvägar för flytten är relativa.
+
+Om du vill flytta källfiler för en annan plats efter bearbetning av du först markera ”flytta” för filen igen. Slutligen ange katalogen ”från”. Om du inte använder några jokertecken för din sökväg kommer ”från”-inställningen är samma mapp som din källmappen.
+
+Om du har en källsökväg jokertecken, t.ex.:
+
+```/data/sales/20??/**/*.csv```
+
+Du kan ange ”från” som
+
+```/data/sales```
+
+Och ”till” som
+
+```/backup/priorSales```
+
+I det här fallet flyttas alla underkataloger på /data/sales som har ursprung i förhållande till /backup/priorSales.
 
 ### <a name="sql-datasets"></a>SQL-datauppsättningar
 

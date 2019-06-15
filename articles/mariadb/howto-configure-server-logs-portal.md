@@ -1,21 +1,21 @@
 ---
-title: Konfigurera och komma åt loggar för Azure Database for MariaDB i Azure Portal
-description: Den här artikeln beskriver hur du konfigurerar och få åtkomst till serverloggar i Azure Database for MariaDB från Azure Portal.
+title: Konfigurera och öppna serverloggar för Azure Database for MariaDB i Azure-portalen
+description: Den här artikeln beskriver hur du konfigurerar och få åtkomst till serverloggar i Azure Database for MariaDB från Azure-portalen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065643"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurera och öppna serverloggar i Azure portal
 
-Du kan konfigurera, visa och hämta den [Azure Database for MariaDB serverloggar](concepts-server-logs.md) från Azure-portalen.
+Du kan konfigurera, visa och hämta den [Azure Database for MariaDB långsamma frågeloggar](concepts-server-logs.md) från Azure-portalen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom den här guiden, måste du:
@@ -42,7 +42,7 @@ Konfigurera åtkomst till långsam frågelogg.
 6. Gå tillbaka till listan över loggarna genom att klicka på den **stängningsknappen** (X ikonen) på den **serverparametrar** sidan.
 
 ## <a name="view-list-and-download-logs"></a>Visa lista och hämta loggar
-Du kan visa en lista över tillgängliga loggar och hämta individuella loggfiler i fönstret serverloggar när loggning börjar. 
+Du kan visa en lista över tillgängliga långsamma frågeloggar och hämta individuella loggfiler i fönstret serverloggar när loggning börjar. 
 
 1. Öppna Azure Portal.
 
@@ -62,7 +62,7 @@ Du kan visa en lista över tillgängliga loggar och hämta individuella loggfile
    ![Klicka på nedladdningsikonen](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [serverloggar](concepts-server-logs.md) i Azure Database for MariaDB.
+- Läs mer om [långsamma frågeloggar](concepts-server-logs.md) i Azure Database for MariaDB.
 - Mer information om parameterdefinitioner och loggning finns i dokumentationen för MariaDB på [loggar](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
 ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302266"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
@@ -200,7 +200,7 @@ Referera till [dokumentationen här](
 service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-6.3 runtime-versionen stöds VM isolering för Linux-behållare, vilket stöder två isoleringslägen för behållare: process och Hyper-v. Med isoleringsläget Hyper-v-isoleringsläget används isoleras mellan varje behållare och behållarvärden. Hyper-v-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isoleringsläget har angetts för Linux-kluster i den `ServicePackageContainerPolicy` elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+6\.3 runtime-versionen stöds VM isolering för Linux-behållare, vilket stöder två isoleringslägen för behållare: process och Hyper-v. Med isoleringsläget Hyper-v-isoleringsläget används isoleras mellan varje behållare och behållarvärden. Hyper-v-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isoleringsläget har angetts för Linux-kluster i den `ServicePackageContainerPolicy` elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ServiceManifestImport>

@@ -4,14 +4,14 @@ description: Visar vilka Azure-resurstyper stöder taggar. Innehåller informati
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056881"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md). Kolumnen **stöder taggar** anger om resurstypen har en egenskap för taggen. Kolumnen **tagg i rapporten cost** anger om den resurstypen skickar taggen till i rapporten cost.
@@ -40,10 +40,10 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Nej |  Nej |
 | addsservices | Nej |  Nej |
-| agenter | Nej |  Nej |
+| Agenter | Nej |  Nej |
 | anonymousapiusers | Nej |  Nej |
 | konfiguration | Nej |  Nej |
-| loggar | Nej |  Nej |
+| logs | Nej |  Nej |
 | rapporter | Nej |  Nej |
 | services | Nej |  Nej |
 
@@ -52,7 +52,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | ------------- | ----------- | ----------- |
 | Konfigurationer | Nej |  Nej |
 | generateRecommendations | Nej |  Nej |
-| rekommendationer | Nej |  Nej |
+| Rekommendationer | Nej |  Nej |
 | suppressions | Nej |  Nej |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -70,7 +70,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -239,7 +239,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | reservationOrders/split | Nej |  Nej |
 | reservationOrders/swap | Nej |  Nej |
 | reservationer | Nej |  Nej |
-| resurser | Nej |  Nej |
+| Resurser | Nej |  Nej |
 | validateReservationOrder | Nej |  Nej |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -302,7 +302,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | ------------- | ----------- | ----------- |
 | Funktioner | Nej |  Nej |
 | Diskar | Nej |  Nej |
-| bilder | Nej |  Nej |
+| images | Nej |  Nej |
 | osImages | Nej |  Nej |
 | osPlatformImages | Nej |  Nej |
 | publicImages | Nej |  Nej |
@@ -329,12 +329,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | ------------- | ----------- | ----------- |
 | availabilitySets | Ja | Ja |
 | Diskar | Ja | Ja |
-| bilder | Ja | Ja |
+| images | Ja | Ja |
 | restorePointCollections | Ja | Ja |
 | restorePointCollections/restorePoints | Nej |  Nej |
 | sharedVMImages | Ja | Ja |
 | sharedVMImages/versions | Ja | Ja |
-| ögonblicksbilder | Ja | Ja |
+| Ögonblicksbilder | Ja | Ja |
 | virtualMachines | Ja | Ja |
 | virtualMachines/diagnosticSettings | Nej |  Nej |
 | virtualMachines/extensions | Ja | Ja |
@@ -354,12 +354,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | Avgifter | Nej |  Nej |
 | CostTags | Nej |  Nej |
 | Krediter | Nej |  Nej |
-| händelser | Nej |  Nej |
+| evenemang | Nej |  Nej |
 | Prognoser | Nej |  Nej |
 | många | Nej |  Nej |
 | Marknadsplatser | Nej |  Nej |
 | Pricesheets | Nej |  Nej |
-| produkter | Nej |  Nej |
+| Produkter | Nej |  Nej |
 | ReservationDetails | Nej |  Nej |
 | ReservationRecommendations | Nej |  Nej |
 | ReservationSummaries | Nej |  Nej |
@@ -423,8 +423,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | Aviseringar | Nej |  Nej |
 | billingAccounts | Nej |  Nej |
 | Anslutningar | Ja | Ja |
-| Avdelningar | Nej |  Nej |
-| Mått | Nej |  Nej |
+| avdelningar | Nej |  Nej |
+| Dimensioner | Nej |  Nej |
 | EnrollmentAccounts | Nej |  Nej |
 | Fråga | Nej |  Nej |
 | Registrera dig | Nej |  Nej |
@@ -451,7 +451,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| jobb | Ja | Ja |
+| Jobb | Ja | Ja |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -461,7 +461,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| arbetsytor | Ja | Nej |
+| Arbetsytor | Ja | Nej |
 | workspaces/virtualNetworkPeerings | Nej |  Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -507,21 +507,21 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | servrar/recoverableServers | Nej |  Nej |
 | servers/virtualNetworkRules | Nej |  Nej |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | servrar/recoverableServers | Nej |  Nej |
 | servers/virtualNetworkRules | Nej |  Nej |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | servers/advisors | Nej |  Nej |
 | servrar/queryTexts | Nej |  Nej |
 | servrar/recoverableServers | Nej |  Nej |
@@ -612,7 +612,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | myareas/områden/galleryitems | Nej |  Nej |
 | myareas/galleryitems | Nej |  Nej |
 | Registrera dig | Nej |  Nej |
-| resurser | Nej |  Nej |
+| Resurser | Nej |  Nej |
 | retrieveresourcesbyid | Nej |  Nej |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -635,7 +635,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| jobb | Ja | Ja |
+| Jobb | Ja | Ja |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -654,7 +654,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | alertrules | Ja | Ja |
 | automatedExportSettings | Nej |  Nej |
 | autoscalesettings | Ja | Ja |
-| baslinje | Nej |  Nej |
+| Baslinje | Nej |  Nej |
 | calculatebaseline | Nej |  Nej |
 | Komponenter | Ja | Ja |
 | komponenter/händelser | Nej |  Nej |
@@ -667,7 +667,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | extendedDiagnosticSettings | Nej |  Nej |
 | logDefinitions | Nej |  Nej |
 | logprofiles | Nej |  Nej |
-| loggar | Nej |  Nej |
+| logs | Nej |  Nej |
 | metricAlerts | Ja | Ja |
 | migrateToNewPricingModel | Nej |  Nej |
 | myWorkbooks | Nej |  Nej |
@@ -692,7 +692,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| Diagram | Ja | Ja |
+| Graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -714,7 +714,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
 | labaccounts | Ja | Ja |
-| Användare | Nej |  Nej |
+| användare | Nej |  Nej |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -729,7 +729,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| loggar | Nej |  Nej |
+| logs | Nej |  Nej |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -762,7 +762,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| arbetsytor | Ja | Ja |
+| Arbetsytor | Ja | Ja |
 | arbetsytor/beräkningar | Nej |  Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -776,7 +776,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | ------------- | ----------- | ----------- |
 | getEntities | Nej |  Nej |
 | managementGroups | Nej |  Nej |
-| resurser | Nej |  Nej |
+| Resurser | Nej |  Nej |
 | startTenantBackfill | Nej |  Nej |
 | tenantBackfillStatus | Nej |  Nej |
 
@@ -798,7 +798,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej |  Nej |
 | offerTypes/publishers/offers/plans/configs/importImage | Nej |  Nej |
 | privategalleryitems | Nej |  Nej |
-| produkter | Nej |  Nej |
+| Produkter | Nej |  Nej |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -845,7 +845,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | azureFirewallFqdnTags | Nej |  Nej |
 | azureFirewalls | Ja | Nej |
 | bgpServiceCommunities | Nej |  Nej |
-| anslutningar | Ja | Ja |
+| Anslutningar | Ja | Ja |
 | ddosCustomPolicies | Ja | Ja |
 | ddosProtectionPlans | Ja | Ja |
 | dnsOperationStatuses | Nej |  Nej |
@@ -864,7 +864,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | dnszones/TXT | Nej |  Nej |
 | expressRouteCircuits | Ja  | Nej |
 | expressRouteServiceProviders | Nej |  Nej |
-| ytterdörrar | Ja | Ja |
+| frontdoors | Ja | Ja |
 | frontdoorWebApplicationFirewallPolicies | Ja | Ja |
 | getDnsResourceReference | Nej |  Nej |
 | interfaceEndpoints | Ja | Ja |
@@ -911,7 +911,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | enheter | Nej |  Nej |
 | linkTargets | Nej |  Nej |
 | storageInsightConfigs | Nej |  Nej |
-| arbetsytor | Ja | Ja |
+| Arbetsytor | Ja | Ja |
 | arbetsytor/datakällor | Nej |  Nej |
 | arbetsytor/linkedServices | Nej |  Nej |
 | arbetsytor/fråga | Nej |  Nej |
@@ -922,7 +922,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | managementassociations | Nej |  Nej |
 | managementconfigurations | Ja | Ja |
 | lösningar | Ja | Ja |
-| visningar | Ja | Ja |
+| Vyer | Ja | Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -973,7 +973,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| resurser | Nej |  Nej |
+| Resurser | Nej |  Nej |
 | subscriptionsStatus | Nej |  Nej |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -982,21 +982,21 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | availabilityStatuses | Nej |  Nej |
 | childAvailabilityStatuses | Nej |  Nej |
 | childResources | Nej |  Nej |
-| händelser | Nej |  Nej |
+| evenemang | Nej |  Nej |
 | impactedResources | Nej |  Nej |
-| meddelanden | Nej |  Nej |
+| Meddelanden | Nej |  Nej |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
-| distributioner | Nej |  Nej |
+| Distributioner | Nej |  Nej |
 | Distributioner/operations | Nej |  Nej |
 | Länkar | Nej |  Nej |
 | notifyResourceJobs | Nej |  Nej |
 | Providers | Nej |  Nej |
 | resourceGroups | Nej |  Nej |
-| resurser | Nej |  Nej |
-| prenumerationer | Nej |  Nej |
+| Resurser | Nej |  Nej |
+| Prenumerationer | Nej |  Nej |
 | Prenumerationer/providers | Nej |  Nej |
 | subscriptions/resourceGroups | Nej |  Nej |
 | prenumerationer/resourcegroups/resurser | Nej |  Nej |
@@ -1038,11 +1038,11 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | externalSecuritySolutions | Nej |  Nej |
 | InformationProtectionPolicies | Nej |  Nej |
 | jitNetworkAccessPolicies | Nej |  Nej |
-| övervakning | Nej |  Nej |
+| Övervakning | Nej |  Nej |
 | övervaka/program mot skadlig kod | Nej |  Nej |
 | övervaka/baslinje | Nej |  Nej |
 | övervaka/patch | Nej |  Nej |
-| principer | Nej |  Nej |
+| Principer | Nej |  Nej |
 | prissättningar | Nej |  Nej |
 | securityContacts | Nej |  Nej |
 | securitySolutions | Nej |  Nej |
@@ -1053,7 +1053,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | securityStatus/virtualMachines | Nej |  Nej |
 | securityStatuses | Nej |  Nej |
 | securityStatusesSummaries | Nej |  Nej |
-| inställningar | Nej |  Nej |
+| settings | Nej |  Nej |
 | uppgifter | Nej |  Nej |
 | topologies | Nej |  Nej |
 | workspaceSettings | Nej |  Nej |
@@ -1091,8 +1091,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | program | Ja | Ja |
 | Gateways | Ja | Ja |
 | Nätverk | Ja | Ja |
-| hemligheter | Ja | Ja |
-| volymer | Ja | Ja |
+| secrets | Ja | Ja |
+| volumes | Ja | Ja |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -1121,7 +1121,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | managedInstances/keys | Nej | Nej |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nej | Nej |
 | managedInstances/vulnerabilityAssessments | Nej | Nej |
-| servrar | Ja | Ja |
+| Servrar | Ja | Ja |
 | servrar/administratörer | Nej |  Nej |
 | servers/communicationLinks | Nej |  Nej |
 | servrar/databaser | Ja (Se kommentaren nedan) | Ja |
@@ -1194,7 +1194,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Ja | Ja |
-| resurser | Ja | Ja |
+| Resurser | Ja | Ja |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |
@@ -1225,19 +1225,19 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | apiManagementAccounts/connectionAcls | Nej |  Nej |
 | apiManagementAccounts/connections | Nej |  Nej |
 | billingMeters | Nej |  Nej |
-| certifikat | Ja | Ja |
+| Certifikat | Ja | Ja |
 | connectionGateways | Ja | Ja |
-| anslutningar | Ja | Ja |
+| Anslutningar | Ja | Ja |
 | customApis | Ja | Ja |
 | deletedSites | Nej |  Nej |
 | functions | Nej |  Nej |
-| hostingEnvironments | Ja | Nej |
+| hostingEnvironments | Ja | Ja |
 | hostingEnvironments/multiRolePools | Nej |  Nej |
 | hostingEnvironments-multiRolePools-instanser | Nej |  Nej |
 | hostingEnvironments/workerPools | Nej |  Nej |
 | hostingEnvironments-workerPools-instanser | Nej |  Nej |
 | publishingUsers | Nej |  Nej |
-| rekommendationer | Nej |  Nej |
+| Rekommendationer | Nej |  Nej |
 | resourceHealthMetadata | Nej |  Nej |
 | körningar | Nej |  Nej |
 | serverFarms | Ja | Ja |

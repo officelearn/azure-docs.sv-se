@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808596"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -58,7 +58,7 @@ Utför följande steg för att förbereda enheterna.
 6.  Kör följande kommando för att förbereda disken. **Det kan ta flera timmar och dagar beroende på storleken på data.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     En journalfil skapas i samma mapp där du körde verktyget. Två filer skapas också – en *.xml* fil (mapp där du kör verktyget) och en *enhet manifest.xml* fil (mapp där data finns).
     
@@ -74,7 +74,7 @@ Utför följande steg för att förbereda enheterna.
     |/dstdir:     |Namnet på Målbehållaren i Azure Storage.         |
     |/blobtype:     |Det här alternativet anger vilken typ av BLOB-objekt som du vill importera data till. Detta är för blockblob-objekt, `BlockBlob` och för sidblobar, är det `PagaBlob`.         |
     |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopiera och befintliga data på disken är förberedas.          |
-    |/enablecontentmd5:     |Alternativet när aktiverad säkerställer att MD5 beräknas vid uppladdning av blockblob-objekt till Azure.          |
+    |/enablecontentmd5:     |Alternativet när aktiverad säkerställer att MD5 beräknas och anges som `Content-md5` egenskapen för varje blob. Använd det här alternativet endast om du vill använda den `Content-md5` fältet när data har överförts till Azure. <br> Det här alternativet påverkar inte dataintegritetskontroll (som sker som standard). Inställningen ökar den tid det tar att överföra data till molnet.          |
 7. Upprepa föregående steg för varje disk som ska levereras. En journalfil med det angivna namnet skapas för varje körning av kommandoraden.
     
     > [!IMPORTANT]

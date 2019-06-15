@@ -1,6 +1,6 @@
 ---
-title: Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
-description: Vägledning för utvecklare och scenarier för villkorlig åtkomst i Azure AD
+title: Vägledning för utvecklare för Azure Active Directory villkorsstyrd åtkomst
+description: Vägledning för utvecklare och scenarier för Azure AD villkorlig åtkomst
 services: active-directory
 keywords: ''
 author: rwike77
@@ -15,24 +15,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0674934f7105df3874048308e98fd582d32e72bc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111528"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för Azure Active Directory villkorsstyrd åtkomst
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder på flera olika sätt som du kan använda för att skydda din app och en tjänst. Villkorlig åtkomst gör det möjligt för utvecklare och enterprise-kunder för att skydda tjänster i en mängd olika sätt, t.ex.:
 
-* Multifaktorautentisering
+* Multi-Factor Authentication
 * Så att bara Intune-registrerade enheter att få åtkomst till specifika tjänster
 * Begränsa användarplatser och IP-intervall
 
 Mer information om alla funktioner för villkorlig åtkomst finns i [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-Den här artikeln visar hur du kan använda villkorlig åtkomst för utvecklare att bygga appar för Azure AD, och du får också lära dig om effekten av åtkomst till resurser som du inte har kontroll över som kan ha principer för villkorlig åtkomst tillämpas. Artikeln också utforskar konsekvenserna av villkorlig åtkomst i on-behalf-of-flöde webbappar, få åtkomst till Microsoft Graph och anropa API: er.
+Den här artikeln visar hur du kan använda villkorlig åtkomst och du får också lära dig om effekten av åtkomst till resurser som du inte har kontroll över som kan ha principer för villkorlig åtkomst tillämpas för utvecklare att bygga appar för Azure AD. Artikeln också utforskar konsekvenserna av villkorlig åtkomst i on-behalf-of-flöde webbappar, få åtkomst till Microsoft Graph och anropa API: er.
 
 Kunskap om [enda](quickstart-v1-integrate-apps-with-azure-ad.md) och [flera innehavare](howto-convert-app-to-be-multi-tenant.md) appar och [vanliga autentiseringsmönster](authentication-scenarios.md) antas.
 
@@ -49,11 +49,11 @@ Mer specifikt kan kräver följande scenarier kod för att hantera villkorlig å
 * Ensidesappar med ADAL.js
 * Web Apps som anropar en resurs
 
-Villkorlig åtkomst principer kan tillämpas på appen, men även kan tillämpas på ett webb-API har åtkomst till att din app. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns [Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](../conditional-access/app-based-mfa.md).
+Villkorlig åtkomst principer kan tillämpas på appen, men även kan tillämpas på ett webb-API har åtkomst till att din app. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns [Snabbstart: Kräva MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](../conditional-access/app-based-mfa.md).
 
 Beroende på scenario, en företagskund tillämpa och ta bort principer för villkorlig åtkomst när som helst. Du behöver implementera ”utmaning”-hantering för din app för att fortsätta att fungera när en ny princip tillämpas. I följande exempel visas utmaning hantering.
 
-### <a name="conditional-access-examples"></a>Exempel på villkorlig åtkomst
+### <a name="conditional-access-examples"></a>Villkorlig åtkomst-exempel
 
 Vissa scenarier kräver ändringar i koden att hantera villkorlig åtkomst medan andra fungera på samma sätt. Här följer några scenarier med villkorlig åtkomst för att göra multifaktorautentisering som ger viss insikt om skillnaden.
 
@@ -100,9 +100,9 @@ Följande information gäller endast i dessa scenarier för villkorlig åtkomst:
 * Appar får åtkomst till flera tjänster/resurser
 * Ensidesappar med ADAL.js
 
-I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundläggande drift principen är villkorlig åtkomst som principer utvärderas vid den tidpunkt som token begärs för tjänsten som har en princip för villkorlig åtkomst tillämpas.
+I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundläggande drift principen är principer för villkorlig åtkomst utvärderas vid den tidpunkt som token begärs för tjänsten som har en princip för villkorlig åtkomst tillämpas.
 
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App fungerar on-behalf-of-flöde
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App som utför on-behalf-of-flödet
 
 I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. Den här tjänsten gör i sin tur ”on-behalf-of” flödet för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
 

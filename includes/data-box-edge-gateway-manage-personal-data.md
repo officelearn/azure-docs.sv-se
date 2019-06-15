@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754346"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120548"
 ---
 - **Ordna information**. När en order skapas, lagras den leveransadressen, e-postadress och kontaktinformation för användaren i Azure-portalen. Informationen som sparas omfattar:
   - Kontaktnamn
   - Telefonnummer
   - E-postadress
   - Gatuadress
-  - Ort
+  - Stad
   - Postnummer/Postnummer
   - Status
   - Land/region/region

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 0e47560ca43b23f4779da701f3e6f11f53a6b1ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c418041c5de343d7210dbd153ebe6cea0af95c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066802"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Snabbstart: Skapa en Standardbelastningsutjämnare som belastningsutjämnar virtuella datorer med hjälp av Azure Resource Manager-mall
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 I det här avsnittet skapar du en Standardbelastningsutjämnare som hjälper till att belastningsutjämna virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen (med namnet *LoadBalancerFrontend* som standard) för Standard Load Balancer. Det finns många metoder som kan användas för att skapa en standardbelastningsutjämnare. I den här snabbstarten använder du Azure PowerShell för att distribuera en [Resource Manager-mall](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Information om de koncept som är associerade med att distribuera och hantera dina Azure-lösningar finns i [dokumentation om Azure Resource Manager](/azure/azure-resource-manager/). Du hittar fler relaterade mall för Azure Load Balancer [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-Om du vill distribuera mallen, Välj **prova** att öppna Azure Cloud shell och klistra in följande PowerShell-skript i fönstret shell. Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**.
+Om du vill distribuera mallen, Välj **prova** att öppna Azure Cloud shell och klistra in följande PowerShell-skript i fönstret shell. Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**. En lista över regioner som har stöd för tillgänglighetszon för Azure-datorer finns i [här](../availability-zones/az-overview.md).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
@@ -45,9 +45,13 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+
+Write-Host "Press [ENTER] to continue."
+
 ```
 
-Observera att resursgruppens namn är projektnamnet på med **rg** sist. Du behöver resursgruppens namn i nästa avsnitt.  Det tar några minuter att skapa resurser.
+ >[!NOTE]
+ >Resursgruppens namn är projektnamnet på med **rg** sist. Du behöver resursgruppens namn i nästa avsnitt.  Det tar några minuter att skapa resurser.
 
 ## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
 

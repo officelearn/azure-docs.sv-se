@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ef65f09a4e7513738a6cc6b277d06cd4cb4da8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235418"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052403"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
@@ -98,7 +98,7 @@ När du programmässigt loggar in, måste du skicka klientorganisations-ID med d
    ![Klientorganisations-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>Certifikat och hemligheter
-Deamon program kan använda två typer av autentiseringsuppgifter för att autentisera med Azure AD: certifikat och hemligheter.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny hemlighet för programmet.
+Daemon för program kan använda två typer av autentiseringsuppgifter för att autentisera med Azure AD: certifikat och hemligheter.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny hemlighet för programmet.
 
 ### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 

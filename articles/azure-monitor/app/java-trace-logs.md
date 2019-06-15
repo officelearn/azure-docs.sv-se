@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061231"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java spårningsloggar i Application Insights
 Om du använder Logback eller Log4J (version 1.2 eller v2.0) för att analysera och du kan ha spårningsloggarna skickas automatiskt till Application Insights kan du utforska och söka i dem.
@@ -100,7 +100,7 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
 #### <a name="otherwise-"></a>Eller …
 Följ riktlinjerna för att manuellt installera Application Insights Java SDK, ladda ned den JAR-filen (efter anländer till Maven Central klickar du på ”jar-länken i nedladdningar) för lämpliga loggbilaga och Lägg till hämtade loggbilaga JAR-filen i projektet.
 
-| Loggare | Ladda ned | Bibliotek |
+| loggaren | Ladda ned | Bibliotek |
 | --- | --- | --- |
 | Logback |[Logback loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Log4J v2 loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |

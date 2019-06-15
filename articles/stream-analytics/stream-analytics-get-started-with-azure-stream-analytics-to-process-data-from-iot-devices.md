@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077713"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
-I den här självstudiekursen lär du dig hur du skapar logiken för bearbetning av dataströmmar för datainsamling från IoT-enheter (Internet of Things). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
+
+I de här självstudierna lär du dig att skapa logik för strömbearbetning för att samla in data från enheter Internet of Things (IoT). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 * [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
 * Du kan ladda ned exempel på frågefiler och datafiler från [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## <a name="scenario"></a>Scenario
+
 Contoso, ett företag inom industriell automation, har helt automatiserat sin produktionsprocess. Maskinerna på den här anläggningen har sensorer som sänder dataströmmar i realtid. I detta scenario vill en av företagets fabrikschefer få realtidsinsikter från dessa sensordata för att identifiera mönster och vidta lämpliga åtgärder utifrån resultatet. Vi ska använda Stream Analytics Query Language (SAQL) mot sensorinformationen för att identifiera intressanta mönster i den inkommande dataströmmen.
 
 Här genereras data från en enhet med Texas Instruments SensorTag. Nyttolasten för dessa data är i JSON-format och ser ut ungefär så här:

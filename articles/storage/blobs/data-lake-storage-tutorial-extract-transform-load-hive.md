@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061372"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 
@@ -43,10 +43,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 * **Azure CLI**: Om du inte har installerat Azure CLI läser du [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **En Secure Shell-klient (SSH)**: Mer information finns i [Ansluta till HDInsight (Hadoop) med hjälp av SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> Stegen i den här artikeln kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med Azure HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* **En Secure Shell-klient (SSH)** : Mer information finns i [Ansluta till HDInsight (Hadoop) med hjälp av SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Ladda ned flygdata
 
@@ -120,7 +117,7 @@ I det här avsnittet laddar du upp data till ditt HDInsight-kluster och kopierar
 
    Använd citattecken runt filnamnet om filnamnet innehåller blanksteg eller specialtecken.
 
-## <a name="transform-the-data"></a>Transformera data
+## <a name="transform-the-data"></a>Omvandla data
 
 I det här avsnittet ska du använda Beeline för att köra ett Apache Hive-jobb.
 

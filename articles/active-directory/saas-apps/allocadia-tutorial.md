@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab731bf7526521f6c091d2cd7d7d296636f76f67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7835094ea1b08e9abd56cfd17b478347dda5aa88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Självstudier: Azure Active Directory-integrering med Allocadia
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Allocadia med Azure AD behöver du lägga ti
 
 **Utför följande steg för att lägga till Allocadia från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -237,4 +237,4 @@ När du klickar på Allocadia-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

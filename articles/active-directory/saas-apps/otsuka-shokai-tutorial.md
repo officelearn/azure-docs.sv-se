@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb5e667151f0148468e9eda8189c0f249b402b56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095279"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Självstudier: Integrera Otsuka Shokai med Azure Active Directory
 
@@ -168,4 +168,4 @@ När du väljer panelen Otsuka Shokai i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

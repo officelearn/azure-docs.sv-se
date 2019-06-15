@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077329"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -72,7 +72,7 @@ Du har kontroll över Spark-körningsmiljö för dina Data flöda aktiviteter. I
 
 ### <a name="staging-area"></a>Mellanlagringsområde
 
-Om du sinka dina data i Azure Data Warehouse, måste du välja en mellanlagringsplats för Polybase batch inläsningen.
+Om du sinka dina data i Azure Data Warehouse, måste du välja en mellanlagringsplats för Polybase batch inläsningen. Mellanlangringsinställningarna gäller endast för Azure Data Warehouse-arbetsbelastningar.
 
 ## <a name="parameterized-datasets"></a>Parametriserade datauppsättningar
 

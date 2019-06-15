@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066827"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
 
 För att distribuera tjänsten i många regioner och kontrollera att den körs som förväntat i varje region, kan du använda Distributionshanteraren för Azure för att samordna en stegvis distribution av tjänsten. Precis som för alla Azure-distribution, du definierar resurser för din tjänst i [Resource Manager-mallar](resource-group-authoring-templates.md). När du har skapat mallarna använda Deployment Manager för att beskriva topologin för din tjänst och hur den ska distribueras.
 
-Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden. 
+Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden.
 
 Azure Deployment Manager är i förhandsversion. Hjälp oss att förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
 
@@ -31,7 +31,12 @@ Om du vill använda Deployment Manager, måste du skapa fyra filer:
 
 Du kan distribuera mallen topologin innan du distribuerar mallen distributionen.
 
-Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ytterligare resurser:
+
+- Den [Azure Deployment Manager REST API-referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Självstudie: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md).
+- [Självstudie: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Ett exempel på Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 
@@ -191,7 +196,7 @@ I mallen för distribution skapar du en artefakt källan för de binärfiler som
 
 ### <a name="steps"></a>Steg
 
-Du kan definiera ett steg för att utföra före eller efter distributionen igen. För närvarande endast den `wait` steg och den ”hälsokontroller” är tillgängliga. 
+Du kan definiera ett steg för att utföra före eller efter distributionen igen. För närvarande endast den `wait` steg och den ”hälsokontroller” är tillgängliga.
 
 Vänta steg pausar distributionen innan du fortsätter. Det kan du kontrollera att tjänsten körs som förväntat innan du distribuerar den nästa service-enheten. I följande exempel visas det allmänna formatet för en wait-steg.
 
@@ -262,13 +267,13 @@ Mer information finns i [distributioner mallreferensen](/azure/templates/Microso
 
 ## <a name="parameter-file"></a>Parameterfilen
 
-Du skapar två parameterfiler. En parameterfil används när du distribuerar service-topologi och den andra används för distributionen av distributionen. Det finns vissa värden att du måste se till att är desamma i båda parameterfilerna.  
+Du skapar två parameterfiler. En parameterfil används när du distribuerar service-topologi och den andra används för distributionen av distributionen. Det finns vissa värden att du måste se till att är desamma i båda parameterfilerna.
 
 ## <a name="containerroot-variable"></a>containerRoot variabel
 
 Med version distributioner ändrar sökvägen till artefakterna med varje ny version. Första gången du kör en distribution sökvägen kan vara `https://<base-uri-blob-container>/binaries/1.0.0.0`. Den andra gången kan det vara `https://<base-uri-blob-container>/binaries/1.0.0.1`. Distributionshanteraren förenklar får rätt rotsökvägen för den aktuella distributionen med hjälp av den `$containerRoot` variabeln. Det här värdet ändras med varje version och är inte känt före distributionen.
 
-Använd den `$containerRoot` variabel i parameterfilen för mall för att distribuera Azure-resurser. Den här variabeln ersätts med de faktiska värdena från distributionen vid tidpunkten för distribution. 
+Använd den `$containerRoot` variabel i parameterfilen för mall för att distribuera Azure-resurser. Den här variabeln ersätts med de faktiska värdena från distributionen vid tidpunkten för distribution.
 
 Du kan till exempel skapa en artefakt källa för binära artefakter under distributionen.
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4893076da47528cb6765efc32f46e76819a915b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4f0d681c93ab7ac7fef941892a95282a2fd59b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075749"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -81,20 +81,20 @@ Du kan använda Azure-portalen för att konfigurera automatisk uppdatering under
 ### <a name="new-vms"></a>Nya virtuella datorer
 Använda Azure-portalen för att konfigurera automatisk uppdatering när du skapar en ny SQL Server-dator i distributionsmodellen för Resource Manager.
 
-I den **SQL Server-inställningar** bladet väljer **automatisk korrigering**. I följande Skärmbild av Azure portal visas den **SQL automatisk uppdatering** bladet.
+I den **SQL Server-inställningar** fliken **ändra konfiguration** under **automatisk korrigering**. I följande Skärmbild av Azure portal visas den **SQL automatisk uppdatering** bladet.
 
 ![SQL automatisk uppdatering i Azure-portalen](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 Kontext, finns i avsnittet klar på [etablera en virtuell dator i SQL Server i Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Befintliga virtuella datorer
-För befintliga SQL Server-datorer, väljer du din SQL Server-dator. Välj sedan den **konfiguration av SQL Server** delen av den **inställningar** bladet.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Befintliga SQL Server-datorer, öppna ditt [SQL VM-resurs](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) och välj **uppdatering** under **inställningar**. 
 
 ![SQL automatisk uppdatering för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-I den **konfiguration av SQL Server** bladet klickar du på den **redigera** knappen i automatisk korrigering avsnittet.
-
-![Konfigurera SQL automatisk uppdatering för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 När du är klar klickar du på den **OK** knappen längst ned på den **konfiguration av SQL Server** bladet för att spara dina ändringar.
 
@@ -108,15 +108,14 @@ I följande exempel används PowerShell för att konfigurera automatisk uppdater
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-
-    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten.
 
 Utifrån det här exemplet beskrivs i följande tabell i praktiken på Virtuella Azure-måldatorn:
 
-| Parameter | Effekt |
+| Parameter | Verkan |
 | --- | --- |
 | **dayOfWeek** |Korrigeringar installeras varje torsdag. |
 | **MaintenanceWindowStartingHour** |Begin uppdaterar kl. 11:00. |

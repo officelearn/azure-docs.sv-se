@@ -1,5 +1,5 @@
 ---
-title: Konfigurera aviseringar om hälsotillståndet för befintliga problem system med en webhook | Microsoft Docs
+title: Konfigurera aviseringar om hälsotillståndet för Azure-tjänst för befintliga problem system med en webhook
 description: Få personligt anpassade meddelanden om service health-händelser till problemhanteringssystemet befintliga.
 author: stephbaron
 ms.author: stbaron
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067175"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Konfigurera aviseringar om hälsotillståndet för befintliga problem system med en webhook
 

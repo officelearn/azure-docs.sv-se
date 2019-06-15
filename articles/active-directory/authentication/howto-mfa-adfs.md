@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415369"
+ms.locfileid: "67113461"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
@@ -86,10 +86,10 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **Villkorlig åtkomst** > **Namngivna platser**.
-3. På bladet **Villkorlig åtkomst – namngivna platser** väljer du **Konfigurera betrodda MFA IP-adresser**
+2. Välj **Azure Active Directory** > **villkorlig åtkomst** > **namngivna platser**.
+3. Från den **villkorlig åtkomst – namngivna platser** bladet väljer **konfigurera betrodda MFA IP-adresser**
 
-   ![Azure AD, Villkorlig åtkomst – namngivna platser, Konfigurera betrodda MFA IP-adresser](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD villkorsstyrd åtkomst namngivna platser konfigurera betrodda MFA IP-adresser](./media/howto-mfa-adfs/trustedip6.png)
 
 4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
 5. Klicka på **Spara**.

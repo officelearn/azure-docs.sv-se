@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
-ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053237"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v4
 
@@ -55,9 +55,9 @@ Skapa en robot som ett klientprogram för kunskapsbasen.
     |Location|`west us`|Plats för robotens Azure-resurs.|
     |Prisnivå|`F0`|Den kostnadsfria nivån för Azure bot service.|
     |Appnamn|`my-tutorial-kb-bot-app`|Det här är en webbapp med stöd för din robot endast. Det får inte vara samma appnamn eftersom QnA Maker-tjänsten redan använder. Dela QnA Maker-webbapp med någon annan resurs stöds inte.|
-    |SDK-språk|C#|Det här är det underliggande programmeringsspråket som används av bot framework SDK. Du kan välja mellan C# eller Node.js.|
+    |SDK-språk|C#|Det här är det underliggande programmeringsspråket som används av bot framework SDK. Du kan välja mellan [ C# ](https://github.com/Microsoft/botbuilder-dotnet) eller [Node.js](https://github.com/Microsoft/botbuilder-js).|
     |Frågor och svar om Auth-nyckel|**Ändra inte**|Det här värdet är ifyllt åt dig.|
-    |App Service-plan/plats|**Ändra inte**|Platsen är inte viktigt för den här självstudien.|
+    |App service-plan/plats|**Ändra inte**|Platsen är inte viktigt för den här självstudien.|
     |Azure Storage|**Ändra inte**|Konversationen data lagras i Azure Storage-tabeller.|
     |Application Insights|**Ändra inte**|Loggning skickas till Application Insights.|
     |Microsoft App-ID|**Ändra inte**|Active directory-användare och lösenord krävs.|

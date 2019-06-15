@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 15900758945fd5c97198caf47ff01fcfb5a6a794
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057400"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -24,7 +24,10 @@ ms.locfileid: "65956574"
 
 ![Komma igång med MFA Server lokalt](./media/howto-mfaserver-deploy/server2.png)</center>
 
-Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authentication-server, är det dags att sätta igång. Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-mobileapp.md).
+Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-mobileapp.md).
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
 
 ## <a name="plan-your-deployment"></a>Planera distributionen
 
@@ -54,7 +57,7 @@ Se till att den server du använder för Azure Multi-Factor Authentication uppfy
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
 | Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
-| Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8,1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
+| Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 | Behörigheter | Domän- eller Enterprise-administratör-konto för att registrera med Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA-serverkomponenter
@@ -116,7 +119,7 @@ Nu när du har laddat ned servern kan du installera och konfigurera den. Se till
 3. När installationen har slutförts klickar du på **Slutför**. Konfigurationsguiden startar.
 4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**. Guiden stängs och servern startas.
 
-   ![Hoppa över autentiseringskonfigurationsguiden](./media/howto-mfaserver-deploy/skip2.png)
+   ![Hoppa över med hjälp av konfigurationsguiden för autentisering](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tillbaka på sidan som du laddade ner servern från, klickar du på knappen **skapa autentiseringsuppgifter för aktivering**. Kopiera den här informationen till Azure MFA Server i de tillgängliga rutorna och klicka på **Aktivera**.
 

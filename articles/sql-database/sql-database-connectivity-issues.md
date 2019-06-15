@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019825"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med anslutningsproblem för SQL-databas och tillfälliga fel
@@ -91,7 +91,7 @@ Om du vill testa omprövningslogiken, måste du simulera eller orsakar ett fel s
 Ett sätt som du kan testa omprövningslogiken är att koppla från din klientdator från nätverket när programmet körs. Felet är:
 
 - **SqlException.Number** = 11001
-- Meddelande: ”Ingen sådan värd kallas”
+- meddelande: ”Ingen sådan värd kallas”
 
 Som en del av det första nytt försöket kan programmet korrigera att namnet är felstavat och försök sedan att ansluta.
 
@@ -109,7 +109,7 @@ Om du vill göra det här testet praktiskt att koppla bort datorn från nätverk
 Ditt program kan avsiktligen har fel användarnamn innan det första anslutningsförsöket. Felet är:
 
 - **SqlException.Number** = 18456
-- Meddelande: ”Inloggningen misslyckades för användaren” WRONG_MyUserName ””.
+- meddelande: ”Inloggningen misslyckades för användaren” WRONG_MyUserName ””.
 
 Som en del av det första nytt försöket kan programmet korrigera att namnet är felstavat och försök sedan att ansluta.
 

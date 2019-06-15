@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ed6762a1cce3afb3e22b15a63c68432fec121efe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Självstudier: Azure Active Directory-integrering med Anaplan
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Anaplan med Azure AD behöver du lägga till
 
 **Utför följande steg för att lägga till Anaplan från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,4 +197,4 @@ När du klickar på Anaplan-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

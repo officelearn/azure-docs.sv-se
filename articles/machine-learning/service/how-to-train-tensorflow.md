@@ -8,37 +8,39 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4a6f9734a7b2b59035efcbb0f4e2d75f47e053be
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9961129805d133c4512e40e4c8be80185316a1ce
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074911"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera TensorFlow modeller i hög skala med Azure Machine Learning-tjänsten
 
-Den här artikeln visar hur du tränar och registrera en TensorFlow-modellen med hjälp av Azure Machine Learning-tjänsten. Vi ska använda populära [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/) att klassificera handskriven siffror med hjälp av ett djupa neurala nätverk som skapats med den [TensorFlow Python-bibliotek](https://www.tensorflow.org/overview).
+Den här artikeln visar hur du tränar och registrera en TensorFlow-modellen med hjälp av Azure Machine Learning-tjänsten. Den använder de populära [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/) att klassificera handskriven siffror med hjälp av ett djupa neurala nätverk som skapats med den [TensorFlow Python-bibliotek](https://www.tensorflow.org/overview).
 
-Du kommer att kunna skala snabbt upp din med öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser med Azure Machine Learning-tjänsten. Du kommer även att kunna spåra dina träningskörningar, version modeller, distribuera modeller och mycket mer.
+TensorFlow är en öppen källkod och databaserad ramverk som ofta används för att skapa djupa neurala nätverk (DNN). Med Azure Machine Learning-tjänsten kan du snabbt skala ut öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser. Du kan också spåra ditt träningskörningar, version modeller, distribuera modeller och mycket mer.
 
-Om du utvecklar en TensorFlow-modell från grunden eller du behöver en befintlig modell i molnet, kan du skapa produktionsklara modeller med Azure Machine Learning-tjänsten.
+Om du utvecklar en TensorFlow-modell från grunden eller du behöver en befintlig modell i molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Installera den [Azure Machine Learning-SDK för Python](setup-create-workspace.md#sdk). Valfritt: skapa en `config.json` konfigurationsfilen.
-- Ladda ned den [exempel skriptfiler](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` och `utils.py`
+- En Azure-prenumeration. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+- [Installera Azure Machine Learning SDK för Python](setup-create-workspace.md#sdk)
+- [Skapa en konfigurationsfil för arbetsyta](setup-create-workspace.md#write-a-configuration-file)
+- [Ladda ned skriptet exempelfilerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` och `utils.py`
 
-Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) i den här guiden på vår sida för Github-exempel. Anteckningsboken innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar och distribution av modeller.
+Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) i den här guiden på sidan med GitHub kodexempel. Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
-Det här avsnittet konfigurerar träningsexperimentet av inläsning av nödvändiga python-paket, initierar en arbetsyta, skapa ett experiment och laddar upp utbildningsinformationen och utbildningsskript med hjälp av Python SDK.
+Det här avsnittet konfigurerar träningsexperimentet av inläsning av nödvändiga python-paket, initierar en arbetsyta, skapa ett experiment och laddar upp den utbildningsinformationen och skripten för utbildning.
 
 ### <a name="import-packages"></a>Importera paket
 
-Först måste du importera de nödvändiga Python-biblioteken.
+Först importera de nödvändiga Python-biblioteken.
 
 ```Python
 import os
@@ -57,21 +59,10 @@ from azureml.core.compute_target import ComputeTargetException
 
 Den [Azure Machine Learning-tjänstens arbetsyta](concept-workspace.md) är den översta resursen för tjänsten. Den ger dig en centraliserad plats för att arbeta med alla artefakter som du skapar. I Python-SDK kan du komma åt arbetsytan artefakter genom att skapa en [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
 
-Om du har slutfört det valfria steget i den [kravavsnittet](#prerequisites), du kan använda `Workspace.from_config()` att snabbt skapa en arbetsyta objekt från information som lagras i konfigurationsfilen.
+Skapa en arbetsyta objekt från den `config.json` fil som skapats i den [krav](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
-```
-
-Du kan också skapa en arbetsyta uttryckligen:
-
-```Python
-ws = Workspace.create(name='<workspace-name>',
-                      subscription_id='<azure-subscription-id>',
-                      resource_group='<choose-a-resource-group>',
-                      create_resource_group=True,
-                      location='<select-location>' # For example: 'eastus2'
-                      )
 ```
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
@@ -87,7 +78,7 @@ exp = Experiment(workspace=ws, name='tf-mnist')
 
 ### <a name="upload-dataset-and-scripts"></a>Ladda upp datauppsättningen och skript
 
-Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nås genom att montera eller kopiera data till beräkningsmål-. Varje arbetsyta innehåller ett standard-datalager. Vi laddar upp våra data och utbildningsskript så att de enkelt kan nås vid träning.
+Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nås genom att montera eller kopiera data till beräkningsmål-. Varje arbetsyta innehåller ett standard-datalager. Ladda upp data och utbildningsskript till databasen så att de enkelt kan nås vid träning.
 
 1. Hämta MNIST datauppsättningen lokalt.
 
@@ -116,7 +107,7 @@ Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nå
 
 ## <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 
-Skapa ett beräkningsmål för TensorFlow jobbet ska köras på. I det här exemplet skapar vi ett GPU-aktiverade Azure Machine Learning-beräkningskluster. En lista över tillgängliga utbildning beräkningsmål, se [i den här artikeln](how-to-set-up-training-targets.md#compute-targets-for-training)
+Skapa ett beräkningsmål för TensorFlow jobbet ska köras på. I det här exemplet skapar du ett GPU-aktiverade Azure Machine Learning-beräkningskluster.
 
 ```Python
 cluster_name = "gpucluster"
@@ -134,9 +125,11 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
+Mer information om beräkningsmål finns i den [vad är ett beräkningsmål](concept-compute-target.md) artikeln.
+
 ## <a name="create-a-tensorflow-estimator"></a>Skapa en TensorFlow kostnadsuppskattning
 
-Den [TensorFlow kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) ger ett enkelt sätt att starta ett jobb med TensorFlow-utbildning på beräkningsmål. En docker-avbildning som har installerat TensorFlow skapas.
+Den [TensorFlow kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) ger ett enkelt sätt att starta ett jobb med TensorFlow-utbildning på beräkningsmål.
 
 TensorFlow-kostnadsuppskattning implementeras via ett allmänt [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass, som kan användas för att stödja valfritt ramverk. Läs mer om träna modeller med hjälp av generiska kostnadsuppskattning [träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning](how-to-train-ml-models.md)
 
@@ -167,11 +160,11 @@ run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-Eftersom körningen körs går den igenom följande steg:
+Eftersom körningen körs passerar i följande steg:
 
 - **Förbereda**: En docker-avbildning skapas enligt TensorFlow-kostnadsuppskattning. Avbildningen överförs till den arbetsytan container registry och cachelagras för senare körningar. Loggarna strömmas också till körningshistoriken och kan visas för att övervaka förloppet.
 
-- **Skalning**: Klustret kommer att försöka att skala upp om Batch AI-kluster kräver fler noder att köra körningen än vad som är tillgängliga.
+- **Skalning**: Klustret försöker att skala upp om Batch AI-kluster kräver fler noder att köra körningen än vad som är tillgängliga.
 
 - **Körning**: Alla skript i mappen skript överförs till beräkningsmål datalager monterad eller kopieras och entry_script körs. Utdata från stdout och. / loggkatalogen strömmas till körningshistoriken och kan användas för att övervaka körningen.
 
@@ -185,7 +178,7 @@ När du har tränat modellen, kan du registrera den till din arbetsyta. Modellen
 model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
 ```
 
-Du kan också hämta en lokal kopia av modellen med hjälp av kör-objektet. I skriptet utbildning `mnist-tf.py`, ett TensorFlow skärmsläckare objekt kvarstår modellen till en lokal mapp (lokal till beräkningsmål-). Vi kan använda objektet kör för att ladda ned en kopia.
+Du kan också hämta en lokal kopia av modellen med hjälp av kör-objektet. I skriptet utbildning `mnist-tf.py`, ett TensorFlow skärmsläckare objekt kvarstår modellen till en lokal mapp (lokal till beräkningsmål-). Du kan använda objektet kör för att ladda ned en kopia.
 
 ```Python
 # Create a model folder in the current directory
@@ -211,7 +204,7 @@ Azure Machine Learning-tjänsten stöder två metoder för distribuerad utbildni
 
 [Horovod](https://github.com/uber/horovod) är ett ramverk för öppen källkod för distribuerad utbildning har utvecklats av Uber. Den erbjuder ett enkelt sätt att distribuerade GPU TensorFlow-jobb.
 
-Om du vill använda Horovod ange `mpi` för den `distributed_training` parametern i konstruktorn TensorFlow kostnadsuppskattning. Horovod kommer att installeras som du kan använda i dina utbildningsskript.
+Om du vill använda Horovod, ange ett [ `MpiConfiguration` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) objekt för den `distributed_training` parametern i konstruktorn TensorFlow. Den här parametern säkerställer att Horovod biblioteket är installerat som du kan använda i dina utbildningsskript.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -232,7 +225,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 Du kan också köra [intern distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed), som använder parametern server-modell. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
 
-För att använda parametern Servermetoden, ange `ps` för den `distributed_training` parametern i konstruktorn TensorFlow kostnadsuppskattning.
+För att använda parametern Servermetoden, ange en [ `TensorflowConfiguration` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) objekt för den `distributed_training` parametern i konstruktorn TensorFlow.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -247,7 +240,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       entry_script='script.py',
                       node_count=2,
                       process_count_per_node=1,
-                      distributed_backend=distributed_training,
+                      distributed_training=distributed_training,
                       use_gpu=True)
 
 # submit the TensorFlow job
@@ -271,7 +264,7 @@ TF_CONFIG='{
 }'
 ```
 
-För hög nivå av Tensorflow's [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parsa detta `TF_CONFIG` variabeln och skapa klustret-specifikationen för dig.
+För hög nivå av Tensorflow's [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow Parsar den `TF_CONFIG` variabeln och versioner som klustret specifikationen för dig.
 
 Tensorflows på lägre nivå core API: er för utbildning, parsa den `TF_CONFIG` variabeln och skapa den `tf.train.ClusterSpec` i koden utbildning.
 

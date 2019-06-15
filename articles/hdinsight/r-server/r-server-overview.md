@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130620"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
 Microsoft Machine Learning Server är tillgänglig som ett alternativ för distribution när du skapar HDInsight-kluster i Azure. Den typ av kluster som innehåller det här alternativet kallas **ML Services**. Den här funktionen ger dataforskare, statistiker och R-programmerare med åtkomst på begäran till skalbara och distribuerade analysmetoder på HDInsight.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ML-tjänster på HDInsight innehåller de senaste funktionerna för R-baserad analys på datauppsättningar med valfri storlek lästes in i Azure Blob eller Data Lake storage. Eftersom ML tjänster kluster bygger på öppen källkod R, kan de R-baserade program som du skapar utnyttja 8000 + open source-R-paket. Rutiner i ScaleR paket för Microsofts big data analytics är också tillgängliga.
 

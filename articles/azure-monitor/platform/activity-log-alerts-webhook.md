@@ -9,10 +9,10 @@ ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
 ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477917"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
@@ -184,7 +184,7 @@ Information om specifika schemat på alla andra aktivitetsloggaviseringar, se [�
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas. |
 | properties |Uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>`) som innehåller information om händelsen. |
 | händelse |Element som innehåller metadata om händelsen. |
-| Auktorisering |Role-Based Access Control-egenskaper för händelsen. Dessa egenskaper innehåller vanligtvis åtgärden, rollen och omfång. |
+| authorization |Role-Based Access Control-egenskaper för händelsen. Dessa egenskaper innehåller vanligtvis åtgärden, rollen och omfång. |
 | category |Händelsens kategori. Värden som stöds omfattar administrativa, varning, säkerhet, ServiceHealth och rekommendation. |
 | Anroparen |E-postadressen för användaren som utförde åtgärden, UPN-anspråket och SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa systemanrop. |
 | correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis dela en correlationId. |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
 ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150147"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ansluta Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
@@ -41,7 +41,7 @@ Azure stöder för närvarande båda lägena VPN-gatewayer: routningsbaserade VP
 
 |                          | **Principbaserad VPN-Gateway** | **Routningsbaserad VPN-Gateway**               |
 | ---                      | ---                         | ---                                      |
-| **Azure Gateway SKU**    | Grundläggande                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE-version**          | IKEv1                       | IKEv2                                    |
 | **Max. S2S-anslutningar** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -189,7 +189,7 @@ $connection6.UsePolicyBasedTrafficSelectors
 
 Om raden returnerar ”**SANT**”, sedan principbaserade trafikväljare konfigureras på anslutningen; annars returneras ”**FALSKT**”.
 
-### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3 Aktivera/inaktivera principbaserade trafikväljare på en anslutning
+### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. Aktivera/inaktivera principbaserade trafikväljare på en anslutning
 Du kan aktivera eller inaktivera alternativet när du har hämtat connection-resursen.
 
 #### <a name="to-enable-usepolicybasedtrafficselectors"></a>Aktivera UsePolicyBasedTrafficSelectors

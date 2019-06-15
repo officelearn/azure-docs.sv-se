@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111463"
 ---
 Avbildningar av standardiserad virtuella datorer (VM) gör att organisationer kan migrera till molnet och säkerställa konsekvens i distributionen. -Avbildningar omfattar vanligtvis fördefinierade inställningar för säkerhet och konfiguration och programvara som krävs. Konfigurera en egen avbildning pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder innehåller bara en enkel konfiguration som beskriver din avbildning, skickar den till tjänsten och avbildningen har skapats och distribuerats.
@@ -33,13 +33,13 @@ För förhandsversionen av stöds dessa funktioner:
 - Skapa bilder i VHD-format.
  
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 Azure Image Builder Service blir tillgänglig som förhandsversion i dessa regioner. Bilder kan fördelas utanför dessa regioner.
 - Östra USA
 - USA, östra 2
-- USA, västra centrala 
-- USA, västra
-- USA, västra 2
+- Västra centrala USA
+- Västra USA
+- Västra USA 2
 
 ## <a name="os-support"></a>OS-support
 AIB har stöd för Azure Marketplace grundläggande OS-avbildningar:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825616"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använda Azure Media Analytics för att konvertera textinnehåll i videofiler till digital text  
@@ -105,14 +105,14 @@ Utdata innehåller följande attribut:
 
 | Element | Beskrivning |
 | --- | --- |
-| Tidsskala |”ticken” per sekund av videon |
+| Timescale |”ticken” per sekund av videon |
 | Offset |tider för tidsstämplar. Det kommer alltid ske 0 i version 1.0 av Video-API: er. |
-| Bildfrekvens |Bildrutor per sekund av videon |
+| Framerate |Bildrutor per sekund av videon |
 | Bredd |bredd i bildpunkter |
 | Höjd |höjden på videon i bildpunkter |
-| Fragment |matris med tidsbaserade segment av videon där metadata chunked |
+| Fragments |matris med tidsbaserade segment av videon där metadata chunked |
 | start |Starttid för ett fragment i ”ticken” |
-| varaktighet |längden på ett fragment i ”ticken” |
+| Varaktighet |längden på ett fragment i ”ticken” |
 | interval |intervall för varje händelse inom det angivna fragmentet |
 | evenemang |matris som innehåller regioner |
 | region |objekt som representerar identifierade ord eller fraser |

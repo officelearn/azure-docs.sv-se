@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118789"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i Azure Digital Twins
 
@@ -68,11 +68,11 @@ Exempel på Diagnostisk loggning:
 Aktivera diagnostikloggar för en instans:
 
 1. Ta fram resursen i Azure-portalen.
-1. Klicka på **diagnostikinställningar**:
+1. Välj **diagnostikinställningar**:
 
     [![Diagnostikinställningar för en](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Klicka på **slå på diagnostik** att samla in data (om inte tidigare aktiverat).
+1. Välj **slå på diagnostik** att samla in data (om inte tidigare aktiverat).
 1. Fyll i de begärda fälten och välj hur och var data ska sparas:
 
     [![Diagnostikinställningar för två](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ Fullständig log fråga är tillgängligt via [Azure Monitor loggar](../azure-mo
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. Om du inte redan har en **Log Analytics-arbetsyta** instans, kan du skapa en arbetsyta genom att klicka på den **Lägg till** knappen:
+1. Om du inte redan har en **Log Analytics-arbetsyta** instans, kan du skapa en arbetsyta genom att välja den **Lägg till** knappen:
 
     [![Skapa OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](../azure-moni
 > [!NOTE]
 > Det uppstår en fördröjning i 5 minuter när du skickar händelser till **Log Analytics-arbetsyta** för första gången.
 
-Azure Monitor-loggar erbjuder även kraftfulla fel och avisering om tjänster, som kan visas genom att klicka på **diagnostisera och lösa problem**:
+Azure Monitor-loggar erbjuder även kraftfulla fel och avisering om tjänster, som kan visas genom att välja **diagnostisera och lösa problem**:
 
    [![Varning och fel-meddelanden](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953106"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Hantera datatillgångar i Azure Data Catalog
@@ -38,7 +38,7 @@ När en datatillgång i Data Catalog ägs endast användare som har auktoriserat
 >
 >
 
-### <a name="take-ownership"></a>Överta ägarskap
+### <a name="take-ownership"></a>Bli ägare
 Användare kan ta över ägarskapet för datatillgångar genom att välja den **bli ägare** alternativ i Data Catalog-portalen. Inga särskilda behörigheter krävs för att överta ägarskapet för en oägd datatillgången. Alla användare kan bli ägare till en oägd datatillgången.
 
 ### <a name="add-owners-and-co-owners"></a>Lägg till ägare och Medägare

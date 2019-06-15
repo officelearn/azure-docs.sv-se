@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudier: Azure Active Directory-integrering med SAP Cloud Platform
 
@@ -59,7 +59,7 @@ Om du vill konfigurera integreringen av SAP Cloud Platform i Azure AD så måste
 
 **Lägg till SAP Cloud Platform från galleriet genom utföra följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -320,5 +320,5 @@ När du klickar på SAP Cloud Platform-panelen i åtkomstpanelen så bör du aut
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

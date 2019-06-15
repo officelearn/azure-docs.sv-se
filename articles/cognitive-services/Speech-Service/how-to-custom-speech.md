@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060879"
 ---
 # <a name="what-is-custom-speech"></a>Vad är anpassade tal?
 
@@ -52,7 +52,7 @@ När du har skapat ett Azure-konto och en Speech Services-prenumeration, måste 
 
 1. Hämta prenumerationsnyckeln Speech Services från Azure-portalen.
 2. Logga in på den [portal för anpassat tal](https://aka.ms/custom-speech).
-3. Välj den prenumeration som du vill arbeta med och skap en tal-projekt.
+3. Välj den prenumeration som du behöver för att arbeta med och skapa ett projekt med tal.
 4. Om du vill ändra din prenumeration kan du använda den **kugghjulet** ikonen finns i det övre navigeringsfältet.
 
 ## <a name="how-to-create-a-project"></a>Så här skapar du ett projekt

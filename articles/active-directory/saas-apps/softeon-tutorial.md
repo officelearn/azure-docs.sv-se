@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f14e7e4a5699d00e9d94c1796e02e97a7a2441e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ff01d9bc07408fa825fa933966d583b3d6ff7f56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Självstudier: Azure Active Directory-integrering med Softeon WMS
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Softeon WMS i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till Softeon WMS från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -198,4 +198,4 @@ När du klickar på panelen Softeon WMS i åtkomstpanelen, bör det vara loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059352"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företagssäkerhet för Azure Machine Learning-tjänsten
 
@@ -75,7 +75,7 @@ I följande tabell visas några av logg för Azure Machine Learning-tjänsten oc
 | Visa modeller/bilder | ✓ | ✓ | ✓ |
 | Anropa webbtjänst | ✓ | ✓ | ✓ |
 
-Om de inbyggda rollerna är tillräckligt för dina behov kan skapa du också anpassade roller. Observera att endast anpassade roller som vi har stöd för åtgärder på arbetsytan och beräkning av Machine Learning. Anpassade roller kan ha läsa, skriva eller ta bort behörigheter för arbetsytan och beräkningsresursen på arbetsytan. Du kan göra rollen på en viss arbetsyta-nivå, en specifik resursgruppsnivå eller en specifik prenumerationsnivå. Mer information finns i [hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md)
+Om de inbyggda rollerna är tillräckligt för dina behov kan skapa du också anpassade roller. Endast anpassade roller som stöds är för åtgärder på arbetsytan och beräkning av Machine Learning. Anpassade roller kan ha läsa, skriva eller ta bort behörigheter för arbetsytan och beräkningsresursen på arbetsytan. Du kan göra rollen på en viss arbetsyta-nivå, en specifik resursgruppsnivå eller en specifik prenumerationsnivå. Mer information finns i [hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>Att säkra beräknings- och data
 Ägare och deltagare kan använda alla beräkning mål och datalager som är kopplade till arbetsytan.  
@@ -94,7 +94,7 @@ Mer information om hanterade identiteter finns [hanterade identiteter för Azure
 
 Vi rekommenderar att administratörer inte återkalla åtkomst till den hanterade identitet till de resurser som nämns ovan. Åtkomst kan återställas med åtgärden synkronisera om nycklar.
 
-Azure Machine Learning-tjänsten skapar en tilläggsapplikation (namn börjar med aml-) med deltagare administratörsnivå i din prenumeration för varje arbetsyteregion. För t.ex. Om du har en arbetsyta i östra USA och en annan arbetsyta i Norra Europa i samma prenumeration visas 2 sådana program. Detta krävs så att Azure Machine Learning-tjänsten kan hantera beräkningsresurser.
+Azure Machine Learning-tjänsten skapar ett ytterligare program (namn börjar med `aml-`) med deltagare administratörsnivå i din prenumeration för varje arbetsyteregion. För t.ex. Om du har en arbetsyta i östra USA och en annan arbetsyta i Norra Europa i samma prenumeration visas två sådana program. Detta krävs så att Azure Machine Learning-tjänsten kan hantera beräkningsresurser.
 
 
 ## <a name="network-security"></a>Nätverkssäkerhet
@@ -113,13 +113,15 @@ Mer information om hur du hanterar dina egna nycklar för data som lagras i Azur
 
 Finjusteringsdata också lagras vanligtvis i Azure Blob storage så att den är tillgänglig för utbildning-beräkning. Den här lagringen är inte hanteras av Azure Machine Learning men monterad för att beräkna som en fjärrfil-system.
 
+Mer information om hur du återskapar åtkomstnycklarna för Azure storage-konton som används med din arbetsyta finns i den [återskapar lagringsåtkomstnycklar](how-to-change-storage-access-key.md) artikeln.
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Azure Machine Learning-tjänsten lagrar mått och metadata till Cosmos DB som finns i en Microsoft-prenumeration som hanteras av Azure Machine Learning-tjänsten. Alla data som lagras i Cosmos DB krypteras i vila med hjälp av Microsoft-hanterade nycklar.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 Alla avbildningar i registret (ACR) krypteras i vila. Azure krypterar en avbildning innan de lagras och dekrypterar dem på direkt när Azure Machine Learning-tjänsten hämtar avbildningen automatiskt.
 
-#### <a name="machine-learning-compute"></a>Machine Learning-beräkning
+#### <a name="machine-learning-compute"></a>Machine Learning Compute
 OS-disken krypteras för varje beräkningsnod lagras i Azure Storage med Microsoft-hanterade nycklar i Azure Machine Learning-tjänsten storage-konton. Den här beräkningen är tillfälliga och kluster vanligtvis skalas när det finns inga körningar i kö. Den underliggande virtuella datorn enhetstiden och OS-disken tas bort. Azure-diskkryptering stöds inte för OS-disken.
 Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Den här disken kan också användas om du vill att steget träningsdata. Den här disken krypteras inte. Mer information om så här fungerar kryptering i vila i Azure finns i [Azure Data kryptering vid vila](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 

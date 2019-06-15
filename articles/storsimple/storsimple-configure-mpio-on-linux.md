@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077842"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskriver i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.
@@ -56,11 +56,11 @@ Konfigurationsfilen `/etc/multipath.conf` gör många av funktionerna för flera
 
 Multipath.conf har fem avsnitt:
 
-- **System standardnivåer** *(standardvärde)*: Du kan åsidosätta system standardnivåer.
-- **Svartlistad enheter** *(svartlistat)*: Du kan ange i listan med enheter som inte ska kontrolleras av enheten mapper.
-- **Svartlista undantag** *(blacklist_exceptions)*: Du kan identifiera specifika enheter så att de behandlas som flera sökvägar enheter även om anges i svartlistat.
-- **Specifika inställningar för lagring controller** *(enheter)*: Du kan ange inställningar som tillämpas på enheter som har leverantör och produktinformation.
-- **Specifika Enhetsinställningar** *(multipaths)*: Du kan använda det här avsnittet för att finjustera konfigurationsinställningarna för enskilda LUN.
+- **System standardnivåer** *(standardvärde)* : Du kan åsidosätta system standardnivåer.
+- **Svartlistad enheter** *(svartlistat)* : Du kan ange i listan med enheter som inte ska kontrolleras av enheten mapper.
+- **Svartlista undantag** *(blacklist_exceptions)* : Du kan identifiera specifika enheter så att de behandlas som flera sökvägar enheter även om anges i svartlistat.
+- **Specifika inställningar för lagring controller** *(enheter)* : Du kan ange inställningar som tillämpas på enheter som har leverantör och produktinformation.
+- **Specifika Enhetsinställningar** *(multipaths)* : Du kan använda det här avsnittet för att finjustera konfigurationsinställningarna för enskilda LUN.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Konfigurera MPIO på StorSimple som är anslutna till Linux-värd
 En StorSimple-enhet är ansluten till en Linux-värd kan konfigureras för hög tillgänglighet och belastningsutjämning. Till exempel om Linux-värd har två gränssnitt som är anslutna till SAN-nätverk och enheten har två gränssnitt som är anslutna till SAN-nätverk så att dessa gränssnitt är i samma undernät, ska sedan det finnas 4 sökvägar tillgängliga. Men om varje gränssnitt för DATA på enheten och värd-gränssnittet är i ett annat IP-undernät (och inte dirigerbara) kan blir sedan endast 2 vägar tillgänglig. Du kan konfigurera flera sökvägar för att automatiskt identifiera alla tillgängliga sökvägar, välja en algoritm för belastningsutjämning för dessa sökvägar, tillämpa specifika konfigurationsinställningar för endast StorSimple-volymer, och sedan aktivera och verifiera flera sökvägar.
@@ -417,7 +417,7 @@ A. För att kontrollera om enheten är godkänd, Använd felsökning interaktiva
     dm-3 devnode blacklisted, unmonitored
 
 
-Mer information går du till [använder felsökning interaktiva kommandot för flera sökvägar](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Mer information går du till [felsökning för flera sökvägar](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista över användbara kommandon
 | Typ | Kommando | Beskrivning |
@@ -444,6 +444,6 @@ Mer information går du till [använder felsökning interaktiva kommandot för f
 ## <a name="next-steps"></a>Nästa steg
 När du konfigurerar MPIO på Linux-värd, kan du också behöva avser följande CentoS 6.6 dokument:
 
-* [Konfigurera MPIO på CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [Konfigurera MPIO på CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guide för Linux-utbildning](http://linux-training.be/linuxsys.pdf)
 

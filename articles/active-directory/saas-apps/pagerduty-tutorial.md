@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ded5854c5e669ab1982641169f13a9cb400d5d6d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b7a522aaf35303bbd87e7aafe65b1302f1b98bc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integrering med PagerDuty
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av PagerDuty i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till PagerDuty från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -248,5 +248,5 @@ När du klickar på panelen PagerDuty i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

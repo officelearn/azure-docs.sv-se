@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755123"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
@@ -190,7 +190,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Kan du visa allt, men inte göra några ändringar. |
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -1578,7 +1578,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägget för virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure-lagring. Skapa och konfigurera automationskonton; lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Visar åtkomstnycklarna för storage-konton. |
@@ -1605,7 +1605,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, även konfiguration av Azure-diagnostik visas på alla Azure-resurser. |
 > | **Id** | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med den nya motorn. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -1687,7 +1687,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Du kan läsa och utföra åtgärder på hanterade resurser |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
@@ -1704,7 +1704,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
@@ -1798,7 +1798,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
@@ -1853,7 +1853,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
@@ -1950,7 +1950,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa ett supportärende och läsa resurser/hierarkier. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Authorization/policyassignments/* | Skapa och hantera principtilldelningar |
 > | Microsoft.Authorization/policydefinitions/* | Skapa och hantera principdefinitioner |
 > | Microsoft.Authorization/policysetdefinitions/* | Skapa och hantera principuppsättningar |
@@ -2688,7 +2688,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Kan du hantera användaråtkomsten till Azure-resurser. |
 > | **Id** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Åtgärder** |  |
-> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | \* / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Authorization/* | Hantera auktorisering |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |

@@ -9,10 +9,10 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116974"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa virtuella datorer som har schemalagts för underhåll i portalen
@@ -33,7 +33,7 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
       
       | Värde | Beskrivning |
       |-------|-------------|
-      | Starta nu | Virtuellt datorn i självbetjäningsunderhållsperioden som gör att du kan starta underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn. | 
+      | Börja nu | Virtuellt datorn i självbetjäningsunderhållsperioden som gör att du kan starta underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn. | 
       | Schemalagd | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig om underhållsperioden genom att välja Underhåll – schemalagd period i den här vyn eller genom att klicka på den virtuella datorn. | 
       | Redan uppdaterat | Den virtuella datorn har uppdaterats redan och ingen ytterligare åtgärd krävs just nu. | 
       | Försök igen senare | Du har initierat underhållet utan framgång. Du kommer att kunna använda alternativet självbetjäningsunderhållet vid ett senare tillfälle. | 

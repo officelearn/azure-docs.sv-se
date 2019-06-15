@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916963"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
@@ -102,7 +102,7 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
 
     **Generera nycklar automatiskt**: Den här kryssrutan bör redan vara markerad.
 
-    **Välj hur du vill tilldela enheter till hubs**: Välj **anpassad (använda Azure-funktion)**.
+    **Välj hur du vill tilldela enheter till hubs**: Välj **anpassad (använda Azure-funktion)** .
 
     ![Lägg till grupp för registrering av anpassade allokering för symmetrisk nyckelattestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ I det här avsnittet ska du uppdaterar ett etablering exempel med namnet **prov\
 
 Den här exempelkoden simulerar en startsekvens för enheten som skickar en begäran om etablering till din instans av Device Provisioning-tjänsten. Startsekvens medför att toaster-enheten ska identifieras och tilldelad till IoT hub med hjälp av anpassade allokeringsprincipen.
 
-1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_**.
+1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_** .
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -509,11 +509,11 @@ I följande tabell visar förväntad scenarier och resultat felkoder som kan upp
 | Scenario | Registrering av resultatet från Provisioning-tjänsten | Etablering SDK-resultat |
 | -------- | --------------------------------------------- | ------------------------ |
 | Webhooken returnerar 200 OK med 'iotHubHostName' inställt på ett giltigt värdnamn för IoT hub | Resultat: Tilldelad  | SDK: N returnerar PROV_DEVICE_RESULT_OK tillsammans med hub information |
-| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Fungerar inte<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Webhooken returnerar 401 Ej behörig | Resultat: Fungerar inte<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
-| En enskild registrering har skapats för att inaktivera enheten | Resultat: Har inaktiverats | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
+| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Misslyckad<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhooken returnerar 401 Ej behörig | Resultat: Misslyckad<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
+| En enskild registrering har skapats för att inaktivera enheten | Resultat: Inaktiverad | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
 | Webhooken returnerar felkod > = 429 | DPS-dirigering kommer att försöka igen flera gånger. Återförsöksprincipen är för närvarande:<br><br>&nbsp;&nbsp;– Antal nya försök: 10<br>&nbsp;&nbsp;-Första intervall: 1s<br>&nbsp;&nbsp;-Öka: 9s | SDK: N ska ignorera felet och skicka en annan get-statusmeddelande inom den angivna tiden |
-| Webhooken returnerar alla andra statuskod | Resultat: Fungerar inte<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Webhooken returnerar alla andra statuskod | Resultat: Misslyckad<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

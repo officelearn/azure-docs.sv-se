@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155208"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS Integration Runtime i Azure Data Factory
@@ -51,7 +51,7 @@ När du etablerar Azure-SSIS IR installeras också Azure Feature Pack för SSIS 
 
     Se till att din Azure SQL Database-server/hanterad instans inte redan har en SSISDB. Etablera Azure-SSIS IR stöder inte med hjälp av en befintlig SSISDB.
 
-- **Azure Resource Manager-nätverk (valfritt)**. Du måste ha en Azure Resource Manager-nätverk om minst en av följande villkor föreligger:
+- **Azure Resource Manager-nätverk (valfritt)** . Du måste ha en Azure Resource Manager-nätverk om minst en av följande villkor föreligger:
 
   - Du är värd för SSISDB i Azure SQL Database-server med virtuella nätverksslutpunkter eller hanterad instans som är i ett virtuellt nätverk.
   - Du vill ansluta till lokala data datalager från SSIS-paket som körs på Azure-SSIS IR.

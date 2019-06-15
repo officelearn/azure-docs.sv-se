@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070361"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -276,6 +276,7 @@ Mer information finns i [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/st
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
+- Aktivera och inaktivera SQL Server Agent stöds för närvarande inte i hanterade instans. SQL Agent körs alltid.
 - SQL Server Agent-inställningarna är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser. 
 - Jobb
   - Steg för T-SQL-jobb stöds.
@@ -456,13 +457,13 @@ Cross-instans service broker stöds inte:
 - `Extended stored procedures` stöds inte, vilket inkluderar `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Environmet begränsningar
+## <a name="Environment"></a>Begränsningar
 
 ### <a name="subnet"></a>Undernät
 - Du kan inte placera andra resurser (till exempel virtuella datorer) i undernätet som reserverats för din hanterade instans. Placera dessa resurser i andra undernät.
 - Undernätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum är 16, medan rekommendation är att ha minst 32 IP-adresser i undernätet.
 - [Tjänstslutpunkter kan inte kopplas till undernätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
-- Antalet och typerna av instanser som du kan placera i undernätet har några [begränsningar och gränser](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har några [begränsningar och gränser](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns några [säkerhetsregler som måste tillämpas på undernätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>Virtuellt nätverk

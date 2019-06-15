@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 56b3e42a65eb84ef6ee53b4ba16e5fafc4473405
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6fe9378a329c9de3b3204bf141d9e574a2ec308c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Självstudier: Azure Active Directory-integrering med Onit
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till
 
 **Utför följande steg för att lägga till Onit från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -272,5 +272,5 @@ När du klickar på panelen Onit i åtkomstpanelen, bör det vara loggas in auto
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

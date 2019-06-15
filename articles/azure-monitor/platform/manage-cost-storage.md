@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061047"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar
 
@@ -108,10 +108,12 @@ Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i di
 
 ## <a name="legacy-pricing-tiers"></a>Äldre prisnivåer
 
-Prenumerationer som har en Log Analytics-arbetsyta eller en Application Insights-resurs i den innan den 2 April 2018 eller är länkade till ett Enterprise-avtal som har startat före den 1 februari 2019 fortsätter att ha åtkomst till äldre prisnivåer: Kostnadsfri, fristående (Per GB) och Per nod (OMS).  Arbetsytor i den kostnadsfria prisnivån har begränsad till 500 MB (utom data säkerhetstyper som samlas in av Azure Security Center) dagliga datainmatning och datalagring är begränsad till 7 dagar. Den kostnadsfria prisnivån är avsedd endast för utvärdering. Arbetsytor i fristående eller Per nod prisnivåer ha åtkomst till datakvarhållning upp till 2 år. 
+Prenumerationer som har en Log Analytics-arbetsyta eller en Application Insights-resurs i den innan den 2 April 2018 eller är länkade till ett Enterprise-avtal som har startat före den 1 februari 2019 fortsätter att ha åtkomst till äldre prisnivåer: **Kostnadsfria**, **fristående (Per GB)** och **Per nod (OMS)** .  Arbetsytor i den kostnadsfria prisnivån har begränsad till 500 MB (utom data säkerhetstyper som samlas in av Azure Security Center) dagliga datainmatning och datalagring är begränsad till 7 dagar. Den kostnadsfria prisnivån är avsedd endast för utvärdering. Arbetsytor i fristående eller prisnivån Per nod har användarangiven kvarhållning av upp till två år. 
 
 > [!NOTE]
 > Välj Log Analytics för att använda rättigheter som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägget för System Center, *Per nod* prisnivå.
+
+De tidigaste brukare i Log Analytics även ha åtkomst till de ursprungliga prisnivåerna **Standard** och **Premium**, som har åtgärdat datalagring för 30 och 365 dagar respektive. 
 
 ## <a name="changing-pricing-tier"></a>Ändra prisnivå
 
@@ -410,6 +412,11 @@ När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 
 Ange en befintlig eller skapa en ny [Åtgärdsgrupp](action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
 När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
+
+## <a name="limits-summary"></a>Sammanfattning av gränser
+
+Det finns vissa ytterligare begränsningar för Log Analytics, vilket beror på prisnivå för logganalys. Dessa dokumenteras [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074211"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du stöd för Virtual Network för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en Azure-Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, är inte offentligt adresserbar och kan bara kommas åt från virtuella datorer och program i det virtuella nätverket. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för premium Azure Cache för Redis-instans.
@@ -131,7 +131,7 @@ Det finns åtta inkommande port intervallet krav. Inkommande begäranden i dessa
 
 | Portar | Direction | Transport-protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis, Azure belastningsutjämning | (Redis undernät) | (Redis subnet), Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis, Azure belastningsutjämning | (Redis undernät) | (Redis undernät), virtuellt nätverk, Azure Load Balancer <sup>2</sup> |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 8500 |Inkommande |TCP/UDP |Azure för belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät), Azure Load Balancer |
@@ -139,6 +139,8 @@ Det finns åtta inkommande port intervallet krav. Inkommande begäranden i dessa
 | 15000-15999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure läsa in belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
 | 16001 |Inkommande |TCP/UDP |Azure för belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
+
+<sup>2</sup> du kan använda Tjänsttaggen 'AzureLoadBalancer' (Resource Manager) (eller AZURE_LOADBALANCER om du för klassisk) för att skapa NSG-reglerna.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Ytterligare anslutningskrav för virtuellt nätverk
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119264"
 ---
 # <a name="azure-operational-security"></a>Azure driftsäkerhet
 ## <a name="introduction"></a>Introduktion
@@ -224,7 +224,7 @@ Det är viktigt för att identifiera säkerhetsproblem i nätverket och att säk
 
 Network Watcher har för närvarande följande funktioner:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Granskningsloggar</a>**-åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan ses i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggarna är tillgängliga via portalen, PowerShell, CLI och Rest API. Mer information om granskningsloggarna finns i Granska driften med Resource Manager. Granskningsloggarna är tillgängliga för åtgärder på alla nätverksresurser.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Granskningsloggar</a>** -åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan ses i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggarna är tillgängliga via portalen, PowerShell, CLI och Rest API. Mer information om granskningsloggarna finns i Granska driften med Resource Manager. Granskningsloggarna är tillgängliga för åtgärder på alla nätverksresurser.
 
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-flöde verifierar </a>**  – kontrollerar om ett paket tillåts eller nekas baserat på flow information 5-tuppel paket parametrar (mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en grupp, returneras regeln och Nätverkssäkerhetsgruppen som nekade paketet.

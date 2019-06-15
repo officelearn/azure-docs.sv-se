@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387969"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120186"
 ---
 Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tjänstens loggfiler på virtuella datorer när problemen inträffar. Du kan använda den AzureLogCollector tillägg på begäran för att utföra enstaka loggsamlingar från en eller flera moln virtuella datorer (från både web-roller och worker-roller) och överföra de insamlade filerna till ett Azure storage-konto – allt utan att logga in via en fjärranslutning till någon för de virtuella datorerna.
 
@@ -20,8 +20,8 @@ Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tj
 
 Det finns två lägen för samlingen beroende på vilka typer av filer ska samlas in.
 
-* **Azure gäst-agenten loggar endast (GA)**. Det här samlingsläget innehåller alla loggar som rör Azure-gästagenterna och andra Azure-komponenter.
-* **Alla loggar (fullständig)**. Den här samlingsläget samlar in alla filer i plus GA-läge:
+* **Azure gäst-agenten loggar endast (GA)** . Det här samlingsläget innehåller alla loggar som rör Azure-gästagenterna och andra Azure-komponenter.
+* **Alla loggar (fullständig)** . Den här samlingsläget samlar in alla filer i plus GA-läge:
   
   * händelseloggarna system och program
   * HTTP-felloggar
@@ -31,7 +31,7 @@ Det finns två lägen för samlingen beroende på vilka typer av filer ska samla
 
 I båda lägena samling kan ytterligare data insamlingsmappar anges med hjälp av en samling med följande struktur:
 
-* **Namn**: Namnet på samlingen som används som namnet på undermapp i zip-filen med insamlade filer.
+* **Namn på**: Namnet på samlingen som används som namnet på undermapp i zip-filen med insamlade filer.
 * **Plats**: Sökvägen till mappen på den virtuella datorn där filerna ska samlas in finns.
 * **SearchPattern**: Mönstret för namnen på filer ska samlas in. Standardvärdet är ”\*”
 * **Rekursiva**: om filerna ska samlas in är placerad rekursivt under den angivna platsen.

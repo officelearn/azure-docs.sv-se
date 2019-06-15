@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076796"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv
 
@@ -70,6 +70,9 @@ Det finns dessutom några saker som du kan behöva göra i vissa fall:
  När valvet har skapats visas den i listan över Recovery Services-valv. Om du inte ser ditt valv, väljer **uppdatera**.
 
 ![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i *Behåll omedelbar återställning ögonblicksbild* i principen för säkerhetskopiering av Azure virtuella datorer.  Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.
 
 ### <a name="modify-storage-replication"></a>Ändra storage-replikering
 

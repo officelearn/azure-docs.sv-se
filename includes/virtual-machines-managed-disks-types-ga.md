@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133496"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -45,7 +45,7 @@ För standard SSD: er varje i/o-åtgärden har mindre än eller lika med 256 KiB
 
 ## <a name="standard-hdd"></a>Standard HDD
 
-Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Med standard-lagring lagras data på hårddiskar (HDD). Svarstid, IOPS och dataflöde över Standard HDD-diskar kan variera mycket mer jämfört med SSD-baserade diskar. När du arbetar med virtuella datorer kan använda du standarddiskar HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standardhårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
+Azure standardhårddiskar leverera tillförlitlig, billig disksupport för virtuella datorer som kör latens-okänslig arbetsbelastningar. Med standard-lagring lagras data på hårddiskar (HDD). Svarstid, IOPS och dataflöde över Standard HDD-diskar kan variera mycket mer jämfört med SSD-baserade diskar. Standard HDD-diskar är utformade för att leverera skrivfördröjning under 10 MS och läsa fördröjning under 20 MS för de flesta i/o-åtgärder, men den verkliga prestandan kan variera beroende på i/o-mönster för storlek och arbetsbelastning. När du arbetar med virtuella datorer kan använda du standarddiskar HDD för utveckling och testning och mindre kritiska arbetsbelastningar. Standardhårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

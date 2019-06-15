@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051640"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -95,12 +95,19 @@ Du kan använda trafikanalys för NSG: er i någon av de följande regionerna so
 Log Analytics-arbetsytan måste finnas i följande regioner:
 - Centrala Kanada
 - Västra centrala USA
+- Västra USA
 - Västra USA 2
+- Södra centrala USA
+- Centrala USA
 - Östra USA
+- USA, östra 2
 - Frankrike, centrala
 - Västra Europa
+- Norra Europa
 - Storbritannien, södra
+- Östra Australien
 - Sydöstra Australien
+- Östasien
 - Sydostasien 
 - Sydkorea, centrala
 - Indien, centrala

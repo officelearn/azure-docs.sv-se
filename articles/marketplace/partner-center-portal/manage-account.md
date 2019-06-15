@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752859"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Så här hanterar du ditt kommersiella Marketplace-konto i Partnercenter 
@@ -84,7 +84,7 @@ Om du vill konfigurera ditt betalnings-konto, måste du **associera din Account*
 
 Nu när ditt Account är associerad, för att lägga till betalnings-konto behöver du:
 - **Välj en betalningsmetod**: PayPal eller en
-- **Lägg till betalningsinformation**: Detta kan omfatta att välja en kontotyp (kontrollerar eller besparingar), ange kontonamnet för innehavaren, kontonummer och routning tal, faktureringsadress, telefonnummer eller PayPal e-postadress. * Mer information om hur du använder PayPal som din betalningsmetod för kontot och för att ta reda på om det finns stöd för din region på marknaden, finns i [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Lägg till betalningsinformation**: Detta kan omfatta att välja en kontotyp (kontrollerar eller besparingar), ange kontonamnet för innehavaren, kontonummer och routning tal, faktureringsadress, telefonnummer eller PayPal e-postadress. \* Mer information om hur du använder PayPal som din betalningsmetod för kontot och för att ta reda på om det finns stöd för din region på marknaden, finns i [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Ändra ditt betalnings-konto kan fördröja betalningarna av upp till en betalningsmetod cykel. Den här fördröjningen beror på att vi behöver verifiera ändringen av tjänstkontot, precis som vi gör när du först konfigurerar betalnings-konto. Du kommer fortfarande få betalt för för hela beloppet när ditt konto har verifierats; alla betalningar på grund av för den aktuella betalningen cykel kommer att läggas till nästa.  
@@ -174,7 +174,7 @@ Lägga till användare till ditt Partner Center-konto som redan finns i ditt fö
 
 1. Gå till **användare** (under **kontoinställningar**) och välj **lägga till användare**.
 2. Välj en eller flera användare i listan som visas. Du kan använda sökrutan för att söka efter specifika användare.
-* Om du väljer fler än en användare att lägga till Partner Center-konto, måste du tilldela dem samma roll eller uppsättning anpassade behörigheter. Upprepa dessa steg för varje roll eller en uppsättning av anpassade behörigheter för att lägga till flera användare med olika rollbehörigheter.
+\* Om du väljer fler än en användare att lägga till Partner Center-konto, måste du tilldela dem samma roll eller uppsättning anpassade behörigheter. Upprepa dessa steg för varje roll eller en uppsättning av anpassade behörigheter för att lägga till flera användare med olika rollbehörigheter.
 3.  När du har valt användare klickar du på **Lägg till vald**.
 5.  I den **roller** anger roller eller anpassade behörigheter för de markerade användarna.
 6.  Välj **Spara**.

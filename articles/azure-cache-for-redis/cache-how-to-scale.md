@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
 ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132915"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache för Redis
@@ -31,7 +31,7 @@ Du kan övervaka följande mått för att bestämma om du behöver skala.
 
 * Redis-serverbelastning
 * Minnesanvändning
-* Nätverksbandbredd
+* Nätverkets bandbredd
 * CPU-användning
 
 Om du har fastställt att cacheminnet inte längre uppfyller kraven för ditt program, kan du skala till ett större eller mindre cache prisnivå som passar ditt program. Mer information om hur du bestämmer vilken prisnivå du använder cache finns i [vilket Azure Cache för Redis-erbjudande och vilken storlek ska jag använda](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
@@ -39,7 +39,7 @@ Om du har fastställt att cacheminnet inte längre uppfyller kraven för ditt pr
 ## <a name="scale-a-cache"></a>Skala en cache
 Du skalar cachen, [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i den [Azure-portalen](https://portal.azure.com) och klicka på **skala** från den **resursmenyn**.
 
-![Skalning](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Skala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Välj den önskade prisnivån från den **väljer prisnivå** bladet och klickar på **Välj**.
 

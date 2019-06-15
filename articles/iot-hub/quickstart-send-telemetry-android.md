@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051561"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Snabbstart: Skicka IoT-telemetri från en Android-enhet
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [android-installation](https://developer.android.com/studio/install). 
+* Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [android-installation](https://developer.android.com/studio/install).
 
 * Android SDK-27 används av exemplet i den här artikeln.
 
@@ -113,11 +113,10 @@ I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](https:/
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     Följande skärmbild visar utdata när IoT-hubben tar emot telemetri som skickas av Android-enheten:
 
       ![Läsa enhetsmeddelanden med hjälp av Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -130,4 +129,3 @@ Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprog
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Kontrollera en enhet ansluten till en IoT Hub](quickstart-control-device-android.md)
-

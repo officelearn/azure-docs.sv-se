@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071593"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur Migreringsverktyget fungerar
 
@@ -55,10 +55,11 @@ Alla klassiska aviseringar på storage-konton kan migreras utom aviseringar i de
 - PercentTimeoutError
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 Klassiska varningen regler på procent mått måste migreras [mappningen mellan gamla och nya lagringsmått](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Tröskelvärden måste ändras på rätt sätt eftersom det nya måttet som är tillgängliga är ett absolut.
 
-Klassiska Varningsregler på AnonymousThrottlingError och SASThrottlingError måste delas upp i två nya aviseringar eftersom det finns inga kombinerade mått som fungerar på samma sätt. Tröskelvärden måste anpassas på rätt sätt.
+Klassiska Varningsregler på AnonymousThrottlingError, SASThrottlingError och ThrottlingError måste delas upp i två nya aviseringar eftersom det finns inga kombinerade mått som fungerar på samma sätt. Tröskelvärden måste anpassas på rätt sätt.
 
 ## <a name="rollout-phases"></a>Distributionsfaser
 
@@ -97,7 +98,7 @@ För närvarande har en delmängd av prenumerationer markerats som klar för mig
 
 Alla användare som har den inbyggda rollen som deltagare för övervakning på prenumerationsnivå kan utlösa migreringen. Användare som har en anpassad roll med följande behörigheter kan även utlösa migreringen:
 
-- * / läsa
+- \* / läsa
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
@@ -106,7 +107,7 @@ Alla användare som har den inbyggda rollen som deltagare för övervakning på 
 
 När du [utlösa migreringen](alerts-using-migration-tool.md), får du e-post till de adresser som du angav som meddelar att migreringen är klar eller om någon åtgärd krävs från dig. Det här avsnittet beskriver några vanliga problem och hur du hanterar dem.
 
-### <a name="validation-failed"></a>Verifiering misslyckades
+### <a name="validation-failed"></a>Verifieringen misslyckades
 
 Prenumerationen på grund av vissa ändringar i klassiska Varningsregler i din prenumeration kan inte migreras. Det här problemet är tillfälligt. Du kan starta om migreringen när Migreringsstatus för flyttas tillbaka **klar för migrering** några dagar.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
 ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594138"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klienter för Azure Load Balancer
@@ -30,7 +30,7 @@ När du definierar en Azure Load Balancer, är en klientdel och en serverdel fö
 
 I följande tabell innehåller några exempel frontend-konfigurationer:
 
-| Klientdel | IP-adress | protokoll | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Vi utforska vidare dessa scenarier genom att börja med standardbeteendet.
 
 I det här scenariot konfigureras på klienter enligt följande:
 
-| Klientdel | IP-adress | protokoll | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Lila klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -65,12 +65,12 @@ Vi definierar två regler:
 
 | Regel | Mappa klientdel | Till serverdelspoolen |
 | --- | --- | --- |
-| 1 |![grön klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![grön klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Fullständig mappningen i Azure Load Balancer är nu på följande sätt:
 
-| Regel | Klientdelens ip-adress | protokoll | port | Mål | port |
+| Regel | Frontend-IP-adress | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP-adress |80 |
 | ![Lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP-adress |81 |
@@ -104,7 +104,7 @@ Det här scenariot har varje virtuell dator i serverdelspoolen tre nätverksgrä
 
 Vi antar att samma konfiguration för klientdel som i scenariot ovan:
 
-| Klientdel | IP-adress | protokoll | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Lila klientdel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Vi definierar två regler:
 
 | Regel | Klientdel | Mappa till backend-pool |
 | --- | --- | --- |
-| 1 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
-| 2 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serverdel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
+| 1 |![Regeln](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
+| 2 |![Regeln](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
 
 I följande tabell visar slutförd mappningen i belastningsutjämnaren:
 
-| Regel | Klientdelens ip-adress | protokoll | port | Mål | port |
+| Regel | Frontend-IP-adress | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |samma som klientdelen (65.52.0.1) |samma som klientdelen (80) |
 | ![Lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |samma som klientdelen (65.52.0.2) |samma som klientdelen (80) |

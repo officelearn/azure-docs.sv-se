@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073242"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -35,7 +35,7 @@ Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, r
 
 Du kan skapa en vy över distribuerade logiska igen med hjälp av `operation_Id`, `operation_parentId`, och `request.id` med `dependency.id`. De här fälten också definiera orsakssamband ordningen för telemetri-anrop.
 
-Spårningar från komponenter kan gå till olika lagringsenheter objekt i en miljö med mikrotjänster. Varje komponent kan ha sin egen instrumenteringsnyckeln i Application Insights. Om du vill hämta telemetri för den logiska åtgärden, måste du fråga data från varje lagringsenheter. När antalet objekt som lagring är enorm, måste en ledtråd om var du vill titta lite närmare. Application Insights-datamodellen definierar två fält för att lösa problemet: `request.source` och `dependency.target`. Det första fältet identifierar den komponent som initierade beroende begäran och andra identifierar vilken komponent returnerade svaret beroende-anropet.
+Spårningar från komponenter kan gå till olika lagringsenheter objekt i en miljö med mikrotjänster. Varje komponent kan ha sin egen instrumenteringsnyckeln i Application Insights. Om du vill hämta telemetri för den logiska åtgärden, frågar Application Insights-UX data från varje lagringsenheter. När antalet objekt som lagring är enorm, måste en ledtråd om var du vill titta lite närmare. Application Insights-datamodellen definierar två fält för att lösa problemet: `request.source` och `dependency.target`. Det första fältet identifierar den komponent som initierade beroende begäran och andra identifierar vilken komponent returnerade svaret beroende-anropet.
 
 ## <a name="example"></a>Exempel
 
@@ -51,12 +51,12 @@ Du kan analysera telemetri som resulterande genom att köra en fråga:
 
 Observera att alla objekt i telemetrin dela roten i resultaten `operation_Id`. När ett Ajax-anrop görs från sidan, ett nytt unikt ID (`qJSXU`) tilldelas telemetri om beroenden och ID för sidvisningar används som `operation_ParentId`. Serverförfrågan använder sedan Ajax-ID som `operation_ParentId`.
 
-| ItemType   | namn                      | ID           | operation_ParentId | operation_Id |
+| ItemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Lagerartiklar sidan                |              | STYz               | STYz         |
-| beroende | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| begäran    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| beroende | Hämta /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| Beroende | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
+| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| Beroende | Hämta /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 När anropet `GET /api/stock/value` görs till en extern tjänst som du vill veta identiteten för den servern där du kan ange den `dependency.target` fältet på rätt sätt. När den externa tjänsten inte stöder övervakning, `target` anges till namnet på tjänsten (till exempel `stock-prices-api.com`). Men om tjänsten identifierar sig genom att returnera ett HTTP-huvud som fördefinierade `target` innehåller tjänstidentiteten där Application Insights för att skapa en distribuerad spårning genom att fråga telemetri från tjänsten.
 

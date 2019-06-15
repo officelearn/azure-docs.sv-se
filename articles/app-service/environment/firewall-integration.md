@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058057"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service Environment
 
@@ -30,6 +30,21 @@ Det finns ett antal inkommande beroenden som har en ase-miljö. Inkommande hante
 De utgående ASE-beroendena definieras nästan helt och hållet med FQDN: er som inte har statiska adresser bakom dem. Bristen på statiska adresser innebär att Nätverkssäkerhetsgrupper (NSG) inte kan användas för att låsa den utgående trafiken från en ase-miljö. Adresserna ändras tillräckligt ofta att det går inte att ställa in regler baserat på aktuell upplösning och använda den för att skapa NSG: er. 
 
 Lösning för att skydda utgående adresser ligger i att en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure-brandväggen kan begränsa utgående HTTP och HTTPS-trafik baserat på det fullständiga Domännamnet för målet.  
+
+## <a name="system-architecture"></a>Systemarkitektur
+
+Distribuera en ASE med utgående trafik via en brandväggsenhet innebär att du ändrar vägar på ASE-undernät. Vägar fungerar på IP-nivå. Om du inte är försiktig definiera vägarna kan tvinga du TCP svars-trafik som källa för från en annan adress. Detta kallas asymmetrisk Routning och det bryter TCP.
+
+Det måste finnas vägar definierade så att inkommande trafik till ASE kan svara tillbaka på samma sätt som trafiken kommer. Det här gäller för av inkommande hanteringsbegäranden och det är sant för inkommande programförfrågningar.
+
+Trafik till och från en ase-miljö måste följa följande konventioner
+
+* Trafik till Azure SQL, lagring och Event Hub stöds inte med användning av en brandväggsenhet. Den här trafiken måste skickas direkt till dessa tjänster. Sätt att göra som sker är att konfigurera tjänstslutpunkter för dessa tre tjänster. 
+* Regler för tabell måste definieras som skickar inkommande trafik från var den kom.
+* Regler för tabell måste definieras som skickar inkommande trafik från var den kom. 
+* All annan trafik som lämnar ASE kan skickas till din brandväggsenhet med en regel för route-table.
+
+![ASE med Azure-brandvägg anslutningsflödet][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Konfigurera Brandvägg för Azure med din ASE 
 
@@ -68,8 +83,6 @@ Stegen ovan kan din ASE att fungera utan problem. Du måste fortfarande konfigur
 Om ditt program har beroenden, måste läggas till din Azure-brandvägg. Skapa regler för att tillåta HTTP/HTTPS-trafik och nätverk regler för allt annat. 
 
 Om du vet det adressintervall som din programtrafik begäran kommer från, kan du lägga till att till i routningstabellen som har tilldelats till ditt ASE-undernät. Om adressintervallet är stora eller Ospecificerad, kan du använda en nätverksenhet som Application Gateway för att ge dig en adress för att lägga till i din routningstabellen. Mer information om hur du konfigurerar en Programgateway med din ILB ASE finns [integrera din ILB ASE med en Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![ASE med Azure-brandvägg anslutningsflödet][5]
 
 Den här användningen av Application Gateway är bara ett exempel på hur du konfigurerar ditt system. Om du följer den här sökvägen, skulle du måste lägga till en väg i routningstabellen för ASE-undernät, så svara-trafik som skickas till Application Gateway skulle gå dit direkt. 
 

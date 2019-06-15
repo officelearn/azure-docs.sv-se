@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111074"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Innehavare i Azure Active Directory
 
@@ -38,8 +38,8 @@ Du kan konfigurera din app för att vara enda klient eller flera innehavare geno
 
 | Målgrupp | En/flera-tenant | Vem som kan logga in | 
 |----------|--------| ---------|
-| Konton i den här katalogen | Enskild klientorganisation | Alla användare och gästkonton i katalogen kan använda ditt program eller API.<br>*Använd det här alternativet om målgruppen är interna för din organisation.* |
-| Konton i Azure valfri AD-katalog | Flera innehavare | Alla användare och gäster med ett arbets- eller skolkonto konto från Microsoft kan använda ditt program eller din API. Detta inkluderar skolor och företag som använder Office 365.<br>*Använd det här alternativet om målgruppen är företag eller högskolor kunder.* |
+| Konton i den här katalogen | Enskild klientorganisation | Alla användar- och gästkonton i din katalog kan använda ditt program eller din API.<br>*Använd det här alternativet om målgruppen är interna för din organisation.* |
+| Konton i alla Azure AD-katalog | Flera innehavare | Alla användare och gäster med ett arbets- eller skolkonto konto från Microsoft kan använda ditt program eller din API. Detta inkluderar skolor och företag som använder Office 365.<br>*Använd det här alternativet om målgruppen är företag eller högskolor kunder.* |
 | Konton i alla Azure AD-katalog och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com) | Flera innehavare | Alla användare med ett arbets- eller Skol- eller personligt Microsoft-konto kan använda ditt program eller din API. Det omfattar skolor och företag som använder Office 365 samt personliga konton som används för att logga in på tjänster som Xbox och Skype.<br>*Använd det här alternativet för att rikta den bredaste uppsättningen Microsoft-konton.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Metodtips för appar för flera klienter

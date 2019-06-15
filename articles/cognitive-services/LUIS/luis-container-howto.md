@@ -3,20 +3,20 @@ title: Docker-containrar
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS-behållaren läser in tränade eller publicerade appen i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052018"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -108,7 +108,7 @@ Inkommande avbildningskatalog kan innehålla den **produktion**, **mellanlagring
 
 |Pakettyp|Fråge-API-slutpunkt|Fråga tillgänglighet|Paketets filnamn format|
 |--|--|--|--|
-|Tränad|Get, Post|Endast behållaren|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Tränas|Get, Post|Endast behållaren|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
 |Mellanlagring|Get, Post|Azure och behållare|`{APPLICATION_ID}_STAGING.gz`|
 |Produktion|Get, Post|Azure och behållare|`{APPLICATION_ID}_PRODUCTION.gz`|
 
@@ -272,12 +272,12 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|
-|Publicerat|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
-|Tränad|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
+|Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
+|Tränas|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Type|Syfte|
+|Frågeparameter|Typ|Syfte|
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065485"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Utvecklarguide för Azure Functions PowerShell
 
@@ -60,7 +60,7 @@ I roten av projektet, det finns en delad [ `host.json` ](functions-host-json.md)
 
 Vissa bindningar kräver förekomsten av en `extensions.csproj` fil. Bindande tillägg som krävs i [version 2.x](functions-versions.md) av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
-I PowerShell-Funktionsappar, kanske du också en `profile.ps1` som körs när en funktionsapp börjar köras (annars känner till som en  *[kallstart](#cold-start)*. Mer information finns i [PowerShell profil](#powershell-profile).
+I PowerShell-Funktionsappar, kanske du också en `profile.ps1` som körs när en funktionsapp börjar köras (annars känner till som en  *[kallstart](#cold-start)* . Mer information finns i [PowerShell profil](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definiera ett PowerShell-skript som en funktion
 
@@ -81,10 +81,10 @@ Den `TriggerMetadata` används för att ange ytterligare information om utlösar
 $TriggerMetadata.sys
 ```
 
-| Egenskap    | Description                                     | Type     |
+| Egenskap   | Description                                     | Typ     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | När, i UTC, funktionen utlöstes        | DateTime |
-| Metodnamn | Namnet på den funktion som utlöstes     | string   |
+| MethodName | Namnet på den funktion som utlöstes     | string   |
 | RandGuid   | ett unikt guid för den här körningen av funktion | string   |
 
 Varje Utlösartyp har en annan uppsättning metadata. Till exempel den `$TriggerMetadata` för `QueueTrigger` innehåller den `InsertionTime`, `Id`, `DequeueCount`, bland annat. Mer information om den köutlösare metadata går du till den [officiella dokumentationen för utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). I dokumentationen på den [utlösare](functions-triggers-bindings.md) du arbetar med för att se vad kommer inuti utlösare metadata.
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Namn | Type | Position | Beskrivning |
+| Namn | Typ | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | Namnet på utdatabindningen som du vill ange. |
 | **`-Value`** | Object | 2 | Värdet för utdatabindningen du vill ange, som accepteras från pipeline ByValue. |
@@ -241,9 +241,9 @@ Loggning i PowerShell-funktioner fungerar som vanliga PowerShell-loggning. Du ka
 | Functions loggningsnivå | Loggning cmdlet |
 | ------------- | -------------- |
 | Fel | **`Write-Error`** |
-| Varning! | **`Write-Warning`**  | 
+| Varning | **`Write-Warning`**  | 
 | Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Skriver till _Information_ på loggning. |
-| Felsök | **`Write-Debug`** |
+| Felsöka | **`Write-Debug`** |
 | Spårning | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Förutom dessa cmdlets något skrivs till pipelinen omdirigeras till den `Information` loggen och det visas med PowerShell standardformatering.
@@ -253,7 +253,7 @@ Förutom dessa cmdlets något skrivs till pipelinen omdirigeras till den `Inform
 
 ### <a name="configure-the-function-app-log-level"></a>Konfigurera loggningsnivå för funktionen app
 
-Functions kan du definiera tröskelvärdet för att göra det lätt att styra funktionerna sätt skriver till loggarna. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `logging.logLevel.default` -egenskapen i den [ `host.json` filen][referens för host.json]. Den här inställningen gäller för alla funktioner i din funktionsapp.
+Azure Functions kan du definiera tröskelvärdet för att göra det lätt att styra funktionerna sätt skriver till loggarna. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `logging.logLevel.default` -egenskapen i den [ `host.json` filen][referens för host.json]. Den här inställningen gäller för alla funktioner i din funktionsapp.
 
 I följande exempel anger tröskelvärdet för att aktivera utförlig loggning för alla funktioner, men anger tröskelvärdet för att aktivera felsökningsloggning en funktion som heter `MyFunction`:
 
@@ -302,7 +302,7 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
 
-| Egenskap   | Description                                                    | Type                      |
+| Egenskap  | Description                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Ett objekt som innehåller brödtext för begäran. `Body` serialiseras till den bästa typen baserat på data. Till exempel om data är JSON, skickas den som en hash-tabell. Om data är en sträng, skickas den i som en sträng. | objekt |
 | **`Headers`** | En ordlista som innehåller de begärda rubrikerna.                | Dictionary < sträng, sträng ><sup>*</sup> |
@@ -317,7 +317,7 @@ Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har 
 
 Svarsobjekt som du ska skicka tillbaka är av typen `HttpResponseContext`, som har följande egenskaper:
 
-| Egenskap       | Description                                                 | Type                      |
+| Egenskap      | Description                                                 | Typ                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Ett objekt som innehåller brödtexten i svaret.           | objekt                    |
 | **`ContentType`** | En kort hand för att ställa in innehållstyp för svar. | string                    |
@@ -598,7 +598,7 @@ När du utvecklar Azure Functions i den [serverlös värdmodell](functions-scale
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Paket moduler istället för att använda `Install-Module`
 
-Skriptet körs på varje anrop. Undvik att använda `Install-Module` i ditt skript. I stället använda `Save-Module` innan du publicerar så att din funktion inte behöver slösa bort gången du hämtar modulen. Om kallstarter som påverkar dina funktioner, Överväg att distribuera funktionsappen till en [apptjänstplan](functions-scale.md#app-service-plan) inställd *alltid på* eller till en [premiumplan](functions-scale.md#premium-plan-public-preview).
+Skriptet körs på varje anrop. Undvik att använda `Install-Module` i ditt skript. I stället använda `Save-Module` innan du publicerar så att din funktion inte behöver slösa bort gången du hämtar modulen. Om kallstarter som påverkar dina funktioner, Överväg att distribuera funktionsappen till en [apptjänstplan](functions-scale.md#app-service-plan) inställd *alltid på* eller till en [premiumplan](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Nästa steg
 

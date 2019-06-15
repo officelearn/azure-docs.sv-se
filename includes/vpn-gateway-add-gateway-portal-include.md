@@ -9,10 +9,10 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 35f987f26ce47c19e3d5eb1ca5d2bb32d0c7ad1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170070"
 ---
 1. Till vänster på portalen klickar du på **+** och skriver ”Virtuell nätverksgateway” i sökrutan. I **Resultat** letar du upp och klickar på **Virtuell nätverksgateway**.

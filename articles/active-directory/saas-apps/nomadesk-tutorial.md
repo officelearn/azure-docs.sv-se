@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 46f775f08837b49c274bd7e8989be97e98ef2ee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896237"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Självstudier: Azure Active Directory-integrering med Nomadesk
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Nomadesk i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Nomadesk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -201,5 +201,5 @@ När du klickar på panelen Nomadesk i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

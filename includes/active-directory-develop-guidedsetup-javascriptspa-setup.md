@@ -14,49 +14,49 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5ce0f18c1ec7a0fcb6465ab20e774976552687f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133649"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Hur du konfigurerar din webbserver eller projekt
+## <a name="set-up-your-web-server-or-project"></a>Konfigurera din webbserver eller projekt
 
-> Om du vill ladda ned det här exempelprojektet i stället?
-> - [Hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) ska köras med en lokal webbserver, till exempel nod
+> Om du vill ladda ned det här exempelprojektet i stället? Gör något av följande:
+> 
+> - Kör projektet med en lokal webbserver, till exempel Node.js, [hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> eller
-> - (Valfritt) [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) att köra med IIS-server
+> - (Valfritt) Kör projektet med IIS-server [ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 >
-> Och sedan gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan det körs.
+> Och sedan för att konfigurera kodexemplet innan du kan köra den, gå till den [konfigurationssteget](#register-your-application).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-En lokal webbserver som [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/) krävs för att köra den här självstudien.
 
-Om du använder Node.js för att köra projektet, installera en IDE som [Visual Studio Code](https://code.visualstudio.com/download) redigera projektfiler.
+* Om du vill köra den här självstudien, du behöver en lokal webbserver som [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-Anvisningarna i den här guiden är baserat på Node.js och Visual Studio 2017, men passa på att använda något annat utvecklingsmiljö eller webbservern.
+* Om du använder Node.js för att köra projektet installerar en integrerad utvecklingsmiljö (IDE), till exempel [Visual Studio Code](https://code.visualstudio.com/download), för att redigera projektfiler.
+
+* Anvisningarna i den här guiden är baserat på Node.js och Visual Studio 2017, men du kan använda andra utvecklingsmiljö eller webbservern.
 
 ## <a name="create-your-project"></a>Skapa ditt projekt
 
-> ### <a name="option-1-node-other-web-servers"></a>Alternativ 1: Noden / övrigt webbservrar
-> Kontrollera att du har installerat [Node.js](https://nodejs.org/en/download/), följ instruktionerna nedan:
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>Alternativ 1: Node.js- eller andra webbservrar
+> Kontrollera att du har installerat [Node.js](https://nodejs.org/en/download/), och gör sedan följande:
 > - Skapa en mapp för att vara värd för programmet.
-
-<p><!-- -->
-
+>
 > ### <a name="option-2-visual-studio"></a>Alternativ 2: Visual Studio
-> Om du använder Visual Studio och skapar ett nytt projekt, följer du stegen nedan för att skapa en ny Visual Studio-lösning:
-> 1.    I Visual Studio:  **Arkiv > Nytt > projekt**
-> 2.    Under **Visual C# \Web**väljer **ASP.NET-Webbtillämpningsprogram (.NET Framework)**
-> 3.    Ange ett namn för ditt program och välj **OK**
-> 4.    Under **nytt ASP.NET-webbprogram**väljer **tom**
+> Om du använder Visual Studio och skapar ett nytt projekt, gör du följande:
+> 1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio.
+> 1. Under **Visual C#\Web** väljer du **ASP.NET-webbprogram (.NET Framework)** .
+> 1. Ange ett namn för ditt program och välj sedan **OK**.
+> 1. Under **nytt ASP.NET-webbprogram**väljer **tom**.
 
-## <a name="create-your-single-page-applications-ui"></a>Skapa en sida programmets användargränssnitt
-1. Skapa en `index.html` -filen för din JavaScript SPA. Om du använder Visual Studio väljer du projektet (rotmappen för projektet), högerklicka och välj: **Lägg till > Nytt objekt > HTML-sida** och ge den namnet index.html.
+## <a name="create-the-spa-ui"></a>Skapa SPA-gränssnitt
+1. Skapa en *index.html* -filen för din JavaScript SPA. Om du använder Visual Studio väljer du projektet (rotmappen för projektet), högerklicka och välj **Lägg till** > **nytt objekt** > **HTML-sida**, och ge filen namnet *index.html*.
 
-2. Lägg till följande kod till din sida:
+1. I den *index.html* Lägg till följande kod:
+
    ```html
    <!DOCTYPE html>
    <html>
@@ -78,4 +78,4 @@ Anvisningarna i den här guiden är baserat på Node.js och Visual Studio 2017, 
    ```
 
    > [!TIP]
-   > Du kan ersätta versionen av MSAL.js i ovan skript med den senaste utgivna versionen under [MSAL.js släpper](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+   > Du kan ersätta versionen av MSAL.js i det här skriptet med den senaste utgivna versionen under [MSAL.js släpper](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341931"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referensguide för Vydesigner visualisering delar i Azure Monitor
@@ -56,7 +56,7 @@ Lista över frågor del visar en lista över loggfrågor. Du kan välja varje fr
 | Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
-| Rubrik |Den text som visas överst i vyn. |
+| Titel |Den text som visas överst i vyn. |
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Förvalda filter |En kommaavgränsad lista över egenskaper som ska ingå i den vänstra filterfönstret när du väljer en fråga. |
 | Återgivningsläge |Den inledande vyn som visas när frågan har valts. Du kan välja alla vyer som är tillgängliga när de öppnar frågan. |
@@ -77,7 +77,7 @@ Rubriken visar ett tal som visar antalet poster från en loggfråga. I listan vi
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
 | **Rubrik** | |
-| Teckenförklaring |Den text som visas överst i rubriken. |
+| Förklaring |Den text som visas överst i rubriken. |
 | Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Lista** | |
@@ -108,7 +108,7 @@ Rubriken har två siffror som visar antalet poster från separat logg-frågor. I
 | **Rubrik-navigering** | |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Rubrik** | |
-| Teckenförklaring |Den text som visas överst i rubriken. |
+| Förklaring |Den text som visas överst i rubriken. |
 | Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | **Lista** | |
 | Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
@@ -137,7 +137,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
 | **Header** | |
-| Rubrik |Den text som visas överst i rubriken. |
+| Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Ringdiagram** | |
 | Fråga |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
@@ -180,7 +180,7 @@ Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagr
 | **Rubrik-navigering** | |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Först diagrammets<br>andra diagram** | |
-| Teckenförklaring |Den text som visas under bildtext för den första serien. |
+| Förklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färgen som ska användas för kolumnerna i serien. |
 | Fråga |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Sum: Summan av värdena från alla poster.</li><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Senaste exempel: Värde från det sista intervallet som ingår i diagrammet.</li><li>Det första exemplet: Värde från det första intervallet som ingår i diagrammet.</li><li>Antal: Antalet poster som returneras av frågan.</li></ul> |
@@ -213,9 +213,9 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 | Label (Etikett) |Den text som visas i rubriken. |
 | **Header** |**> Länk** |
 | Label (Etikett) |Länktext. |
-| URL |URL: en för länken. |
+| Url |URL: en för länken. |
 | **Informationsobjekt** | |
-| Rubrik |Den text som visas för rubriken för varje objekt. |
+| Titel |Den text som visas för rubriken för varje objekt. |
 | Innehåll |Den text som visas för varje objekt. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Linjediagram, bildtext och lista delar
@@ -231,14 +231,14 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
 | **Header** | |
-| Rubrik |Den text som visas överst i rubriken. |
+| Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Bildtext** |
 | Bildtextrubrik |Den text som visas ovanför bildtextvärdet. |
-| Seriens namn |Egenskapsvärdet för serien för värde för pratbubbla. Om inga serier anges, används alla poster från frågan. |
+| Dataseriens namn |Egenskapsvärdet för serien för värde för pratbubbla. Om inga serier anges, används alla poster från frågan. |
 | Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värde från det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet mellan intervall som ingår i diagrammet.</li><li>Min: Det minsta värdet mellan intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
 | **Linjediagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
@@ -271,7 +271,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. 
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
 | **Header** | |
-| Rubrik |Den text som visas överst i rubriken. |
+| Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
@@ -306,7 +306,7 @@ Stack med linjediagram visar tre separata linjediagram med flera serier från en
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**> Header** |
-| Rubrik |Den text som visas överst i diagrammet. |
+| Titel |Den text som visas överst i diagrammet. |
 | Underrubrik |Den text som visas under rubriken överst i diagrammet. |
 | **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**Linjediagram** |
 | Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
@@ -332,7 +332,7 @@ I följande tabell beskrivs inställningarna för klicka igenom navigering.
 | Inställning           | Beskrivning |
 |:--|:--|
 | Loggsökning (automatisk) | Log-frågan ska köras när du väljer ett huvud-objekt.  Det här är samma loggfråga som objektet baseras på.
-| Loggsökning        | Log-frågan ska köras när du väljer ett objekt i en lista.  Skriv frågan i den **navigeringsfråga** box.   Använd *{markerade objektet}* att inkludera syntaxen för det objekt som användaren har valt.  Exempel: Om frågan har en kolumn med namnet *datorn* och navigering frågan är *{markerade objektet}*, en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelse {markerade objektet}*, frågan *typ = händelse Computer = ”den här datorn”* körs. |
+| Loggsökning        | Log-frågan ska köras när du väljer ett objekt i en lista.  Skriv frågan i den **navigeringsfråga** box.   Använd *{markerade objektet}* att inkludera syntaxen för det objekt som användaren har valt.  Exempel: Om frågan har en kolumn med namnet *datorn* och navigering frågan är *{markerade objektet}* , en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelse {markerade objektet}* , frågan *typ = händelse Computer = ”den här datorn”* körs. |
 | Visa              | Vy som ska öppnas när du väljer ett sidhuvud eller ett objekt i en lista.  Välj namnet på en vy i din arbetsyta i den **vynamn** box. |
 
 

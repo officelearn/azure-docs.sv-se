@@ -3,18 +3,18 @@ title: Övervaka dina enheter i Azure IoT Central | Microsoft Docs
 description: Som operatör kan du övervaka dina enheter med hjälp av Azure IoT Central-programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/01/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6ad7631ae32f8bd04812093a0fef4fa3d575864
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067399"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudier: Använda Azure IoT Central för att övervaka dina enheter
 

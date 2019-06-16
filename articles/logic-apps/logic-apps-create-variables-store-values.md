@@ -11,10 +11,10 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004592"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Skapa variabler för att spara och hantera värden i Azure Logic Apps
@@ -72,7 +72,7 @@ Du kan skapa en variabel och deklarera dess datatyp och ursprungsvärdet – all
 
 4. Ange den här informationen för variabeln:
 
-   | Egenskap  | Krävs | Value |  Beskrivning |
+   | Egenskap | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
    | Name | Ja | <*variable-name*> | Namnet på variabeln för att öka | 
    | Type | Ja | <*typ av variabel*> | Datatypen för variabeln | 
@@ -208,7 +208,7 @@ Att öka eller *ökningen* en variabel med ett konstant värde, lägga till den 
 
 3. Ange den här informationen för att öka variabeln:
 
-   | Egenskap  | Krävs | Value |  Beskrivning |
+   | Egenskap | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
    | Name | Ja | <*variable-name*> | Namnet på variabeln för att öka | 
    | Value | Nej | <*increment-value*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
@@ -328,7 +328,7 @@ Att minska eller *minska* en variabel med ett konstant värde, följer du stegen
 
 Här följer egenskaperna för den **minska variabel** åtgärd:
 
-| Egenskap  | Krävs | Value |  Beskrivning |
+| Egenskap | Krävs | Value |  Beskrivning |
 |----------|----------|-------|--------------|
 | Name | Ja | <*variable-name*> | Namnet på variabeln för att minska | 
 | Value | Nej | <*increment-value*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
@@ -363,7 +363,7 @@ Värdet är obligatoriskt eftersom åtgärden inte har ett standardvärde.
 
 Här följer egenskaperna för den **ange variabel** åtgärd:
 
-| Egenskap  | Krävs | Value |  Beskrivning | 
+| Egenskap | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*variable-name*> | Namnet på variabeln att ändra | 
 | Value | Ja | <*new-value*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
@@ -422,7 +422,7 @@ För variabler som lagrar strängar eller matriser, kan du infoga eller *lägga 
 
 Här följer egenskaperna för den **läggas till...**  åtgärder:
 
-| Egenskap  | Krävs | Value |  Beskrivning | 
+| Egenskap | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*variable-name*> | Namnet på variabeln att ändra | 
 | Value | Ja | <*append-value*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 

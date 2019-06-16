@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9c9a4b41dbb9b9acc2982ae2af1f3a611f9d3beb
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228276"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Kopiera data från Google Cloud Storage med Azure Data Factory
@@ -38,7 +38,7 @@ Mer specifikt den här anslutningen för Google Cloud Storage stöder kopiera fi
 
 Kopiera data från Google Cloud Storage genom att kontrollera att du har beviljats följande behörigheter:
 
-- **För körning av kopiera aktivitet:**: `s3:GetObject` och `s3:GetObjectVersion` för objektet.
+- **För körning av kopiera aktivitet:** : `s3:GetObject` och `s3:GetObjectVersion` för objektet.
 - **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter, hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och anger du sökvägen direkt i inställningarna för datauppsättningen.
 
 ## <a name="getting-started"></a>Komma igång
@@ -51,12 +51,12 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Google Cloud Storage-länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. Du hittar åtkomstnyckeln och hemligheten genom att gå till **Google Cloud Storage** > **inställningar** > **samverkan**. |Ja |
 | secretAccessKey | Den hemliga åtkomstnyckeln själva. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| serviceUrl | Anger den anpassade S3-slutpunkten som **`https://storage.googleapis.com`**. | Ja |
+| serviceUrl | Anger den anpassade S3-slutpunkten som **`https://storage.googleapis.com`** . | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 Här är ett exempel:
@@ -91,7 +91,7 @@ Här är ett exempel:
 
 Att kopiera data från Google Cloud Storage i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikeln på format-baserade datauppsättning och inställningar som stöds. Följande egenskaper har stöd för Google Cloud Storage under `location` inställningar i formatet-baserade datauppsättning:
 
-| Egenskap    | Beskrivning                                                  | Krävs |
+| Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | Egenskapen type under `location` i datauppsättningen måste anges till **AmazonS3Location**. | Ja      |
 | bucketName | S3-Bucketnamn.                                          | Ja      |
@@ -132,7 +132,7 @@ Att kopiera data från Google Cloud Storage i **Parquet eller avgränsat textfor
 
 Att kopiera data från Google Cloud Storage i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **AmazonS3Object** |Ja |
 | bucketName | S3-Bucketnamn. Jokerteckenfilter stöds inte. |Ja för kopiera/Lookup-aktivitet, inte för GetMetadata-aktiviteten |
@@ -190,7 +190,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från Google Cloud Storage i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade Kopieringsaktivitet käll- och inställningar som stöds. Följande egenskaper har stöd för Google Cloud Storage under `storeSettings` inställningar i formatet-baserade kopieringskälla:
 
-| Egenskap                  | Beskrivning                                                  | Krävs                                                    |
+| Egenskap                 | Beskrivning                                                  | Krävs                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | Egenskapen type under `storeSettings` måste anges till **AmazonS3ReadSetting**. | Ja                                                         |
 | recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                                          |
@@ -249,7 +249,7 @@ Att kopiera data från Google Cloud Storage i **Parquet eller avgränsat textfor
 
 Att kopiera data från Google Cloud Storage i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
 | recursive | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |

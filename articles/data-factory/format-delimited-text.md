@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146009"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat textformat i Azure Data Factory
@@ -26,12 +26,12 @@ Avgränsat textformat stöds för följande kopplingar: [Amazon S3](connector-am
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av datauppsättningen avgränsad text.
 
-| Egenskap          | Beskrivning                                                  | Krävs |
+| Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Type-egenskapen för datauppsättningen måste anges till **DelimitedText**. | Ja      |
+| type             | Type-egenskapen för datauppsättningen måste anges till **DelimitedText**. | Ja      |
 | location         | Platsinställningar för filen eller filerna. Varje filbaserade anslutning har sin egen platstyp och stöds egenskaper under `location`. **Mer information finns i artikeln connector -> datauppsättning egenskapsavsnittet**. | Ja      |
 | columnDelimiter  | Tecken som används för att avgränsa kolumner i en fil. För närvarande stöds endast flera char avgränsare för mappning av dataflöde men inte Kopieringsaktivitet. <br>Standardvärdet är **kommatecken `,`** när kolumnavgränsare definieras som tom sträng, vilket innebär att ingen avgränsare hela raden tas den som en enda kolumn. | Nej       |
-| rowDelimiter     | Enskilt tecken eller ”\r\n” används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: [”\r\n”, ”\r”, ”\n”]**, och **”\n” eller ”\r\n” vid skrivning till** genom att mappa Data flödar och kopiera aktivitet respektive. <br>När `rowDelimiter` är inställd på Ingen avgränsare (tom sträng), den `columnDelimiter` måste anges som inte har avgränsare (tom sträng) som, vilket innebär att behandla hela innehållet som ett enda värde. | Nej       |
+| rowDelimiter     | Enskilt tecken eller ”\r\n” används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: [”\r\n”, ”\r”, ”\n”]** , och **”\n” eller ”\r\n” vid skrivning till** genom att mappa Data flödar och kopiera aktivitet respektive. <br>När `rowDelimiter` är inställd på Ingen avgränsare (tom sträng), den `columnDelimiter` måste anges som inte har avgränsare (tom sträng) som, vilket innebär att behandla hela innehållet som ett enda värde. | Nej       |
 | quoteChar        | Det enskilda tecknet citera kolumnvärdena om den innehåller en avgränsare för kolumnen. <br>Standardvärdet är **dubbla citattecken** `"`. <br>För mappning av dataflöde `quoteChar` får inte vara en tom sträng. <br>För kopieringsaktiviteten när `quoteChar` definieras som tom sträng, innebär det att det finns inga citattecken char och är inte av citattecken kolumnvärde, och `escapeChar` används för att undvika Kolumnavgränsare och sig själv. | Nej       |
 | escapeChar       | Det enskilda tecknet att undvika citattecken inuti ett citerade värde.<br>Standardvärdet är **omvänt snedstreck `\`** . <br>För mappning av dataflöde `escapeChar` får inte vara en tom sträng. <br/>För kopieringsaktiviteten när `escapeChar` definieras som tom sträng, den `quoteChar` måste vara som samt tom sträng, kontrollera då alla kolumnvärdena inte innehåller avgränsare. | Nej       |
 | firstRowAsHeader | Anger om du vill behandla den första raden/Kontrollera som en rubrikrad om du med namnen på kolumnerna.<br>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej       |
@@ -75,34 +75,34 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i kopieringsaktiviteten ***\*källa\**** avsnittet.
 
-| Egenskap        | Beskrivning                                                  | Krävs |
+| Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSource**. | Ja      |
+| type           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSource**. | Ja      |
 | formatSettings | En grupp egenskaper. Referera till **avgränsad text läsinställningar** tabellen nedan. | Nej       |
 | storeSettings  | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserade anslutningsprogrammet har sin egen Läs inställningar som stöds under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
 
 Stöds **avgränsad text läsinställningar** under `formatSettings`:
 
-| Egenskap       | Beskrivning                                                  | Krävs |
+| Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Vilken typ av formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
+| type          | Vilken typ av formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
 | skipLineCount | Anger hur många **icke-tomma** rader att hoppa över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | Nej       |
 
 ### <a name="delimited-text-as-sink"></a>Avgränsad text som mottagare
 
 Följande egenskaper stöds i kopieringsaktiviteten ***\*mottagare\**** avsnittet.
 
-| Egenskap        | Beskrivning                                                  | Krävs |
+| Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSink**. | Ja      |
+| type           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSink**. | Ja      |
 | formatSettings | En grupp egenskaper. Referera till **avgränsad text skriva inställningar** tabellen nedan. |          |
 | storeSettings  | En grupp egenskaper om hur du skriver data till ett datalager. Varje filbaserade anslutning har sin egen stöds skrivning inställningar under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
 
 Stöds **avgränsad text skriva inställningar** under `formatSettings`:
 
-| Egenskap       | Beskrivning                                                  | Krävs                                              |
+| Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Vilken typ av formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
+| type          | Vilken typ av formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
 | fileExtension | Filtillägget som används för att namnge utdatafilerna, t.ex. `.csv`, `.txt`. Det måste vara anges när den `fileName` har inte angetts i utdata DelimitedText datauppsättning. | Ja när filnamnet inte har angetts i datauppsättningen för utdata |
 
 ## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde

@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457383"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(INAKTUELL) Aktivera offentlig åtkomst till ett Azure Container Service-program
@@ -39,9 +39,9 @@ Vi måste först öppna porten som vi vill.
    | --- | --- |
    | Namn |Ett beskrivande namn på avsökningen. |
    | Port |Porten för behållaren för att testa. |
-   | Sökväg |(När du är i läget för HTTP) Relativa webbplats sökvägen till avsökning. HTTPS stöds inte. |
+   | `Path` |(När du är i läget för HTTP) Relativa webbplats sökvägen till avsökning. HTTPS stöds inte. |
    | Interval |Tiden mellan avsökningen försök i sekunder. |
-   | Tröskelvärde för Ej felfri |Antal upprepade inloggningsförsök innan behållaren feltillstånd. |
+   | Tröskelvärde för ej felfri |Antal upprepade inloggningsförsök innan behållaren feltillstånd. |
 6. Tillbaka på egenskaperna för agentens belastningsutjämnare, klickar du på **belastningsutjämningsregler** och sedan **Lägg till**.
    
     ![Azure container service-belastningsutjämningsregler](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -74,9 +74,9 @@ Därefter behöver vi lägga till en säkerhetsregel som dirigerar trafik från 
    | --- | --- |
    | Namn |Ett beskrivande namn på brandväggsregeln. |
    | Prioritet |Prioritet rangordning för regeln. Ju lägre det nummer desto högre prioritet. |
-   | Källa |Begränsa inkommande IP-adressintervall för att beviljas eller nekas av den här regeln. Använd **alla** att inte ange en begränsning. |
+   | source |Begränsa inkommande IP-adressintervall för att beviljas eller nekas av den här regeln. Använd **alla** att inte ange en begränsning. |
    | Tjänst |Välj en uppsättning fördefinierade tjänster säkerhetsregelns avser. Annars använda **anpassad** att skapa dina egna. |
-   | Protokoll |Begränsa trafik baserat på **TCP** eller **UDP**. Använd **alla** att inte ange en begränsning. |
+   | Protocol |Begränsa trafik baserat på **TCP** eller **UDP**. Använd **alla** att inte ange en begränsning. |
    | Portintervall |När **Service** är **anpassade**, anger intervallet för de portar som påverkas av den här regeln. Du kan använda en enskild port, till exempel **80**, eller ett intervall som **1024 1500**. |
    | Åtgärd |Tillåter eller nekar trafik som uppfyller villkoren. |
 

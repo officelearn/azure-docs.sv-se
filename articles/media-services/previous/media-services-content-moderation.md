@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465685"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använda Azure Media Content Moderator för att identifiera möjliga vuxet eller olämpligt innehåll 
@@ -60,7 +60,7 @@ Utdata JSON innehåller följande element:
 |Element|Beskrivning|
 |---|---|
 | start |Starttiden för den första händelsen i ”ticken”. |
-| varaktighet |Längden på ett fragment, i ”ticken”. |
+| Varaktighet |Längden på ett fragment, i ”ticken”. |
 | interval |Intervallet för varje händelsepost i avsnittet i ”ticken”. |
 | [händelser](#events-json-elements) |Varje händelse representerar ett klipp och varje klippet innehåller nyckelrutor upptäckt och spåras inom den varaktigheten. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten.|
 
@@ -72,7 +72,7 @@ Utdata JSON innehåller följande element:
 | adultScore | Förtroendepoäng för möjliga vuxet innehåll på en skala från 0,00 0,99. |
 | racyScore | Förtroendepoäng för möjliga olämpligt innehåll på en skala från 0,00 0,99. |
 | index | index för ramen på en skala från den första bildrutan index till den senaste ramens index. |
-| tidsstämpel | Platsen för ramens i ”ticken”. |
+| timestamp | Platsen för ramens i ”ticken”. |
 | shotIndex | Index för överordnat som. |
 
 

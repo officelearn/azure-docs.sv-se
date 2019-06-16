@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742976"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett certifikat för Azure Service Management
@@ -33,7 +33,7 @@ Om du vill ha mer information om Azure-certifikat (inklusive att skapa ett själ
 
 Du kan också använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) att autentisera klientkod för automation.
 
-**Obs!** Du måste vara en medadministratör för prenumerationen för att utföra åtgärder under Hanteringscertifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från den nya Azure Portal 
+**Obs:** Du måste vara en medadministratör för prenumerationen för att utföra åtgärder under Hanteringscertifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från den nya Azure Portal 
 
 ## <a name="upload-a-management-certificate"></a>Överföra ett hanteringscertifikat
 När du har ett hanteringscertifikat som skapade, (CER-fil med endast den offentliga nyckeln) kan du överföra den till portalen. Om certifikatet är tillgänglig i portalen, kan vem som helst med ett matchande certifikat (privat nyckel) ansluta via API Management och komma åt resurser för samma prenumeration.

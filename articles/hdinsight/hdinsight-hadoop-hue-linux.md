@@ -9,19 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: b0354803a117e8e2c2382ae888bde94a502f24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059435"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
 Lär dig mer om att installera Hue i HDInsight-kluster och använda tunnel för att dirigera begäranden till nyans.
-
-> [!IMPORTANT]  
-> Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Vad är Hue?
 Hue är en samling webbprogram som används för att interagera med ett Apache Hadoop-kluster. Du kan använda Hue för att bläddra i lagring som är associerade med ett Hadoop-kluster (när det gäller HDInsight-kluster WASB), kör Hive-jobb och Pig-skript och så vidare. Följande komponenter är tillgängliga med Hue installationer på ett HDInsight Hadoop-kluster.

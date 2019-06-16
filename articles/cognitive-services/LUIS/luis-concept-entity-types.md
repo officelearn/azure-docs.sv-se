@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080042"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -98,7 +98,7 @@ När entiteten har extraherat entitetsdata representeras som en enhet av informa
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Sammansatta**](#composite-entity)|Gruppering av enheter, oavsett typ av enhet.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
-|Blandad||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Enheten där det är svårt att avgöra att slutet av entiteten.|
+|Blandat||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Enheten där det är svårt att avgöra att slutet av entiteten.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Reguljärt uttryck**](#regular-expression-entity)|Använder reguljärt uttryck för att matcha texten.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Innehåller ett enda koncept i ord eller fraser.|
@@ -108,6 +108,30 @@ Endast datorn lärt dig enheter måste markeras i exempel-yttranden. Dator-lärt
 Pattern.any entiteter måste markeras i den [mönstret](luis-how-to-model-intent-pattern.md) mallexempel, inte avsikt användaren exemplen. 
 
 Blandade entiteterna används en kombination av entiteten identifieringsmetoder.
+
+## <a name="machine-learned-entities-use-context"></a>Datorn lärt dig entiteterna används kontexten
+
+Datorn lärt dig entiteter Lär dig från kontexten i uttryck. Detta gör variant av placering i exempel yttranden betydande. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Icke-machine-lärt dig entiteter som inte använder kontext
+
+Följande icke-datorn har lärt dig entiteter inte tar hänsyn uttryck kontext till kontot när matchande entiteter: 
+
+* [Fördefinierade entiteter](#prebuilt-entity)
+* [Regex-entiteter](#regular-expression-entity)
+* [Lista över entiteter](#list-entity) 
+
+Dessa entiteter kräver inte etiketter eller träna modellen. När du lägger till eller konfigurera entiteten extraheras entiteterna. Nackdelen är att dessa enheter kan vara overmatched, där om kontexten beaktades matchningen skulle inte har gjorts. 
+
+Detta sker med listan över entiteter på nya modeller ofta. Du skapa och testa din modell med en entitet i listan, men när du publicerar din modell och ta emot frågor från slutpunkten, inser du din modell overmatching på grund av bristande kontext. 
+
+Om du vill matcha ord eller fraser och beakta kontext, har du två alternativ. Först är att använda en enkel enhet som tillsammans med en fras-lista. Frasen listan kommer inte att användas för att matcha, men i stället hjälper signalen relativt liknande ord (utbytbara lista). Om du måste ha en exakt matchning i stället för en fras lista varianter, kan du använda en entitet i listan med en roll, som beskrivs nedan.
+
+### <a name="context-with-non-machine-learned-entities"></a>Kontext med icke-machine-lärt dig entiteter
+
+Om du vill att kontexten för uttryck till betydelse för icke-datorn inlärda entiteter, bör du använda [roller](luis-concept-roles.md).
+
+Om du har en icke-machine-lärt dig entitet som [förskapade entiteter](#prebuilt-entity), [regex](#regular-expression-entity) entiteter eller [lista](#list-entity) entiteter, som matchar utöver den instans du vill, Överväg att Skapa en entitet med två roller. En roll avbildar det du söker och avbildar en roll vad du inte söker efter. Båda versionerna måste förses med i exempel yttranden.  
 
 ## <a name="composite-entity"></a>Sammansatt entitet
 
@@ -133,8 +157,9 @@ Lista över entiteter representerar en fast, stängda uppsättning närstående 
 Entiteten är ett bra passar när textdata:
 
 * Är en känd uppsättning.
+* Inte ändras ofta. Om du vill ändra listan ofta eller om du vill lista att utöka lokal är en enkel enhet ökar en fras lista ett bättre alternativ. 
 * Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Ordstamsigenkänning, plural eller andra ändringar matchas inte med en entitet i listan. Om du vill hantera variationer bör du överväga att använda ett [mönster](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
+* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Partiell matchning, detta, ordstamsigenkänning, plural, eller andra ändringar matchas inte med en entitet i listan. Om du vill hantera variationer bör du överväga att använda ett [mönster](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
 
 ![lista entitet](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ I tabellen nedan har varje rad två versioner av uttryck. Främsta uttryck är h
 
 |Yttrande|
 |--|
-|”Var det Man som Misstog His FRU under en Hat och andra kliniska Tales som skrivits av en American år?<br>Var **The Man som Misstog His FRU för en Hat och andra kliniska Tales** skrivits av en American år?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|The Man som Misstog His FRU för en Hat och andra kliniska Tales skrevs av en American år?<br><br>Var **The Man som Misstog His FRU för en Hat och andra kliniska Tales** skrivits av en American år?|
+|Var halva vilande i Frog Pajamas som skrivits av en American år?<br><br>Var **halva vilande i Frog Pajamas** skrivits av en American år?|
+|Var särskilt sorg av Matt enkelt: En bok som skrivits av en American år?<br><br>Var **viss sorg av Matt enkelt: En bok** skrivits av en American år?|
+|Var det finns en Wocket i min Pocket! skrivits av en American år?<br><br>Var **det finns en Wocket i min Pocket!** skrivits av en American år?|
+||
 
 ## <a name="prebuilt-entity"></a>Fördefinierade entitet
 
@@ -225,6 +251,18 @@ Entiteten är ett bra passar när:
 
 [Självstudie](luis-quickstart-intents-regex-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Reguljära uttryck kan matcha mer än förväntat att matcha. Ett exempel på detta är numeriska ord som matchar `one` och `two`. Ett exempel är följande regex som matchar antalet `one` tillsammans med andra siffror:
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+Det här regex-uttrycket matchar också några ord som slutar med dessa siffror, till exempel `phone`. För att åtgärda problem som detta, se till att matchar regex tar du till kontot word gränser. Regex att använda word gränser för det här exemplet används i följande regex:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>Enkel entitet 
 

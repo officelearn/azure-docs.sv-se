@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61070107"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysera gränsnodsprestanda i Microsoft Azure CDN
@@ -117,7 +117,7 @@ Syftet med de här måtten är att spåra övergripande CDN-prestanda för trafi
 | Fält | Beskrivning |
 | --- | --- |
 | Överföringshastighet |Anger Genomsnittshastigheten innehåll har överförts från CDN till en beställare. |
-| Varaktighet |Anger den genomsnittliga tiden, i millisekunder som det tog för att leverera en tillgång till en beställare (t.ex. webbläsare). |
+| Duration |Anger den genomsnittliga tiden, i millisekunder som det tog för att leverera en tillgång till en beställare (t.ex. webbläsare). |
 | Komprimerade begärandehastighet |Anger procentandelen träffar som levererades från CDN (edge-servrar) till den som begär (t.ex. webbläsare) i ett komprimerat format. |
 | Frekvens för 4xx-fel |Anger procentandelen träffar som genererat en 4xx-statuskod. |
 | Frekvens för 5xx-fel |Anger procentandelen träffar som genererat en 5xx-statuskod. |
@@ -143,7 +143,7 @@ Varje rapport i den här modulen innehåller ett diagram och statistik om använ
     ![CDN-profilbladet hantera knappen](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-2. Hovra över den **Analytics** och sedan hovra över den **Edge-prestandaanalys** utfällbar meny.  Klicka på **LOB-HTTP-**.
+2. Hovra över den **Analytics** och sedan hovra över den **Edge-prestandaanalys** utfällbar meny.  Klicka på **LOB-HTTP-** .
    
     Edge node analytics rapporter skärm som visas.
 

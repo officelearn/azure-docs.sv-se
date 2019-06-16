@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721133"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 
@@ -57,7 +57,7 @@ Det finns minimiversioner av agenten för att tillhandahålla den bästa möjlig
 Linux-agenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'*. Dokumentationen enskilda tillägg för support.
+Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'* . Dokumentationen enskilda tillägg för support.
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
@@ -264,7 +264,7 @@ Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten [Aut
 
 #### <a name="extension-updates"></a>Uppdateringar för tillägget
 
-När det finns en uppdatering av tillägget, laddar ned Linux-agenten och uppgraderar tillägget. Tillägget för automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan anmäla eller avanmäla dig från tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i Resource Manager-mall med *autoUpgradeMinorVersion ”: true”,*:
+När det finns en uppdatering av tillägget, laddar ned Linux-agenten och uppgraderar tillägget. Tillägget för automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan anmäla eller avanmäla dig från tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i Resource Manager-mall med *autoUpgradeMinorVersion ”: true”,* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +337,7 @@ Följande felsökningssteg gäller för alla VM-tillägg.
 
 1. Om du vill kontrollera loggen för Linux-agenten, titta på aktiviteten när ditt tillägg etablerades i */var/log/waagent.log*
 
-2. Kontrollera faktiska tillägget programloggarna för mer information finns i   */var/logga/azure /<extensionName>*
+2. Kontrollera faktiska tillägget programloggarna för mer information finns i */var/logga/azure/\<extensionName >*
 
 3. Dokumentationen tillägget-specifika felsökning avsnitt för felkoder, kända problem osv.
 

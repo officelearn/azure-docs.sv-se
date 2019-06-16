@@ -2,35 +2,60 @@
 title: Distribuera flera instanser av Azure-resurser | Microsoft Docs
 description: Använda kopieringen och matriser i en Azure Resource Manager-mall för att iterera flera gånger när du distribuerar resurser.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807379"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera fler än en instans av en resurs eller egenskapen i Azure Resource Manager-mallar
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resursen, egenskapen eller variabel iteration i Azure Resource Manager-mallar
 
-Den här artikeln visar hur du iterera på dina Azure Resource Manager-mall för att skapa fler än en instans av en resurs. Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-group-authoring-templates.md#condition).
+Den här artikeln visar hur du skapar fler än en instans av en resurs, variabel eller egenskapen i Azure Resource Manager-mallen. Om du vill skapa flera instanser, lägger du till den `copy` objektet i mallen.
 
-En självstudiekurs finns i [självstudie: skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
+När det används med en resurs, har kopiera objektet följande format:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+När det används med en variabel eller egenskap, har kopiera objektet följande format:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Båda använder beskrivs mer detaljerat i den här artikeln. En självstudiekurs finns i [självstudie: skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
+
+Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Kopiera gränser
+
+Om du vill ange antalet iterationer, ange ett värde för egenskapen count. Antalet får inte överskrida 800.
+
+Antalet får inte vara ett negativt tal. Om du distribuerar en mall med REST API-version **2019-05-10** eller senare, du kan ange antal till noll. Tidigare versioner av REST API stöder inte noll för count. För närvarande, stöder Azure CLI eller PowerShell inte noll för antal, men som stöd kommer att läggas till i en framtida version.
+
+Gränser för antalet är samma oavsett om de används med en resurs, variabel eller egenskapen.
 
 ## <a name="resource-iteration"></a>Resursen iteration
 
-När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet så att den resurstypen. I kopieringselementet anger du antalet iterationer och ett namn för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte vara mer än 800. 
+När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet så att den resurstypen. I elementet kopia, anger du antalet iterationer och ett namn för den här loopen.
 
 Resursen att skapa flera gånger tar följande format:
 
@@ -71,7 +96,7 @@ Skapar de här namnen:
 * storage1
 * storage2.
 
-Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Antal upprepningar att utföra fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Detta visas i följande exempel:
+Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Antal upprepningar fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Detta visas i följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Information om hur du använder kopiera med kapslade mallar finns i [med hjälp 
 Om du vill skapa fler än ett värde för en egenskap för en resurs lägger du till en `copy` matris i properties-elementet. Den här matrisen innehåller objekt och varje objekt har följande egenskaper:
 
 * namn – namnet på egenskapen att skapa flera värden för
-* antal – hur många värden för att skapa. Värdet för antal måste vara ett positivt heltal och får inte vara mer än 800.
+* antal – hur många värden för att skapa.
 * indata - ett objekt som innehåller värdena för att tilldela egenskapen  
 
 I följande exempel visas hur du använder `copy` till egenskapen dataDisks på en virtuell dator:

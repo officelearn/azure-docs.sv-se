@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126757"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installera uppdatering 5 på din StorSimple-enhet
@@ -47,7 +47,7 @@ Utför följande steg om du vill uppdatera enheten till [uppdatering 5](storsimp
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Kontrollera att enheten kör **StorSimple 8000-serien uppdatering 5 (6.3.9600.17845)**. Den **senast uppdaterad datum** ska ändras.
+Kontrollera att enheten kör **StorSimple 8000-serien uppdatering 5 (6.3.9600.17845)** . Den **senast uppdaterad datum** ska ändras.
 
 Du ser nu att uppdateringarna i underhållsläge är tillgängliga (det här meddelandet kan visas fortfarande i upp till 24 timmar efter installation av uppdateringar). Stegen för att installera uppdatering för underhållsläge beskrivs i nästa avsnitt.
 
@@ -78,21 +78,21 @@ Du måste hämta och installera följande snabbkorrigeringar i föreskrivna ordn
 
 | Beställa | kB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Uppdatering av programvara<br> Ladda ned båda _HcsSoftwareUpdate.exe_ och _CisMSDAgent.exe_ |Normal <br></br>STÖRNINGSFRI |~ 25 minuter |FirstOrderUpdate|
+| 1. |KB4037264 |Programuppdatering<br> Ladda ned båda _HcsSoftwareUpdate.exe_ och _CisMSDAgent.exe_ |Vanliga <br></br>STÖRNINGSFRI |~ 25 minuter |FirstOrderUpdate|
 
 Om du uppdaterar från en enhet som kör uppdatering 4, behöver du bara att installera de kumulativa uppdateringarna för operativsystem som andra orderuppdateringar.
 
 | Beställa | kB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |OS kumulativa uppdateringar paket <br> Hämta Windows Server 2012 R2-versionen |Normal <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
+| 2A. |KB4025336 |OS kumulativa uppdateringar paket <br> Hämta Windows Server 2012 R2-versionen |Vanliga <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
 
 Om installation från en enhet som kör uppdatering 3 eller tidigare kan du installera följande förutom kumulativa uppdateringar.
 
 | Beställa | kB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI-drivrutinen och uppdateringar av inbyggd programvara <br> USM firmware-uppdatering (version 3.38) |Normal <br></br>STÖRNINGSFRI |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-säkerhetspaketet uppdateringar <br> Hämta Windows Server 2012 R2-versionen |Normal <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Paket för OS-uppdateringar <br> Hämta Windows Server 2012 R2-versionen |Normal <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI-drivrutinen och uppdateringar av inbyggd programvara <br> USM firmware-uppdatering (version 3.38) |Vanliga <br></br>STÖRNINGSFRI |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-säkerhetspaketet uppdateringar <br> Hämta Windows Server 2012 R2-versionen |Vanliga <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Paket för OS-uppdateringar <br> Hämta Windows Server 2012 R2-versionen |Vanliga <br></br>STÖRNINGSFRI |- |SecondOrderUpdate|
 
 
 Du kan också behöva installera uppdateringar av disk av inbyggd programvara på alla uppdateringar som visas i föregående tabeller. Du kan kontrollera om du behöver firmwareuppdateringar disk genom att köra den `Get-HcsFirmwareVersion` cmdlet. Om du kör dessa versioner av inbyggd programvara: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, behöver du inte installera uppdateringarna.

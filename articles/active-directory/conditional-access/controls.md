@@ -2,7 +2,7 @@
 title: Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur åtkomstkontroll i Azure Active Directory villkorlig åtkomst för arbete.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112545"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -49,7 +49,7 @@ Det finns två typer av kontroller:
 
 - **Sessionskontroller** – om du vill begränsa åtkomsten i en session
 
-Det här avsnittet beskrivs de olika kontroller som är tillgängliga i Azure AD villkorsstyrd åtkomst. 
+Det här avsnittet beskrivs de olika kontroller som är tillgängliga i Azure AD villkorlig åtkomst. 
 
 ## <a name="grant-controls"></a>Bevilja kontroller
 
@@ -72,7 +72,7 @@ Multi-Factor Authentication hjälper till att skydda resurser från används av 
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med principer för enhetsbaserad villkorlig åtkomst är att endast bevilja åtkomst till de valda molnapparna från [hanterade enheter](require-managed-devices.md). Kräver en enheten är markerad som kompatibel är ett alternativ som du har för att begränsa åtkomsten till hanterade enheter. En enhet kan markeras som kompatibel av Intune (för alla enhetens operativsystem) eller av tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte. 
+Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med en enhetsbaserad princip för villkorlig åtkomst är att endast bevilja åtkomst till de valda molnapparna från [hanterade enheter](require-managed-devices.md). Kräver en enheten är markerad som kompatibel är ett alternativ som du har för att begränsa åtkomsten till hanterade enheter. En enhet kan markeras som kompatibel av Intune (för alla enhetens operativsystem) eller av tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte. 
 
 Enheten behöver registreras med Azure AD innan den kan vara markerad som kompatibel. Om du vill registrera en enhet har tre alternativ: 
 
@@ -86,7 +86,7 @@ Mer information finns i [kräva hanterade enheter för åtkomst till molnet appe
 
 Kräver att en Hybrid Azure AD-domänansluten enhet är ett annat alternativ som du måste konfigurera principer för enhetsbaserad villkorlig åtkomst. Det här kravet refererar till Windows-arbetsstationer, bärbara datorer och enterprise-surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs, beviljar principer för villkorlig åtkomst åtkomst till åtkomstförsök med enheter som är anslutna till din lokala Active Directory och Azure Active Directory.  
 
-Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
+Mer information finns i [ställa in principer för Azure Active Directory enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
 
 ### <a name="approved-client-app"></a>Godkänd klientapp
 
@@ -182,6 +182,6 @@ Du kan läsa mer här:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).

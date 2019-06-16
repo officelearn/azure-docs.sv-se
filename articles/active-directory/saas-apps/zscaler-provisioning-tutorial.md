@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67049385"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler för automatisk användaretablering
 
@@ -49,7 +49,7 @@ Du måste lägga till Zscaler från Azure AD-programgalleriet i listan över han
 
 **Utför följande steg för att lägga till Zscaler från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -57,7 +57,7 @@ Du måste lägga till Zscaler från Azure AD-programgalleriet i listan över han
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 

@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719718"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
@@ -42,7 +42,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
 
     Ange eller välj följande värden:
     
-    |Egenskap   |Beskrivning  |
+    |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
     |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |

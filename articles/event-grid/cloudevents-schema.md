@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436625"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
@@ -64,13 +64,13 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 
 | CloudEvents        | Typ     | Värdet för exempel-JSON             | Beskrivning                                                        | Event Grid-mappning
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| Händelsetyp          | String   | "com.example.someevent"          | Typ av händelse som inträffade                                   | Händelsetyp
+| eventType          | String   | "com.example.someevent"          | Typ av händelse som inträffade                                   | eventType
 | eventTypeVersion   | String   | "1.0"                            | Versionen av händelsetyp (valfritt)                            | dataVersion
 | cloudEventsVersion | String   | "0.1"                            | Versionen av CloudEvents-specifikationen händelsen använder        | *skickas via*
-| källa             | URI      | ”/ mycontext”                     | Beskriver producenten händelse                                       | avsnittet #subject
+| source             | URI: N      | ”/ mycontext”                     | Beskriver producenten händelse                                       | avsnittet #subject
 | eventID            | String   | "1234-1234-1234"                 | ID för händelsen                                                    | id
 | eventTime          | Tidsstämpel| "2018-04-05T17:31:00Z"           | Tidsstämpel för när händelsen som inträffade (valfritt)                    | eventTime
-| schemaURL          | URI      | "https:\//myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
+| schemaURL          | URI: N      | "https:\//myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
 | contentType        | String   | "application/json"               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
 | Tillägg         | Karta      | { "extA": "vA", "extB", "vB" }  | Alla ytterligare metadata (valfritt)                                 | *används inte*
 | data               | Object   | { "objA": "vA", "objB", "vB" }  | Händelsenyttolast (valfritt)                                       | data

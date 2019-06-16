@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa5b66b3cf2ec038107293da7a821fcb75273fc9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bf685919879a9ee82cbaa3863826c891422d3013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Självstudier: Azure Active Directory-katalogintegrering med iProva
 
@@ -30,7 +30,7 @@ Du får följande fördelar när du integrerar iProva med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till iProva.
 * Du kan göra så att dina användare automatiskt loggas in på iProva (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -54,7 +54,7 @@ För att kunna konfigurera integreringen av iProva i Azure AD måste du lägga t
 
 **Gör följande för att lägga till iProva från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,7 +62,7 @@ För att kunna konfigurera integreringen av iProva i Azure AD måste du lägga t
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -70,7 +70,7 @@ För att kunna konfigurera integreringen av iProva i Azure AD måste du lägga t
 
     ![iProva i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med iProva baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i iProva upprättas.
@@ -78,12 +78,12 @@ För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD
 För att kunna konfigurera och testa enkel inloggning med Azure AD med iProva måste du slutföra följande byggblock:
 
 1. **[Hämta konfigurationsinformation från iProva](#retrieve-configuration-information-from-iprova)**  som en förberedelse för nästa steg.
-2. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 3. **[Konfigurera enkel inloggning för iProva](#configure-iprova-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-4. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+5. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 6. **[Skapa iProva-testanvändare](#create-iprova-test-user)** – så att det finns en motsvarighet till Britta Simon i iProva som är länkad till Azure AD-representationen av användaren.
-7. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+7. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="retrieve-configuration-information-from-iprova"></a>Hämta konfigurationsinformation från iProva
 
@@ -101,7 +101,7 @@ I det här avsnittet hämtar du information från iProva för att konfigurera en
 
 2. Låt webbläsarfliken vara öppen medan du fortsätter med nästa steg i en annan webbläsarflik.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -109,7 +109,7 @@ Gör följande för att konfigurera enkel inloggning med iProva:
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **iProva** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -159,7 +159,7 @@ Gör följande för att konfigurera enkel inloggning med iProva:
 
 7. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-iprova-single-sign-on"></a>Konfigurera enkel inloggning i iProva
 
@@ -269,7 +269,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 7. I den **fullständigt namn** , ange ett fullständigt namn för användaren som **BrittaSimon**.
 
-8. Välj alternativet **Inget lösenord (använd enkel inloggning)**.
+8. Välj alternativet **Inget lösenord (använd enkel inloggning)** .
 
 9. I den **e-postadress** anger du e-postadressen för användaren som `BrittaSimon@contoso.com`.
 
@@ -287,4 +287,4 @@ När du klickar på iProva-panelen i åtkomstpanelen så bör du automatiskt log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

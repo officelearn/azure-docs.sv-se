@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073075"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Aktivera loggning i SDK: N för tal
 
 Loggning till fil är en valfri funktion för tal-SDK. Under utvecklingen ger loggning ytterligare information och diagnostik från tal för SDK-kärnkomponenter. Den kan aktiveras genom att ange egenskapen `Speech_LogFilename` på ett tal konfigurationsobjekt till platsen och namnet på loggfilen. Loggning aktiveras globalt när en identifierare som har skapats från den konfigurationen och kan inte inaktiveras efteråt. Du kan inte ändra namnet på en loggfil under en löpande loggning session.
 
 > [!NOTE]
-> Loggning är tillgänglig i alla stöds tal SDK programmeringsspråk, med undantag för JavaScript.
+> Loggning är tillgänglig eftersom SDK-taligenkänning version 1.4.0 i alla stöds tal SDK programmeringsspråk, med undantag för JavaScript.
 
 ## <a name="sample"></a>Exempel
 

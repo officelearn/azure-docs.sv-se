@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074897"
 ---
-# <a name="scenario-protected-web-api"></a>Scenario: Skyddade webb-API
+# <a name="scenario-protected-web-api"></a>Scenario: Skyddat webb-API
 
 I det här scenariot får du lära dig hur du kan visa ett webb-API och hur du kan skydda den så att endast behöriga användare har åtkomst till API: et. Du vill aktivera autentiserade användare med både arbete och skolkonton eller personliga personliga Microsoft-konton att använda ditt webb-API.
 

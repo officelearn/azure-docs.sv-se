@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148503"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: frekvent, lågfrekvent och arkivnivå åtkomst
@@ -89,7 +89,7 @@ Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hj
 
 Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. Om en blob finns i arkivnivån kan kan inte den skrivas över, så att ladda upp samma blob inte tillåts i det här scenariot. Du kan skriva över en blob i en frekvent eller lågfrekvent nivå, som ärver fall den nya bloben nivån för bloben som skrevs över.
 
-Blobar i alla tre åtkomstnivåerna kan existera tillsammans i samma konto. En blob som inte har en uttryckligen tilldelad nivå härleder nivån från kontots åtkomstnivåinställning. Om åtkomstnivån härleds från kontot, visas den **åtkomstnivå härledd** blob-egenskapen angetts till ”true”, och blobegenskapen **åtkomstnivå** matchar kontonivån. I Azure-portalen åtkomstnivån härleds egenskapen visas med blobåtkomstnivån (till exempel **frekvent (härledd)** eller **lågfrekvent (härledd)**).
+Blobar i alla tre åtkomstnivåerna kan existera tillsammans i samma konto. En blob som inte har en uttryckligen tilldelad nivå härleder nivån från kontots åtkomstnivåinställning. Om åtkomstnivån härleds från kontot, visas den **åtkomstnivå härledd** blob-egenskapen angetts till ”true”, och blobegenskapen **åtkomstnivå** matchar kontonivån. I Azure-portalen åtkomstnivån härleds egenskapen visas med blobåtkomstnivån (till exempel **frekvent (härledd)** eller **lågfrekvent (härledd)** ).
 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan även ändra nivå för en blockblob som har ögonblicksbilder.

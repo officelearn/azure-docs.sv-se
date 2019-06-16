@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120134"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Spåra B2B-meddelanden med Azure Monitor-loggar
@@ -146,9 +146,9 @@ För varje meddelandetyp följer Egenskapsbeskrivningar och format för hämtade
 
 Här är Egenskapsbeskrivningar för varje AS2-meddelande.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för ett AS2-avtal |
+| Avsändaren | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för ett AS2-avtal |
 | Mottagare | Värdpartner som anges i **ta emot inställningar**, eller gästpartner som anges i **skicka inställningar** för ett AS2-avtal |
 | Logikapp | Logikappen där AS2-åtgärder har ställts in |
 | Status | Status för AS2-meddelande <br>Lyckades = mottagna eller skickat ett ogiltigt AS2-meddelande. Inga MDN har ställts in. <br>Lyckades = mottagna eller skickat ett ogiltigt AS2-meddelande. MDN ställs in och tas emot eller MDN skickas. <br>Det gick inte = tagits emot ett ogiltigt AS2-meddelande. Inga MDN har ställts in. <br>Väntande = mottagna eller skickat ett ogiltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
@@ -177,9 +177,9 @@ Här följer namnformat för varje mapp för hämtade AS2-meddelanden och filer.
 
 Här är Egenskapsbeskrivningar för varje X12 meddelande.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för en X12 avtal |
+| Avsändaren | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för en X12 avtal |
 | Mottagare | Värdpartner som anges i **ta emot inställningar**, eller gästpartner som anges i **skicka inställningar** för en X12 avtal |
 | Logikapp | Logikappen där X12 åtgärder har ställts in |
 | Status | Den X12 meddelande status <br>Lyckades = mottagna eller skickas en giltig X12 meddelande. Inga funktionella ack har ställts in. <br>Lyckades = mottagna eller skickas en giltig X12 meddelande. Funktionella ack ställs in och tas emot, eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt X12 meddelande. <br>Väntande = mottagna eller skickas en giltig X12 meddelande. Funktionella ack har konfigurerats och en funktionell ack förväntas. |
@@ -210,9 +210,9 @@ Här är de namnformat för var och en hämtade X12 meddelande mappen och filer.
 
 Här är Egenskapsbeskrivningar för varje EDIFACT-meddelandet.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för EDIFACT-avtal |
+| Avsändaren | Gästpartner som anges i **ta emot inställningar**, eller den mottagande partnern som anges i **skicka inställningar** för EDIFACT-avtal |
 | Mottagare | Värdpartner som anges i **ta emot inställningar**, eller gästpartner som anges i **skicka inställningar** för EDIFACT-avtal |
 | Logikapp | Logikappen där EDIFACT-åtgärder har ställts in |
 | Status | Status för EDIFACT-meddelande <br>Lyckades = mottagna eller skickat ett giltigt EDIFACT-meddelande. Inga funktionella ack har ställts in. <br>Lyckades = mottagna eller skickat ett giltigt EDIFACT-meddelande. Funktionella ack ställs in och tas emot, eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt EDIFACT-meddelande <br>Väntande = mottagna eller skickat ett giltigt EDIFACT-meddelande. Funktionella ack har konfigurerats och en funktionell ack förväntas. |

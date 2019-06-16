@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405879"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -35,7 +35,7 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 - Telemetri, vilket inkluderar följande mått som samlar in enheten:
   - Fuktighet
   - Temperatur
-  - Tryck
+  - Hög belastning
   - Magnetometer (X, Y, Z)
   - Accelerometer (X, Y, Z)
   - Gyroskop (X, Y, Z)
@@ -111,7 +111,7 @@ Visa/Dölj inställningar
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Gäller inte       |
+| Text            | Location     | location   | Gäller inte       |
 
 ## <a name="next-steps"></a>Nästa steg
 

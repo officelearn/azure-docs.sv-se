@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60879062"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen1 för stordatakrav
@@ -88,7 +88,7 @@ Stora mängder data kan lagras i befintliga Hadoop-kluster lokalt på datorer me
 För att ladda upp datauppsättningar som intervall i flera terabyte kan med hjälp av de metoder som beskrivs ovan ibland vara långsam och dyrt. I sådana fall kan använda du alternativen nedan.
 
 * **Med hjälp av Azure ExpressRoute**. Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och infrastrukturen i era lokala. Detta ger en pålitlig alternativ för överföring av stora mängder data. Mer information finns i [dokumentation om Azure ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Dataöverföringen ”offline”**. Om du inte är möjligt med hjälp av Azure ExpressRoute av någon anledning, kan du använda [tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md) att skicka hårddiskar med dina data till ett Azure-datacenter. Dina data överförs först till Azure Storage-Blobbar. Du kan sedan använda [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) eller [AdlCopy verktyget](data-lake-store-copy-data-azure-storage-blob.md) att kopiera data från Azure Storage BLOB till Data Lake Storage Gen1.
+* **Dataöverföringen ”offline”** . Om du inte är möjligt med hjälp av Azure ExpressRoute av någon anledning, kan du använda [tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md) att skicka hårddiskar med dina data till ett Azure-datacenter. Dina data överförs först till Azure Storage-Blobbar. Du kan sedan använda [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) eller [AdlCopy verktyget](data-lake-store-copy-data-azure-storage-blob.md) att kopiera data från Azure Storage BLOB till Data Lake Storage Gen1.
 
   > [!NOTE]
   > När du använder Import/Export-tjänst, filstorlekar på diskar som du skickar till Azure-Datacenter inte får vara större än 195 GB.

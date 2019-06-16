@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217256"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
@@ -71,7 +71,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
 | Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
-| Stoppas |Stoppas |Nej (övergångsläge) |
+| Stoppar |Stoppar |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisk avstängning av för oanvända kanaler
@@ -239,7 +239,7 @@ När din kanal har Live Encoding aktiverad, du har en komponent i din pipeline s
 
 Följande är de egenskaper som du kan ange när signalering annonser. 
 
-### <a name="duration"></a>Varaktighet
+### <a name="duration"></a>Duration
 Varaktighet i sekunder, för reklampaus. Detta måste vara ett positivt värde inte är noll för att starta reklampaus. När en reklampaus pågår och varaktigheten nollställs med CueId matchar pågående reklampaus, och sedan den break har avbrutits.
 
 ### <a name="cueid"></a>CueId
@@ -255,7 +255,7 @@ Livekodaren i kanalen kan signaleras att växla till en bakgrundsbild. Det kan o
 
 Live Encoding kan konfigureras för att växla till en bakgrundsbild och dölja inkommande video signalen i vissa situationer – exempelvis under en ad-break. Om en sådan bakgrundsbild inte är konfigurerad maskeras inte indatavideon under den ad-break.
 
-### <a name="duration"></a>Varaktighet
+### <a name="duration"></a>Duration
 Varaktighet för mallen i sekunder. Detta måste vara ett positivt värde inte är noll för att starta mallen. Om det finns en pågående bakgrundsbild och en varaktighet på noll har angetts, avslutas den pågående bakgrundsbild.
 
 ### <a name="insert-slate-on-ad-marker"></a>Infoga bakgrundsbild vid reklammarkör
@@ -314,7 +314,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
 | Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |Ja |
-| Stoppas |Stoppas |Nej (övergångsläge) |
+| Stoppar |Stoppar |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 > [!NOTE]

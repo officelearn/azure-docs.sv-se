@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191529"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referera till Azure Active Directory Identity Protection riskhändelser
@@ -30,7 +30,7 @@ Merparten av säkerhetsbrott sker när angripare får tillgång till en miljö g
 
 ## <a name="anonymous-ip-address"></a>Anonym IP-adress
 
-**Identifieringstyp av:** Realtid  
+**Identifieringstyp av:** I realtid  
 **Gammalt namn:** Inloggningar från anonyma IP-adress
 
 
@@ -38,7 +38,7 @@ Den här riskhändelsetyp anger inloggningar från en anonym IP-adress (exempel:
 Dessa IP-adresser som vanligtvis används av aktörer som vill dölja sina inloggningen telemetri (IP-adress, plats, enhet o.s.v.) för potentiellt skadliga avsikter.
 
 
-## <a name="atypical-travel"></a>Ovanlig resa
+## <a name="atypical-travel"></a>Ovanliga resa
 
 **Identifieringstyp av:** Offline  
 **Gammalt namn:** Omöjliga resor till ovanliga platser
@@ -69,7 +69,7 @@ När andra nätkriminella kompromettering giltig lösenorden för behöriga anv�
 När tjänsten skaffar användarens autentiseringsuppgifter från mörka Internet, klistra in platser eller ovan källor kan kontrolleras de mot Azure AD användarnas aktuella giltiga autentiseringsuppgifter att hitta giltig matchningar.
 
 
-## <a name="malware-linked-ip-address"></a>IP-adress länkad till skadlig kod
+## <a name="malware-linked-ip-address"></a>Skadlig kod länkad IP-adress
 
 **Identifieringstyp av:** Offline  
 **Gammalt namn:** Inloggningar från angripna enheter
@@ -78,9 +78,9 @@ När tjänsten skaffar användarens autentiseringsuppgifter från mörka Interne
 Den här riskhändelsetyp anger inloggningar från IP-adresser som smittats av skadlig kod som du känner till aktivt kommunicera med en bot-server. Detta fastställs genom att IP-adresserna för användarens enhet mot IP-adresser som fanns i kontakt med en bot-server när bot-servern var aktiv.
 
 
-## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
+## <a name="unfamiliar-sign-in-properties"></a>Okänd inloggning egenskaper
 
-**Identifieringstyp av:** Realtid  
+**Identifieringstyp av:** I realtid  
 **Gammalt namn:** Inloggningar från okända platser
 
 
@@ -89,7 +89,7 @@ Den här riskhändelsetyp tar hänsyn till tidigare inloggningshistorik (IP, lat
 Vi kan också köra den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har modern egenskaper, till exempel klient-ID, finns det begränsad telemetri för att minska falska positiva identifieringar. Vi rekommenderar våra kunder att flytta till modern autentisering.
 
 
-## <a name="azure-ad-threat-intelligence"></a>Azure AD hotinformation
+## <a name="azure-ad-threat-intelligence"></a>Azure AD-hotinformation
 
 **Identifieringstyp av:** Offline <br>
 **Gammalt namn:** Den här identifieringen kommer att visas i de äldre Azure AD Identity Protection rapporter (användare som har flaggats för risk, riskhändelser) som ”användare med läckta autentiseringsuppgifter”

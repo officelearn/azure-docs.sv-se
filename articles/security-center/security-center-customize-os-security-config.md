@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573600"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
 Den här genomgången visar hur du anpassar OS configuration säkerhetsutvärderingar i Azure Security Center.
 
+> [!NOTE]
+> Möjligheten att anpassa OS-säkerhetskonfigurationer tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+
 ## <a name="what-are-os-security-configurations"></a>Vad är OS-säkerhetskonfigurationer?
 
-Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning [över 150 rekommenderas regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för att härda Operativsystemet, inklusive regler relaterade till brandväggar, granskning, lösenordsprinciper med mera. Om en dator har en sårbara konfiguration, genererar Security Center en säkerhetsrekommendation.
+Azure Security Center övervakar säkerhetskonfigurationer med hjälp av en uppsättning på [fler än 150 rekommenderade regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för att härda operativsystemet, inklusive regler för brandväggar, granskning, lösenordsprinciper med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation.
 
 Organisationer kan genom att anpassa regler kan styra vilka konfigurationsalternativ passar bättre för deras miljö. Du kan ange en princip för anpassad bedömning och tillämpa den på alla tillämpliga datorer i prenumerationen.
 
@@ -180,7 +183,7 @@ Följande tre avsnitt innehåller exempel på föregående regler. Den *expected
 
 Vissa regler dupliceras för de olika typerna av OS. Duplicerade regler har samma *originalId* attribut.
 
-## <a name="create-custom-rules"></a>Skapa anpassade regler
+## <a name="create-custom-rules"></a>Skapa anpassade roller
 
 Du kan också skapa nya regler. Innan du skapar en ny regel, Tänk på följande begränsningar:
 
@@ -275,7 +278,7 @@ Alla eventuella fel visas i följande tabell:
 
 | **Fel**                                | **Beskrivning**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | Egenskapen *schemaVersion* hittades ogiltigt eller tomt. Värdet måste anges till *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | Egenskapen *schemaVersion* hittades ogiltigt eller tomt. Värdet måste anges till *{0}* .                                                         |
 | BaselineInvalidStringError               | Egenskapen *{0}* får inte innehålla  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Regler för baslinjen konfigurationslistan innehåller en regel med värdet *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* är inte unikt.                                                                                                                  |
@@ -290,12 +293,12 @@ Alla eventuella fel visas i följande tabell:
 | BaselineRuleNotInPlace                   | Regeln matchar en standardregel med typen {0} och visas i {1} lista.                                                                       |
 | BaselineRulePropertyTooLong              | Egenskapen *{0}* är för långt. Högsta tillåtna längd: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | Det förväntade värdet *{0}* matchar inte registervärdetypen som har definierats.                                                              |
-| BaselineRulesetAdded                     | Regeluppsättning med ID *{0}* hittades inte i standardkonfigurationen. Den RuleSet-metod kan inte läggas till.                                               |
+| BaselineRulesetAdded                     | Regeluppsättning med identifieraren *{0}* hittades inte i standardkonfigurationen. Den RuleSet-metod kan inte läggas till.                                               |
 | BaselineRulesetIdMustBeUnique            | Den givna baslinjen ruleset *{0}* måste vara unikt.                                                                                           |
-| BaselineRulesetNotFound                  | Regeluppsättning med id *{0}* och namnet *{1}* hittades inte i den angivna konfigurationen. Den RuleSet-metod kan inte tas bort.                                |
-| BaselineRuleSourceNotMatch               | Regeln med ID *{0}* har redan definierats.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Typ av regel är *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Den faktiska typen av regeln är *{0}*, men *regeltyp* egenskapen är *{1}*.                                                                          |
+| BaselineRulesetNotFound                  | Regeluppsättning med identifieraren *{0}* och namnet *{1}* hittades inte i den angivna konfigurationen. Den RuleSet-metod kan inte tas bort.                                |
+| BaselineRuleSourceNotMatch               | Regeln med ID: t *{0}* har redan definierats.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Typ av regel är *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Den faktiska typen av regeln är *{0}* , men *regeltyp* egenskapen är *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Endast *expectedValue* och *tillstånd* egenskaper ska kunna ändras.                                                                       |
 | BaselineTooManyRules                     | Det maximala antalet tillåtna anpassade regler är {0} regler. Den angivna konfigurationen innehåller {1} regler, {2} standardregler, och {3} anpassade regler. |
 | ErrorNoConfigurationStatus               | Inga Konfigurationsstatus hittades. Tillstånd för status för önskad konfiguration: *Standard* eller *anpassad*.                                    |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127212"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 I den här artikeln diskuterar vi en samling Azure identity management och säkerhetsmetoder för access control. Dessa metodtips härleds från vår erfarenhet av [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) och erfarenheter från kunder som dig själv.
@@ -113,7 +113,7 @@ Organisationer som inte skapar en gemensam identitet för att upprätta en enkel
 
 Användare kan komma åt din organisations resurser med hjälp av en mängd olika enheter och appar från var som helst. Som IT-administratör, som du vill kontrollera att dessa enheter uppfyller dina krav för säkerhet och efterlevnad. Bara fokusera på vem som kan komma åt en resurs räcker inte längre.
 
-För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut om åtkomstkontroll. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll baserat på villkor för att komma åt dina appar i molnet med villkorlig åtkomst.
+För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut om åtkomstkontroll. Med Azure AD villkorlig åtkomst kan du lösa det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll baserat på villkor för att komma åt dina appar i molnet med villkorlig åtkomst.
 
 **Bästa praxis**: Hantera och styr åtkomsten till företagets resurser.  
 **Information om**: Konfigurera Azure AD [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md) baserat på en grupp, plats och programmets känslighet för SaaS-appar och Azure AD-anslutna appar.

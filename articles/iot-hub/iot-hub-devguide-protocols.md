@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626187"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referera till – Välj ett kommunikationsprotokoll
@@ -29,7 +29,7 @@ Information om hur dessa protokoll stöder specifika IoT Hub-funktioner finns i 
 
 Följande tabell innehåller övergripande rekommendationer för ditt val av protokollet:
 
-| Protokoll | När du ska välja det här protokollet |
+| Protocol | När du ska välja det här protokollet |
 | --- | --- |
 | MQTT <br> MQTT via WebSocket |Använd på alla enheter som inte kräver för att ansluta flera enheter (var och en med sina egna autentiseringsuppgifter per enhet) via samma TLS-anslutning. |
 | AMQP <br> AMQP via WebSocket |Använd på fältet och cloud-gatewayer för att dra nytta av anslutningen multiplexing mellan enheter. |
@@ -54,7 +54,7 @@ Tänk på följande när du väljer ditt protokoll för enhetssidan kommunikatio
 
 Enheter kan kommunicera med IoT Hub i Azure med olika protokoll. Normalt drivs valet av protokoll av de specifika kraven för lösningen. I följande tabell visas de utgående portar som måste vara öppna för en enhet för att kunna använda ett visst protokoll:
 
-| Protokoll | Port |
+| Protocol | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT över WebSockets |443 |

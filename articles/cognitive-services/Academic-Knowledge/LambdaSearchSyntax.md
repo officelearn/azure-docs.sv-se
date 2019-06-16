@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337796"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Söksyntax
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Om vi inte bryr sig om typerna av edge(s) att följa, bara Uteslut *FollowEdge()* mellan två noder: frågan beskriver alla möjliga kanter mellan dessa två noder.
 
-Vi kan ange edge traversal-åtgärder som ska utföras på en nod via *VisitNode()*, det vill säga om du vill stoppa den här noden och returnerar den aktuella sökvägen som ett resultat eller fortsätta att utforska i diagrammet.  Uppräkningstypen *åtgärd* definierar två typer av åtgärder: *Action.Return* och *Action.Continue*. Vi kan skicka sådana uppräkningsvärdet direkt i *VisitNode()*, eller kombinera dem med bitvis- och operatorn 'och'. När två åtgärd kombineras, innebär det att båda åtgärderna kommer att tas. Obs: Använd inte bitvis- eller operator ' |' på åtgärder. Detta gör att frågan för att avsluta utan att returnera någonting. Hoppar över *VisitNode()* mellan två *FollowEdge()* anrop kommer frågan att utforska ovillkorligt diagrammet efter ankomsten till en nod.
+Vi kan ange edge traversal-åtgärder som ska utföras på en nod via *VisitNode()* , det vill säga om du vill stoppa den här noden och returnerar den aktuella sökvägen som ett resultat eller fortsätta att utforska i diagrammet.  Uppräkningstypen *åtgärd* definierar två typer av åtgärder: *Action.Return* och *Action.Continue*. Vi kan skicka sådana uppräkningsvärdet direkt i *VisitNode()* , eller kombinera dem med bitvis- och operatorn 'och'. När två åtgärd kombineras, innebär det att båda åtgärderna kommer att tas. Obs: Använd inte bitvis- eller operator ' |' på åtgärder. Detta gör att frågan för att avsluta utan att returnera någonting. Hoppar över *VisitNode()* mellan två *FollowEdge()* anrop kommer frågan att utforska ovillkorligt diagrammet efter ankomsten till en nod.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-För *VisitNode()*, vi kan även skicka i ett lambda-uttryck av typen *uttryck\<Func\<AVI, åtgärd\>\>*, som tar en *AVI* och returnerar en genomgång av åtgärd:
+För *VisitNode()* , vi kan även skicka i ett lambda-uttryck av typen *uttryck\<Func\<AVI, åtgärd\>\>* , som tar en *AVI* och returnerar en genomgång av åtgärd:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Anger om ett fält med det angivna namnet finns i den aktuella noden.
 
 ##### <a name="string-getstring-fieldname"></a>Strängen får (sträng fältnamn)
 
-Fungerar som *GetField\<sträng\>(fältnamn)*. Men det inget genereras undantag när fältet inte hittas, returneras en tom string("") i stället.
+Fungerar som *GetField\<sträng\>(fältnamn)* . Men det inget genereras undantag när fältet inte hittas, returneras en tom string("") i stället.
 
 ##### <a name="bool-hasstring-fieldname"></a>bool har (sträng fältnamn)
 
-Anger om en viss egenskap finns i den aktuella noden. Samma som *ContainsField(fieldName)*.
+Anger om en viss egenskap finns i den aktuella noden. Samma som *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>bool har (sträng fältnamn, strängvärde)
 

@@ -9,12 +9,12 @@ ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072176"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
@@ -34,7 +34,7 @@ Azure Digital Twins gäller för alla typer av miljöer. Några exempel är lage
 - Analysera användningsnivåerna för en byggnad.
 - Hitta den mest använda kassan i din butik.
 
-Vad ditt verkliga affärsscenario än är går det att etablera en motsvarande digital instans via Azure Digital Twins.
+Vad ditt verkliga affärsscenario är, är det mycket troligt att en motsvarande digitala instans kan etableras via Azure Digital Twins.
 
 Följande videoklipp tar en närmare titt på Azure Digital Twins.
 

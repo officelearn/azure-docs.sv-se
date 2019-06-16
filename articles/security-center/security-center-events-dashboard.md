@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573525"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
 Instrumentpanelen för händelser innehåller en översikt av antalet säkerhetshändelser som samlas in över tid och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
 
 > [!NOTE]
-> Om du vill använda den här funktionen, måste din arbetsyta köra Log Analytics version 2 och vara på Security Center Standard-nivån. Se de Säkerhetscenter [prissättningssidan](security-center-pricing.md) för mer information om Standard-nivån.
->
->
+> Instrumentpanelen för Security händelser tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Vad är en säkerhetshändelse?
 Security Center använder Microsoft Monitoring Agent att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina virtuella datorer och lagrar dessa händelser i dina arbetsytor. Exempel på sådana data är: operativsystemloggar (Windows-händelseloggar), kör bearbetar och händelser från säkerhetslösningar som är integrerade med Security Center. Microsoft Monitoring Agent kopierar också kraschdumpfiler till dina arbetsytor.
+
+## <a name="requirements"></a>Krav
+Om du vill använda den här funktionen, måste din arbetsyta köra Log Analytics version 2 och vara på Security Center Standard-nivån. Se de Säkerhetscenter [prissättningssidan](security-center-pricing.md) för mer information om Standard-nivån.
 
 ## <a name="events-processed-dashboard"></a>Instrumentpanelen för händelser som bearbetas
 Du har åtkomst till den **händelser** instrumentpanelen från huvudmenyn i Security Center eller Security Center **översikt** bladet.  

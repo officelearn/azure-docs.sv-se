@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246696"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synkronisering i en Azure AD Domain Services-hanterad domän
@@ -60,7 +60,7 @@ Följande objekt och attribut synkroniseras inte till Azure AD-klienten eller ti
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Hur specifika attribut som synkroniseras till din hanterade domän
 I följande tabell visas några vanliga attribut och beskriver hur de ska synkroniseras till din hanterade domän.
 
-| Attributet i din hanterade domän | Source | Anteckningar |
+| Attributet i din hanterade domän | source | Anteckningar |
 |:--- |:--- |:--- |
 | UPN |Användarens UPN-attributet i Azure AD-klienten |UPN-attributet från Azure AD-klienten synkroniseras eftersom är till din hanterade domän. Därför är det säkraste sättet att logga in till din hanterade domän med ditt UPN. |
 | SAMAccountName |Användarens mailNickname attribut i Azure AD-klienten eller automatiskt genererade |SAMAccountName-attribut kommer från mailNickname-attributet i Azure AD-klienten. Om flera användarkonton har samma mailNickname-attributet kan genereras SAMAccountName automatiskt. Om användarens mailNickname eller UPN-prefixet är längre än 20 tecken, genereras SAMAccountName automatiskt att uppfylla 20 teckengränsen på SAMAccountName-attribut. |

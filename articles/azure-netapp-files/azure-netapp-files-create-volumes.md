@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/23/2019
+ms.date: 6/6/2019
 ms.author: b-juche
-ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808874"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Skapa en volym för Azure NetApp Files
 
@@ -90,34 +90,36 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
 Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-anslutningarna innan du lägger till en SMB-volym. 
 
+### <a name="requirements-for-active-directory-connections"></a>Krav för Active Directory-anslutningar
+
+ Kraven för Active Directory-anslutningarna är följande: 
+
+* Administratörskonto som du använder måste kunna skapa konton i sökvägen organisationsenhet (OU) som du anger.  
+
+* Rätt portar måste vara öppna på den aktuella Windows Active Directory (AD)-servern.  
+    Portarna som krävs är följande: 
+
+    |     Tjänst           |     Port     |     Protocol     |
+    |-----------------------|--------------|------------------|
+    |    AD-webbtjänster    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    Gäller inte       |    Echo svarsmeddelanden    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS-namn       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    Secure LDAP        |    636       |    TCP           |
+    |    Secure LDAP        |    3269      |    TCP           |
+    |    w32time            |    123       |    UDP           |
+
 ### <a name="create-an-active-directory-connection"></a>Skapa en Active Directory-anslutning
-
-1. Se till att du uppfyller följande requiements: 
-
-    * Administratörskonto som du använder måste kunna skapa konton i sökvägen organisationsenhet (OU) som du anger.
-    * Rätt portar måste vara öppna på den aktuella Windows Active Directory (AD)-servern.  
-        Portarna som krävs är följande: 
-
-        |     Tjänst           |     Port     |     Protokoll     |
-        |-----------------------|--------------|------------------|
-        |    AD-webbtjänster    |    9389      |    TCP           |
-        |    DNS                |    53        |    TCP           |
-        |    DNS                |    53        |    UDP           |
-        |    ICMPv4             |    Gäller inte       |    Echo svarsmeddelanden    |
-        |    Kerberos           |    464       |    TCP           |
-        |    Kerberos           |    464       |    UDP           |
-        |    Kerberos           |    88        |    TCP           |
-        |    Kerberos           |    88        |    UDP           |
-        |    LDAP               |    389       |    TCP           |
-        |    LDAP               |    389       |    UDP           |
-        |    LDAP               |    3268      |    TCP           |
-        |    NetBIOS-namn       |    138       |    UDP           |
-        |    SAM/LSA            |    445       |    TCP           |
-        |    SAM/LSA            |    445       |    UDP           |
-        |    Säkert LDAP        |    636       |    TCP           |
-        |    Säkert LDAP        |    3269      |    TCP           |
-        |    w32time            |    123       |    UDP           |
-
 
 1. NetApp-konto klickar du på **Active Directory-anslutningarna**, klicka sedan på **ansluta**.  
 
@@ -125,10 +127,10 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
 
 2. Ange följande information i fönstret ansluta till Active Directory:
 
-    * **Primary DNS**   
-        Det här är domain controller IP-adressen för den önskade Active Directory Domain Services för användning med Azure NetApp-filer. 
-    * **Secondary DNS**  
-        Det här är domain controller IP-adressen för den sekundära Active Directory Domain Services för användning med Azure NetApp-filer. 
+    * **Primär DNS**  
+        Det här är den DNS som krävs för Active Directory-domänanslutning och SMB-autentisering-åtgärder. 
+    * **Secondary DNS**   
+        Det här är den sekundära DNS-servern för att säkerställa redundant namntjänster. 
     * **Domän**  
         Det här är domännamnet för din Active Directory Domain Services som du vill ansluta till.
     * **Prefix för SMB-server (datorkontot)**  
@@ -204,5 +206,5 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
 ## <a name="next-steps"></a>Nästa steg  
 
 * [Montera eller demontera en volym för Windows eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Konfigurera princip för export för en NFS-volym](azure-netapp-files-configure-export-policy.md)
+* [Konfigurera exportprincipen för en NFS-volym](azure-netapp-files-configure-export-policy.md)
 * [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

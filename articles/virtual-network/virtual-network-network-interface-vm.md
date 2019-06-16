@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
 ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701379"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägga till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
@@ -47,7 +47,7 @@ När du skapar en virtuell dator via portalen portalen skapar ett nätverksgrän
 
 Innan du skapar den virtuella datorn måste du skapa ett nätverksgränssnitt med hjälp av stegen i [skapa ett nätverksgränssnitt](virtual-network-network-interface.md#create-a-network-interface).
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -56,7 +56,7 @@ Innan du skapar den virtuella datorn måste du skapa ett nätverksgränssnitt me
 
 1. Logga in på Azure Portal.
 2. I sökrutan högst upp i portalen skriver du namnet på den virtuella datorn som du vill lägga till nätverksgränssnittet eller bläddra till den virtuella datorn genom att välja **alla tjänster**, och sedan **virtuella datorer**. När du har hittat den virtuella datorn, markerar du den. Den virtuella datorn måste ha stöd för antalet nätverksgränssnitt som du vill lägga till. För att ta reda på hur många nätverksgränssnitt varje VM-storleken stöder, finns i [storlekar för Linux-datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [storlekar för Windows-datorer i Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Välj **översikt**under **inställningar**. Välj **stoppa**, och sedan vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**.
+3. Välj **översikt**under **inställningar**. Välj **stoppa**, och sedan vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)** .
 4. Välj **nätverk**under **inställningar**.
 5. Välj **bifoga nätverksgränssnittet**. Välj det som du vill koppla från listan över nätverksgränssnitt som inte är anslutna till en annan virtuell dator.
 
@@ -70,7 +70,7 @@ Innan du skapar den virtuella datorn måste du skapa ett nätverksgränssnitt me
 8. Konfigurera VM-operativsystem om du vill använda flera nätverksgränssnitt korrekt. Lär dig hur du konfigurerar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) eller [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) för flera nätverksgränssnitt.
 
 ### <a name="commands"></a>Kommandon
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[Lägg till AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Lägg till AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
@@ -86,7 +86,7 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 
 ### <a name="commands"></a>Kommandon
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -95,7 +95,7 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 
 1. Logga in på Azure Portal.
 2. I sökrutan högst upp i portalen, söker du efter namnet på den virtuella datorn som du vill ta bort (koppla från) nätverksgränssnitt från eller bläddra efter den virtuella datorn genom att välja **alla tjänster**, och sedan **virtuella datorer**. När du har hittat den virtuella datorn, markerar du den.
-3. Välj **översikt**under **inställningar**, och sedan **stoppa**. Vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**.
+3. Välj **översikt**under **inställningar**, och sedan **stoppa**. Vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)** .
 4. Välj **nätverk**under **inställningar**.
 5. Välj **koppla från nätverksgränssnittet**. Välj nätverksgränssnittet som du vill koppla bort från listan över nätverksgränssnitt som är anslutna till den virtuella datorn.
 
@@ -105,7 +105,7 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 
 ### <a name="commands"></a>Kommandon
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[ta bort AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Ta bort AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
@@ -128,7 +128,7 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill skapa en virtuell dator med flera nätverksgränssnitt eller IP-adresser finns i följande artiklar:
 
-|Aktivitet|Verktyg|
+|Aktivitet|Verktyget|
 |---|---|
 |Skapa en virtuell dator med flera nätverkskort|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

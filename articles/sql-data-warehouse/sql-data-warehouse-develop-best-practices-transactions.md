@@ -11,10 +11,10 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873649"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimera transaktioner i Azure SQL Data Warehouse
@@ -67,7 +67,7 @@ CTAS och INSERT... Välj är båda belastningen massåtgärder. Men båda påver
 
 | Primärt Index | Load Scenario | Loggningsläge |
 | --- | --- | --- |
-| Heap |Valfri |**Minimal** |
+| Heap |Alla |**Minimal** |
 | Grupperat Index |Tom måltabellen |**Minimal** |
 | Grupperat Index |Läsa in rader inte överlappar befintliga sidor på målservern |**Minimal** |
 | Grupperat Index |Läsa in rader som överlappar med befintliga sidor på målservern |Fullständig |

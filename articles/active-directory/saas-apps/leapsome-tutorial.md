@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integrering med Leapsome
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Leapsome från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -124,11 +124,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Leapsom
 
 7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Namn | Källattribut | Namnområde |
+    | Namn | Källattribut | Namnrymd |
     | ---------------| --------------- | --------- |  
     | förnamn | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | rubrik | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | bild | Webbadressen till medarbetarens bild | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
@@ -175,7 +175,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Leapsom
 
     ![Leapsome set](./media/leapsome-tutorial/tutorial_leapsome_admin.png)
 
-1. Klicka på den vänstra menyraden **enkel inloggning (SSO)**, och på den **SAML-baserad enkel inloggning (SSO)** sidan utför följande steg:
+1. Klicka på den vänstra menyraden **enkel inloggning (SSO)** , och på den **SAML-baserad enkel inloggning (SSO)** sidan utför följande steg:
 
     ![Leapsome saml](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
@@ -258,4 +258,4 @@ När du klickar på panelen Leapsome i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -2,20 +2,20 @@
 title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och redundans för automatiska slutpunkt för att Azure-kunder distribuera program med hög tillgänglighet
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
-ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071060"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -69,12 +69,12 @@ Använder profilinställningen för status kan du aktivera eller inaktivera en s
 
 | Profilstatus | Slutpunktsstatus | Slutpunkten monitor-status | Anteckningar |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inaktiv |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatus (inaktiverad). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
-| &lt;Alla&gt; |Disabled |Disabled |Slutpunkten har inaktiverats. Inaktiverad slutpunkter övervakas inte. Slutpunkten ingår inte i DNS-svar, därför kan den emot inte trafik. |
+| Inaktiverad |Enabled |Inaktiva |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatus (inaktiverad). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
+| &lt;Alla&gt; |Inaktiverad |Inaktiverad |Slutpunkten har inaktiverats. Inaktiverad slutpunkter övervakas inte. Slutpunkten ingår inte i DNS-svar, därför kan den emot inte trafik. |
 | Enabled |Enabled |Online |Slutpunkten som övervakas och är felfri. Den ingår i DNS-svar och kan ta emot trafik. |
 | Enabled |Enabled |Degraderad |Övervakning hälsokontroller av slutpunkter misslyckas. Slutpunkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag är om alla slutpunkterna är försämrade då alla betraktas som ska returneras i svaret på frågan).</br>|
 | Enabled |Enabled |CheckingEndpoint |Slutpunkten som övervakas, men resultatet av den första sensorn ännu inte tagits emot. CheckingEndpoint är ett tillfälligt tillstånd som vanligtvis sker omedelbart efter att lägga till eller aktivera en slutpunkt i profilen. En slutpunkt i det här tillståndet ingår i DNS-svar och kan ta emot trafik. |
-| Enabled |Enabled |Stoppad |Tjänsten eller web molnappen som slutpunkten pekar körs inte. Kontrollera inställningarna för cloud service eller web app. Detta kan också inträffa om slutpunkten är en typ som är kapslad slutpunkt och underordnade profilen är inaktiverad eller är inaktiv. <br>En slutpunkt med statusen stoppad övervakas inte. Det ingår inte i DNS-svar och tar inte emot trafik. Ett undantag är om alla slutpunkterna är försämrade då alla betraktas som ska returneras i svaret på frågan.</br>|
+| Enabled |Enabled |Stoppad |Webbappen som slutpunkten pekar mot är inte igång. Kontrollera inställningarna för web app. Detta kan också inträffa om slutpunkten är en typ som är kapslad slutpunkt och underordnade profilen är inaktiverad eller är inaktiv. <br>En slutpunkt med statusen stoppad övervakas inte. Det ingår inte i DNS-svar och tar inte emot trafik. Ett undantag är om alla slutpunkterna är försämrade då alla betraktas som ska returneras i svaret på frågan.</br>|
 
 Mer information om hur endpoint monitor-status beräknas för kapslade slutpunkter finns [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
 
@@ -87,17 +87,18 @@ Profilstatus för övervakaren är en kombination av status konfigurerad profil 
 
 | Profilstatus (enligt konfigurationen) | Slutpunkten monitor-status | Profilen monitor-status | Anteckningar |
 | --- | --- | --- | --- |
-| Disabled |&lt;alla&gt; eller en profil med några definierade slutpunkter. |Disabled |Profilen har inaktiverats. |
+| Inaktiverad |&lt;alla&gt; eller en profil med några definierade slutpunkter. |Inaktiverad |Profilen har inaktiverats. |
 | Enabled |Status för minst en slutpunkt har degraderats. |Degraderad |Granska enskilda slutpunktsvärdena status för att fastställa vilka slutpunkter kräva ytterligare åtgärder. |
 | Enabled |Status för minst en slutpunkt är Online. Inga slutpunkter har statusen degraderad. |Online |Tjänsten tar emot trafik. Ingen ytterligare åtgärd krävs. |
 | Enabled |Status för minst en slutpunkt är CheckingEndpoint. Inga slutpunkter är Online eller degraderad status. |CheckingEndpoints |Den här övergångstillstånd inträffar när en profil om skapade eller aktiverade. Hälsotillståndet för slutpunkt kontrolleras för första gången. |
-| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller profilen har inte några definierade slutpunkter. |Inaktiv |Inga slutpunkter är aktiva, men profilen är fortfarande aktiverat. |
+| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller profilen har inte några definierade slutpunkter. |Inaktiva |Inga slutpunkter är aktiva, men profilen är fortfarande aktiverat. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Slutpunkt för redundans och återställning
 
 Traffic Manager kontrollerar med jämna mellanrum hälsotillståndet för varje slutpunkt, inklusive feltillstånd slutpunkter. Traffic Manager identifierar när en slutpunkt blir felfritt och hämtar tillbaka till rotation.
 
 En slutpunkt är i feltillstånd när någon av följande händelser inträffar:
+
 - Om övervakning protokollet HTTP eller HTTPS:
     - Ett icke-200-svar eller ett svar som inte innehåller status-intervallet som angetts i den **förväntade statuskodintervall** inställningen tas emot (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
 - Om övervakning protokollet är TCP: 
@@ -151,8 +152,6 @@ Mer information finns i [Traffic Manager trafikroutningsmetoder](traffic-manager
 > En följd av det här beteendet är att om Traffic Manager-hälsokontroller inte har konfigurerats korrekt, visas den från den trafiken dirigeras som Traffic Manager *är* fungerar korrekt. Men i det här fallet kan inte endpoint redundans inträffa som påverkar programmets övergripande tillgänglighet. Det är viktigt att kontrollera att profilen visar statusen Online inte statusen degraderad. En onlinestatus anger att hälsokontroller Traffic Manager fungerar som förväntat.
 
 Mer information om hur du felsöker misslyckades hälsokontroller, se [felsöka degraderat tillstånd i Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

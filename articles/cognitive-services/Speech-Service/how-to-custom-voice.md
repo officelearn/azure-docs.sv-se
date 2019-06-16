@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 8cf9dc6cbfc96448462aac3a64807f8beb6036ad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 016dcf32f2f846e43362f17bc9f4627113908352
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075153"
 ---
-# <a name="get-started-with-custom-voice"></a>Kom igång med anpassade röst
+# <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
 Anpassade röst är en uppsättning online-verktyg som gör det möjligt att skapa en identifierbara, en av en typ ton för ditt varumärke. Allt som behövs för att komma igång är ett fåtal ljudfiler och associerade avskrifter. Följ länkarna nedan för att börja skapa en anpassad text till tal-upplevelse.
 
@@ -29,13 +29,13 @@ Diagrammet nedan visar hur du skapar en anpassad voice-modell med hjälp av anpa
 
 ![Arkitekturdiagram för anpassade röst](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Prenumerera på och skapa ett projekt](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#set-up-your-azure-account) – skapa ett Azure-konto och skapa en Speech Services-prenumeration. Den här enhetlig prenumerationen ger dig åtkomst till tal till text, tal, talöversättning och anpassade Voice-portalen. Sedan använder prenumerationen Speech Services, skapa ditt första anpassade Voice-projekt.
+1.  [Prenumerera på och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och skapa en Speech Services-prenumeration. Den här enhetlig prenumerationen ger dig åtkomst till tal till text, tal, talöversättning och anpassade Voice-portalen. Sedan använder prenumerationen Speech Services, skapa ditt första anpassade Voice-projekt.
 
-2.  [Ladda upp data](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#upload-your-datasets) – ladda upp data (ljud och text) med anpassade Voice-portalen eller API för anpassat röst. Från portalen kan du undersöka och utvärdera uttal poängen och signal brus förhållanden. Mer information finns i [hur du förbereder data för anpassad röst](how-to-custom-voice-prepare-data.md).
+2.  [Ladda upp data](how-to-custom-voice-create-voice.md#upload-your-datasets) – ladda upp data (ljud och text) med anpassade Voice-portalen eller API för anpassat röst. Från portalen kan du undersöka och utvärdera uttal poängen och signal brus förhållanden. Mer information finns i [hur du förbereder data för anpassad röst](how-to-custom-voice-prepare-data.md).
 
-3.  [Träna din modell](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#build-your-voice-font) – använda dina data för att skapa en anpassad text till tal röst-modell. Du kan träna en modell i olika språk. Testa din modell efter utbildning, och om du är nöjd med resultatet kan du distribuera modellen.
+3.  [Träna din modell](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – använda dina data för att skapa en anpassad text till tal röst-modell. Du kan träna en modell i olika språk. Testa din modell efter utbildning, och om du är nöjd med resultatet kan du distribuera modellen.
 
-4.  [Distribuera din modell](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#create-and-use-a-custom-endpoint) – skapa en anpassad slutpunkt för din rösten modell och använda den för talsyntes produkter, verktyg och program.
+4.  [Distribuera din modell](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) – skapa en anpassad slutpunkt för din rösten modell och använda den för talsyntes produkter, verktyg och program.
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
@@ -55,7 +55,7 @@ När du har skapat ett Azure-konto och en Speech Services-prenumeration, måste 
 
 Innehåll som slutpunkter, tester, modeller och data är ordnade i **projekt** i anpassade Voice-portalen. Alla projekt som är specifik för ett land/språk och röst som du vill skapa kön. Du kan till exempel skapa ett projekt för en kvinnliga ton för din Callcenter chatt robotar som använder den engelska versionen i USA (en-US).
 
-För att skapa ditt första projekt, Välj den **Text-till-Speech/anpassat röst** och klicka sedan på **nytt projekt**. Följ instruktionerna i guiden för att skapa ditt projekt. När du har skapat ett projekt, visas fyra flikar: **Data**, **utbildning**, **testning**, och **distribution**. Använd länkarna i [nästa steg](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#next-steps) att lära dig hur du använder varje flik.
+För att skapa ditt första projekt, Välj den **Text-till-Speech/anpassat röst** och klicka sedan på **nytt projekt**. Följ instruktionerna i guiden för att skapa ditt projekt. När du har skapat ett projekt, visas fyra flikar: **Data**, **utbildning**, **testning**, och **distribution**. Använd länkarna i [nästa steg](#next-steps) att lära dig hur du använder varje flik.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
 ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61234982"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
@@ -49,7 +49,7 @@ Den här tabellen innehåller information om aviseringen relaterade fält.
 | BackupManagementType_s |Text |Typ av provider för att utföra säkerhetskopieringen, till exempel IaaSVM FileFolder som den här aviseringen tillhör |
 | OperationName |Text |Namnet på den aktuella åtgärden, till exempel avisering |
 | Category |Text |Kategori för diagnostikdata som skickas till Azure Monitor-loggar. Alltid AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med aviseringen |
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet som är associerade med aviseringen |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
@@ -79,7 +79,7 @@ Den här tabellen innehåller information om säkerhetskopiering objekt-relatera
 | BackupManagementType_s |Text |Typ av provider för att utföra säkerhetskopieringen, till exempel IaaSVM FileFolder som det här säkerhetskopieringsobjektet tillhör |
 | OperationName |Text |Namnet på åtgärden, till exempel BackupItem |
 | Category |Text |Kategori för diagnostikdata som skickas till Azure Monitor-loggar. Alltid AzureBackupReport |
-| Resurs |Text |Resurs för vilka data som samlas in, exempelvis namn för Recovery Services-valv |
+| Resource |Text |Resurs för vilka data som samlas in, exempelvis namn för Recovery Services-valv |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
 | ResourceId |Text |Resurs-id för data som samlas in, till exempel Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (för t.ex. Recovery Services-valv) för data som samlas in |
@@ -102,7 +102,7 @@ Den här tabellen innehåller information om säkerhetskopieringsobjekt associat
 | BackupManagementServerUniqueId_s |Text | Fält för att unikt identifiera hanteringsservern Säkerhetskopieringsobjekt för säkerhetskopiering skyddas via, om tillämpligt |
 | Category |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - BackupItemAssociation |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text |Unikt ID för principen som är associerade med säkerhetskopieringsobjektet |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med säkerhetskopieringsobjektet |
 | VaultUniqueId_s |Text |Unik identifierare för det valv som innehåller säkerhetskopieringsobjektet |
@@ -145,7 +145,7 @@ Den här tabellen innehåller information om projektspecifika fält.
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - jobb |
 | Category |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerad med jobbet |
 | ProtectedContainerUniqueId_s |Text | Unikt Id för att identifiera skyddade behållaren jobbet körs på |
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet |
@@ -180,7 +180,7 @@ Den här tabellen innehåller information om principen-relaterade fält.
 | BackupManagementType_s |Text ||Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text ||Det här fältet representerar namnet på den aktuella åtgärden - princip |
 | Category |Text ||Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text ||Unikt Id för att identifiera principen |
 | PolicyName_s |Text ||Namnet på den princip som har definierats |
 | BackupFrequency_s |Text ||Frekvens med vilken säkerhetskopieringar körs, till exempel, varje dag, varje vecka |
@@ -228,7 +228,7 @@ Den här tabellen innehåller information om principkopplingar med olika entitet
 | BackupManagementType_s |Text ||Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text ||Det här fältet representerar namnet på den aktuella åtgärden - PolicyAssociation |
 | Category |Text ||Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text ||Unikt Id för att identifiera principen |
 | VaultUniqueId_s |Text ||Unikt Id för det valv som tillhör den här principen till |
 | BackupManagementServerUniqueId_s |Text |v2 |Fält för att unikt identifiera hanteringsservern Säkerhetskopieringsobjekt för säkerhetskopiering skyddas via, om tillämpligt        |
@@ -271,7 +271,7 @@ Den här tabellen innehåller information om storage-relaterade fält.
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - lagring |
 | Category |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern som lagring beräknas |
 | VaultUniqueId_s |Text |Unikt Id för valvet för lagring beräknas |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
@@ -306,7 +306,7 @@ Den här tabellen innehåller information om vault-relaterade fält.
 | State_s |Text |Aktuell status för valvobjekt, till exempel aktiv, har tagits bort |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - valvet |
 | Category |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | VaultUniqueId_s |Text |Unikt Id för valvet |
 | VaultName_s |Text |Namnet på valvet |
 | AzureDataCenter_s |Text |Datacenter där valvet finns |

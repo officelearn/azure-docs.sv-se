@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873429"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
@@ -186,7 +186,7 @@ Auktoriseringsprinciper för fjärrskrivbordsanslutning (RD cap) ange kraven fö
 
 1. Öppna på servern för fjärrskrivbordsgateway **Serverhanteraren**.
 1. På menyn klickar du på **verktyg**, peka på **Remote Desktop Services**, och klicka sedan på **hanteraren för fjärrskrivbordsgateway**.
-1. I den hanteraren för Fjärrskrivbordsgateway, högerklicka på  **\[servernamn\] (lokal)**, och klicka på **egenskaper**.
+1. I den hanteraren för Fjärrskrivbordsgateway, högerklicka på  **\[servernamn\] (lokal)** , och klicka på **egenskaper**.
 1. I dialogrutan Egenskaper väljer du den **RD CAP Store** fliken.
 1. På fliken RD CAP Store väljer **Central server som kör NPS**. 
 1. I den **ange namn eller IP-adressen för servern som kör NPS** skriver IP-adress eller namnet på den server där du installerade NPS-tillägget.
@@ -254,7 +254,7 @@ NPS-servern måste registreras i Active Directory för att fungera korrekt i det
 
 1. Öppna på NPS-servern **Serverhanteraren**.
 1. I Serverhanteraren klickar du på **verktyg**, och klicka sedan på **Network Policy Server**.
-1. I NPS-konsolträdet högerklickar du på **NPS (lokal)**, och klicka sedan på **registrera servern i Active Directory**.
+1. I NPS-konsolträdet högerklickar du på **NPS (lokal)** , och klicka sedan på **registrera servern i Active Directory**.
 1. Klicka på **OK** två gånger.
 
    ![Registrera NPS-servern i Active Directory](./media/howto-mfa-nps-extension-rdg/image16.png)
@@ -327,7 +327,7 @@ När du har autentiserats med hjälp av den sekundära autentiseringsmetoden, ä
 
 Om du vill visa händelser för lyckad inloggning i Windows Loggboken, kan du utfärda följande Windows PowerShell-kommando för att fråga Windows Terminal Services och Windows-Security-loggar.
 
-Att fråga efter lyckade inloggningshändelser i de operativa loggarna Gateway _(loggboken\program och tjänster Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, Använd följande PowerShell-kommandon:
+Att fråga efter lyckade inloggningshändelser i de operativa loggarna Gateway _(loggboken\program och tjänster Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_ , Använd följande PowerShell-kommandon:
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Detta kommando visar Windows-händelser som visar användaren uppfyller resurskraven auktorisering princip (värddator FJÄRRSKRIVBORDSANSLUTNING) och har beviljats åtkomst.

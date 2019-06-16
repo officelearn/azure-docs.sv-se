@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770829"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Självstudier: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok
@@ -64,12 +64,12 @@ I den här guiden får du lära dig att:
     
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Källa|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Käll-IP-adresser|< din offentliga IP-adress\>|Ange den offentliga IP-adressen. Du kan hitta din offentliga IP-adress genom att besöka [bing.com](https://www.bing.com/) och söka efter **”Min IP-adress”**.|
+    |source|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
+    |Käll-IP-adresser|< din offentliga IP-adress\>|Ange den offentliga IP-adressen. Du kan hitta din offentliga IP-adress genom att besöka [bing.com](https://www.bing.com/) och söka efter **”Min IP-adress”** .|
     |Källportintervall|*|Tillåta trafik från alla portar.|
     |Mål|IP-adresser|IP-adresser anger den utgående trafiken för en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
     |Mål-IP-adresser|< din vm offentlig IP-adress\>|Ange den virtuella datorns offentliga IP-adressen. Du hittar den på den **översikt** sidan för den virtuella datorn.|
-    |Målportintervall|22|Öppna port 22 för SSH.|
+    |Målportsintervall|22|Öppna port 22 för SSH.|
     |Prioritet|290|Ge regeln ett prioritet.|
     |Namn|ssh-databricks-tutorial-vm|Ge regeln ett namn.|
 
@@ -80,12 +80,12 @@ I den här guiden får du lära dig att:
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Källa|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
+    |source|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
     |Käll-IP-adresser|10.179.0.0/16|Ange adressintervallet för det virtuella nätverket.|
     |Källportintervall|*|Tillåta trafik från alla portar.|
     |Mål|IP-adresser|IP-adresser anger den utgående trafiken för en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
     |Mål-IP-adresser|< din vm offentlig IP-adress\>|Ange den virtuella datorns offentliga IP-adressen. Du hittar den på den **översikt** sidan för den virtuella datorn.|
-    |Målportintervall|1433|Öppna port 22 för SQL Server.|
+    |Målportsintervall|1433|Öppna port 22 för SQL Server.|
     |Prioritet|300|Ge regeln ett prioritet.|
     |Namn|sql-databricks-tutorial-vm|Ge regeln ett namn.|
 

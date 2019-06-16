@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685270"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Office 365-kontrollplanet i virtuellt WAN-nätverk
 
@@ -26,7 +26,7 @@ Virtuella WAN-kunder med utvalda SDWAN enheter kan konfigurera O365 Internet sem
 Den här funktionen i virtuellt WAN-nätverk kan kan kunder nu ange kategorier för Office 365-trafik som de litar på för direkt internet seminarium om. Detta betrodda O365 trafik kommer kringgå proxyservrar och dirigera direkt från platsen till den närmaste Microsoft-POP. Detta förhindrar trafik tillbaka-dragkraften och hår pining, vilket ger bästa användarupplevelsen och sparar WAN-kostnaderna. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Vad är Office 365-trafik kategorier?
-Office 365-slutpunkter representerar nätverksadresser och undernät. Slutpunkter kan vara URL-adresser, IP-adresser eller IP-intervall. URL: er kan antingen vara ett fullständigt domännamn som *account.office.net*, eller en URL med jokertecken som **. office365.com*. Slutpunkter är indelad i tre kategorier – **optimera**, **Tillåt**, och **standard**, baserat på deras allvarlighetsgrad. Mer information om slutpunkt-kategorier finns [här](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Office 365-slutpunkter representerar nätverksadresser och undernät. Slutpunkter kan vara URL-adresser, IP-adresser eller IP-intervall. URL: er kan antingen vara ett fullständigt domännamn som *account.office.net*, eller en URL med jokertecken som * *. office365.com*. Slutpunkter är indelad i tre kategorier – **optimera**, **Tillåt**, och **standard**, baserat på deras allvarlighetsgrad. Mer information om slutpunkt-kategorier finns [här](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Vilken kategori för Office 365-trafik som rekommenderas av Microsoft för direkt internet seminarium om?
 Den **optimera** kategori är de mest kritiska nätverksslutpunkter och är nödvändig för att kringgå SSL break och inspektera och andra nätverksenheter säkerhet. Den bör ha direkt Internet utgående nära användare. De här slutpunkterna representerar Office 365-scenarier som är den mest känsliga för prestanda, svarstid och tillgänglighet. Den här kategorin innehåller en liten (i storleksordningen ~ 10) uppsättning nyckel-URL: er och en definierad uppsättning IP-undernät dedikerad för core Office 365-arbetsbelastningar som till exempel Exchange Online, SharePoint Online, Skype för Business Online och Microsoft Teams. 

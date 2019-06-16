@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8259b58c7f30b63084e970bd9aed99642a43226f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216177"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt 
@@ -75,7 +75,7 @@ Med en tokenbegränsade auktoriseringsprincip skickas innehållsnyckeln endast t
 
 När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Publik, vilket ibland kallas omfattning, beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
 
-## <a name="streaming-urls"></a>Direktuppspelnings-URL:er
+## <a name="streaming-urls"></a>Strömmande URL: er
 Om din tillgång har krypterats med mer än en DRM måste använda en tagg för kryptering i strömnings-URL: (format = 'm3u8-aapl' kryptering = ”xxx”).
 
 Följande gäller:

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721006"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analysera Apache Hadoop-loggar
@@ -32,7 +32,7 @@ När du skapar ett HDInsight-kluster skapas automatiskt sex tabeller för Linux-
 * ambariserverlog
 * ambariagentlog
 
-Tabellen filnamnen är **u\<klusternamn > DDMonYYYYatHHMMSSsss\<tabellnamn >**.
+Tabellen filnamnen är **u\<klusternamn > DDMonYYYYatHHMMSSsss\<tabellnamn >** .
 
 Dessa tabeller innehåller följande fält:
 
@@ -41,7 +41,7 @@ Dessa tabeller innehåller följande fält:
 * EventTimestamp
 * Värd
 * MALoggingHash
-* Meddelande
+* Message
 * N
 * PreciseTimeStamp
 * Roll
@@ -225,7 +225,7 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 * **Minskning**: Frigör resurser i din prenumeration eller öka resurserna som är tillgängliga i prenumerationen och försök att skapa klustret igen.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Beskrivning**: Servern har råkat ut för ett internt fel. Gör om begäran.  
+* **Beskrivning**: Ett internt fel inträffade på servern. Gör om begäran.  
 * **Minskning**: Gör om begäran.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation

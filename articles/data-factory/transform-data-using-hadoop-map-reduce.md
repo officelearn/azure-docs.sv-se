@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611507"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop-MapReduce-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-map-reduce.md)
 > * [Aktuell version](transform-data-using-hadoop-map-reduce.md)
 
@@ -60,19 +60,19 @@ Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-had
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| namn              | Namn på aktiviteten                     | Ja      |
+| name              | Namn på aktiviteten                     | Ja      |
 | description       | Text som beskriver vad aktiviteten används till | Nej       |
-| typ              | Aktivitetstypen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
+| type              | Aktivitetstypen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
 | linkedServiceName | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
-| Klassnamn         | Namnet på klassen som ska köras         | Ja      |
+| className         | Namnet på klassen som ska köras         | Ja      |
 | jarLinkedService  | Referens till en Azure Storage-länkade tjänst som används för att lagra Jar-filerna. Om du inte anger den här länkade tjänsten, används den Azure Storage länkade tjänsten definieras i den länkade tjänsten HDInsight. | Nej       |
 | jarFilePath       | Ange sökvägen till Jar-filerna som lagras i Azure Storage som refereras till av jarLinkedService. Filnamnet är skiftlägeskänsligt. | Ja      |
 | jarlibs           | Sträng matris med sökvägen till Jar-DLL-fil som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Filnamnet är skiftlägeskänsligt. | Nej       |
 | getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av jarLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
 | argument         | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
-| definierar           | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
+| defines           | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
 
 
 

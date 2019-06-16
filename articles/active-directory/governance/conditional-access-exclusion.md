@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110402"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
@@ -32,7 +32,7 @@ I en perfekt värld följer alla användare åtkomst principer för säker åtko
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Varför skulle du exkludera användare från principer?
 
-Som IT-administratör kan du använda [Azure AD villkorsstyrd åtkomst](../conditional-access/overview.md) användare måste autentisera med hjälp av Multi-Factor authentication (MFA) eller logga in från ett betrott nätverk eller en enhet. Vid distributionsplanering veta du att vissa av dessa krav kan uppfyllas av alla användare. Exempel: det finns användare som arbetar från ett fjärrkontor som inte är en del av det interna nätverket eller det finns en chef som använder en gammal telefon som inte stöds. Företaget kräver att dessa användare att kunna logga in och utföra sitt arbete, därför undantas från principer för villkorlig åtkomst.
+Som IT-administratör kan du använda [Azure AD villkorlig åtkomst](../conditional-access/overview.md) användare måste autentisera med hjälp av Multi-Factor authentication (MFA) eller logga in från ett betrott nätverk eller en enhet. Vid distributionsplanering veta du att vissa av dessa krav kan uppfyllas av alla användare. Exempel: det finns användare som arbetar från ett fjärrkontor som inte är en del av det interna nätverket eller det finns en chef som använder en gammal telefon som inte stöds. Företaget kräver att dessa användare att kunna logga in och utföra sitt arbete, därför undantas från principer för villkorlig åtkomst.
 
 Du kan använda ett annat exempel är [namngivna platser](../conditional-access/location-condition.md) i villkorlig åtkomst för att konfigurera en uppsättning regioner och regioner som du inte vill ge användare åtkomst till deras klientorganisationer.
 
@@ -159,4 +159,4 @@ Som IT-administratör kan vet du att hantera undantagsgrupper i dina principer i
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](../conditional-access/overview.md)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

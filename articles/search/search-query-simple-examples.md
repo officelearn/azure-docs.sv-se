@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024538"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Fråga efter exempel med ”enkla” Söksyntaxen i Azure Search
@@ -63,7 +63,7 @@ Klistra in URL: en i en REST-klient som ett steg för verifiering och för att v
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-Frågesträngen **`search=*`**, motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
+Frågesträngen **`search=*`** , motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
 
 Du kan också lägga till **`$count=true`** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (cirka 2800 när det gäller NYC Jobs) på en tom sökning-sträng.
 

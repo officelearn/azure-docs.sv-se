@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Självstudier: Azure Active Directory-integrering med Predictix ordning
 
@@ -155,7 +155,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-por
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >**. (Till exempel BrittaSimon@contoso.com.)
+    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
 
     1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
 
@@ -203,4 +203,4 @@ När du väljer panelen Predictix ordning i åtkomstpanelen, bör det vara logga
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

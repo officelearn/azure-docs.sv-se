@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64513337"
 ---
-# <a name="toggle-live-chat"></a>Visa/Dölj live-chatt
+# <a name="toggle-live-chat"></a>Växla livechatt
 
 I den här artikeln visar hur du växlar live-chatt i ditt IoT Central-program. Du kan använda live-chatt för att få tillgång till teknisk support.
 

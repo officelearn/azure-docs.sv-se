@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50779f8a37713bda8b27c1cfd2ca37eed4edbd11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61073955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054707"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Azure Monitor-loggar
 
@@ -49,26 +49,26 @@ Om du vill börja importera data från Azure Automation DSC i Azure Monitor-logg
 
    ```powershell
    # Find the ResourceId for the Automation Account
-   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
 1. Hämta den _ResourceId_ av Log Analytics-arbetsytan genom att köra följande PowerShell-kommando: (om du har fler än en arbetsyta väljer du den _ResourceID_ för den arbetsyta som du vill konfigurera).
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace
-   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
 1. Kör följande PowerShell-kommando ersätter `<AutomationResourceId>` och `<WorkspaceResourceId>` med den _ResourceId_ värden från var och en av de här stegen:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
    ```
 
 Om du vill sluta importera data från Azure Automation-Tillståndskonfiguration i Azure Monitor-loggar, kör du följande PowerShell-kommando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
+Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
 ```
 
 ## <a name="view-the-state-configuration-logs"></a>Visa State Configuration-loggar
@@ -125,7 +125,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid när kompatibilitetskontrollen kördes. |
 | OperationName |DscNodeStatusData |
@@ -133,7 +133,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | NodeName_s |Namnet på den hantera noden. |
 | NodeComplianceStatus_s |Om noden är kompatibla. |
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
-| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden är __”ApplyOnly”__,__”ApplyandMonitior”__, och __”ApplyandAutoCorrect”__. <ul><li>__ApplyOnly__: DSC gäller konfigurationen av och gör ingenting ytterligare såvida inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första gången av en ny konfiguration kontrollerar inte DSC för drift från ett tidigare konfigurerade tillstånd. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyOnly__ träder i kraft. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. LCM gäller alla nya konfigurationer. Efter första gången av en ny konfiguration rapporterar DSC avvikelse i loggarna om målnoden drifts från önskat tillstånd. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyAndMonitor__ träder i kraft.</li><li>__ApplyAndAutoCorrect__: DSC gäller alla nya konfigurationer. Efter första gången av en ny konfiguration om målnoden drifts från önskat tillstånd DSC rapporterar avvikelse i loggar och återställer den aktuella konfigurationen.</li></ul> |
+| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden är __”ApplyOnly”__ , __”ApplyandMonitior”__ , och __”ApplyandAutoCorrect”__ . <ul><li>__ApplyOnly__: DSC gäller konfigurationen av och gör ingenting ytterligare såvida inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första gången av en ny konfiguration kontrollerar inte DSC för drift från ett tidigare konfigurerade tillstånd. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyOnly__ träder i kraft. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. LCM gäller alla nya konfigurationer. Efter första gången av en ny konfiguration rapporterar DSC avvikelse i loggarna om målnoden drifts från önskat tillstånd. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyAndMonitor__ träder i kraft.</li><li>__ApplyAndAutoCorrect__: DSC gäller alla nya konfigurationer. Efter första gången av en ny konfiguration om målnoden drifts från önskat tillstånd DSC rapporterar avvikelse i loggar och återställer den aktuella konfigurationen.</li></ul> |
 | HostName_s | Namnet på den hantera noden. |
 | IPAdress | IPv4-adressen för hanterad nod. |
 | Category | DscNodeStatus |
@@ -156,7 +156,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid när kompatibilitetskontrollen kördes. |
 | OperationName |DscResourceStatusData|

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888966"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
@@ -38,7 +38,7 @@ Lägg till följande telemetri på den **mätningar** sidan:
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatur  | temperatur | F     | 60  | 110 | 0              |
 | Fuktighet     | luftfuktighet    | %     | 0   | 100 | 0              |
-| Tryck     | tryck    | kPa   | 80  | 110 | 0              |
+| Hög belastning     | tryck    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
 > Datatypen för måttet telemetri är en flytande peka tal.
@@ -49,7 +49,7 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamn
 
 Lägg till följande tillstånd på den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Värde 1 | Visningsnamn | Värde 2 | Visningsnamn |
+| Visningsnamn | Fältnamn  | Värdet 1 | Visningsnamn | Värdet 2 | Visningsnamn |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 

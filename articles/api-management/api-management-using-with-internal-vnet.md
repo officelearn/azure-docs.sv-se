@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051689"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
 * Extern
 * Intern
 
-När API Management distribuerar i läget för internt virtuellt nätverk, visas bara alla tjänstslutpunkter (gateway, Developer-portalen, Azure-portalen, direkthantering och Git) i ett virtuellt nätverk som du styr åtkomst till. Ingen av Tjänsteslutpunkter är registrerade på offentliga DNS-servern.
+När API Management distribuerar i läget för internt virtuellt nätverk, visas bara alla tjänstslutpunkter (proxy-gateway, Developer-portalen, direkthantering och Git) inom ett virtuellt nätverk som du styr åtkomst till. Ingen av Tjänsteslutpunkter är registrerade på offentliga DNS-servern.
+
+> [!NOTE]
+> Eftersom det finns ingen DNS-poster för Tjänsteslutpunkter kan de här slutpunkterna är inte tillgängliga förrän [DNS konfigurerat](#apim-dns-configuration) för det virtuella nätverket.
 
 Du kan använda API Management i interna läge, för att åstadkomma följande scenarier:
 
@@ -116,10 +119,12 @@ Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också sk
 2. Du kan sedan skapa poster i DNS-servern för att få åtkomst till de slutpunkter som endast är tillgängliga från i det virtuella nätverket.
 
 ## <a name="routing"> </a> Routning
-+ Belastningsutjämnade privat virtuell IP-adress från undernätets intervall kommer reserveras och används för att få åtkomst till API Management-tjänstslutpunkter från det virtuella nätverket.
-+ Också kommer att reservera en belastningsutjämnad offentlig IP-adress (VIP) för att ge åtkomst till hanteringsslutpunkten service endast via port 3443.
-+ En IP-adress från ett undernät på en IP-adressintervall (DIP) används för att komma åt resurser i det virtuella nätverket och en offentlig IP-adress (VIP) som används för att få åtkomst till resurser utanför det virtuella nätverket.
-+ Belastningsutjämnade offentliga och privata IP-adresser finns på bladet översikt/Essentials i Azure-portalen.
+
+* En belastningsutjämnad *privata* virtuell IP-adress från undernätets intervall ska reserveras och används för åtkomst till API Management-tjänstslutpunkter från inom det virtuella nätverket. Detta *privata* IP-adress kan hittas på översiktsbladet för tjänsten i Azure-portalen. Den här adressen måste vara registrerad med DNS-servrar som används av det virtuella nätverket.
+* En belastningsutjämnad *offentliga* kommer också att reservera IP-adress (VIP) för att ge åtkomst till hanteringsslutpunkten service via port 3443. Detta *offentliga* IP-adress kan hittas på översiktsbladet för tjänsten i Azure-portalen. Den *offentliga* IP-adress används endast för plan trafiken till den `management` slutpunkt över port 3443 och kan vara låst till den [ApiManagement] [ ServiceTags] servicetag .
+* IP-adresser från undernätet IP-adressintervall (DIP) kommer att tilldelas till varje virtuell dator i tjänsten och används för att komma åt resurser i det virtuella nätverket. En offentlig IP-adress (VIP) används för att få åtkomst till resurser utanför det virtuella nätverket. Om IP-Begränsningslistor för att skydda resurser i det virtuella nätverket, anges hela intervallet för undernätet där den API Management-tjänsten har distribuerats måste för att bevilja eller begränsa åtkomst från tjänsten.
+* Belastningsutjämnade offentliga och privata IP-adresser finns på bladet översikt i Azure-portalen.
+* De IP-adresserna som tilldelats för offentliga och privata åtkomst kan ändras om tjänsten tas bort från och läggs sedan tillbaka till det virtuella nätverket. Om detta inträffar kan vara det nödvändigt att uppdatera DNS-registreringar, routningsregler och IP-Begränsningslistor i det virtuella nätverket.
 
 ## <a name="related-content"> </a>Relaterat innehåll
 Mer information finns i följande artiklar:

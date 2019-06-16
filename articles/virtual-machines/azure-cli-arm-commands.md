@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717808"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandon i Resource Manager-läge
 Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och din CLI-version kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +969,8 @@ Parameteralternativ för:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    lb-nätverksadresspool ta bort [alternativ] < resource-group >< lb-name > <name>
+
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Tar bort den IP-pool intervallet serverdelsresurs från belastningsutjämnaren.
 
@@ -1333,7 +1334,9 @@ Parameteralternativ för:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    listan över offentliga ip-nätverk [alternativ] < resursgrupp > visar en lista över alla offentliga IP-resurser inom en resursgrupp.
+
+    network public-ip list [options] <resource-group>
+Visar en lista över alla offentliga IP-resurser inom en resursgrupp.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,8 +1356,10 @@ Parameteralternativ för:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
-    nätverket offentliga ip-visa [alternativ] < resursgrupp > <name>
+
+    network public-ip show [options] <resource-group> <name>
 
 Visar egenskaper för offentliga IP-adressen för en offentlig ip-resurs i en resursgrupp.
 

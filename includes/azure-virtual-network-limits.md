@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 05/15/2019
+ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133330"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den **klassiska** distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -81,7 +81,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Regler per resurs, Basic | 250 |
 | Regler per resurs, Standard | 1,500 | 
 | Regler per IP-konfiguration | 299 |
-| Regler per nätverkskort | 500 |
+| Regler per nätverkskort | 300 |
 | Frontend IP-konfigurationer, Basic | 200 |
 | Frontend IP-konfigurationer, Standard | 600 |
 | Backend-poolen, Basic | 100, enskild tillgänglighetsuppsättning |

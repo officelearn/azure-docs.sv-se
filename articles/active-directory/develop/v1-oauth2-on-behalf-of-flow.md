@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110997"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -111,11 +111,11 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |Krävs | Typ av token begäran. En begäran om OBO använder en JSON Web Token (JWT) så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |Krävs | Värdet för den åtkomst-token som används i begäran. |
+| grant_type |Krävs | Typ av token begäran. En begäran om OBO använder en JSON Web Token (JWT) så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| assertion |Krävs | Värdet för den åtkomst-token som används i begäran. |
 | client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
 | client_secret |Krävs | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
-| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| resource |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | scope |Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
@@ -145,12 +145,12 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |Krävs | Typ av token begäran. En begäran om OBO använder en JWT-token för åtkomst så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |Krävs | Värdet för den token som används i begäran. |
+| grant_type |Krävs | Typ av token begäran. En begäran om OBO använder en JWT-token för åtkomst så värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| assertion |Krävs | Värdet för den token som används i begäran. |
 | client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
 | client_assertion_type |Krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Krävs | En JSON Web Token som du skapar och logga in med certifikatet du registrerade dig som autentiseringsuppgifter för ditt program. Se [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig om assertion format och om hur du registrerar ditt certifikat.|
-| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| resource |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | scope |Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. För OpenID Connect, omfånget **openid** måste anges.|
 
@@ -187,7 +187,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar:
 | scope |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
-| resurs |App-ID-URI för den mottagande tjänsten (säker resurs). |
+| resource |App-ID-URI för den mottagande tjänsten (säker resurs). |
 | access_token |Den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att autentisera till den mottagande tjänsten. |
 | id_token |Det begärda ID-token. Anropa tjänsten kan använda denna token för att verifiera användarens identitet och starta en session med användaren. |
 | refresh_token |Uppdateringstoken för den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella åtkomst-token upphör att gälla. |
@@ -255,11 +255,11 @@ En tjänst-till-tjänst-begäran för en SAML-försäkran innehåller följande 
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |Krävs | Typ av token begäran. Värdet måste vara begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |Krävs | Värdet för den åtkomst-token som används i begäran.|
+| grant_type |Krävs | Typ av token begäran. Värdet måste vara begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| assertion |Krävs | Värdet för den åtkomst-token som används i begäran.|
 | client_id |Krävs | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta app-ID i Azure portal, Välj **Active Directory**, välj katalogen och välj sedan namnet på programmet. |
 | client_secret |Krävs | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
-| resurs |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). Det här är den resurs som kommer att målgruppen för SAML-token. För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
+| resource |Krävs | App-ID-URI för den mottagande tjänsten (säker resurs). Det här är den resurs som kommer att målgruppen för SAML-token. För att hitta ID-URI: n i Azure portal, Välj **Active Directory** och välj katalogen. Välj namnet på programmet, Välj **alla inställningar**, och välj sedan **egenskaper**. |
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | requested_token_type | Krävs | Anger vilken typ av token begärs. Värdet kan vara **urn: ietf:params:oauth:token-typ: saml2** eller **urn: ietf:params:oauth:token-typ: saml1** beroende på kraven för den använda resursen. |
 
@@ -278,7 +278,7 @@ Svaret innehåller en SAML-token som kodats i UTF8 och Base64url.
 | scope |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
-| resurs |App-ID-URI för den mottagande tjänsten (säker resurs). |
+| resource |App-ID-URI för den mottagande tjänsten (säker resurs). |
 | access_token |Parametern som returnerar SAML-kontroll. |
 | refresh_token |Uppdateringstoken. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella SAML-försäkran upphör att gälla. |
 

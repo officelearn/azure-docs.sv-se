@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61347787"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Kopiera data från Dynamics AX genom att använda Azure Data Factory (förhandsversion)
@@ -54,7 +54,7 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
 
 Följande egenskaper stöds för Dynamics AX-länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **DynamicsAX**. |Ja |
 | url | Dynamics AX (eller Dynamics 365 Finance and Operations) instans OData-slutpunkten. |Ja |
@@ -98,7 +98,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Dynamics AX, ange den **typ** egenskapen på datauppsättningen till **DynamicsAXResource**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskap måste anges till **DynamicsAXResource**. | Ja |
 | path | Sökväg till Dynamics AX OData-entitet. | Ja |
@@ -131,7 +131,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Dynamics AX, ange den **källa** typ i Kopieringsaktiviteten till **DynamicsAXSource**. Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **DynamicsAXSource**. | Ja |
 | query | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs!** Anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |

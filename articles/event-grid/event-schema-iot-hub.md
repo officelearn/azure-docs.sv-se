@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076360"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
@@ -35,7 +35,7 @@ Azure IoT Hub genererar följande händelsetyper:
 | Microsoft.Devices.DeviceDisconnected | Publicerade när en enhet är bortkopplad från en IoT-hubb. | 
 | Microsoft.Devices.DeviceTelemetry | Publicerade när ett telemetri-meddelande skickas till en IoT-hubb. |
 
-Alla enhetshändelser förutom telemetri enhetshändelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Enheten telemetri händelse finns i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure Kina 21Vianet](/azure/china/china-welcome.md), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Alla enhetshändelser förutom telemetri enhetshändelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Enheten telemetri händelse finns i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure Kina 21Vianet](/azure/china/china-welcome), och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Exempel-händelse
 
@@ -152,7 +152,7 @@ Alla händelser som innehåller samma översta data:
 | -------- | ---- | ----------- |
 | id | string | Unik identifierare för händelsen. |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | data | objekt | IoT Hub händelsedata.  |

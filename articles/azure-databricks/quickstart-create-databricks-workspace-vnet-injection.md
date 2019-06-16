@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770730"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Snabbstart: Skapa en Azure Databricks-arbetsyta i ett virtuellt nätverk
@@ -34,7 +34,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
     |Namn|databricks-quickstart|Välj ett namn för det virtuella nätverket.|
-    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adressintervall i CIDR-format.|
+    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adressintervall i CIDR-notation.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj **Skapa ny** och ange ett nytt Resursgruppsnamn för ditt konto.|
     |Location|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan ha ditt virtuella nätverk. Använd den plats som är närmast dina användare.|
@@ -61,7 +61,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
     |Location|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan Standard eller Premium.|Mer information om prisnivåer finns i den [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Distribuera Azure Databricks-arbetsytan i ditt virtuella nätverk|Ja|Den här inställningen kan du distribuera en Azure Databricks-arbetsyta i det virtuella nätverket.|
-    |Virtual Network|databricks-quickstart|Välj det virtuella nätverket som du skapade i föregående avsnitt.|
+    |Virtuellt nätverk|databricks-quickstart|Välj det virtuella nätverket som du skapade i föregående avsnitt.|
     |Offentliga Undernätsnamn|public-subnet|Använd standardnamnet för den offentliga undernät.|
     |Offentliga CIDR-intervall för undernät|10.179.64.0/18|CIDR-intervall för det här undernätet måste vara mellan /18 och /26.|
     |Namn på privat undernät|private-subnet|Använd standardnamnet för privat undernät.|
@@ -84,7 +84,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Gå tillbaka till din Azure Databricks-tjänst och välj **Starta arbetsyta** på den **översikt** sidan.
 
-2. Välj **kluster** > **+ skapa klustret**. Skapa sedan ett namn, t.ex. *databricks-quickstart-kluster*, och acceptera resten av standardinställningarna. Välj **Skapa kluster**.
+2. Välj **kluster** >  **+ skapa klustret**. Skapa sedan ett namn, t.ex. *databricks-quickstart-kluster*, och acceptera resten av standardinställningarna. Välj **Skapa kluster**.
 
     ![Skapa Azure Databricks-kluster](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 

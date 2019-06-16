@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121331"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Security ram: Communication Security | Mitigations 
@@ -40,7 +40,7 @@ ms.locfileid: "62121331"
 
 ## <a id="comm-ssltls"></a>Säker kommunikation till Event Hub med hjälp av SSL/TLS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -51,7 +51,7 @@ ms.locfileid: "62121331"
 
 ## <a id="priv-aspnet"></a>Kontrollera behörighet för tjänsten och kontrollera att anpassade Services eller ASP.NET-sidor respekterar CRM-säkerhet
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -62,7 +62,7 @@ ms.locfileid: "62121331"
 
 ## <a id="sqlserver-factory"></a>Använd Data management gateway när du ansluter en lokal SQL Server till Azure Data Factory
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Data Factory | 
 | **SDL fas**               | Distribution |  
@@ -73,7 +73,7 @@ ms.locfileid: "62121331"
 
 ## <a id="identity-https"></a>Se till att all trafik till Identity Server är över HTTPS-anslutning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Distribution |  
@@ -84,7 +84,7 @@ ms.locfileid: "62121331"
 
 ## <a id="x509-ssltls"></a>Verifiera X.509-certifikat som används för att autentisera anslutningar för SSL, TLS och DTLS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -95,7 +95,7 @@ ms.locfileid: "62121331"
 
 ## <a id="ssl-appservice"></a>Konfigurera SSL-certifikat för anpassad domän i Azure App Service
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -106,7 +106,7 @@ ms.locfileid: "62121331"
 
 ## <a id="appservice-https"></a>Tvinga all trafik till Azure App Service via HTTPS-anslutning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -139,7 +139,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="http-hsts"></a>Aktivera HTTP strikt Transport Security (HSTS)
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -150,7 +150,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="sqlserver-validation"></a>Se till att SQL server-kryptering och certifikatet anslutningsverifiering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -161,7 +161,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="encrypted-sqlserver"></a>Framtvinga krypterad kommunikation till SQLServer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -172,7 +172,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="comm-storage"></a>Se till att kommunikation till Azure Storage är över HTTPS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Distribution |  
@@ -183,7 +183,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="md5-https"></a>Validera MD5-hash när du hämtat blob om det inte går att aktivera HTTPS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -194,7 +194,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="smb-shares"></a>Använd kompatibla SMB 3.0-klienten för att säkerställa under överföring datakryptering för Azure-filresurser
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
@@ -205,7 +205,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 
 ## <a id="cert-pinning"></a>Implementera fästa certifikat
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -282,7 +282,7 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>Aktivera HTTPS – säker transportkanal
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -293,7 +293,7 @@ namespace CertificatePinningExample
 
 ## <a id="message-protection"></a>WCF: Inställd EncryptAndSign meddelandesäkerhet skyddsnivån
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -322,7 +322,7 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: Använd ett konto med lägsta behörighet för att köra WCF-tjänst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -333,7 +333,7 @@ string GetData(int value);
 
 ## <a id="webapi-https"></a>Tvinga all trafik till webb-API: er via HTTPS-anslutning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -374,7 +374,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Se till att kommunikation till Azure Cache för Redis är via SSL
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Cache for Redis | 
 | **SDL fas**               | Utveckla |  
@@ -387,7 +387,7 @@ Observera att Redis har utformats för att användas av betrodda klienter i betr
 
 ## <a id="device-field"></a>Skydda enhet för fält-Gateway-kommunikation
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Utveckla |  
@@ -398,7 +398,7 @@ Observera att Redis har utformats för att användas av betrodda klienter i betr
 
 ## <a id="device-cloud"></a>Skydda enhet till Molngatewayen kommunikation via SSL/TLS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  

@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190101"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en premium Azure-filresurs
@@ -47,8 +47,8 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 1. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
 1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
 1. För **prestanda** Välj **Premium**.
-1. Välj **typ av konto** och välj **FileStorage (förhandsversion)**.
-1. Lämna **replikering** inställt på standardvärdet för **lokalt redundant lagring (LRS)**.
+1. Välj **typ av konto** och välj **FileStorage (förhandsversion)** .
+1. Lämna **replikering** inställt på standardvärdet för **lokalt redundant lagring (LRS)** .
 
     ![Så här skapar du ett lagringskonto för en premium-filresurs](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
@@ -59,7 +59,7 @@ När du har skapat din resursen för lagringskonton, navigera till den.
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-1. I den vänstra menyn för lagringskontot bläddrar du till den **Filtjänst** avsnittet och välj sedan **filer (förhandsversion)**.
+1. I den vänstra menyn för lagringskontot bläddrar du till den **Filtjänst** avsnittet och välj sedan **filer (förhandsversion)** .
 1. Välj **+ filresurs** att skapa en filresurs för premium.
 1. Ange ett namn och en önskad kvot för filresursen och välj sedan **skapa**.
 

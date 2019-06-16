@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 194ae477bb3cba4ac7e3350da6b793c6fea6ecdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063921"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för anpassat tal
 
@@ -27,7 +27,7 @@ Om du får igenkänning av problem med din modell, med hjälp av mänskliga etik
 
 | Användningsfall | Datatyp | Data kvantitet |
 |----------|-----------|---------------|
-| Egennamn är inte kan tolkas | Relatera text (meningar/yttranden) | 10 MB till 500 MB |
+| Egennamn är inte kan tolkas | Relaterade text (meningar/yttranden) | 10 MB till 500 MB |
 | Ord är inte kan tolkas på grund av en accent | Relaterade text (uttal) | Ange misrecognized ord |
 | Vanliga ord tas bort eller inte kan tolkas | Ljud + mänskliga etikett avskrifter | 10 och 1 000 avskrift timmar |
 

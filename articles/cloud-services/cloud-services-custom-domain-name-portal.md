@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063618"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure cloud Services
-När du skapar en tjänst i molnet, Azure tilldelar den till en underdomän till **cloudapp.net**. Exempel: om din molntjänst heter ”contoso”, användarna kommer att kunna komma åt ditt program på en URL liknande http://contoso.cloudapp.net. Azure tilldelar också en virtuell IP-adress.
+När du skapar en tjänst i molnet, Azure tilldelar den till en underdomän till **cloudapp.net**. Exempel: om din molntjänst heter ”contoso”, användarna kommer att kunna komma åt ditt program på en URL liknande `http://contoso.cloudapp.net`. Azure tilldelar också en virtuell IP-adress.
 
 Men du kan också visa ditt program på ditt eget domännamn, t.ex **contoso.com**. Den här artikeln beskriver hur du reservera eller konfigurera ett anpassat domännamn för Cloud Service-web-roller.
 
@@ -78,7 +78,7 @@ Om du vill skapa en CNAME-post, du måste lägga till en ny post i tabellen DNS 
      Spara domännamnet som används i URL-Adressen som returneras av någon av metoderna som du behöver den när du skapar en CNAME-post.
 2. Logga in till din DNS-registratorns webbplats och gå till sidan för hantering av DNS. Söker efter länkar eller områden på webbplatsen som är märkta som **domännamn**, **DNS**, eller **Namnserverhantering**.
 3. Nu hitta där du kan välja eller ange CNAME'S. Du kan behöva välja typ av post från en listmeny ned, eller gå till en sida med avancerade inställningar. Du ska leta efter orden **CNAME**, **Alias**, eller **underdomäner**.
-4. Du måste också tillhandahålla domän eller underdomän alias för CNAME-post, till exempel **www** om du vill skapa ett alias för **www\.customdomain.com**. Om du vill skapa ett alias för rotdomänen, det kan vara markerat som den ”**\@**' symbolen i din registratorns DNS-verktyg.
+4. Du måste också tillhandahålla domän eller underdomän alias för CNAME-post, till exempel **www** om du vill skapa ett alias för **www\.customdomain.com**. Om du vill skapa ett alias för rotdomänen, det kan vara markerat som den ” **\@** ' symbolen i din registratorns DNS-verktyg.
 5. Måste du ange ett canonical värdnamn, vilket är ditt programs **cloudapp.net** domänen i detta fall.
 
 Till exempel följande CNAME-posten vidarebefordrar all trafik från **www\.contoso.com** till **contoso.cloudapp.net**, det anpassa domännamnet för dina distribuerade program:
@@ -113,7 +113,7 @@ Om du vill skapa en A-post, måste du först hitta den virtuella IP-adressen fö
 3. Nu hitta där du kan välja eller ange en post. Du kan behöva välja typ av post från en listmeny ned, eller gå till en sida med avancerade inställningar.
 4. Välj eller ange domän eller underdomän som ska använda den här A-post. Välj exempelvis **www** om du vill skapa ett alias för **www\.customdomain.com**. Om du vill skapa en post för jokertecken för alla underordnade domäner, anger du ”***”. Det här täcker alla underdomäner som **mail.customdomain.com**, **login.customdomain.com**, och **www\.customdomain.com**.
 
-    Om du vill skapa en A-post för rotdomänen, det kan vara markerat som den ”**\@**' symbolen i din registratorns DNS-verktyg.
+    Om du vill skapa en A-post för rotdomänen, det kan vara markerat som den ” **\@** ' symbolen i din registratorns DNS-verktyg.
 5. Ange IP-adressen för din molntjänst i det angivna fältet. Det här associerar posten domän används i A-post med IP-adressen för din molntjänstdistribution.
 
 Till exempel en post vidarebefordrar all trafik från följande **contoso.com** till **137.135.70.239**, IP-adressen för dina distribuerade program:

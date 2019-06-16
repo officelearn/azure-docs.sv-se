@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 28cfbc7183628b00c463f1c3a8a954ba4074409b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65415967"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global räckvidd
@@ -43,7 +43,7 @@ ExpressRoute Global räckvidd stöds för närvarande på följande platser.
 * Nederländerna
 * Singapore
 * Schweiz
-* Storbritannien och Nordirland
+* Storbritannien
 * USA
 
 ExpressRoute-kretsarna måste skapas på den [ExpressRoute-peeringplatser](expressroute-locations.md) i ovanstående land eller region. Så här aktiverar du ExpressRoute Global räckvidd mellan [olika geopolitiska regioner](expressroute-locations.md), din kretsar måste vara Premium-SKU.

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3ae6966ed3fa8ee57e0ac85fe34866dcbde0fb9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077256"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Aktuell version](copy-activity-performance.md)
 
@@ -306,7 +306,7 @@ Var noga med att det underliggande datalagringen inte bli överhopade av andra a
 
 Microsoft-datalager, finns i [övervakning och justering ämnen](#performance-reference) som är specifika för datalager. Dessa avsnitt kan hjälpa dig att förstå data store prestandaegenskaper och hur du minimera svarstider och maximera genomströmningen.
 
-* Om du kopierar data **från Blob storage till SQL Data Warehouse**, Överväg att använda **PolyBase** att öka prestanda. Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) mer information.
+* Om du kopierar data **oavsett datatyp lagra på en Azure SQL Data Warehouse**, Överväg att använda **PolyBase** att öka prestanda. Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) mer information.
 * Om du kopierar data **från HDFS till Azure Blob-/ Azure Data Lake Store**, Överväg att använda **DistCp** att öka prestanda. Se [Använd DistCp för att kopiera data från HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) mer information.
 * Om du kopierar data **från Redshift till Azure SQL Data Warehouse/Azure BLob-/ Azure Data Lake Store**, Överväg att använda **INAKTIVERAS** att öka prestanda. Se [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) mer information.
 
@@ -317,10 +317,8 @@ Microsoft-datalager, finns i [övervakning och justering ämnen](#performance-re
 
 ### <a name="relational-data-stores"></a>Relationsdata
 
-* **Kopiera beteende**: Beroende på vilka egenskaper som du har angett för **sqlSink**, Kopieringsaktivitet skriver data till måldatabasen på olika sätt.
-  * Som standard läggs data movement service använder API: et Bulk Copy att infoga data i läge, som ger bästa prestanda.
-  * Om du konfigurerar en lagrad procedur i sink gäller databasen en datarad samtidigt i stället för som en massinläsning. Prestanda försämras betydligt. Om datauppsättningen är stor, när så är tillämpligt, Överväg att byta till den **preCopyScript** egenskapen.
-  * Om du konfigurerar den **preCopyScript** egenskapen för varje Kopieringsaktiviteten kör tjänsten utlöser skriptet och sedan använder du Bulk Copy API och infoga data. Om du vill skriva över hela tabellen med den senaste informationen, kan du till exempel ange ett skript för att först ta bort alla poster innan massinläsning nya data från källan.
+* **Kopiera beteende och prestanda de**: Det finns olika sätt att skriva data till SQL-mottagare, mer [bästa praxis för inläsning av data till Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+
 * **Datastorlek för mönstret och batch**:
   * Din tabellschemat påverkar kopia dataflöde. Om du vill kopiera samma mängden data som får en stor Radstorleken du bättre prestanda än en liten Radstorleken eftersom databasen mer effektivt kan genomföra färre batchar av data.
   * Kopieringsaktivitet infogar data i en serie med batchar. Du kan ange antalet rader i en batch med hjälp av den **writeBatchSize** egenskapen. Om dina data har liten rader, kan du ange den **writeBatchSize** egenskap med ett högre värde kan dra nytta av lägre omkostnader för batch och högre dataflöde. Om Radstorleken på dina data är stor, var försiktig när du ökar **writeBatchSize**. Ett högt värde kan leda till en kopieringen misslyckades på grund av överbelastning i databasen.

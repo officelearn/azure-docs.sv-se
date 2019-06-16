@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: e3f5cb726dddbdbfbd1b1f48c800ac681e7a174c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: e747f39ca84bb859b37550efef51e01cffd96876
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056751"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -21,11 +21,11 @@ Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Två separata HDInsight-kluster, en HBase och en Spark med minst Spark 2.1 (HDInsight 3.6) installerat.
-* Spark-klustret behöver för att kommunicera direkt med HBase-kluster med minimal svarstid, så den rekommenderade konfigurationen är att distribuera båda klustren i samma virtuella nätverk. Mer information finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
-* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-* Den [URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt kluster primär lagring. Detta skulle vara wasb: / / för Azure Blob Storage, abfs: / / för Azure Data Lake Storage Gen2 eller adl: / / för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Blob Storage eller Data Lake Storage Gen2, URI: N blir wasbs: / / eller abfss: / /, respektive Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* Två separata HDInsight-kluster som distribueras i samma virtuella nätverk. En HBase och en Spark med minst Spark 2.1 (HDInsight 3.6) installerat. Mer information finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* Den [URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt kluster primär lagring. Detta skulle vara wasb: / / för Azure Blob Storage, abfs: / / för Azure Data Lake Storage Gen2 eller adl: / / för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Blob Storage eller Data Lake Storage Gen2, URI: N blir wasbs: / / eller abfss: / /, respektive Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Övergripande processen
 
@@ -40,38 +40,47 @@ Den övergripande processen för att aktivera ditt Spark-kluster att fråga ditt
 
 ## <a name="prepare-sample-data-in-apache-hbase"></a>Förbereda exempeldata i Apache HBase
 
-I det här steget ska du skapa och fylla i en enkel tabell i Apache HBase, som sedan kan du ställa frågor med Spark.
+I det här steget ska du skapa och fylla i en tabell i Apache HBase som sedan kan du ställa frågor med Spark.
 
-1. Ansluta till klustrets huvudnod HBase-kluster med SSH. Mer information finns i [Anslut till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  Redigera kommandot nedan genom att ersätta `HBASECLUSTER` med namnet på din HBase-kluster `sshuser` med det ssh användarens kontonamn och ange sedan kommandot.
+1. Använd den `ssh` kommando för att ansluta till HBase-kluster. Redigera kommandot nedan genom att ersätta `HBASECLUSTER` med namnet på din HBase-kluster och ange sedan kommandot:
 
-    ```
+    ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Ange kommandot nedan för att starta HBase-gränssnittet:
+2. Använd den `hbase shell` kommando för att starta interaktiv HBase-gränssnittet. Ange följande kommando i din SSH-anslutning:
 
-        hbase shell
+    ```bash
+    hbase shell
+    ```
 
-3. Ange kommandot nedan för att skapa en `Contacts` tabellen med kolumnserier `Personal` och `Office`:
+3. Använd den `create` kommando för att skapa en HBase-tabell med två kolumnserier. Ange följande kommando:
 
-        create 'Contacts', 'Personal', 'Office'
+    ```hbase
+    create 'Contacts', 'Personal', 'Office'
+    ```
 
-4. Ange kommandona nedan för att läsa in några exempel rader med data:
+4. Använd den `put` kommando för att infoga värden i en angiven kolumn i en angiven rad i en viss tabell. Ange följande kommando:
 
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
-        put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```hbase
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
+    put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```
 
-5. Ange kommandot nedan för att avsluta HBase-gränssnittet:
+5. Använd den `exit` kommando för att stoppa interaktiva HBase-gränssnittet. Ange följande kommando:
 
-        exit 
+    ```hbase
+    exit
+    ```
 
 ## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Kopiera hbase-site.xml till Spark-kluster
+
 Kopiera hbase-site.xml från lokal lagring till roten för ditt Spark-kluster standardlagring.  Redigera kommandot nedan för att återspegla din konfiguration.  Ange sedan kommandot från din öppna SSH-session till HBase-kluster:
 
 | Syntaxvärde | Nytt värde|
@@ -80,9 +89,11 @@ Kopiera hbase-site.xml från lokal lagring till roten för ditt Spark-kluster st
 |`SPARK_STORAGE_CONTAINER`|Ersätt med standardnamnet på lagringsbehållaren används för Spark-klustret.|
 |`SPARK_STORAGE_ACCOUNT`|Ersätt med standard lagringskontonamn används för Spark-klustret.|
 
-```
+```bash
 hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
 ```
+
+Avsluta din ssh-anslutning till HBase-kluster.
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Placera hbase-site.xml på Spark-kluster
 
@@ -90,13 +101,15 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 2. Ange kommandot nedan för att kopiera `hbase-site.xml` från standardlagring för ditt Spark-kluster till Spark 2 Konfigurationsmappen på klustrets lokal lagring:
 
-        sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```bash
+    sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Köra Spark-Shell som refererar till Spark HBase-Anslutningsappen
 
 1. Ange kommandot nedan för att starta en spark-shell från din öppna SSH-session till Spark-kluster:
 
-    ```
+    ```bash
     spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
     ```  
 
@@ -185,12 +198,14 @@ I det här steget definierar du ett katalogobjekt som mappar schemat från Apach
 
 9. Du bör se resultat som dessa:
 
-        +-------------+--------------------+
-        | personalName|       officeAddress|
-        +-------------+--------------------+
-        |    John Dole|1111 San Gabriel Dr.|
-        |  Calvin Raji|5415 San Gabriel Dr.|
-        +-------------+--------------------+
+    ```output
+    +-------------+--------------------+
+    | personalName|       officeAddress|
+    +-------------+--------------------+
+    |    John Dole|1111 San Gabriel Dr.|
+    |  Calvin Raji|5415 San Gabriel Dr.|
+    +-------------+--------------------+
+    ```
 
 ## <a name="insert-new-data"></a>Infoga nya data
 
@@ -229,13 +244,21 @@ I det här steget definierar du ett katalogobjekt som mappar schemat från Apach
 
 5. Du bör se utdata som ser ut så här:
 
-        +------+--------------------+--------------+------------+--------------+
-        |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
-        +------+--------------------+--------------+------------+--------------+
-        |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
-        | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
-        |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
-        +------+--------------------+--------------+------------+--------------+
+    ```output
+    +------+--------------------+--------------+------------+--------------+
+    |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
+    +------+--------------------+--------------+------------+--------------+
+    |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
+    | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
+    |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
+    +------+--------------------+--------------+------------+--------------+
+    ```
+
+6. Stäng spark-shell genom att ange följande kommando:
+
+    ```scala
+    :q
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

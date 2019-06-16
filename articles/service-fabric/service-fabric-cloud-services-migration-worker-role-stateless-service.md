@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110020"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb- och Worker-roller till tillståndslös Service Fabric-tjänster
@@ -211,7 +211,7 @@ Startåtgärder är åtgärder som vidtas innan ett program startar. Normalt anv
 | Service Fabric | Cloud Services |
 | --- | --- |
 | Plats för konfiguration |ServiceDefinition.csdef |
-| Behörigheter |”begränsad” eller ”utökad” |
+| Privilegier |”begränsad” eller ”utökad” |
 | Ordningsföljd |"simple", "background", "foreground" |
 
 ### <a name="cloud-services"></a>Cloud Services

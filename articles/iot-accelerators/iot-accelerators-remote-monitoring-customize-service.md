@@ -3,17 +3,16 @@ title: Lägga till en tjänst av lösningen för fjärrövervakning gränssnitt 
 description: Den här artikeln visar hur du lägger till en ny tjänst i Remote Monitoring solution accelerator webbgränssnittet.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/02/2018
-ms.date: 11/26/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447054"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad tjänst fjärrövervakning solution accelerator webbgränssnittet
@@ -48,13 +47,13 @@ Att komma igång, den **src/genomgången/tjänster** mappen innehåller de filer
 
 **exampleService.js**
 
-
+[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
 Läs mer om hur tjänster är implementerade i [introduktion till reaktiv programmering du har saknat](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
 **model/exampleModels.js**
 
-
+[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
 Kopiera **exampleService.js** till den **src/tjänster** mapp och kopierar **exampleModels.js** till den **src-services-modeller** mapp.
 
@@ -76,7 +75,7 @@ Att komma igång, den **src/genomgången/store/reducerare** mappen innehåller e
 
 **exampleReducer.js**
 
-
+[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
 Kopiera **exampleReducer.js** till den **src/store/reducerare** mapp.
 

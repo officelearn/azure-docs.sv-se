@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831103"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikatet är inte vitlistad för en Programgateway med en intern belastningsutjämnare med en App Service Environment
@@ -36,9 +36,9 @@ När du skapar en Programgateway med en ILB med en ASE på serverdelen kan backe
 - **Värdnamn:** test.appgwtestase.com
 - **SSL-certifikat:** CN=test.appgwtestase.com
 - **Serverdelspool:** IP-adress eller FQDN
-- **IP-adress:**: 10.1.5.11
+- **IP-adress:** : 10.1.5.11
 - **HTTP-inställningar:** HTTPS
-- **Port:**: 443
+- **Port:** : 443
 - **Anpassad avsökning:** Hostname – test.appgwtestase.com
 - **Certifikat för serverautentisering:** .cer av test.appgwtestase.com
 - **Serverdelens hälsotillstånd:** Ohälsosamma – Backend-servercertifikatet är inte godkänd med Application Gateway.

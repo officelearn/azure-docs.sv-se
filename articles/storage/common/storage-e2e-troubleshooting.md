@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154228"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
@@ -220,7 +220,7 @@ Förutom att använda Azure Storage-vylayouter kan du också definiera och spara
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Avser Analysis rutnätet färgregler
 Storage-material inkluderar också färgregler som ger ett visuellt objekt innebär att identifiera olika typer av fel i rutnätet för analys. Fördefinierade färgregler gäller för HTTP-fel, så att de visas endast för serverspårning logg- och nätverk.
 
-Markera för att tillämpa färgregler **färgregler** menyflikarna verktygsfältet. Azure Storage-färgregler på menyn visas. För den här självstudien väljer **klientfel (StatusCode mellan 400 och 499)**, enligt bilden nedan.
+Markera för att tillämpa färgregler **färgregler** menyflikarna verktygsfältet. Azure Storage-färgregler på menyn visas. För den här självstudien väljer **klientfel (StatusCode mellan 400 och 499)** , enligt bilden nedan.
 
 ![Azure Storage visa Layout](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ I bilden nedan visas en specifik begäran där en hämta Blob-åtgärden gav ett
 
 Vi kommer sedan att göra detta klient-ID för begäran med loggdata för klienten att se vilka åtgärder som klienten tog när felet inträffade. Du kan visa en ny Analysis rutnätsvy för den här sessionen att visa loggen klientdata, som öppnas i en andra fliken:
 
-1. Först kopiera värdet för den **ClientRequestId** fältet till Urklipp. Du kan göra detta genom att välja antingen rad, lokalisera den **ClientRequestId** fält, högerklicka på datavärdet och välja **kopia 'ClientRequestId'**.
+1. Först kopiera värdet för den **ClientRequestId** fältet till Urklipp. Du kan göra detta genom att välja antingen rad, lokalisera den **ClientRequestId** fält, högerklicka på datavärdet och välja **kopia 'ClientRequestId'** .
 2. I verktygsfältet i menyfliksområdet väljer **nya Viewer**och välj sedan **Analysis Grid** att öppna en ny flik. Den nya fliken visar alla data i loggfilerna, utan att gruppera, filtrera eller färgregler.
 3. I verktygsfältet i menyfliksområdet väljer **visa Layout**och välj sedan **alla kolumner i .NET-klient** under den **Azure Storage** avsnittet. Layout för den här vyn visar data från klienten log samt de server- och spårningsloggarna. Som standard den sorteras på den **MessageNumber** kolumn.
 4. Nu söka klientloggen för klienten begärande-ID. I verktygsfältet i menyfliksområdet väljer **hitta meddelanden**, ange ett filter på klient-ID för begäran i den **hitta** fält. Använd den här syntaxen för filtret, ange din egen klientbegärans-ID:
@@ -300,11 +300,11 @@ Nu när du är van vid att använda Message Analyzer för att analysera loggdata
 
 | Att undersöka... | Använd filteruttrycket... | Uttrycket som gäller för Log (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade fördröjningar i en köad meddelandeleverans |AzureStorageClientDotNetV4.Description innehåller ”försöker igen misslyckades åtgärden”. |Client |
+| Oväntade fördröjningar i en köad meddelandeleverans |AzureStorageClientDotNetV4.Description innehåller ”försöker igen misslyckades åtgärden”. |Klient |
 | HTTP-ökning i PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Nätverk |
 | Öka i PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Nätverk |
 | Öka i PercentTimeoutError (alla) |*StatusCode   == 500 |Alla |
-| Öka i PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
+| Öka i PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Klient |
 | HTTP 403 (förbjudet) meddelanden |HTTP.Response.StatusCode   == 403 |Nätverk |
 | HTTP 404 (hittades inte) meddelanden |HTTP.Response.StatusCode   == 404 |Nätverk |
 | 404 (alla) |*StatusCode   == 404 |Alla |

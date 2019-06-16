@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110528"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (ASP.NET Core)
@@ -51,7 +51,7 @@ Det här avsnittet beskriver hur du konfigurerar utvecklingsmiljön. Detta omfat
 
     ![Skärmbild av Visual Studio dialogrutan Nytt projekt](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. I den **ny ASP.NET Core-Webbapp** dialogrutan **.NET Core** > **ASP.NET Core 2.0** > **()-webbprogram Model-View-Controller)**. Välj sedan **OK**.
+1. I den **ny ASP.NET Core-Webbapp** dialogrutan **.NET Core** > **ASP.NET Core 2.0** >  **()-webbprogram Model-View-Controller)** . Välj sedan **OK**.
 
     ![Skärmbild av nytt ASP.NET Core-Webbapp i dialogrutan som visas](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 

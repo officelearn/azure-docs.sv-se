@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927289"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
@@ -77,7 +77,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 2. På den **ändringsspårning** väljer **Linux-filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Linux-fil för ändringsspårning**, anger du informationen för filen eller katalogen som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -100,7 +100,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 2. På den **ändringsspårning** väljer **Windows filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Windows-fil för ändringsspårning**, anger du informationen för den fil som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -132,7 +132,7 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 2. På den **ändringsspårning** väljer **Windows-registret**, klicka sedan på **+ Lägg till** att lägga till en ny registernyckel för att spåra.
 3. På den **lägga till Windows-registret för ändringsspårning**, anger du information för nyckeln som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn för registernyckeln som ska spåras.        |
@@ -169,17 +169,17 @@ I följande tabell visas insamlingsfrekvens data för typerna av ändringar. Fö
 | Windows-registret | 50 minuter |
 | Windows-fil | 30 minuter |
 | Linux-fil | 15 minuter |
-| Windows-tjänster | 10 sekunder till 30 minuter</br> Standard: 30 minuter |
+| Windows-tjänster | 10 sekunder till 30 minuter</br> standard: 30 minuter |
 | Linux-Daemon | 5 minuter |
 | Windows-programvara | 30 minuter |
 | Linux-programvara | 5 minuter |
 
 I följande tabell visar de spårade objekt gränserna per dator för ändringsspårning.
 
-| **Resurs** | **Gräns**| **Anteckningar** |
+| **Resurs** | **Gränsen**| **Anteckningar** |
 |---|---|---|
 |Fil|500||
-|Register|250||
+|Registret|250||
 |Windows-programvara|250|Omfattar inte programuppdateringar|
 |Linux-paket|1250||
 |Tjänster|250||

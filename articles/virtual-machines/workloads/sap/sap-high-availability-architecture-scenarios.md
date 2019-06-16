@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936286"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur för hög tillgänglighet och scenarier för SAP NetWeaver
@@ -369,7 +369,7 @@ Antalet uppdaterings- och feldomäner domäner som kan användas av en Azure til
 Om du distribuerar några SAP programserverinstanser i sina dedikerade virtuella datorer växer under förutsättning att vi har fem uppdateringsdomäner nedan. Det faktiska högsta antalet uppdaterings- och feldomäner domäner i en tillgänglighetsuppsättning kan ändras i framtiden:
 
 ![Bild 2: Hög tillgänglighet för SAP-programservrarna i en Azure-tillgänglighetsuppsättning][planning-guide-figure-3000]
-_**bild 2:** Ange hög tillgänglighet för SAP-programservrarna i en Azure-tillgänglighetsuppsättning_
+ _**bild 2:** Ange hög tillgänglighet för SAP-programservrarna i en Azure-tillgänglighetsuppsättning_
 
 Mer information finns i [hantera tillgängligheten för Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 

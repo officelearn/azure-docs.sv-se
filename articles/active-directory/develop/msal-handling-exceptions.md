@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 30ab8a3fec459bef1a85c44e9a7cdb91b541fa2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111382"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Hantering av undantag och fel med MSAL
 Undantag i Microsoft Authentication Library (MSAL) är avsedda för apputvecklare att felsöka och inte för att visa för slutanvändare. Undantag meddelanden är inte lokaliserade.
@@ -29,21 +29,21 @@ Undantag i Microsoft Authentication Library (MSAL) är avsedda för apputvecklar
 Vid bearbetning av undantag och fel, kan du använda Undantagstypen själva och felkoden för att skilja mellan undantag.  En lista över felkoder finns i [felkoder för autentisering och auktorisering](reference-aadsts-error-codes.md).
 
 ## <a name="net-exceptions"></a>.NET-undantag
-Vid bearbetning av undantag, du kan använda Undantagstypen själva och `ErrorCode` -medlem för att skilja mellan undantag. Värdena för `ErrorCode` är konstanter av typen [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
+Vid bearbetning av undantag, du kan använda Undantagstypen själva och `ErrorCode` -medlem för att skilja mellan undantag. Värdena för `ErrorCode` är konstanter av typen [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
-Du kan också ha en titt på fälten för [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet#fields), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet#fields).
+Du kan också ha en titt på fälten för [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
 Om [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) genereras, felet kod kan innehålla en kod som du hittar i [felkoder för autentisering och auktorisering](reference-aadsts-error-codes.md).
 
 ### <a name="common-exceptions"></a>Vanliga undantag
 Här följer vanliga undantag som kan uppkomma och vissa möjliga åtgärder.
 
-| Undantag | Felkod | Minskning|
+| Undantag | Felkod | Åtgärd|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: Användaren eller administratören har inte godkänt att använda programmet med ID {appId} med namnet {appName}. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen.| Du måste hämta användargodkännande första. Om du inte använder .NET Core (som inte har någon Webbgränssnittet) kan anropa (endast en gång) `AcquireTokeninteractive`. Om du använder .NET core eller inte vill göra en `AcquireTokenInteractive`, användaren kan navigera till en URL för att ge ditt medgivande: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Att anropa `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: Användaren måste använda multifaktorautentisering.| Det finns ingen minskning - om MFA har konfigurerats för din klient och AAD bestämmer sig för att använda den, måste du återgå till ett flöde för interaktiva som `AcquireTokenInteractive` eller `AcquireTokenByDeviceCode`.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: Beviljandetypen stöds inte över den */vanliga* eller */consumers* slutpunkter. Använd den */organizations* eller klientspecifik slutpunkt. Du använde */vanliga*.| Enligt beskrivningen i meddelandet från Azure AD, utfärdaren måste ha en klient eller på annat sätt */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) | AADSTS70002: Begärandetexten måste innehålla följande parameter: ' client_secret eller client_assertion'.| Detta kan inträffa om programmet inte har registrerat som en offentlig klient i Azure AD. I Azure-portalen, redigera manifest för ditt program och ange den `allowPublicClient` till `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: Beviljandetypen stöds inte över den */vanliga* eller */consumers* slutpunkter. Använd den */organizations* eller klientspecifik slutpunkt. Du använde */vanliga*.| Enligt beskrivningen i meddelandet från Azure AD, utfärdaren måste ha en klient eller på annat sätt */organizations*.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: Begärandetexten måste innehålla följande parameter: ' client_secret eller client_assertion'.| Detta kan inträffa om programmet inte har registrerat som en offentlig klient i Azure AD. I Azure-portalen, redigera manifest för ditt program och ange den `allowPublicClient` till `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user meddelande: Det gick inte att identifiera inloggade användaren| Biblioteket kunde inte fråga efter den aktuella Windows inloggade användaren eller den här användaren är inte AD eller AAD anslutna (arbetsplatsen anslutna användare stöds inte). Lösning 1: på UWP, kontrollera att programmet har följande funktioner: Enterprise-autentisering, privat nätverk (klient och Server), Information om användarkonton. Lösning 2: Implementera din egen logik för att hämta användarnamnet (till exempel john@contoso.com) och använda den `AcquireTokenByIntegratedWindowsAuth` formuläret som använder den användarnamnet.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Den här metoden är beroende av ett protokoll som exponeras av Active Directory (AD). Om en användare har skapats i Azure Active Directory utan AD säkerhetskopiering (”hanterad” användare), inte den här metoden. Användare som har skapats i AD och backas upp av AAD (”externa” användare) kan dra nytta av den här icke-interaktiva metoden för autentisering. Lösning: Använda interaktiv autentisering.|
 
@@ -142,7 +142,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ## <a name="conditional-access-and-claims-challenges"></a>Villkorlig åtkomst och anspråk utmaningar
 När du hämtar token tyst ditt program kan få felmeddelanden när en [villkorlig åtkomst anspråk utmaning](conditional-access-dev-guide.md) som principen för MFA krävs av ett API du försöker komma åt.
 
-Mönster för att hantera det här felet är att interaktivt hämta en token med MSAL. Interaktivt skaffa en token som uppmanar användaren och ger dem möjlighet att uppfylla principen för villkorlig åtkomst som krävs.
+Mönster för att hantera det här felet är att interaktivt hämta en token med MSAL. Interaktivt skaffa en token som uppmanar användaren och ger dem möjlighet att uppfylla nödvändiga principen för villkorlig åtkomst.
 
 I vissa fall när du anropar en API som kräver villkorlig åtkomst kan få du en utmaning anspråk felet från API: et. För instansen om principen för villkorlig åtkomst är att ha en hanterad enhet (Intune) felet är något som liknar [AADSTS53000: Din enhet krävs för att kunna hanteras för att komma åt den här resursen](reference-aadsts-error-codes.md) eller liknande. I det här fallet kan du skicka anspråken i token anropet hämta så att användaren uppmanas att uppfylla lämplig princip.
 
@@ -170,7 +170,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 });
 ```
 
-Interaktivt skaffa token som uppmanar användaren och ger dem möjlighet att uppfylla principen för villkorlig åtkomst som krävs.
+Interaktivt skaffa token som uppmanar användaren och ger dem möjlighet att uppfylla nödvändiga principen för villkorlig åtkomst.
 
 När du anropar en API som kräver villkorlig åtkomst, får du en utmaning för anspråk i fel från API: et. I det här fallet kan du skicka anspråk som returneras av misstag som `extraQueryParameters` i anropet för att hämta token så att användaren uppmanas att uppfylla lämplig princip:
 

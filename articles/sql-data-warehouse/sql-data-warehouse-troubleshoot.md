@@ -11,16 +11,16 @@ ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154252"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga frågor för felsökning.
 
-## <a name="connecting"></a>Ansluter
+## <a name="connecting"></a>Ansluta
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Inloggningen misslyckades för användaren ”NT AUTHORITY\\ANONYMOUS LOGON”. (Microsoft SQL Server, fel: 18456) | Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i huvuddatabasen.  Om du vill åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningstid eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] nedan för mer information. |

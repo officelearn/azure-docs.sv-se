@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128108"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
@@ -372,9 +372,9 @@ De flesta inställningarna i filen azureMobile.js har en motsvarande appinställ
 
 | App-inställning | azureMobile.js setting | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |namn |Namnet på appen |string |
+| **MS_MobileAppName** |name |Namnet på appen |string |
 | **MS_MobileLoggingLevel** |logging.level |Minimiloggnivå meddelanden att logga in |fel, varning, information, utförlig, felsökning, stökigt – |
-| **MS_DebugMode** |felsök |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
+| **MS_DebugMode** |Felsöka |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
 | **MS_TableSchema** |data.schema |Standardnamnet för schemat för SQL-tabeller |String (standard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
 | **MS_DisableVersionHeader** |version (inställd till odefinierat) |Inaktiverar rubriken X-ZUMO-Server-Version |SANT, FALSKT |
@@ -404,7 +404,7 @@ Med Azure SQL Database som ett datalager är identiska för alla Azure App Servi
 1. I den **resursgrupp** ange samma namn som din app.
 1. Standard App Service-plan har valts. Om du vill ändra App Service-planen:
 
-   a. Välj **Apptjänstplan** > **+ Skapa ny**.
+   a. Välj **Apptjänstplan** >  **+ Skapa ny**.
 
    b. Ange ett namn på den nya App Service-planen och välj en lämplig plats.
 
@@ -422,7 +422,7 @@ Du kan välja att antingen ansluta en befintlig SQL-databas till serverdelen fö
 > [!NOTE]
 > Om du redan har en databas på samma plats som Mobile Apps-serverdel, kan du istället välja **Använd en befintlig databas** och välj sedan den databasen. Vi rekommenderar inte användning av en databas på en annan plats på grund av ökad latens.
 
-1. I den nya Mobile Apps-serverdelen, Välj **inställningar** > **Mobilapp** > **Data** > **+ Lägg till**.
+1. I den nya Mobile Apps-serverdelen, Välj **inställningar** > **Mobilapp** > **Data** >  **+ Lägg till**.
 1. I den **Lägg till dataanslutning** väljer **SQL Database - Konfigurera obligatoriska inställningar** > **skapa en ny databas**. Ange namnet på den nya databasen i den **namn** box.
 1. Välj **Server**. I den **ny server** rutan Ange ett unikt namn i den **servernamn** rutan och ange en lämplig användarnamn och lösenord. Se till att **ge azure-tjänster åtkomst till servern** har valts. Välj **OK**.
 
@@ -909,7 +909,7 @@ Node.js-program har åtkomst till en mängd olika diagnostiklogg verktyg. Node.j
 Du kan använda enkla tabeller för att skapa och arbeta med tabeller direkt i portalen. Du kan ladda upp datauppsättningen enkla tabeller i CSV-format. Observera att du inte kan använda egenskapsnamn (i din CSV-datauppsättning) som står i konflikt med egenskapsnamn som Mobile Apps-serverdel. System-egenskapsnamnen är:
 * createdAt
 * updatedAt
-* borttaget
+* har tagits bort
 * version
 
 Du kan även redigera tabellåtgärder med hjälp av App Service Editor. När du väljer **enkla tabeller** i platsinställningarna för backend-du lägga till, ändra eller ta bort en tabell. Du kan också se data i tabellen.

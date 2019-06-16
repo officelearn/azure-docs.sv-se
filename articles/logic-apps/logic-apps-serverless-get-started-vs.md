@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467416"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Skapa ditt första serverlösa program med Azure Logic Apps och Azure Functions – Visual Studio
@@ -88,7 +88,7 @@ Kom igång genom att skapa en [Azure-resursgruppsprojekt](../azure-resource-mana
    > [!TIP]
    > I scenarier där du inte vill fördistribuera din lösning till en Azure-resursgrupp, kan du använda du tom **Logikapp** mall som bara skapar en tom logikapp.
 
-1. Från den **Visa mallar från den här platsen** väljer **Azure Quickstart (github.com/Azure/azure-quickstart-templates)**.
+1. Från den **Visa mallar från den här platsen** väljer **Azure Quickstart (github.com/Azure/azure-quickstart-templates)** .
 
 1. I sökrutan anger du ”logikapp” som filter. Välj den här mallen från resultatet: **101-logic-app-and-function-app**
 

@@ -5,31 +5,25 @@ services: batch
 author: laurenhughes
 ms.service: batch
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 9ffb02fce41e8805dfccf1dfd6e982cf107039ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66127551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080910"
 ---
 | **Resurs** | **Standardgräns** | **Övre gräns** |
 | --- | --- | --- |
 | Azure Batch-konton per region per prenumeration | 1-3 |50 |
-| Reserverade kärnor per Batch-konto | 10-100 | N/A<sup>1</sup> |
-| Lågprioritetskärnor per Batch-konto | 10-100 | EJ TILLÄMPLIGT<sup>2</sup> |
-| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-konto | 100-300 | 1,000<sup>4</sup> |
-| Pooler per Batch-konto | 20-100 | 500<sup>4</sup> |
+| Reserverade kärnor per Batch-konto | 90-900 | Kontakta supporten |
+| Lågprioritetskärnor per Batch-konto | 10-100 | Kontakta supporten |
+| **[Aktiva](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)**  jobb och jobbscheman per Batch-konto (**slutförts** jobb har ingen gräns) | 100-300 | 1,000<sup>1</sup> |
+| Pooler per Batch-konto | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
-> Standardgränserna varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnkvoter som visas är för Batch-konton i Batch-tjänstläge. [Visa kvoter i Batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
+> Standardgränserna varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnkvoter som visas är för Batch-konton i Batch-tjänstläge. [Visa kvoter i Batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup>kan du öka antalet reserverade kärnor per Batch-konto, men det maximala antalet är okänt. Kontakta Azure-supporten om du vill diskutera alternativ.
-
-<sup>2</sup>kan du öka antalet lågprioritetskärnor per Batch-konto, men det maximala antalet är okänt. Kontakta Azure-supporten om du vill diskutera alternativ.
-
-<sup>3</sup>slutförda jobb och jobbscheman begränsas inte.
-
-<sup>4</sup>kontakta Azure-supporten om du vill begära en ökning utöver denna gräns.
+<sup>1</sup>kontakta Azure-supporten om du vill begära en ökning utöver denna gräns.

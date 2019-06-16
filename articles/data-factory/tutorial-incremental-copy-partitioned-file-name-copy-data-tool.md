@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61099078"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer baserat på tid partitionerade filnamn med hjälp av verktyget kopieringsdata stegvis
@@ -48,7 +48,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     ![Ladda upp filer](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Justera mappnamn med UTC-tid.  Om den aktuella UTC-tiden är 14:03:00 den 26 februari 2019 du till exempel skapa sökvägen till mappen som **källa/2019/02/26/14/** av regeln för **källa / {Year} / {Month} / {Day} / {Hour} /**.
+    > Justera mappnamn med UTC-tid.  Om den aktuella UTC-tiden är 14:03:00 den 26 februari 2019 du till exempel skapa sökvägen till mappen som **källa/2019/02/26/14/** av regeln för **källa / {Year} / {Month} / {Day} / {Hour} /** .
 
 2. Skapa en behållare med namnet **mål**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -66,7 +66,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
    
    ![Felmeddelande för ny datafabrik](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. Använd till exempel namnet _**dittnamn**_ **ADFTutorialDataFactory**. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. Gör något av följande för **Resursgrupp**:
      
@@ -136,7 +136,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     
     ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    c. Skriva dynamisk mappsökvägen som **källa / {year} / {month} / {day} / {hour} /**, och ändra formatet som följande avsnitt:
+    c. Skriva dynamisk mappsökvägen som **källa / {year} / {month} / {day} / {hour} /** , och ändra formatet som följande avsnitt:
     
     ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
@@ -152,7 +152,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     
     ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. Skriva dynamisk mappsökvägen som **källa / {year} / {month} / {day} / {hour} /**, och ändra formatet som följande avsnitt:
+    b. Skriva dynamisk mappsökvägen som **källa / {year} / {month} / {day} / {hour} /** , och ändra formatet som följande avsnitt:
     
     ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
@@ -184,7 +184,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > Du kan känna att det krävs en ny sökväg som ska skapas. Justera mappnamn med UTC-tid.  Om den aktuella UTC-tiden är 15:20:00 den 26 februari 2019 du till exempel skapa sökvägen till mappen som **källa/2019/02/26/15/** av regeln för **{Year} / {Month} / {Day} / {Hour} /**.
+    > Du kan känna att det krävs en ny sökväg som ska skapas. Justera mappnamn med UTC-tid.  Om den aktuella UTC-tiden är 15:20:00 den 26 februari 2019 du till exempel skapa sökvägen till mappen som **källa/2019/02/26/15/** av regeln för **{Year} / {Month} / {Day} / {Hour} /** .
     
 13. Gå tillbaka till den **Pipelinekörningar** väljer **alla Pipelines körningar**, medan samma pipeline utlöses igen automatiskt efter en annan en timme.  
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
 ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956301"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
@@ -34,7 +34,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera konton med hjälp av Azure AD
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Markera ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
 3. Typ **api** i sökrutan.
 4. Välj **API Management-tjänster**.
 5. Välj API Management-tjänstinstansen.

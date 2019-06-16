@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877830"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med hjälp av REST API
@@ -35,7 +35,7 @@ I den här artikeln lär du dig hur du använder REST API för att göra slutanv
 
 * **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
+* **[cURL](https://curl.haxx.se/)** . Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Slutanvändarautentisering är den rekommenderade metoden om du vill att en användare att logga in på ditt program med Azure AD. Programmet kan komma åt Azure-resurser med samma nivå av åtkomst som den inloggade användaren. Användaren måste ange sina autentiseringsuppgifter med jämna mellanrum i ordning för ditt program att upprätthålla åtkomsten.
@@ -49,7 +49,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI> måste kodas för användning i en URL. Så för https://localhost, använda `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> måste kodas för användning i en URL. Så för https://localhost , använda `https%3A%2F%2Flocalhost` )
 
     För självstudierna kan du ersätta platshållarvärdena i URL-adressen ovan och klistra in den i webbläsarens adressfält. Du omdirigeras för att autentisera med Azure-autentiseringsuppgifter. När du har loggat in visas svaret i webbläsarens adressfält. Svaret ska ha följande format:
 

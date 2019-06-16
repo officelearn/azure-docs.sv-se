@@ -1,19 +1,19 @@
 ---
-title: Konfigurera Azure service health-aviseringar med PagerDuty | Microsoft Docs
+title: Skicka Azure service health-aviseringar med PagerDuty med webhookar
 description: Få personligt anpassade meddelanden om service health-händelser till din PagerDuty-instans.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067142"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Konfigurera service health-aviseringar med PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure service health-aviseringar med PagerDuty med webhookar
 
 Den här artikeln visar hur du ställer in Azure service health meddelanden via PagerDuty med en webhook. Med hjälp av [PagerDuty](https://www.pagerduty.com/)'s anpassade typer för Microsoft Azure-integrering, du kan enkelt lägga till Service Health-aviseringar till dina nya eller befintliga PagerDuty-tjänster.
 

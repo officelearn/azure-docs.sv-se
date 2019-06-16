@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d4cdcecd08ae87b3a2ae6023b8a2557a515fb1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de27afabe024f08cb80a7b31cfb1b664684315a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Självstudier: Azure Active Directory-integrering med Aha!
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Aha! med Azure AD behöver du lägga till Ah
 
 **Utför följande steg för att lägga till Aha! från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ För att konfigurera integrering av Aha! med Azure AD behöver du lägga till Ah
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Aha!**, väljer **Aha!** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Aha!** , väljer **Aha!** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
      ![Aha! i resultatlistan](common/search-new-app.png)
 
@@ -90,7 +90,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med Azure AD för Aha!:
 
-1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Aha!**-programintegrering och väljer **Enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Aha!** -programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -188,11 +188,11 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Aha!.
 
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Aha!**.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Aha!** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **Aha!**.
+2. I programlistan väljer du **Aha!** .
 
     ![Länken för Aha! i programlistan](common/all-applications.png)
 
@@ -226,4 +226,4 @@ När du klickar på panelen för Aha! i åtkomstpanelen bör du automatiskt logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

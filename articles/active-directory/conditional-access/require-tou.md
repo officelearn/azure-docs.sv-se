@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – kräver användningsvillkor godkännas före åtkomst till molnappar som skyddas av Azure Active Directory villkorlig åtkomst | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du kan kräva att dina användningsvillkor accepteras innan beviljas åtkomst till valda molnappar genom villkorlig åtkomst i Azure Active Directory.
+description: I den här snabbstarten får du lära dig hur du kan kräva att dina användningsvillkor accepteras innan åtkomst till valda molnappar som Azure Active Directory villkorlig åtkomst ska beviljas.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3523a050a021f3a98c144efe14d692704fba63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112220"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar
 
@@ -25,7 +25,7 @@ Innan du använder vissa molnappar i din miljö, kanske du vill få medgivande f
 - En enkel metod för att konfigurera villkor för användning
 - Alternativet för att kräva accepterar dina användningsvillkor via principer för villkorlig åtkomst  
 
-Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md) som kräver en ToU ska godkännas för ett valt moln-app i din miljö.
+Den här snabbstarten visar hur du konfigurerar en [Azure AD villkorlig åtkomstprincip](../active-directory-conditional-access-azure-portal.md) som kräver en ToU ska godkännas för ett valt moln-app i din miljö.
 
 ![Skapa princip](./media/require-tou/5555.png)
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att slutföra scenariot i den här snabbstarten behöver du:
 
-- **Åtkomst till en Azure AD Premium-versionen** -villkorlig åtkomst i Azure AD är en Azure AD Premium-funktion.
+- **Åtkomst till en Azure AD Premium-versionen** – Azure AD villkorlig åtkomst är en Azure AD Premium-funktion.
 - **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning
@@ -57,7 +57,7 @@ Det här avsnittet ger dig stegen för att skapa ett exempel på villkor för an
 
 1. Typ **min användningsvillkor**, och spara dokumentet på datorn som **mytou.pdf**.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 
 1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
@@ -95,7 +95,7 @@ Det här avsnittet ger dig stegen för att skapa ett exempel på villkor för an
 
 ## <a name="create-your-conditional-access-policy"></a>Skapa principer för villkorlig åtkomst
 
-Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs. Scenariot i den här snabbstarten använder:
+Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkomst. Scenariot i den här snabbstarten använder:
 
 - Azure-portalen som platshållare för en molnapp som kräver att dina användningsvillkor godkännas. 
 - Exempelanvändaren att testa principen för villkorlig åtkomst.  
@@ -170,7 +170,7 @@ Ange i din princip:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
 Initiera vad om utvärderingsverktyg för principen, Ställ in:
 
@@ -188,7 +188,7 @@ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
 
 1. På den [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn längst upp på sidan klickar du på **vad händer om**.  
 
-   ![What If](./media/require-tou/14.png)
+   ![Tänk om](./media/require-tou/14.png)
 
 1. Klicka på **användare**väljer **Isabella Simonsen**, och klicka sedan på **Välj**.
 
@@ -210,7 +210,7 @@ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
 
 1. Klicka på **vad händer om**.
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
 I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst för att säkerställa att den fungerar som förväntat.
 

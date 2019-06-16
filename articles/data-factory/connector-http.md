@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234061"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Aktuell version](connector-http.md)
 
@@ -56,7 +56,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **HTTP-servern**. | Ja |
 | url | Den grundläggande Webbadressen till webbservern. | Ja |
@@ -68,7 +68,7 @@ Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | userName | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
 | password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -101,7 +101,7 @@ Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, e
 
 Om du vill använda ClientCertificate autentisering, ange den **authenticationType** egenskap **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på din egen värd Integration Runtime-datorns certifikatarkiv. Gäller endast när typen lokal installation av Integration Runtime har angetts i den **connectVia** egenskapen. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
@@ -169,7 +169,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade datauppsättning och som stöds inställningar. Följande egenskaper har stöd för HTTP under `location` inställningar i formatet-baserade datauppsättning:
 
-| Egenskap     | Beskrivning                                                  | Krävs |
+| Egenskap    | Beskrivning                                                  | Krävs |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | Egenskapen type under `location` i datauppsättningen måste anges till **HttpServerLocation**. | Ja      |
 | relativeUrl | En relativ URL till den resurs som innehåller data.       | Nej       |
@@ -210,7 +210,7 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 
 Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskap måste anges till **HttpFile**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |
@@ -277,7 +277,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för HTTP under `storeSettings` inställningar i formatet-baserade kopieringskälla:
 
-| Egenskap                  | Beskrivning                                                  | Krävs |
+| Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | Egenskapen type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
 | requestMethod            | HTTP-metoden. <br>Tillåtna värden är **hämta** (standard) och **Post**. | Nej       |
@@ -334,7 +334,7 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 
 Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **HttpSource**. | Ja |
 | httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**.  | Nej |

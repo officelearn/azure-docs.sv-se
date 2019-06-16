@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60838117"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera din MySQL-databas med hjälp av importera och exportera
@@ -90,7 +90,7 @@ I följande exempel importerar tabellen från en CSV-fil:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL-data exportera och importera guider från navigeringsfönstret
 Använd en guide för att exportera eller importera SQL genereras från MySQL Workbench eller genereras från kommandot mysqldump. Komma åt dessa guider från den **Navigator** fönstret eller genom att välja **Server** på huvudmenyn. Välj sedan **dataexport** eller **dataimporten**. 
 
-#### <a name="data-export"></a>Dataexport
+#### <a name="data-export"></a>Export av data
 ![MySQL Workbench data exportera med hjälp av fönstret navigatör](./media/concepts-migrate-import-export/p2.png)
 
 Du kan använda den **dataexport** flik för att exportera dina MySQL-data. 

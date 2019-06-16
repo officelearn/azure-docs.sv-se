@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963978"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
@@ -91,7 +91,7 @@ Information om hur du ansluter Allmänt program som implementerar SCIM 2.0 - bas
 
 Använd Azure Active Directory-portalen för att konfigurera Azure AD provisioning-tjänst för ett valt program.
 
-1. Öppna den  **[Azure Active Directory-portalen](https://aad.portal.azure.com)**.
+1. Öppna den  **[Azure Active Directory-portalen](https://aad.portal.azure.com)** .
 
 1. Välj **företagsprogram** i den vänstra rutan. En lista över alla konfigurerade appar som visas.
 
@@ -131,7 +131,7 @@ På skärmen för appen, Välj **granskningsloggar** för att visa poster i varj
 
 När Azure AD är källsystemet, etableringstjänsten använder det [differentiell fråga funktion i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) att övervaka användare och grupper. Etableringstjänsten körs en initial synkronisering mot källsystemet och målsystemet, följt av periodiska inkrementella synkroniseringar. 
 
-### <a name="initial-sync"></a>Initial synkronisering
+### <a name="initial-sync"></a>Den inledande synkroniseringen
 
 När etableringstjänsten startas, kommer den första synkroniseringen skulle köras:
 

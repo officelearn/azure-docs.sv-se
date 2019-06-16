@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714157"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus-diagnostikloggar
 
 Du kan visa två typer av loggar för Azure Service Bus:
-* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)**. Dessa loggar innehåller information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)**. Du kan konfigurera diagnostikloggar mer omfattande information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)** . Dessa loggar innehåller information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
+* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)** . Du kan konfigurera diagnostikloggar mer omfattande information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
 
 ## <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
 
@@ -67,7 +67,7 @@ Arbetsloggen JSON-strängar är uppgifter som anges i tabellen nedan:
 Namn | Beskrivning
 ------- | -------
 Aktivitets-ID | Internt ID som användes för spårning
-EventName | Åtgärdsnamn           
+EventName | Åtgärdens namn           
 resourceId | Azure Resource Manager-resurs-ID
 SubscriptionId | Prenumerations-ID:t
 EventTimeString | Åtgärden tid

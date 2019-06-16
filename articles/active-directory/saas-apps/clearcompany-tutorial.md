@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d7e137986b4b6a1d0dcf96bf890e7e7be2cac02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fc6abf9efc9014703eceda9a8b52a7204d8dae5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Självstudier: Azure Active Directory-integrering med ClearCompany
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av ClearCompany i Azure AD behöver du lägga t
 
 **Utför följande steg för att lägga till ClearCompany från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -201,5 +201,5 @@ När du klickar på ClearCompany-panelen på åtkomstpanelen så bör du automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

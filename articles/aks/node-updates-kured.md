@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849873"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055635"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Använda säkerhet och kernel-uppdateringar för Linux-noder i Azure Kubernetes Service (AKS)
 
@@ -58,12 +58,13 @@ Att distribuera den `kured` DaemonSet, Använd följande exempel YAML manifest f
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+```
 
-You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
+Du kan också konfigurera ytterligare parametrar för `kured`, till exempel integration med Prometheus eller Slack. Mer information om ytterligare konfigurationsparametrar finns i den [kured installation docs][kured-install].
 
-## Update cluster nodes
+## <a name="update-cluster-nodes"></a>Uppdatera klusternoder
 
-By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
+Linux-noder i AKS Sök efter uppdateringar varje kväll som standard. Om du inte vill vänta kan du manuellt utföra en uppdatering för att kontrollera att `kured` körs korrekt. Följ stegen för att först [SSH till någon av AKS-noder][aks-ssh]. När du har en SSH-anslutning till Linux-noden kan söka efter uppdateringar och tillämpa dem på följande sätt:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

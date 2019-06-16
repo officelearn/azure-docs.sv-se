@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 1a62e9e8377705af1a70e356f554cfa549c58f20
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233467"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-server med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Aktuell version](connector-sftp.md)
 
@@ -49,7 +49,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för SFTP länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SFTP**. |Ja |
 | host | Namn eller IP-adressen för SFTP-servern. |Ja |
@@ -63,7 +63,7 @@ Följande egenskaper har stöd för SFTP länkade tjänsten:
 
 Om du vill använda grundläggande autentisering för egenskapen ”authenticationType” **grundläggande**, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | userName | Användare som har åtkomst till SFTP-servern. |Ja |
 | password | Lösenordet för användaren (användarnamn). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -100,7 +100,7 @@ Om du vill använda grundläggande autentisering för egenskapen ”authenticati
 
 Om du vill använda autentisering med SSH offentlig nyckel, egenskapen ”authenticationType” som **SshPublicKey**, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | userName | Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till filen för privat nyckel som Integration Runtime kan komma åt. Gäller bara när lokal Integration Runtime har angetts i ”connectVia”. | Ange antingen den `privateKeyPath` eller `privateKeyContent`.  |
@@ -180,7 +180,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade datauppsättning och som stöds inställningar. Följande egenskaper har stöd för SFTP under `location` inställningar i formatet-baserade datauppsättning:
 
-| Egenskap    | Beskrivning                                                  | Krävs |
+| Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | Egenskapen type under `location` i datauppsättningen måste anges till **SftpLocation**. | Ja      |
 | folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
@@ -219,7 +219,7 @@ Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera 
 
 Att kopiera data från SFTP i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **FileShare** |Ja |
 | folderPath | Sökvägen till mappen. Jokerteckenfilter stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. <br/><br/>Exempel: rootfolder/undermappen/se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). |Ja |
@@ -279,7 +279,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för SFTP under `storeSettings` inställningar i formatet-baserade kopieringskälla:
 
-| Egenskap                  | Beskrivning                                                  | Krävs                                      |
+| Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | Egenskapen type under `storeSettings` måste anges till **SftpReadSetting**. | Ja                                           |
 | recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
@@ -337,7 +337,7 @@ Att kopiera data från SFTP i **Parquet eller avgränsat textformat**, referera 
 
 Att kopiera data från SFTP i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
 | recursive | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110931"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärransluta till en VM scale set-instans eller en klusternod
@@ -28,7 +28,7 @@ Utför följande steg för att hitta en IP-adress och port som du kan använda f
 
 1. Hämta inkommande NAT-regler för Remote Desktop Protocol (RDP).
 
-    Varje nodtyp som definierats i ditt kluster har normalt en egen virtuell IP-adress och en särskild belastningsutjämnare. Som standard heter belastningsutjämnaren för en nodtyp med följande format: *LB-{kluster-name}-{nodtyp}*, till exempel *LB-mycluster-klientdel*. 
+    Varje nodtyp som definierats i ditt kluster har normalt en egen virtuell IP-adress och en särskild belastningsutjämnare. Som standard heter belastningsutjämnaren för en nodtyp med följande format: *LB-{kluster-name}-{nodtyp}* , till exempel *LB-mycluster-klientdel*. 
     
     På sidan för belastningsutjämnaren i Azure-portalen, väljer **inställningar** > **inkommande NAT-regler**: 
 

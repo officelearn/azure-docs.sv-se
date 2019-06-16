@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707971"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
@@ -66,7 +66,7 @@ Vissa hårdkodade värden i mallen:
 
 **Virtuellt nätverk 1**
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 |----------|-------|
 | Location | Västra USA |
 | Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet1 |
@@ -83,7 +83,7 @@ Vissa hårdkodade värden i mallen:
 
 **VNet 2**
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 |----------|-------|
 | Location | Östra USA |
 | Namn på virtuellt nätverk | &lt;ClusterNamePrevix>-vnet2 |
@@ -105,7 +105,7 @@ Mallen skapar en Ubuntu-dator i var och en av de två virtuella nätverken i det
 Om du vill installera Bind behöver yon hitta offentliga IP-adress för två DNS-virtuella datorer.
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Öppna DNS-virtuell dator genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]**.  Resursgruppens namn är det som du skapar i föregående procedur. Standard-DNS VM-namn är *vnet1DNS* och *vnet2NDS*.
+2. Öppna DNS-virtuell dator genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]** .  Resursgruppens namn är det som du skapar i föregående procedur. Standard-DNS VM-namn är *vnet1DNS* och *vnet2NDS*.
 3. Välj **egenskaper** att öppna egenskapssidan för det virtuella nätverket.
 4. Anteckna den **offentliga IP-adressen**, och också kontrollera den **privat IP-adress**.  Den privata IP-adressen ska vara **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
 5. Ändra DNS-servrar för båda virtuella nätverken för att använda standard (medföljer Azure) DNS-servrar för att tillåta inkommande och utgående åtkomst till att ladda ned paket för att installera bindning i följande steg.
@@ -287,8 +287,8 @@ Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-p
 4. Längst ned på sidan Välj **Skicka ny**.
 5. Välj eller ange följande information:
 
-   1. **Namn**: Ange **Aktivera replikering**.
-   2. **Bash-Webbadress för skript**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   1. **Namn på**: Ange **Aktivera replikering**.
+   2. **Bash-Webbadress för skript**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **HEAD**: Se till att det här alternativet väljs. Ta bort andra nodtyper.
    4. **Parametrar**: Följande exempel parametrar Aktivera replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
 
@@ -360,7 +360,7 @@ Den `print_usage()` delen av den [skriptet](https://github.com/Azure/hbase-utils
 
 ### <a name="scenarios"></a>Scenarier
 
-- **Kopiera specifika tabeller (test1 test2 och test3) för alla rader som redigeras fram till nu (aktuella tidsstämpeln)**:
+- **Kopiera specifika tabeller (test1 test2 och test3) för alla rader som redigeras fram till nu (aktuella tidsstämpeln)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   Eller:
@@ -390,7 +390,7 @@ Den `print_usage()` delen av den [skriptet](https://raw.githubusercontent.com/Az
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Inaktivera replikering på angivna tabellerna (tabell1 tabell2 och tabell 3)**:
+- **Inaktivera replikering på angivna tabellerna (tabell1 tabell2 och tabell 3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 

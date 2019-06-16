@@ -2,7 +2,7 @@
 title: Så här kräver du multifaktorautentisering (MFA) för åtkomst från ej betrodda nätverk med villkorlig åtkomst i Azure Active Directory (Azure AD) | Microsoft Docs
 description: Lär dig mer om att konfigurera en princip för villkorlig åtkomst i Azure Active Directory (Azure AD) för för åtkomstförsök från ej betrodda nätverk.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 12/10/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf8cb1c3b49975356389c7c9444aff319326f74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: fa9760c44df13c33687c279478935600325dd085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301131"
+ms.locfileid: "67111870"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Anvisningar: Kräva MFA för åtkomst från ej betrodda nätverk med villkorlig åtkomst   
 
@@ -35,7 +35,7 @@ Den här artikeln ger dig den information du behöver att konfigurera en princip
 
 Den här artikeln förutsätter att du är bekant med: 
 
-- Den [grundbegreppen](overview.md) av Azure AD villkorsstyrd åtkomst 
+- Den [grundbegreppen](overview.md) av Azure AD villkorlig åtkomst 
 - Den [bästa praxis](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure portal
 
 
@@ -44,7 +44,7 @@ Den här artikeln förutsätter att du är bekant med:
 
 Om du vill balans mellan säkerhet och produktivitet, kan det vara tillräckliga för att du endast kräva ett lösenord för inloggningar från din organisations nätverk. För åtkomst från en ej betrodd nätverksplats, det finns dock en ökad risk som inte är inloggningar som utförs av behöriga användare. För att åtgärda det här problemet kan du blockera åtkomst från ej betrodda nätverk. Du kan också kan du också kräva multifaktorautentisering (MFA) för att få tillbaka ytterligare trygghet som ett försök gjordes av är tillförlitligt ägare för kontot. 
 
-Med Azure AD villkorlig åtkomst, kan du lösa det här kravet med en enda princip som tilldelar åtkomst: 
+Du kan lösa det här kravet med en enda princip som tilldelar åtkomst med Azure AD villkorlig åtkomst: 
 
 - Till valda molnappar
 

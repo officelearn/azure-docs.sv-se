@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793627"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 En frågeparameter för aspekten har angetts till ett fält och beroende på datatypen, kan ytterligare parameteriseras via kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>`, och `values:<list>`. En värdelista som stöds för numeriska data när du konfigurerar intervall. Se [söka efter dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användningsinformation.
 
-Tillsammans med fasetter, bör begäran formulerat av ditt program också skapa filter för att begränsa uppsättningen kandidatdokument baserat på en aspekten värdemarkering. För en cykel butik aspektbaserad navigering innehåller ledtrådar på frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?*. Filtrering får du svar på frågor som *vilka exakta cyklar är röda mountain cyklar i den här pris av intervallet?*. När du klickar på ”Red” för att indikera att endast Red produkter ska visas i nästa fråga som programmet skickar innehåller `$filter=Color eq ‘Red’`.
+Tillsammans med fasetter, bör begäran formulerat av ditt program också skapa filter för att begränsa uppsättningen kandidatdokument baserat på en aspekten värdemarkering. För en cykel butik aspektbaserad navigering innehåller ledtrådar på frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrering får du svar på frågor som *vilka exakta cyklar är röda mountain cyklar i den här pris av intervallet?* . När du klickar på ”Red” för att indikera att endast Red produkter ska visas i nästa fråga som programmet skickar innehåller `$filter=Color eq ‘Red’`.
 
 Följande kodavsnitt från den `JobsSearch.cs` sidan lägger till valda företag rubriken till filtret om du väljer ett värde från företag rubrik-aspekten.
 
@@ -395,7 +395,7 @@ Titta på URL: en för ändringar i frågekonstruktion när du arbetar med sökr
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 Titta på [djupdykning i Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demo om hur du implementerar fasetter.
 
 För mer information om designprinciper för aspektbaserad navigering rekommenderar vi följande länkar:

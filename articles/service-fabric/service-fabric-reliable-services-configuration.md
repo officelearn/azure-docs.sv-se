@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723577"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
@@ -30,8 +30,8 @@ Global reliable Services-konfiguration har angetts i klustermanifestet för klus
 ### <a name="configuration-names"></a>Konfigurationsnamn
 | Namn | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB att allokera i kernelläge för loggaren skrivning buffertpooltillägget minne. Den här minnespoolen används för att cachelagra tillståndsinformationen innan skrivning till disk. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som loggaren skriva bufferten minnespoolen kan växa. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Minsta antal KB att allokera i kernelläge för loggaren skrivning buffertpooltillägget minne. Den här minnespoolen används för att cachelagra tillståndsinformationen innan skrivning till disk. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Obegränsat |Maximal storlek som loggaren skriva bufferten minnespoolen kan växa. |
 | SharedLogId |GUID |"" |Anger ett unikt GUID för att använda för att identifiera delade Standardloggfilen används av alla tillförlitliga tjänster på alla noder i klustret som inte anger SharedLogId i deras specifika tjänstekonfigurationen. Om SharedLogId anges måste även SharedLogPath anges. |
 | SharedLogPath |Fullständig sökväg |"" |Anger den fullständigt kvalificerade sökvägen där loggfilen delade används av alla tillförlitliga tjänster på alla noder i klustret som inte anger SharedLogPath i deras specifika tjänstekonfigurationen. Men om SharedLogPath anges måste sedan SharedLogId också anges. |
 | SharedLogSizeInMB |Megabyte |8192 |Anger antalet MB diskutrymme att allokera statiskt för delade loggen. Värdet måste vara 2048 eller större. |

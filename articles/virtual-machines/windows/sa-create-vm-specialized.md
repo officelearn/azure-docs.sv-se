@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693821"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto
 
@@ -126,7 +126,7 @@ Frigör den virtuella datorn, vilket frigör den virtuella Hårddisken ska kopie
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Den **Status** för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)**.
+Den **Status** för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)** .
 
 ### <a name="get-the-storage-account-urls"></a>Hämta URL: er för storage-konto
 Du behöver URL: er för käll- och storage-konton. URL: er se ut: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Om du redan vet namnet för storage-konto och en behållare kan du bara ersätta informationen mellan hakparenteser för att skapa din URL. 

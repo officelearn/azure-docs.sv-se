@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105966"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
@@ -72,13 +72,13 @@ När du skapar ett virtuellt nätverk som ska användas med en S2S-anslutning m�
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 
 1. Navigera till [Azure-portalen](https://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
-2. Klicka på **+**. Skriv ”Virtuella nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
+2. Klicka på **+** . Skriv ”Virtuella nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
 
    ![Sidan Sök efter virtuellt nätverk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Välj **Klassisk** i listrutan **Välj en distributionsmodell** nästan längst ned på sidan Virtuellt nätverk och klicka sedan på **Skapa**.
 
    ![Välj distributionsmodell](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk (klassisk)**. På den här sidan lägger du till ditt första adressutrymme och ett enda adressintervall för ett undernät. När du har skapat ditt VNet, kan du gå tillbaka och lägga till ytterligare undernät och adressutrymmen.
+4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk (klassisk)** . På den här sidan lägger du till ditt första adressutrymme och ett enda adressintervall för ett undernät. När du har skapat ditt VNet, kan du gå tillbaka och lägga till ytterligare undernät och adressutrymmen.
 
    ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Sidan Skapa virtuellt nätverk")
 5. Verifiera att **Prenumeration** är korrekt. Du kan ändra prenumerationer i listrutan.

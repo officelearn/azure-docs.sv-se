@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726578"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
@@ -29,7 +29,7 @@ Providernamnet EventSource för Reliable Actors-runtime är ”Microsoft-Service
 
 Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](https://msdn.microsoft.com/library/dn774980.aspx), och [ Microsofts bibliotek för TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-### <a name="keywords"></a>Nyckelord
+### <a name="keywords"></a>nyckelord
 Alla händelser som hör till tillförlitliga aktörer EventSource är associerade med ett eller flera nyckelord. På så sätt kan du filtrera händelser som samlas in. Följande nyckelord bitar definieras.
 
 | Bit | Beskrivning |
@@ -44,8 +44,8 @@ Reliable Actors-runtime definierar följande prestandaräknarkategorier.
 
 | Category | Beskrivning |
 | --- | --- |
-| Service Fabric-aktör |Räknare som är specifika för Azure Service Fabric actors, t.ex. tid tar att spara aktörstillstånd |
-| Service Fabric-aktörsmetod |Räknare specifika för metoder som införts av Service Fabric actors, t.ex. hur ofta en aktör-metoden har anropats |
+| Service Fabric Actor |Räknare som är specifika för Azure Service Fabric actors, t.ex. tid tar att spara aktörstillstånd |
+| Service Fabric-Aktörsmetod |Räknare specifika för metoder som införts av Service Fabric actors, t.ex. hur ofta en aktör-metoden har anropats |
 
 Var och en av kategorierna ovan har en eller flera räknare.
 
@@ -102,9 +102,9 @@ Reliable Actors-runtime publicerar följande prestandaräknare som rör körning
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-aktörsmetod |Anrop/sek |Antal gånger som aktörstjänstmetoden anropas per sekund |
-| Service Fabric-aktörsmetod |Genomsnittligt antal millisekunder per anrop |Åtgången tid i millisekunder för att köra aktörstjänstmetoden |
-| Service Fabric-aktörsmetod |Undantag/sek |Antal gånger som aktörstjänstmetoden utlöste ett undantag per sekund |
+| Service Fabric-Aktörsmetod |Anrop/sek |Antal gånger som aktörstjänstmetoden anropas per sekund |
+| Service Fabric-Aktörsmetod |Genomsnittlig tid i millisekunder per anrop |Åtgången tid att köra aktörstjänstmetoden i millisekunder |
+| Service Fabric-Aktörsmetod |Undantag/sek |Antal gånger som aktörstjänstmetoden utlöste ett undantag per sekund |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Samtidighet händelser och prestandaräknare
 Reliable Actors-runtime genererar följande händelser relaterade till [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency).
@@ -117,9 +117,9 @@ Reliable Actors-runtime publicerar följande prestandaräknare som rör samtidig
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-aktör |Antal aktörsanrop som väntar på aktörslås |Antalet väntande aktörsanrop som väntar på att hämta lås per aktör som tillämpar tur-baserade samtidighet |
-| Service Fabric-aktör |Genomsnittlig låsväntetid i millisekunder |Tid (i millisekunder) att hämta lås per aktör som tillämpar tur-baserade samtidighet |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder för aktörslåsaktivering |Tid (i millisekunder) som hålls kvar lås per aktör |
+| Service Fabric Actor |Antal aktörsanrop som väntar på aktörslås |Antalet väntande aktörsanrop som väntar på att hämta lås per aktör som tillämpar tur-baserade samtidighet |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder per Lås väntar |Tid (i millisekunder) att hämta lås per aktör som tillämpar tur-baserade samtidighet |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder för aktörslåsaktivering |Tid (i millisekunder) som hålls kvar lås per aktör |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Aktören management händelser och prestandaräknare
 Reliable Actors-runtime genererar följande händelser relaterade till [aktören tillståndshantering](service-fabric-reliable-actors-state-management.md).
@@ -133,8 +133,8 @@ Reliable Actors-runtime publicerar följande prestandaräknare som rör aktören
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder per Spara tillstånd-åtgärd |Åtgången tid för att spara aktörstillstånd i millisekunder |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder per Läs in tillstånd-åtgärd |Åtgången tid för att läsa in aktörstillstånd i millisekunder |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder per spara tillstånd-åtgärd |Åtgången tid för att spara aktörstillstånd i millisekunder |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder per Läs in tillstånd-åtgärd |Åtgången tid för att läsa in aktörstillstånd i millisekunder |
 
 ### <a name="events-related-to-actor-replicas"></a>Händelser relaterade till aktörreplikeringar
 Reliable Actors-runtime genererar följande händelser relaterade till [aktörreplikeringar](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
@@ -156,17 +156,17 @@ Reliable Actors-runtime publicerar följande prestandaräknare som rör aktören
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder för OnActivateAsync |Tid i millisekunder för att köra OnActivateAsync-metoden |
+| Service Fabric Actor |Genomsnittligt antal millisekunder för OnActivateAsync |Åtgången tid för att köra OnActivateAsync-metoden i millisekunder |
 
 ### <a name="actor-request-processing-performance-counters"></a>Prestandaräknare för bearbetning av begäran av aktör
 När en klient anropar en metod som via en proxy-aktörobjekt, resulterar det i ett meddelande om begäran som skickas över nätverket till aktörstjänsten. Tjänsten bearbetar meddelandet med begäran och skickar tillbaka ett svar till klienten. Reliable Actors-runtime publicerar följande prestandaräknare som rör bearbetning av begäran aktör.
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-aktör |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder) av tjänsten kan bearbeta en begäran |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att deserialisera aktören begärandemeddelandet när den tas emot på tjänsten |
-| Service Fabric-aktör |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera aktören svarsmeddelandet på tjänsten innan svaret skickas till klienten |
+| Service Fabric Actor |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder) av tjänsten kan bearbeta en begäran |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att deserialisera aktören begärandemeddelandet när den tas emot på tjänsten |
+| Service Fabric Actor |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera aktören svarsmeddelandet på tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hur Reliable Actors använder Service Fabric-plattformen](service-fabric-reliable-actors-platform.md)

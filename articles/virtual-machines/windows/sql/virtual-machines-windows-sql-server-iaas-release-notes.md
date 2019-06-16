@@ -13,16 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076890"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
 Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inbyggda i. Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Artikeln innehåller också viktiga uppdateringar av innehållet som är inte direkt relaterade till versionen men som har publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
+
+## <a name="may-2019"></a>Maj 2019
+
+### <a name="service-improvements"></a>Förbättringar av tjänsten
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+| **Ny SQL-VM-hantering i Azure-portalen** | Det finns nu ett nytt sätt att hantera din SQL Server-VM i Azure-portalen. Mer information finns i [hantera SQL Server-dator i Azure-portalen](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Dokumentation om förbättringar
+
+| Dokumentation | Information |
+| --- | --- |
+| **Ny portal SQL VM-hantering** | Ett dussintal artiklar har uppdaterats till den nya SQL-VM hanteringsportalen. | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="april-2019"></a>April 2019
 
@@ -33,9 +50,6 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 | **Utöka stöd för SQL Server 2008/2008R2** | [Utöka support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) för SQL Server 2008 och SQL Server 2008 R2 genom att migrera *som – är* till en Azure virtuell dator. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-Ingen
 
 ## <a name="march-2019"></a>Mars 2019
 

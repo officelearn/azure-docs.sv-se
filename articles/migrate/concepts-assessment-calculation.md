@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679127"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
@@ -68,7 +68,7 @@ Andra operativsystem<br/><br/> t.ex. Oracle Solaris, Apple Mac OS etc., FreeBSD 
 OS tillhörigheten **andra** i vCenter Server | Azure Migrate identifiera inte Operativsystemet i det här fallet. | Beredskap för okänd. Se till att det operativsystem som körs på den virtuella datorn stöds i Azure.
 32-bitars operativsystem | Datorn kan starta i Azure, men Azure tillhandahålla inte fullständig support. | Villkorligt redo för Azure bör du överväga att uppgradera Operativsystemet på datorn från 32-bitars operativsystem till 64-bitars operativsystem innan du migrerar till Azure.
 
-## <a name="sizing"></a>Storlekar
+## <a name="sizing"></a>Storleksändring
 
 När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure. Om storlekskriteriet som angetts i egenskaperna för utvärdering är att utföra prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbar i scenarier där du har tilldelat en lokal virtuell dator över men användningen är låg och du vill att storleksanpassa de virtuella datorerna i Azure för att minska kostnaderna.
 

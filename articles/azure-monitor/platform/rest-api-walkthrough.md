@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205636"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
@@ -98,7 +98,7 @@ Använd den [REST API för Azure Monitor måttdefinitioner](https://docs.microso
 
 **Metoden**: HÄMTA
 
-**Begärande-URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**Begärande-URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Till exempel för att hämta måttdefinitioner för ett Azure Storage-konto, skulle begäran visas på följande sätt:
 
@@ -242,7 +242,7 @@ Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begär
 
 **Metoden**: HÄMTA
 
-**Begärande-URI**: https\://management.azure.com/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/*{ resurs-provider-namespace}*/*{resurstypen}*/*{resurs-name}*/providers/microsoft.insights/metrics? metricnames =*{mått}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metadata & api-version = *{apiVersion}*
+**Begärande-URI**: https\://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{ resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics? metricnames = *{mått}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType = metadata & api-version = *{apiVersion}*
 
 Till exempel för att hämta listan över dimensionsvärden som har genererats för ”API-namn dimensionen' för måttet 'Transaktioner” där dimensionen GeoType = ”primär” under det angivna tidsintervallet begäran skulle vara följande:
 
@@ -315,7 +315,7 @@ Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begär
 
 **Metoden**: HÄMTA
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/*{resurs-provider-namespace}* / *{resurstypen}*/*{resurs-name}*/providers/microsoft.insights/metrics?metricnames=*{mått}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& intervall =*{timeGrain}*& aggregering =*{ aggreation}*& api-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics?metricnames= *{mått}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & intervall = *{timeGrain}* & aggregering = *{ aggreation}* & api-version = *{apiVersion}*
 
 Till exempel för att hämta de 3 främsta API: er, i fallande värde, av hur många transaktioner om du under flera 5 min där GeotType var primär, begäran skulle vara följande:
 
@@ -394,7 +394,7 @@ Använd den [REST API för Azure Monitor måttdefinitioner](https://msdn.microso
 
 **Metoden**: HÄMTA
 
-**Begärande-URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**Begärande-URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Till exempel för att hämta måttdefinitioner för en Azure Logic App skulle begäran visas på följande sätt:
 
@@ -467,7 +467,7 @@ När de tillgängliga definitionerna av mått är kända har det möjligt att h�
 
 **Metoden**: HÄMTA
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/*{resurs-provider-namespace}* / *{resurstypen}*/*{resurs-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api-version =*{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* & api-version = *{apiVersion}*
 
 Till exempel om du vill hämta RunsSucceeded mått datapunkter för det angivna tidsintervallet och för ett tidskorn 1 timme skulle begäran vara följande:
 
@@ -605,13 +605,13 @@ För den föregående koden är resurs-ID för att använda den fullständiga s�
 
 I följande lista innehåller några exempel på resurs-ID-formaten för olika Azure-resurser:
 
-* **IoT Hub** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
-* **SQL-Databaspool** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
-* **SQL-databas (v12)** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{servernamnet}*/databases/*{databas-name}*
-* **Service Bus** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namnområdet}* / *{servicebus-name}*
-* **VM-skalningsuppsättningar** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
-* **Virtuella datorer** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
-* **Händelsehubbar** -/subscriptions/*{prenumerations-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{ eventhub-namespace}*
+* **IoT Hub** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Devices/IotHubs/ *{iot-hub-name}*
+* **SQL-Databaspool** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{pool-db}* /elasticpools/ *{sql-pool-name}*
+* **SQL-databas (v12)** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{servernamnet}* /databases/ *{databas-name}*
+* **Service Bus** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.ServiceBus/ *{namnområdet}* / *{servicebus-name}*
+* **VM-skalningsuppsättningar** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
+* **Virtuella datorer** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachines/ *{vm-name}*
+* **Händelsehubbar** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.EventHub/namespaces/ *{ eventhub-namespace}*
 
 Det finns alternativa metoder för att hämta resurs-ID, inklusive användning av Azure Resource Explorer, visa önskad resurs i Azure-portalen och via PowerShell eller Azure CLI.
 

@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 21ccd7b2919714610dbd51c62701c4bb32d330d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808827"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
 
@@ -22,7 +22,7 @@ Om du vill skapa och köra Microsoft Azure Red Hat OpenShift program, måste du:
 
 * Köpa Azure-dator som är reserverade instanser.
 * Installera version 2.0.65 (eller högre) av Azure CLI (eller Använd Azure Cloud Shell).
-* Registrera dig för den `openshiftmanagedcluster` funktionen och associerade resursprovidrar.
+* Registrera dig för den `AROGA` funktionen och associerade resursprovidrar.
 * Skapa en Azure Active Directory (Azure AD)-klient.
 * Skapa ett objekt för Azure AD-program.
 * Skapa en Azure AD-användare.
@@ -55,7 +55,7 @@ Alternativt kan du använda den [Azure Cloud Shell](https://docs.microsoft.com/a
 
 ## <a name="register-providers-and-features"></a>Registrera providers och funktioner
 
-Den `Microsoft.ContainerService openshiftmanagedcluster` funktion, `Microsoft.Solutions`, och `Microsoft.Network` måste vara registrerade providers för din prenumeration manuellt innan du distribuerar ditt första Azure Red Hat OpenShift-kluster.
+Den `Microsoft.ContainerService AROGA` funktion, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` och `Microsoft.Network` måste vara registrerade providers för din prenumeration manuellt innan du distribuerar ditt första Azure Red Hat OpenShift-kluster.
 
 Använd följande instruktioner från ett Bash-gränssnitt om du har installerat CLI eller Azure Cloud Shell (Bash)-session i din Azure-portalen för att registrera dessa providers och funktioner manuellt:
 
@@ -65,10 +65,10 @@ Använd följande instruktioner från ett Bash-gränssnitt om du har installerat
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Registrera funktionen Microsoft.ContainerService openshiftmanagedcluster:
+1. Registrera funktionen Microsoft.ContainerService AROGA:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Registrera providern Microsoft.Storage:

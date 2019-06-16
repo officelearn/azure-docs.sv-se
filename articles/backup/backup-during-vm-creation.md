@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057983"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du aktiverar säkerhetskopiering när du skapar 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Om du inte redan loggat in på ditt konto, logga in på den [Azure-portalen](https://portal.azure.com).
- 
+
 ## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med säkerhetskopiering har konfigurerats
 
 1. I Azure-portalen klickar du på **skapa en resurs**.
@@ -41,28 +41,32 @@ Om du inte redan loggat in på ditt konto, logga in på den [Azure-portalen](htt
 6. Acceptera det föreslagna valvnamnet eller ange en egen.
 7. Ange eller skapa en resursgrupp som valvet kommer att finnas. Resource group valvet kan skilja sig från resursgrupp för virtuell dator.
 
-    ![Aktivera säkerhetskopiering för en virtuell dator](./media/backup-during-vm-creation/enable-backup.png) 
+    ![Aktivera säkerhetskopiering för en virtuell dator](./media/backup-during-vm-creation/enable-backup.png)
 
 8. Acceptera standardprincip för säkerhetskopiering eller ändra inställningarna.
-    - En princip för säkerhetskopiering anger hur ofta du vill ta ögonblicksbilder av säkerhetskopior för den virtuella datorn och hur lång tid att göra dessa säkerhetskopior. 
+    - En princip för säkerhetskopiering anger hur ofta du vill ta ögonblicksbilder av säkerhetskopior för den virtuella datorn och hur lång tid att göra dessa säkerhetskopior.
     - Standardprincipen säkerhetskopierar den virtuella datorn en gång om dagen.
     - Du kan anpassa dina egna princip för säkerhetskopiering för en Azure virtuell dator att göra säkerhetskopior dagliga och veckovisa.
     - [Läs mer](backup-azure-vms-introduction.md#backup-and-restore-considerations) om backup-överväganden för virtuella Azure-datorer.
     - [Läs mer](backup-instant-restore-capability.md) om ögonblicket återställningsfunktionen.
 
-      ![Standardprincip för säkerhetskopiering](./media/backup-during-vm-creation/daily-policy.png) 
+      ![Standardprincip för säkerhetskopiering](./media/backup-during-vm-creation/daily-policy.png)
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopiering när du har skapat den virtuella datorn 
+> [!NOTE]
+> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i *Behåll omedelbar återställning ögonblicksbild* i principen för säkerhetskopiering av Azure virtuella datorer.  Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.
 
-Säkerhetskopiering av virtuella datorer körs i enlighet med din princip för säkerhetskopiering. Vi rekommenderar dock att du kör någon säkerhetskopia. 
+
+## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopiering när du har skapat den virtuella datorn
+
+Säkerhetskopiering av virtuella datorer körs i enlighet med din princip för säkerhetskopiering. Vi rekommenderar dock att du kör någon säkerhetskopia.
 
 När den virtuella datorn har skapats kan du göra följande:
 
 1. I virtuella datorns egenskaper klickar du på **Backup**. Virtuella datorns status är inledande säkerhetskopiering väntar tills den första säkerhetskopieringen körs
 2. Klicka på **Säkerhetskopiera nu** att köra en säkerhetskopiering på begäran.
 
-    ![Köra en säkerhetskopiering på begäran](./media/backup-during-vm-creation/run-backup.png) 
+    ![Köra en säkerhetskopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använda Resource Manager-mall för att distribuera en skyddad virtuell dator
 
@@ -70,11 +74,11 @@ Föregående steg beskriver hur du använder Azure-portalen för att skapa en vi
 
 
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har skyddat den virtuella datorn, lär du dig hur du hanterar och återställa dem.
 
-- [Hantera och övervaka virtuella datorer](backup-azure-manage-vms.md) 
-- [Återställa virtuell dator](backup-azure-arm-restore-vms.md) 
+- [Hantera och övervaka virtuella datorer](backup-azure-manage-vms.md)
+- [Återställa virtuell dator](backup-azure-arm-restore-vms.md)
 
 Om du får problem, [granska](backup-azure-vms-troubleshoot.md) felsökningsguiden.

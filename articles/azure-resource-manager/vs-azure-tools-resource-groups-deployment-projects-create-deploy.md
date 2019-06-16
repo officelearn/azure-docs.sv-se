@@ -1,5 +1,5 @@
 ---
-title: Projekt för Visual Studio Azure-resursgrupper | Microsoft Docs
+title: Skapa och distribuera grupprojekt i Visual Studio Azure-resurs
 description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4b54a1c234eb2211884fede1c059e4c20cda137e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053286"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -37,7 +37,7 @@ I det här avsnittet ska du skapa ett projekt för en Azure-resursgrupp med en m
     ![Projekt för molndistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Välj den mall som du vill distribuera till Azure Resource Manager. Observera att det finns många olika alternativ beroende på vilken typ av projekt som du vill distribuera. För den här artikeln väljer du mallen **Webbapp + SQL**.
    
-    ![Välj en mall](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
+    ![Välja en mall](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
     Mallen som du väljer är bara en startpunkt. Du kan lägga till och ta bort resurser som passar ditt scenario.
    

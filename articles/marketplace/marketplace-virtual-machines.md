@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937726"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
@@ -41,7 +41,7 @@ Kontakta oss på [amp testdrive](mailto:amp-testdrive@microsoft.com) att komma i
 |---------|---------|
 | Du har en Marketplace-app   |    En eller flera virtuella datorer via IaaS eller SaaS.      |
 
-## <a name="interactive-demo"></a>Interaktiv demo
+## <a name="interactive-demo"></a>Interactive Demo
 
 Du kan ange en guidad upplevelse av din lösning till dina kunder med hjälp av en interaktiv demonstration. Fördelen med Interaktiv demo publicera alternativet är att du anger en utvärderingsmiljö utan komplicerad etablering av din komplexa lösning. 
 

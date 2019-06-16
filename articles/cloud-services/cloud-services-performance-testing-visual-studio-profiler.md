@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128574"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda hos en molntjänst lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio Profiler
@@ -31,7 +31,7 @@ Du kanske också vill Profilera ditt program lokalt i beräkningsemulatorn innan
 Artikeln handlar om CPU-samplingsmetoden för profilering som kan göras lokalt i emulatorn. CPU-sampling är en metod för profilering som inte är mycket påträngande. Vid ett avsedda exempelintervall tar profiler en ögonblicksbild av anropsstacken. Data som samlas in under en viss tidsperiod och visas i en rapport. Profileringsmetoden tenderar att ange var i ett beräkningsintensivt program de flesta av CPU-arbetet sker.  Detta ger dig möjlighet att fokusera på den ”heta sökvägen” där ditt program ödslar mest tid.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för att profilera
-Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbar när Profileringen. Om du vill göra uppfattning om Profileringen rapporterna måste symboler (.pdb-filer) för ditt program och även symboler för-bibliotek. Du vill kontrollera att du hänvisar till de tillgängliga symbol-servrarna. Att göra detta på den **verktyg** i Visual Studio, Välj **alternativ**, välj sedan **Debugging**, sedan **symboler**. Se till att Microsoft Symbol-servrar visas **symbolen filplatser (.pdb)**.  Du kan också referera https://referencesource.microsoft.com/symbols, som kan ha andra filer.
+Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbar när Profileringen. Om du vill göra uppfattning om Profileringen rapporterna måste symboler (.pdb-filer) för ditt program och även symboler för-bibliotek. Du vill kontrollera att du hänvisar till de tillgängliga symbol-servrarna. Att göra detta på den **verktyg** i Visual Studio, Välj **alternativ**, välj sedan **Debugging**, sedan **symboler**. Se till att Microsoft Symbol-servrar visas **symbolen filplatser (.pdb)** .  Du kan också referera https://referencesource.microsoft.com/symbols, som kan ha andra filer.
 
 ![Symbolalternativ][4]
 

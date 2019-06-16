@@ -11,15 +11,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 01/30/2018
-ms.date: 07/02/2018
-ms.author: v-junlch
+ms.date: 01/30/2018
+ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 90e5c52c9efae7538308371a157b552d4e4d12ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831137"
 ---
 # <a name="azure-application-gateway-azure-cli-samples"></a>Azure Application Gateway Azure CLI-exempel
@@ -31,4 +30,3 @@ I följande tabell innehåller länkar till Azure CLI-skriptexempel som skapar p
 | [Hantera webbtrafik](./scripts/create-vmss-cli.md) | Skapar en Programgateway och alla relaterade resurser. |
 | [Begränsa webbtrafik](./scripts/create-vmss-waf-cli.md) | Skapar en Programgateway som begränsar trafik med hjälp av OWASP-regler.|
 | | |
-

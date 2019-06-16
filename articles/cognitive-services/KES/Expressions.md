@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815115"
 ---
 # <a name="structured-query-expression"></a>Strukturerade frågeuttryck
@@ -31,15 +31,15 @@ Ett attribut frågeuttryck identifierar en uppsättning objekt baserat på match
 
 | Typ | Åtgärd | Exempel |
 |------|-------------|------------|
-| String | lika med | Title='latent semantic analysis'  (canonical + synonyms) |
-| String | lika med | Author.Name=='susan t dumais (canonical endast)|
+| String | är lika med | Title='latent semantic analysis'  (canonical + synonyms) |
+| String | är lika med | Author.Name=='susan t dumais (canonical endast)|
 | String | starts_with | Title='latent s'... |
-| Double-Int32/Int64 | lika med | År = 2000 |
+| Double-Int32/Int64 | är lika med | År = 2000 |
 | Double-Int32/Int64 | starts_with | År = ”20”... (ett decimalvärde som börjar med ”20”) |
 | Double-Int32/Int64 | is_between | År&lt;2000 <br/> År&lt;= 2000 <br/> År&gt;2000 <br/> År&gt;= 2000 <br/> Year=[2010,2012) *(innehåller endast vänstra gränsens värde: 2010, 2011)* <br/> År = [2000,2012] *(omfattar både gränsvärden: 2010, 2011, 2012)* |
-| Date | lika med | BirthDate='1984-05-14' |
+| Date | är lika med | BirthDate='1984-05-14' |
 | Date | is_between | Födelsedatumet&lt;=' 2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
-| Guid | lika med | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
+| Guid | är lika med | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
 Till exempel uttrycket ”Title = 'latent s'...” matchar alla akademiska publikationer vars titeln börjar med strängen ”latent s”.  För att utvärdera det här uttrycket måste attributet rubrik ange ”starts_with”-åtgärden i schemat som används för att skapa indexet.

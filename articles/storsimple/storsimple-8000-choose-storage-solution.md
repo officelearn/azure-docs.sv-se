@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637509"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämför StorSimple med Azure File Sync och Data Box Edge alternativ för överföring 
@@ -28,7 +28,7 @@ Det här dokumentet innehåller en översikt över alternativ för att överför
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |Översikt         |Nivåer hybridlagring och arkivering|Allmän lagring på filserver med lagringsnivåer och flera platser molnsynkronisering.  |Lagringslösning att Förbearbeta data och skicka den via nätverket till Azure.        |
 |Scenarier        |Filservern, arkivering, säkerhetskopiering mål |Filservern, arkivering (flera platser)   |Dataöverföring, data före bearbetnings inklusive ML inferensjobb, IoT, arkivering    |
-|Databehandling på gränsenheter     |Inte tillgängligt |Inte tillgängligt |Stöder behållare med hjälp av Azure IoT Edge    |
+|Edge-beräkning     |Inte tillgängligt |Inte tillgängligt |Stöder behållare med hjälp av Azure IoT Edge    |
 |Formfaktor      |Fysisk enhet   |Agenten har installerats på Windows Server |Fysisk enhet   |
 |Maskinvara         |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Tillhandahållna av kunden |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
 |Dataformat      |Anpassat format   |Filer         |BLOB-objekt eller filer    |

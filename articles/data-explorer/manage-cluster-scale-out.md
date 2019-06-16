@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758678"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
@@ -32,7 +32,7 @@ Följande bild visar flödet av de kommande stegen. Mer information följer på 
 
 1. I den **namn på Autoskalningsinställning** ange ett namn, till exempel *skalbar: cachelagra användning*. 
 
-   ![Skalningsregel](media/manage-cluster-scaling/scale-rule.png)
+   ![Skalningsregeln](media/manage-cluster-scaling/scale-rule.png)
 
 2. För **Skalningsläge**väljer **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett specifikt instansantal**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS)
 
@@ -56,7 +56,7 @@ För att konfigurera integreringen av Symantec Web Security Service (WSS) med Az
 
 **Utför följande steg för att lägga till Symantec Web Security Service (WSS) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -68,7 +68,7 @@ För att konfigurera integreringen av Symantec Web Security Service (WSS) med Az
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Symantec Web Security Service (WSS)**, väljer **Symantec Web Security Service (WSS)** från resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Symantec Web Security Service (WSS)** , väljer **Symantec Web Security Service (WSS)** från resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
      ![Symantec Web Security Service (WSS) i resultatlistan](common/search-new-app.png)
 
@@ -152,7 +152,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att ge åtkomst till Symantec Web Security Service (WSS).
 
-1. På Azure-portalen väljer du **Företagsprogram**, väljer **Alla program** och väljer sedan **Symantec Web Security Service (WSS)**.
+1. På Azure-portalen väljer du **Företagsprogram**, väljer **Alla program** och väljer sedan **Symantec Web Security Service (WSS)** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -193,5 +193,5 @@ När du har konfigurerat din webbläsare för proxy-trafik till WSS omdirigeras 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

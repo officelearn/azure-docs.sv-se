@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575567"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtuell installation scenario
@@ -42,11 +42,11 @@ Lösningen nedan använder virtuella installationer i brandväggen för att impl
 ## <a name="considerations"></a>Överväganden
 Du kan distribuera den miljö som beskrivs ovan i Azure med hjälp av olika funktioner som är tillgängliga idag, enligt följande.
 
-* **Virtuellt nätverk (VNet)**. Ett virtuellt Azure nätverk fungerar på liknande sätt till lokala nätverk och kan segmenteras i en eller flera undernät för att tillhandahålla trafikisolering och inkapsling av problem.
+* **Virtuellt nätverk (VNet)** . Ett virtuellt Azure nätverk fungerar på liknande sätt till lokala nätverk och kan segmenteras i en eller flera undernät för att tillhandahålla trafikisolering och inkapsling av problem.
 * **Virtuell installation**. Flera partner ger virtuella installationer i Azure Marketplace som kan användas för tre brandväggar som beskrivs ovan. 
-* **Användardefinierade vägar (UDR)**. Routningstabeller kan innehålla udr: er som används av Azure-nätverk för att styra flödet av paket i ett virtuellt nätverk. Dessa routningstabeller kan tillämpas på undernät. En av de senaste funktionerna i Azure är möjligheten att använda en routningstabell till GatewaySubnet, ger möjligheten att vidarebefordra all trafik som kommer till Azure VNet från en hybridanslutning till en virtuell installation.
+* **Användardefinierade vägar (UDR)** . Routningstabeller kan innehålla udr: er som används av Azure-nätverk för att styra flödet av paket i ett virtuellt nätverk. Dessa routningstabeller kan tillämpas på undernät. En av de senaste funktionerna i Azure är möjligheten att använda en routningstabell till GatewaySubnet, ger möjligheten att vidarebefordra all trafik som kommer till Azure VNet från en hybridanslutning till en virtuell installation.
 * **IP-vidarebefordring**. Som standard Azure networking motorn vidarebefordra paket till virtuella nätverkskort (NIC) endast om målets IP-adress för paketet matchar NIC IP-adress. Om en UDR definierar att ett paket måste skickas till en viss virtuell installation, skulle därför Azure networking motorn släppa paketets. För att säkerställa att paketet skickas till en virtuell dator (i det här fallet en virtuell installation) som inte är det faktiska målet för paketet, måste du aktivera IP-vidarebefordran för den virtuella installationen.
-* **Nätverkssäkerhetsgrupper (NSG)**. Exemplet nedan gör inte användning av NSG: er, men du kan använda NSG: er som tillämpas på undernät och/eller nätverkskort i den här lösningen för att ytterligare filtrera trafik in och ut från dessa undernät och nätverkskort.
+* **Nätverkssäkerhetsgrupper (NSG)** . Exemplet nedan gör inte användning av NSG: er, men du kan använda NSG: er som tillämpas på undernät och/eller nätverkskort i den här lösningen för att ytterligare filtrera trafik in och ut från dessa undernät och nätverkskort.
 
 ![IPv6-anslutning](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 

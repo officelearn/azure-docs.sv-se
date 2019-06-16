@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9081e2962a225f15b64545b1db7aa18538a20b22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Självstudier: Azure Active Directory-integrering med Nuclino
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Nuclino i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Nuclino från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Nuclino
 
     ![Nuclino konfiguration](./media/nuclino-tutorial/configure4.png)
 
-    a. Välj **SAML-baserad enkel inloggning (SSO)**.
+    a. Välj **SAML-baserad enkel inloggning (SSO)** .
 
     b. Kopiera **ACS URL (du måste kopiera och klistra in det till din provider för enkel inloggning)** värde och klistra in den i den **svars-URL** textrutan för den **SAML grundkonfiguration** avsnitt i Azure portalen.
 
@@ -195,7 +195,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Nuclino
 
     e. I den **entitets-ID** textrutan klistra in den **Azure AD-identifierare** värde som du har kopierat från Azure-portalen.
 
-    f. Öppna den nedladdade **Certificate(Base64)**-filen i Anteckningar. Kopiera innehållet i den till Urklipp och klistra in den till den **offentligt certifikat** textrutan.
+    f. Öppna den nedladdade **Certificate(Base64)** -filen i Anteckningar. Kopiera innehållet i den till Urklipp och klistra in den till den **offentligt certifikat** textrutan.
 
     g. Klicka på **SPARA ÄNDRINGAR** för att spara ändringarna.
 
@@ -269,5 +269,5 @@ När du klickar på panelen Nuclino i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

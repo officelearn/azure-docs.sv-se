@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
 ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620695"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
-Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner:
+Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner omfattar:
 
 - **Förebyggande**. Ett extra lager av autentisering har lagts till när en kritisk åtgärd som ändrar en lösenfras utförs. Den här verifieringen är att säkerställa att sådana åtgärder kan bara utföras av användare som har giltiga autentiseringsuppgifter för Azure.
 - **Aviseringar**. Ett e-postmeddelande skickas till administratören för prenumeration när en kritisk åtgärd som tar bort säkerhetskopierade data utförs. Det här e-garanterar att användaren ska snabbt meddelas om sådana åtgärder.
@@ -50,7 +50,7 @@ Om du skapar ett Recovery Services-valv, kan du använda alla säkerhetsfunktion
     ![Skärmbild av Recovery Services-valvegenskaper](./media/backup-azure-security-feature/security-settings-update.png)
 
     Uppdateringslänken öppnas den **säkerhetsinställningar** blad som innehåller en sammanfattning av funktionerna och du kan aktivera dem.
-5. Från den nedrullningsbara listan **har du konfigurerat Azure Multi-Factor Authentication?**, Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktiverad, uppmanas du att autentisera från en annan enhet (till exempel en mobiltelefon) när du loggar in på Azure Portal.
+5. Från den nedrullningsbara listan **har du konfigurerat Azure Multi-Factor Authentication?** , Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktiverad, uppmanas du att autentisera från en annan enhet (till exempel en mobiltelefon) när du loggar in på Azure Portal.
 
    Du måste ange en säkerhetskod, tillgängliga på Azure portal när du utför kritiska åtgärder i säkerhetskopian. Aktivera Azure Multi-Factor Authentication lägger till ett lager av säkerhet. Endast behöriga användare med giltiga autentiseringsuppgifter för Azure och autentiseras från en andra enhet kan komma åt Azure-portalen.
 6. Välj för att spara säkerhetsinställningar **aktivera** och klicka på **spara**. Du kan välja **aktivera** bara när du har valt ett värde från den **har du konfigurerat Azure Multi-Factor Authentication?** lista i föregående steg.
@@ -110,7 +110,7 @@ Säkerhetsfunktioner som nämns i den här artikeln har funktioner för skydd mo
 | --- | --- | --- |
 | Ändring av |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak:**<br/>Det här felet är när säkerhetsinställningar har aktiverats, försök att minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du har en version som inte stöds (versioner som stöds anges i första anteckna den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ange kvarhållningsperiod ovanför den minsta Kvarhållningsintervall angiven tidsperiod (sju dagar för varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) relaterade uppdateringar att fortsätta med principen. Du kan också är önskad metod att uppdatera backup-agenten, Azure Backup Server och/eller DPM UR utnyttja alla säkerhetsuppdateringar. |
 | Ändra lösenfras |Säkerhetskoden är felaktig. (ID: 100130) Ange rätt SÄKERHETSKOD för att slutföra åtgärden. |**Orsak:**<br/> Det här felet kommer när du anger ogiltiga eller utgångna SÄKERHETSKODEN under kritiska åtgärd (t.ex. Ändra lösenfras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange giltiga SÄKERHETSKODEN för att slutföra åtgärden. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
-| Ändra lösenfras |Åtgärden kunde inte utföras. ID: 120002 |**Orsak:**<br/>Det här felet kommer när säkerhetsinställningar har aktiverats, försök att ändra lösenfras och du har en version som inte stöds (giltigt versioner som anges i första anteckna den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösenfras måste du först uppdatera backup-agenten till minimiversion minsta 2.0.9052, Azure Backup server till minsta update 1, och/eller att DPM ska minsta DPM 2012 R2 UR12 eller DPM 2016 UR2 (download länkarna nedan), och ange sedan giltig säkerhets-PIN. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
+| Ändra lösenfras |Åtgärden misslyckades. ID: 120002 |**Orsak:**<br/>Det här felet kommer när säkerhetsinställningar har aktiverats, försök att ändra lösenfras och du har en version som inte stöds (giltigt versioner som anges i första anteckna den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösenfras måste du först uppdatera backup-agenten till minimiversion minsta 2.0.9052, Azure Backup server till minsta update 1, och/eller att DPM ska minsta DPM 2012 R2 UR12 eller DPM 2016 UR2 (download länkarna nedan), och ange sedan giltig säkerhets-PIN. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kom igång med Azure Recovery Services-valv](backup-azure-vms-first-look-arm.md) att aktivera dessa funktioner.

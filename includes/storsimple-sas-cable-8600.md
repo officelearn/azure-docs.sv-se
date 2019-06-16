@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155912"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Att koppla SAS-kablar
@@ -45,8 +45,8 @@ ms.locfileid: "66155912"
       |:--- |:--- |
       | A |Primär hölje |
       | B |EBOD hölje |
-      | 1 |Kontrollenhet 0 |
-      | 2 |Kontrollenhet 1 |
+      | 1 |Kontrollant 0 |
+      | 2 |Kontrollant 1 |
       | 3 |EBOD-kontrollanten 0 |
       | 4 |EBOD-kontrollanten 1 |
       | 5, 6 |SAS-portar på primära hölje (EBOD märkta) |

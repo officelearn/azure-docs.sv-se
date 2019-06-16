@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826519"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
@@ -42,13 +42,13 @@ Händelserutnät använder [händelseprenumerationer](../../event-grid/concepts.
 ## <a name="event-schema"></a>Händelseschema
 BLOB storage-händelser innehåller all information du behöver för att svara på ändringar i dina data.  Du kan identifiera en händelse för Blob-lagring eftersom egenskapen händelsetyp börjar med ”Microsoft.Storage”. Mer information om användningen av egenskaper för Event Grid-händelse dokumenteras i [Event Grid Händelseschema](../../event-grid/event-schema.md).  
 
-> |Egenskap |Typ|Beskrivning|
+> |Egenskap|Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |ämne|string|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
-> |ämne|string|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
+> |topic|string|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
+> |topic|string|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
 > |eventTime|string|Datum/tid som händelsen har genererats i ISO 8601-format|
-> |Händelsetyp|string|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
-> |ID|string|Unik identifierare om den här händelsen|
+> |eventType|string|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
+> |Id|string|Unik identifierare om den här händelsen|
 > |dataVersion|string|Dataobjektets schemaversion.|
 > |metadataVersion|string|Schemaversion för översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|

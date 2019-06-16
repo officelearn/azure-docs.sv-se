@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545528"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services-telemetri  
@@ -74,7 +74,7 @@ Det här ger många vanliga frågor för att effektivt:
 
 Dessa data lagras i samlingen i en tabell, ”TelemetryMetrics20160321” där ”20160321” är datumet för den skapade tabellen. Telemetrisystem skapar en separat tabell för varje ny dag baserat på 00:00 UTC. Tabellen används för att lagra återkommande värden som matar in bithastighet inom en viss period av tid, skickade byte osv. 
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|{account ID} _ {entitets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Konto-ID är inkluderat i partitionsnyckel för att förenkla arbetsflöden där flera Media Services-konton skriver till samma lagringskonto.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>Radnyckeln börjar med antalet sekunder till midnatt att tillåta övre n style frågor inom en partition. Mer information finns i [den här artikeln](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
@@ -95,7 +95,7 @@ Det finns tre typer av entiteter telemetriska dataposter vidare med följande fr
 
 **Slutpunkt för direktuppspelning**
 
-Egenskap |Värde|Exempel
+Egenskap|Värde|Exempel
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -114,7 +114,7 @@ E2ELatency|Genomsnittlig svarstid för slutpunkt till slutpunkt|250
 
 **Live channel**
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -139,7 +139,7 @@ Felfri|SANT, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCo
 
 **Live-arkivet**
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

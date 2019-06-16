@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002629"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
@@ -938,7 +938,7 @@ Här följer några riktlinjer ska användas när du skapar anpassade parameterf
 
 ### <a name="explanation"></a>Förklaring:
 
-#### <a name="pipelines"></a>Rörledningar
+#### <a name="pipelines"></a>Pipelines
     
 * Alla egenskaper i sökvägen aktiviteter/typeProperties/waitTimeInSeconds parametriserade. Detta innebär att alla aktiviteter i en pipeline med en kod på servernivå egenskap med namnet `waitTimeInSeconds` (till exempel den `Wait` aktivitet) är som innehåller parametrar som ett tal med ett standardnamn. Men det kommer inte ha ett standardvärde i Resource Manager-mallen. Det är en obligatorisk indata under Resource Manager-distribution.
 * På samma sätt kan en egenskap som kallas `headers` (till exempel i en `Web` aktivitet) parameteriserat med typen `object` (JObject). Den har ett standardvärde, vilket är samma värde som källa fabriken.
@@ -958,7 +958,7 @@ Här följer några riktlinjer ska användas när du skapar anpassade parameterf
 * I föregående exempel, den `connectionString` egenskapen kommer parametriseras som en `securestring` värde, den inte har något standardvärde och den har en förkortade parameternamnet som suffix med `connectionString`.
 * Egenskapen `secretAccessKey`, men råkar vara en `AzureKeyVaultSecret` (till exempel en `AmazonS3` länkad tjänst). Därför är automatiskt innehåller parametrar som en Azure Key Vault-hemlighet och hämtas från nyckelvalvet som den är konfigurerad med i käll-factory. Du kan också Parameterisera nyckelvalvet, sig själv.
 
-#### <a name="datasets"></a>Datamängder
+#### <a name="datasets"></a>Datauppsättningar
 
 * Även om typspecifika anpassning är tillgänglig för datauppsättningar konfiguration kan tillhandahållas utan uttryckligen en \*-konfiguration på nivå. I föregående exempel, alla egenskaper för datamängd under `typeProperties` parametriseras.
 

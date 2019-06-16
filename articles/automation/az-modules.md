@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a45a1fbe0d7a99c970d6f8f5626c1349f9d8b1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123703"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Stöd för AZ-modulen i Azure Automation
 
@@ -63,7 +63,7 @@ Den här importen kan även göras via den [PowerShell-galleriet](https://www.po
 
 ## <a name="test-your-runbooks"></a>Testa dina runbooks
 
-När den `Az` importeras moduler i ditt Automation-konto, du kan nu börja redigera dina runbooks för att använda Az-modulen i stället. Flesta av cmdletarna som har samma namn utom för `AzureRM` har ändrats till `Az`. En lista med moduler som inte följer den här processen finns i [listan över undantag](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+När den `Az` importeras moduler i ditt Automation-konto, du kan nu börja redigera dina runbooks för att använda Az-modulen i stället. Flesta av cmdletarna som har samma namn utom för `AzureRM` har ändrats till `Az`. En lista med moduler som inte följer den här processen finns i [listan över undantag](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 Ett sätt att testa runbooks innan du ändrar din runbook för att använda de nya cmdletarna är med hjälp av `Enable-AzureRMAlias -Scope Process` i början av en runbook. Genom att lägga till det i din runbook, kan din runbook köras utan ändringar.
 

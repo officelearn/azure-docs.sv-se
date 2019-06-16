@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388650"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
@@ -178,7 +178,7 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
    1. Klicka på **lägga till databaser** att se en lista över databaser på den server som kan läggas till *Pool2*.
    1. Välj 10 databaser att flytta dem till den nya poolen och klickar sedan på **Välj**. Om du har kört belastningsgeneratorn, vet tjänsten redan att profilen prestanda kräver en pool som är större än 50 eDTU standardstorleken och rekommenderar att du börjar med en 100 eDTU-inställningen.
 
-      ![rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Rekommendationen](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. Låt standardvärdet på 50 edtu: er i den här självstudien och klicka på **Välj** igen.
    1. Välj **OK** att skapa den nya poolen och flytta de valda databaserna till den.

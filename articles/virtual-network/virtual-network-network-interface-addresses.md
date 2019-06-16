@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506381"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
@@ -51,7 +51,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 4. Under **IP-konfigurationer**väljer **+ Lägg till**.
 5. Anger du följande och välj sedan **OK**:
 
-   |Inställning|Obligatorisk?|Information|
+   |Inställning|Krävs?|Information|
    |---|---|---|
    |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
    |Typ|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
@@ -61,7 +61,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Lägg till AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
@@ -82,7 +82,7 @@ Du kanske måste ändra tilldelningsmetoden för en IPv4-adress ändra statiska 
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
@@ -98,7 +98,7 @@ Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från e
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
@@ -143,14 +143,14 @@ Det finns scenarier där det är nödvändigt att ange IP-adressen för ett nät
 1. Se till att den virtuella datorn tar emot en adress från Azure DHCP-servrar. När du har kan du ändra tilldelningen av IP-adressen till DHCP i operativsystemet och starta om den virtuella datorn.
 2. Stoppa (frigöra) den virtuella datorn.
 3. Ändra IP-adress för IP-konfiguration i Azure.
-4. Startar den virtuella datorn.
+4. Starta den virtuella datorn.
 5. [Konfigurera manuellt](virtual-network-multiple-ip-addresses-portal.md#os-config) sekundära IP-adresser inom operativsystemet (och även den primära IP-adressen i Windows) så att de matchar vad du ställer in i Azure.
 
 Genom att följa förblir de här stegen, privata IP-adress tilldelas till nätverksgränssnitt i Azure och inom en virtuell dators operativsystem, desamma. Om du vill hålla reda på vilka virtuella datorer i din prenumeration som du har angett IP-adresser inom ett operativsystem för manuellt, Överväg att lägga till en Azure [taggen](../azure-resource-manager/resource-group-using-tags.md) till de virtuella datorerna. Du kan använda ”IP-adresstilldelning: Statisk ”, till exempel. På så sätt kan du lätt kan hitta de virtuella datorerna i din prenumeration som du har ställt in manuellt IP-adress för operativsystemet.
 
 Förutom att aktivera en virtuell dator ska kunna kommunicera med andra resurser i samma eller anslutna virtuella nätverk, kan en privat IP-adress också en virtuell dator kommunicera utgående till Internet. Utgående anslutningar är adress källnätverket översättas av Azure till en oförutsägbara offentliga IP-adress. Om du vill veta mer om Azure utgående Internet-anslutning kan du läsa den [Azure utgående Internet-anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. Du kan inte kommunicera inkommande från Internet till en virtuell dators privata IP-adress. Om din utgående anslutningar kräver en förutsägbar offentliga IP-adress kan du associera en offentlig IP-adressresurs till ett nätverksgränssnitt.
 
-### <a name="public"></a>Offentlig
+### <a name="public"></a>Offentligt
 
 Offentliga IP-adresser som tilldelats via en offentlig IP-adressresurs aktivera inkommande anslutningar till en virtuell dator från Internet. Utgående anslutningar till Internet använder en förutsägbar IP-adress. Se [förstå utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mer information. Du kan tilldela en offentlig IP-adress till en IP-konfiguration, men inte behöver. Om du inte tilldelar en offentlig IP-adress till en virtuell dator genom att associera en offentlig IP-adressresurs, kan den virtuella datorn fortfarande kommunicera utgående till Internet. I det här fallet är den privata IP-adressen adress källnätverket översättas av Azure till en oförutsägbara offentliga IP-adress. Läs mer om offentliga IP-adressresurser i [offentliga IP-adressresurs](virtual-network-public-ip-address.md).
 
@@ -194,7 +194,7 @@ Du kan tilldela noll eller en privat [IPv6](#ipv6) adress till en sekundär IP-k
 
 Du kan inte tilldela en offentlig IPv6-adress till en primär eller sekundär IP-konfigurationen.
 
-## <a name="skus"></a>SKU:er
+## <a name="skus"></a>SKUs
 
 En offentlig IP-adress har skapats med basic eller standard-SKU. Mer information om skillnaderna mellan SKU finns i [hantera offentliga IP-adresser](virtual-network-public-ip-address.md).
 
@@ -204,7 +204,7 @@ En offentlig IP-adress har skapats med basic eller standard-SKU. Mer information
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar för att skapa en virtuell dator med olika IP-konfigurationer:
 
-|Uppgift|Verktyg|
+|Aktivitet|Verktyget|
 |---|---|
 |Skapa en virtuell dator med flera nätverksgränssnitt|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

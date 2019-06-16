@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989262"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Konfigurera enkel inloggning till icke-galleriprogram i Microsoft identity-plattformen
@@ -54,7 +54,7 @@ Om du vill ansluta ett program som inte finns i listan med hjälp av en mall fö
 3. (Valfritt men rekommenderas) I den **Lägg till från galleriet** sökrutan, ange visningsnamnet för programmet. Om programmet visas i sökresultaten, markera den och hoppa över resten av den här proceduren.
 4. Välj **icke-galleriprogram**. Den **lägga till ditt eget program** visas.
 
-   ![Lägg till program](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+   ![Lägga till ett program](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
 5. Ange visningsnamnet för det nya programmet.
 6. Välj **Lägg till**.
 
@@ -125,7 +125,7 @@ Följande två fält är obligatoriska:
 
 Följande tre fält är valfria:
 
-- **Inloggnings-URL (SP-initierat endast)**. Det här värdet anger där användaren går för att logga in på det här programmet. Om programmet utför SP-initierad SSO, och utför när en användare navigerar till den här URL: en, SP nödvändiga omdirigering till Azure AD för att autentisera och loggar in användaren. Om du anger det här fältet, använder Azure AD URL: en för att starta program från Office 365 och Azure AD-åtkomstpanelen. Om du utelämnar det här fältet Azure AD i stället utför IdP-initierad inloggning under programstarter från Office 365, Azure AD-åtkomstpanelen eller Azure AD SSO-URL: en (som du kan kopiera från den **instrumentpanelen** sida).
+- **Inloggnings-URL (SP-initierat endast)** . Det här värdet anger där användaren går för att logga in på det här programmet. Om programmet utför SP-initierad SSO, och utför när en användare navigerar till den här URL: en, SP nödvändiga omdirigering till Azure AD för att autentisera och loggar in användaren. Om du anger det här fältet, använder Azure AD URL: en för att starta program från Office 365 och Azure AD-åtkomstpanelen. Om du utelämnar det här fältet Azure AD i stället utför IdP-initierad inloggning under programstarter från Office 365, Azure AD-åtkomstpanelen eller Azure AD SSO-URL: en (som du kan kopiera från den **instrumentpanelen** sida).
 
 - **Vidarebefordransstatus**. Du kan ange ett relay-tillstånd i SAML som instruerar programmet var användare ska omdirigeras efter autentisering. Värdet är vanligtvis en URL eller URL: en sökväg som tar användare till en specifik plats i programmet.
 
@@ -183,7 +183,7 @@ Tilldela en ny användare eller grupp i ditt program:
 
 1. I program-sidopanelen väljer **användare och grupper**. Den  **\<programnamn >-användare och grupper** visas, som visar den aktuella listan över tilldelade användare och grupper.
 2. Välj **lägga till användare**. Den **lägga till tilldelningar** visas.
-3. Välj **användare och grupper (\<Number > valda)**. Den **användare och grupper** visas, som visar en lista över tillgängliga användare och grupper.
+3. Välj **användare och grupper (\<Number > valda)** . Den **användare och grupper** visas, som visar en lista över tillgängliga användare och grupper.
 4. Skriv eller Bläddra för att hitta användaren eller gruppen som du vill tilldela i listan.
 5. Välj alla användare eller grupp som du vill lägga till och välj sedan den **Välj** knappen. Den **användare och grupper** sidan försvinner.
 6. I den **lägga till tilldelningar** väljer **tilldela**. Den  **<application name> -användare och grupper** visas med ytterligare användare visas i listan.

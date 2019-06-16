@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 68bcd2b1916ccdf68eaa31ed251661a6b7e1bca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704125"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Hantera säkerhetsincidenter i Azure Security Center
@@ -32,7 +32,7 @@ I Security Center är en säkerhetsincident en sammanställning av alla aviserin
 ## <a name="managing-security-incidents"></a>Hantera säkerhetsincidenter
 Du kan se aktuella säkerhetsincidenter på panelen för säkerhetsaviseringar. Öppna Azure Portal och följ stegen nedan om du vill ha mer information om varje säkerhetsincident:
 
-1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
+1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)** .
 
     ![Panelen Säkerhetsaviseringar i Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 

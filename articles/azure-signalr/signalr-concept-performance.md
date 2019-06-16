@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
 ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269508"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Prestandaguide för Azure SignalR Service
@@ -122,14 +122,14 @@ Gör *inte* överskrider de markerade värdena i följande två tabeller.
 
 |       echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar                       | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar                       | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | **Inkommande bandbredd** | **2 Mbit/s**    | **4 Mbit/s**    | **10 Mbit/s**   | **20 Mbit/s**    | **40 Mbit/s**    | **100 Mbit/s**   | **200 Mbit/s**    |
 | Utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 Mbit/s   | 40 Mbit/s   | 100 Mbit/s  | 200 Mbit/s   |
 
 
 |     Sändning             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000  | 100 000 |
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000  | 100,000 |
 | Inkommande bandbredd  | 4 kbit/s   | 4 kbit/s   | 4 kbit/s    | 4 kbit/s    | 4 kbit/s    | 4 kbit/s     | 4 kbit/s    |
 | **Utgående bandbredd** | **4 Mbit/s**    | **8 Mbit/s**    | **20 Mbit/s**    | **40 Mbit/s**    | **80 Mbit/s**    | **200 Mbit/s**    | **400 Mbit/s**   |
 
@@ -159,7 +159,7 @@ I följande tabell visas en verkliga exempel med **sändning**. Men meddelandest
 
 | Sändning  | Meddelandestorlek | Inkommande meddelanden per sekund | Anslutningar | Skicka intervall |
 |---|---------------------|--------------------------|-------------|-------------------------|
-| 1 | 20 KB                | 1                        | 100 000     | 5 SEK.                      |
+| 1 | 20 KB                | 1                        | 100,000     | 5 SEK.                      |
 | 2 | 256 kB               | 1                        | 8,000       | 5 SEK.                      |
 
 Formeln är enkelt att härleda baserat på den föregående formeln:
@@ -213,8 +213,8 @@ Beteendet för **echo** anger att den inkommande maximal bandbredden är lika me
 
 |       echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar                       | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
-| Inkommande/utgående meddelanden per sekund | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar                       | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
+| Inkommande/utgående meddelanden per sekund | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Inkommande/utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 Mbit/s   | 40 Mbit/s   | 100 Mbit/s  | 200 Mbit/s   |
 
 I det här användningsfallet anropar varje klient hubben som definierats i app-servern. Hubben anropar bara den metod som definierats i ursprungliga klientsidan. Den här hubben är den mest lightweight hubben för **echo**.
@@ -231,7 +231,7 @@ I det här användningsfallet anropar varje klient hubben som definierats i app-
 
 |    echo          | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,9 +249,9 @@ I följande tabell sammanfattas maximala klientanslutningar, antal inkommande/ut
 
 |     Sändning             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000  | 100 000 |
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000  | 100,000 |
 | Inkommande meddelanden per sekund  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100 000 | 200 000 |
+| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100,000 | 200 000 |
 | Inkommande bandbredd  | 4 kbit/s   | 4 kbit/s   | 4 kbit/s    | 4 kbit/s    | 4 kbit/s    | 4 kbit/s     | 4 kbit/s     |
 | Utgående bandbredd | 4 Mbit/s   | 8 Mbit/s   | 20 Mbit/s   | 40 Mbit/s   | 80 Mbit/s   | 200 Mbit/s   | 400 Mbit/s   |
 
@@ -259,7 +259,7 @@ Broadcasting klienter som skickar meddelanden finns mer än fyra. De behöver f�
 
 |   Sändning      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -287,9 +287,9 @@ Routning kostnaden är viktiga för att skicka meddelandet till många små grup
 
 |   Skicka till liten grupp     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000 | 100 000
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000 | 100,000
 | Antal medlemmar för gruppen        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Antalet               | 100   | 200   | 500    | 1,000  | 2,000  | 5 000  | 10 000 
+| Antalet               | 100   | 200   | 500    | 1,000  | 2,000  | 5,000  | 10 000 
 | Inkommande meddelanden per sekund  | 200   | 400   | 1,000  | 2,500  | 4,000  | 7,000  | 7,000   |
 | Inkommande bandbredd  | 400 kbit/s  | 800 kbit/s  | 2 Mbit/s     | 5 Mbit/s     | 8 Mbit/s     | 14 Mbit/s    | 14 Mbit/s     |
 | Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 25,000 | 40,000 | 70,000 | 70,000  |
@@ -299,7 +299,7 @@ Många klientanslutningar anropar hubben, så att servern appnumret är viktigt 
 
 |  Skicka till liten grupp   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,19 +311,19 @@ För **skicka till stor grupp**, utgående bandbredd blir flaskhalsen innan trä
 
 |    Skicka till stor grupp      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000  | 100 000
-| Antal medlemmar för gruppen        | 100   | 200   | 500    | 1,000  | 2,000  | 5 000   | 10 000 
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000  | 100,000
+| Antal medlemmar för gruppen        | 100   | 200   | 500    | 1,000  | 2,000  | 5,000   | 10 000 
 | Antalet               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Inkommande meddelanden per sekund  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Inkommande bandbredd  | 80 kbit/s   | 40 kbit/s   | 40 kbit/s    | 20 kbit/s    | 40 kbit/s    | 40 kbit/s     | 40 kbit/s     |
-| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100 000 | 200 000 |
+| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100,000 | 200 000 |
 | Utgående bandbredd | 8 Mbit/s    | 8 Mbit/s    | 20 Mbit/s    | 40 Mbit/s    | 80 Mbit/s    | 200 Mbit/s    | 400 Mbit/s    |
 
 Skicka anslutningsräknare är fler än 40. Belastningen på app-servern är liten, så det föreslagna antalet webbprogram är liten.
 
 |  Skicka till stor grupp  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ I följande tabell är en statistisk sammanfattning när du har många Rundar av
 
 |   Skicka till anslutning   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| Anslutningar                        | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000          | 100 000         |
-| Inkommande/utgående meddelanden per sekund | 1,000 | 2,000 | 5 000 | 8,000  | 9,000  | 20,000 | 20,000 |
+| Anslutningar                        | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000          | 100,000         |
+| Inkommande/utgående meddelanden per sekund | 1,000 | 2,000 | 5,000 | 8,000  | 9,000  | 20,000 | 20,000 |
 | Inkommande/utgående bandbredd | 2 Mbit/s    | 4 Mbit/s    | 10 Mbit/s   | 16 Mbit/s    | 18 Mbit/s    | 40 Mbit/s       | 40 Mbit/s       |
 
 Det här användningsfallet kräver hög belastning på serversidan för appen. Se föreslagna appservern antal i tabellen nedan.
 
 |  Skicka till anslutning  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ Följande tabell innehåller antalet föreslagna web app för ASP.NET SignalR **
 
 |   echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 Följande tabell innehåller antalet föreslagna web app för ASP.NET SignalR **sändning**.
 
 |  Sändning       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 Följande tabell innehåller antalet föreslagna web app för ASP.NET SignalR **skicka till liten grupp**.
 
 |  Skicka till liten grupp     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Anslutningar      | 1,000 | 2,000 | 5 000 | 10 000 | 20,000 | 50,000 | 100 000 |
+| Anslutningar      | 1,000 | 2,000 | 5,000 | 10 000 | 20,000 | 50,000 | 100,000 |
 | Antal för App-servrar | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Serverlös läge
@@ -397,9 +397,9 @@ Alla klienter upprätta WebSocket-anslutningar med Azure SignalR Service. Vissa 
 
 |   Skicka via REST-API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000  | 100 000 |
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000  | 100,000 |
 | Inkommande meddelanden per sekund  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100 000 | 200 000 |
+| Utgående meddelanden per sekund | 2,000 | 4,000 | 10 000 | 20,000 | 40,000 | 100,000 | 200 000 |
 | Inkommande bandbredd  | 4 kbit/s    | 4 kbit/s    | 4 kbit/s     | 4 kbit/s     | 4 kbit/s     | 4 kbit/s      | 4 kbit/s      |
 | Utgående bandbredd | 4 Mbit/s    | 8 Mbit/s    | 20 Mbit/s    | 40 Mbit/s    | 80 Mbit/s    | 200 Mbit/s    | 400 Mbit/s    |
 
@@ -408,7 +408,7 @@ Benchmark tilldelar användarnamn till alla klienter innan de börjar ansluter t
 
 |   Skicka till användaren via REST-API | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Anslutningar               | 1,000 | 2,000 | 5 000  | 10 000 | 20,000 | 50,000  | 100 000 |
+| Anslutningar               | 1,000 | 2,000 | 5,000  | 10 000 | 20,000 | 50,000  | 100,000 |
 | Inkommande meddelanden per sekund  | 300   | 600   | 900    | 1,300  | 2,000  | 10 000  | 18,000  |
 | Utgående meddelanden per sekund | 300   | 600   | 900    | 1,300  | 2,000  | 10 000  | 18,000 |
 | Inkommande bandbredd  | 600 kbit/s  | 1.2 Mbit/s  | 1.8 Mbit/s   | 2.6 Mbit/s   | 4 Mbit/s     | 10 Mbit/s     | 36 Mbit/s    |
@@ -434,5 +434,5 @@ I den här artikeln får du en översikt över Azure SignalR Service prestanda i
 
 Om du vill visa information om innehållet i tjänsten och skalning för att den kan du läsa följande guider:
 
-* [Azure SignalR Service från insidan](signalr-concept-internals.md)
+* [Azure SignalR Service – internt](signalr-concept-internals.md)
 * [Azure SignalR Service-skalning](signalr-howto-scale-multi-instances.md)

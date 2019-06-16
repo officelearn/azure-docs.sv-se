@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811611"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-Programmeringsguide
@@ -1067,11 +1067,11 @@ UDO kallas vanligtvis uttryckligen i U-SQL-skript som en del av följande U-SQL-
 ## <a name="use-user-defined-extractors"></a>Använda anpassade extraktorer
 U-SQL kan du importera externa data med hjälp av en EXTRACT-instruktion. En EXTRACT-instruktion kan använda inbyggda UDO extraktorer:  
 
-* *Extractors.Text()*: Innehåller extrahering från avgränsade textfiler i olika kodningar.
+* *Extractors.Text()* : Innehåller extrahering från avgränsade textfiler i olika kodningar.
 
-* *Extractors.Csv()*: Innehåller extrahering från kommaavgränsade värden (CSV)-filer för olika kodningar.
+* *Extractors.Csv()* : Innehåller extrahering från kommaavgränsade värden (CSV)-filer för olika kodningar.
 
-* *Extractors.Tsv()*: Innehåller extrahering från fliken med kommaseparerade värden (TVS) filer med olika kodningar.
+* *Extractors.Tsv()* : Innehåller extrahering från fliken med kommaseparerade värden (TVS) filer med olika kodningar.
 
 Det kan vara praktiskt att utveckla en egen extraktor. Det kan vara användbart vid dataimport om vi vill göra något av följande uppgifter:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Använda användardefinierade utdatafunktioner
 Användardefinierade outputter är en annan U-SQL-UDO som gör det möjligt att utöka inbyggda funktioner för U-SQL. Liknar extraktor, det finns flera inbyggda utdatafunktioner.
 
-* *Outputters.Text()*: Skriver data till avgränsade textfiler i olika kodningar.
-* *Outputters.Csv()*: Skriver data till fil med kommaavgränsade värden (CSV) filer med olika kodningar.
-* *Outputters.Tsv()*: Skriver data till filer tabbavgränsade värden (TVS) av olika kodningar.
+* *Outputters.Text()* : Skriver data till avgränsade textfiler i olika kodningar.
+* *Outputters.Csv()* : Skriver data till fil med kommaavgränsade värden (CSV) filer med olika kodningar.
+* *Outputters.Tsv()* : Skriver data till filer tabbavgränsade värden (TVS) av olika kodningar.
 
 Anpassade outputter kan du skriva data i ett anpassat definierade format. Detta kan vara användbart för följande uppgifter:
 

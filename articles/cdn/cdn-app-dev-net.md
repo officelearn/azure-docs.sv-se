@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579968"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
@@ -51,7 +51,7 @@ Våra projekt kommer att använda vissa Azure-bibliotek i Nuget-paket.  Vi vill 
 1. Klicka på den **verktyg** menyn **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**.
    
     ![Hantera Nuget-paket](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. I Package Manager-konsolen kör du följande kommando för att installera den **Active Directory Authentication Library (ADAL)**:
+2. I Package Manager-konsolen kör du följande kommando för att installera den **Active Directory Authentication Library (ADAL)** :
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Kör följande för att installera den **Azure CDN Management Library**:
@@ -73,7 +73,7 @@ Nu ska vi hämta grundstrukturen för vårt program som skrivits.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Vi måste definiera vissa konstanter våra metoder används.  I den `Program` class, men innan den `Main` metoden lägger du till följande.  Se till att ersätta platshållarna, inklusive den  **&lt;vinkelparenteser&gt;**, med dina egna värden efter behov.
+2. Vi måste definiera vissa konstanter våra metoder används.  I den `Program` class, men innan den `Main` metoden lägger du till följande.  Se till att ersätta platshållarna, inklusive den  **&lt;vinkelparenteser&gt;** , med dina egna värden efter behov.
    
     ```csharp
     //Tenant app constants

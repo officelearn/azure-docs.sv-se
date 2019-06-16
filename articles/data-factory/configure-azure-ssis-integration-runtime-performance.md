@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232519"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för höga prestanda
@@ -118,7 +118,7 @@ Om du har massor av paket för att köra och du är mest intresserad det totala 
 När du redan använder en kraftfull arbetsnod för att köra paket, vilket ökar **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala arbetsflödet av integration runtime. 1 – 4 parallella körningar per nod stöds för Standard_D1_v2 noder. För alla andra typer av noder stöds 1 max(2 x number of cores, 8) parallella körningar per nod. Om du vill att **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som vi stöds, kan du öppna ett supportärende och vi kan öka maxvärdet för dig och efter som du behöver använda Azure Powershell för att uppdatera  **AzureSSISMaxParallelExecutionsPerNode**.
 Du kan beräkna lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
 
-| Storlek             | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 2 / 2 x 500                         | 2/750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 4 / 4 x 500                         | 2/1 500                                       |

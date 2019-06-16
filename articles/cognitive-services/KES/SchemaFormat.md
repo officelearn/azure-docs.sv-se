@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814411"
 ---
 # <a name="schema-format"></a>Schema Format
@@ -48,7 +48,7 @@ Nedan visas en lista över attribut som stöds datatyper:
 | `Int64` | Ett signerat 64-bitars heltal | är lika med, starts_with, is_between | 9876543210 |
 | `Double` | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
 | `Date` | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
-| `Guid` | Globalt unik identifierare | lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Guid` | Globalt unik identifierare | är lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | `Blob` | Internt komprimerade data som inte är indexerade | *Ingen* | ”Hjälpa människor och organisationer i världen för att uppnå mer” |
 | `Composite` | Sammansättning av flera underordnade attribut| *Saknas* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 

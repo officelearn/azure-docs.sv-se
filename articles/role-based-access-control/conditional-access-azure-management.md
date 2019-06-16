@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ee58835a5055f5382cefa3a049424ffe97a01c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122949"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
 
 Villkorlig åtkomst i Azure Active Directory (Azure AD) styr åtkomsten till molnet appar baserat på specifika villkor som du anger. Om du vill tillåta åtkomst måste skapa du principer för villkorlig åtkomst som tillåter eller blockerar åtkomst baserat på huruvida kraven i principen är uppfyllda. 
 
-Normalt använder du villkorlig åtkomst för att styra åtkomsten till dina molnappar. Du kan också ställa in principer för att styra åtkomsten till hantering av Azure baserat på vissa villkor (till exempel inloggningsrisk, plats eller enhet) och för att framtvinga krav som multifaktorautentisering.
+Normalt använder du villkorlig åtkomst för att kontrollera åtkomsten till dina appar i molnet. Du kan också ställa in principer för att styra åtkomsten till hantering av Azure baserat på vissa villkor (till exempel inloggningsrisk, plats eller enhet) och för att framtvinga krav som multifaktorautentisering.
 
 Om du vill skapa en princip för hantering av Azure kan du välja **Microsoft Azure Management** under **Molnappar** när du väljer den app som principen ska tillämpas på.
 

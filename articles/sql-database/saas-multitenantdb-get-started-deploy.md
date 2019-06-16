@@ -13,10 +13,10 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978531"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
@@ -58,7 +58,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 ### <a name="plan-the-names"></a>Planera namnen
 
 I stegen i det här avsnittet anger du en *användaren* värde som används för att säkerställa att resursnamn är globalt unikt och ett namn för den *resursgrupp* som innehåller alla resurser som skapades i en distribution appens. För en person med namnet *Ann Finley*, föreslår vi att:
-- *Användare:* **af1***(initialer plus en siffra.   Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
+- *Användare:* **af1** *(initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
 - *Resursgrupp:* **wingtip-mt-af1** *(wingtip-mt innebär att det är shardad app för flera klienter. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
 Välj ditt namn nu och Skriv ned dem. 
@@ -125,19 +125,19 @@ Varje plats får en personaliserad webbapp sina evenemang och sälja biljetter. 
 En central **Evenemangshubben** webbsidan innehåller en lista med länkar till klienter i din viss distribution. Använd följande steg för att uppleva de **Evenemangshubben** webbsidan och en enskild webbapp:
 
 1. Öppna den **Evenemangshubben** i webbläsaren:
-   - http://events.wingtip-mt.&lt; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution.)*
+   - http://events.wingtip-mt.&lt ; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt; användaren&gt; med värdet för användarnamn för din distribution.)*
 
      ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Klicka på **Fabrikam Jazzklubb** i **evenemangshubben**.
 
-   ![Händelser](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 Om du vill styra distributionen av inkommande begäranden, Wingtip-appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller klientnamnet i URL: en. Varje URL innehåller också ditt specifika användare-värde. Varje URL följs formatet visas med hjälp av följande steg:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Evenemangsappen Parsar klientnamnet från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
 2. Appen sedan hashar klientnamnet för att skapa en nyckel för att komma åt en katalog med hjälp av [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
@@ -210,7 +210,7 @@ Nu titta vi på några av de resurser som har distribuerats:
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra i listan över resursgrupper. Öppna resursgruppen du skapade när du har distribuerat programmet.
 
-   ![resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![Resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Klicka på **catalog mt&lt;användaren&gt;**  server. Katalogservern innehåller två databaser med namnet *tenantcatalog* och *basetenantdb*. Den *basetenantdb* databasen är en tom mall-databas. Kopieras för att skapa en ny klientdatabas, oavsett om de används för många klienter eller bara en klient.
 

@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989899"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa och utforska automatiserade machine learning-experiment i Azure portal (förhandsversion)
@@ -60,7 +60,7 @@ Välj knappen Skapa Experiment att fylla i följande format.
 
     Fält|Beskrivning
     ---|---
-    Namn på Machine Learning-beräkning| Ange ett unikt namn som identifierar din beräkningskontexten.
+    Beräkna namn| Ange ett unikt namn som identifierar din beräkningskontexten.
     Storlek på virtuell dator| Välj VM-storlek för din beräkning.
     Ytterligare inställningar| *Min noden*: Ange det minsta antalet noder för din databearbetning. Det minsta antalet noder för AML-instanser är 0. Om du vill aktivera profilering av data, måste du ha 1 eller flera noder. <br> *Max noden*: Ange det maximala antalet noder för din databearbetning. Standardvärdet är 6-noder i ett AML Compute.
 
@@ -103,7 +103,7 @@ Välj knappen Skapa Experiment att fylla i följande format.
     Avancerade inställningar|Beskrivning
     ------|------
     Primär mått| Viktigaste mått som används för bedömning av din modell. [Mer information om modellen mått](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
-    Avsluta-villkor| När något av dessa villkor uppfylls, slutar utbildningsjobbet innan fullständig slutförande. <br> *Utbildning jobbtid (minuter)*: Hur lång tid att tillåta att utbildningsjobbet ska köras.  <br> *Maxantal upprepningar*: Högsta antalet tillåtna pipelines (iterationer) att testa i utbildningsjobbet. Jobbet körs inte mer än det angivna antalet iterationer. <br> *Mått poäng tröskelvärdet*:  Minsta mått poäng för alla pipelines. Detta säkerställer att om du har ett definierat mål-mått som du vill nå kan du inte lägga mer tid på utbildningsjobbet än nödvändigt.
+    Avsluta-villkor| När något av dessa villkor uppfylls, slutar utbildningsjobbet innan fullständig slutförande. <br> *Utbildning jobbtid (minuter)* : Hur lång tid att tillåta att utbildningsjobbet ska köras.  <br> *Maxantal upprepningar*: Högsta antalet tillåtna pipelines (iterationer) att testa i utbildningsjobbet. Jobbet körs inte mer än det angivna antalet iterationer. <br> *Mått poäng tröskelvärdet*:  Minsta mått poäng för alla pipelines. Detta säkerställer att om du har ett definierat mål-mått som du vill nå kan du inte lägga mer tid på utbildningsjobbet än nödvändigt.
     Förbearbeta| Välj det här alternativet om du vill aktivera eller inaktivera Förbearbeta som görs av automatiserade maskininlärning. Förbearbeta innehåller automatisk datarensning, förbereda och omvandling för att generera syntetiska funktioner. [Mer information om Förbearbeta](#preprocess).
     Validering| Välj något av alternativen mellan verifiering ska användas i utbildningsjobbet. [Läs mer om hur du mellan verifiering](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
     Samtidighet| Markera flera kärnor-gränser som du vill använda när du använder flera kärnor beräkning.

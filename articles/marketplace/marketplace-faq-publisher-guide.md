@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964045"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
@@ -36,7 +36,7 @@ Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och
 
 * grundläggande operativsystem
 * databaser
-* säkerhet
+* security
 * identity
 * nätverk
 * blockchain
@@ -463,7 +463,7 @@ Azure Marketplace är en butik för IT-personal och utvecklare där de kan hitta
 
 **Hur köper jag produkter från Azure Marketplace?**
 
-Du hittar Azure Marketplace-erbjudanden via den [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/)i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). När du har loggat in på Azure Marketplace kan du upptäcka och köpa lösningar som utformats av Microsoft och våra partner. Anteckning: Förbetald kredit och andra typer av Betalningsåtaganden används inte för programvarulicenser.  I stället täcker de kostnader associerade Azure-användning. Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+Du hittar Azure Marketplace-erbjudanden via den [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/)i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). När du har loggat in på Azure Marketplace kan du upptäcka och köpa lösningar som utformats av Microsoft och våra partner. Obs! Förbetald kredit och andra typer av Betalningsåtaganden används inte för programvarulicenser.  I stället täcker de kostnader associerade Azure-användning. Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Om jag råkar ta bort ett Azure Marketplace-köp, kan jag ”ångra” åtgärden?**
 
@@ -585,7 +585,7 @@ Kunder med Enterprise Agreement (EA) debiteras mot deras EA. Specifika Azure Mar
 
 MOSP, Microsoft Online Subscription Program (d.v.s. web-direct) kunder kan se information om Marketplace prenumeration under menyn ”Marketplace” i den [Azures faktureringsportal](https://azure.microsoft.com/). Kunder som har köpt virtuella datorer från Marketplace kan se sina uppskattade, upplupna kostnader i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/).
 
-EA-kunder (Enterprise Agreement) kan se information om en Marketplace-prenumeration på fliken ”Azure Marketplace” i fakturerings- och kontohanteringsvyn på Enterprise-portalen. Anteckning: Indirekta EA-kunder ser bara erbjudande- och användningsinformation information. Prisinformation om är inte tillgängliga i Enterprise portal.
+EA-kunder (Enterprise Agreement) kan se information om en Marketplace-prenumeration på fliken ”Azure Marketplace” i fakturerings- och kontohanteringsvyn på Enterprise-portalen. Obs! Indirekta EA-kunder ser bara erbjudande- och användningsinformation information. Prisinformation om är inte tillgängliga i Enterprise portal.
 
 **Hur avbryter jag ett Azure Marketplace-tillägg till en Azure-dator?**
 

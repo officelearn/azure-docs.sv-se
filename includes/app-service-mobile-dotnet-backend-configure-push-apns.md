@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140699"
 ---
-**.NET-serverdel (C#)**:
+**.NET-serverdel (C#)** :
   
 1. I Visual Studio högerklickar du på serverprojektet och klicka på **hantera NuGet-paket**, Sök efter `Microsoft.Azure.NotificationHubs`, klicka sedan på **installera**. Detta installerar Notification Hubs-biblioteket för att skicka meddelanden från serverdelen.
 2. Öppna i Visual Studio-projekt för serverdelens **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande överst i filen `using` instruktionen:

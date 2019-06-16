@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
 ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693239"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer API och metadata
@@ -67,7 +67,7 @@ Den **URL för begäran** har följande format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Egenskapen för HTTP-begäran|Namn|Type|Syfte|
+|Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på den **inställningar** sidan när du har publicerat i knowledge base. |
@@ -78,7 +78,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Obligatoriskt|Type|Syfte|
+|Brödtext JSON-egenskap|Obligatoriskt|Typ|Syfte|
 |--|--|--|--|
 |`question`|Krävs|string|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|Valfritt|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909301"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhetskontaktuppgifter i Azure Security Center
@@ -26,13 +26,13 @@ Azure Security Center rekommenderar att du anger kontaktuppgifter för din Azure
 
 Ett e-postmeddelande skickas på den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Resursgrupper inom en prenumeration ärver inställningarna. 
 
-E-postavisering meddelanden skickas:
-- Endast för varningar med hög angelägenhetsgrad
+E-postmeddelanden med avisering skickas:
+- Endast för aviseringar med hög allvarlighetsgrad
 - Till en enda e-postmottagare per typ av avisering per dag  
 - Mer än 3 e-postmeddelanden skickas till en enda mottagare i en dag
-- Varje e-postmeddelandet innehåller en enda avisering, inte en sammanställning av aviseringar
+- Varje e-postmeddelande innehåller en enda avisering, inte en sammanställning av aviseringar
  
-Till exempel om ett e-postmeddelande har redan skickats meddela dig om en RDP-attack, får du inte en annan e-postmeddelande om en RDP-attack på samma dag, även om en ny avisering utlöses. 
+Till exempel om ett e-postmeddelande redan har skickats för att meddela dig om en RDP-attack, får du inte ett annat e-postmeddelande om en RDP-attack under samma dag, även om en ny avisering utlöses. 
  
 
 > [!NOTE]

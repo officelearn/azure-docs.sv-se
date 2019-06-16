@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522949"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatisera tillägg av lab användare i ett labb i Azure DevTest Labs
@@ -121,7 +121,7 @@ Roll-ID definieras i variables-avsnittet och med namnet `devTestLabUserRoleId`. 
 "devTestLabUserRoleId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/111111111-0000-0000-11111111111111111')]",
 ```
 
-### <a name="principal-id"></a>Huvudkonto-ID
+### <a name="principal-id"></a>Ägar-ID
 Ägar-ID är objekt-ID för den Active Directory-användare, grupp eller tjänstens huvudnamn som du vill lägga till som en lab-användare till labbet. Mallen använder den `ObjectId` som en parameter.
 
 Du kan hämta ObjectId med hjälp av den [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup eller [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell-cmdletar. Dessa cmdletar returnerar en enda eller en lista över Active Directory-objekt som har en ID-egenskap som är objekt-ID som du behöver. I följande exempel visar hur du hämtar objekt-ID för en enskild användare på ett företag.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811948"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
@@ -81,7 +81,7 @@ Du kan låta användare autentisera Box gästanvändare med sina Azure AD-konto 
 
    ![Skärmbild som visar inställningar för konfiguration för enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
 
-   a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com*.  
+   a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com* .  
    Den **identifierare** gäller inte för den här appen, men den fortfarande visas som ett obligatoriskt fält.
 
    b. I den **användaridentifierare** anger **user.mail** (för enkel inloggning för gästkonton).

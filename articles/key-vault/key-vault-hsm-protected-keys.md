@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556205"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
@@ -162,7 +162,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure Government:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -236,7 +236,7 @@ För den här andra steget, gör du följande procedurer på en arbetsstation so
 
 Installera hjälpprogrammet stödprogram på en Windows-dator och sedan koppla en hjälpprogrammet nShield HSM till datorn.
 
-Se till att hjälpprogrammet-verktyg finns i din sökväg (**%nfast_home%\bin**). Skriv till exempel följande:
+Se till att hjälpprogrammet-verktyg finns i din sökväg ( **%nfast_home%\bin**). Skriv till exempel följande:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -369,7 +369,7 @@ Använd dessa anvisningar när du kör det här kommandot:
 * Ersätt värdet för *contosokey* för den **ident** och **plainname** med valfritt strängvärde. För att minimera de administrativa kostnaderna och minska risken för fel, rekommenderar vi att du använder samma värde för båda. Den **ident** värdet måste innehålla endast siffror, bindestreck och gemena bokstäver.
 * Pubexp lämnas tomt (standard) i det här exemplet, men du kan ange specifika värden. Mer information finns i den [hjälpprogrammet dokumentation.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-Det här kommandot skapar en fil för Tokeniserad nyckel i mappen %NFAST_KMDATA%\local med ett namn som börjar med **key_simple_**, följt av den **ident** som har angetts i kommandot. Till exempel: **key_simple_contosokey**. Den här filen innehåller en krypterad nyckel.
+Det här kommandot skapar en fil för Tokeniserad nyckel i mappen %NFAST_KMDATA%\local med ett namn som börjar med **key_simple_** , följt av den **ident** som har angetts i kommandot. Till exempel: **key_simple_contosokey**. Den här filen innehåller en krypterad nyckel.
 
 Säkerhetskopiera filen för Tokeniserad nyckel på en säker plats.
 

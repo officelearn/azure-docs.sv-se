@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611692"
 ---
 # <a name="security-frame-session-management"></a>Security ram: Sessionshantering
@@ -34,7 +34,7 @@ ms.locfileid: "60611692"
 
 ## <a id="logout-adal"></a>Implementera rätt logga ut med hjälp av ADAL metoder när du använder Azure AD
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
 | **SDL fas**               | Utveckla |  
@@ -69,7 +69,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 
 ## <a id="finite-tokens"></a>Använd begränsad livslängd för genererade SaS-token
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -80,7 +80,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 
 ## <a id="resource-tokens"></a>Använda minsta tokenlivslängder för genererade resurstokens
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -91,7 +91,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 
 ## <a id="wsfederation-logout"></a>Implementera rätt logga ut med hjälp av WsFederation metoder när du använder AD FS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | ADFS | 
 | **SDL fas**               | Utveckla |  
@@ -140,7 +140,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 
 ## <a id="proper-logout"></a>Implementera rätt logga ut när du använder Identity Server
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Utveckla |  
@@ -151,7 +151,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 
 ## <a id="https-secure-cookies"></a>Program som är tillgängliga via HTTPS måste Använd säkra cookies
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -170,7 +170,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 ```
 Inställningen tillämpas även om HTTP används för att få åtkomst till programmet. Om HTTP används för att få åtkomst till programmet, delar den här inställningen programmet eftersom cookies som anges med attributet säker och webbläsaren kommer inte att skicka dem till programmet.
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -192,7 +192,7 @@ Inställningen tillämpas även om HTTP används för att få åtkomst till prog
 
 ## <a id="cookie-definition"></a>Alla HTTP-baserade program ange http endast för cookie-definition
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -213,7 +213,7 @@ Alla HTTP-baserade program som använder cookies ska ange HttpOnly i cookie-defi
 </system.web>
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -230,7 +230,7 @@ I följande kodexempel anger attributet requireSSL i Web.config-filen.
 </authentication>
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -255,7 +255,7 @@ Följande konfiguration visar korrekt konfiguration:
 
 ## <a id="csrf-asp"></a>Skyddar mot skriptkörning över flera begär förfalskning (CSRF) attacker på ASP.NET-webbsidor
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -264,7 +264,7 @@ Följande konfiguration visar korrekt konfiguration:
 | **Referenser**              | Gäller inte  |
 | **Steg** | Begäran-förfalskning (CSRF eller XSRF) är en typ av angrepp där angriparen kan utföra åtgärder i säkerhetskontexten för en annan användare upprättad session på en webbplats. Målet är att ändra eller ta bort innehåll, om den aktuella webbplatsen är beroende av exklusivt sessionscookies att autentisera fick begäran. En angripare kan utnyttja denna säkerhetsrisk genom att få en annan användares webbläsare att läsa in en URL med ett kommando från en sårbara plats där användaren är redan inloggad. Det finns många sätt för en angripare att göra det, till exempel av som är värd för en annan webbplats som läser in en resurs från sårbara servern eller att användaren klickar på en länk. Angreppet kan förhindras om servern skickar en extra token till klienten, kräver att klienten inkluderar den token i alla framtida begäranden och verifierar att alla framtida begäranden inkluderar en token som rör den aktuella sessionen, till exempel med hjälp av ASP.NET AntiForgeryToken eller ViewState. |
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -350,7 +350,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -370,7 +370,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Konfigurera livslängd för inaktivitet-session
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -390,7 +390,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="threat-detection"></a>Aktivera hotidentifiering i Azure SQL
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -405,7 +405,7 @@ void Page_Init (object sender, EventArgs e) {
 </forms>
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -440,7 +440,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="proper-app-logout"></a>Implementera rätt logga ut från programmet
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -451,7 +451,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>Skyddar mot skriptkörning över flera begär förfalskning (CSRF) attacker på ASP.NET Web API: er
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -460,7 +460,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Referenser**              | Gäller inte  |
 | **Steg** | Begäran-förfalskning (CSRF eller XSRF) är en typ av angrepp där angriparen kan utföra åtgärder i säkerhetskontexten för en annan användare upprättad session på en webbplats. Målet är att ändra eller ta bort innehåll, om den aktuella webbplatsen är beroende av exklusivt sessionscookies att autentisera fick begäran. En angripare kan utnyttja denna säkerhetsrisk genom att få en annan användares webbläsare att läsa in en URL med ett kommando från en sårbara plats där användaren är redan inloggad. Det finns många sätt för en angripare att göra det, till exempel av som är värd för en annan webbplats som läser in en resurs från sårbara servern eller att användaren klickar på en länk. Angreppet kan förhindras om servern skickar en extra token till klienten, kräver att klienten inkluderar den token i alla framtida begäranden och verifierar att alla framtida begäranden inkluderar en token som rör den aktuella sessionen, till exempel med hjälp av ASP.NET AntiForgeryToken eller ViewState. |
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -547,7 +547,7 @@ Auktoriseringsfilter som kontrollerar att:
 * Inkommande begäran har en `Request.Form` post som kallas __RequestVerificationToken
 * Dessa cookie och `Request.Form` värden matchar förutsatt att alla är bra, begäran går igenom som vanligt. Men om inte, sedan en Auktoriseringen misslyckades med meddelandet ”en obligatorisk antiförfalskningstoken angavs inte eller var ogiltigt”.
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  

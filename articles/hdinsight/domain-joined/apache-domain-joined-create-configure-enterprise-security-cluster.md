@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
 ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66253695"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package-kluster i Azure HDInsight
@@ -302,9 +302,9 @@ Kontrollera att certifikatet är installerat i datorn\'s personliga arkivet. Utf
     1. Under **inställningar** klickar du på **ingående säkerhetsregler** > **Lägg till**.
     1. På den **Lägg till ingående säkerhetsregel** skärmen, ange följande egenskaper och klicka på **Lägg till**:
 
-        | Egenskap  | Värde |
+        | Egenskap | Värde |
         |---|---|
-        | Source | Alla |
+        | source | Alla |
         | Källportintervall | * |
         | Mål | Alla |
         | Målportintervall | 636 |

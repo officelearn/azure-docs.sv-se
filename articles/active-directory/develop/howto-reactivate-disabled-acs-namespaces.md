@@ -17,10 +17,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540287"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Anvisningar: Återaktivera inaktiverade Access Control Service-namnområden
@@ -93,7 +93,7 @@ Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behö
 1. Logga in på Azure-portalen och skapa en [ny supportbegäran](https://portal.azure.com/#create/Microsoft.Support).
 1. Fyll i formuläret för begäran av nytt stöd som du ser i följande exempel.
 
-    | Stöd för begäran fält | Value |
+    | Stöd för begäran fält | Värde |
     |-----------------------|--------------------|
     | **Typ av problem** | `Technical` |
     | **Prenumeration** | Ställ in till din prenumeration |

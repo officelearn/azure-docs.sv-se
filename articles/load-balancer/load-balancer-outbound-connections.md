@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967730"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
@@ -40,7 +40,7 @@ Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenar
 
 Azure Load Balancer och relaterade resurser definieras uttryckligen när du använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure tillhandahåller för närvarande tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser. 
 
-| SKU:er | Scenario | Metod | IP-protokoll | Beskrivning |
+| SKUs | Scenario | Metod | IP-protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. Virtuell dator med en offentlig IP på instansnivå-adress (med eller utan belastningsutjämnaren)](#ilpip) | SNAT, port låtsas inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. När du använder Standard Load Balancer, bör du använda [utgående regler](load-balancer-outbound-rules-overview.md) att explicit definiera utgående anslutning |
 | Standard, Basic | [2. Offentlig Load Balancer som är associerade med en virtuell dator (ingen offentlig IP på instansnivå adress på-instansen)](#lb) | SNAT med port låtsas (PAT) med Load Balancer-klienter | TCP, UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare klienter med flera privata IP-adresser. Azure använder tillfälliga portar för klienter att TILLDELNINGEN. |

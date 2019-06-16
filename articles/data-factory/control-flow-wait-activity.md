@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764759"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Kör wait-aktivitet i Azure Data Factory
@@ -37,10 +37,10 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-namn | Namnet på den `Wait` aktivitet. | String | Ja
-typ | Måste vara inställt på **vänta**. | String | Ja
+name | Namnet på den `Wait` aktivitet. | String | Ja
+type | Måste vara inställt på **vänta**. | String | Ja
 waitTimeInSeconds | Hur många sekunder som väntar pipelinen innan du fortsätter med bearbetningen. | Integer | Ja
 
 ## <a name="example"></a>Exempel

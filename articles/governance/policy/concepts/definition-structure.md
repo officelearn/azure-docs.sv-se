@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979556"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
@@ -379,7 +379,7 @@ Använd i stället de [if()](../../../azure-resource-manager/resource-group-temp
 
 Med den ändrade principregeln `if()` kontrollerar längden på **namn** innan du försöker hämta en `substring()` på ett värde med färre än tre tecken. Om **namn** är för kort, värdet ”inte börjar med abc” returneras i stället och jämfört med **abc**. En resurs med ett kort namn som inte börjar med **abc** fortfarande misslyckas principregeln, men inte längre orsakar ett fel under utvärderingen.
 
-### <a name="effect"></a>Effekt
+### <a name="effect"></a>Verkan
 
 Azure Policy har stöd för följande typer av effekt:
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60625281"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödesloggar för nätverkssäkerhetsgrupper i Azure med Network Watcher och Graylog
@@ -231,7 +231,7 @@ Du kan klicka på rubriken på instrumentpanelen för att se hur det, men just n
 
 3. Välj alla önskade parametern där du vill visualisera (i det här exemplet är IP-källan är markerad). För att visa listan över möjliga widgetar, klickar du på den blå pilen till vänster om fältet och välj sedan **snabb värden** att generera widgeten. Du bör se något som liknar följande bild:
 
-   ![Käll-IP-adress](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![Käll-IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
 4. Därifrån kan du välja den **lägga till instrumentpanelen** i det övre högra hörnet av widgeten och välj att lägga till motsvarande instrumentpanelen.
 

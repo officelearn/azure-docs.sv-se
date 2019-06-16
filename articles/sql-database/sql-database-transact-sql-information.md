@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785501"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas
@@ -83,7 +83,7 @@ Mer information om Transact-SQL-grammatik, syntax och exempel finns i [Transact
 
 ### <a name="about-the-applies-to-tags"></a>Om "Gäller för"-taggar
 
-Transact-SQL-referensen innehåller artiklar som rör SQL Server-versioner 2008 aktuella. Under artikelrubriken det är en ikon, visa en lista över de fyra SQL Server-plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. Den [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artikeln anger att instruktionen gäller **SQL Server (startar med 2012)**. Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
+Transact-SQL-referensen innehåller artiklar som rör SQL Server-versioner 2008 aktuella. Under artikelrubriken det är en ikon, visa en lista över de fyra SQL Server-plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. Den [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artikeln anger att instruktionen gäller **SQL Server (startar med 2012)** . Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
 
 I vissa fall kan det allmänna ämnet för en artikel kan användas i en produkt, men det finns mindre skillnader mellan produkter. Skillnaderna anges vid mittpunkter i artikeln efter behov. I vissa fall kan det allmänna ämnet för en artikel kan användas i en produkt, men det finns mindre skillnader mellan produkter. Skillnaderna anges vid mittpunkter i artikeln efter behov. Till exempel finns CREATE TRIGGER-artikel i SQL-databas. Men **alla SERVER** för servernivå utlösare, anger att servernivå utlösare inte kan användas i SQL-databas. Använd på databasnivå utlösare i stället.
 

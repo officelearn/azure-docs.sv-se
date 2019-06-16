@@ -10,10 +10,10 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389114"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
@@ -301,7 +301,7 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 
 ### <a name="job-logs"></a>Jobbloggar
 
-|Egenskap  | Beskrivning|
+|Egenskap | Beskrivning|
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Category | Klassificering av typ av data. För Automation är värdet JobLogs.|
@@ -312,17 +312,17 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |ResourceGroup | Anger resursgruppens namn på runbook-jobbet.|
 |ResourceProvider | Anger den Azure-tjänst som tillhandahåller de resurser som du kan distribuera och hantera. För Automation är värdet Azure Automation.|
 |ResourceType | Anger resurstypen i Azure. För Automation är värdet Automation-kontot som är kopplat till runbook.|
-|resultType | Status för runbookjobbet. Möjliga värden är:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
-|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden är:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
+|resultType | Status för runbookjobbet. Möjliga värden:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
+|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager|
-|StreamType | Anger händelsetypen. Möjliga värden är:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
+|StreamType | Anger händelsetypen. Möjliga värden:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
 |SubscriptionId | Anger prenumerations-ID för jobbet.
 |Tid | Datum och tid då runbook-jobbet körs.|
 
 ### <a name="job-streams"></a>Arbetsflöden
 
-|Egenskap  | Beskrivning|
+|Egenskap | Beskrivning|
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Category | Klassificering av typ av data. För Automation är värdet JobStreams.|
@@ -336,8 +336,8 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |resultDescription | Innehåller utdataströmmen från runbook.|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager.|
-|StreamType | Typ av jobbström. Möjliga värden är:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
-|Time | Datum och tid då runbook-jobbet körs.|
+|StreamType | Typ av jobbström. Möjliga värden:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
+|Tid | Datum och tid då runbook-jobbet körs.|
 
 När du utför en loggsökning som returnerar poster kategori av **JobLogs** eller **JobStreams**, kan du välja den **JobLogs** eller **JobStreams**vy som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.
 

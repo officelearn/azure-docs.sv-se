@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577367"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Översikt över CloudSimple-noder
@@ -48,7 +48,7 @@ Följande typer av noder är tillgängliga för köp eller reservation.
 
 Noden följande begränsningar gäller för privata moln.
 
-| Resurs | Gräns |
+| Resource | Gräns |
 |----------|-------|
 | Minsta antalet noder för att skapa ett privat moln | 3 |
 | Högsta antalet noder i ett kluster på ett privat moln | 16 |

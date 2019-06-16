@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935584"
 ---
 # <a name="build-your-landing-page"></a>Skapa din landningssida
@@ -24,7 +24,7 @@ Börja med att identifiera dina mål. Välj din mål-kund och vilken åtgärd so
 *   Få en lösning nu
 
 Du kan referera till din landningssida över flera marknadsföring taktik. Du kan använda följande marknadsföring taktik: 
-*   Händelser
+*   Events
 *   Webbsändningar
 *   Sociala medier
 *   White paper-faktablad

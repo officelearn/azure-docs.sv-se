@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113394"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Princip: För användare i din katalog
@@ -69,7 +69,7 @@ Följ dessa steg om du vill att din princip för att kringgå förfrågningar oc
 
 1. Hoppa över ned till den [princip: Upphör att gälla](#policy-expiration) avsnittet.
 
-### <a name="policy-request"></a>Princip: Begäran
+### <a name="policy-request"></a>Princip: Förfrågan
 
 I avsnittet begäran anger du inställningar för godkännande när användare begär åtkomst till paketet.
 
@@ -95,7 +95,7 @@ I avsnittet begäran anger du inställningar för godkännande när användare b
 
 1. I den **tidsgränsen för begäran om godkännande (dagar)** anger hur lång tid som godkännarna behöva granska en begäran. Om inga godkännare gå igenom det i detta antal dagar, förfrågan upphör att gälla och användaren måste du skicka en annan begäran om åtkomst-paketet.
 
-### <a name="policy-expiration"></a>Princip: Utgångsdatum
+### <a name="policy-expiration"></a>Princip: upphör att gälla
 
 I avsnittet upphör att gälla anger du när en användare tilldelas åtkomst paketet upphör att gälla.
 

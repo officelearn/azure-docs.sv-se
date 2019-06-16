@@ -1,20 +1,19 @@
 ---
-title: Konfigurera Azure service health-aviseringar med OpsGenie | Microsoft Docs
+title: Skicka Azure service health-aviseringar med OpsGenie med webhookar
 description: Få personligt anpassade meddelanden om service health-händelser till din OpsGenie-instans.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067172"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Konfigurera service health-aviseringar med OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Skicka Azure service health-aviseringar med OpsGenie med webhookar
 
 Den här artikeln visar hur du ställer in Azure service health-aviseringar med OpsGenie med en webhook. Med hjälp av [OpsGenie](https://www.opsgenie.com/)'s Azure Service Health-integrering, kan du vidarebefordra Azure Service Health-aviseringar till OpsGenie. OpsGenie kan fastställa rätt personer att Avisera baserat på-samtal scheman med hjälp av e-post, textmeddelanden (SMS), telefonsamtal, iOS och Android push-meddelanden och den aviseringar tills aviseringen bekräftas eller stängd.
 

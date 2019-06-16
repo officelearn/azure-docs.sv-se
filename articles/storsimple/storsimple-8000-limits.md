@@ -16,11 +16,11 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a0053f950b36351b06d08630cbf9977f53f2ed47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721707"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Vad är StorSimple 8000-serien system begränsningar?
 
@@ -28,7 +28,7 @@ ms.locfileid: "60319572"
 
 StorSimple tillhandahåller skalbara och flexibla lagring för ditt datacenter. Det finns dock vissa begränsningar som du bör tänka på när du planerar, distribuerar och driva din StorSimple-lösning. I följande tabell beskrivs dessa gränser och innehåller ett antal rekommendationer så att du kan få ut det mesta av din StorSimple-lösning.
 
-| Gräns för identifierare | Gräns | Kommentarer |
+| Gräns för identifierare | Gräns | Kommentar |
 | --- | --- | --- |
 | Maximalt antal autentiseringsuppgifter för lagringskonto |64 | |
 | Maximalt antal volymbehållare |64 | |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65442379"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway-systemkrav
@@ -34,7 +34,7 @@ Underliggande värdsystemet för Data Box-Gateway är att dedikera följande res
 | Virtuella processorer (kärnor)   | Minst 4 |
 | Minne  | Minst 8 GB|
 | Tillgänglighet|Enkel nod|
-| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
+| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
 | Nätverksgränssnitt|Minst 1 virtuellt nätverksgränssnitt|
 
 

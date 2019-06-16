@@ -2,18 +2,17 @@
 title: Hur du etablerar enheter för flera innehavare i Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
 description: Hur du etablerar enheter för flera innehavare med din device provisioning-tjänstinstans
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116098"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
@@ -42,6 +41,8 @@ Den här artikeln använder en simulerad enhet exempel från den [Azure IoT C SD
 
 * Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Skapa två regionala IoT-hubbar
@@ -192,7 +193,7 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
 I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK innehåller ett exempel som simulerar en klients enhetsetablering från varje region.
 
 
-1. För varje virtuell dator, installera **Cmake**, **g ++**, **gcc**, och [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med hjälp av följande kommandon:
+1. För varje virtuell dator, installera **Cmake**, **g ++** , **gcc**, och [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med hjälp av följande kommandon:
 
     ```bash
     sudo apt-get update
@@ -299,7 +300,7 @@ I det här avsnittet ska uppdaterar du ett etablering exempel i Azure IoT C SDK 
 
 Exempelkoden simulerar en startsekvens för enheten som skickar en begäran om etablering till din instans av Device Provisioning-tjänsten. Startsekvens medför att enheten ska identifieras och tilldelad till IoT-hubben som är närmast baserat på svarstid.
 
-1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_**.
+1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_** .
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

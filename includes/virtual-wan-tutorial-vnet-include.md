@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077523"
 ---
-För att snabbt skapa ett virtuellt nätverk, kan du klicka på ”prova” i den här artikeln för att öppna en PowerShell-konsol. Justera värdena och kopiera och klistra sedan in kommandona i konsolfönstret. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az). Installationsanvisningar Az-modulen, finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
+För att snabbt skapa ett virtuellt nätverk, kan du klicka på ”prova” i den här artikeln för att öppna en PowerShell-konsol i Azure Cloud Shell. Justera värdena och kopiera och klistra sedan in kommandona i konsolfönstret. 
 
 Se till att adressutrymmet för det virtuella nätverket du skapar inte överlappar adressintervallen för andra virtuella nätverk du vill ansluta till, eller dina lokala nätverksadresser.
 

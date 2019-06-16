@@ -10,17 +10,17 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133127"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar från Azure-datorer som uppdateringshantering, ändringsspårning och inventering
 
 Azure Automation tillhandahåller lösningar som hjälper dig hantera säkerhetsuppdateringar för operativsystemet, spåra ändringar och inventering vad som är installerat på datorerna. Det finns flera sätt att registrera datorer. Du kan registrera lösningen från en virtuell dator, [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), eller genom att använda en [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar från Azure-datorer.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -51,7 +51,7 @@ Om den valda arbetsytan inte redan har lösningarna för uppdateringshantering e
 
 Om den valda arbetsytan har redan lösningen kan distribueras om inte lösningen och konfigurationen har lagts till inte.
 
-Välj ellipserna (**...** ) på alla konfigurationer och välj sedan **redigera**. I den **redigera omfattningskonfiguration** väljer **Välj datorgrupper**. Den **datorgrupper** visar sparade sökningar som används för att skapa omfattningskonfigurationen.
+Välj ellipserna ( **...** ) på alla konfigurationer och välj sedan **redigera**. I den **redigera omfattningskonfiguration** väljer **Välj datorgrupper**. Den **datorgrupper** visar sparade sökningar som används för att skapa omfattningskonfigurationen.
 
 ## <a name="saved-searches"></a>Sparade sökningar
 

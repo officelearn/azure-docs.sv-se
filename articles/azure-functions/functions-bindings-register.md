@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
 ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864552"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions tillägg av bindning
@@ -31,8 +31,8 @@ I följande tabell anger när och hur du registrerar bindningar.
 
 | Utvecklingsmiljö |Registrering<br/> i funktioner 1.x  |Registrering<br/> i funktioner 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatiskt|Automatiskt|
-|Icke-.NET-språk eller lokal Azure Core Tools-utveckling|Automatiskt|[Använd Azure Functions Core Tools och tillägget paket](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
+|Azure Portal|Automatisk|Automatisk|
+|Icke-.NET-språk eller lokal Azure Core Tools-utveckling|Automatisk|[Använd Azure Functions Core Tools och tillägget paket](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
 |C#med hjälp av Visual Studio 2019-klassbiblioteket|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2019)|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2019)|
 |C#-klassbibliotek har med hjälp av Visual Studio Code|Gäller inte|[Använda .NET Core CLI](#c-class-library-with-visual-studio-code)|
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595974"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
@@ -51,7 +51,7 @@ Exempel är användbara för introducerar nya begrepp. Som en representativ frå
 
 + **`queryType`** Anger parsern, som i Azure Search kan vara den [standard enklare frågeparsern](search-query-simple-examples.md) (optimala för fulltextsökning), eller [fullständig frågeparser (Lucene)](search-query-lucene-examples.md) används för avancerad fråga konstruktioner som reguljära uttryck , närhetssökning, fuzzy och sökning med jokertecken, t.ex.
 
-+ **`search`** innehåller matchningen villkor, vanligtvis text men ofta tillsammans med booleska operatorer. Enda fristående är *termen* frågor. Omges av citattecken flerdelade frågorna är *diskussionsämne* frågor. Sökning kan vara Odefinierad, som i **`search=*`**, men mer sannolikt består av termer och fraser operatörer som liknar det som visas i exemplet.
++ **`search`** innehåller matchningen villkor, vanligtvis text men ofta tillsammans med booleska operatorer. Enda fristående är *termen* frågor. Omges av citattecken flerdelade frågorna är *diskussionsämne* frågor. Sökning kan vara Odefinierad, som i **`search=*`** , men mer sannolikt består av termer och fraser operatörer som liknar det som visas i exemplet.
 
 + **`searchFields`** är valfritt, används för att begränsa Frågekörningen specifika fält.
 
@@ -86,8 +86,8 @@ Obligatoriska elementen på en frågebegäran om innehåller följande komponent
 
 + Slutpunkten och index dokument insamling av webbtjänstens, uttryckt i form av en URL som innehåller fast och användardefinierade komponenter: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Endast REST) är nödvändigt eftersom fler än en version av API: et är tillgänglig vid alla tidpunkter. 
-+ **`api-key`**, en fråga eller admin api-nyckel, autentiserar begäran till din tjänst.
-+ **`queryType`**, enkel eller fullständig, vilket kan utelämnas om du använder inbyggda standard enkel syntax.
++ **`api-key`** , en fråga eller admin api-nyckel, autentiserar begäran till din tjänst.
++ **`queryType`** , enkel eller fullständig, vilket kan utelämnas om du använder inbyggda standard enkel syntax.
 + **`search`** eller **`filter`** ger matchningen villkor, vilket kan vara okänt om du vill utföra en tom sökning. Båda frågetyperna av diskuteras när det gäller enkel parsern, men även avancerade frågor kräver parametern search för att skicka komplexa frågeuttryck.
 
 Alla andra search-parametrar är valfria. En fullständig lista över attribut finns [skapa Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). En närmare titt på hur parametrar används under bearbetning, se [hur Fullständig textsökning fungerar i Azure Search](search-lucene-query-architecture.md).
@@ -116,7 +116,7 @@ queryType=full&search=mountain beach garden ranch^3&searchFields=description&$co
 
 Azure Search har stöd för ett brett utbud av frågetyper. 
 
-| Frågetyp | Användning | Mer information och exempel |
+| Typ av fråga | Användning | Mer information och exempel |
 |------------|--------|-------------------------------|
 | Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade språkoberoende analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: N och vissa produktnamn. | 
 | Filtrerade sökning | [OData-filteruttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |
@@ -160,7 +160,7 @@ Om du vill att Azure Search ska returnera resultaten ordnade efter ett annat vä
 
 
 ### <a name="hit-highlighting"></a>Träffmarkering
-I Azure Search betonar exakt den del av sökresultatet som matchar sökfrågan är ett enkelt sätt med hjälp av den **`highlight`**, **`highlightPreTag`**, och **`highlightPostTag`** parametrar. Du kan ange vilka *sökbara* fält vars matchade text ska framhävas samt ange de exakta strängtaggarna som ska läggas till i början och slutet av den matchade texten som Azure Search returnerar.
+I Azure Search betonar exakt den del av sökresultatet som matchar sökfrågan är ett enkelt sätt med hjälp av den **`highlight`** , **`highlightPreTag`** , och **`highlightPostTag`** parametrar. Du kan ange vilka *sökbara* fält vars matchade text ska framhävas samt ange de exakta strängtaggarna som ska läggas till i början och slutet av den matchade texten som Azure Search returnerar.
 
 ## <a name="see-also"></a>Se också
 

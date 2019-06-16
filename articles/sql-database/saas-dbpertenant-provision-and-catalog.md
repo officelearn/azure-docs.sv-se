@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388367"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrera dem i katalogen
@@ -84,7 +84,7 @@ För att förstå hur Wingtip biljetter programmet implementerar etableringen av
    * **$VenueType** = en av de fördefinierade platstyperna: _blues, classicalmusic, dance, jazz, judo, motor tävling, multipurpose, opera, rockmusic, soccer_.
    * **$DemoScenario** = **1**, *etablera en enda klient*.
 
-2. Om du vill lägga till en brytpunkt, placera markören var som helst på raden *New-Tenant ”*. Tryck på F9.
+2. Om du vill lägga till en brytpunkt, placera markören var som helst på raden *New-Tenant ”* . Tryck på F9.
 
    ![Brytpunkt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 

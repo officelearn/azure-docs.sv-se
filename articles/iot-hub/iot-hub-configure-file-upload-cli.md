@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734923"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurera IoT Hub-filöverföringar med hjälp av Azure CLI
@@ -83,7 +83,7 @@ Du kan använda en befintlig blobbehållare för dina filöverföringar, eller s
       --connection-string "{your storage account connection string}"
     ```
 
-## <a name="file-upload"></a>Filuppladdning
+## <a name="file-upload"></a>Ladda upp filen
 
 Nu kan du konfigurera din IoT-hubb för att göra möjligheten att [ladda upp filer till IoT hub](iot-hub-devguide-file-upload.md) med information om ditt lagringskonto.
 

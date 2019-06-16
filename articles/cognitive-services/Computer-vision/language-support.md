@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759613"
 ---
 # <a name="language-support-for-computer-vision"></a>Språkstöd för visuellt innehåll
@@ -60,7 +60,7 @@ OCR identifierar automatiskt språket i det inkommande materialet, så du behöv
 
 Vissa åtgärder på den [analysera – bild](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API kan returnera resultat på andra språk som anges med den `language` frågeparameter. Andra åtgärder oavsett vilket språk har angetts returnerar resultat i engelska och andra utlöser ett undantag för språk som inte stöds. Åtgärder som har angetts med den `visualFeatures` och `details` frågeparametrar, se den [översikt](home.md) en lista över de åtgärder som du kan göra med bildanalys.
 
-|Språk | Språkkod | Categories | Taggar | Beskrivning | Vuxet | Varumärken | Färg | Ansikten | Bildtyp | Objekt | Kändisar | Landmärken |
+|Språk | Språkkod | Categories | Tags | Beskrivning | Vuxet | Varumärken | Färg | Ansikten | Bildtyp | Objekt | Kändisar | Landmärken |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Kinesiska | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Svenska | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

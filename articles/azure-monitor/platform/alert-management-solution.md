@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60777037"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
@@ -87,7 +87,7 @@ Aviseringshantering lösningen analyserar en post med en typ av **avisering**.  
 
 Lösningen går att importera aviseringar från System Center Operations Manager och skapar en post för var och en med en typ av **avisering** och SourceSystem **OpsManager**.  Dessa poster har egenskaper i följande tabell:  
 
-| Egenskap  | Beskrivning |
+| Egenskap | Description |
 |:--- |:--- |
 | Typ |*Avisera* |
 | SourceSystem |*OpsManager* |

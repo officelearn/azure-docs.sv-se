@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069257"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: Skydda artefakter i Azure Resource Manager-malldistributioner
 
@@ -75,9 +75,9 @@ Ladda ned [BACPAC-filen](https://armtutorials.blob.core.windows.net/sqlextension
 
     * **Prenumeration**: Välj din Azure-prenumeration.
     * **Resursgrupp**: Välj **Skapa ny** och ge den ett namn. En resursgrupp är en container för Azure-resurser med hanteringssyfte. I den här självstudien kan du använda samma resursgrupp för lagringskontot och Azure SQL-databasen. Anteckna den här resursgruppens namn. Du behöver det när du skapar Azure SQL-databasen senare i självstudierna.
-    * **Plats**: Välj en region. Välj till exempel **USA, centrala**. 
+    * **Plats**: Välj en region. Välj till exempel **USA, centrala**.
     * **Typ av lagringskonto**: använd standardvärdet, vilket är **Standard_LRS**.
-    * **Plats**: Använd standardvärdet, vilket är **[resursGrupp().plats]**. Det innebär att du använder resursgrupplatsen för lagringskontot.
+    * **Plats**: Använd standardvärdet, vilket är **[resursGrupp().plats]** . Det innebär att du använder resursgrupplatsen för lagringskontot.
     * **Jag godkänner villkoren ovan**: (valt)
 3. Välj **Köp**.
 4. Välj meddelandeikonen (klockikonen) i det övre högra hörnet av portalen för att se distributionsstatusen.
@@ -87,7 +87,7 @@ Ladda ned [BACPAC-filen](https://armtutorials.blob.core.windows.net/sqlextension
 
 ### <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
-En blobcontainer krävs innan du kan ladda upp filer. 
+En blobcontainer krävs innan du kan ladda upp filer.
 
 1. Välj lagringskontot för att öppna det. Du bör endast se ett lagringskonto som visas i resursgruppen. Namnet på ditt lagringskonto skiljer sig från den som visas på följande skärmbild.
 
@@ -99,8 +99,8 @@ En blobcontainer krävs innan du kan ladda upp filer.
 3. Välj **+ Container** längst upp för att skapa en ny container.
 4. Ange följande värden:
 
-    * **Namn**: Ange **sqlbacpac**. 
-    * **Offentlig åtkomstnivå**: Använd standardvärdet, **Privat (ingen anonym åtkomst)**.
+    * **Namn**: Ange **sqlbacpac**.
+    * **Offentlig åtkomstnivå**: Använd standardvärdet, **Privat (ingen anonym åtkomst)** .
 5. Välj **OK**.
 6. Välj **sqlbacpac** för att öppna den nyligen skapade containern.
 
@@ -237,7 +237,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien distribuerade du en SQL Server och en SQL-databas samt importerade en BACPAC-fil med hjälp av SAS-token. Mer information om att distribuera Azure-resurser i flera regioner, och om att använda säker distributionspraxis, finns i
+I den här självstudien distribuerade du en SQL Server och en SQL-databas samt importerade en BACPAC-fil med hjälp av SAS-token. Information om hur du skapar en Azure-Pipeline för att ständigt utveckla och distribuera Resource Manager-mallar finns i
 
 > [!div class="nextstepaction"]
-> [Använda Distributionshanteraren i Azure](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Kontinuerlig integrering med Azure-Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)

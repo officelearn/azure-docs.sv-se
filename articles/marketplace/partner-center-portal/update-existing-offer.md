@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806168"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Marketplace för kommersiella
@@ -42,7 +42,7 @@ När du är redo att publicera erbjudandet uppdaterade väljer **publicera** fr�
 Att göra ändringar i en plan inom ett befintligt erbjudande som du redan har publicerat:
 
 - Med den **erbjuder översikt** sidan öppen för din befintliga erbjudandet, Välj det avtal som du vill ändra. Om planen inte kan nås från den **– översikt** väljer **finns i alla prenumerationer**.
-- Du kan välja att välja planen **namn**, **prismodellen**, eller **tillgänglighet**. *Planer är för närvarande bara tillgänglig på engelska (USA)*.
+- Du kan välja att välja planen **namn**, **prismodellen**, eller **tillgänglighet**. *Planer är för närvarande bara tillgänglig på engelska (USA)* .
 - Välj **spara** när du har gjort nödvändiga ändringar till planens namn, beskrivning, prissättning, eller målgrupp tillgänglighet. 
 - Välj **publicera** när du är redo att publicera dina uppdateringar. Den **[granskning och publicera](#review-and-publish-an-updated-offer)** sidan öppnas och ger en Slutförandestatus för dina uppdateringar. 
 

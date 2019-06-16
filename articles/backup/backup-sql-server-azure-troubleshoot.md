@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306958"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
@@ -46,7 +46,7 @@ Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBack
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| SQL-databas finns inte. | Databasen har antingen tagits bort eller bytt namn. | Kontrollera om databasen av misstag har tagits bort eller bytt namn.<br/><br/> Om databasen tagits bort av misstag, om du vill fortsätta säkerhetskopiering, återställa databasen till den ursprungliga platsen.<br/><br/> Om du tog bort den och inte behöver framtida säkerhetskopior i Recovery Services-valv på [Avbryt säkerhetskopiering med ”ta bort/avinstallationsalternativ”](manage-monitor-sql-database-backup.md).
+| SQL-databasen finns inte. | Databasen har antingen tagits bort eller bytt namn. | Kontrollera om databasen av misstag har tagits bort eller bytt namn.<br/><br/> Om databasen tagits bort av misstag, om du vill fortsätta säkerhetskopiering, återställa databasen till den ursprungliga platsen.<br/><br/> Om du tog bort den och inte behöver framtida säkerhetskopior i Recovery Services-valv på [Avbryt säkerhetskopiering med ”ta bort/avinstallationsalternativ”](manage-monitor-sql-database-backup.md).
 
 ## <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
@@ -94,14 +94,14 @@ Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBack
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. Det kan inte användas för stopp vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk loggade återställningsläge, kan data mellan en massloggade transaktion och nästa log-transaktionen inte återställas. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. De kan inte användas för att stoppa vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk loggade återställningsläge, kan data mellan en massloggade transaktion och nästa log-transaktionen inte återställas. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Säkerhetskopieringsinställningen för SQL Always On Availability Group kan inte tillämpas eftersom vissa noder i Tillgänglighetsgruppen inte är registrerade. | Noder som krävs för att utföra säkerhetskopieringar har registrerats inte eller inte kan nås. | <ul><li>Kontrollera att alla noder som krävs för att utföra säkerhetskopieringar av den här databasen är registrerade och felfria och försök sedan igen.</li><li>Ändra SQL Always On Availability Group inställning för säkerhetskopiering.</li></ul> |
+| Säkerhetskopieringsinställningen för SQL AlwaysOn-tillgänglighetsgruppen uppfylls inte eftersom vissa noder i tillgänglighetsgruppen inte är registrerade. | Noder som krävs för att utföra säkerhetskopieringar har registrerats inte eller inte kan nås. | <ul><li>Kontrollera att alla noder som krävs för att utföra säkerhetskopieringar av den här databasen är registrerade och felfria och försök sedan igen.</li><li>Ändra SQL Always On Availability Group inställning för säkerhetskopiering.</li></ul> |
 
 ## <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 

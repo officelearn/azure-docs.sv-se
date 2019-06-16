@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545100"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-plattformen och OAuth 2.0 flödet
@@ -65,10 +65,10 @@ Den här typen av auktorisering är vanligt för Daemon och tjänstkonton som be
 
 Du kan använda API: er för att exponera en uppsättning behörigheter för programmet istället för att använda ACL: er. Ett program behörighet har beviljats till ett program av en organisations administratör och kan användas endast för att komma åt data som ägs av organisationen och deras anställda. Microsoft Graph visar till exempel flera behörigheter för programmet att göra följande:
 
-* Läsa e-post i alla postlådor
+* Läs e-post i alla postlådor
 * Läsa och skriva e-post i alla postlådor
 * Skicka e-post som valfri användare
-* Läsa katalogdata
+* Läs katalogdata
 
 Mer information om behörigheter för programmet går du till [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -111,10 +111,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Obligatoriskt | Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med valfri klient, Använd `common`. |
-| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
+| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
 | `redirect_uri` | Obligatoriskt | Omdirigerings-URI där du vill att svaret skickas för din app för att hantera. Den måste exakt matcha någon av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodad och kan ha ytterligare sökvägssegment. |
 | `state` | Rekommenderas | Ett värde som ingår i den begäran som returneras även token svaret. Det kan vara en sträng med innehåll som du vill. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 
@@ -173,13 +173,13 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Obligatoriskt | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
-| `client_id` | Krävs | Program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du har registrerat appen. |
+| `client_id` | Obligatoriskt | Program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du har registrerat appen. |
 | `scope` | Obligatoriskt | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. <br/>Det här värdet anger Microsoft identity-plattformen slutpunkten att slutpunkten för alla direkt tillämpning behörigheter du har konfigurerat för din app, bör utfärdar en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Krävs | Klienthemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas. |
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `client_secret` | Obligatoriskt | Klienthemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas. |
+| `grant_type` | Obligatoriskt | Måste anges till `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
 
@@ -195,14 +195,14 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
-| `client_id` | Krävs |ID för programmet (klient) som har tilldelats din app. |
-| `scope` | Krävs | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. <br/>Det här värdet meddelar Microsoft identity-plattformen slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
+| `tenant` | Obligatoriskt | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
+| `client_id` | Obligatoriskt |ID för programmet (klient) som har tilldelats din app. |
+| `scope` | Obligatoriskt | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. <br/>Det här värdet meddelar Microsoft identity-plattformen slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
 | `client_assertion_type` | Obligatoriskt | Värdet måste anges till `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obligatoriskt | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `grant_type` | Obligatoriskt | Måste anges till `client_credentials`. |
 
 Observera att parametrarna är nästan samma sätt som i fallet med begäran från delad hemlighet förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 

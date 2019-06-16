@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096274"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uppgradera konfigurationen av ett kluster i Azure 
@@ -36,7 +36,7 @@ Den här artikeln beskriver hur du anpassar olika fabric inställningarna för S
 Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Läs mer om de olika inställningarna i [konfigurationsinställningar för kluster](service-fabric-cluster-fabric-settings.md). Till exempel stegen nedan visar hur du lägger till en ny inställning *MaxDiskQuotaInMB* till den *diagnostik* avsnittet med hjälp av Azure Resource Explorer.
 
 1. Gå till https://resources.azure.com
-2. Gå till din prenumeration genom att expandera **prenumerationer** -> **\<din prenumeration >** -> **resourceGroups**  ->   **\<Din resursgrupp >** -> **providers** -> **Microsoft.ServiceFabric**  ->  **kluster** -> **\<Your klustrets namn >**
+2. Gå till din prenumeration genom att expandera **prenumerationer** ->  **\<din prenumeration >**  -> **resourceGroups**  ->   **\<Din resursgrupp >**  -> **providers** -> **Microsoft.ServiceFabric**  ->  **kluster** ->  **\<Your klustrets namn >**
 3. I övre högra hörnet väljer **Läs/Skriv.**
 4. Välj **redigera** och uppdatera den `fabricSettings` JSON-element och Lägg till ett nytt element:
 

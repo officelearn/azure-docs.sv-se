@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602726"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregeringar i Azure Monitor log-frågor
@@ -31,7 +31,7 @@ Den här artikeln beskriver aggregeringsfunktioner i Azure Monitor log-frågor s
 
 ## <a name="counts"></a>Antal
 
-### <a name="count"></a> antal
+### <a name="count"></a>count
 Räkna antalet rader i resultatmängden efter eventuella filter har använts. I följande exempel returneras det totala antalet rader i den _Perf_ tabell från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* om du inte tilldelar den ett visst namn:
 
 
@@ -92,7 +92,7 @@ Heartbeat
 |USA    | 19                  |
 |Kanada           | 3                   |
 |Irland          | 0                   |
-|Storbritannien och Nordirland   | 0                   |
+|Storbritannien   | 0                   |
 |Nederländerna      | 2                   |
 
 
@@ -107,7 +107,7 @@ Heartbeat
 ## <a name="percentiles-and-variance"></a>Percentiler och varians
 När du utvärderar numeriska värden, det är vanligt att genomsnittlig dem med hjälp av `summarize avg(expression)`. Medelvärden påverkas av extrema värden som utmärker endast några ärenden. Om du vill åtgärda problemet, kan du använda mindre känsliga funktioner som `median` eller `variance`.
 
-### <a name="percentile"></a>Percentil
+### <a name="percentile"></a>: E percentilen
 Hitta medianvärdet i `percentile` funktion med ett värde för att ange den: e percentilen:
 
 ```Kusto

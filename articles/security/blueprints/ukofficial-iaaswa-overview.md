@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609505"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
@@ -154,7 +154,7 @@ De här virtuella nätverken hanteras fortfarande som separata resurser, men vis
 
 **Nätverkssäkerhetsgrupper**: [NSG: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) innehåller åtkomstkontrollistor som tillåter eller nekar trafik inom ett virtuellt nätverk. NSG: er kan användas för att skydda trafik på ett undernät eller individuella VM-nivå.
 
-**Active Directory Domain Services (AD DS)**: Den här arkitekturen ger en dedikerad [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) distribution.
+**Active Directory Domain Services (AD DS)** : Den här arkitekturen ger en dedikerad [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) distribution.
 
 **Loggning och granskning**: [Azure-aktivitetslogg](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) insamlingar åtgärder vidtas på resurserna i prenumerationen som vem som initierade åtgärden när åtgärden utfördes, status för åtgärden och värdena för andra egenskaper som kan hjälpa dig undersöka den åtgärden. Azure-aktivitetslogg är en tjänst i Azure-plattformen som samlar in alla åtgärder på en prenumeration. Loggar kan arkiveras eller exporteras om det behövs.
 

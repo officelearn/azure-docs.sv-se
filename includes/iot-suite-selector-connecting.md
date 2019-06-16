@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147707"
 ---
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "66147707"
 I den här självstudien får du implementera en **kylaggregat** enhet som skickar följande telemetri till den fjärrövervakning [lösningsaccelerator](../articles/iot-accelerators/about-iot-accelerators.md):
 
 * Temperatur
-* Tryck
+* Hög belastning
 * Fuktighet
 
 För enkelhetens skull genererar koden exempelvärden telemetri för den **kylaggregat**. Du kan utöka exemplet genom att ansluta riktiga sensorer till enheten och skicka riktig telemetri.

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318943"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Det går inte att fjärransluta till en virtuell dator eftersom RDP-porten inte är aktiverat i NSG
@@ -44,7 +44,7 @@ Följ dessa steg om du vill aktivera RDP-porten i en NSG:
 
     **Prioritet**: 300 </br>
     **Port**: 3389 </br>
-    **Namn**: Port_3389 </br>
+    **Namn på**: Port_3389 </br>
     **Port**: 3389 </br>
     **Protokoll**: TCP </br>
     **Källa**: Alla </br>

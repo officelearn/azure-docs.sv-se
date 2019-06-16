@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66252853"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight virtuella nätverksarkitekturen
@@ -22,7 +22,7 @@ Den här artikeln beskriver de resurser som finns när du distribuerar ett HDIns
 
 Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje nodtyp spelar en roll i användningen av systemet. I följande tabell sammanfattas dessa nodtyper och deras roller i klustret.
 
-| Type | Beskrivning |
+| Typ | Beskrivning |
 | --- | --- |
 | Huvudnod |  För samtliga klustertyper utom Apache Storm värd huvudnoderna de processer som hanterar körning av det distribuerade programmet. Huvudnoden är också den nod som du kan SSH och kör program som koordineras sedan för att köra över klusterresurserna. Antal huvudnoder vara högst två för alla typer av klustret. |
 | ZooKeeper-nod | Zookeeper samordnar aktiviteter mellan noderna som gör databearbetning. Den också gör val av ledare för huvudnoden och håller reda på vilka huvudnoden körs en specifik huvudtjänsten. Antalet ZooKeeper-noder är fast på alla tre. |

@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584864"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Välja rätt SQL Server-alternativ i Azure
@@ -25,7 +25,7 @@ ms.locfileid: "60584864"
 I Azure, kan du ha dina SQL Server-arbetsbelastningar som körs i en värdbaserad infrastruktur (IaaS) eller som körs som en värdbaserad tjänst ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). I PaaS har du flera alternativ och tjänstnivåer inom varje distributionsalternativ. Viktig fråga som du behöver fråga när du bestämmer mellan PaaS eller IaaS är vill du hantera din databas, tillämpa korrigeringar, göra säkerhetskopior eller du vill delegera de här åtgärderna till Azure?
 Beroende på svaret har du följande alternativ:
 
-- [Azure SQL Database](sql-database-technical-overview.md): En fullständigt hanterad SQL-databasmotorn, baserat på den senaste stabila Enterprise-utgåvan av SQL Server. Det här är en relationell databas-som-tjänst-(DBaaS) i Azure-molnet som ligger branschkategorin av *Platform-as-a-Service (PaaS)*. SQL database har flera distributionsalternativ, som bygger på standardiserad maskinvara och programvara som är ägs, finns hos och hanteras av Microsoft. Med SQL-databas, kan du använda inbyggda egenskaper och funktioner som kräver omfattande konfiguration när de används i SQL Server (antingen lokalt eller i en Azure virtuell dator). När du använder SQL Database, betalar du per användning med alternativ att skala upp eller ut för mer kraft utan avbrott. SQL Database har ytterligare funktioner som inte är tillgängliga i SQL Server, till exempel inbyggd hög tillgänglighet, intelligens och hantering. Azure SQL Database erbjuder följande distributionsalternativ:
+- [Azure SQL Database](sql-database-technical-overview.md): En fullständigt hanterad SQL-databasmotorn, baserat på den senaste stabila Enterprise-utgåvan av SQL Server. Det här är en relationell databas-som-tjänst-(DBaaS) i Azure-molnet som ligger branschkategorin av *Platform-as-a-Service (PaaS)* . SQL database har flera distributionsalternativ, som bygger på standardiserad maskinvara och programvara som är ägs, finns hos och hanteras av Microsoft. Med SQL-databas, kan du använda inbyggda egenskaper och funktioner som kräver omfattande konfiguration när de används i SQL Server (antingen lokalt eller i en Azure virtuell dator). När du använder SQL Database, betalar du per användning med alternativ att skala upp eller ut för mer kraft utan avbrott. SQL Database har ytterligare funktioner som inte är tillgängliga i SQL Server, till exempel inbyggd hög tillgänglighet, intelligens och hantering. Azure SQL Database erbjuder följande distributionsalternativ:
   
   - Som en [enkel databas](sql-database-single-database.md) med en egen uppsättning resurser som hanteras via SQL-databasserver. En enkel databas liknar en [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server. Det här alternativet är optimerat för moderna program utvecklingen av nya molnlagrade program.
   - En [elastisk pool](sql-database-elastic-pool.md), vilket är en uppsättning databaser med en delad uppsättning resurser som hanteras via en SQL Database-server. Enkla databaser kan flyttas in och ut från en elastisk pool. Det här alternativet är optimerat för utveckling av moderna program av nya molnlagrade program som använder det SaaS-programmet.
@@ -107,7 +107,7 @@ För närvarande **SQL Database** säljs som en tjänst och är tillgänglig med
 
 - Med SQL Database enkel databas, kan du välja en tjänstnivå som passar dina behov från en mängd priser från och med 5$ / månad för basic-nivån.
 - Du kan skapa [elastiska pooler](sql-database-elastic-pool.md) att dela resurser mellan databasinstanser att minska kostnaderna och hantera användning vid tillfälliga toppar.
-- Med SQL Database-hanterad instans, kan du också använda en egen licens. Mer information om bring-your-own-licensiering finns i [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/) eller Använd [Azure Hybrid-förmånen Kalkylatorn](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) att se hur du **spara upp till 40%**.
+- Med SQL Database-hanterad instans, kan du också använda en egen licens. Mer information om bring-your-own-licensiering finns i [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/) eller Använd [Azure Hybrid-förmånen Kalkylatorn](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) att se hur du **spara upp till 40%** .
 
 Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Du kan dynamiskt justera tjänstnivåer och compute så att de matchar ditt programs ändrade behov för genomströmning.
 

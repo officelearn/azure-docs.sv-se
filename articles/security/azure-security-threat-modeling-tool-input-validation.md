@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 0803ade7613480621a0cd87f9944ee5f55bf432c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586313"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Security ram: Indatavalidering | Åtgärder 
@@ -32,7 +32,7 @@ ms.locfileid: "60586313"
 
 ## <a id="disable-xslt"></a>Inaktivera XSLT-skript för alla transformeringar med obetrodda formatmallar
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -64,7 +64,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 
 ## <a id="out-sniffing"></a>Se till att alla sidor som kan innehålla användare kontrolleras innehåll innebär att inga automatiska MIME-kontroll
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -133,7 +133,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ## <a id="xml-resolution"></a>Förstärka eller inaktivera XML-entitet upplösning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -195,7 +195,7 @@ Observera att i MSXML6, ProhibitDTD har angetts till true (inaktivera DTD bearbe
 
 ## <a id="app-verification"></a>Program som använder http.sys utföra verifiering av URL-auktorisering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -206,7 +206,7 @@ Observera att i MSXML6, ProhibitDTD har angetts till true (inaktivera DTD bearbe
 
 ## <a id="controls-users"></a>Kontrollera att lämpliga kontroller är uppfyllda när du tar emot filer från användare
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -322,7 +322,7 @@ Den sista punkten om signaturverifiering finns klassen nedan för mer informatio
 
 ## <a id="typesafe"></a>Se till att typen safe parametrar används i webbprogram för dataåtkomst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -352,7 +352,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="binding-mvc"></a>Använda separata modellklasser för bindning eller bindningsfilter listor för att förhindra MVC drivrutiner för masslagring tilldelning säkerhetsproblem
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -363,7 +363,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="rendering"></a>Koda obetrodda webbutdata innan rendering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -388,7 +388,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="typemodel"></a>Utföra verifiering av indata och filtrering på alla strängtyp modellegenskaper
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -399,7 +399,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="richtext"></a>Gemensamt ska tillämpas på formulärfält som godkänner alla tecken, t.ex., textredigeraren
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -410,7 +410,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="inbuilt-encode"></a>Tilldela inte DOM-element till mottagare som inte har inbyggd kodning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -432,7 +432,7 @@ Använd inte `innerHtml`; i stället använda `innerText`. På samma sätt, i st
 
 ## <a id="redirect-safe"></a>Kontrollera att alla omdirigeringar i programmet är stängd eller för att göra på ett säkert sätt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -443,7 +443,7 @@ Använd inte `innerHtml`; i stället använda `innerText`. På samma sätt, i st
 
 ## <a id="string-method"></a>Implementera verifiering av indata på alla typ strängparametrar accepteras av kontrollantmetoder
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -454,7 +454,7 @@ Använd inte `innerHtml`; i stället använda `innerText`. På samma sätt, i st
 
 ## <a id="dos-expression"></a>Ange tidsgränsen för övre gräns för reguljärt uttryck som används för att förhindra DoS på grund av felaktiga reguljära uttryck
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -472,7 +472,7 @@ Till exempel genererar följande konfiguration en RegexMatchTimeoutException om 
 
 ## <a id="html-razor"></a>Undvik att använda Html.Raw i Razor-vyer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -497,7 +497,7 @@ Använd inte `Html.Raw()` såvida du inte behöver visa markup. Den här metoden
 
 ## <a id="stored-proc"></a>Använd inte dynamiska frågor i lagrade procedurer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -557,7 +557,7 @@ AS
 
 ## <a id="validation-api"></a>Se till att modellen verifieras webb-API-metoder
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -614,7 +614,7 @@ namespace MyApi.Controllers
 
 ## <a id="string-api"></a>Implementera verifiering av indata på alla typ strängparametrar accepteras av webb-API-metoder
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -625,7 +625,7 @@ namespace MyApi.Controllers
 
 ## <a id="typesafe-api"></a>Se till att typen safe parametrar används i webb-API för dataåtkomst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -655,7 +655,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="sql-docdb"></a>Använda parametriserade SQL-frågor för Cosmos DB
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -666,7 +666,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="schema-binding"></a>WCF-indata verifiering via schemabindning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -677,7 +677,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 
 ## <a id="parameters"></a>Indata WCF - verifiering via parametern Inspectors
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  

@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158491"
 ---
 Vissa arbetsbelastningar som SQL Server- eller Oracle kräver extra minne, lagring, och i/o-bandbredd, men inte ett antal kärnor för hög. Många databasarbetsbelastningar är inte processorintensiva. Azure erbjuder vissa storlekar på Virtuella datorer där du kan begränsa vCPU-antal virtuella datorer för att minska kostnaden för programvarulicensiering samtidigt på samma minne, lagring och i/o-bandbredd.
@@ -21,10 +21,10 @@ Antal virtuella processorer kan begränsas till hälften eller en fjärdedel av 
 
 Exempelvis den aktuella storleken för virtuell standard gs5 levereras med 32 virtuella processorer, 448 GB RAM-minne, 64 diskar (upp till 256 TB) och 80 000 IOPs eller 2 GB/s i/o-bandbredd. Den nya virtuella datorn storlekar standard gs5-16- och standard gs5-8 levereras med 16 och 8 active virtuella processorer, samtidigt som resten av specifikationer för standard gs5 för minne, lagring och i/o-bandbredd.
 
-Licensiering avgifter debiteras för SQL Server- eller Oracle är begränsade till det nya antalet virtuella processorer och andra produkter som ska debiteras baserat på antalet virtuella processorer. Detta resulterar i en 50% till 75% ökning förhållandet mellan VM-specifikationer till aktiv (fakturerbara) virtuella processorer. De här nya VM-storlekarna Tillåt slutkundsarbetsbelastningar att använda samma minne, lagring och i/o-bandbredd samtidigt optimera sina kostnader för programvarulicenser. Beräkningskostnaden, vilket innefattar OS licensiering, förblir det samma som den ursprungliga storleken för tillfället. Mer information finns i [Azure VM-storlekar för mer kostnadseffektiv databasarbetsbelastningar](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+Licensiering avgifter debiteras för SQL Server- eller Oracle är begränsade till det nya antalet virtuella processorer och andra produkter som ska debiteras baserat på antalet virtuella processorer. Detta resulterar i en 50% till 75% ökning förhållandet mellan VM-specifikationer till aktiv (fakturerbara) virtuella processorer. Dessa nya VM-storlekar gör att kundarbetsflöden kan använda samma minne, lagring och I/O-bandbredd samtidigt som kostnaden för programvarulicensiering optimeras. Beräkningskostnaden, vilket innefattar OS licensiering, förblir det samma som den ursprungliga storleken för tillfället. Mer information finns i [Azure VM-storlekar för mer kostnadseffektiv databasarbetsbelastningar](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
-| Namn                | vCPU | Specifikationer           |
+| Namn                | Virtuell processor | Specifikationer           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Samma som M8ms    |
 | Standard_M8-4ms     | 4    | Samma som M8ms    |

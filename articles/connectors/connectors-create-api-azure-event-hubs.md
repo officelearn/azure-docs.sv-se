@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720054"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hubs och Azure Logic Apps
@@ -77,11 +77,11 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händ
 
    ![Egenskaper för utlösare](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Namn på Händelsehubb** | Ja | Namnet på den Händelsehubb som du vill övervaka |
    | **Innehållstyp** | Nej | Händelsens innehållstyp. Standardvärdet är `application/octet-stream`. |
-   | **Namn på konsumentgrupp** | Nej | Den [för Händelsehubbens konsumentgrupp](../event-hubs/event-hubs-features.md#consumer-groups) du använder för att läsa händelser. Om den inte anges används standard-konsumentgrupp. |
+   | **Konsumenten gruppnamn** | Nej | Den [för Händelsehubbens konsumentgrupp](../event-hubs/event-hubs-features.md#consumer-groups) du använder för att läsa händelser. Om den inte anges används standard-konsumentgrupp. |
    | **Händelser som maximalt antal** | Nej | Det maximala antalet händelser. Utlösaren returnerar mellan en och antalet händelser som anges av den här egenskapen. |
    | **Intervall** | Ja | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på åtkomstfrekvensen |
    | **Frekvens** | Ja | Tidsenhet för upprepningen |
@@ -89,7 +89,7 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händ
 
    **Ytterligare egenskaper**
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Innehåll schema** | Nej | JSON content-schemat att läsa från Event Hub-händelser. Om du anger innehåll schemat, kan du utlösa logikappen för de händelser som matchar schemat. |
    | **Minsta partitionsnyckel** | Nej | Ange lägsta [partition](../event-hubs/event-hubs-features.md#partitions) ID att läsa. Som standard läses alla partitioner. |
@@ -120,7 +120,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 1. Under utlösaren eller åtgärden, väljer **nytt steg**.
 
    Flytta musen över den anslutande pilen för att lägga till en åtgärd mellan befintliga steg. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I sökrutan anger du ”händelsehubbar” som filter.
 Välj den här åtgärden från åtgärdslistan över: **Skicka händelse – Event Hubs**
@@ -133,7 +133,7 @@ Välj den här åtgärden från åtgärdslistan över: **Skicka händelse – Ev
 
    ![Välj Event Hub-namn och ange händelse-innehåll](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Namn på Händelsehubb** | Ja | Event Hub där du vill skicka händelsen |
    | **Innehåll** | Nej | Innehåll för händelsen som du vill skicka |
@@ -155,7 +155,7 @@ Välj den här åtgärden från åtgärdslistan över: **Skicka händelse – Ev
 
 1. När du uppmanas att ange anslutningsinformationen Tillhandahåll följande information:
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*connection-name*> | Namn för att skapa för anslutningen |
    | **Event Hubs Namespace** | Ja | <*event-hubs-namespace*> | Välj Event Hubs-namnområde som du vill använda. |

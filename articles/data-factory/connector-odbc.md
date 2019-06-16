@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711466"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Aktuell version](connector-odbc.md)
 
@@ -49,7 +49,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för ODBC-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Odbc** | Ja |
 | connectionString | Anslutningssträngen undantaget del som autentiseringsuppgifter. Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) du har konfigurerat på Integration Runtime-dator med `"DSN=<name of the DSN on IR machine>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta).<br>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
@@ -118,7 +118,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från/till datalagret för ODBC-kompatibel, ange typegenskapen på datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i ODBC-datalager. | Nej för källan (om ”fråga” i aktivitetskälla har angetts).<br/>Ja för mottagare |
@@ -149,7 +149,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från ODBC-kompatibel datalager, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
@@ -190,7 +190,7 @@ För att kopiera data från ODBC-kompatibel datalager, ange typ av datakälla i 
 
 Om du vill kopiera data till datalagret för ODBC-kompatibel, ange Mottagartyp i kopieringsaktiviteten till **OdbcSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **OdbcSink** | Ja |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |

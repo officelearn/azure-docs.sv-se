@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718129"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware-haveriberedskap till Azure med CSP
@@ -24,11 +24,11 @@ Den här artikeln innehåller en översikt över implementering och hantering av
 
 Det finns tre större modeller för flera innehavare:
 
-* **Delade värdbaserade tjänster (HSP)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
+* **Delade värdbaserade tjänster (HSP)** : Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
 
 * **Särskilda tjänster värdleverantör**: Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
 
-* **Hanterad Services Provider (MSP)**: Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
+* **Hanterad Services Provider (MSP)** : Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Delade tjänster provider (HSP)
 
@@ -46,8 +46,8 @@ I diagrammet har varje kund en separat hanteringsserver. Den här konfiguratione
 
 Kravet på isolering innebär att all infrastrukturinformation som känsliga (till exempel autentiseringsuppgifter) förblir hemlig till klienter. Därför rekommenderar vi att alla komponenter i management-servern är under din kontroll av partnern. Management server-komponenter är:
 
-* Konfigurationsserver
-* Processerver
+* Konfigurationsservern
+* Processervern
 * Huvudmålservern
 
 En sak som skalats ut-server är också under partnerns kontroll.

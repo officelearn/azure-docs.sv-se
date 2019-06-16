@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991406"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Brandvägg för webbaserade program för Azure Application Gateway
@@ -34,7 +34,7 @@ Säkerhetsförbättringarna som Application Gateway inkluderar SSL-principhanter
 
 Det här avsnittet beskrivs viktiga fördelar med Application Gateway och dess WAF tillhandahåller.
 
-### <a name="protection"></a>Säkerhet
+### <a name="protection"></a>Skydd
 
 * Skydda dina webbprogram från säkerhetsrisker och attacker utan ändringar till backend-koden.
 
@@ -130,9 +130,9 @@ I läget för Avvikelseidentifiering bedömning trafik som matchar Standardregel
 
 |Severity  |Värde  |
 |---------|---------|
-|Kritiska     |5|
+|Kritiskt     |5|
 |Fel        |4|
-|Varning!      |3|
+|Varning      |3|
 |Meddelande       |2|
 
 Det finns ett tröskelvärde på 5 för Avvikelsepoäng till blockerar trafiken. Det öppnar en enda *kritisk* regeln matchar räcker för Application Gateway WAF att blockera en begäran, även i förhindringsläge. Men en *varning* regeln matchar ökar bara Avvikelseidentifiering poäng med 3, vilket inte är tillräckligt ensamt blockera trafik.

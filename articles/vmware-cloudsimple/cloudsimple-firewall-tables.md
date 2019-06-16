@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577352"
 ---
 # <a name="firewall-tables-overview"></a>Översikt över brandväggen för tabeller
@@ -23,10 +23,10 @@ En brandvägg tabell med regler för att filtrera nätverkstrafik till och från
 
 I följande tabell beskrivs parametrarna i en brandväggsregel.
 
-| Egenskap  | Information |
+| Egenskap | Information |
 | ---------| --------|
 | **Namn** | Ett namn som unikt identifierar brandväggsregeln och dess syfte. |
-| **Prioritet** | Ett tal mellan 100 och 4096 med 100 högst prioritet. Regler bearbetas i prioritetsordning. När trafiken kommer över en matchning för regeln, stoppas regelbearbetningen. Därför kan bearbetas regler med lägre prioritet som har samma attribut som regler med högre prioritet inte.  Var noga med för att undvika motstridiga regler. |
+| **prioritet** | Ett tal mellan 100 och 4096 med 100 högst prioritet. Regler bearbetas i prioritetsordning. När trafiken kommer över en matchning för regeln, stoppas regelbearbetningen. Därför kan bearbetas regler med lägre prioritet som har samma attribut som regler med högre prioritet inte.  Var noga med för att undvika motstridiga regler. |
 | **Tillstånd spårning** | Spårning kan vara tillståndslösa (privat moln, Internet eller VPN) eller tillståndskänslig (offentlig IP-adress).  |
 | **Protokoll** | Till exempel någon, TCP eller UDP. Om du vill använda ICMP, använder du någon. |
 | **Riktning** | Om regeln gäller för inkommande eller utgående trafik. |
@@ -53,7 +53,7 @@ Ytterligare regler kan krävas för trafikflöde i omvänd riktning.  Använd ti
 
 Följande standardregler skapas för varje brandvägg-tabellen.
 
-|Prioritet|Namn|Tillstånd spårning|Direction|Typ av nätverkstrafik|Protokoll|Källa|Källport|Mål|Målport|Åtgärd|
+|Prioritet|Namn|Tillstånd spårning|Direction|Typ av nätverkstrafik|Protocol|source|Källport|Mål|Målport|Åtgärd|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|allow-all-to-internet|Tillståndskänslig|Utgående|Offentliga IP- eller internet-trafik|Alla|Alla|Alla|Alla|Alla|Tillåt|
 |65001|deny-all-from-internet|Tillståndskänslig|Inkommande|Offentliga IP- eller internet-trafik|Alla|Alla|Alla|Alla|Alla|Neka|

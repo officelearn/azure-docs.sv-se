@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077297"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) Prestandaalternativ
@@ -20,7 +20,7 @@ ms.locfileid: "65077297"
  
 Du kan välja inställningarna för beräkning och lagring oberoende av varandra för arbetarnoder och koordinatornoden i en servergrupp i hyperskala (Citus).  Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. Lagringsstorlek för etablering refererar till kapaciteten som är tillgängliga för coordinator- och arbetsroller noder i din servergrupp i hyperskala (Citus). Lagringen innehåller databasfiler, temporära filer, transaktionsloggar och Postgres server-loggar. Den totala mängden lagring som du etablerar också definierar den i/o-kapaciteten som är tillgängliga till varje worker, coordinator nod.
  
-|                       | Arbetsnod           | Koordinatornod      |
+|                       | Arbetsnod           | Koordinatornoden      |
 |-----------------------|-----------------------|-----------------------|
 | Beräkning, virtuella kärnor       | 4, 8, 16, 32          | 4, 8, 16, 32          |
 | Minne per vCore, GiB | 8                     | 4                     |
@@ -29,7 +29,7 @@ Du kan välja inställningarna för beräkning och lagring oberoende av varandra
 | IOPS                  | Upp till 3 IOPS/GiB      | Upp till 3 IOPS/GiB      |
 
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 Servergrupper i hyperskala (Citus) är tillgängliga i följande Azure-regioner:
 * USA, östra 2
 * Sydostasien

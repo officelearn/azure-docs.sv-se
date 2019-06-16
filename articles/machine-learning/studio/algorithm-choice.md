@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752980"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
@@ -41,7 +41,7 @@ De här rekommendationerna är kompilerade feedback och tips från många datate
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Hur du använder facit
 
-Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökväg etikett&gt;*, använda  *&lt;algoritmen&gt;*”. Till exempel ”för *hastighet*, använda *två klassen logistic regression*”. Ibland mer än en gren gäller.
+Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökväg etikett&gt;* , använda  *&lt;algoritmen&gt;* ”. Till exempel ”för *hastighet*, använda *två klassen logistic regression*”. Ibland mer än en gren gäller.
 Ibland är ingen av dem en perfekt passning. De är avsedda att vara regeln av USB-rekommendationer, så oroa dig inte om den är exakt.
 Flera dataexperter vi talade med dessa som det enda säkra sättet att hitta den allra bästa algoritmen är att försöka dem alla.
 
@@ -66,14 +66,14 @@ Här är ett exempel från den [Azure AI-galleriet](https://gallery.azure.ai/) a
 
 Oövervakad inlärning har datapunkterna inga etiketter. Målet med en oövervakad Inlärningsalgoritmen är istället att ordna data på något sätt eller för att beskriva dess struktur. Detta kan innebära att gruppera den i kluster eller hitta olika sätt att titta på komplexa data så att den visas enklare eller mer organiserad.
 
-### <a name="reinforcement-learning"></a>Förstärkande inlärning
+### <a name="reinforcement-learning"></a>Kunskapsförmedling
 
 I förstärkande inlärning, hämtar algoritmen att välja en åtgärd som svar på varje datapunkt. Inlärningsalgoritmen får också en utmärkelse signal en kort tid senare, som anger hur bra beslutet var.
 Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta trafik. Det finns för närvarande inga förstärkt inlärningsmoduler algoritmen i Azure Machine Learning Studio. Förstärkande inlärning är vanligt i robotteknik, där uppsättningen sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja den robot nästa åtgärd. Det är också en fysisk som passar för sakernas Internet program.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
 
-### <a name="accuracy"></a>Tillförlitlighet
+### <a name="accuracy"></a>Precision
 
 Hämta det mest korrekta svaret möjliga är inte alltid nödvändigt.
 Ibland är ett approximativt värde lämplig, beroende på vad du vill använda den för. Om så är fallet kan du kunna klippa ut din bearbetningstid avsevärt genom fastna mer ungefärliga metoder. En annan fördel med mer ungefärliga metoder är att de naturligt tenderar att undvika overfitting.

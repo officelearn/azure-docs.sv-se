@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313808"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Hantera Dynamics 365-poster med Azure Logic Apps
@@ -50,7 +50,7 @@ Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-posten 
 
 1. Ange den här utlösarinformationen:
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Organisationens namn** | Ja | Namn för din organisations Dynamics 365-instansen ska övervakas, till exempel ”Contoso” |
    | **Entitetsnamn** | Ja | Namnet för entitet som ska övervakas, till exempel Leads ”” | 
@@ -72,7 +72,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
 
 1. Ange den här informationen för åtgärden:
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Organisationens namn** | Ja | Dynamics 365-instans där du vill skapa den post som inte behöver vara samma instans i utlösaren, är men ”Contoso” i det här exemplet |
    | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel ”aktiviteter” |
@@ -85,7 +85,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
    | Fält | Beskrivning |
    |-------|-------------|
    | **Efternamn** | Efternamnet från lead som den primära kontakten i posten |
-   | **Ämne** | Ett beskrivande namn för ditt lead i posten |
+   | **Avsnittet** | Ett beskrivande namn för ditt lead i posten |
    | | |
 
    ![Information om posten](./media/connectors-create-api-crmonline/create-record-details.png)

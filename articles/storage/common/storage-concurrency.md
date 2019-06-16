@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728313"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
@@ -106,7 +106,7 @@ I följande tabell sammanfattas blobåtgärder som accepterar villkorlig rubrike
 | Hämta Blob |Ja |Ja |
 | Hämta Blobegenskaper |Ja |Ja |
 | Ange Blob-egenskaper |Ja |Ja |
-| Hämta blob-metadata |Ja |Ja |
+| Hämta Blob-Metadata |Ja |Ja |
 | Ange Blob-Metadata |Ja |Ja |
 | Lease Blob (*) |Ja |Ja |
 | Ta ögonblicksbild av Blob |Ja |Ja |
@@ -163,7 +163,7 @@ Följande blobåtgärder för kan använda lån för att hantera pessimistisk sa
 * Hämta Blob
 * Hämta Blobegenskaper
 * Ange Blob-egenskaper
-* Hämta blob-metadata
+* Hämta Blob-Metadata
 * Ange Blob-Metadata
 * Ta bort Blob
 * Placera Block
@@ -238,12 +238,12 @@ I följande tabell sammanfattas hur entiteten tabellåtgärder använda ETag vä
 | Åtgärd | Returnerar ETag-värdet | Kräver att If-Match-huvudet för begäran |
 |:--- |:--- |:--- |
 | Kör frågor mot entiteter |Ja |Nej |
-| Infoga enhet |Ja |Nej |
+| Infoga entitet |Ja |Nej |
 | Uppdatera entitet |Ja |Ja |
-| Sammanslå enhet |Ja |Ja |
-| Ta bort enheten |Nej |Ja |
-| Infoga eller ersätta enhet |Ja |Nej |
-| Infoga eller sammanslå enhet |Ja |Nej |
+| Sammanfoga entitet |Ja |Ja |
+| Ta bort entitet |Nej |Ja |
+| Infoga eller ersätta en entitet |Ja |Nej |
+| Infoga- eller Merge-entitet |Ja |Nej |
 
 Observera att den **infoga eller ersätta entitet** och **Insert eller sammanfoga entitet** operations gör *inte* utföra eventuella samtidighet kontroller eftersom de inte skickar en ETag-värdet till tabellen tjänsten.  
 

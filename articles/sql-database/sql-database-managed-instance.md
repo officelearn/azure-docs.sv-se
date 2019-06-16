@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070405"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -78,7 +78,7 @@ Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för h
 Du kan välja mellan av maskinvara i vCore-modellen.
 
 - **Gen4** logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, SSD, enheter anslutna fysiska kärnor, 7 GB RAM-minne per kärna och storlekar på mellan 8 och 24 virtuella kärnor.
-- **Gen5** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
+- **Gen5** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 4 och 80 kärnor.
 
 Mer information om skillnaden mellan maskinvarugenerationer i [hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -226,7 +226,7 @@ Distributionsalternativ för hanterad instans kan systemadministratören att äg
 
 I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL, att du kan använda för att identifiera att programmet fungerar med hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap |Värde|Kommentar|
+|Egenskap|Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|
@@ -240,5 +240,5 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Mer information om konfiguration av virtuellt nätverk finns i [hanterad instanskonfiguration av virtuellt nätverk](sql-database-managed-instance-connectivity-architecture.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapa en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudiekurs med hjälp av Azure Database Migration Service (DMS) för migrering finns i [hanterad instans-migrering med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Information om avancerad övervakning av prestanda för hanterad instansdatabas med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
+- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Information om priser finns i [SQL Database managed instance priser](https://azure.microsoft.com/pricing/details/sql-database/managed/).

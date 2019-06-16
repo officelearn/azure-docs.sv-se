@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935443"
 ---
 <a name="retrieve-a-specific-offer"></a>Hämta ett specifikt erbjudande
@@ -196,7 +196,7 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i d
 |  **Namn**                   |   **Beskrivning**                             |
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | Erbjudandet har inte publicerats.               |
-|  NotStarted                 | Erbjudandet är nytt, men har startats inte.              |
+|  Ej startad                 | Erbjudandet är nytt, men har startats inte.              |
 |  WaitingForPublisherReview  | Erbjudande väntar på godkännande av utgivaren.      |
 |  Körs                    | Erbjud bidrag bearbetas.          |
 |  Lyckades                  | Erbjudandet bidrag har bearbetat.    |

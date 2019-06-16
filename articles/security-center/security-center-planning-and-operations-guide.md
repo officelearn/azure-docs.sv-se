@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966841"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
@@ -197,7 +197,7 @@ När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azur
 1. För virtuella datorer, klickar du på **Compute** under området **Förebyggande**. Eventuella problem med att aktivera datainsamling eller tillhörande rekommendationer visas i fliken **Översikt** och **Monitoring Recommendations** (Övervakningsrekommendationer).
 2. Under **Recommendations (Rekommendationer)** kan du se om några säkerhetsrisker har upptäckts i den nya resursen.
 3. När nya virtuella datorer läggs till i miljön brukar det först bara vara operativsystemet som är installerat. Resursägaren kan behöva lite tid för att distribuera andra program som ska användas på de här datorerna.  Helst bör du veta vilka planerna för arbetsbelastningen är. Ska det vara en programserver? Beroende på vad den nya arbetsbelastningen ska bli kan du aktivera en **säkerhetsprincip** som passar, vilket är det tredje steget i det här arbetsflödet.
-4. När nya resurser läggs in i Azuremiljön kan det hända att nya aviseringar visas i rutan **Security Alerts (Säkerhetsaviseringar)**. Kontrollera alltid om det finns nya aviseringar i den här rutan och vidta åtgärder enligt rekommendationerna i Security Center.
+4. När nya resurser läggs in i Azuremiljön kan det hända att nya aviseringar visas i rutan **Security Alerts (Säkerhetsaviseringar)** . Kontrollera alltid om det finns nya aviseringar i den här rutan och vidta åtgärder enligt rekommendationerna i Security Center.
 
 Du bör även regelbundet övervaka befintliga resurser för att se om det görs några konfigurationsändringar som ger upphov till säkerhetsrisker eller som inte följer rekommenderade baslinjer eller för att se om det kommer upp några säkerhetsaviseringar. Starta på instrumentpanelen för Security Center. Där finns tre större delar som du bör kontrollera regelbundet.
 

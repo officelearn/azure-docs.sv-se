@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521398"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Välj versionen av Azure Functions-runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -114,7 +114,7 @@ Kontroller i [sampling funktion i Application Insights](./functions-monitoring.m
 > [!NOTE]
 > Log sampling kan orsaka vissa körningar inte visas i Application Insights monitor-bladet.
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|true|Aktiverar eller inaktiverar sampling.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka sampling börjar.| 
@@ -171,7 +171,7 @@ Konfigurationsinställningar för [Övervakare för hälsa för värd](https://g
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktiverad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
@@ -205,7 +205,7 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av filen loggning är aktiverat.  Alternativen är `never`, `always`, `debugOnly`. |
 |logLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
@@ -228,7 +228,7 @@ Den här inställningen är underordnad [loggning](#logging). Den kontrollerar k
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|false|Aktiverar eller inaktiverar loggning för konsolen.| 
 
@@ -260,7 +260,7 @@ Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns 
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktionen på Lås används för. Låsen den automatiska förnyelsen.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnare Lås används för.| 

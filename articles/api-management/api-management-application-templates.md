@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657959"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
@@ -79,7 +79,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Paging`|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
 |`Applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program som är synliga för den aktuella användaren.|  

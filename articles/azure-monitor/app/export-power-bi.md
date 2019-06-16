@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900433"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
@@ -42,7 +42,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
 1. [Öppna Analytics och Skriv din fråga](../../azure-monitor/log-query/get-started-portal.md).
 2. Testa och förfina frågan tills du är nöjd med resultaten. Kontrollera att frågan fungerar korrekt i Analytics innan du exporterar den.
-3. På den **exportera** menyn, Välj **Power BI (M)**. Spara filen.
+3. På den **exportera** menyn, Välj **Power BI (M)** . Spara filen.
    
     ![Skärmbild av analyser med menyn Exportera markerat](./media/export-power-bi/analytics-export-power-bi.png)
 4. I Power BI Desktop, Välj **hämta Data** > **tom fråga**. I frågeredigeraren under **visa**väljer **Avancerad redigerare**.

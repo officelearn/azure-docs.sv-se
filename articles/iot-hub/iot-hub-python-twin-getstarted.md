@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442639"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569269"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhetstvillingar (Python)
 
@@ -55,7 +55,7 @@ Den här kursen behöver du följande:
 
 ## <a name="create-the-service-app"></a>Skapa service-app
 
-I det här avsnittet skapar du en Python-konsolapp som lägger till platsmetadata i enhetstvillingen som är associerade med din **{enhets-ID}**. Därefter beordrar enhetstvillingar som lagras i IoT hub att välja de enheter som finns i Redmond och de som rapporterar en mobil anslutning.
+I det här avsnittet skapar du en Python-konsolapp som lägger till platsmetadata i enhetstvillingen som är associerade med din **{enhets-ID}** . Därefter beordrar enhetstvillingar som lagras i IoT hub att välja de enheter som finns i Redmond och de som rapporterar en mobil anslutning.
 
 1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
 
@@ -157,7 +157,7 @@ I nästa avsnitt skapar du en app för enheter som rapporterar anslutningsinform
 
 ## <a name="create-the-device-app"></a>Skapa en app för enheter
 
-I det här avsnittet skapar du en Python-konsolapp som ansluter till hubben som din **{enhets-ID}**, och sedan de uppdateringar som dess enhetstvilling är rapporterade egenskaper som innehåller informationen om att den är ansluten med hjälp av ett mobilt nätverk.
+I det här avsnittet skapar du en Python-konsolapp som ansluter till hubben som din **{enhets-ID}** , och sedan de uppdateringar som dess enhetstvilling är rapporterade egenskaper som innehåller informationen om att den är ansluten med hjälp av ett mobilt nätverk.
 
 1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/05/2019
+ms.author: raymondl
+ms.openlocfilehash: b7683b6d5932872f8cef2f6db9a1ec7e5e4fa86d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069183"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
@@ -22,7 +22,7 @@ ms.locfileid: "60828740"
 
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste punkterna i en samling av dokument. Exempel: med den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
 
-För tillfället stöder extraktion av nyckelfraser engelska, tyska, spanska och japanska. Övriga språk är i förhandsversion. Mer information finns i [språk som stöds](../text-analytics-supported-languages.md).
+Se den [språk som stöds](../text-analytics-supported-languages.md) artikeln för mer information. 
 
 > [!TIP]
 > Textanalys ger även en Linux-baserad Docker-containeravbildning för nyckelfrasextrahering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.

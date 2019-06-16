@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137077"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Skapa en ASE med en Azure Resource Manager-mall
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Det tar ungefär en timme för ASE som ska skapas. Sedan ASE som visas i portalen i listan med ase-miljöer för den prenumeration som utlöste distributionen.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Överför och konfigurerar SSL-certifikat ”standard”
-Ett SSL-certifikat måste vara associerad med ASE som ”standard” SSL-certifikatet som används för att upprätta en SSL-anslutningar till appar. Om den ASE standard-DNS-suffixet är *intern contoso.com*, en anslutning till https://some-random-app.internal-contoso.com kräver ett SSL-certifikat som är giltig för **.internal contoso.com*. 
+Ett SSL-certifikat måste vara associerad med ASE som ”standard” SSL-certifikatet som används för att upprätta en SSL-anslutningar till appar. Om den ASE standard-DNS-suffixet är *intern contoso.com*, en anslutning till https://some-random-app.internal-contoso.com kräver ett SSL-certifikat som är giltig för * *.internal contoso.com*. 
 
 Skaffa ett giltigt SSL-certifikat med hjälp av interna certifikatutfärdare, köp ett certifikat från en extern utfärdare eller använder ett självsignerat certifikat. Följande certifikatattribut måste konfigureras korrekt oavsett källan för SSL-certifikat:
 
-* **Ämne**: Det här attributet måste anges till **.your-root-domain-here.com*.
-* **Alternativt namn för certifikatmottagare**: Det här attributet måste innehålla både **.your-root-domain-here.com* och **.SCM.Your-root-domain-here.com*. SSL-anslutningar till SCM/Kudo-sajten för varje app använder en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
+* **Ämne**: Det här attributet måste anges till * *.your-root-domain-here.com*.
+* **Alternativt namn för certifikatmottagare**: Det här attributet måste innehålla både * *.your-root-domain-here.com* och * *.SCM.Your-root-domain-here.com*. SSL-anslutningar till SCM/Kudo-sajten för varje app använder en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
 
 Med ett giltigt SSL-certifikat i hand behövs två ytterligare förberedande steg. Konvertera/spara SSL-certifikatet som en .pfx-fil. Kom ihåg att .pfx-filen måste innehålla alla mellanliggande och rotcertifikat. Skydda den med ett lösenord.
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Det tar ungefär 40 minuter per ASE klientdel att tillämpa ändringen. För en standardstorlek ASE som använder två klientdelar, tar mallen exempelvis cirka en timme och 20 minuter för att slutföra. När mallen körs skala inte ASE.  
 
-När mallen är klar kan appar på ILB ASE nås via HTTPS. Anslutningarna är skyddade med hjälp av SSL-standardcertifikatet. SSL-standardcertifikatet används när appar på ILB ASE åtgärdas genom att använda en kombination av programnamnet plus standardvärdnamnet. Till exempel https://mycustomapp.internal-contoso.com använder SSL-standardcertifikatet för **.internal contoso.com*.
+När mallen är klar kan appar på ILB ASE nås via HTTPS. Anslutningarna är skyddade med hjälp av SSL-standardcertifikatet. SSL-standardcertifikatet används när appar på ILB ASE åtgärdas genom att använda en kombination av programnamnet plus standardvärdnamnet. Till exempel https://mycustomapp.internal-contoso.com använder SSL-standardcertifikatet för * *.internal contoso.com*.
 
 Utvecklare kan dock precis som appar som körs på den offentliga multitenant-tjänsten, konfigurera anpassade värdnamn för enskilda appar. De kan också konfigurera unika SNI SSL-certifikatbindningar för enskilda appar.
 

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833425"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
@@ -21,7 +21,7 @@ ms.locfileid: "65833425"
 Azure IoT Edge-moduler kan ansluta med andra Azure-tjänster och bidrar till din större datapipeline i molnet. Den här artikeln beskrivs hur du kan utveckla moduler för att kommunicera med IoT Edge-körningen och IoT Hub och därför resten av Azure-molnet. 
 
 ## <a name="iot-edge-runtime-environment"></a>IoT Edge-körningsmiljö
-IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT Edge-moduler och distribuera dem till IoT Edge-enheterna.  På hög nivå, kan alla program vara paketerad som en IoT Edge-modul. Om du vill dra full nytta av IoT Edge kommunikations- och hanteringsfunktioner, men anslutas ett program som körs i en modul till lokala IoT Edge hub, integrerade i IoT Edge-körningen.
+IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT Edge-moduler och distribuera dem till IoT Edge-enheterna. På hög nivå, kan alla program vara paketerad som en IoT Edge-modul. Om du vill dra full nytta av IoT Edge kommunikations- och hanteringsfunktioner, men anslutas ett program som körs i en modul till lokala IoT Edge hub, integrerade i IoT Edge-körningen.
 
 ## <a name="using-the-iot-edge-hub"></a>Med hjälp av IoT Edge hub
 IoT Edge hub ger två huvudsakliga funktioner: proxy till IoT Hub och lokala kommunikation.
@@ -48,7 +48,7 @@ IoT Edge för att underlätta skapandet av vägar, lägger till begreppet module
 
 Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med följande Systemegenskaper för:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | -------- | ----------- |
 | $connectionDeviceId | Enhets-ID för den klient som skickade meddelandet |
 | $connectionModuleId | Modul-ID för den modul som skickade meddelandet |

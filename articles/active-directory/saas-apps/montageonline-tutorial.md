@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 74ed6e8d6966d7dda2fc15b9c544ef80d276b06f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Självstudier: Azure Active Directory-integrering med Montage Online
 
@@ -52,7 +52,7 @@ För att konfigurera integrering av Montage Online i Azure AD, som du behöver l
 
 **Om du vill lägga till Montage Online från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -204,5 +204,5 @@ När du klickar på panelen Montage Online i åtkomstpanelen, bör det vara logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

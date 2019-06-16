@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237003"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon matris rekommendationer
@@ -50,7 +50,7 @@ De rekommenderade egenskaperna när du väljer mikrofoner är:
 | Bithastighet                          | Minst 24-bitars                    |
 | Samplingsfrekvens                     | Minsta 16 kHz\*                   |
 | Directivity                       | Rundstrålande                   |
-| Frekvens svar                | + 3 dB, 200 8000 Hz flytande Mask\*|
+| Frekvens svar                | \+ 3 dB, 200 8000 Hz flytande Mask\*|
 | Tillförlitlighet                       | Lagringsomfång temperatur 40 ° C till 70 ° C<br />Operativ temperaturintervall 20 ° C till 55 ° C  |
 
 *\*Högre sampling betalning eller ”större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
@@ -68,7 +68,7 @@ Prestanda för matriser när du har integrerat i en enhet och efter fast vinst e
 |  Amplitud matchar  | ± 2 dB, 200-8000 Hz |
 |  Matchning fasen      | ± 5°, 200-8000 Hz |
 | THD %                 | ≤ 1%, 200 8000 Hz, 94 dBSPL, 5 ordning |
-|  Frekvens svar  | + 6 dB, 200 8000 Hz flytande Mask\* |
+|  Frekvens svar  | \+ 6 dB, 200 8000 Hz flytande Mask\* |
 
 *\*”Större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
 

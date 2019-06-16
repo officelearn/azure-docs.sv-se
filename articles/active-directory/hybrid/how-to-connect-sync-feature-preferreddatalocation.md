@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473021"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
@@ -137,7 +137,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 5. Behåll den **Scoping filter** tom ska innehålla alla objekt. Du kan behöva justera Omfångsfilter enligt din Azure AD Connect-distribution.
 6. Gå till den **omvandling fliken**, och implementera följande omvandlingsregeln:
 
-    | Flow-typ | Målattribut | Source | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
     |Direct | preferredDataLocation | Välj attribut för datakälla | Alternativet är avmarkerat | Uppdatera |
 
@@ -174,7 +174,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
 6. Gå till den **omvandling** fliken och implementera följande omvandlingsregeln:
 
-    | Flow-typ | Målattribut | Source | Använda en gång | Kopplingstyp |
+    | Flow-typ | Målattribut | source | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
     | Direct | preferredDataLocation | preferredDataLocation | Alternativet är avmarkerat | Uppdatera |
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967903"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
@@ -230,16 +230,16 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |----|----|----|
 |SQL-kryptering |Övervaka okrypterade SQL-databas i Azure Security Center |sqlEncryptionMonitoringEffect| 
 |SQL-granskning |Övervaka ogranskad SQL-databas i Azure Security Center |sqlAuditingMonitoringEffect|
-|Systemuppdateringar |Övervaka avsaknad av systemuppdateringar i Azure Security Center |systemUpdatesMonitoringEffect|
-|Lagringskryptering |Granska avsaknad av blobkryptering för lagringskonton |storageEncryptionMonitoringEffect|
-|JIT-nätverksåtkomst |Övervaka möjlig just-in-time-nätverksåtkomst (JIT) i Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Anpassningsbara programkontroller |Övervaka möjlig lista över tillåtna program i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Systemuppdateringar |Övervaka systemuppdateringar som saknas i Azure Security Center |systemUpdatesMonitoringEffect|
+|Lagringskryptering |Granska blobbkryptering som saknas för lagringskonton |storageEncryptionMonitoringEffect|
+|JIT-nätverksåtkomst |Övervaka möjliga precis i tid JIT-nätverksåtkomst i Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Anpassningsbara programkontroller |Övervaka möjliga tillåtna appar i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Nätverkssäkerhetsgrupper |Övervaka tillåten åtkomst till nätverk i Azure Security Center |networkSecurityGroupsMonitoringEffect| 
-|Säkerhetskonfigurationer |Övervaka säkerhetsrisker i operativsystem i Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Slutpunktsskydd |Övervaka avsaknad av slutpunktsskydd i Azure Security Center |endpointProtectionMonitoringEffect |
-|Diskkryptering |Övervaka okrypterade virtuella datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
-|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Brandvägg för webbappar |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Säkerhetskonfigurationer |Övervaka OS-säkerhetsproblem i Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Slutpunktsskydd |Övervaka saknad Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
+|Diskkryptering |Övervaka okrypterade Virtuella Datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuell dator i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Brandvägg för webbaserade program |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
 
 

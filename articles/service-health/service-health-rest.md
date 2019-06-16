@@ -8,10 +8,10 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790920"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Hämta Resource Health med hjälp av REST-API 
@@ -35,7 +35,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange `application/json`.|  
-|*Auktorisering:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parametrar
 

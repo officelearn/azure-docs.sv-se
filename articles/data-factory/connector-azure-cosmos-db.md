@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: eca5e4cc96996c35e7c2181746cdb3de2e5a602c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61259525"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB (SQL-API) med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Aktuell version](connector-azure-cosmos-db.md)
 
@@ -55,7 +55,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper har stöd för Azure Cosmos DB (SQL-API) länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **CosmosDb**. | Ja |
 | connectionString |Ange information som krävs för att ansluta till Azure Cosmos DB-databasen.<br />**Obs!** Du måste ange databasinformation i anslutningssträngen som visas i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera kontonyckeln i Azure Key Vault och använda pull i `accountKey` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
@@ -119,7 +119,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från eller till Azure Cosmos DB (SQL-API), ange den **typ** egenskapen på datauppsättningen till **DocumentDbCollection**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskap måste anges till **DocumentDbCollection**. |Ja |
 | collectionName |Namnet på Azure Cosmos DB-dokumentsamling. |Ja |
@@ -165,7 +165,7 @@ För att kopiera data från Azure Cosmos DB (SQL-API), ange den **källa** typ i
 
 Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **DocumentDbCollectionSource**. |Ja |
 | query |Ange Azure Cosmos DB-fråga för att läsa data.<br/><br/>Exempel:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inte anges, körs den här SQL-instruktionen: `select <columns defined in structure> from mycollection` |
@@ -209,7 +209,7 @@ För att kopiera data till Azure Cosmos DB (SQL-API), ange den **mottagare** typ
 
 Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **DocumentDbCollectionSink**. |Ja |
 | writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |

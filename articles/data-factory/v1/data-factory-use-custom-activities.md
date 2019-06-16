@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910815"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (aktuell version)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -548,7 +548,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
     En blob/utdatafil genereras för varje indatasektorn. Här är hur en utdatafil har namnet för varje sektor. Alla utdatafiler som genereras i en utdatamapp: **adftutorial\customactivityoutput**.
 
-   | Sektor | Starttid | Utdatafil |
+   | Sektorn | Starttid | Utdatafil |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |

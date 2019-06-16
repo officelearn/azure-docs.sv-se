@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869983"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps rendera täckning
@@ -21,7 +21,7 @@ Azure Maps använder både raster paneler och vektorkartbilder för att skapa ka
 
 Maps har dock inte samma grad av information och Precision för alla regioner. Följande tabeller innehåller information om vilken detaljnivå återgivna som ingår i varje region.
 
-## <a name="legend"></a>Teckenförklaring
+## <a name="legend"></a>Förklaring
 
 | Symbol | Betydelse |
 |--------|---------|
@@ -49,7 +49,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Côte d'Ivoire                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
 | Egypten                            | ✓ | ✓ |
-| Ekvatoralguinea                | ✓ | Ø |
+| Ekvatorialguinea                | ✓ | Ø |
 | Eritrea                          | ✓ | Ø |
 | Etiopien                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
@@ -75,7 +75,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Sankta Helena, Ascension och Tristan da Cunha | ✓ | Ø |
-| São Tomé och Príncipe            | ✓ | Ø |
+| São Tome och Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
@@ -83,7 +83,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Sydsudan                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
-| Förenade republiken Tanzania      | ✓ | ✓ |
+| Förenade Republiken Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunisien                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -164,7 +164,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Brunei                    | ✓ | ✓ |
 | Kambodja                  |   | Ø |
 | Kina                     |   | Ø |
-| Kokosöarna   |   | Ø |
+| Kokosöarna (Keeling)   |   | Ø |
 | Demokratiska folkrepubliken Korea |   | Ø |
 | Dokdo och Takeshima       |   | Ø |
 | Hongkong SAR             | ✓ | ✓ |
@@ -234,7 +234,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Tonga                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
-| Wallis- och Futunaöarna         |   | Ø |
+| Wallis och Futuna         |   | Ø |
 
 
 ## <a name="europe"></a>Europa
@@ -274,7 +274,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Liechtenstein             | ✓ | ✓ |
 | Litauen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Nordmakedonien           | ✓ | ✓ |
+| Norra Makedonien           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavien                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

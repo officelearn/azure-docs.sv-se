@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156250"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regioner och tillgänglighet för virtuella datorer i Azure
@@ -43,7 +43,7 @@ Exempel på regionpar:
 | Primär | Sekundär |
 |:--- |:--- |
 | Västra USA |Östra USA |
-| Europa, norra |Europa, västra |
+| Norra Europa |Västra Europa |
 | Sydostasien |Östasien |
 
 Se [den fullständiga listan över regionpar](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
@@ -101,7 +101,7 @@ När du tilldelar flera beräkningsresurser som inte du använda konstruktionern
 ### <a name="fault-domains"></a>Feldomäner
 En feldomän är en logisk grupp av underliggande maskinvara som delar en gemensam strömkälla och nätverksswitch, ungefär som ett rack i ett lokalt datacenter. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt dina virtuella datorer mellan dessa feldomäner. På så sätt begränsas påverkan av potentiella fel på fysisk maskinvara, nätverksavbrott och strömavbrott.
 
-### <a name="update-domains"></a>Uppdatera domäner
+### <a name="update-domains"></a>Uppdateringsdomäner
 En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan underhållas eller startas om samtidigt. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt de virtuella datorerna mellan dessa uppdateringsdomäner. På så sätt säkerställs att minst en instans av ditt program alltid körs vid ett periodiskt underhåll av Azure-plattformen. Ordningen för de uppdateringsdomäner som startas om kanske inte fortsätter i följd under planerat underhåll, men endast en uppdateringsdomän i taget startas om.
 
 ![Tillgänglighetsuppsättningar](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)

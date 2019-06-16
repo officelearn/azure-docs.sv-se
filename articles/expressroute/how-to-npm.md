@@ -9,10 +9,10 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60840327"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
@@ -206,7 +206,7 @@ På Microsoft peering-anslutningarna som du vill övervaka och konfigurera inst�
 
 1. Kontrollera den **övervaka denna peering** kryssrutan. 
 2. (Valfritt) Du kan ändra mål Microsoft tjänsteslutpunkt. Som standard väljer NPM en Microsoft-tjänstslutpunkt som mål. NPM övervakar anslutningen mellan dina lokala servrar och mål slutpunkten via ExpressRoute. 
-    * Om du vill ändra den här slutpunkten för målet klickar du på den **(redigera)** länka **mål:**, och välj en annan Microsoft target tjänstslutpunkt i listan över URL: er.
+    * Om du vill ändra den här slutpunkten för målet klickar du på den **(redigera)** länka **mål:** , och välj en annan Microsoft target tjänstslutpunkt i listan över URL: er.
       ![Redigera mål](./media/how-to-npm/edit_target.png)<br>
 
     * Du kan använda en anpassad URL eller IP-adress. Det här alternativet är särskilt relevant om du använder Microsoft-peering för att upprätta en anslutning till Azure PaaS-tjänster, till exempel Azure Storage, SQL-databaser och webbplatser som erbjuds på offentliga IP-adresser. Gör detta genom att klicka på länken **(Använd anpassad URL eller IP-adress istället)** längst ned i URL-listan sedan ange den offentliga slutpunkten för din Azure PaaS-tjänst som är anslutna via ExpressRoute Microsoft-peering.

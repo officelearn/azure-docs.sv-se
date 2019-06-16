@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609872"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
@@ -81,12 +81,12 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
      * **HTTPS**: De offentliga och privata portarna som standard är **443**. Det är en bra säkerhetsrutin att ändra den privata porten och konfigurera din brandvägg och rapportservern för att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i HTTPS-skriptet.
    * Klicka på Nästa. ![nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. På den sista sidan i guiden, behåller du standardvärdet **installera VM-agenten** valda. Stegen i det här avsnittet använder inte VM-agenten, men om du planerar att behålla den här virtuella datorn VM-agenten och tillägg kan du förbättra han CM.  Mer information om VM-agenten finns i [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). En av standard tillägg installerade ad som körs är tillägget ”BGINFO” som visas på den virtuella datorns skrivbord, Systeminformation som intern IP-adress och ledigt diskutrymme.
-9. Klicka på klar. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klicka på klar. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. Den **Status** för den virtuella datorn visas som **startar (etablering)** under processen för etablering och sedan visar som **kör** när den virtuella datorn är allokerade och redo för användning.
 
 ## <a name="step-2-create-a-server-certificate"></a>Steg 2: Skapa ett certifikat
 > [!NOTE]
-> Om du inte behöver HTTPS på rapportservern, kan du **hoppa över steg 2** och gå till avsnittet **använda skript för att konfigurera report server- och HTTP-**. Använd HTTP-skript för att snabbt konfigurera rapportservern och rapportservern är redo att användas.
+> Om du inte behöver HTTPS på rapportservern, kan du **hoppa över steg 2** och gå till avsnittet **använda skript för att konfigurera report server- och HTTP-** . Använd HTTP-skript för att snabbt konfigurera rapportservern och rapportservern är redo att användas.
 
 Du behöver ett betrott SSL-certifikat för att kunna använda HTTPS på den virtuella datorn. Beroende på ditt scenario kan du använda något av följande två metoder:
 

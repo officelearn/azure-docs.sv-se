@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116572"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
@@ -41,7 +41,7 @@ Konfigurera din Azure Active Directory-app för att använda OAuth 2.0 implicit 
 
     [![Azure Active Directory app-registreringar Lägg till api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Klicka på **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
+1. Välj **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
 
     [![Azure Active Directory implicit flöde](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -111,7 +111,7 @@ Konfigurera Postman för att göra en autentiserad HTTP multipart POST-begäran 
    > * Du behöver inte ange dessa rubriker för varje del.
    > * Du måste välja `multipart/mixed` eller någon annan lämplig **Content-Type** för hela begäran.
 
-1. Klicka slutligen på **skicka** skicka din multipart HTTP POST-begäran.
+1. Till sist väljer **skicka** skicka din multipart HTTP POST-begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

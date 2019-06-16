@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217529"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
@@ -64,11 +64,11 @@ När funktionsappen har distribuerats, kan du hitta den bland **Apptjänster** A
 2. Välj den **C#** språk och **databearbetning** scenario.
 3. Välj **BlobTrigger** mall. Den här funktionen som utlöses när en blob har överförts till den **inkommande** behållare. Den **inkommande** namn anges i den **sökväg**, i nästa steg.
 
-    ![filer](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. När du har valt **BlobTrigger**, några fler kontroller som visas på sidan.
 
-    ![filer](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Klicka på **Skapa**. 
 
@@ -76,7 +76,7 @@ När funktionsappen har distribuerats, kan du hitta den bland **Apptjänster** A
 
 Din Azure-funktion är associerad med kod och andra filer som beskrivs i det här avsnittet. När du använder Azure-portalen för att skapa en funktion **function.json** och **run.csx** skapas åt dig. Du behöver lägga till eller ladda upp en **project.json** fil. Resten av det här avsnittet ger en kort beskrivning av varje fil och visar deras definitioner.
 
-![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

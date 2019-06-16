@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926135"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
@@ -204,7 +204,7 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
    | --- | --- | --- |
    |Prioritet |2000 | |
    |Namn |Custom_Dns  | |
-   |Källa |VirtualNetwork | |
+   |source |VirtualNetwork | |
    |Mål | VirtualNetwork | |
    |Tjänst | DNS (UDP/53) | |
    |Åtgärd | Tillåt  | |

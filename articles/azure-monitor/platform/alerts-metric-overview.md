@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071634"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
@@ -36,6 +36,8 @@ Anta att du har skapat en enkelt statiskt tröskelvärde måttaviseringsregel p�
 - Tröskelvärde för: 70
 
 Från den tidpunkt som regeln har skapats körs var 1 min övervakaren och tittar på måttvärden under de senaste 5 minuterna och kontrollerar om medelvärdet för de här värdena överskrider 70. Om villkoret är uppfyllt det vill säga, den genomsnittliga CPU procent under de senaste 5 minuterna överskrider 70, aviseringsregeln utlöses ett meddelande om aktiverad. Om du har konfigurerat ett e-postmeddelande eller en web hook-åtgärd i åtgärdsgruppen som associeras med varningsregeln, får du ett meddelande som är aktiverad på båda.
+
+När du använder flera villkor i en regel, regeln ”ands” villkoren tillsammans.  Det vill säga utlöses aviseringen när alla villkor i aviseringen utvärderas som true och att matcha när ett av villkoren inte längre är sant. Och exempel på den här typen av avisering är Avisera när ”CPU högre än 90%” och ”Kölängden är mer än 300 objekt”. 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Aviseringsregel med dynamiska Villkorstyp
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149762"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
@@ -61,7 +61,7 @@ Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att l
 
 Om du observerar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, ändra SKU: N för virtuella datorer som används i distributionen till ett som har mer minne.
 
-## <a name="fpgas"></a>FPGA:er
+## <a name="fpgas"></a>FPGA
 
 Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
 

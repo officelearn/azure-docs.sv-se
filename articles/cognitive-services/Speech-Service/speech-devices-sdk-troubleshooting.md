@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wellsi
 ms.openlocfilehash: 87fb35f06dcb1d1e3fb8c3ae3be64c7448162f14
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026162"
 ---
-# <a name="troubleshoot-the-speech-devices-sdk"></a>Felsökning av tal enheter SDK
+# <a name="troubleshoot-the-speech-devices-sdk"></a>Felsöka Speech Devices SDK
 
 Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK: N för tal-enheter.
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller information som hjälper dig att lösa problem som
 
 Om det uppstår fel certifikat när du använder Speech Services kan du kontrollera att du använder rätt datum och tid:
 
-1. Gå till **Inställningar**. Under **System**väljer **datum och tid**.
+1. Gå till **inställningar**. Under **System**väljer **datum och tid**.
 
     ![Under inställningar, väljer du datum och tid](media/speech-devices-sdk/qsg-12.png)
 

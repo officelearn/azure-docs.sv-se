@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723460"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägga till anpassade hälsorapporter i Service Fabric
@@ -57,8 +57,8 @@ När hälsotillståndet reporting design är tydligt, hälsorapporter kan skicka
 ## <a name="health-client"></a>Hälsotillstånd klienten
 Rapporter om hälsotillstånd skickas till hälsoindikatorn via en health-klienten, som finns i fabric-klienten. Hälsoindikatorn sparar rapporter i health store. Health-klienten kan konfigureras med följande inställningar:
 
-* **HealthReportSendInterval**: Fördröjningen mellan den tid som rapporten läggs till klienten och tid det skickas till hälsoindikatorn. Används för att batch-rapporter till ett enda meddelande, i stället för att skicka ett meddelande för varje rapport. Den batchbearbetning förbättrar prestandan. Standard: 30 sekunder.
-* **HealthReportRetrySendInterval**: Intervallet då hälsotillstånd klienten skickar ackumulerade hälsotillstånd rapporterar till hälsoindikatorn. Standard: 30 sekunders mellanrum, minsta: 1 sekund.
+* **HealthReportSendInterval**: Fördröjningen mellan den tid som rapporten läggs till klienten och tid det skickas till hälsoindikatorn. Används för att batch-rapporter till ett enda meddelande, i stället för att skicka ett meddelande för varje rapport. Den batchbearbetning förbättrar prestandan. standard: 30 sekunder.
+* **HealthReportRetrySendInterval**: Intervallet då hälsotillstånd klienten skickar ackumulerade hälsotillstånd rapporterar till hälsoindikatorn. standard: 30 sekunders mellanrum, minsta: 1 sekund.
 * **HealthOperationTimeout**: Tidsgränsen för en rapport-meddelanden som skickas till hälsoindikatorn. Om ett meddelande tidsgränsen hälsotillstånd klienten ett nytt försök den tills hälsoindikatorn bekräftar att rapporten har bearbetats. Standard: två minuter.
 
 > [!NOTE]

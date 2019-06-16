@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967296"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnader för etablerat dataflöde i Azure Cosmos DB
@@ -58,7 +58,7 @@ Enligt tabellen nedan, beroende på valet av API: et kan etablera du dataflöde 
 |API för SQL|Databas|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
 |Cassandra-API|Nyckelutrymme|Tabell|
-|Gremlin-API|Databaskonto|Diagram|
+|Gremlin-API|Databaskonto|Graph|
 |Tabell-API|Databaskonto|Tabell|
 
 Du kan optimera dina kostnader utifrån arbetsbelastningens beskaffenhet genom att etablering dataflöde på olika nivåer. Som vi nämnde tidigare kan du kan via programmering och en tid ökning eller minska det etablerade dataflödet för antingen enskilda behållare eller gemensamt i en behållare. Genom att skala Elastiskt dataflöde som ändringarna arbetsbelastning, betalar du bara för det dataflöde som du har konfigurerat. Om din behållare eller en uppsättning behållare distribueras i flera regioner, dataflödet du konfigurera i behållaren eller en uppsättning behållare kommer att vara tillgängliga i alla regioner.

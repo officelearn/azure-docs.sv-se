@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342243"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudier: Ställ in SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
@@ -172,10 +172,10 @@ Minimal varaktigheten mellan synkroniseringar är fem minuter.
 
 **Skapar SQL Data Sync fullständigt tabeller?**
 
-Om synkronisering schemat tabeller saknas i måldatabasen skapar dem i SQL Data Sync med de markerade kolumnerna. Dock resultera inte detta i ett schema för fullständig exakthet av följande skäl:
+Om tabeller i synkroniseringsschemat saknas i destinationsdatabasen skapar SQL Data Sync dem med de kolumner du har valt. Dock resultera inte detta i ett schema för fullständig exakthet av följande skäl:
 
-- Endast kolumner som du väljer skapas i tabellen. Kolumner som inte valts ignoreras.
-- Endast markerade kolumnindex skapas i tabellen. För kolumner som inte valts ignoreras dessa index.
+- Endast de kolumner som du väljer skapas i måltabellen. Kolumner som inte valts ignoreras.
+- Endast markerade kolumnindex skapas i måltabellen. Index för kolumner som inte valts ignoreras.
 - Index för kolumner av typen XML skapas inte.
 - Kontrollbegränsningar skapas inte.
 - Utlösare källtabellerna skapas inte.

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681773"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräkningskontexter för ML-tjänster på HDInsight
@@ -55,7 +55,7 @@ Vilket av de tre alternativen du väljer som tillhandahåller parallelliserad k�
 
 I följande avsnitt erbjuda med dessa principer kan vissa allmänna råden för att välja en beräkningskontext.
 
-### <a name="local"></a>Lokal
+### <a name="local"></a>Lokala
 * Om mängden data som ska analyseras är liten och inte kräver upprepad analys, sedan strömma den direkt i analysis rutinmässig med *lokala* eller *localpar*.
 * Om mängden data som ska analyseras är små eller medelstora och analys av upprepade krävs, sedan kopiera den till det lokala filsystemet, importera den till XDF och analysera dem via *lokala* eller *localpar*.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 35b087d13099b975a1c9c6d2dbd449935f5f0d1d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248824"
 ---
 ```json
@@ -22,7 +22,7 @@ ms.locfileid: "66248824"
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |routePrefix|api|Prefix för vägen som gäller för alla vägar. Ta bort standardprefixet med hjälp av en tom sträng. |
 |maxOutstandingRequests|200<sup>*</sup>|Det maximala antalet väntande förfrågningar som ligger vid en given tidpunkt. Den här gränsen inkluderar begäranden som köas men har inte startats, samt eventuella i förloppet körningar. Alla inkommande begäranden under den här gränsen avvisas med en ”upptagen” 429-svaret. Som tillåter anropare ska kunna använda tidsbaserade återförsöksstrategier och hjälper dig också att styra tillåtna svarstider. Detta styr endast queuing som sker inom skriptsökvägen för körning av värden. Andra köer, till exempel ASP.NET kön kommer fortfarande att tillämpas och påverkas inte av den här inställningen. <sup>*</sup>Standardvärdet för version 1.x är obegränsade (`-1`). Standardvärdet för version 2.x i en användningsplan är 200. Standardvärdet för version 2.x i en dedikerad plan är obegränsade (`-1`).|

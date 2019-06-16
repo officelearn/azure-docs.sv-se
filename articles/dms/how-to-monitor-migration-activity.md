@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532831"
 ---
 # <a name="monitor-migration-activity"></a>Övervaka migreringsaktiviteter
@@ -50,12 +50,12 @@ I följande tabell visar en lista över fält på bladet på databasnivå och be
       <td>Migreringen har slutförts utan problem.</td>
     </tr>
     <tr>
-      <td>Fel</td>
+      <td>Felaktiga</td>
       <td>Migreringen misslyckades. Välj länken ”se felinformationen' under information om migrering för fullständig felmeddelande.</td>
     </tr>
     <tr>
       <td rowspan="4" class="Status"><strong>Status</strong></td>
-      <td>Initieras</td>
+      <td>Initierar</td>
       <td>DMS är konfiguration av pipelinen för migrering.</td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ I följande tabell visar en lista över fält på bladet på databasnivå och be
     </tr>
     <tr>
       <td>Slutför</td>
-      <td>Migreringen är klar.</td>
+      <td>Migreringen har slutförts.</td>
     </tr>
     <tr>
       <td>Misslyckad</td>
@@ -84,7 +84,7 @@ I följande tabell visar en lista över fält på bladet på databasnivå och be
       <td>När den inledande inläsningen har slutförts markerar DMS databasen redo för snabb lösning. Användare bör kontrollera om data har fått allt på kontinuerlig synkronisering.</td>
     </tr>
     <tr>
-      <td>Alla ändringar har tillämpats</td>
+      <td>Alla ändringar tillämpas</td>
       <td>Första och kontinuerlig synkronisering har slutförts. Den här statusen visas också när databasen är har snabb lösning.</td>
     </tr>
     <tr>

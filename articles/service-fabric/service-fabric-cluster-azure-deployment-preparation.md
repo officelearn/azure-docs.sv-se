@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo
 ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387867"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för distribution av ett kluster
@@ -64,7 +64,7 @@ Eftersom många tjänster, tjänster i särskilt behållare, kan ha ett befintli
 
 Omvänd proxy löser tjänster i klustret som exponerar HTTP-slutpunkter (inklusive HTTPS). Omvänd proxy förenklar anropa andra tjänster genom att tillhandahålla ett specifikt URI-format.  Omvänd proxy hanterar också lösas, ansluta och försök steg som krävs för en tjänst att kommunicera med en annan.
 
-## <a name="prepare-for-disaster-recovery"></a>Förbereda för haveriberedskap
+## <a name="prepare-for-disaster-recovery"></a>Förbereda för katastrofåterställning
 En viktig del av att leverera hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. [Förbereda för katastrofåterställning](service-fabric-disaster-recovery.md) beskriver några vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Här beskrivs även åtgärder och åtgärder som ska vidtas om en katastrof har inträffat ändå.
 
 ## <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684935"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline klienten med Apache Hive
@@ -187,7 +187,7 @@ Det här exemplet baseras på användning av Beeline klienten från en SSH-anslu
 
     * `STORED AS TEXTFILE LOCATION` -Där data lagras och i vilka filformat.
 
-    * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]**. Den här frågan returnerar ett värde av **3** som det finns tre rader som innehåller det här värdet.
+    * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]** . Den här frågan returnerar ett värde av **3** som det finns tre rader som innehåller det här värdet.
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive försöker använda schemat för alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräpinsamling data i resultatet, meddelar den här instruktionen Hive att den endast ska returnera data från filer som slutar på. log.
 
@@ -243,12 +243,12 @@ Det här är en fortsättning från föregående exempel. Använd följande steg
 
    * **SKAPA tabellen IF NOT finns** -om tabellen inte redan finns skapas den. Eftersom den **externa** nyckelord används inte, den här instruktionen skapar en intern tabell. Interna tabeller lagras i datalagret Hive och hanteras helt av Hive.
    * **LAGRADE AS ORC** -lagrar data i optimerade rad kolumner (ORC)-format. ORC-format är ett mycket optimerade och effektiv format för att lagra Hive-data.
-   * **INFOGA SKRIVA ÖVER... Välj** -väljer rader från den **log4jLogs** tabellen som innehåller **[fel]**, infogar data till den **felvillkoren** tabell.
+   * **INFOGA SKRIVA ÖVER... Välj** -väljer rader från den **log4jLogs** tabellen som innehåller **[fel]** , infogar data till den **felvillkoren** tabell.
 
     > [!NOTE]  
     > Till skillnad från externa tabeller, släppa en intern tabell tar bort de underliggande data.
 
-3. Om du vill spara filen, Använd **Ctrl**+**_X**, ange sedan **Y**, och slutligen **RETUR**.
+3. Om du vill spara filen, Använd **Ctrl**+ **_X**, ange sedan **Y**, och slutligen **RETUR**.
 
 4. Använd följande för att köra filen med Beeline:
 

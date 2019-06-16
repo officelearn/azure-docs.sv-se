@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851601"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Med IDENTITETEN för att skapa surrogate nycklar i Azure SQL Data Warehouse
@@ -122,7 +122,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Läser in data
+## <a name="loading-data"></a>Läsa in data
 
 Förekomst av identitetsegenskapen har vissa konsekvenser i koden inläsning av data. Det här avsnittet beskrivs vissa grundläggande mönster för inläsning av data i tabeller med hjälp av identitet.
 

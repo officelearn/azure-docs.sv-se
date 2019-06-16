@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190403"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137272"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -66,8 +66,8 @@ Konfigurationsparametrar tillhandahålls som JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,22 +83,58 @@ Konfigurationsparametrar tillhandahålls som JSON:
 
 ### <a name="configuration-properties"></a>Konfigurationsegenskaper
 
-| Parameter | Beskrivning | Obligatoriskt / valfritt |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `none` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. | Valfri |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfritt |
- | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. | Valfritt |
- | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. | Valfritt |
+Använd de här valfria egenskaper för att konfigurera avskrift:
+
+| Parameter | Beskrivning |
+|-----------|-------------|
+| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `none` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. |
+| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. |
+ | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. |
+ | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. |
 
 ### <a name="storage"></a>Storage
 
 Batch stöder avskrift [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa in ljud och avskrifter för skrivning till lagring.
 
-## <a name="webhooks"></a>Webhook-konfigurationer 
+## <a name="webhooks"></a>Webhooks 
 
 Avsökning för transkription status kan inte de flesta prestanda eller ange den bästa användarupplevelsen. Om du vill söka efter status, kan du registrera återanrop som meddelar klienten när tidskrävande avskrift aktiviteterna har slutförts.
 
 Mer information finns i [Webhooks](webhooks.md).
+
+## <a name="speaker-separation-diarization"></a>Talare avgränsning (Diarization)
+
+Diarization är processen för att avgränsa talare i ett ljud. Pipelinen Batch stöder Diarization och kan känna igen två högtalare på mono kanal inspelningar.
+
+Om du vill begära att din ljudutskrift begäran bearbetas för diarization, behöver du bara lägga till den relevanta parametern i HTTP-begäran som visas nedan.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Word på tidsstämplar också måste vara ”aktiverad” eftersom tyda på parametrarna i begäran. 
+
+Motsvarande ljudet innehåller talare som identifieras av ett tal (för tillfället stöder vi bara två röster så högtalarna identifieras som ”talare 1 ' och 'Talare 2') följt av utdata avskrift.
+
+Observera också att Diarization inte är tillgänglig i Stereo inspelningar. Dessutom alla JSON utdata innehåller API-taggen. Om diarization inte används, visas ”talare: Null ”i JSON-utdata.
+
+Nationella inställningar som stöds finns nedan.
+
+| Språk | Nationella inställningar |
+|--------|-------|
+| Svenska | en-US |
+| Kinesiska | zh-CN |
+| Deutsch | de-DE |
 
 ## <a name="sentiment"></a>Sentiment
 
@@ -110,7 +146,7 @@ Sentiment är en ny funktion i API: et för Batch-avskrift och är en viktig fun
 4.  Identifiera vad som gick bra när du aktiverar negativt anrop till positivt
 5.  Identifiera vad kunderna tycker och vad de gillar inte om en produkt eller tjänst
 
-Sentimentet får per ljud segment där ett ljud segment har definierats som mellan början av uttryck (förskjutning) och identifiering av tystnad i slutet av byte-dataström. För all text i segmentet används för att beräkna sentiment. Vi gör inte beräkna alla sammanställda sentimentvärdena för hela samtal eller hela tal i varje kanal. Dessa lämnas till domänägare att tillämpa ytterligare.
+Sentimentet får per ljud segment där ett ljud segment har definierats som mellan början av uttryck (förskjutning) och identifiering av tystnad i slutet av byte-dataström. För all text i segmentet används för att beräkna sentiment. Vi gör inte beräkna alla sammanställda sentimentvärdena för hela samtal eller hela tal i varje kanal. Dessa aggregeringar lämnas till domänägare att tillämpa ytterligare.
 
 Sentiment har tillämpats på lexikal formuläret.
 
@@ -149,11 +185,11 @@ Exempel på en JSON-utdata ut som nedan:
   ]
 }
 ```
-Funktionerna använder en modell för Sentiment som för närvarande är Beta.
+Funktionen använder en modell för Sentiment, som för närvarande är Beta.
 
 ## <a name="sample-code"></a>Exempelkod
 
-Hela exemplet finns i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples) inuti den `samples/batch` underkatalog.
+Komplett exempel finns i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples) inuti den `samples/batch` underkatalog.
 
 Du måste anpassa exempelkod med din prenumerationsinformation, regionen service, den SAS-URI som pekar på filen som transkribera och modellera ID: N om du vill använda en anpassad modell akustiska eller språk. 
 

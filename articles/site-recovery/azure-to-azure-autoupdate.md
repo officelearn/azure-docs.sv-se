@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922147"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i replikering från Azure till Azure
@@ -49,7 +49,7 @@ Du kan tillåta Site Recovery för att hantera uppdateringar på följande sätt
 
 När du aktiverar att replikering för en virtuell dator antingen startar [från VM-vyn](azure-to-azure-quickstart.md) eller [från recovery services-valvet](azure-to-azure-how-to-enable-replication.md), du kan antingen tillåta Site Recovery för att hantera uppdateringar för Site Recovery-tillägget eller hantera den manuellt.
 
-![Tilläggsinställningar](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Inställningar för lösenordstillägg](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Visa/Dölj tillägget uppdatera inställningarna i valvet
 
@@ -57,7 +57,7 @@ När du aktiverar att replikering för en virtuell dator antingen startar [från
 2. Under **för Azure Virtual Machines** > **tillägget uppdateringsinställningar**, aktivera den **Tillåt Site Recovery för att hantera** växlingsknappen. För att hantera manuellt, stänga av den. 
 3. Välj **Spara**.
 
-![Inställningar för tilläggsuppdatering](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Inställningar för tillägg](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
 > När du väljer **Tillåt Site Recovery för att hantera**, inställningen tillämpas på alla virtuella datorer i motsvarande valv.
@@ -520,7 +520,7 @@ Om det finns ett problem med automatiska uppdateringar, visas ett felmeddelande 
 
 Om du gick inte att aktivera Automatiska uppdateringar, se följande vanliga fel och rekommenderade åtgärder:
 
-- **Fel**: Du har inte behörighet att skapa ett Kör som-konto i Azure (tjänsthuvudkonto) eller att bevilja tjänstens huvudnamn en deltagarroll.
+- **Fel**: Du har inte behörighet att skapa ett kör som-konto (tjänstens huvudnamn) och bevilja en deltagarroll till tjänstens huvudnamn.
 
    **Rekommenderad åtgärd**: Se till att det inloggade kontot har tilldelats som deltagare och försök igen. Se de behörigheter som krävs i [använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) för mer information om hur du tilldelar behörigheter.
  

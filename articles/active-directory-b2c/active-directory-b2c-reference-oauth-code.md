@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509245"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2.0-auktoriseringskodflödet i Azure Active Directory B2C
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Obligatoriskt |Omdirigerings-URI för din app, där autentiseringssvaren skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodade. |
 | scope |Obligatoriskt |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure Active Directory (Azure AD) båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser. Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
 | response_mode |Rekommenderas |Den metod som används för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `query`, `form_post`, eller `fragment`. |
-| tillstånd |Rekommenderas |Ett värde i begäran som kan vara en sträng med innehåll som du vill använda. Vanligtvis är används ett slumpmässigt genererat unikt värde till att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Exempelvis kan användaren var på sidan eller det användarflöde som kördes. |
+| state |Rekommenderas |Ett värde i begäran som kan vara en sträng med innehåll som du vill använda. Vanligtvis är används ett slumpmässigt genererat unikt värde till att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Exempelvis kan användaren var på sidan eller det användarflöde som kördes. |
 | p |Obligatoriskt |Användarflödet som körs. Det är namnet på ett användarflöde som skapas i din Azure AD B2C-katalog. Namnvärdet för användaren flow ska inledas med **b2c\_1\_** . Läs mer om användarflöden i [Azure AD B2C-användarflöden](active-directory-b2c-reference-policies.md). |
 | fråga |Valfri |Typ av interaktion från användaren som krävs. Det enda giltiga värdet är för närvarande `login`, vilket Tvingar användaren att ange sina autentiseringsuppgifter i begäran. Enkel inloggning börjar inte gälla. |
 
@@ -98,7 +98,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 | Parameter | Beskrivning |
 | --- | --- |
 | code |Auktoriseringskod som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för en målresurs. Auktoriseringskoder är mycket tillfällig. Vanligtvis de går ut efter 10 minuter. |
-| tillstånd |Se den fullständiga beskrivningen i tabellen i föregående avsnitt. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state |Se den fullständiga beskrivningen i tabellen i föregående avsnitt. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 Felsvar kan också skickas till omdirigeringen-URI så att appen kan hantera dem på rätt sätt:
 
@@ -113,7 +113,7 @@ error=access_denied
 | --- | --- |
 | error |En felkodsträngen som du kan använda för att klassificera typerna av fel som uppstår. Du kan också använda strängen för att reagera på fel. |
 | error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
-| tillstånd |Se den fullständiga beskrivningen i tabellen ovan. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state |Se den fullständiga beskrivningen i tabellen ovan. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 ## <a name="2-get-a-token"></a>2. Hämta en token
 Nu när du har skaffat en auktoriseringskod, kan du lösa in den `code` för en token för den avsedda resursen genom att skicka en POST-begäran till den `/token` slutpunkt. I Azure AD B2C är den enda resurs som du kan begära en token för din Apps egen backend-webb-API. Konventionen som används för att begära en token till dig själv är att använda appens klient-ID som omfång:

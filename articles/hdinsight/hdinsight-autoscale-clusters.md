@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000108"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
@@ -26,7 +26,7 @@ Azure HDInsight funktionen för automatisk skalning skalas automatiskt antalet a
 
 I följande tabell beskrivs klustertyper och versioner som är kompatibla med funktionen för automatisk skalning.
 
-| Version | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
 | HDInsight 4.0 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
@@ -190,7 +190,7 @@ Om du vill aktivera automatisk skalning på ett aktivt kluster, Välj **klusters
 
 ![Aktivera alternativet för worker noden schemabaserad automatisk skalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Välja skala baserat på belastning eller schema
 
@@ -223,7 +223,7 @@ Alla statusmeddelanden för kluster som du kan se beskrivs i listan nedan.
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare Autoskala aktiviteterna har slutförts. |
 | Uppdaterar  | Autoskalningskonfigurationen klustret uppdateras.  |
-| HdInsight-konfiguration  | Ett kluster skala upp eller skala ned åtgärden pågår.  |
+| HDInsight-konfiguration  | Ett kluster skala upp eller skala ned åtgärden pågår.  |
 | Uppdateringsfel  | Problem påträffades under konfigurationsuppdateringen för automatisk skalning i HDInsight. Kunder kan välja att antingen ett nytt eller inaktivera automatisk skalning.  |
 | Fel  | Det är något fel med klustret och kan inte använda den. Ta bort det här klustret och skapa en ny.  |
 

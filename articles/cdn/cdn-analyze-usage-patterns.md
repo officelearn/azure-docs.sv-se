@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606395"
 ---
 # <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
@@ -96,7 +96,7 @@ Ange en tillgång för att minska har upphört att gälla cacheträffar `max-age
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Går ut
+  * Upphör att gälla
 * TCP_MISS: Denna status anger att en cachelagrad version av den begärda tillgången inte hittades på den POP-plats som är närmast klienten. Tillgången har begärts från en ursprungsserver eller en shield ursprungsservern. Om den ursprungliga servern eller shield ursprungsservern returnerar du en tillgång, den hanteras av klienten och cachelagras på både klienten och edge-servern. I annat fall en icke-200-statuskod (till exempel 403 förbjudet eller 404 hittades inte) returneras.
 * TCP_EXPIRED_HIT: Denna status rapporteras när en begäran som riktar sig mot en tillgång med en har upphört att gälla TTL behandlades direkt från POP till klienten. Till exempel när tillgången är maxåldern har gått ut. 
   

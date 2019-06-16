@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922888"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ansluta Configuration Manager till Azure Monitor
@@ -27,7 +27,7 @@ Du kan ansluta din miljö för System Center Configuration Manager till Azure Mo
 
 Azure Monitor har stöd för System Center Configuration Manager current branch versionen 1606 och högre.  
 
-## <a name="configuration-overview"></a>Översikt över konfiguration
+## <a name="configuration-overview"></a>Konfigurationsöversikt
 Följande steg sammanfattar hur du konfigurerar Configuration Manager-integrering med Azure Monitor.  
 
 1. Registrera Configuration Manager som en Webbapp och/eller webb-API-app i Azure-portalen och kontrollera att du har klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
@@ -49,7 +49,7 @@ I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan 
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. I listan med Log Analytics-arbetsytor, väljer du arbetsytan för att ändra.
-3. I den vänstra rutan, Välj **åtkomstkontroll (IAM)**.
+3. I den vänstra rutan, Välj **åtkomstkontroll (IAM)** .
 4. På sidan åtkomst åtkomstkontroll (IAM) klickar du på **Lägg till rolltilldelning** och **Lägg till rolltilldelning** visas fönstret.
 5. I den **Lägg till rolltilldelning** fönstret under den **rollen** listrutan Välj den **deltagare** roll.  
 6. Under den **tilldela åtkomst till** listrutan, Välj den Configuration Manager-program som skapats i AD tidigare och klicka sedan på **OK**.  

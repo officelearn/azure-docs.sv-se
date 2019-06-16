@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9e074282b477fe620170cd8672dc3d050fce6afe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061637"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
@@ -51,7 +51,7 @@ Följ stegen nedan för att skapa en miljö:
    Prisnivå | S1 | Välj det genomflöde som behövs. Välj S1 för lägsta kostnader och starter kapacitet.
    Kapacitet | 1 | Kapaciteten är multiplikatorn som gäller för ingångshändelser, kapacitet och kostnad som hör till den valda SKU: N.  Du kan ändra kapacitet för en miljö när den har skapats. Välj en kapacitet på 1 för lägsta kostnader. 
   
-1. Kontrollera **fäst på instrumentpanelen** bäst enkelt åtkomst till din Time Series-miljö i framtiden.
+1. Kontrollera **fäst på instrumentpanelen** ska hitta din Time Series-miljö i framtiden.
 
    ![Fäst Time Series Insights vid instrumentpanelen](media/time-series-insights-get-started/3-pin-create.png)
 

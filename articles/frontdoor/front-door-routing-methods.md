@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736232"
 ---
 # <a name="front-door-routing-methods"></a>Ytterdörren routningsmetoder
@@ -39,7 +39,7 @@ Distribuera serverdelar i två eller flera platser i hela världen kan förbätt
 
 Nedan visas övergripande beslutsflödet:
 
-| Tillgängliga serverdelar | Prioritet | Svarstid-signal (baserat på hälsoavsökning) | Vikter |
+| Tillgängliga serverdelar | Prioritet | Svarstid-signal (baserat på hälsoavsökning) | Vikterna |
 |-------------| ----------- | ----------- | ----------- |
 | Det första väljer alla servrar som är aktiverade och returnerade felfritt (200 OK) för hälsoavsökningen. Betyder att det finns sex serverdelar A, B, C, D, E och F, och bland dem C är i feltillstånd och E är inaktiverat. Så listan över tillgängliga serverdelar är A, B och D F.  | Därefter har högsta prioritet serverdelar bland de tillgängliga markerats. Exempelvis serverdel A, B och D har prioritet 1 och serverdelen F har prioritet 2. Så valda serverdelar blir A, B och D.| Välj serverdelar med svarstidsintervallet (lägsta svarstid och svarstid känsligheten i ms som angetts). Exempelvis om A är 15 ms, B är 30 ms och D är 60 ms från ytterdörren miljön där begäran landat och svarstid känslighet är ms-30 och sedan lägsta svarstid pool består av serverdelen A och B, eftersom D är längre än 30 ms bort från den närmaste serverdel som är A. | Till sist kommer ytterdörren resursallokering trafik mellan sista valda poolen med serverdelar i förhållandet mellan vikterna anges. Anta att, om serverdelen A har en vikt på 5 och serverdelen B har en vikt på 8, så att trafiken ska distribueras i förhållandet mellan 5:8 bland serverdelar A och B. |
 

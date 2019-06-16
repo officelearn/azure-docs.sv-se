@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939061"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2
@@ -25,7 +25,7 @@ DistCp erbjuder en mängd olika kommandoradsparametrar och rekommenderar vi att 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett befintligt Azure Storage-konto utan att Data Lake Storage Gen2 möjliggörs (hierarkiskt namnområde)**.
+* **Ett befintligt Azure Storage-konto utan att Data Lake Storage Gen2 möjliggörs (hierarkiskt namnområde)** .
 * **Ett Azure Storage-konto med Data Lake Storage Gen2 funktionen aktiverad**. Anvisningar för hur du skapar ett finns i [skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Ett filsystem** som har skapats i lagringskontot med hierarkiskt namnområde aktiverat.
 * **Azure HDInsight-kluster** med åtkomst till ett lagringskonto med Data Lake Storage Gen2 aktiverat. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Kontrollera att du aktivera Fjärrskrivbord för klustret.

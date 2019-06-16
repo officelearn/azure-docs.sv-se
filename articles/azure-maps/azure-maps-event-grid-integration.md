@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799176"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på händelser för Azure Maps med hjälp av Event Grid 
@@ -30,7 +30,7 @@ Azure Event Grid är en fullständigt hanterad tjänst för händelsedirigering 
 
 Händelserutnät använder [händelseprenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) händelsen skicka meddelanden till prenumeranter. Ett Azure Maps-konto genererar följande händelsetyper: 
 
-| Händelsetyp | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Aktiveras när koordinater emot har flyttat från utanför en viss geofence-området till i |
 | Microsoft.Maps.GeofenceExited | Aktiveras när koordinater emot har flyttats från inom en viss geofence-området till utanför |

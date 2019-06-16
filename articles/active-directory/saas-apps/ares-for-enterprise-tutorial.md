@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f547b770f63885df00d2fe296698828c323eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff0464ed5b223dc71d635ffceb15376716cc4291
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859069"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Självstudier: Azure Active Directory-integrering med ARES for Enterprise
 
@@ -55,7 +55,7 @@ För att konfigurera integreringen av ARES for Enterprise till Azure AD behöver
 
 **Utför följande steg för att lägga till ARES for Enterprise från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -184,5 +184,5 @@ När du klickar på ARES for Enterprise-panelen i åtkomstpanelen bör du automa
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,10 +9,10 @@ ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3ef848d12e3a39c3bd83ea44fcb86d67bbdb38dc
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735939"
 ---
 Den här artikeln används PowerShell-cmdletar. Om du vill köra cmdlets, kan du använda Azure Cloud Shell, ett interaktivt gränssnitt-miljö i Azure och används via webbläsaren. Azure Cloud Shell levereras med Azure PowerShell-cmdlets som redan är installerat.

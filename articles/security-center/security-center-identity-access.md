@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: monhaber
-ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083663"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -114,7 +114,7 @@ Använd tabellen nedan som referens för att förstå de tillgängliga rekommend
 |Prenumeration|40|MFA måste vara aktiverad på din prenumerationskonton med skrivbehörighet|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
 |Prenumeration|30|Externa konton med ägarbehörigheter som ska tas bort från prenumerationen|Ta bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst.|
 |Prenumeration|30|MFA måste vara aktiverad på din prenumerationskonton med läsbehörigheter|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|Prenumeration|25|Externa konton med write behörigheter ska tas bort från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
+|Prenumeration|25|Externa konton med skrivbehörigheter bör tas bort från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
 |Prenumeration|20|Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer.|
 |Prenumeration|5|Bör ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. |
 |Prenumeration|5|Det bör finnas fler än en ägare till prenumerationen|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|

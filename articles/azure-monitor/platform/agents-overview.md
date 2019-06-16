@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977571"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
@@ -25,7 +25,7 @@ Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av d
 
 * Azure Diagnostics-tillägg
 * Log Analytics-agenten för Linux och Windows
-* Dependency Agent
+* Beroendeagent
 
 Den här artikeln beskrivs skillnaderna mellan dem och deras funktioner för dig att avgöra vilken som stöder dina IT service management eller allmänt Övervakningskrav.  
 
@@ -37,7 +37,7 @@ Du kan välja att samla in:
 * En fördefinierad uppsättning operativsystem prestandaräknare och händelseloggar, eller du kan ange som du vill samla in. 
 * Alla begäranden och/eller misslyckade begäranden på en IIS-webbserver
 * Spårning av utdataloggar .NET-app
-* Händelsespårning för Windows-händelser (ETW) 
+* Händelsespårning för Windows (ETW)-händelser 
 * Samla in händelser från syslog  
 * Kraschdumpar 
 
@@ -69,7 +69,7 @@ Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suit
 * Spåra ändringar i konfigurationen med [Azure Automation-ändringsspårning och inventering](../../automation/change-tracking.md).
 * Azure-tjänster som [Programinsikter](https://docs.microsoft.com/azure/application-insights/) och [Azure Security Center](https://docs.microsoft.com/azure/security-center/), som internt lagrar sina data direkt i Log Analytics.  
 
-## <a name="dependency-agent"></a>Dependency Agent
+## <a name="dependency-agent"></a>Beroendeagent
 Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta, som inte ursprungligen utvecklades av Microsoft. [Tjänstkarta](../insights/service-map.md) och [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten för att samla in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics-arbetsytan och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
 
 Du kan behöva en kombination av dessa agenter att övervaka din virtuella dator. Agenter kan installeras sida vid sida som Azure-tillägg, men på Linux, Log Analytics-agenten *måste* installeras först. Annars installationen misslyckas. 

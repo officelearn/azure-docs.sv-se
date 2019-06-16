@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198327"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
@@ -73,7 +73,7 @@ Följande tabell innehåller en sammanfattning av associerade kostnader och kons
 >[!Important]
 > Avanmäla har allvarliga konsekvenser till tillgängliga säkerhetsfunktioner.
   
-| Avanmäl | Effekter |
+| Avanmäla dig | Effekter |
 | --- | --- |
 | _Twin metadatasamlingen_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
 | | Inaktivera manifest IoT Edge-rekommendationer |

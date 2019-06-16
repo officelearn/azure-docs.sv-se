@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596379"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data kryptering vid vila
@@ -116,7 +116,7 @@ Klientmodell för kryptering refererar till kryptering som utförs utanför Reso
 
 Serversidan kryptering modeller avser kryptering som utförs av Azure-tjänsten. I den här modellen utför Resursprovidern kryptera och dekryptera åtgärder. Till exempel Azure Storage kan ta emot data i klartext åtgärder och utför kryptering och dekryptering internt. Resursprovidern kan använda krypteringsnycklar som hanteras av Microsoft eller av kunden beroende på den angivna konfigurationen.
 
-![Server ](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Server](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Server side encryption nyckelhantering modeller
 
@@ -238,7 +238,7 @@ Microsoft Azure-tjänster varje stöd för en eller flera av kryptering i rest-m
 
 Alla kunder med Azure-infrastruktur som en tjänst (IaaS)-funktioner kan uppnå kryptering i vila för sina virtuella IaaS-datorer och diskar via Azure Disk Encryption. Mer information om Azure Disk encryption finns i den [dokumentation om Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
-#### <a name="azure-storage"></a>Azure Storage
+#### <a name="azure-storage"></a>Azure-lagring
 
 Alla Azure Storage-tjänster (Blob storage, Queue storage, Table storage och Azure Files) stöder serversidan kryptering i vila, med vissa tjänster som stöder Kundhanterade nycklar och client side encryption.  
 
@@ -258,7 +258,7 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 |                                  | **Med hjälp av Tjänsthanterad nyckel för serversidan**     | **Serversidan med Kundhanterade i Key Vault**             | **Klientsidan med hjälp av hanteras med klientprogram**      |
 | **AI och Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Ja                | -                  | -                  |
-| Azure Machine Learning Service   | Ja                | -                  | -                  |
+| Azure Machine Learning-tjänsten   | Ja                | -                  | -                  |
 | Azure Machine Learning Studio    | Ja                | Förhandsgranskning, RSA 2048-bitars | -               |
 | Power BI                         | Ja                | -                  | -                  |
 | **Analys**                    |                    |                    |                    |
@@ -271,7 +271,7 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtuella datorer                 | -                  | Ja, RSA 2048-bitars  | -                  |
-| Skalningsuppsättning för virtuell dator        | -                  | Ja, RSA 2048-bitars  | -                  |
+| Virtual Machine Scale Sets        | -                  | Ja, RSA 2048-bitars  | -                  |
 | **Databaser**                    |                    |                    |                    |
 | SQL Server på Virtual Machines   | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL Database               | Ja                | Ja, RSA 2048-bitars  | Ja                |
@@ -281,13 +281,13 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 | Azure Cosmos DB                  | Ja                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Ja                | -                  | Ja                |
-| Azure Repos                      | Ja                | -                  | Ja                |
+| Azure-lagringsplatser                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
 | Azure Active Directory           | Ja                | -                  | -                  |
 | Azure Active Directory Domain Services | Ja          | Ja, RSA 2048-bitars  | -                  |
 | **Integrering**                  |                    |                    |                    |
 | Service Bus                      | Ja                | -                  | Ja                |
-| Händelserutnät                       | Ja                | -                  | -                  |
+| Event Grid                       | Ja                | -                  | -                  |
 | API Management                   | Ja                | -                  | -                  |
 | **IoT-tjänster**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Ja                |
@@ -296,7 +296,7 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
 | **Storage**                      |                    |                    |                    |
-| Blobblagring                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Disklagring                     | Ja                | -                  | -                  |
 | Lagring med Managed Disks             | Ja                | -                  | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |

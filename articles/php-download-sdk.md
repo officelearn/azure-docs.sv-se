@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411579"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Ladda ner Azure SDK för PHP
@@ -28,9 +28,9 @@ ms.locfileid: "65411579"
 Azure SDK för PHP innehåller komponenter som gör att du kan utveckla, distribuera och hantera PHP-program för Azure. Mer specifikt omfattar Azure SDK för PHP följande:
 
 * **PHP-klientbiblioteken för Azure**. Dessa klassbibliotek tillhandahåller ett gränssnitt för åtkomst till Azure-funktioner, till exempel datahanteringstjänster och molntjänster.
-* **Azure kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)**. Det här är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Azure CLI-arbete på alla plattformar, inklusive Mac, Linux och Windows.
-* **Azure PowerShell (endast Windows)**. Det här är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster, till exempel molntjänster och virtuella datorer.
-* **Azure-emulatorer (endast Windows)**. Beräknings- och emulatorer är lokala emulatorer molntjänster och datahanteringstjänster så att du kan testa ett program lokalt. Azure-emulatorer Kör endast på Windows.
+* **Azure kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)** . Det här är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Azure CLI-arbete på alla plattformar, inklusive Mac, Linux och Windows.
+* **Azure PowerShell (endast Windows)** . Det här är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster, till exempel molntjänster och virtuella datorer.
+* **Azure-emulatorer (endast Windows)** . Beräknings- och emulatorer är lokala emulatorer molntjänster och datahanteringstjänster så att du kan testa ett program lokalt. Azure-emulatorer Kör endast på Windows.
 
 I avsnitten nedan beskrivs hur du hämtar och installerar de komponenter som beskrivs ovan.
 

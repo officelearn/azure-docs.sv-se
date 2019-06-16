@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938293"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
@@ -61,7 +61,7 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
    | Namnet på användaren lagringsbehållaren | Behållarens namn där den generaliserade virtuella Hårddisken finns                          |
    | DNS-namn för offentlig IP-adress      | Offentliga IP-DNS-namn                                                           |
    | Systemadministratörsanvändarens namn             | Användarnamn för administratörskontot för nya virtuella datorn                                  |
-   | Administratörslösenord              | Lösenordet för administratörskontot för nya virtuella datorn                                  |
+   | Adminlösenord              | Lösenordet för administratörskontot för nya virtuella datorn                                  |
    | OS-typ                     | VM-operativsystem: `Windows` \| `Linux`                                    |
    | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
    | Location                    | Geografisk plats för distributionen                                        |

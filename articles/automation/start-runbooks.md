@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880205"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
@@ -84,7 +84,7 @@ Azure Automation-webbtjänsten tillhandahåller särskilda funktioner för param
 
 ### <a name="named-values"></a>Namngivna värden
 
-Om parametern är datatypen [objekt], så du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Dessa värden måste vara enkla typer. Runbooken får parametern som ett [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) med egenskaper som motsvarar varje namngivet värde.
+Om parametern är datatypen [objekt], så du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}* . Dessa värden måste vara enkla typer. Runbooken får parametern som ett [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) med egenskaper som motsvarar varje namngivet värde.
 
 Överväg följande test-runbook som accepterar en parameter med namnet användare.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>matriser
 
-Om parametern är en matris som t.ex. [array] eller [string []], du kan använda följande JSON-format för att skicka en lista med värden: *[Value1, Value2, Value3]*. Dessa värden måste vara enkla typer.
+Om parametern är en matris som t.ex. [array] eller [string []], du kan använda följande JSON-format för att skicka en lista med värden: *[Value1, Value2, Value3]* . Dessa värden måste vara enkla typer.
 
 Överväg följande test-runbook som accepterar en parameter med namnet *användaren*.
 

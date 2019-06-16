@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153673"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
@@ -118,7 +118,7 @@ Följande steg illustrerar om du vill konfigurera ett byggsteg för att hämta o
 1. I den **skapa** avsnittet i väljer jobbkonfigurationen **Lägg till byggsteg** och välj **ladda ned från Azure Blob storage**.
 2. För **lagringskontonamn**, Välj lagringskontot som du använder.
 3. För **behållarnamn**, ange namnet på behållaren som innehåller de blobar som du vill hämta. Du kan använda miljövariabler.
-4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\*** anger alla blobbar vars namn börjar på **projekt**.
+4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\** * anger alla blobbar vars namn börjar på **projekt**.
 5. [Valfritt] För **hämtningssökvägen**, ange sökvägen på Jenkins-datorn där du vill ladda ned filer från Azure blob storage. Miljövariabler kan också användas. (Om du inte anger ett värde för **hämtningssökvägen**, hämtas filer från Azure blob storage till arbetsytan för jobbets.)
 
 Om du har ytterligare objekt som du vill ladda ned från Azure blob storage kan skapa du ytterligare byggsteg.
@@ -137,7 +137,7 @@ Det här avsnittet innehåller en översikt över tjänstkomponenter Blob.
   
     (Formatet som ovan gäller globala Azure-molnet. Om du använder en annan Azure-molnet kan använda slutpunkten inom den [Azure-portalen](https://portal.azure.com) att fastställa din URL-slutpunkt.)
   
-    I formatet som ovan, `storageaccount` representerar namnet på ditt lagringskonto `container_name` representerar namnet på din behållare och `blob_name` respektive representerar namnet på din blob. Du kan ha flera sökvägar, avgränsade med ett snedstreck inom behållarnamn, **/**. Exempel behållarens namn i den här självstudien har **MyJob**, och **${skapa\_ID} / ${skapa\_NUMBER}** har använts för den vanliga virtuella sökvägen, vilket resulterar i blobben med en URL följande format:
+    I formatet som ovan, `storageaccount` representerar namnet på ditt lagringskonto `container_name` representerar namnet på din behållare och `blob_name` respektive representerar namnet på din blob. Du kan ha flera sökvägar, avgränsade med ett snedstreck inom behållarnamn, **/** . Exempel behållarens namn i den här självstudien har **MyJob**, och **${skapa\_ID} / ${skapa\_NUMBER}** har använts för den vanliga virtuella sökvägen, vilket resulterar i blobben med en URL följande format:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

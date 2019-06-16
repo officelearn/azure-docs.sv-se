@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027967"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera Azure Blockchain Service transaktion noder
@@ -84,7 +84,7 @@ För att bevilja Azure AD åtkomstkontroll till din slutpunkt:
     | Inställning | Åtgärd |
     |---------|-------------|
     | Roll | Välj **ägare**, **deltagare**, eller **läsare**.
-    | Tilldela behörighet till | Välj **Azure AD-användare, grupp eller tjänstens huvudnamn**.
+    | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänstens huvudnamn**.
     | Välj | Sök efter användaren, gruppen eller tjänstens huvudnamn som du vill lägga till.
 
 1. Välj **spara** att lägga till rolltilldelningen.

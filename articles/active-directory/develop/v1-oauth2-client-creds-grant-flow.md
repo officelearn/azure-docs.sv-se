@@ -19,10 +19,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d734db7fbedaf3e3f3cd71c31f9391a2237f5b4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545264"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat)
@@ -59,10 +59,10 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk |Anger den begärda beviljandetypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
-| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
-| client_secret |obligatorisk |Ange en nyckel som har registrerats för det anropande tjänste- eller daemonappar webbprogrammet i Azure AD. Om du vill skapa en nyckel i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet, klickar du på **inställningar**, klickar du på **nycklar** , och Lägg till en nyckel.  URL-koda det här hemliga när du anger den. |
-| resurs |obligatorisk |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
+| grant_type |Krävs |Anger den begärda beviljandetypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
+| client_id |Krävs |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
+| client_secret |Krävs |Ange en nyckel som har registrerats för det anropande tjänste- eller daemonappar webbprogrammet i Azure AD. Om du vill skapa en nyckel i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet, klickar du på **inställningar**, klickar du på **nycklar** , och Lägg till en nyckel.  URL-koda det här hemliga när du anger den. |
+| resource |Krävs |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
 
 #### <a name="example"></a>Exempel
 Följande HTTP POST-begäranden en [åtkomsttoken](access-tokens.md) för den https://service.contoso.com/ webbtjänsten. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
@@ -80,11 +80,11 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk |Anger den efterfrågade svarstypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
-| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
-| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
-| resurs | obligatorisk |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
+| grant_type |Krävs |Anger den efterfrågade svarstypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
+| client_id |Krävs |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
+| client_assertion_type |Krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
+| resource | Krävs |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
 
 Observera att parametrarna är nästan samma sätt som i fallet med begäran från delad hemlighet förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
@@ -110,7 +110,7 @@ Ett lyckat svar innehåller ett JSON OAuth 2.0-svar med följande parametrar:
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | not_before |Den tid som åtkomsttoken blir kan användas. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills giltighetstiden för token.|
-| resurs |App-ID URI för den mottagande webbtjänsten. |
+| resource |App-ID URI för den mottagande webbtjänsten. |
 
 #### <a name="example-of-response"></a>Exempel på svaret
 I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token till en webbtjänst.

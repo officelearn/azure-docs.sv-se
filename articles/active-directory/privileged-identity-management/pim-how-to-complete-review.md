@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602153"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Slutför en åtkomstgranskning i Azure AD-roller i PIM
@@ -41,13 +41,13 @@ Om en åtkomstgranskning har konfigurerats så att användarna granska själva d
 ### <a name="stop"></a>Stoppa
 Alla åtkomstgranskningar har ett slutdatum, men du kan använda den **stoppa** för att slutföra den tidigt. Om användare inte har granskats av den här tiden, kommer inte de att kunna när du stoppa granskningen. Du kan inte starta om en granskning när den har stoppats.
 
-### <a name="apply"></a>Tillämpa
+### <a name="apply"></a>Använd
 När en åtkomstgranskning är klar, antingen eftersom du har nått slutdatum eller stoppade den manuellt, den **tillämpa** knappen implementerar resultatet av granskningen. Om en användares åtkomst nekades i granskningen, är detta det steg som tar bort sina rolltilldelning.  
 
 ### <a name="export"></a>Exportera
 Om du vill använda resultatet av åtkomstgranskningen manuellt kan du exportera granskningen. Den **exportera** knappen startar hämta en CSV-fil. Du kan hantera resultaten i Excel och andra program som öppna CSV-filer.
 
-### <a name="delete"></a>Radera
+### <a name="delete"></a>Ta bort
 Om du inte är intresserad av att granska ytterligare kan du ta bort den. Den **ta bort** knappen tar bort granskningen från PIM-programmet.
 
 > [!IMPORTANT]

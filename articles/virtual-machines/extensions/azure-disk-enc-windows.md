@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff77f9fc017627143b14544af03d0d5e80813db9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051706"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -41,7 +41,44 @@ En lista över versioner som för närvarande Windows finns i [krävs för Azure
 Azure Disk Encryption kräver en Internetanslutning för åtkomst till Active Directory, Key Vault, lagring och hanteringsslutpunkter för paketet.  Mer information om inställningarna för nätverkssäkerhet finns i [krävs för Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Tilläggsschema
+## <a name="extension-schemata"></a>Tillägget scheman
+
+Det finns två scheman för Azure Disk Encryption: v1.1, ett nyare, rekommenderas schema som inte använder Azure Active Directory (AAD)-egenskaper och v0.1, ett äldre schema som kräver AAD egenskaper. Du måste använda schemaversion som motsvarar det tillägget som du använder: schemat v1.1 för AzureDiskEncryption tilläggsversion 1.1, schemat v0.1 för AzureDiskEncryption tilläggsversion 0.1.
+
+### <a name="schema-v11-no-aad-recommended"></a>Schemat v1.1: Ingen AAD (rekommenderas)
+
+V1.1 schemat bör och kräver inte Azure Active Directory-egenskaper.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Schemat v0.1: med AAD 
+
+0,1 schemat kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate`.
+
+Med hjälp av `aadClientSecret`:
 
 ```json
 {
@@ -51,47 +88,74 @@ Azure Disk Encryption kräver en Internetanslutning för åtkomst till Active Di
   "location": "[location]",
   "properties": {
     "protectedSettings": {
-      "AADClientSecret": "[aadClientSecret]",
-    },
+      "AADClientSecret": "[aadClientSecret]"
+    },    
     "publisher": "Microsoft.Azure.Security",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-      
+      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-      "EncryptionOperation": "[encryptionOperation]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
-    "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]"
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+Med hjälp av `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### <a name="property-values"></a>Egenskapsvärden
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| utgivare | Microsoft.Azure.Security | string |
-| typ | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
-| (valfritt) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (valfritt) AADClientSecret | password | string |
-| (valfritt) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (0,1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0,1 schema) AADClientSecret | password | string |
+| (0,1 schema) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultResourceId | resurs-uri | string |
-| KekVaultResourceId | resurs-uri | string |
 | KeyVaultURL | url | string |
+| (valfritt) Lösenfras | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS-, Data, alla | string |
 

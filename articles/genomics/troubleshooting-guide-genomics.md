@@ -12,10 +12,10 @@ ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
 ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790512"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
@@ -108,7 +108,7 @@ Ett internt tjänstfel är inte användare som är användbara. Du kan skicka ar
 
 | Felmeddelande                                                                                                                            | Rekommenderade steg för felsökning                                                                                                                                   |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ett internt fel har inträffat. Försök att skicka igen arbetsflödet. Om du ser det här felet, kontakta Microsoft Genomics-support för hjälp | Skicka arbetsflödet igen. Kontakta Microsoft Genomics stöd för att få hjälp om problemet kvarstår genom att skapa en [biljett](file-support-ticket-genomics.md ). |
+| Ett internt fel uppstod. Försök att skicka igen arbetsflödet. Om du ser det här felet, kontakta Microsoft Genomics-support för hjälp | Skicka arbetsflödet igen. Kontakta Microsoft Genomics stöd för att få hjälp om problemet kvarstår genom att skapa en [biljett](file-support-ticket-genomics.md ). |
 
 ### <a name="2-input-errors"></a>2. Indatafel
 

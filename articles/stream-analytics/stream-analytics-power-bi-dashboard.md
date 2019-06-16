@@ -7,16 +7,16 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076161"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Självstudier: Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
+
 Azure Stream Analytics kan du dra nytta av en av de ledande business intelligence-verktyg, [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med Power BI som utdata för dina Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtidsinstrumentpanel.
 
 Den här artikeln fortsätter från Stream Analytics [bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) självstudien. Den bygger på det arbetsflöde som skapas i självstudien och lägger till en Power BI som utdata så att du kan visualisera bedrägliga samtal som identifieras av ett Streaming Analytics-jobb. 
@@ -38,41 +38,31 @@ I självstudierna identifiering av bedrägerier i realtid skickas utdata till Az
 
 1. Öppna Streaming Analytics-jobb som du skapade tidigare i Azure-portalen. Om du har använt det föreslagna namnet jobbet med namnet `sa_frauddetection_job_demo`.
 
-2. Välj den **utdata** rutan mitt jobb instrumentpanelen och välj sedan **+ Lägg till**.
+2. På menyn till vänster väljer **utdata** under **jobbtopologi**. Välj **+ Lägg till** och välj **Power BI** från den nedrullningsbara menyn.
 
-3. För **Utdataaliaset**, ange `CallStream-PowerBI`. Du kan använda ett annat namn. Om du gör notera av det, eftersom du behöver namnet senare. 
+3. Välj **+ Lägg till** > **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
 
-4. Under **mottagare**väljer **Power BI**.
+   |**Inställning**  |**Föreslaget värde**  |
+   |---------|---------|
+   |Utdataalias  |  CallStream-PowerBI  |
+   |Namn på datauppsättning  |   sa-dataset  |
+   |Tabellnamn |  fraudulent-calls  |
 
-   ![Skapa utdata för Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Konfigurera Stream Analytics-utdata](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Klicka på **auktorisera**.
+   > [!WARNING]
+   > Om Power BI har en datauppsättning och en tabell som har samma namn som de som du anger i Stream Analytics-jobb, skrivs befintliga.
+   > Vi rekommenderar att du inte uttryckligen skapar datauppsättningen och tabellen i Power BI-kontot. De skapas automatiskt när du startar ditt Stream Analytics-jobb och jobbet startar pumpande utdata till Power BI. Om jobbet frågan inte returnerar några resultat, skapas inte datauppsättningen och tabellen.
+   >
 
-    Ett fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure för ett arbets- eller skolkonto konto. 
-
-    ![Ange autentiseringsuppgifter för åtkomst till Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Ange dina autentiseringsuppgifter. Var medveten om och sedan när du anger dina autentiseringsuppgifter kan du också håller behörighet för Streaming Analytics-jobbet för att komma åt ditt Power BI-område.
-
-7. När du är tillbaka till den **nya utdata** bladet anger du följande information:
-
-   * **Gruppen arbetsyta**: Välj en arbetsyta i Power BI-klient där du vill skapa datauppsättningen.
-   * **Namn på datauppsättning**:  Ange `sa-dataset`. Du kan använda ett annat namn. Om du gör, notera den till senare.
-   * **Tabellnamn**: Ange `fraudulent-calls`. Power BI-utdata från Stream Analytics-jobb kan för närvarande kan ha endast en tabell i en datauppsättning.
-
-     ![Power BI-arbetsytan datauppsättning och tabell](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > Om Power BI har en datauppsättning och en tabell som har samma namn som de som du anger i Stream Analytics-jobb, skrivs befintliga.
-     > Vi rekommenderar att du inte uttryckligen skapar datauppsättningen och tabellen i Power BI-kontot. De skapas automatiskt när du startar ditt Stream Analytics-jobb och jobbet startar pumpande utdata till Power BI. Om jobbet frågan inte returnerar några resultat, skapas inte datauppsättningen och tabellen.
-     >
+4. När du har valt **Auktorisera** visas ett popup-fönster och du ombeds ange autentiseringsuppgifter för att autentisera ditt Power BI-konto. När auktoriseringen är klar ska du **Spara** inställningarna.
 
 8. Klicka på **Skapa**.
 
 Datauppsättningen skapas med följande inställningar:
 
-* **defaultRetentionPolicy: BasicFIFO**: Data är FIFO, med högst 200 000 rader.
-* **defaultMode: pushStreaming**: Datauppsättningen stöder både strömmande paneler och traditionella rapport-baserade visuella objekt (alias) push).
+* **defaultRetentionPolicy: BasicFIFO** -Data är FIFO, med högst 200 000 rader.
+* **defaultMode: pushStreaming** -datauppsättningen stöder både strömmande paneler och traditionella rapport-baserade visuella objekt (även kallat push).
 
 För närvarande kan skapa du inte datauppsättningar med andra flaggor.
 
@@ -90,54 +80,52 @@ Läs mer om Power BI-datauppsättningar, den [Power BI REST API](https://msdn.mi
     >[!NOTE]
     >Om du inte indata `CallStream` i självstudien identifiering av bedrägerier, ersätter du ditt namn för `CallStream` i den **FROM** och **ansluta** satser i fråga.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. Klicka på **Spara**.
 
 
 ## <a name="test-the-query"></a>Testa frågan
+
 Det här avsnittet är valfritt men rekommenderas. 
 
 1. Om appen TelcoStreaming inte körs, startar du den genom att följa dessa steg:
 
-    * Öppna ett kommandofönster.
+    * Öppna Kommandotolken.
     * Gå till mappen där telcogenerator.exe och ändrade telcodatagen.exe.config filer är.
     * Kör följande kommando:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. I den **fråga** bladet klickar du på punkterna bredvid den `CallStream` indata och väljer sedan **exempeldata från indata**.
+2. På den **fråga** för ditt Stream Analytics-jobb och klicka på punkterna bredvid den `CallStream` indata och väljer sedan **exempeldata från indata**.
 
 3. Ange att du vill att tre minuter tillhandahåller data och klicka på **OK**. Vänta tills du får ett meddelande om att data har samplats.
 
-4. Klicka på **Test** och kontrollera att du får resultat.
-
+4. Klicka på **Test** och granska resultatet.
 
 ## <a name="run-the-job"></a>Kör jobbet
 
-1. Se till att appen TelcoStreaming körs.
+1. Kontrollera att TelcoStreaming appen körs.
 
-2. Stäng den **fråga** bladet.
-
-3. Jobb-bladet klickar du på **starta**.
+2. Navigera till den **översikt** för ditt Stream Analytics-jobb och välj **starta**.
 
     ![Starta Stream Analytics-jobbet](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -240,7 +228,7 @@ Med den här konfigurationen kan du ändra den ursprungliga frågan så här:
         dspl
 ```
 
-### <a name="renew-authorization"></a>Förnya auktorisationen
+### <a name="renew-authorization"></a>Förnya auktoriseringen
 Om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade, måste du autentiseras på nytt Power BI-kontot. Om Azure Multi-Factor Authentication har konfigurerats på din Azure Active Directory (Azure AD)-klient, måste du också förnya auktoriseringen för Power BI varannan vecka. Om du inte förnyar kan du få se symptom, till exempel brist på jobbutdata eller en `Authenticate user error` i loggarna för åtgärden.
 
 Om ett jobb startar när token har upphört att gälla, uppstår ett fel och jobbet misslyckas. Stoppa jobb som körs för att lösa problemet och gå till Power BI-utdata. För att undvika dataförlust, Välj den **förnya auktoriseringen** länka och sedan starta om jobbet från den **senast stoppad**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052050"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -148,7 +148,7 @@ Vi kan rita följande slutsatser från den här tabellen:
 | P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
 | P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
 | P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
-| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 Mer information om hur du konfigurerar stunnel eller hämta Redis-verktyg som `redis-benchmark.exe`, finns i den [hur kan jag köra Redis-kommandon?](#cache-commands) avsnittet.
 
@@ -165,10 +165,10 @@ Azure Cache Redis priser är [här](https://azure.microsoft.com/pricing/details/
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Kan jag använda Azure Cache för Redis med Azure Government-molnet, Azure Kina-molnet eller Microsoft Azure Tyskland?
 Ja, Azure Cache för Redis är tillgängliga i Azure Government-molnet, Azure Kina 21Vianet-molnet och Microsoft Azure Tyskland. URL: er för att komma åt och hantera Azure Cache för Redis är olika i dessa moln jämfört med Azures offentliga moln.
 
-| Moln   | DNS-suffixet för Redis            |
+| Molnet   | DNS-suffixet för Redis            |
 |---------|---------------------------------|
-| Offentlig  | *.redis.cache.windows.net       |
-| US Gov  | *.redis.cache.usgovcloudapi.net |
+| Offentligt  | *.redis.cache.windows.net       |
+| USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |
 | Tyskland | *.redis.cache.cloudapi.de       |
 | Kina   | *.redis.cache.chinacloudapi.cn  |
 
@@ -251,7 +251,7 @@ Du kan använda någon av de kommandon som finns på [Redis-kommandon](https://r
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis-kommandoradsverktyg fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis-förhandsversion Versionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
+> Redis-kommandoradsverktyg fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [hur du använder kommandoradsverktyget Redis med Azure Cache för Redis ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) artikeln.
 >
 >
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Exempel: Om du har en 4-kärnors virtuell dator och vill använda *minWorkerThreads* och *minIoThreads* till 50 per CPU under körning, använder du **ThreadPool.SetMinThreads (200, 200)**.
+  > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Exempel: Om du har en 4-kärnors virtuell dator och vill använda *minWorkerThreads* och *minIoThreads* till 50 per CPU under körning, använder du **ThreadPool.SetMinThreads (200, 200)** .
 
 * Det är också möjligt att ange de minsta antal trådar som inställningen med hjälp av den [ *minIoThreads* eller *minWorkerThreads* konfigurationsinställning](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under den `<processModel>` konfigurationselementet i `Machine.config`, som vanligtvis finns i `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Ange antalet minimitrådar på så vis Allmänt rekommenderas inte eftersom det är en inställning för hela systemet.**
 

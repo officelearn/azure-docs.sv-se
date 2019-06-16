@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808094"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Aktivera kommunikation för rollinstanser i azure
 Molntjänstroller kommunicerar via interna och externa anslutningar. Externa anslutningar kallas **inkommande slutpunkter** medan interna anslutningar kallas **interna slutpunkter**. Det här avsnittet beskrivs hur du ändrar den [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef) att skapa slutpunkter.
 
 ## <a name="input-endpoint"></a>Slutpunkt för indata
-Slutpunkt för indata används när du vill exponera en port på utsidan. Anger vilken typ av protokoll och porten för den slutpunkt som gäller för externa och interna portar för slutpunkten. Om du vill kan du ange en annan Intern port för slutpunkten med den [lokal port](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) attribut.
+Slutpunkt för indata används när du vill exponera en port på utsidan. Anger vilken typ av protokoll och porten för den slutpunkt som gäller för externa och interna portar för slutpunkten. Om du vill kan du ange en annan Intern port för slutpunkten med den [lokal port](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) attribut.
 
 Slutpunkt för indata kan använda följande protokoll: **http, https, tcp, udp**.
 

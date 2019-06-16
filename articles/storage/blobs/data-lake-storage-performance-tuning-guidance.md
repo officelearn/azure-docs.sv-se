@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939364"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Justering av Azure Data Lake Storage Gen2 för prestanda
@@ -44,7 +44,7 @@ Nätverksanslutningen mellan dina källdata och Data Lake Storage Gen2 kan iblan
 
 När du har åtgärdat maskinvaran som källa och network connectivity flaskhalsar ovan, är du redo att konfigurera verktyg för datainhämtning. I följande tabell sammanfattas Nyckelinställningar för flera populära inmatning verktyg och ger djupgående prestandajustering artiklar för dessa.  Mer information om vilket verktyg du använder för ditt scenario finns i den här [artikeln](data-lake-storage-data-scenarios.md).
 
-| Verktyg               | Inställningar     | Mer information                                                                 |
+| Verktyget               | Inställningar     | Mer information                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Länk](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Länk](../../data-factory/copy-activity-performance.md)                          |

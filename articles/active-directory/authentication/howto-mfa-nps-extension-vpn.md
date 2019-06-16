@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570636"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
@@ -143,7 +143,7 @@ För att fungera korrekt i det här scenariot, måste NPS-servern registreras i 
 
 2. I Serverhanteraren väljer **verktyg**, och välj sedan **Network Policy Server**.
 
-3. I NPS-konsolträdet högerklickar du på **NPS (lokal)**, och välj sedan **registrera servern i Active Directory**. Välj **OK** två gånger.
+3. I NPS-konsolträdet högerklickar du på **NPS (lokal)** , och välj sedan **registrera servern i Active Directory**. Välj **OK** två gånger.
 
     ![Registrera servern i Active Directory-menyalternativ](./media/howto-mfa-nps-extension-vpn/image2.png)
 
@@ -153,7 +153,7 @@ För att fungera korrekt i det här scenariot, måste NPS-servern registreras i 
 
 Du kan använda en standard (guidebaserad) eller avancerade konfigurationsalternativ för att konfigurera RADIUS-servern. Det här avsnittet förutsätter att du använder alternativet guidebaserad standardkonfiguration.
 
-1. I NPS-konsolträdet väljer **NPS (lokal)**.
+1. I NPS-konsolträdet väljer **NPS (lokal)** .
 
 2. Under **standardkonfiguration**väljer **RADIUS-Server för fjärranslutningar eller VPN-anslutningar**, och välj sedan **konfigurera VPN eller fjärranslutna**.
 
@@ -230,7 +230,7 @@ I det här avsnittet konfigurerar du VPN-servern för RADIUS-autentisering. Anvi
 
 2. I Serverhanteraren väljer **verktyg**, och välj sedan **Routing and Remote Access**.
 
-3. I den **Routing and Remote Access** fönstret högerklickar du på  **\<servernamn > (lokal)**, och välj sedan **egenskaper**.
+3. I den **Routing and Remote Access** fönstret högerklickar du på  **\<servernamn > (lokal)** , och välj sedan **egenskaper**.
 
 4. I den  **\<servernamn > (lokalt) egenskaper** väljer den **Security** fliken.
 
@@ -269,7 +269,7 @@ I det här avsnittet ska bekräfta du att VPN-klienten autentiseras och auktoris
 
 4. Välj **lägga till en VPN-anslutning**.
 
-5. I den **lägga till en VPN-anslutning** fönstret i den **VPN-leverantören** väljer **Windows (inbyggt)**, Fyll i fälten Återstående efter behov, och välj sedan **Spara**.
+5. I den **lägga till en VPN-anslutning** fönstret i den **VPN-leverantören** väljer **Windows (inbyggt)** , Fyll i fälten Återstående efter behov, och välj sedan **Spara**.
 
     ![Fönstret ”Lägg till en VPN-anslutning”](./media/howto-mfa-nps-extension-vpn/image17.png)
 
@@ -372,7 +372,7 @@ Om du vill använda skriptet, ger du tillägget med dina administrativa autentis
 
 1. Kör Windows PowerShell som administratör.
 
-2. Ange i PowerShell-kommandotolken **cd ”c:\Program Files\Microsoft\AzureMfa\Config”**, och tryck sedan på RETUR.
+2. Ange i PowerShell-kommandotolken **cd ”c:\Program Files\Microsoft\AzureMfa\Config”** , och tryck sedan på RETUR.
 
 3. I nästa kommandotolk, ange **.\AzureMfaNpsExtnConfigSetup.ps1**, och tryck sedan på RETUR. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installerar skriptet modulen åt dig.
 

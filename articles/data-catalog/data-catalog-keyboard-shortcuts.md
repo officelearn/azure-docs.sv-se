@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998817"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Kortkommandon för Azure Data Catalog
@@ -20,7 +20,7 @@ ms.locfileid: "60998817"
 ### <a name="general-keyboard-shortcuts"></a>Allmänna kortkommandon
 | Åtgärd | Tryck på |
 | --- | --- |
-| Fliken till alla kontroller på en sida |Tab |
+| Fliken till alla kontroller på en sida |fliken |
 | Välj ett alternativ |Ange eller blanksteg |
 | Maximera sidan |WIN+UP |
 | Återställning/Minimera sidan |WIN + NEDPIL |

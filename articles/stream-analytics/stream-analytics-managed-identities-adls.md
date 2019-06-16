@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148553"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter
@@ -180,7 +180,7 @@ Den här funktionen stöder inte följande:
 
 1. **Flera innehavare åtkomst**: Tjänstens huvudnamn som skapats för en viss Stream Analytics-jobbet kommer att finnas på Azure Active Directory-klient som jobbet har skapats och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Du kan därför bara använda MSI på ADLS Gen 1-resurser som ligger inom samma Azure Active Directory-klient som din Azure Stream Analytics-jobb. 
 
-2. **[Tilldelade användaridentitet](../active-directory/managed-identities-azure-resources/overview.md)**: stöds inte. Det innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics.
+2. **[Tilldelade användaridentitet](../active-directory/managed-identities-azure-resources/overview.md)** : stöds inte. Det innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

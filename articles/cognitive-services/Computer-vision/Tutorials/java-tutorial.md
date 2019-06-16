@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232626"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Använda funktionerna för visuellt innehåll med REST API och Java
@@ -60,11 +60,11 @@ Du behöver inte extrahera innehållet i ZIP-filen eftersom NetBeans importerar 
 
 Importera filen **cognitive-services-java-computer-vision-tutorial-master.zip** till NetBeans.
 
-1. I NetBeans, klickar du på **Arkiv** > **Importera projekt** > **från ZIP...**. Dialogrutan **Importera projekt från ZIP** visas.
-1. I fältet **ZIP-fil:**, klickar du på **Bläddra** för att leta efter filen **cognitive-services-java-computer-vision-tutorial-master.zip** och klickar sedan på **Öppna**.
+1. I NetBeans, klickar du på **Arkiv** > **Importera projekt** > **från ZIP...** . Dialogrutan **Importera projekt från ZIP** visas.
+1. I fältet **ZIP-fil:** , klickar du på **Bläddra** för att leta efter filen **cognitive-services-java-computer-vision-tutorial-master.zip** och klickar sedan på **Öppna**.
 1. Klicka på **Importera** från dialogrutan **Importera projekt från ZIP**.
-1. I fönstrert **Projekt**, expanderar du **ComputerVision** > **Källpaket** > **&lt;standardpaket&gt;**. 
-   Vissa versioner av NetBeans använder **src** istället för **Källpaket** > **&lt;standardpaket&gt;**. I så fall expanderar du **src**.
+1. I fönstrert **Projekt**, expanderar du **ComputerVision** > **Källpaket** >  **&lt;standardpaket&gt;** . 
+   Vissa versioner av NetBeans använder **src** istället för **Källpaket** >  **&lt;standardpaket&gt;** . I så fall expanderar du **src**.
 1. Dubbelklicka på **MainFrame.java** för att läsa in filen till NetBeans-redigeraren. Fliken **Design** i filen **MainFrame.java** visas.
 1. Klicka på fliken **Källa** för att visa Java-källkoden.
 

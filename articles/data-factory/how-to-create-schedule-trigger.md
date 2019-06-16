@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151077"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
@@ -44,7 +44,7 @@ Du kan skapa en **schemautlösare** att schemalägga en pipeline kan köras rege
 3. I den **ny utlösare** gör du följande steg: 
 
     1. Bekräfta att **schema** har valts för **typ**. 
-    2. Ange start-datum/tid för utlösaren för **starta datum (UTC)**. Den är inställd på den aktuella datumet/tiden som standard. 
+    2. Ange start-datum/tid för utlösaren för **starta datum (UTC)** . Den är inställd på den aktuella datumet/tiden som standard. 
     3. Ange **upprepning** för utlösaren. Välj ett av värdena från den nedrullningsbara listan (varje minut, per timme, varje dag, varje vecka och per månad). Ange multiplikatorn i textrutan. Till exempel om du vill att utlösaren ska köras en gång för varje 15 minuter kan du välja **varje minut**, och ange **15** i textrutan. 
     4. För den **slutet** om du inte vill ange en sluttid för utlösaren, väljer **No End**. Välj för att ange ett omfattande tidsvärdet **på datumet**, och anger slutdatumet och klickar på **tillämpa**. Det finns ingen associerad kostnad till varje pipelinekörning. Om du vill testa kan du se till att pipelinen utlöses endast några gånger. Men se till att det finns tillräckligt med tid att köra pipelinen mellan publiceringstiden och sluttiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet.
 

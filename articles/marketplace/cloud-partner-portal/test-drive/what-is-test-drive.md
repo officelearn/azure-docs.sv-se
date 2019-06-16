@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938465"
 ---
 <a name="what-is-test-drive"></a>Vad är Test Drive?
@@ -47,8 +47,8 @@ Och här är ett exempel på hur ett erbjudande ser ut när den behöver tid fö
 
 Oavsett hur även komplexa ditt program, Microsoft Test Drive hjälper dig att förverkliga din produkt för kunden. Idag erbjuder vi tre olika typer av Test Drives baserat på vilken typ av produkt, scenario och du är på marketplace.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar det här scenariot är sådana som använder endast Azure-resurser.
-- **[Logikapp](./logic-app-test-drive.md)**: En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar det här scenariot är sådana som använder endast Azure-resurser.
+- **[Logikapp](./logic-app-test-drive.md)** : En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.
 - **Power BI**: Testa Power BI är en inbäddad länk till en egna anpassade instrumentpanel. En produkt som vill bara visa ett interaktiva Power BI-objekt bör använda den här typen av Test Drive.
     Allt du behöver ladda upp här är din inbäddade Power BI-URL.
 

@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127519"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
@@ -66,14 +66,14 @@ Du behöver inte ange NSG:er på undernätverksnivån eftersom Batch konfigurera
 
 | Käll-IP-adresser | Källtjänsttagg | Källportar | Mål | Målportar | Protocol | Åtgärd |
 | --- | --- | --- | --- | --- | --- | --- |
-| Gäller inte | `BatchNodeManagement` [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | * | Valfri | 29876–29877 | TCP | Tillåt |
-| Användarkälla IP-adresser för fjärråtkomst till beräkningsnoder och/eller compute noden undernät för Linux aktiviteter med flera instanser, om det behövs. | Gäller inte | * | Valfri | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
+| Gäller inte | `BatchNodeManagement` [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | * | Alla | 29876–29877 | TCP | Tillåt |
+| Användarkälla IP-adresser för fjärråtkomst till beräkningsnoder och/eller compute noden undernät för Linux aktiviteter med flera instanser, om det behövs. | Gäller inte | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
-| Source | Källportar | Mål | Måltjänsttagg | Protocol | Åtgärd |
+| source | Källportar | Mål | Måltjänsttagg | Protocol | Åtgärd |
 | --- | --- | --- | --- | --- | --- |
-| Valfri | 443 | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (i samma region som dina Batch-konto och ett virtuellt nätverk)  | Valfri | Tillåt |
+| Alla | 443 | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (i samma region som dina Batch-konto och ett virtuellt nätverk)  | Alla | Tillåt |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pooler i Cloud Services-konfigurationen
 
@@ -99,11 +99,11 @@ Konfigurera inkommande trafik på port 3389 för Windows om du behöver att till
 
 | Käll-IP-adresser | Källportar | Mål | Målportar | Protocol | Åtgärd |
 | --- | --- | --- | --- | --- | --- |
-Valfri <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Valfri | 10100, 20100, 30100 | TCP | Tillåt |
-| Valfritt, att tillåta RDP-åtkomst till beräkningsnoder. | * | Valfri | 3389 | TCP | Tillåt |
+Alla <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Alla | 10100, 20100, 30100 | TCP | Tillåt |
+| Valfritt, att tillåta RDP-åtkomst till beräkningsnoder. | * | Alla | 3389 | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
-| Source | Källportar | Mål | Målportar | Protocol | Åtgärd |
+| source | Källportar | Mål | Målportar | Protocol | Åtgärd |
 | --- | --- | --- | --- | --- | --- |
-| Valfri | * | Valfri | 443  | Valfri | Tillåt |
+| Alla | * | Alla | 443  | Alla | Tillåt |

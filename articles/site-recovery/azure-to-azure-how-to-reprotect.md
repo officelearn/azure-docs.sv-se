@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472163"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
@@ -44,10 +44,10 @@ Du kan anpassa följande egenskaper för mål VMe under återaktiveringen av sky
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap  |Anteckningar  |
+|Egenskap |Anteckningar  |
 |---------|---------|
 |Målresursgrupp     | Ändra målresursgruppen som den virtuella datorn har skapats. Den Virtuella måldatorn som en del av återaktiveringen av skyddet har tagits bort. Du kan välja en ny resursgrupp som du skapar den virtuella datorn efter redundans.        |
-|Virtuellt målnätverk     | Målnätverket kan inte ändras under jobbet för återaktivering av skydd. Om du vill ändra nätverket, gör du om nätverksmappningen.         |
+|Virtuellt Målnätverk     | Målnätverket kan inte ändras under jobbet för återaktivering av skydd. Om du vill ändra nätverket, gör du om nätverksmappningen.         |
 |Mål-Lagringskontot (sekundära virtuella datorn inte använder hanterade diskar)     | Du kan ändra det lagringskonto som den virtuella datorn använder efter en redundansväxling.         |
 |Hanterade replikeringsdiskar (sekundära virtuella datorn använder hanterade diskar)    | Hanterade replikeringsdiskar skapar site Recovery i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         |
 |Cache Storage     | Du kan ange ett cachelagringskonto som ska användas vid replikering. Som standard är ett nytt cachelagringskonto skapas, om det inte finns.         |

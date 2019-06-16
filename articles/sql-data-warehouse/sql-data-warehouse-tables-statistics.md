@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851528"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellstatistik i Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 De här uttrycken utlöser automatisk generering av statistik:
 
-- Välj
+- VÄLJ
 - INSERT-VÄLJ
 - CTAS
 - UPDATE
@@ -469,7 +469,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() visar data som lagras i ett objekt med statistik. Dessa data finns i tre delar:
 
-- Sidhuvud
+- Huvud
 - Densitet vektor
 - Histogram
 

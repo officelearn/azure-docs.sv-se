@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: aa6e93ef7e403f1b230814b7afa20d2e8e68b71a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64718666"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>VM vCPU-kvoter
+# <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
 VCPU-kvoter för virtuella datorer och VM-skalningsuppsättningar är ordnade i två nivåer för varje prenumeration i varje region. Den första nivån är det totalt antal regionala virtuella processorer och det andra lagret är de olika virtuella datorns storlek family kärnorna, till exempel vcpu: er för D-serien. Varje gång en ny virtuell dator är distribuerat den virtuella processorer för den virtuella datorn inte får överstiga vCPU-kvoten för VM-storleksfamilj eller totalt antal regionala vCPU-kvoten. Om något av dessa kvoter överskrids får inte VM-distributionen. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Information om vart och ett av dessa kvoter kan ses i den **användning + kvoter** delen av den **prenumeration** sidan i den [Azure-portalen](https://portal.azure.com), eller du kan fråga efter värden med hjälp av PowerShell.
 
- [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
+ [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
  
 ## <a name="check-usage"></a>Kontrollera användning
 

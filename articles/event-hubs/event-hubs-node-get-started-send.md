@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: spelluru
 ms.openlocfilehash: e67be59e0ed78b2080986acb73a33fc87599c9d3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539335"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med hjälp av Node.js
@@ -81,7 +81,7 @@ Det här avsnittet visar hur du skapar ett Node.js-program som skickar händelse
 3. Ange anslutningssträngen och namnet på din Event Hub i koden ovan
 4. Kör sedan kommandot `node send.js` i Kommandotolken och kör den här filen. 100 händelser skickas till din Event Hub
 
-Gratulerar! Du har nu skickat händelser till en händelsehubb.
+Grattis! Du har nu skickat händelser till en händelsehubb.
 
 
 ## <a name="receive-events"></a>Ta emot händelser
@@ -122,7 +122,7 @@ Det här avsnittet visar hur du skapar ett Node.js-program som tar emot händels
 3. Ange anslutningssträngen och namnet på din Event Hub i koden ovan.
 4. Kör sedan kommandot `node receive.js` i Kommandotolken och kör den här filen. Detta visas händelser från någon av partitionerna i förinställd konsumentgrupp i din Event Hub
 
-Gratulerar! Du har nu fått händelser från event hub.
+Grattis! Du har nu fått händelser från event hub.
 
 ## <a name="receive-events-using-event-processor-host"></a>Ta emot händelser med värden för händelsebearbetning
 
@@ -172,7 +172,7 @@ Det här avsnittet visas hur du tar emot händelser från en händelsehubb med h
 3. Ange anslutningssträngen och namnet på din Event Hub i koden ovan tillsammans med anslutningssträngen för Azure Blob Storage
 4. Kör sedan kommandot `node receiveAll.js` i Kommandotolken och kör den här filen.
 
-Gratulerar! Du har nu fått händelser från event hub med värden för händelsebearbetning. Detta kan ta emot händelser från alla partitioner i förinställd konsumentgrupp i din Event Hub
+Grattis! Du har nu fått händelser från event hub med värden för händelsebearbetning. Detta kan ta emot händelser från alla partitioner i förinställd konsumentgrupp i din Event Hub
 
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar:

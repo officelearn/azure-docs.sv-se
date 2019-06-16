@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d0960c749d74903acc778c0f21d5c49f380195ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074166"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor v2: Detaljerade anvisningar
 
@@ -204,7 +204,7 @@ Mer information finns i [installerar ett PowerShell-modulen](https://docs.micros
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>Alternativ 2: Packa upp och importera nupkg manuellt
 Installera manuellt hämtade PowerShell-modulen i en PowerShell-katalog så att den blir synliga av PowerShell-sessioner.
-Mer information finns i [installerar ett PowerShell-modulen](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
+Mer information finns i [installerar ett PowerShell-modulen](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 Om du installerar modulen till en annan katalog, manuellt importera modulen med hjälp av [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

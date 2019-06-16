@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019775"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
@@ -80,9 +80,9 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       
       * Prenumeration-ID
       * Prenumerationsnamn
-      * ID för tjänstens huvudnamn
+      * Id för tjänstens huvudnamn
       * Nyckel för tjänstens huvudnamn
-      * Klient-ID
+      * Klient-Id
    6. Lägga till ett namn för att den **prenumeration** namnrutan. Det här värdet senare visas i den **Azure-prenumeration** listrutan i Azure DevOps-tjänsterna. 
 
    7. Om du inte vet ditt Azure-prenumerations-ID, kan du använda något av följande kommandon för att hämta den.
@@ -111,7 +111,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | -ResourceGroupLocation |Värdet geografiska plats där resursgruppen finns, till exempel **eastus** eller **”östra USA”**. (Lägg till enkla citattecken om det finns ett blanksteg i namnet.) Se [Azure-regionerna](https://azure.microsoft.com/regions/) för mer information. |
+   | -ResourceGroupLocation |Värdet geografiska plats där resursgruppen finns, till exempel **eastus** eller **”östra USA”** . (Lägg till enkla citattecken om det finns ett blanksteg i namnet.) Se [Azure-regionerna](https://azure.microsoft.com/regions/) för mer information. |
    | -ResourceGroupName |Namnet på resursgruppen som används för den här distributionen. |
    | -UploadArtifacts |Den här parametern när det finns, anger att artefakter som behöver överföras till Azure från det lokala systemet. Du behöver bara ange den här växeln om malldistributionen av kräver extra artefakter som du vill att mellanlagra med hjälp av PowerShell-skript (exempelvis konfigurationsskript eller kapslade mallar). |
    | -StorageAccountName |Namnet på det lagringskonto som används för att steget artefakter för den här distributionen. Den här parametern används bara om du organiserar artefakter för distribution. Om den här parametern anges, skapas ett nytt lagringskonto om skriptet inte har skapat någon under en tidigare distribution. Om parametern har angetts måste till storage-kontot redan finnas. |
@@ -172,8 +172,8 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
    * Åtgärd - väljer **skapa eller uppdatera resursgrupp**
    * Resursgrupp – Välj en resursgrupp eller ange namnet på en ny resursgrupp för distributionen
    * Plats – Välj plats för resursgruppen.
-   * Mall – ange sökvägen och namnet på mallen som ska distribueras prepending **$(Build.StagingDirectory)**, till exempel: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * Mallparametrar – ange sökvägen och namnet på parametrarna som ska användas, prepending **$(Build.StagingDirectory)**, till exempel: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * Mall – ange sökvägen och namnet på mallen som ska distribueras prepending **$(Build.StagingDirectory)** , till exempel: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * Mallparametrar – ange sökvägen och namnet på parametrarna som ska användas, prepending **$(Build.StagingDirectory)** , till exempel: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * Åsidosätt mallparametrar – ange eller kopiera och klistra in följande kod:
      
      ```    

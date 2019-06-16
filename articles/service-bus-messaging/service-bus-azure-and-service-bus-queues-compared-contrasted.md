@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799358"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
@@ -65,7 +65,7 @@ Tabellerna i följande avsnitt är en logisk gruppering av köfunktioner och kan
 ## <a name="foundational-capabilities"></a>Grundläggande funktioner
 Det här avsnittet jämför några av de grundläggande funktioner för meddelandeköer som tillhandahålls av Storage-köer och Service Bus-köer.
 
-| Jämförelsevillkor | Lagringsköer | Service Bus-köer |
+| Jämförelsevillkor | Storage-köer | Service Bus-köer |
 | --- | --- | --- |
 | Sorteringen garanti |**Nej** <br/><br>Mer information finns i den första anteckningen i avsnittet ”Mer Information”.</br> |**Ja - först-In-först-ut (FIFO)**<br/><br>(med hjälp av messaging sessioner) |
 | Garanti om leverans |**På minst en gång** |**På minst en gång**<br/><br/>**I de flesta – en gång** |
@@ -98,7 +98,7 @@ Det här avsnittet jämför några av de grundläggande funktioner för meddelan
 ## <a name="advanced-capabilities"></a>Avancerade funktioner
 Det här avsnittet jämför avancerade funktioner som tillhandahålls av Storage-köer och Service Bus-köer.
 
-| Jämförelsevillkor | Lagringsköer | Service Bus-köer |
+| Jämförelsevillkor | Storage-köer | Service Bus-köer |
 | --- | --- | --- |
 | Schemalagd leverans |**Ja** |**Ja** |
 | Automatisk obeställbara |**Nej** |**Ja** |
@@ -129,7 +129,7 @@ Det här avsnittet jämför avancerade funktioner som tillhandahålls av Storage
 ## <a name="capacity-and-quotas"></a>Kapacitet och kvoter
 Det här avsnittet jämför Storage-köer och Service Bus-köer ur [kapacitet och kvoter](service-bus-quotas.md) som kan tillkomma.
 
-| Jämförelsevillkor | Lagringsköer | Service Bus-köer |
+| Jämförelsevillkor | Storage-köer | Service Bus-köer |
 | --- | --- | --- |
 | Maximal köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när den har skapats av en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
 | Största meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure har stöd för stora meddelanden genom att kombinera köer och blobbar – då du kan sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både rubriken och brödtexten, maximalt huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivå](service-bus-premium-messaging.md). |
@@ -148,7 +148,7 @@ Det här avsnittet jämför Storage-köer och Service Bus-köer ur [kapacitet oc
 ## <a name="management-and-operations"></a>Hantering och åtgärder
 Det här avsnittet jämför hanteringsfunktionerna som tillhandahålls av Storage-köer och Service Bus-köer.
 
-| Jämförelsevillkor | Lagringsköer | Service Bus-köer |
+| Jämförelsevillkor | Storage-köer | Service Bus-köer |
 | --- | --- | --- |
 | Management-protokollet |**REST-via HTTP/HTTPS** |**REST-över HTTPS** |
 | Runtime-protokollet |**REST-via HTTP/HTTPS** |**REST-över HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP med TLS)** |
@@ -172,7 +172,7 @@ Det här avsnittet jämför hanteringsfunktionerna som tillhandahålls av Storag
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 Det här avsnittet beskrivs autentisering och auktorisering funktioner som stöds av Storage-köer och Service Bus-köer.
 
-| Jämförelsevillkor | Lagringsköer | Service Bus-köer |
+| Jämförelsevillkor | Storage-köer | Service Bus-köer |
 | --- | --- | --- |
 | Autentisering |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
 | Säkerhetsmodell |Delegerad åtkomst via SAS-token. |SAS |

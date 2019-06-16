@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833990"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
@@ -99,7 +99,7 @@ När en lagringsplats för Azure Resource Manager-mallen har konfigurerats i lab
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 1. Listan över labbar, Välj önskade labbet.   
-1. I den testmiljön rutan, väljer **Lägg till +**.
+1. I den testmiljön rutan, väljer **Lägg till +** .
 1. Den **väljer bas** fönstret visar Källavbildningen du kan använda med Azure Resource Manager-mallar som visas först. Välj den önskade Azure Resource Manager-mallen.
 
     ![Välja en bas](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473016"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
@@ -39,7 +39,7 @@ Följande tabeller visar vilka migreringsscenarier som stöds när du använder 
 ### <a name="offline-one-time-migration-support"></a>Stöd för offline-migrering (engångs)
 I följande tabell visas Azure Database Migration Service stöd för offline-migrering.
 
-| Mål  | Källa | Support | Status |
+| Mål  | source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL |  |  |
@@ -58,7 +58,7 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 ### <a name="online-continuous-sync-migration-support"></a>Migreringsstöd online (kontinuerlig synkronisering)
 I följande tabell visas Azure Database Migration Service stöd för online migreringar.
 
-| Mål  | Källa | Support | Status |
+| Mål  | source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |

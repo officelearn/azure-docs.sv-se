@@ -9,10 +9,10 @@ ms.date: 04/30/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148362"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
@@ -143,7 +143,7 @@ I följande tabell visas vilka åtgärder som kan anropas anonymt när en behål
 | Hämta Blob | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
 | Hämta Blobegenskaper | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
 | Ange Blob-egenskaper | Auktoriserade begäranden | Auktoriserade begäranden |
-| Hämta blob-metadata | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
+| Hämta Blob-Metadata | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
 | Ange Blob-Metadata | Auktoriserade begäranden | Auktoriserade begäranden |
 | Placera Block | Auktoriserade begäranden | Auktoriserade begäranden |
 | Hämta lista över blockerade (endast allokerade blockeras) | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
@@ -155,7 +155,7 @@ I följande tabell visas vilka åtgärder som kan anropas anonymt när en behål
 | Lånet Blob | Auktoriserade begäranden | Auktoriserade begäranden |
 | Placera sidan | Auktoriserade begäranden | Auktoriserade begäranden |
 | Get Page Ranges | Anonyma begäranden som tillåts | Anonyma begäranden som tillåts |
-| Bifoga blob | Auktoriserade begäranden | Auktoriserade begäranden |
+| Bifoga Blob | Auktoriserade begäranden | Auktoriserade begäranden |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824043"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Flytta data från en OData-källan med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-odata-connector.md)
 > * [Version 2 (aktuell version)](../connector-odata.md)
 
@@ -61,7 +61,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för OData-länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OData** |Ja |
 | url |URL för OData-tjänsten. |Ja |
@@ -146,7 +146,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **ODataResource** (som innehåller OData datauppsättning) har följande egenskaper
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | path |Sökvägen till OData-resurs |Nej |
 
@@ -157,7 +157,7 @@ Egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens variera
 
 När källan är av typen **RelationalSource** (som innehåller OData) följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Exempel | Krävs |
+| Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
 

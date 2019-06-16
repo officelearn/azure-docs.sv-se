@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563428"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
@@ -69,7 +69,7 @@ Mer information om hur du konfigurerar automatisk säkerhetskopiering för virtu
 - **Central hantering och övervakning**: Centralt hantera alla dina säkerhetskopior, inklusive andra arbetsbelastningar som stöder Azure Backup, från en enda instrumentpanel i Azure.
 - **Princip för driven säkerhetskopiering och kvarhållning**: Skapa standard säkerhetskopieringsprinciper för regelbundna säkerhetskopieringar. Upprätta principer för kvarhållning om du vill behålla säkerhetskopior i flera år.
 - **Stöd för SQL alltid på**: Identifiera och skydda en SQL Server Always On-konfiguration och respekterar säkerhetskopiering säkerhetskopieringsinställningen för Tillgänglighetsgruppen.
-- **15 minuters mål för återställningspunkt (RPO)**: Konfigurera SQL säkerhetskopieringar av transaktionsloggen upp till 15 minuter.
+- **15 minuters mål för återställningspunkt (RPO)** : Konfigurera SQL säkerhetskopieringar av transaktionsloggen upp till 15 minuter.
 - **Tidpunkt för återställning till tidpunkt**: Använda portalen för att återställa databaser till en viss tidpunkt i tid utan att manuellt återställa flera fullständig, differentiell och säkerhetskopior.
 - **Konsoliderade e-postaviseringar för fel**: Konfigurera konsoliderade e-postmeddelanden för eventuella fel.
 - **Rollbaserad åtkomstkontroll**: Bestämma vem som kan hantera säkerhetskopiering och återställning via portalen.

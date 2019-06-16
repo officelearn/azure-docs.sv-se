@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787603"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
@@ -102,7 +102,6 @@ Du kan ställa in automatisk skalning via
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
-
 | Tjänst | Schema & Docs |
 | --- | --- |
 | Web Apps |[Skalning av Webbappar](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -111,7 +110,7 @@ Du kan ställa in automatisk skalning via
 | Virtuella datorer: Windows-Skalningsuppsättningar |[Skala VM scale anger i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtuella datorer: Linux-Skalningsuppsättningar |[Skala VM scale anger i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| API Management-tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| API Management-tjänsten|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angavs tidigare eller finns i följande resurser:
@@ -121,3 +120,4 @@ Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angav
 * [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Felsökning VM Scale Sets automatisk skalning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

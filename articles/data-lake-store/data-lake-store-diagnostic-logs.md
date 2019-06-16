@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878753"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
@@ -129,7 +129,7 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |String |HTTP-metoden används för åtgärden. Till exempel få. |
-| Sökväg |String |Sökvägen åtgärden utfördes på |
+| `Path` |String |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Innehållslängd HTTP-förfrågan |
 | ClientRequestId |String |Det ID som unikt identifierar den här begäran |
 | StartTime |String |Den tidpunkt då servern tog emot begäran |

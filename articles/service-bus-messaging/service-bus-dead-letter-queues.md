@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003124"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus-köer för obeställbara meddelanden
@@ -43,12 +43,12 @@ När meddelandet har flyttats av Service broker, två egenskaper läggs till i m
 
 Program kan definiera egna koder för den `DeadLetterReason` egenskapen, men systemet anger du följande värden.
 
-| Villkor | DeadLetterReason | DeadLetterErrorDescription |
+| Tillstånd | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Alltid |HeaderSizeExceeded |Storlekskvot för den här strömmen har överskridits. |
+| Alltid |HeaderSizeExceeded |Storlekskvoten för dataströmmen har överskridits. |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing och SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Meddelandet har gått ut och har död lettered. |
-| SubscriptionDescription.RequiresSession |Sessions-id är null. |Sessionen aktiverat entitet tillåter inte att ett meddelande som vars sessions-ID är null. |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Meddelandet har gått ut och blev obeställbart. |
+| SubscriptionDescription.RequiresSession |Sessions-id är null. |Sessionsaktiverad entitet tillåter inte ett meddelande vars sessions-ID är null. |
 | ! kö för obeställbara |MaxTransferHopCountExceeded |Null |
 | Programmet explicit död oljekategori |Anges av program |Anges av program |
 

@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681952"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
@@ -137,19 +137,19 @@ Här är Hive-frågan som skapar en Hive-tabell.
 
 Här följer beskrivningar av de fält som ska anslutas och andra konfigurationer:
 
-* **\<Databasnamnet\>**: namnet på databasen som du vill skapa. Om du bara vill använda standarddatabas, frågan *Skapa databas...*  kan utelämnas.
-* **\<Tabellnamnet\>**: namnet på den tabell som du vill skapa inom den angivna databasen. Om du vill använda standarddatabasen tabellen kan refereras direkt av *\<tabellnamn\>* utan \<databasnamn\>.
-* **\<fältavgränsare\>**: avgränsaren som avgränsar fält i datafilen som ska överföras till Hive-tabell.
-* **\<avgränsare för rad\>**: avgränsaren som avgränsar rader i datafilen.
-* **\<lagringsplats\>**: Azure storage-plats att spara data i Hive-tabeller. Om du inte anger *plats \<lagringsplats\>*, lagras i databasen och tabellerna i *hive/informationslager/* katalogen i standardbehållaren för Hive-kluster efter som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste vara kallas plats i förhållande till standardbehållaren för klustret i formatet *' wasb: / / / < katalogen 1 > / ”* eller *' wasb: / / / < katalogen 1 > / < katalogen 2 > /”* osv. När frågan körs, skapas de relativa katalogerna i standardbehållaren.
-* **TBLPROPERTIES("skip.header.line.count"="1")**: Om datafilen har en rubrikrad kan du behöva lägga till den här egenskapen **i slutet** av den *Skapa tabell* fråga. I annat fall rubrikraden har lästs in som en post i tabellen. Om filen inte har en rubrikrad kan du utelämna den här konfigurationen i frågan.
+* **\<Databasnamnet\>** : namnet på databasen som du vill skapa. Om du bara vill använda standarddatabas, frågan *Skapa databas...*  kan utelämnas.
+* **\<Tabellnamnet\>** : namnet på den tabell som du vill skapa inom den angivna databasen. Om du vill använda standarddatabasen tabellen kan refereras direkt av *\<tabellnamn\>* utan \<databasnamn\>.
+* **\<fältavgränsare\>** : avgränsaren som avgränsar fält i datafilen som ska överföras till Hive-tabell.
+* **\<avgränsare för rad\>** : avgränsaren som avgränsar rader i datafilen.
+* **\<lagringsplats\>** : Azure storage-plats att spara data i Hive-tabeller. Om du inte anger *plats \<lagringsplats\>* , lagras i databasen och tabellerna i *hive/informationslager/* katalogen i standardbehållaren för Hive-kluster efter som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste vara kallas plats i förhållande till standardbehållaren för klustret i formatet *' wasb: / / / < katalogen 1 > / ”* eller *' wasb: / / / < katalogen 1 > / < katalogen 2 > /”* osv. När frågan körs, skapas de relativa katalogerna i standardbehållaren.
+* **TBLPROPERTIES("skip.header.line.count"="1")** : Om datafilen har en rubrikrad kan du behöva lägga till den här egenskapen **i slutet** av den *Skapa tabell* fråga. I annat fall rubrikraden har lästs in som en post i tabellen. Om filen inte har en rubrikrad kan du utelämna den här konfigurationen i frågan.
 
 ## <a name="load-data"></a>Läsa in data till Hive-tabeller
 Här är Hive-frågan som läser in data i en Hive-tabell.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<sökvägen till blob-data\>**: Om blobbfilen som ska överföras till Hive-tabellen i standardbehållaren för HDInsight Hadoop-kluster i *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\< katalogen i den här behållaren > /\<blob filnamn >'*. Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\<behållarens namn >\<lagringskontonamn >.blob.core.windows.net/\<blob filnamn >'*.
+* **\<sökvägen till blob-data\>** : Om blobbfilen som ska överföras till Hive-tabellen i standardbehållaren för HDInsight Hadoop-kluster i *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\< katalogen i den här behållaren > /\<blob filnamn >'* . Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\<behållarens namn >\<lagringskontonamn >.blob.core.windows.net/\<blob filnamn >'* .
 
   > [!NOTE]
   > Blob-data som ska överföras till Hive-tabell måste vara i standard eller ytterligare en behållare för storage-konto för Hadoop-kluster. I annat fall den *Läs in DATA* frågan inte kunde köras klagar på att den inte kan komma åt data.
@@ -225,7 +225,7 @@ Välj data från den externa tabellen i steg 1 och infoga i ORC-tabell
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Det är säkert att släppa den *\<externa textfile tabellnamn\>* när med följande fråga efter alla data har infogats i  *\<databasnamn\>.\< ORC-tabellnamn\>*:
+Det är säkert att släppa den *\<externa textfile tabellnamn\>* när med följande fråga efter alla data har infogats i  *\<databasnamn\>.\< ORC-tabellnamn\>* :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

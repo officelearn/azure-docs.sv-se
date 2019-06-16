@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b1f414cadfeb0762e069acc40b37e0dde992502
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f39cfa37ca6b88828d0ab948387429b5a3a2267f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Självstudier: Azure Active Directory-integrering med Peoplecart
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Peoplecart i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Peoplecart från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,5 +197,5 @@ När du klickar på panelen Peoplecart i åtkomstpanelen, bör det vara loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

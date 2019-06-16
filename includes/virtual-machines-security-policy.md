@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145865"
 ---
 Det är viktigt för att skydda din virtuella dator (VM) för de program som du kör. Skydda dina virtuella datorer kan innehålla en eller flera Azure-tjänster och funktioner som täcker säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som hjälper dig att skydda dina virtuella datorer och program.
 
-## <a name="antimalware"></a>Program mot skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Moderna hotbilden i grunden för molnmiljöer är dynamiskt öka trycket att upprätthålla effektiv skydd för att uppfylla efterlevnads- och säkerhetskrav. [Microsoft Antimalware för Azure](../articles/security/azure-security-antimalware.md) är en kostnadsfri realtidsskydd-funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Aviseringar kan konfigureras för att meddela dig när känd skadlig eller oönskad programvara försöker installera sig själva eller köras på den virtuella datorn.
 

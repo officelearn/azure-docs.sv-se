@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721019"
 ---
 # <a name="project-answer-search-v7-reference"></a>Projektet svar Search v7-referens
@@ -64,7 +64,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
   
 |Huvud|Beskrivning|  
 |------------|-----------------|  
-|Godkänn|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](https://json-ld.org/), inställd program/ld + json Accept-huvud.|  
+|Acceptera|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](https://json-ld.org/), inställd program/ld + json Accept-huvud.|  
 |<a name="acceptlanguage" />Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du ställer in den här rubriken, måste du även ange Frågeparametern kopia. För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
 |<a name="market" />BingAPIs-Market|Svarshuvud.<br /><br /> Marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Exempel: sv-SE.|  
 |<a name="traceid" />BingAPIs-TraceId|Svarshuvud.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår ska du avbilda detta ID. Om det inte går att fastställa och lösa problemet ska du ange ID:t tillsammans med annan information som du ger supportteamet.|  
@@ -131,7 +131,7 @@ Definierar den licens som text eller foto kan användas.
   
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
-|namn|Namnet på licensen.|String|  
+|name|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
   
 
@@ -141,7 +141,7 @@ Definierar en avtalsenliga regel för licens attribution.
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till LicenseAttribution.|String|  
-|licens|Licensen som innehållet kan användas.|[Licens](#license)|  
+|Licens|Licensen som innehållet kan användas.|[Licens](#license)|  
 |licenseNotice|Licens för att visa bredvid fältet riktade. Till exempel ”Text under kopia av SA licens”.<br /><br /> Använd licensen namn och URL: en i den `license` fält som du vill skapa en hyperlänk till den webbplats som ger information om licensen. Ersätt sedan licens namn i den `licenseNotice` sträng (till exempel CC-av-SA) med länken som du nyss skapade.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolean|  
 |targetPropertyName|Namnet på fältet som regeln gäller för.|String|  
@@ -188,7 +188,7 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
   
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
-|namn|Utgivarens namn.|String|  
+|name|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
   
   
@@ -198,7 +198,7 @@ Definierar informationen om en webbsida i förhandsversion.
   
 |Namn|Värde|Typ|  
 |----------|-----------|----------|
-|namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
+|name|En rubrik, inte nödvändigtvis HTML-rubrik|String|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|  
 |description|Kort beskrivning på sidan och innehåll|String|  
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|
@@ -227,7 +227,7 @@ Definierar en sökresultat grupp, till exempel mainline.
 
 |Namn|Värde|Typ|  
 |-------------|-----------------|----------|
-|objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
+|items|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.

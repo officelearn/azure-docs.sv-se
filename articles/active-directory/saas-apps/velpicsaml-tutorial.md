@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 883620d6aa25f71a454c7add6d60e38b4974facf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Självstudier: Azure Active Directory-integrering med Velpic SAML
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Velpic SAML i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till Velpic SAML från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -255,5 +255,5 @@ I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

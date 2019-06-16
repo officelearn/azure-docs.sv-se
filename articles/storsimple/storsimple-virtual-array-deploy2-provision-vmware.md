@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419306"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple Virtual Array - etablera i VMware
@@ -131,7 +131,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 18. På den **virtuell Datorversion** väljer **VM-Version: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. På den **gästoperativsystemet** väljer den **gästoperativsystemet** som **Windows**. För **Version**, i listrutan Välj **Microsoft Windows Server 2012 (64-bitars)**.
+19. På den **gästoperativsystemet** väljer den **gästoperativsystemet** som **Windows**. För **Version**, i listrutan Välj **Microsoft Windows Server 2012 (64-bitars)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. På den **processorer** sidan, justera den **antalet virtuella sockets** och **antalet kärnor per virtuell socket** så att den **totala antalet kärnor** är 4 (eller mer). Klicka på **Nästa**.

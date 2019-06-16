@@ -8,10 +8,10 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150430"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault hanteras lagringskonto – PowerShell
@@ -46,7 +46,7 @@ I följande exempel visar hur du kan låta Key Vault för att hantera dina lagri
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Auktorisera Key Vault får tillgång till ditt storage-konto
 
 > [!IMPORTANT]
-> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
+> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)** , som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
 > - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 

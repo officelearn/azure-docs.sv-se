@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
 ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472495"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
@@ -93,7 +93,7 @@ De termer som används i de här stegen omfattar:
 6. I Välj Backup Server-rutan, väljer den *källdatorn* i listan visas datorer.
 7. I fönstret Välj återställningsläge väljer **systemtillstånd** och klicka på **nästa**.
 
-    ![Sökning](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. I kalendern i den **Välj volym och datum** peka fönstret väljer du en återställning. Du kan återställa från valfri återställningspunkt i tid. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. När du har valt ett datum om flera återställningspunkter är tillgängliga, Välj den specifika återställningspunkten från den **tid** nedrullningsbara menyn.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814841"
 ---
 Den här funktionen är en förhandsversion. För att använda den, måste du installera en förhandsversion av tillägg eller modul.
 
@@ -28,11 +28,9 @@ I [CloudShell](/azure/cloud-shell/quickstart):
 
 För en lokal installation:
 
-1. Avinstallera Azure CLI lokalt.
-1. Installera den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
-1. Starta Kommandotolken.
+1. [Installera Azure CLI](/cli/azure/install-azure-cli). Se till att du har den senaste versionen genom att kontrollera med `az --version`.
 1. Avinstallera tidigare versioner av tillägget `az extension remove -n eventgrid`
-1. Installera tillägget `az extension add -n eventgrid`
+1. Installera den `eventgrid` tillägg med `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>Installera modulen för PowerShell
 

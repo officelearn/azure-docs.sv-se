@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937655"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft 
@@ -29,7 +29,7 @@ MPN innehåller information om följande avsnitt.
 
 Använd följande tabell för att flytta upp ditt erbjudande eller en app, att få åtkomst till fler förmåner och resurser. 
 
-| Förmånen | resurser |  
+| Förmånen | Resurser |  
 |:--- |:--- |  
 | Använd dina förmåner för kärnor | Som en del av Microsoft Partner Network får du en uppsättning viktiga fördelar som kan hjälpa dig spara tid och pengar. Fördelarna kan också hjälpa dig att stärka din funktioner, bättre kundservice och skapa anslutningar för att nå verksamheten fullständig potentiella.<ul> <li>Mer information om viktiga fördelar finns viktiga fördelar och kravsidan finns på [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
 | Tjäna din Molnplattformskompetens | Tjäna kompetens hjälper dig att särskilj dig bland andra Microsoft-partner. Tjäna kompetens hjälper dig också att visa teknisk expertis och kunden ska lyckas på marknaden. Molnplattformskompetens är en förutsättning för många viktiga partnerprogram, till exempel Medförsäljning.<ul> <li>Mer information om Cloud Platform-kompetensen finns Molnplattformskompetens sidan finns på [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  

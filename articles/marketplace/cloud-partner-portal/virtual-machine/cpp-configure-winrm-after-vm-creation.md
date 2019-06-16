@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938520"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Konfigurera WinRM efter skapande av virtuella datorer
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du konfigurerar en befintlig Azure-baserad virt
 
 WinRM via HTTPS-protokollet använder port 5896, som inte är aktiverad som standard på förkonfigurerade Windows virtuella datorer tillhandahålls på Azure Marketplace. Om du vill aktivera det här protokollet, Använd följande steg för att lägga till en ny regel för nätverkssäkerhetsgrupp (NSG) med den [Azure-portalen](https://portal.azure.com).  Mer information om Nätverkssäkerhetsgrupper finns i [säkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Gå till bladet **virtuella datorer >**  <*vm-name*>  **> Inställningar/nätverk**.
+1.  Gå till bladet **virtuella datorer >**   <*vm-name*>   **> Inställningar/nätverk**.
 2.  Klicka på NSG-namnet (i det här exemplet **testvm11002**) att visa dess egenskaper:
 
     ![Network security gruppegenskaper](./media/nsg-properties.png)

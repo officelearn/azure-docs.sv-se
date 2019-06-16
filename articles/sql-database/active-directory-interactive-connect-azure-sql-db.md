@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160875"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Ansluta till Azure SQL Database med Azure Multi-Factor Authentication
@@ -122,7 +122,7 @@ För den C# program för att köra, måste du tilldela statiska fält rätt vär
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **användaren** > **ny gästanvändare** |
 | Initial_DatabaseName | "myDatabase" | **SQL-servrar** > **SQL-databaser** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **appregistreringar** > **Sök efter namn** > **program-ID** |
-| RedirectUri | ny Uri (”https://mywebserver.com/”) | **Azure Active Directory** > **appregistreringar** > **Sök efter namn** > *[Your App-registrering]*  >  **Inställningar** > **RedirectURIs**<br /><br />I den här artikeln är ett giltigt värde bra för RedirectUri, eftersom den inte användas här. |
+| RedirectUri | ny Uri (”https://mywebserver.com/”) | **Azure Active Directory** > **appregistreringar** > **Sök efter namn** >  *[Your App-registrering]*  >  **Inställningar** > **RedirectURIs**<br /><br />I den här artikeln är ett giltigt värde bra för RedirectUri, eftersom den inte användas här. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>Verifiera med SQL Server Management Studio

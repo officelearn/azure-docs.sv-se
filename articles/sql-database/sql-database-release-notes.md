@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070214"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -32,7 +32,6 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 | Elastic Database-jobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
 | Elastiska frågor | Mer information finns i [elastisk fråga översikt](sql-database-elastic-query-overview.md). |
 | Elastiska transaktioner | [Distribuerade transaktioner över molndatabaser](sql-database-elastic-transactions-overview.md). |
-| Med hanterade instanser-instansens sortering |Mer information finns i [använda PowerShell med Azure Resource Manager-mall för att skapa en hanterad instans i Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |Minne ge Feedback (rad läge) (under kompatibilitetsnivå 150)|Mer information finns i [minne ge Feedback (rad läge)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Frågeredigeraren i Azure portal |Mer information finns i [använder Azure portal SQL-frågeredigeraren för att ansluta och fråga efter data](sql-database-connect-query-portal.md).|
 | R services / machine learning med enskilda databaser och elastiska pooler |Mer information finns i [Machine Learning-tjänster i Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
@@ -42,9 +41,20 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 |SQL Analytics|Mer information finns i [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Tabellen varierande fördröjas kompilering (under kompatibilitetsnivå 150)|Mer information finns i [tabell varierande fördröjas kompilering](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | Hotidentifiering med hanterade instanser |Mer information finns i [konfigurera hotidentifiering i Azure SQL Database-hanterad instans](sql-database-managed-instance-threat-detection.md).|
-| Tidszon stöd för hanterade instanser|Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
 | Transparent datakryptering (TDE) med ta med din egen nyckel (BYOK) med hanterade instanser |Mer information finns i [Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="service-improvements"></a>Förbättringar av tjänsten
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+| 4 vCores hanterad instans på Gen5 maskinvara generationens| Mer information finns i https://aka.ms/four-cores-sql-mi-update. |
+| Hanterad instans - stöd för prenumerationer med Azure-kredit varje månad för Visual Studio-prenumeranter | Mer information finns i https://aka.ms/sql-mi-visual-studio-subscribers. |
+|Större regionala begränsningar för den hanterade instansen| Mer information finns i [regionala resursbegränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+| &nbsp; |
+
 
 ## <a name="may-2019"></a>Maj 2019
 
@@ -54,6 +64,8 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 | --- | --- |
 |Hyperskala tjänstnivå som släpps för allmän tillgänglighet| Mer information finns i [hyperskala tjänstnivå för upp till 100 TB](sql-database-service-tier-hyperscale.md) och [hämta högpresterande skalning för arbetsbelastningen i din Azure-databas med hyperskala](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Serverlös Beräkningsnivån är för en förhandsversion | Mer information finns i [SQL-databas utan server (förhandsversion)](sql-database-serverless.md).|
+|Tidszon stöd för hanterade instanser som släppts för allmän tillgänglighet |Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
+|Med hanterade instanser som släppts för allmän tillgänglighet-instansens sortering |Mer information finns i [använda PowerShell med Azure Resource Manager-mall för att skapa en hanterad instans i Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 | Ökade log transaktionspriser och mål-IOPS för databaser som använder den vCore-baserade inköpsmodellen| Mer information finns i [Resource gränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) och [Resource gränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
 

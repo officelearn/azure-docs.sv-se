@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371466"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Kom igång med ditt faktureringskonto för en Microsoft-kundavtal
@@ -59,7 +59,7 @@ Varje fakturering profil har sin egen betalningsmetoder som används för att be
 | Typ             | Definition  |
 |------------------|-------------|
 |Azure-krediter    |  Krediter tillämpas automatiskt på datamängd som faktureras på din faktura för att beräkna den mängd som du behöver betala. Mer information finns i [spåra Azure saldot för din faktureringsinformation profil](billing-mca-check-azure-credits-balance.md). |
-|Check eller banköverföring | Du kan betala det förfallna beloppet för din faktura överföra genom kontroll eller under överföring. Instruktioner för betalning återfinns på fakturan |
+|Kontrollera eller -överföring överföring | Du kan betala det förfallna beloppet för din faktura överföra genom kontroll eller under överföring. Instruktioner för betalning återfinns på fakturan |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Kontrollera Azure Marketplace och Reservation inköp genom att tillämpa principer
 
@@ -72,7 +72,7 @@ Azure planer aktiveras automatiskt när du skapar en profil för fakturering. Al
 | Planera             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Tillåt användare att skapa prenumerationer som kan köra alla arbetsbelastningar. Mer information finns i [planera för Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure Plan för Dev/Test | Tillåt Visual Studio-prenumeranter skapa prenumerationer som är begränsad för utveckling eller testning arbetsbelastningar. Dessa prenumerationer får förmåner, till exempel lägre pris och åtkomst till exklusiva avbildningar i Azure-portalen. Mer information finns i [Microsoft Azure planera för DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure-Plan för utveckling och testning | Tillåt Visual Studio-prenumeranter skapa prenumerationer som är begränsad för utveckling eller testning arbetsbelastningar. Dessa prenumerationer får förmåner, till exempel lägre pris och åtkomst till exklusiva avbildningar i Azure-portalen. Mer information finns i [Microsoft Azure planera för DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Förstå fakturan avsnitt
 

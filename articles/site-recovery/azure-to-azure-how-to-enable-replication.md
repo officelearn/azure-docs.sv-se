@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926616"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
@@ -54,8 +54,8 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
        - Du kan anpassa gruppinställningar för resursen.
        - Platsen för målresursgruppen kan vara valfri Azure-region, utom den region som är värd för virtuella källdatorn.
    - **Virtuellt målnätverk**: Som standard skapar Site Recovery ett nytt virtuellt nätverk i målregionen med suffixet ”asr” i namnet. Detta är mappad till nätverket källa och används för alla framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverksmappning.
-   - **Mållagringskonton (Virtuella källdatorn inte använder hanterade diskar)**: Som standard skapar Site Recovery ett nytt mållagringskonto frihandsbilden lagringskonfigurationen för käll-VM. Om lagringskontot finns redan, återanvänds.
-   - **Replik-hanterade diskar (Virtuella måldatorn använder hanterade diskar)**: Site Recovery skapar nya-hanterade diskar i målregionen som speglar den Virtuella källdatorns hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorn hanterade disk.
+   - **Mållagringskonton (Virtuella källdatorn inte använder hanterade diskar)** : Som standard skapar Site Recovery ett nytt mållagringskonto frihandsbilden lagringskonfigurationen för käll-VM. Om lagringskontot finns redan, återanvänds.
+   - **Replik-hanterade diskar (Virtuella måldatorn använder hanterade diskar)** : Site Recovery skapar nya-hanterade diskar i målregionen som speglar den Virtuella källdatorns hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorn hanterade disk.
    - **Cachelagringskonton**: Site Recovery behöver extra lagringskonto med namnet cachelagring i källregionen. Alla ändringar som sker på virtuella källdatorn är spåras och skickas till cachelagringskontot innan du replikerar de till målplatsen.
    - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Site Recovery en ny tillgänglighetsuppsättning i målregionen med suffixet ”asr” i namnet för virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om tillgänglighetsuppsättningen redan skapat av Site Recovery finns återanvänds.
    - **Tillgänglighetszoner för mål**: Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner.

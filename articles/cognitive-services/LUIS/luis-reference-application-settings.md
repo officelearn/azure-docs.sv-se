@@ -1,5 +1,5 @@
 ---
-title: programinställningar
+title: Programinställningar
 titleSuffix: Azure Cognitive Services
 description: Förstå inställningarna för program för Language understanding appar.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
 ms.openlocfilehash: c19d328c3a5f4dd6dbe14ca94809e42c5655ea72
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391150"
 ---
-# <a name="application-settings"></a>programinställningar
+# <a name="application-settings"></a>Programinställningar
 
 Dessa programinställningar lagras i den [exporteras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app och [uppdateras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med REST-API: er. Ändra inställningarna för din app version återställer din status för utbildning-app till omdöme.
 

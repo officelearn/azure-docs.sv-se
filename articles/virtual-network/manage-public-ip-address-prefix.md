@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952678"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort en offentlig IP-adressprefix
@@ -45,7 +45,7 @@ Offentliga IP-adressprefix har en avgift. Mer information finns i [priser](https
 3. Under **offentliga IP-adressprefix**väljer **skapa**.
 4. Ange eller Välj värden för följande inställningar under **skapa offentlig IP-adressprefix**och välj sedan **skapa**:
 
-   |Inställning|Obligatorisk?|Information|
+   |Inställning|Krävs?|Information|
    |---|---|---|
    |Prenumeration|Ja|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som du vill associera den offentliga IP-adressen till resursen.|
    |Resursgrupp|Ja|Kan finnas i samma eller olika, [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som du vill associera den offentliga IP-adressen till resursen.|
@@ -55,7 +55,7 @@ Offentliga IP-adressprefix har en avgift. Mer information finns i [priser](https
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[Skapa AZ nätverket offentliga ip-prefix](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
@@ -68,15 +68,15 @@ När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. 
 3. När den visas i sökresultatet väljer du det och klickar på **+ Lägg till IP-adress** i översiktsavsnittet.
 4. Ange eller Välj värden för följande inställningar under **skapa offentlig IP-adress**. Eftersom det är ett prefix för Standard-SKU, IPv4 och statiska, behöver du bara ange följande information:
 
-   |Inställning|Obligatorisk?|Information|
+   |Inställning|Krävs?|Information|
    |---|---|---|
    |Namn|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resursgrupp som du väljer.|
-   |Tidsgräns för inaktivitet (minuter)|Nej|Hur många minuter att hålla en TCP eller HTTP-anslutning öppen utan att behöva klienter skickar keep-alive-meddelanden. |
+   |Timeout för inaktivitet (minuter)|Nej|Hur många minuter att hålla en TCP eller HTTP-anslutning öppen utan att behöva klienter skickar keep-alive-meddelanden. |
    |DNS-namnetikett|Nej|Måste vara unikt inom Azure-region du skapar namnet i (över alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i dess DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standardundernät som *location.cloudapp.azure.com* (där platsen är platsen du väljer) till namnet du anger, för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [Använd Azure DNS med Azure offentlig IP-adressen](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 Du kan också använda CLI och PS kommandon nedan med--public-ip-prefix (CLI) och - PublicIpPrefix (PS)-parametrar, skapa en offentlig IP-resurs. 
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
@@ -91,7 +91,7 @@ Du kan också använda CLI och PS kommandon nedan med--public-ip-prefix (CLI) oc
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ nätverket offentliga ip-Prefixlistan](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) till listan över offentliga IP-adresser, [az nätverket offentliga ip-prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) att visa inställningar. [az nätverket offentliga ip-prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) att uppdatera; [az nätverket offentliga ip-prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) att ta bort|
 |PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) att hämta objekt för en offentlig IP-adress och visa dess inställningar [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) att uppdatera inställningar. [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) att ta bort|

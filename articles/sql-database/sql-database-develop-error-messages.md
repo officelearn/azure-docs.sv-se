@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723511"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: Anslutningsfel för databasen och andra problem
@@ -93,7 +93,7 @@ Följande fel orsakas av överdriven användning av resurser när du arbetar med
 * Ett program förbrukar för mycket minne.
 * Ett program förbrukar för mycket `TempDb` utrymme.
 
-Relaterade ämnen:
+Relaterade artiklar:
 
 * Mer information finns i:
   * [Resursgränser för databas-server](sql-database-resource-limits-database-server.md)
@@ -141,7 +141,7 @@ Följande fel är relaterade till skapar och använder elastiska pooler:
 | 40891 | 16 |Minsta DTU per databas (%d) får inte överskrida max DTU per databas (%d). Om du försöker ange minsta DTU per databas som är högre än max DTU per databas. |Kontrollera minsta DTU per databaser inte överskrida max DTU per databas. |
 | TBD | 16 |Lagringsstorleken för en enskild databas i en elastisk pool får inte överskrida den maximala storleken som tillåts av ' %. * ls' service tier elastisk pool. Max storlek för databasen överskrider den maximala storleken som tillåts av den elastiska pooltjänstnivå. |Ställ in maxstorleken på databasen inom ramen för den maximala storleken som tillåts av den elastiska pooltjänstnivå. |
 
-Relaterade ämnen:
+Relaterade artiklar:
 
 * [Skapa en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md)
 * [Hantera en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md)
@@ -216,7 +216,7 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | 40652 |16 |Det går inte att flytta eller skapa server. Prenumerationen (prenumerations-id) kommer att överskrida serverkvoten. |
 | 40671 |17 |Kommunikationsfel mellan gatewayen och management-tjänsten. Försök igen senare. |
 | 40852 |16 |Det går inte att öppna databasen ' %. \*ls' på servern ' %. \*ls' som begärdes vid inloggningen. Åtkomst till databasen tillåts endast med hjälp av en säkerhetsaktiverad anslutningssträng. För att komma åt den här databasen, ändra anslutningssträngarna innehålla säker i serverns FQDN - 'server name'.database.windows .net ska ändras till ”server name” .database. `secure`. windows.net. |
-| 40914 | 16 | Det går inte att öppna servern '*[servernamn]*' begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.<br /><br />Om du vill åtgärda, Överväg att lägga till en [virtuell nätverksregel](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Det går inte att öppna servern ' *[servernamn]* ' begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.<br /><br />Om du vill åtgärda, Överväg att lägga till en [virtuell nätverksregel](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |SQL Azure-systemet är under belastning och är att placera en övre gräns på samtidiga DB CRUD-åtgärder för en enskild SQL Database-server (t.ex. skapa databasen). Den server som anges i felmeddelandet har överskridit det maximala antalet samtidiga anslutningar. Försök igen senare. |
 | 45169 |16 |SQL azure-systemet är under belastning och placerar en övre gräns för antalet samtidiga server CRUD-åtgärder för en enskild prenumeration (t.ex. Skapa server). Den prenumeration som anges i felmeddelandet har överskridit det maximala antalet samtidiga anslutningar och begäran nekades. Försök igen senare. |
 

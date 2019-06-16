@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918507"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Denna cmdlet kommer att ange följande behörigheter: 
  
 
-|Typ |Namn |Access |Gäller| 
+|Typ |Namn |Access |Gäller för| 
 |-----|-----|-----|-----|
 |Tillåt |Kontot för AD DS-koppling |Läsa alla egenskaper |Underordnade enhetsobjekt| 
 |Tillåt |Kontot för AD DS-koppling|Läsa alla egenskaper |Underordnade InetOrgPerson-objekt| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|Underordnade objekt|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Replikera katalogändringar |Endast det här objektet (domänroten)| 
 |Tillåt |Kontot för AD DS-koppling |Replikera ändringar av alla |Endast det här objektet (domänroten)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Återställ lösenord |Underordnade objekt| 
 |Tillåt |Kontot för AD DS-koppling |Skriva egenskapen lockoutTime |Underordnade objekt| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Allmän Läs/Skriv |Alla attribut för grupp av objekt och underobjekt| 
 |Tillåt |Kontot för AD DS-koppling |Skapa/ta bort underordnade objekt |Alla attribut för grupp av objekt och underobjekt| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Denna cmdlet kommer att ange följande behörigheter:  
  
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Läs/Skriv alla egenskaper |Underordnade objekt| 
 |Tillåt |Kontot för AD DS-koppling |Läs/Skriv alla egenskaper |Underordnade InetOrgPerson-objekt| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Läsa alla egenskaper |Underordnade PublicFolder objekt| 
 
@@ -292,12 +292,12 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Typ |Namn |Access |Gäller|
+|Typ |Namn |Access |Gäller för|
 |-----|-----|-----|-----| 
-|Tillåt |SYSTEM |Fullständig behörighet |Det här objektet 
-|Tillåt |Företagsadministratörer |Fullständig behörighet |Det här objektet 
-|Tillåt |Domänadministratörer |Fullständig behörighet |Det här objektet 
-|Tillåt |Administratörer |Fullständig behörighet |Det här objektet 
+|Tillåt |SYSTEM |Fullständig kontroll |Det här objektet 
+|Tillåt |Företagsadministratörer |Fullständig kontroll |Det här objektet 
+|Tillåt |Domänadministratörer |Fullständig kontroll |Det här objektet 
+|Tillåt |Administratörer |Fullständig kontroll |Det här objektet 
 |Tillåt |Företagets domänkontrollanter |Lista innehåll |Det här objektet 
 |Tillåt |Företagets domänkontrollanter |Läsa alla egenskaper |Det här objektet 
 |Tillåt |Företagets domänkontrollanter |Läsbehörighet |Det här objektet 

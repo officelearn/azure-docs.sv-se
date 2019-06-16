@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudier: Azure Active Directory-integrering med Perception USA (icke-UltiPro)
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Perception USA (icke-UltiPro) till Azure AD,
 
 **Utför följande steg för att lägga till Perception USA (icke-UltiPro) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Percept
 
     b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. Den **Perception USA (icke-UltiPro)** programmet kräver den **Azure AD-identifierare** värde som < entity_id >, där du får från den **konfigurera Perception USA ( Non-UltiPro)** så att uri-kodas. Om du vill få uri-kodas, använder du följande länk: **http://www.url-encode-decode.com/**.
+    c. Den **Perception USA (icke-UltiPro)** programmet kräver den **Azure AD-identifierare** värde som < entity_id >, där du får från den **konfigurera Perception USA ( Non-UltiPro)** så att uri-kodas. Om du vill få uri-kodas, använder du följande länk: **http://www.url-encode-decode.com/** .
 
     d. När du har fått URI: n kodad värde kombinera den med den **svars-URL** som nämns nedan –
 
@@ -195,11 +195,11 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till Perception USA (icke-UltiPro).
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Perception USA (icke-UltiPro)**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Perception USA (icke-UltiPro)** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Perception USA (icke-UltiPro)**.
+2. I listan med program väljer **Perception USA (icke-UltiPro)** .
 
     ![Länken Perception USA (icke-UltiPro) i listan med program](common/all-applications.png)
 
@@ -233,5 +233,5 @@ När du klickar på panelen Perception USA (icke-UltiPro) i åtkomstpanelen bör
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

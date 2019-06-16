@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800999"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualisera Interactive Query Apache Hive-data med Microsoft Power BI med direct query i Azure HDInsight
@@ -27,7 +27,7 @@ Du kan utnyttja den [Apache Hive ODBC-drivrutinen](../hadoop/apache-hadoop-conne
 Innan du går igenom den här artikeln, måste du ha följande objekt:
 
 * **HDInsight-kluster**. Klustret kan vara antingen ett HDInsight-kluster med Apache Hive eller en nyligen utgiven klustret för interaktiv fråga. Skapa kluster finns i [Skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Du kan ladda ned en kopia från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Du kan ladda ned en kopia från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Läsa in data från HDInsight
 
@@ -47,9 +47,9 @@ Den `hivesampletable` Hive-tabell som medföljer alla HDInsight-kluster.
 
 6. I den **interaktiv HDInsight-fråga** fönstret anger du följande information och välj sedan **OK**:
 
-    |Egenskap  | Värde |
+    |Egenskap | Värde |
     |---|---|
-    |Server  |Ange klustrets namn, till exempel *myiqcluster.azurehdinsight.net*.|
+    |Server |Ange klustrets namn, till exempel *myiqcluster.azurehdinsight.net*.|
     |Databas |Ange **standard** för den här artikeln.|
     |Läge för dataanslutning |Välj **DirectQuery** för den här artikeln.|
 

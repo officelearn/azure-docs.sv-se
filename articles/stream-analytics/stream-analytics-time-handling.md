@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692380"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tid hantering i Azure Stream Analytics
@@ -171,7 +171,7 @@ Följande bilder visar hur vattenstämplar utvecklas under olika omständigheter
 
 Den här tabellen visas exempeldata som är i diagrammet nedan. Observera att tidpunkt för händelsen och ankomsttiden variera ibland matchar och ibland inte.
 
-| Händelsetid | Ankomsttid | DeviceId |
+| tidpunkt för händelsen | Ankomsttid | DeviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2

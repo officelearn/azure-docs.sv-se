@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772423"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
@@ -108,7 +108,7 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 --- | --- | ---
 Spoke till hub | Tillåt virtuell nätverksadress | Enabled
 Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
-Spoke till hub | Tillåt gatewayöverföring | Disabled
+Spoke till hub | Tillåt gatewayöverföring | Inaktiverad
 Spoke till hub | Använd ta bort gateways | Enabled
 
  ![Ekrar till hubben peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
@@ -120,7 +120,7 @@ Spoke till hub | Använd ta bort gateways | Enabled
 Hub till spoke | Tillåt virtuell nätverksadress | Enabled
 Hub till spoke | Tillåt vidarebefordrad trafik | Enabled
 Hub till spoke | Tillåt gatewayöverföring | Enabled
-Hub till spoke | Använd ta bort gateways | Disabled
+Hub till spoke | Använd ta bort gateways | Inaktiverad
 
  ![NAV och ekrar peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143167"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Kom igång med Transparent datakryptering (TDE) i SQL Data Warehouse
@@ -26,7 +26,7 @@ ms.locfileid: "65143167"
 > 
 > 
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 Om du vill aktivera Transparent datakryptering (TDE), måste du vara administratör eller medlem i rollen dbmanager.
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering

@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924833"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
@@ -40,7 +40,7 @@ Processor | Minne | Cachestorleken för disk | Dataändringshastigheten | Skydda
 --- | --- | --- | --- | ---
 8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | Använd för att replikera färre än 100 virtuella datorer.
 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | Använd för att replikera 100-150 datorer.
-16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 200 virtuella datorer.
+16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 200 virtuella datorer.
 Distribuera en annan konfigurationsserver med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Distribuera en ny configuration server om du replikerar mer än 200 datorer.
 Distribuera en annan [processervern](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Distribuera en ny skalbar processerver om den totala dagliga förändringstakten för data är större än 2 TB.
 

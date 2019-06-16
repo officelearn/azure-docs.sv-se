@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073621"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten
@@ -39,11 +39,11 @@ Följande bild visar dessa distributionsalternativ:
 
 SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
 
-- **[Azure-Produktöversikt för SQL-databas](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[Azure-Produktöversikt för SQL-databas](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   En plats för att ta reda på vad som är nytt och vad som kommer härnäst.
 
-- **[Azure SQL Database-blogg](https://azure.microsoft.com/blog/topics/database)**:
+- **[Azure SQL Database-blogg](https://azure.microsoft.com/blog/topics/database)** :
 
   En plats där SQL Server-produktteamet bloggar om nyheter för SQL-databas och funktioner.
 
@@ -110,20 +110,20 @@ Azure Availability Zones är en play om problemet som har hög tillgänglighet. 
 
 I själva verket Azures branschledande ledande 99,99% tillgänglighet servicenivåavtal [(SLA)](https://azure.microsoft.com/support/legal/sla/), drivs av ett globalt nätverk av Microsoft-hanterade datacenter, gör att din app är igång 24/7. Azure-plattformen fullständigt hanterar varje databas och garanterar att inga data går förlorade och hög andel datatillgänglighet. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar ständigt aktiverade Tillgänglighetsgrupper under försättsbladen. En fullständig beskrivning av kapacitet för hög tillgänglighet i Azure SQL Database finns i [tillgänglighet för SQL Database](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
 
-- **[Automatisk säkerhetskopiering](sql-database-automated-backups.md)**:
+- **[Automatisk säkerhetskopiering](sql-database-automated-backups.md)** :
 
   SQL Database utför automatiskt fullständiga och differentiella säkerhetskopieringar av transaktionsloggen för Azure SQL-databaser så att du kan återställa till valfri punkt i tiden. Du kan konfigurera SQL-databas för lagring av fullständiga databassäkerhetskopieringar till Azure storage för långsiktig kvarhållning av säkerhetskopior för enskilda databaser och databaser i en pool. Du kan också utföra endast kopiering säkerhetskopior för långsiktig kvarhållning av säkerhetskopior för hanterade instanser.
 
-- **[Point-in-time-återställningar](sql-database-recovery-using-backups.md)**:
+- **[Point-in-time-återställningar](sql-database-recovery-using-backups.md)** :
 
   Alla SQL Database-distributionsalternativen stödja återställning till valfri punkt inom den automatiska kvarhållningsperioden för säkerhetskopior för alla Azure SQL-databas.
-- **[Aktiv geo-replikering](sql-database-active-geo-replication.md)**:
+- **[Aktiv geo-replikering](sql-database-active-geo-replication.md)** :
 
   Enkel databas och databaser i en pool kan du konfigurera upp till fyra läsbara sekundära databaser i antingen de samma eller globalt distribuerade Azure-datacenter.  Till exempel om du har ett SaaS-program med en katalog-databas som har ett stort antal samtidiga skrivskyddade transaktioner, använder aktiv geo-replikering för att aktivera global skrivskyddsskala och tar bort flaskhalsar på primärorsaken som beror på skrivskyddade arbetsbelastningar. Använda grupper för automatisk redundans för hanterade instanser.
-- **[Automatisk redundans grupper](sql-database-auto-failover-group.md)**:
+- **[Automatisk redundans grupper](sql-database-auto-failover-group.md)** :
 
   Distributionsalternativ för alla SQL-databas kan du använda grupper för växling vid fel för att aktivera hög tillgänglighet och belastningsutjämning på global nivå, inklusive transparent geo-replikering och redundans för stora mängder databaser, elastiska pooler och hanterade instanser. Redundansgrupper aktivera skapandet av globalt distribuerade SaaS-program med minimala administrationsomkostnader, vilket lämnar alla komplex övervakning, routning, och felstyrning till SQL-databas.
-- **[Zonredundanta databaser](sql-database-high-availability.md)**:
+- **[Zonredundanta databaser](sql-database-high-availability.md)** :
 
   SQL Database kan du etablera premium eller kritisk business-databaser eller elastiska pooler i flera tillgänglighetszoner. Eftersom dessa databaser och elastiska pooler har flera redundanta repliker för hög tillgänglighet får du mer elasticitet om du placerar replikerna i flera tillgänglighetszoner. Du kan även återställa automatiskt från datacenters skalningsfel utan dataförlust.
 
@@ -191,16 +191,16 @@ SQL Database granskas regelbundet och har certifierats mot flera efterlevnadssta
 
 SQL Database gör byggandet och underhållet av appar enklare och mer produktivt. Med SQL Database kan du fokusera på det du gör väst: bygga bra appar. Du kan hantera och utveckla SQL Database med verktyg och kunskaper som du redan har.
 
-- **[Azure-portalen](https://portal.azure.com/)**:
+- **[Azure-portalen](https://portal.azure.com/)** :
 
   Ett webbaserat program för att hantera alla Azure-tjänster
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   Ett kostnadsfritt, nedladdningsbart klientprogram för att hantera all SQL-infrastruktur från SQL Server till SQL-databas
-- **[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   Ett kostnadsfritt, nedladdningsbart klientprogram för att utveckla relationsdatabaser i SQL Server, Azure SQL-databaser, Integration Services-paket, datamodeller för Analysis Services och Reporting Services-rapporter.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   En kostnadsfri, nedladdningsbar, öppen källkod Kodredigerare för Windows, macOS och Linux som stöder tillägg, inklusive den [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse.
 

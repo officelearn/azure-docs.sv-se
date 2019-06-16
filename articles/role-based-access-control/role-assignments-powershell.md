@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074032"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Ta bort åtkomst
+## <a name="remove-access"></a>Tar bort åtkomst
 
 I RBAC, för att ta bort åtkomst måste du ta bort en rolltilldelning med hjälp av [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+Om du får felmeddelandet: ”Den angivna informationen inte mappas till en rolltilldelning”, se till att du även ange den `-Scope` eller `-ResourceGroupName` parametrar. Mer information finns i [felsöka RBAC för Azure-resurser](troubleshooting.md#role-assignments-without-a-security-principal).
 
 ## <a name="next-steps"></a>Nästa steg
 

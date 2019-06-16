@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072654"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
@@ -34,12 +34,12 @@ Program kräver ofta olika typer och hastigheter lagringsutrymme. Dina program b
 
 I följande tabell beskrivs de tillgängliga lagringstyper och deras funktioner:
 
-| Användningsfall | Volym-plugin-programmet | Läs/Skriv en gång | Skrivskyddad många | Läs/Skriv många |
-|----------|---------------|-----------------|----------------|-----------------|
-| Delad konfiguration       | Azure Files   | Ja | Ja | Ja |
-| Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  |
-| AppData, skrivskyddade resurser | [Dysk (förhandsversion)][dysk] | Ja | Ja | Nej  |
-| Ostrukturerade data, filsystemsåtgärder | [BlobFuse (förhandsversion)][blobfuse] | Ja | Ja | Ja |
+| Användningsfall | Volym-plugin-programmet | Läs/Skriv en gång | Skrivskyddad många | Läs/Skriv många | Stöd för Windows Server-behållare |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Delad konfiguration       | Azure Files   | Ja | Ja | Ja | Ja |
+| Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  | Ja |
+| AppData, skrivskyddade resurser | [Dysk (förhandsversion)][dysk] | Ja | Ja | Nej  | Nej |
+| Ostrukturerade data, filsystemsåtgärder | [BlobFuse (förhandsversion)][blobfuse] | Ja | Ja | Ja | Nej |
 
 De två primära typerna av lagring för volymerna i AKS backas upp av Azure-diskar eller Azure Files. För att förbättra säkerheten, båda typer av lagring som använder Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med Azure Disk Encryption den AKS nivån.
 

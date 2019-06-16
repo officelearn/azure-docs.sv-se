@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711647"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
@@ -27,7 +27,7 @@ Följande övervakningsalternativ finns för närvarande.
 
 Du kan visa registrerad server hälsotillstånd, Servertillstånd slutpunkt (sync hälsa) och mått i Azure-portalen.
 
-### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
+### <a name="storage-sync-service"></a>Storage Sync-tjänsten
 
 Om du vill visa registrerad server hälsotillstånd, Servertillstånd för slutpunkten och mått, går du till Storage Sync-tjänsten i Azure-portalen. Du kan visa registrerad server health i den **registrerade servrar** bladet och server slutpunktshälsa i den **synkronisera grupper** bladet.
 
@@ -49,7 +49,7 @@ Mått:
   |-|-|-|
   | Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning) | Synkroniseringsgruppen, Server-slutpunkt |
   | Lagringsnivåer återkallande i molnet | Storleken på data som har återkallats | Registrerade servrar |
-  | Filer som inte synkroniseras | Antal filer som inte kan synkronisera | Server-slutpunkt |
+  | Filer som inte synkroniserar | Antal filer som inte kan synkronisera | Server-slutpunkt |
   | Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning) | Synkroniseringsgruppen, Server-slutpunkt |
   | Onlinestatus för Server | Antal pulsslag togs emot från servern | Registrerade servrar |
 
@@ -70,10 +70,10 @@ Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 |-|-|
 | Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning).<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 | Lagringsnivåer återkallande i molnet | Storlek på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Servernamn |
-| Filer som inte synkroniseras | Antal filer som inte kan synkroniseras.<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Filer som inte synkroniserar | Antal filer som inte kan synkroniseras.<br><br>Enhet: Count<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 | Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning).<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Onlinestatus för Server | Antal pulsslag togs emot från servern.<br><br>Enhet: Antal<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
-| Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Antal<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Onlinestatus för Server | Antal pulsslag togs emot från servern.<br><br>Enhet: Count<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
+| Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Count<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 
 ## <a name="windows-server"></a>Windows Server
 

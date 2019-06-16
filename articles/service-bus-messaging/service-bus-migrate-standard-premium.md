@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991424"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån
@@ -35,7 +35,7 @@ Några av de saker att Observera:
 - Migrering stöder **1 000 entiteter per meddelandeenhet** på premium-nivån. Börja med antalet enheter som du har i din aktuella standardnamnområde för att identifiera hur många meddelanden enheter som du behöver. 
 - Du kan inte migrera direkt från **basic-nivån** till **premier nivån**, men du kan göra så indirekt genom att migrera från basic till standard först och sedan från standard till premium i nästa steg.
 
-## <a name="migration-steps"></a>Migreringssteg
+## <a name="migration-steps"></a>Migreringsanvisningar
 Vissa villkor är associerade med migreringen. Bekanta dig med följande steg för att minska risken för fel. Dessa steg beskriver migreringsprocessen och stegvis information finns i avsnitten som följer.
 
 1. Skapa ett nytt premium-namnområde.

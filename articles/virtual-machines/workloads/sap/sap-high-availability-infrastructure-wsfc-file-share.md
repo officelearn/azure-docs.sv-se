@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409599"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbereda Azure-infrastrukturen för hög tillgänglighet för SAP genom att använda en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser
@@ -210,7 +210,7 @@ ms.locfileid: "65409599"
 
 Den här artikeln beskriver de steg för förberedelse av Azure-infrastrukturen som krävs för att installera och konfigurera SAP system med hög tillgänglighet i ett Windows Server Failover Clustering-kluster (WSFC), använder skalbar filresurs som ett alternativ för clustering SAP ASCS/SCS instanser.
 
-## <a name="prerequisite"></a>Förutsättning
+## <a name="prerequisite"></a>Krav
 
 Innan du påbörjar installationen finns i följande artikel:
 
@@ -231,7 +231,7 @@ Innan du påbörjar installationen finns i följande artikel:
 
 | SAP \<SID> | Antal instanser av SAP ASCS/SCS |
 | --- | --- |
-| PR1 | 0 |
+| PR1 | 00 |
 
 **Tabell 2**: Information om SAP ASCS/SCS-instans
 
@@ -317,7 +317,7 @@ Du kan även automatisera distributionen av Scale-Out File Server med hjälp av 
 > Du måste ange antal virtuella datorer i Scale-Out File Server Resource Manager-mallen Användargränssnittet.
 >
 
-### <a name="use-managed-disks"></a>Använd hanterade diskar
+### <a name="use-managed-disks"></a>Använda hanterade diskar
 
 Azure Resource Manager-mall för att distribuera skalbar filserver med Lagringsdirigering och Azure Managed Disks finns på [GitHub][arm-sofs-s2d-managed-disks].
 

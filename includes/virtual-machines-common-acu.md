@@ -9,10 +9,10 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160091"
 ---
 Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämföra prestanda för databearbetning (CPU) mellan Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov.  ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest. 
@@ -52,7 +52,7 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |
 
-* ACUs använder Intel® Turbo-teknik för att öka och ge högre prestanda.  Mängden prestandaökningen kan variera beroende på virtuella datorstorlek, arbetsbelastning och andra arbetsbelastningar som körs på samma värd.
+\* ACUs använder Intel® Turbo-teknik för att öka och ge högre prestanda.  Mängden prestandaökningen kan variera beroende på virtuella datorstorlek, arbetsbelastning och andra arbetsbelastningar som körs på samma värd.
 
 ** ACUs använder AMD® Boost teknik för att öka och ge högre prestanda.  Mängden prestandaökningen kan variera beroende på virtuella datorstorlek, arbetsbelastning och andra arbetsbelastningar som körs på samma värd.
 

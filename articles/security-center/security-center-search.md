@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574157"
 ---
 # <a name="azure-security-center-search"></a>Sök i Azure Security Center
+
+> [!NOTE]
+> Instrumentpanelen för Security Center Search tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Azure Security Center använder [Azure Monitor loggar search](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Azure Monitor-loggar tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Azure Monitor-loggar sökning för att skapa frågor och analysera insamlade data från Security Center.
 
 Search är tillgängliga i både den kostnadsfria nivån och standardnivån i Security Center.  Data som är tillgängliga i dina sökningar i loggen är beroende av den nivå som tillämpas på din arbetsyta.  Se de Säkerhetscenter [prissättningssidan](../security-center/security-center-pricing.md) för mer information.

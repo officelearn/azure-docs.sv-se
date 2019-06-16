@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851553"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Så här konfigurerar du App Service-programmet att använda Twitter-inloggning
@@ -35,7 +35,7 @@ Du måste ha ett Twitter-konto som har en verifierad e-postadress och telefonnum
 3. Ange den **namn** och en **beskrivning** för din nya app. Klistra in i ditt program **URL** för den **webbplats** värde. Sedan för den **Motringnings-URL**, klistra in den **Motringnings-URL för** du kopierade tidigare. Här hittar du Mobilapp läggas till med sökvägen */.auth/login/twitter/callback*. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Kontrollera att du använder HTTPS-schema.
 4. Längst ned på sidan, Läs och acceptera villkoren. Klicka sedan på **skapa ditt Twitter-program**. Detta registrerar appen Visar programinformation.
 5. Klicka på den **inställningar** fliken, kontrollera **gör så att programmet som ska användas för att logga in med Twitter**, klicka sedan på **uppdateringsinställningar**.
-6. Välj den **nycklar och åtkomsttoken** fliken. Anteckna värdena för **använda nyckeln (API-nyckel)** och **konsumenthemligheten (API-hemlighet)**.
+6. Välj den **nycklar och åtkomsttoken** fliken. Anteckna värdena för **använda nyckeln (API-nyckel)** och **konsumenthemligheten (API-hemlighet)** .
    
    > [!NOTE]
    > Konsumenthemligheten är en viktig säkerhetsuppgift för autentisering. Inte dela den här hemligheten med vem som helst och distribuera den med din app.

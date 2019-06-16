@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370724"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Aktuell version](connector-mysql.md)
 
@@ -48,7 +48,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för MySQL länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **MySql** | Ja |
 | connectionString | Ange information som behövs för att ansluta till Azure Database for MySQL-instans.<br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
@@ -56,7 +56,7 @@ Följande egenskaper har stöd för MySQL länkad tjänst:
 
 En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Fler egenskaper som du kan ställa in per ditt ärende:
 
-| Egenskap  | Beskrivning | Alternativ | Krävs |
+| Egenskap | Beskrivning | Alternativ | Obligatoriskt |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Det här alternativet anger om drivrutinen använder SSL-kryptering och kontroll när du ansluter till MySQL. T.ex. `SSLMode=<0/1/2/3/4>`| INAKTIVERAD (0) / prioriterade (1) **(standard)** / krävs (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Nej |
 | UseSystemTrustStore | Det här alternativet anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverad (1) / inaktiveras (0) **(standard)** | Nej |
@@ -143,7 +143,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Kopiera data från MySQL genom att ange typegenskapen på datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i MySQL-databas. | Nej (om ”frågan” i aktivitetskälla har angetts) |
@@ -173,7 +173,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från MySQL, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |

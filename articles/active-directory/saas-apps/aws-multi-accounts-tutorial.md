@@ -17,10 +17,10 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65738041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Självstudier: Azure Active Directory-integrering med flera konton för Amazon Web Services (AWS)
@@ -77,7 +77,7 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
 **Utför följande steg för att lägga till Amazon Web Services (AWS) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -89,7 +89,7 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Amazon Web Services (AWS)**, väljer **Amazon Web Services (AWS)** från resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Amazon Web Services (AWS)** , väljer **Amazon Web Services (AWS)** från resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
      ![Amazon Web Services (AWS) i resultatlistan](common/search-new-app.png)
 
@@ -117,7 +117,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Amazon Web Services (AWS):**
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Amazon Web Services (AWS)**-programintegrering och väljer **Enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Amazon Web Services (AWS)** -programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -139,7 +139,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-    | Namn  | Källattribut  | Namnområde |
+    | Namn  | Källattribut  | Namnrymd |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Roll            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |

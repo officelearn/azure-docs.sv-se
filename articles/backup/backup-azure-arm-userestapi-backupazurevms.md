@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646783"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med Azure Backup via REST-API
@@ -41,7 +41,7 @@ POST-URI: N har `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Svar
+#### <a name="responses"></a>Responses
 
 Uppdateringen är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
@@ -50,7 +50,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK med inget innehåll returneras      |
-|202-accepterad     |         |     Accepterad    |
+|202-accepterad     |         |     Accepterat    |
 
 ##### <a name="example-responses"></a>Exempelsvar
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Den *hämta* URI: N har de obligatoriska parametrarna. Inga ytterligare begärandetexten krävs.
 
-#### <a name="responses"></a>Svar
+#### <a name="responses"></a>Responses
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -208,7 +208,7 @@ Följande begäran definierar egenskaper som krävs för att skapa ett skyddat o
 
 Den `{sourceResourceId}` är den `{virtualMachineId}` nämndes ovan från den [svaret på listan över objekt som ska skyddas](#example-responses-1).
 
-#### <a name="responses"></a>Svar
+#### <a name="responses"></a>Responses
 
 Skapandet av ett skyddat objekt är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
@@ -217,7 +217,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  Ok       |
-|202-accepterad     |         |     Accepterad    |
+|202-accepterad     |         |     Accepterat    |
 
 ##### <a name="example-responses"></a>Exempelsvar
 
@@ -319,7 +319,7 @@ Följande begäran definierar egenskaper som krävs för att utlösa en säkerhe
 }
 ```
 
-### <a name="responses"></a>Svar
+### <a name="responses"></a>Responses
 
 Utlösa en säkerhetskopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
@@ -327,7 +327,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202-accepterad     |         |     Accepterad    |
+|202-accepterad     |         |     Accepterat    |
 
 #### <a name="example-responses"></a>Exempelsvar
 
@@ -439,7 +439,7 @@ Den `{containerName}` och `{protectedItemName}` som konstruerats [ovan](#respons
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Svar
+### <a name="responses"></a>Responses
 
 *Ta bort* protection är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
@@ -448,7 +448,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202-accepterad     |         |     Accepterad    |
+|202-accepterad     |         |     Accepterat    |
 
 ## <a name="next-steps"></a>Nästa steg
 

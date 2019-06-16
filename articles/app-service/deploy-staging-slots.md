@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955881"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
@@ -96,7 +96,7 @@ Funktioner som markerats med en * planeras att göras Fäst till facket.
 * Publiceringsslutpunkterna
 * Anpassade domännamn
 * Privata certifikat och SSL-bindningar
-* Skalningsinställningar
+* Skalinställningar
 * WebJobs-schemaläggare
 * IP-begränsningar
 * Alltid på
@@ -195,7 +195,7 @@ Autoväxling effektiviserar DevOps-scenarier där du vill distribuera din app ko
 
 Följ dessa steg om du vill konfigurera automatisk växling:
 
-1. Gå till appens sida. Välj **distributionsplatser (förhandsgranskning)** > *\<önskade källplatsen >* > **programinställningar**.
+1. Gå till appens sida. Välj **distributionsplatser (förhandsgranskning)**  >  *\<önskade källplatsen >*  > **programinställningar**.
    
 2. I **automatiskt växla**väljer **på**, välj sedan önskad målplatsen i **automatiskt växla fack**, och klicka på **spara** i kommandofältet. 
    
@@ -238,7 +238,7 @@ Som standard alla klientbegäranden till appens produktions-URL (`http://<app_na
 
 Följ dessa steg för att dirigera produktionstrafik automatiskt:
 
-1. Gå till appens sida och välj **distributionsplatser (förhandsgranskning)**.
+1. Gå till appens sida och välj **distributionsplatser (förhandsgranskning)** .
 
 2. I den **trafik %** kolumnen av plats som du vill dirigera till, ange ett procentvärde (mellan 0 och 100) som representerar hur mycket av den totala trafiken som du vill dirigera. Klicka på **Spara**.
 
@@ -272,7 +272,7 @@ Som standard nya platser ges en routningsregel för `0%`, visas i grått. Genom 
 
 ## <a name="delete-slot"></a>Ta bort fack
 
-Gå till appens sida. Välj **distributionsplatser (förhandsgranskning)** > *\<fack att ta bort >* > **översikt**. Klicka på **ta bort** i kommandofältet.  
+Gå till appens sida. Välj **distributionsplatser (förhandsgranskning)**  >  *\<fack att ta bort >*  > **översikt**. Klicka på **ta bort** i kommandofältet.  
 
 ![Ta bort ett Distributionsfack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -289,7 +289,7 @@ Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera Azu
 Information om att installera och konfigurera Azure PowerShell och om autentisering av Azure PowerShell med Azure-prenumerationen finns i [hur du installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Skapa webbprogram
+### <a name="create-web-app"></a>Skapa webbapp
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

@@ -13,10 +13,10 @@ ms.author: shlo
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507801"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
@@ -78,7 +78,7 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory-klient
 
-Du kan skapa en Azure-lagringsplatser Git-lagringsplats i en annan Azure Active Directory-klient. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
+Du kan skapa en Azure Repos eller Git-lagringsplats i en annan Azure Active Directory-klientorganisation. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
 
 ### <a name="use-your-personal-microsoft-account"></a>Använd ditt personliga Microsoft-konto
 
@@ -266,7 +266,7 @@ Information om uttryck som stöds finns i [uttryck och funktioner i Azure Data F
 
 ![Add Dynamic Content](media/author-visually/dynamic-content-2.png)
 
-## <a name="provide-feedback"></a>Lämna feedback
+## <a name="provide-feedback"></a>Ge feedback
 Välj **Feedback** att kommentera om funktioner eller för att meddela Microsoft om problem med verktyget:
 
 ![Feedback](media/author-visually/provide-feedback.png)

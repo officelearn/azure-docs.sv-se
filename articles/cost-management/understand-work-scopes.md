@@ -11,17 +11,17 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991383"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
 Den här artikeln hjälper dig att förstå fakturerings- och resource management omfång som är tillgängliga i Azure och hur du använder scope i Cost Management och API: er.
 
-## <a name="scopes"></a>Scope
+## <a name="scopes"></a>Omfattningar
 
 En _omfång_ är en nod i Azure-resurs-hierarki där Azure AD-användare komma åt och hantera tjänster. De flesta Azure-resurser skapas och distribueras till resursgrupper, vilket är en del av prenumerationer. Microsoft erbjuder även två hierarkier ovan Azure-prenumerationer som har specialiserat roller för att hantera faktureringsinformation:
 - Faktureringsdata, till exempel betalningar och fakturor
@@ -106,7 +106,7 @@ Betala per användning (PAYG) prenumerationer, inklusive relaterade typer som ko
 
 - [**Faktureringskonto** ](../billing/billing-view-all-accounts.md) -representerar en enskild ägare för en eller flera Azure-prenumerationer. Det stöder för närvarande inte bevilja åtkomst till flera personer eller åtkomst till aggregerad kostnaden vyer.
 
-    Resurstyp: Saknas
+    Resurstyp: Inte tillämpligt
 
 Konto för PAYG prenumerationsadministratörer kan visa och hantera faktureringen data, till exempel fakturor och betalningar, från den [Azure Kontocenter](https://account.azure.com/subscriptions). Men kan inte de visa kostnadsdata eller hantera resurser i Azure-portalen. Om du vill bevilja åtkomst till kontoadministratören, använda Cost Management-roller som tidigare nämnts.
 
@@ -154,14 +154,14 @@ Alla Cost Management-vyer i Azure-portalen innehåller en **omfång** pill läng
 
 Att veta omfånget är viktigt när du arbetar med Cost Management API: er. Använd följande information för att skapa rätt omfattning URI för Cost Management API: er.
 
-### <a name="billing-accounts"></a>Faktureringskonton
+### <a name="billing-accounts"></a>Fakturering konton
 
 1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
 2. Välj **egenskaper** i fakturering kontomenyn.
 3. Kopiera fakturering konto-ID.
 4. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
-### <a name="billing-profiles"></a>Faktureringsprofiler
+### <a name="billing-profiles"></a>Fakturering profiler
 
 1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
 2. Välj **fakturering profiler** i fakturering kontomenyn.
@@ -170,7 +170,7 @@ Att veta omfånget är viktigt när du arbetar med Cost Management API: er. Anv�
 5. Kopiera faktureringskontot och fakturering profil-ID: N.
 6. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>Fakturaavsnitt
+### <a name="invoice-sections"></a>Faktura-avsnitt
 
 1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
 2. Välj **faktura avsnitt** i fakturering kontomenyn.
@@ -218,7 +218,7 @@ Att veta omfånget är viktigt när du arbetar med Cost Management API: er. Anv�
 4. Kopiera värdet i resurs-ID: T.
 5. Din omfattning är: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Kostnadshantering stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Läs mer om Azure Government, [Azure Global och Government API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Kostnadshantering stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Läs mer om Azure Government, [Azure Global och Government API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Nästa steg
 

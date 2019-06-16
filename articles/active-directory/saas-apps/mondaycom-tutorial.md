@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08108a1718ee917a317b4864de81959ae139eaa5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896873"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Självstudier: Azure Active Directory-integrering med monday.com
 
@@ -80,7 +80,7 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med monday.com, måste du utföra följande byggblock:
 
-| Uppgift | Beskrivning |
+| Aktivitet | Beskrivning |
 | --- | --- |
 | **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
 | **[Konfigurera monday.com enkel inloggning](#configure-mondaycom-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
@@ -154,7 +154,7 @@ I det här avsnittet konfigurerar du Azure AD enkel inloggning med monday.com i 
 
        ![Hantera användaranspråk](common/new-attribute-details.png)
 
-1. I den **ange in enkel inloggning med SAML** fönstret under **SAML-signeringscertifikat**väljer **hämta** bredvid **certifikat (Base64)**. Markera ett nedladdningsalternativ baserat på dina krav. Spara certifikatet på datorn.
+1. I den **ange in enkel inloggning med SAML** fönstret under **SAML-signeringscertifikat**väljer **hämta** bredvid **certifikat (Base64)** . Markera ett nedladdningsalternativ baserat på dina krav. Spara certifikatet på datorn.
 
     ![Hämtningsalternativet certifikat (Base64)](common/certificatebase64.png)
 
@@ -186,7 +186,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >**. Till exempel **brittasimon\@contoso.com**.
+    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >** . Till exempel **brittasimon\@contoso.com**.
 
     1. Välj den **Show lösenord** markerar du kryssrutan. Skriv ned värdet som visas i den **lösenord** box.
 
@@ -236,4 +236,4 @@ Om du vill veta mer kan du granska dessa artiklar:
 
 - [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

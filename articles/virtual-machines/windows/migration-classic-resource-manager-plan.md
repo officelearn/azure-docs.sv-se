@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689496"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -92,7 +92,7 @@ Följande har ett problem upptäcks i många av de större migreringarna. Detta 
   - Objekten nedan måste lösas innan testsändningen, men ett testsändning test kommer också bra att tömma ut dessa förberedelsesteg om de missat. Vi har sett testsändning ska vara ett säkert och ovärderliga sätt att se till att migreringsberedskap under enterprise-migrering.
   - När förbereder körs, kontrollen plan (Azure hanteringsåtgärder) kommer att låsas för hela virtuella nätverk, så att inga ändringar kan göras till VM-metadata under Validera/förbereda/Avbryt.  Men annars eventuella program-funktionen (RD, VM användning osv) påverkas.  Användare av de virtuella datorerna vet inte att testsändningen körs.
 
-- **Express Route-kretsar och VPN-**. Express Route-gatewayer med auktoriseringslänkar kan för närvarande inte migreras utan avbrott. Du hittar lösningen i [migrera ExpressRoute circuits och tillhörande virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](../../expressroute/expressroute-migration-classic-resource-manager.md).
+- **Express Route-kretsar och VPN-** . Express Route-gatewayer med auktoriseringslänkar kan för närvarande inte migreras utan avbrott. Du hittar lösningen i [migrera ExpressRoute circuits och tillhörande virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **VM-tillägg** -tillägg för virtuell dator är potentiellt en av de största förbi vägspärrar att migrera virtuella datorer som körs. Reparation av VM-tillägg kunde ta höjningen 1 – 2 dagar, så planera på lämpligt sätt.  Ett aktivt Azure-agenten behövs för att rapportera tillbaka VM-tillägg-status för virtuella datorer som körs. Om statusen kommer tillbaka som felaktigt för en aktiv virtuell dator, kommer detta stoppa migreringen. Själva agenten behöver inte vara i fungerande skick att aktivera migrering, men om tillägg finns på den virtuella datorn, sedan både en aktiv agent och utgående internet-anslutning (med DNS) krävs för migrering att gå vidare.
   - Om anslutningen till en DNS-server går förlorad under migreringen, alla VM-tillägg utom BGInfo version 1. \* måste först tas bort från varje virtuell dator innan migreringen förbereder och nytt läggs till i efterhand tillbaka till den virtuella datorn efter migreringen för Azure Resource Manager.  **Detta är endast för virtuella datorer som körs.**  Om de virtuella datorerna stoppas och frigörs, behöver inte VM-tillägg som ska tas bort.
@@ -116,7 +116,7 @@ Följande har ett problem upptäcks i många av de större migreringarna. Detta 
 
 - **Web/Worker-Rollsdistributioner** -molntjänster som innehåller webb-och arbetsroller kan inte migrera till Azure Resource Manager. Web/worker-roller måste först tas bort från det virtuella nätverket innan migreringen kan starta.  En typisk lösning är att bara flytta web/worker-rollinstanser till ett separat klassiskt virtuellt nätverk som också är länkad till en ExpressRoute-krets eller migrera koden till den nyare PaaS App Services (den här diskussionen är utanför omfattningen för det här dokumentet). I det tidigare omdistribuera fallet, skapa ett nytt virtuellt nätverk för klassisk, flytta/omdistribution web/worker-roller till det nya virtuella nätverket och sedan ta bort de från det virtuella nätverket som flyttas. Inga kodändringar krävs. Den nya [virtuell Nätverkspeering](../../virtual-network/virtual-network-peering-overview.md) kapaciteten som kan användas för att peer-koppla ihop det klassiska virtuella nätverket som innehåller web/worker-roller och andra virtuella nätverk i samma Azure-region, till exempel virtuella nätverk som migreras (**efter migrering av virtuellt nätverk har slutförts som peer-kopplade virtuella nätverk inte kan migreras**), därför att ge samma funktioner förlora prestanda och ingen fördröjning/bandbredden påföljder. Eftersom egenskaperna [virtuell Nätverkspeering](../../virtual-network/virtual-network-peering-overview.md), web/worker-rollsdistributioner kan nu enkelt kan undvikas och inte blockerar migrering till Azure Resource Manager.
 
-- **Azure Resource Manager-kvoter** -Azure-regioner har separata kvoter/begränsningar för både klassiska och Azure Resource Manager. Även om ny maskinvara inte används i ett Migreringsscenario *(vi växlar befintliga virtuella datorer från klassiskt läge till Azure Resource Manager)*, Azure Resource Manager-kvoter fortfarande behöver vara på plats med tillräckligt med kapacitet innan migrering kan starta. Nedan visas de viktigaste gränserna som vi har sett orsaka problem.  Öppna ett supportärende för kvot för att höja gränserna.
+- **Azure Resource Manager-kvoter** -Azure-regioner har separata kvoter/begränsningar för både klassiska och Azure Resource Manager. Även om ny maskinvara inte används i ett Migreringsscenario *(vi växlar befintliga virtuella datorer från klassiskt läge till Azure Resource Manager)* , Azure Resource Manager-kvoter fortfarande behöver vara på plats med tillräckligt med kapacitet innan migrering kan starta. Nedan visas de viktigaste gränserna som vi har sett orsaka problem.  Öppna ett supportärende för kvot för att höja gränserna.
 
     > [!NOTE]
     > Dessa gränser behöver ökas i samma region som din aktuella miljö som ska migreras.
@@ -132,7 +132,7 @@ Följande har ett problem upptäcks i många av de större migreringarna. Detta 
 
     Du kan kontrollera din aktuella kvoter för Azure Resource Manager med hjälp av följande kommandon med den senaste versionen av Azure PowerShell.
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **Compute** *(kärnor, Tillgänglighetsuppsättningar)*
 

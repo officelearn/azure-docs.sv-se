@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821692"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Skicka händelser till eller ta emot händelser från Event Hubs med hjälp av Go
@@ -31,7 +31,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 
 - Gå installerad lokalt. Följ [instruktionerna](https://golang.org/doc/install) om det behövs.
 - Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
-- **Skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
+- **Skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md).
 
 ## <a name="send-events"></a>Skicka händelser
 Det här avsnittet visar hur du skapar ett Go-program för att skicka händelser till en händelsehubb. 

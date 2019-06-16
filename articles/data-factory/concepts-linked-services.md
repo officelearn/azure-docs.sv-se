@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870139"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Länkade tjänster i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Aktuell version](concepts-datasets-linked-services.md)
 
@@ -62,10 +62,10 @@ En länkad tjänst i Data Factory har definierats i JSON-format på följande s�
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap  | Beskrivning | Krävs |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på den länkade tjänsten. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
-typ | Typ av den länkade tjänsten. Exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
+type | Typ av den länkade tjänsten. Exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
 typeProperties | Typegenskaperna är olika för varje datalager eller databeräkningar. <br/><br/> Lagra typer och deras egenskaper för data som stöds, se den [datauppsättningstypen](concepts-datasets-linked-services.md#dataset-type) tabellen i den här artikeln. Gå till data store connector artikeln för att lära dig om typegenskaperna som är specifika för ett datalager. <br/><br/> Stöds beräkningstyper och deras egenskaper finns i [länkade tjänster för Compute](compute-linked-services.md). | Ja |
 connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej
 

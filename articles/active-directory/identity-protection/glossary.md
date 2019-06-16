@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452832"
+ms.locfileid: "67109007"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
 ### <a name="at-risk-user"></a>I fara (användare)
@@ -35,7 +35,7 @@ En inloggning från en geografisk plats som inte är typiska för den specifika 
 En modul för maskinvarusäkerhet av Azure Active Directory som ger en samlad vy över riskhändelser och potentiella problem som påverkar organisationens identiteter.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
-En princip för att skydda åtkomsten till resurser. Regler för villkorlig åtkomst är lagrade i Azure Active Directory och utvärderas av Azure AD innan du beviljar åtkomst till resursen.  Exempel på regler är att begränsa åtkomst baserat på användarens plats eller enhetens hälsotillstånd metoden för användarautentisering.
+En princip för att skydda åtkomsten till resurser. Villkorsstyrda åtkomstregler lagras i Azure Active Directory och utvärderas av Azure AD innan du beviljar åtkomst till resursen.  Exempel på regler är att begränsa åtkomst baserat på användarens plats eller enhetens hälsotillstånd metoden för användarautentisering.
 
 ### <a name="credentials"></a>Autentiseringsuppgifter
 Information som innefattar identifiering och bekräftelse för identifiering som används för att få åtkomst till lokala resurser och nätverksresurser. Exempel på autentiseringsuppgifter är användarnamn och lösenord, smartkort och certifikat.

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3157cef6952f01d689d3cb4a30c9d7c843095809
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071699"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -92,7 +92,7 @@ Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system]
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avisering med befintlig åtgärdsgrupp med hjälp av Azure portal
 
-1. Följ steg 1 till och med 7 i föregående avsnitt för att skapa aviseringen om tjänstens hälsa. 
+1. Följ steg 1 till 6 i föregående avsnitt för att skapa aviseringen om tjänstens hälsa. 
 
 1. Under **definiera åtgärdsgruppen**, klickar du på den **väljer åtgärdsgrupp** knappen. Välj lämplig åtgärdsgruppen.
 

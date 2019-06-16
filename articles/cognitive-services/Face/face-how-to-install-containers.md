@@ -3,20 +3,20 @@ title: Installera och köra containrar
 titlesuffix: Face - Azure Cognitive Services
 description: Hämta, installera och köra behållare för ansikte i den här genomgången självstudien.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063598"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 

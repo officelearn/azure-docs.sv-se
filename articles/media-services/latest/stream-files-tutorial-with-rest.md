@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055297"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudier: Koda en fjärrfil baserat på URL och strömma video – REST
 
@@ -236,7 +236,7 @@ När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillg�
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du klartext (eller icke-krypterat) innehåll så att den fördefinierade principen för klartextströmning (**PredefinedStreamingPolicy.ClearStreamingOnly**) används.
+När du skapar en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators), måste du ange den önskade **StreamingPolicyName**. I det här exemplet ska du direktuppspelning i klartext (eller icke-krypterade) innehåll, så den fördefinierade rensningsprincip strömmande ”Predefined_ClearStreamingOnly” används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
@@ -343,7 +343,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 I den här artikeln används Azure Media Player till att testa strömningen. 
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. I **URL:**-rutan klistrar du in den URL som du skapat. 
+2. I **URL:** -rutan klistrar du in den URL som du skapat. 
 3. Tryck på **Uppdatera spelare**.
 
 Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 

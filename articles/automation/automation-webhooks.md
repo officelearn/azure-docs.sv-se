@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61305040"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
@@ -30,11 +30,11 @@ Du kan jämföra webhooks för att andra metoder för att starta en runbook [sta
 
 I följande tabell beskrivs de egenskaper som du måste konfigurera för en webhook.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Namn |Du kan ange ett namn som du vill använda för en webhook eftersom detta inte är exponerade för klienten. Den används endast för dig för att identifiera runbook i Azure Automation. <br> Som bästa praxis bör du ge webhooken ett namn som är relaterade till den klient som använder den. |
 | URL |URL: en för webhooken är den unika adress som en klient anropar med en HTTP POST att starta runbooken länkad till webhooken. Det genereras automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Den ska därför behandlas som ett lösenord. Av säkerhetsskäl kan du bara se URL: en i Azure-portalen när webhooken skapas. Observera att URL: en på en säker plats för framtida användning. |
-| Upphörandedatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas så länge webhooken inte har gått ut. |
+| Förfallodatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas så länge webhooken inte har gått ut. |
 | Enabled |En webhook aktiveras som standard när den skapas. Om du ställer in det på inaktiverad, så ingen klient kan använda den. Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den har skapats. |
 
 ### <a name="parameters"></a>Parametrar
@@ -47,7 +47,7 @@ När en klient startar en runbook med en webhook, kan inte det åsidosätta de p
 
 Den **$WebhookData** objekt har följande egenskaper:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | WebhookName |Namnet på webhooken. |
 | RequestHeader |Hash-tabell som innehåller huvuden inkommande POST-begäran. |
@@ -112,9 +112,9 @@ Klienten får något av följande returkoder från POST-begäran.
 
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
-| 202 |Accepterad |Begäran accepterades och runbook har i kö. |
+| 202 |Accepterat |Begäran accepterades och runbook har i kö. |
 | 400 |Felaktig begäran |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhooken har gått ut.</li> <li>Webhooken har inaktiverats.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
-| 404 |Kunde inte hittas |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhook hittades inte.</li> <li>Runbook hittades inte.</li> <li>Kontot hittades inte.</li>  </ul> |
+| 404 |Det gick inte att hitta |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhook hittades inte.</li> <li>Runbook hittades inte.</li> <li>Kontot hittades inte.</li>  </ul> |
 | 500 |Internt serverfel |URL: en är giltig, men ett fel uppstod. Skicka begäran igen. |
 
 Förutsatt att begäran har lyckats, webhook svaret innehåller jobb-ID i JSON-format på följande sätt. Det innehåller ett enskilt jobb-ID, men JSON-format som tillåter för eventuella framtida förbättringar.

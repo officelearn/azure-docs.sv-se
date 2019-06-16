@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ce73db9f177c9aa9915e9c0d6d13f9e00893d5b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Ceridian Dayforce HCM med Azure AD måste 
 
 **Utför följande steg för att lägga till Ceridian Dayforce HCM från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -107,21 +107,21 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cerid
 
     a. I textrutan **Inloggnings-URL** skriver du URL:en som användarna använder för att logga in till Ceridian Dayforce HCM-programmet.
 
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | För testning | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
 
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp` |
     | För testning | `https://fs-test.dayforcehcm.com/sp` |
 
     c. I textrutan **Svars-URL** skriver du URL:en som används av Azure AD för att publicera svaret.
 
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | För testning | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
@@ -137,7 +137,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cerid
     
     | Namn | Källattribut|
     | ---------| --------- |
-    | namn  | user.extensionattribute2 |
+    | name  | user.extensionattribute2 |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -242,5 +242,5 @@ När du klickar på Ceridian Dayforce HCM-panelen på åtkomstpanelen bör du lo
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

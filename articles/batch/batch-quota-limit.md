@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080919"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -32,12 +32,13 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 Om du planerar att köra arbetsbelastningar i produktion i Batch kan du behöva öka en eller flera av kvoter ovanför standardvärdet. Om du vill öka en kvot kan du öppna en online [kundsupport](#increase-a-quota) utan kostnad.
 
-> [!NOTE]
-> En kvot är en kreditgräns, inte en garanti för kapacitet. Kontakta Azure-supporten om du har storskaliga kapacitetsbehoven.
-
 ## <a name="resource-quotas"></a>Resurskvoter
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+En kvot är en kreditgräns, inte en garanti för kapacitet. Kontakta Azure-supporten om du har storskaliga kapacitetsbehoven.
+
+Observera att kvoter inte är garanterad också värden. Kvoter kan variera beroende på ändringar från Batch-tjänsten eller en begäran om att ändra ett kvotvärde.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kärnkvoter i användarprenumerationsläge
 
@@ -45,18 +46,22 @@ Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användar
 
 ## <a name="pool-size-limits"></a>Storleksgränser för poolen
 
+Storleksgränsen för poolen bestäms av Batch-tjänsten. Till skillnad från [resurskvoter](#resource-quotas), dessa värden kan inte ändras. Endast pooler med kommunikation mellan noder och anpassade avbildningar har begränsningar som skiljer sig från standardkvoten.
+
 | **Resurs** | **Övre gräns** |
 | --- | --- |
 | **Compute-noder i [mellan noder kommunikation aktiverat pool](batch-mpi.md)**  ||
 | Poolallokeringsläget för batch-tjänsten | 100 |
 | Poolallokeringsläget för batch-prenumeration | 80 |
-| **Compute-noder i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md)**<sup>1</sup> ||
-| Reserverade noder | 2000 |
-| Lågprioritetsnoder | 1000 |
+| **Compute-noder i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md)** <sup>1</sup> ||
+| Dedikerade noder | 2000 |
+| Lågprioriterade virtuella noder | 1000 |
 
 <sup>1</sup> för pooler som inte är mellan noder kommunikation aktiverat.
 
 ## <a name="other-limits"></a>Andra gränser
+
+Ytterligare begränsningar som angetts av Batch-tjänsten. Till skillnad från [resurskvoter](#resource-quotas), dessa värden kan inte ändras.
 
 | **Resurs** | **Övre gräns** |
 | --- | --- |
@@ -84,7 +89,7 @@ Följ dessa steg för att begära en kvot öka för ditt Batch-konto eller din p
 
 ### <a name="increase-cores-quota-in-batch"></a>Öka kärnkvoten i Batch 
 
-1. Välj den **hjälp + support** panelen på instrumentpanelen i portalen eller frågetecknet (**?**) i det övre högra hörnet i portalen.
+1. Välj den **hjälp + support** panelen på instrumentpanelen i portalen eller frågetecknet ( **?** ) i det övre högra hörnet i portalen.
 1. Välj **ny supportbegäran** > **grunderna**.
 1. I **grunderna**:
    

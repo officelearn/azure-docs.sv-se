@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068770"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -33,7 +33,7 @@ Det är kostnadsfritt för att kryptera Virtuella diskar med Azure Disk Encrypti
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Vilka nivåer för virtual Machines har stöd för Azure Disk Encryption?
 
-Azure Disk Encryption är tillgängliga på standard-nivån virtuella datorer, inklusive [A, D, DS, G, GS och F](https://azure.microsoft.com/pricing/details/virtual-machines/) serien virtuella IaaS-datorer. Det är också tillgänglig för virtuella datorer med premium storage. Det är inte tillgängligt i basic-nivån virtuella datorer.
+Azure Disk Encryption är tillgängliga på standard-nivån virtuella datorer, inklusive [A, D, DS, E, G, GS och F](https://azure.microsoft.com/pricing/details/virtual-machines/) serien virtuella IaaS-datorer. Det är också tillgänglig för virtuella datorer med premium storage. Det är inte tillgängligt i basic-nivån virtuella datorer.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Vilka Linux-distributioner har stöd för Azure Disk Encryption?
 
@@ -121,7 +121,9 @@ Ja. Diskkryptering som använder en Azure AD-app stöds fortfarande. Men när du
 Använd den senaste versionen av Azure PowerShell SDK för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption är *inte* stöds av Azure SDK version 1.1.0.
 
 > [!NOTE]
-> Linux Azure disk encryption preview-tillägget är inaktuell. Mer information finns i [avvecklar Azure disk encryption preview-tillägget för virtuella Linux IaaS-datorer](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
+> Linux Azure disk encryption förhandsversion tillägget ”Microsoft.OSTCExtension.AzureDiskEncryptionForLinux” är inaktuell. Det här tillägget har publicerats för Azure disk encryption-förhandsversionen. Du bör inte använda förhandsversionen av tillägget i din distribution för testning eller produktion.
+
+> För scenarier som Azure Resource Manager (ARM), där du har ett behov av att distribuera Azure disk encryption-tillägget för Linux VM att aktivera kryptering på din Linux IaaS-dator, måste du använda det Azure disk encryption-tillägget för produktion som stöds ” Microsoft.Azure.Security.AzureDiskEncryptionForLinux ”.
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>Kan jag använda Azure Disk Encryption på min anpassade Linux-avbildning?
 

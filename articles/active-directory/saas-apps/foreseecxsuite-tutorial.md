@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 86d6653aceeb7a44e3758b629d74db516235fcf8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988033"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Självstudier: Azure Active Directory-integrering med förutser CX Suite
 
@@ -55,7 +55,7 @@ Om du vill konfigurera integreringen av förutser CX Suite till Azure AD, som du
 
 **Utför följande steg för att lägga till förutser CX Suite från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -208,5 +208,5 @@ När du klickar på panelen förutser CX Suite i åtkomstpanelen, bör det vara 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

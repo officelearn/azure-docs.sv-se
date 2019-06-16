@@ -3,21 +3,20 @@ title: Kopiera data från MongoDB med Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Mongo DB till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/20/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 12/20/2018
+ms.author: jingwang
 ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400448"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
@@ -47,11 +46,11 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till: **MongoDbV2** |Ja |
 | connectionString |Ange t.ex. MongoDB-anslutningssträng `mongodb://[username:password@]host[:port][/[database][?options]]`. Referera till [MongoDB manuell på anslutningssträngen](https://docs.mongodb.com/manual/reference/connection-string/) för mer information. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| databas | Namnet på databasen som du vill komma åt. | Ja |
+| database | Namnet på databasen som du vill komma åt. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -80,7 +79,7 @@ Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper har stöd för MongoDB-datauppsättning:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbV2Collection** | Ja |
 | collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
@@ -111,7 +110,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbV2Source** | Ja |
 | filter | Anger val av filter som använder frågeoperatorer. Om du vill returnera alla dokument i en samling, utelämnar den här parametern eller skicka ett tomt dokument ({}). | Nej |

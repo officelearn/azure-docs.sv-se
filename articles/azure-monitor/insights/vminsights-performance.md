@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
 ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522093"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer (förhandsversion)
@@ -68,7 +68,7 @@ Följande kapacitet användning diagrammen tillhandahålls:
 
 Du kan också ändra Granulariteten för diagram inom tidsintervallet genom att välja **genomsnittlig**, **Min**, **Max**, **50**,  **90**, och **95: e** i Väljaren: e percentilen.   
 
-För att visa resursanvändningen av en enskild virtuell dator i en listvy och se vilka datorn trendar med största användning, Välj den **topp-N** fliken.  Den **topp-N** sidan visas de översta 20 datorerna sorterade efter den mest utnyttjad av 95: e percentilen för måttet *processoranvändning %*.  Du kan se flera datorer genom att välja **belastningen mer**, och resultaten utökas för att visa de översta 500 datorerna. 
+För att visa resursanvändningen av en enskild virtuell dator i en listvy och se vilka datorn trendar med största användning, Välj den **topp-N** fliken.  Den **topp-N** sidan visas de översta 20 datorerna sorterade efter den mest utnyttjad av 95: e percentilen för måttet *processoranvändning %* .  Du kan se flera datorer genom att välja **belastningen mer**, och resultaten utökas för att visa de översta 500 datorerna. 
 
 >[!NOTE]
 >Listan kan inte visa högst 500 datorer i taget.  
@@ -78,7 +78,7 @@ För att visa resursanvändningen av en enskild virtuell dator i en listvy och s
 
 Om du vill filtrera resultatet för en specifik virtuell dator i listan, anger du dess datornamn i den **Sök efter namn** textrutan.  
 
-Om du i stället skulle visa användning från ett mått med olika prestanda, från den **mått** listrutan Välj **tillgängligt minne**, **logisk diskutrymme används %**,  **Network mottagna Byte/s**, eller **nätverk skickade Byte/s** och listan uppdateras för att visa användning tillhöra det måttet.  
+Om du i stället skulle visa användning från ett mått med olika prestanda, från den **mått** listrutan Välj **tillgängligt minne**, **logisk diskutrymme används %** ,  **Network mottagna Byte/s**, eller **nätverk skickade Byte/s** och listan uppdateras för att visa användning tillhöra det måttet.  
 
 Om du väljer en virtuell dator i listan öppnas den **egenskaper** panelen till höger på sidan och härifrån kan du välja **prestandainformation**.  Den **information om virtuella datorer** öppnas och är begränsad till den virtuella datorn, ungefär som i upplevelse vid åtkomst till Insights-prestanda för virtuella datorer direkt från Azure-VM.  
 
@@ -86,7 +86,7 @@ Om du väljer en virtuell dator i listan öppnas den **egenskaper** panelen till
 Utför följande steg för att komma åt direkt från en virtuell dator.
 
 1. I Azure-portalen väljer du **virtuella datorer**. 
-2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)**.  
+2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)** .  
 3. Välj den **prestanda** fliken. 
 
 Den här sidan inte bara innehåller prestandadiagram för användning, men också en tabell som visar för varje logisk disk kan identifieras, sin kapacitet, användning, och total genomsnittlig per varje mått.  
@@ -119,7 +119,7 @@ Klicka på ikonen PIN-kod i det övre högra hörnet i någon av PIN-koder för 
 ![VM insikter prestanda direkt från virtuella datorer ställer du in vyn](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
->Du kan också komma åt en detaljerad prestandavy för en specifik instans från vyn instanser för din skalningsuppsättning. Gå till **instanser** under den **inställningar** och sedan välja **Insights (förhandsversion)**.
+>Du kan också komma åt en detaljerad prestandavy för en specifik instans från vyn instanser för din skalningsuppsättning. Gå till **instanser** under den **inställningar** och sedan välja **Insights (förhandsversion)** .
 
 ## <a name="alerts"></a>Aviseringar  
 Prestandamått aktiverad som en del av Azure Monitor för virtuella datorer inkluderar inte förkonfigurerade Varningsregler. Det finns [hälsovarningar](vminsights-health.md#alerts) motsvarar prestandaproblem som har identifierats på den virtuella Azure-datorn, till exempel hög processoranvändning, minnesbrist diskutrymme tillgängligt, låg, osv.  Dock gäller endast dessa hälsovarningar för alla virtuella datorer som aktiverats för Azure Monitor för virtuella datorer. 

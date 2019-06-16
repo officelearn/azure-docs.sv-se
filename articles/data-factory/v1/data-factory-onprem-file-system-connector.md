@@ -14,14 +14,14 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122457"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopieringsdata till och från ett lokalt filsystem med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-file-system-connector.md)
 > * [Version 2 (aktuell version)](../connector-file-system.md)
 
@@ -128,7 +128,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet typeProperties är olika för varje typ av datauppsättning. Den innehåller information som plats och formatet för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **filresursen** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Anger underordnad sökväg innehavaradministratörens till mappen. Använd escape-tecknet '\' för specialtecken i strängen. Jokerteckenfilter stöds inte. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägarna baserat på sektorn start/slut datum / tid. |Ja |
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i följande format: <br/><br/>`Data.<Guid>.txt` (Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |

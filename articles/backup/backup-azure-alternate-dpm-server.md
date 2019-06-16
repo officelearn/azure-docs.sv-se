@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
 ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60650937"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
@@ -65,7 +65,7 @@ Du kan använda Azure Backup Server för att återställa data som du har säker
      Identifiera om en **meddelande** skickas när återställningen har slutförts.
 
      ![Extern DPM Recovery meddelanden](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. Den **sammanfattning** skärmen visar de alternativ som valts hittills. När du klickar på **”återställa”**, återställs datan till lämpliga lokala plats.
+9. Den **sammanfattning** skärmen visar de alternativ som valts hittills. När du klickar på **”återställa”** , återställs datan till lämpliga lokala plats.
 
     ![Extern DPM Recovery alternativ sammanfattning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957333"
 ---
 # <a name="clustering-point-data"></a>Klustring punkt data
@@ -84,9 +84,9 @@ Se pennan <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>kluster viktad term
 
 När mushändelser inträffar på ett lager med klustrade datapunkter, returneras den klustrade datapunkten på händelsen som ett GeoJSON point funktionen-objekt. Den här punkt-funktionen har följande egenskaper:
 
-| Egenskapsnamn | Type | Beskrivning |
+| Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
-| kluster | boolesk | Anger om funktionen representerar ett kluster. |
+| Kluster | boolesk | Anger om funktionen representerar ett kluster. |
 | cluster_id | string | Ett unikt ID för det kluster som kan användas med datakällan `getClusterExpansionZoom`, `getClusterChildren`, och `getClusterLeaves` metoder. |
 | point_count | nummer | Antal punkter som innehåller klustret. |
 | point_count_abbreviated | string | En sträng som abbreviates den `point_count` värde om det är långt. (exempel: 4 000 blir 4K) |

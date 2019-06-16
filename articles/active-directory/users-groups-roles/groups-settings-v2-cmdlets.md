@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65407876"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupphantering
@@ -169,7 +169,7 @@ Ta bort grupper från din katalog genom att använda cmdleten Remove-AzureADGrou
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
 ## <a name="manage-group-membership"></a>Hantera gruppmedlemskap 
-### <a name="add-members"></a>Lägg till medlemmar
+### <a name="add-members"></a>Lägga till medlemmar
 Använd cmdleten Add-AzureADGroupMember om du vill lägga till nya medlemmar i en grupp. Det här kommandot lägger till en medlem i gruppen Intune-administratörer som vi använde i föregående exempel:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -259,8 +259,8 @@ När en grupp skapas vissa slutpunkter gör det möjligt för användaren att an
 * majordomo 
 * postmaster 
 * rot 
-* skydda 
-* säkerhet 
+* säker 
+* security 
 * ssl-admin 
 * webbadministratör 
 

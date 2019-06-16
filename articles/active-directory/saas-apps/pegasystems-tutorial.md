@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 195e7bf21fe1f6017705883f2ec692c182f15375
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudier: Azure Active Directory-integrering med Pega system
 
@@ -234,7 +234,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-por
 
     a. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** anger **brittasimon @\<företagsdomänen >.\< tillägget >**. (Till exempel BrittaSimon@contoso.com.)
+    b. I den **användarnamn** anger **brittasimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
 
     c. Välj **Show lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
 
@@ -282,4 +282,4 @@ När du väljer panelen Pega system i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

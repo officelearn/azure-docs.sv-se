@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fa15a91a6b82a8858bf46a08e8a9dbe11a51d8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Självstudier: Azure Active Directory-integrering med Brightidea
 
@@ -56,7 +56,7 @@ För att konfigurera integrering av Brightidea med Azure AD behöver du lägga t
 
 **Utför följande steg för att lägga till Brightidea från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -145,7 +145,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
 1. I ett annat webbläsarfönster loggar du in på Brightidea med autentiseringsuppgifter för administratör.
 
-2. Du hittar funktionen för enkel inloggning i ditt Brightidea-system genom att gå till **Enterprise Setup (Företagskonfiguration)** -> **fliken Autentisering**. Där finns två underflikar: Auth Selection (Autentiseringsval) och SAML Profiles (SAML-profiler).
+2. Du hittar funktionen för enkel inloggning i ditt Brightidea-system genom att gå till **Enterprise Setup (Företagskonfiguration)**  -> **fliken Autentisering**. Där finns två underflikar: Auth Selection (Autentiseringsval) och SAML Profiles (SAML-profiler).
 
     ![Brightidea-konfiguration](./media/brightidea-tutorial/configure1.png)
 
@@ -243,5 +243,5 @@ När du klickar på Brightidea-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093849e10e9776327a54ea3a9ae22b863a528d37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057359"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-autentisering och Azure Multi-Factor Authentication Server
 
@@ -24,9 +24,12 @@ Som standard konfigureras Azure Multi-Factor Authentication Server att importera
 
 Infoga Azure Multi-Factor Authentication Server mellan LDAP-klient (till exempel VPN-enhet, program) och LDAP-katalogservern för att använda Azure Multi-Factor Authentication som en LDAP-proxy. Azure Multi-Factor Authentication-servern måste vara konfigurerad att kommunicera med både klientservrarna och LDAP-katalogen. I den här konfigurationen accepterar Azure Multi-Factor Authentication Server LDAP-förfrågningar från klientservrar och klientprogram och vidarebefordrar dem till mål-LDAP-katalogservern för verifiering av de primära autentiseringsuppgifterna. Om LDAP-katalogen valideras de primära autentiseringsuppgifterna Azure Multi-Factor Authentication utför en andra identitetsverifiering och skickar tillbaka ett svar till LDAP-klienten. Hela autentisering fungerar endast om både LDAP-serverautentiseringen och det andra stegets verifiering lyckas.
 
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
+
 ## <a name="configure-ldap-authentication"></a>Konfigurera LDAP-autentisering
 
-Om du vill konfigurera LDAP-autentisering installerar du Azure Multi-Factor Authentication-servern på en Windows-server. Följ dessa steg:
+Om du vill konfigurera LDAP-autentisering installerar du Azure Multi-Factor Authentication-servern på en Windows-server. Följ anvisningarna nedan:
 
 ### <a name="add-an-ldap-client"></a>Lägg till en LDAP-klient
 

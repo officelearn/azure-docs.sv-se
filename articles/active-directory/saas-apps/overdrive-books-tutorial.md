@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 91675cd8348ed9d564b3e6b01ebcb039eabf0929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6d3c53206d917b5b87f26b7fb351bc5acf5937
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Självstudier: Azure Active Directory-integrering med högre växel för datadrivet
 
@@ -55,7 +55,7 @@ Om du vill konfigurera integreringen av högre växel för datadrivet till Azure
 
 **Utför följande steg för att lägga till högre växel för datadrivet från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -201,5 +201,5 @@ När du klickar på panelen högre växel för datadrivet i åtkomstpanelen, bö
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

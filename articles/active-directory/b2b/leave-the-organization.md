@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5164130c5850b37d1e1323d172f9f9c46b4b30
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26d9eb883cc014c1bea092a12e22b6d144a37994
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112972"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Lämna en organisation som gästanvändare
 
 En Azure Active Directory (Azure AD) B2B-gästanvändare kan välja att lämna en organisation när som helst om de inte längre behöver använda appar från den organisationen eller underhålla eventuella kopplingar. En användare kan lämna en organisation på egen hand, utan att behöva kontakta en administratör.
 
+> [!NOTE]
+> Gästanvändare kan inte lämna en organisation om deras konto är inaktiverat i antingen den hemnätverk eller resurs-klient. Om kontot har inaktiverats kan behöver gästanvändaren kontakta klientorganisationens administratör som kan ta bort gästkontot eller aktivera gästkontot så att användaren kan lämna organisationen.
+
 ## <a name="leave-an-organization"></a>Lämna en organisation
 
 Följ dessa steg om du vill lämna en organisation.
 
-1. Gå till sidan Åtkomstpanelsprofil genom att göra något av följande:
+1. Gå till sidan Åtkomstpanelsprofil genom att göra något av följande steg:
    
    - I den [Azure-portalen](https://portal.azure.com), klicka på ditt namn i övre högra och välj **visa konto**.
    - Öppna din [åtkomstpanelen](https://myapps.microsoft.com), klickar du på namnet på din uppe till höger och Nästa om du vill **organisationer**, välja inställningsikonen (kugghjulet).
@@ -44,7 +47,7 @@ Följ dessa steg om du vill lämna en organisation.
 
 ## <a name="account-removal"></a>Kontot tagits bort
 
-När en användare lämnar en organisation, användarkontot ”ej är permanent borttagen” i katalogen. Som standard användarobjektet flyttas till den **borttagna användare** område i Azure AD, men inte är permanent bort i 30 dagar. Den här mjuk borttagning kan administratören återställa användarkontot (inklusive grupper och behörigheter), om användaren gör en begäran om att återställa kontot inom 30-dagarsperiod.
+När en användare lämnar en organisation, användarkontot ”ej är permanent borttagen” i katalogen. Som standard användarobjektet flyttas till den **borttagna användare** område i Azure AD men inte tas bort permanent i 30 dagar. Den här mjuk borttagning kan administratören återställa användarkontot (inklusive grupper och behörigheter), om användaren gör en begäran om att återställa kontot inom 30-dagarsperiod.
 
 Om du vill kan en Innehavaradministratör kan permanent ta bort kontot när som helst under 30-dagarsperiod. Gör så här:
 

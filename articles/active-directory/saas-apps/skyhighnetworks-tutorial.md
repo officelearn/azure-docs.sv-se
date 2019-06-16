@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867237"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Självstudier: Azure Active Directory-integrering med Skyhigh nätverk
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Skyhigh nätverk till Azure AD, som du b
 
 **Utför följande steg för att lägga till Skyhigh nätverk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -203,4 +203,4 @@ När du klickar på panelen Skyhigh nätverk i åtkomstpanelen, bör det vara lo
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

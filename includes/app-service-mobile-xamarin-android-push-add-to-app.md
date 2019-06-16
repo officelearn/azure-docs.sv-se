@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140305"
 ---
 1. Skapa en ny klass i projektet med namnet `ToDoBroadcastReceiver`.
@@ -66,7 +66,7 @@ ms.locfileid: "66140305"
     Observera att den här klassen härleds från **GcmServiceBase** och att den **Service** attributet måste tillämpas på den här klassen.
 
     > [!NOTE]
-    > Den **GcmServiceBase** klassen implementerar den **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** och  **OnError()** metoder. Du måste åsidosätta de här metoderna i den **PushHandlerService** klass.
+    > Den **GcmServiceBase** klassen implementerar den **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** och  **OnError()** metoder. Du måste åsidosätta de här metoderna i den **PushHandlerService** klass.
 
 6. Lägg till följande kod till den **PushHandlerService** klass som åsidosätter den **OnRegistered** händelsehanterare.
 

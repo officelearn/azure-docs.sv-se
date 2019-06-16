@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305261"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure Event Grid
 
 Den här artikeln beskriver de viktigaste begreppen i Azure Event Grid.
 
-## <a name="events"></a>Händelser
+## <a name="events"></a>Events
 
 En händelse är den minsta mängden information som helt beskriver något som har inträffat i systemet. Varje händelse har common information, till exempel: källan för händelsen, tid händelsen tog plats och unik identifierare. Varje händelse har också specifik information som endast är relevanta för den specifika typen av händelse. Exempelvis kan en händelse om en ny fil skapas i Azure Storage innehåller information om filen, till exempel den `lastTimeModified` värde. Eller en händelse i Event Hubs har URL: en för filen avbildning. 
 

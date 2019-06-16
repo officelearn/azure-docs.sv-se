@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: 98eb537a5c064cd22b995ae214c8d61db7a8b6b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942487"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt erbjudande för IoT Edge-modulen med partnerportalen i molnet
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du skapar och publicerar något erbjudande IoT E
 
 |  **Grupp**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
-|    SKU:er            |  Den minsta distribuerbar enheten i ett erbjudande. Ett erbjudande (produkten klassen) kan ha flera SKU: er som är associerade med erbjudandet. Du kan använda SKU: er för att skilja mellan funktioner som stöds och faktureringsmodeller. |
+|    SKUs            |  Den minsta distribuerbar enheten i ett erbjudande. Ett erbjudande (produkten klassen) kan ha flera SKU: er som är associerade med erbjudandet. Du kan använda SKU: er för att skilja mellan funktioner som stöds och faktureringsmodeller. |
 |  Marketplace       | Innehåller marknadsföring, juridiska och inverka management tillgångar och specifikationer.  <ul><li> Marknadsföring-material inkluderar erbjudandenamn, beskrivning och logotyper</li> <li> Juridiska tillgångar är en sekretesspolicy, användningsvillkor och andra juridisk dokumentation</li>  <li> Lead princip kan du ange hur du hanterar leads från Azure Marketplace-slutanvändarportal.</li> </ul> |
 | Support            | Innehåller information om support kontakta och princip |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Självstudier: Azure Active Directory-integrering med iPass SmartConnect
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av iPass SmartConnect i Azure AD, som du behöv
 
 **Utför följande steg för att lägga till iPass SmartConnect från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -261,4 +261,4 @@ f. Klienten ska aktiveras.
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

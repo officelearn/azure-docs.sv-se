@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146921"
 ---
 ### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
 Den **länkad Azure Storage-tjänst** kan du länka ett Azure storage-konto till en Azure-datafabrik med hjälp av den **kontonyckel**, vilket möjliggör data factory med global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage-länkade tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till: **AzureStorage** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure storage för connectionString-egenskapen. |Ja |
@@ -47,7 +47,7 @@ En signatur för delad åtkomst (SAS) ger delegerad åtkomst till resurser i dit
 
 Med Azure Storage SAS länkad service kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Data factory skapar med begränsade/Tidsbundna åtkomst till alla utvalda resurser (blobbehållare) i lagringen. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage SAS länkad tjänst. 
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till: **AzureStorageSas** |Ja |
 | sasUri |Ange URI för delad åtkomst-signatur i Azure Storage-resurser, till exempel blob, behållaren eller tabellen.  |Ja |

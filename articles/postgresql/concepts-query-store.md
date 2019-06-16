@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067190"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
@@ -86,7 +86,7 @@ Följande alternativ är tillgängliga för att konfigurera Query Store-parametr
 
 | **Parametern** | **Beskrivning** | **Standard** | **Adressintervall**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Anger vilka instruktioner spåras. | inga | Ingen, uppifrån, alla |
+| pg_qs.query_capture_mode | Anger vilka instruktioner spåras. | Ingen | Ingen, uppifrån, alla |
 | pg_qs.max_query_text_length | Anger den maximala frågelängd som kan sparas. Längre frågor trunkeras. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
 | pg_qs.track_utility | Anger om verktygskommandon spåras | på | på, av |
@@ -95,7 +95,7 @@ Följande alternativ gäller specifikt för att vänta statistik.
 
 | **Parametern** | **Beskrivning** | **Standard** | **Adressintervall**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Anger vilket uttryck spåras för vänta statistik. | inga | Ingen, alla|
+| pgms_wait_sampling.query_capture_mode | Anger vilket uttryck spåras för vänta statistik. | Ingen | Ingen, alla|
 | Pgms_wait_sampling.history_period | Ange frekvens, i millisekunder, vid vilken vänta samplas händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -120,8 +120,8 @@ Den här vyn returnerar alla data i Query Store. Det finns en rad för varje dis
 |query_id   |bigint  || Intern hash-koden som beräknas från utdragets parsningsträd|
 |query_sql_text |Varchar(10000)  || Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
 |plan_id    |bigint |   |ID för den plan som motsvarar den här frågan är inte tillgängligt ännu|
-|Starttid |tidsstämpel  ||  Frågor samlas genom tid buckets - omfånget på en bucket är 15 minuter som standard. Det här är starttiden för enheten för den här posten.|
-|end_time   |tidsstämpel  ||  Sluttid för enheten för den här posten.|
+|Starttid |timestamp  ||  Frågor samlas genom tid buckets - omfånget på en bucket är 15 minuter som standard. Det här är starttiden för enheten för den här posten.|
+|end_time   |timestamp  ||  Sluttid för enheten för den här posten.|
 |anrop  |bigint  || Antal gånger som frågan körs|
 |total_time |dubbel precision   ||  Totalt antal fråga körningstid, i millisekunder|
 |min_time   |dubbel precision   ||  Minsta fråga körningstid, i millisekunder|

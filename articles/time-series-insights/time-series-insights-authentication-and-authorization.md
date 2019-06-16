@@ -1,5 +1,5 @@
 ---
-title: 'Så här att autentisera och auktorisera av API: et i Azure Time Series Insights | Microsoft Docs'
+title: Autentisera och auktorisera med hjälp av ett API i Azure Time Series Insights | Microsoft Docs
 description: 'Den här artikeln beskriver hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar API: et för Azure Time Series Insights.'
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b6cd993e9f6c6dbf173c161de638c6c4a8b18d3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 385fa0e714c66b4798dfcc3874810d97b76b2a1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115792"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
@@ -28,7 +28,7 @@ Den här artikeln förklarar hur du konfigurerar autentisering och auktorisering
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
-Det här och följande avsnitt beskrivs hur du konfigurerar ett program för att få åtkomst till API: T för Time Series Insights åt programmet. Programmet kan sedan fråga eller publicera referensdata i Time Series Insights-miljö med autentiseringsuppgifter för program i stället för användarens autentiseringsuppgifter.
+I följande avsnitt beskrivs hur du konfigurerar ett program för att få åtkomst till API: T för Time Series Insights för programmet. Programmet kan sedan fråga eller publicera referensdata i Time Series Insights-miljö med autentiseringsuppgifter för program i stället för användarens autentiseringsuppgifter.
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -37,15 +37,15 @@ När du har ett program som måste åtkomst Time Series Insights:
 1. Konfigurera en Azure Active Directory-app.
 1. [Tilldela dataåtkomstprinciper](./time-series-insights-data-access.md) i Time Series Insights-miljö.
 
-Det är önskvärt sedan att använda program i stället för dina autentiseringsuppgifter:
+Det är önskvärt att använda programmet autentiseringsuppgifter i stället för dina autentiseringsuppgifter eftersom:
 
 * Du kan tilldela behörigheter till appen identiteten som skiljer sig från dina egna behörigheter. Normalt är behörigheterna begränsade till bara vad appen kräver. Du kan till exempel Tillåt att appen endast kan läsa data i en viss Time Series Insights-miljö.
-* Du behöver ändra appens autentiseringsuppgifter, ändrar dina ansvarsområden.
+* Du behöver inte ändra dess autentiseringsuppgifter ändrar dina ansvarsområden.
 * Du kan använda ett certifikat eller en programnyckel för att automatisera autentisering när du kör ett oövervakat skript.
 
-I följande avsnitt visar hur du utför de här stegen via Azure portal. Artikeln fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder normalt enda klient program för line-of-business-program som körs i din organisation.
+I följande avsnitt visar hur du utför de här stegen via Azure portal. Artikeln fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis en enda klient program för line-of-business-program som körs i din organisation.
 
-## <a name="set-up-summary"></a>Konfigurera sammanfattning
+## <a name="setup-summary"></a>Konfigurationssammanfattning
 
 Installationsprogrammet flödet består av tre steg:
 
@@ -59,7 +59,7 @@ Installationsprogrammet flödet består av tre steg:
 
    [![Ny programregistrering i Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
-1. Ge programmet ett namn, Välj den typ som ska vara **webbapp / API**, Välj en giltig URI för **inloggnings-URL**, och klicka på **skapa**.
+1. Ge programmet ett namn, Välj den typ som ska vara **webbapp / API**, Välj en giltig URI för **inloggnings-URL**, och välj **skapa**.
 
    [![Skapa programmet i Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
@@ -67,7 +67,7 @@ Installationsprogrammet flödet består av tre steg:
 
    [![Kopiera program-ID](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
-1. Välj **nycklar**, ange nyckelnamnet, Välj förfallodatum och klicka på **spara**.
+1. Välj **nycklar**, ange nyckelnamnet, Välj förfallodatum och välj **spara**.
 
    [![Välj nycklar för programmet](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
@@ -77,23 +77,23 @@ Installationsprogrammet flödet består av tre steg:
 
    [![Kopiera programnyckeln](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
-1. Time Series Insights-miljö, Välj **Dataåtkomstprinciper** och klicka på **Lägg till**.
+1. Time Series Insights-miljö, Välj **Dataåtkomstprinciper** och välj **Lägg till**.
 
    [![Lägg till ny policy för åtkomst till Time Series Insights-miljö](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. I den **Välj användare** dialogrutan rutan, klistra in namnet på programmet (från **steg 2**) eller program-ID (från **steg 3**).
+1. I den **Välj användare** dialogrutan, klistra in namnet på programmet från steg 2 eller program-ID från steg 3.
 
    [![Hitta ett program i dialogrutan Välj användare](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. Välj rollen (**läsare** för att fråga efter data, **deltagare** för datafrågor och ändra referensdata) och klicka på **OK**.
+1. Välj rollen. Välj **läsare** att fråga data eller **deltagare** att fråga efter data och ändra referensdata. Välj **OK**.
 
-   [![Välj läsare eller deltagare i dialogrutan Välj roll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![Välj läsare eller deltagare i dialogrutan Välj användarroll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-1. Spara principen genom att klicka på **OK**.
+1. Spara principen genom att välja **OK**.
 
-1. Använda program-ID (från **steg 3**) och programnyckel (från **steg 5**) att hämta token för programmet. Token kan sedan skickas i den `Authorization` rubrik när programmet anropar API: T för Time Series Insights.
+1. Använda program-ID från steg 3 och programnyckeln från steg 5 för att hämta token för programmet. Token kan sedan skickas i den `Authorization` rubrik när programmet anropar API: T för Time Series Insights.
 
-    Om du använder C#, kan du använda följande kod för att hämta token för programmet. Ett komplett exempel finns i [fråga data med C#](time-series-insights-query-data-csharp.md).
+    Om du använder C#, du kan använda följande kod för att hämta token för programmet. Ett komplett exempel finns i [fråga data med C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
     // Enter your Active Directory tenant domain name
@@ -119,7 +119,5 @@ Använd den **program-ID** och **nyckeln** i din app för att autentisera med Az
 ## <a name="next-steps"></a>Nästa steg
 
 - Exempelkod som anropar API: T för Time Series Insights, se [fråga data med C#](time-series-insights-query-data-csharp.md).
-
 - API-Referensinformation finns i [fråge-API-referens](/rest/api/time-series-insights/ga-query-api).
-
 - Lär dig hur du [skapa ett huvudnamn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md).

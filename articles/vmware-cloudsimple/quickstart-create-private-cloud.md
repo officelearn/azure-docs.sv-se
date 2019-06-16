@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209543"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabbstart – konfigurera en privat molnmiljö
 
 I den här artikeln lär du dig hur du skapar ett privat moln CloudSimple och konfigurera din miljö för privata moln.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
@@ -104,7 +104,7 @@ VPN-klient krävs för att ansluta till CloudSimple från datorn.  Ladda ned [Op
 4. Välj **användare**.
 5. Klicka på **hämta min VPN-konfiguration**
 
-    ![Ladda ned VPN-anslutning](media/download-p2s-vpn-configuration.png)
+    ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)
 
 6. Importera konfigurationen på VPN-klienten
 

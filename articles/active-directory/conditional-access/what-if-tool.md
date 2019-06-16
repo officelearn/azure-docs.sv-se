@@ -2,7 +2,7 @@
 title: Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
 description: Lär dig hur du kan förstå effekten av principer för villkorlig åtkomst på din miljö.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 6a0f1fa0630a58054a138b730141b982af427475
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354330"
+ms.locfileid: "67111928"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
 
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du kan använda det här verktyget för att tes
 
 ## <a name="what-it-is"></a>Vad det är
 
-Den **what-if för villkorlig åtkomst princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten inte bara innehåller det tillämpade villkorliga åtkomstprinciper utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
+Den **what-if för villkorlig åtkomst princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten visar bara inte tillämpade principer för villkorlig åtkomst utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
 
 Vad avgöra om verktygen innehåller också ett sätt att snabbt de principer som gäller för en viss användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.  
 
@@ -123,8 +123,8 @@ I listan med principer som inte gäller för dina användare kan och också hitt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
 
 - Om du vill migrera klassiska principer finns i [migrera klassiska principer i Azure portal](policy-migration.md)  

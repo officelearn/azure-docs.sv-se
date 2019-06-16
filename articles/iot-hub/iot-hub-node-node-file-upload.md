@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596624"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
@@ -29,7 +29,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 Den [Kom igång med IoT Hub](quickstart-send-telemetry-node.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 *  Stora filer som innehåller bilder
-*  Videor
+*  Videoklipp
 *  Vibrationer data samplas med hög frekvens
 *  Någon form av förbearbetade data.
 

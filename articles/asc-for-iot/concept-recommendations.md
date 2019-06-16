@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200674"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
@@ -37,7 +37,7 @@ Rekommendationer för enhet ger insikter och förslag för att förbättra säke
 
 | Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medel   | Öppna portar på enheten                                      | Agent       | En lyssnarslutpunkt hittades på enheten                                                                                                                                                          |
+| Medel   | Öppna portar på enheten                                      | Agent       | En lyssnarslutpunkten hittades på enheten                                                                                                                                                          |
 | Medel   | Tillåtande brandväggsprincipen finns på någon av kedjorna. | Agent       | Tillåtna brandväggsprincipen hittades (indata/utdata). Brandväggsprincip ska neka all trafik som standard, och definiera regler för att tillåta nödvändiga kommunikation till och från enheten.                               |
 | Medel   | Tillåtande brandväggsregel i indata kedjan hittades     | Agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                    |
 | Medel   | Tillåtande brandväggsregel i utdata-kedjan hittades    | Agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                   |

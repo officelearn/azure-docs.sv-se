@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940013"
 ---
 <a name="logic-app-test-drive"></a>Logic App-provkörning
@@ -61,13 +61,13 @@ Nästa avsnitt för att fylla i kan du konfigurera din Test Drive Logikapp och d
 
 ![Test Drive teknisk konfiguration](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Region** - *[krävs Field]* den region som du väljer är där du kan välja där Test Drive Logic App-resurser distribueras.
+- **Region** -  *[krävs Field]* den region som du väljer är där du kan välja där Test Drive Logic App-resurser distribueras.
 
-    *Obs!* Om din Logikapp har alla anpassade resurser som lagras i en region, kontrollerar du den regionen väljs här. Det bästa sättet att göra detta är att **fullständigt distribuera Logikappen lokalt på din Azure-prenumeration i portalen och kontrollera att det fungerar** innan du skriver in här.
+    *Obs:* Om din Logikapp har alla anpassade resurser som lagras i en region, kontrollerar du den regionen väljs här. Det bästa sättet att göra detta är att **fullständigt distribuera Logikappen lokalt på din Azure-prenumeration i portalen och kontrollera att det fungerar** innan du skriver in här.
 
-- **Maximal samtidiga Provkörningar** - *[krävs Field]* nummer Provköra instanser som redan är distribuerad och väntar på åtkomst per valda regionen. Kunder kan direkt komma åt den här Provkörningar i stället för att behöva vänta på en distribution.
+- **Maximal samtidiga Provkörningar** -  *[krävs Field]* nummer Provköra instanser som redan är distribuerad och väntar på åtkomst per valda regionen. Kunder kan direkt komma åt den här Provkörningar i stället för att behöva vänta på en distribution.
 
-    *Obs!* Om du kör en webbseminarium/klass där du vill att alla dina N antalet studenter att testa, rekommenderar vi att publicera med N antal frekvent instanser och sedan en gång klassen är över att publicera tillbaka till det normala antalet frekvent instanser.
+    *Obs:* Om du kör en webbseminarium/klass där du vill att alla dina N antalet studenter att testa, rekommenderar vi att publicera med N antal frekvent instanser och sedan en gång klassen är över att publicera tillbaka till det normala antalet frekvent instanser.
 
 - **Driv varaktighet (timmar) -** *[krävs Field]* varaktigheten för hur länge Test Drive förblir aktiv i \# timmar. Test Drive avslutas automatiskt efter denna tid har löpt ut.
 
@@ -77,7 +77,7 @@ Nästa avsnitt för att fylla i kan du konfigurera din Test Drive Logikapp och d
 
 - **Ta bort etableringen av namn för Logikappen -** *[obligatoriskt fält]* skriva i Logic App-namn för din borttagning av alla resurser som skapats i Test Drive. Kontrollera att filen sparas i resursgruppen ovan.
 
-- **Komma åt Information -** *[obligatoriskt fält]* när en kund får sin Test Drive kan komma åt information visas för dem. Dessa instruktioner är avsedda att dela användbara Utdataparametrarna från Test Drive Resource Manager-mallen. För att inkludera utdataparametrar, använda dubbla klammerparenteser (till exempel **{{outputname}}**), och de kommer att infogas korrekt på plats. (HTML-strängformatering bör här renderas i klientdelen).
+- **Komma åt Information -** *[obligatoriskt fält]* när en kund får sin Test Drive kan komma åt information visas för dem. Dessa instruktioner är avsedda att dela användbara Utdataparametrarna från Test Drive Resource Manager-mallen. För att inkludera utdataparametrar, använda dubbla klammerparenteser (till exempel **{{outputname}}** ), och de kommer att infogas korrekt på plats. (HTML-strängformatering bör här renderas i klientdelen).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Prenumerationsinformation för Test Drive-distribution
 
@@ -119,7 +119,7 @@ Klicka på Spara. Det sista steget är att hämta program-ID för den här regis
 Får vi använder programmet för att distribuera till prenumerationen, behöver vi lägga till programmet som deltagare för prenumerationen. Anvisningarna för dessa är som nedan:
 
 1. Gå till bladet prenumerationer och välj lämplig prenumeration som du använder för Test-enheten.
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 1. Klicka på den **rolltilldelningar** fliken.  ![Azure Active Directory, att lägga till ett nytt huvudnamn för åtkomstkontroll](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klicka på **Lägg till rolltilldelning**.
 1. Ange rollen som **deltagare**.

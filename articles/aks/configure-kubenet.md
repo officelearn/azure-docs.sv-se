@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808571"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ Följande grundläggande beräkningar jämför skillnaden i nätverket modeller:
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering av virtuella nätverk och ExpressRoute-anslutningar
 
-För lokala anslutningar både *kubenet* och *Azure CNI* nätverk metoder kan använda [Azure virtuell nätverkspeering] [ vnet-peering]eller [ExpressRoute-anslutningar][express-route]. Planera dina IP-adressintervall noggrant för att förhindra överlappning och routning av nätverkstrafik som felaktig. Till exempel många lokala nätverk använder en *10.0.0.0/8* adressintervall som annonseras via ExpressRoute-anslutning. Vi rekommenderar att du skapar AKS-kluster i Azure-nätverk undernät utanför den här adressintervall, till exempel *172.26.0.0/16*.
+För lokala anslutningar både *kubenet* och *Azure CNI* nätverk metoder kan använda [Azure virtuell nätverkspeering] [ vnet-peering]eller [ExpressRoute-anslutningar][express-route]. Planera dina IP-adressintervall noggrant för att förhindra överlappning och routning av nätverkstrafik som felaktig. Till exempel många lokala nätverk använder en *10.0.0.0/8* adressintervall som annonseras via ExpressRoute-anslutning. Vi rekommenderar att du skapar AKS-kluster i Azure-nätverk undernät utanför den här adressintervall, till exempel *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Välj en modell för nätverket att använda
 
@@ -92,15 +92,15 @@ Du kommer igång med hjälp av *kubenet* och egna undernät för virtuellt nätv
 az group create --name myResourceGroup --location eastus
 ```
 
-Om du inte har ett befintligt virtuellt nätverk och undernät som ska använda, skapa dessa nätverksresurser med hjälp av den [az network vnet skapa] [ az-network-vnet-create] kommando. I följande exempel visas det virtuella nätverket namnet *myVnet* med adressprefix *10.0.0.0/8*. Ett undernät skapas med ett namn *myAKSSubnet* med adressprefixet *10.240.0.0/16*.
+Om du inte har ett befintligt virtuellt nätverk och undernät som ska använda, skapa dessa nätverksresurser med hjälp av den [az network vnet skapa] [ az-network-vnet-create] kommando. I följande exempel visas det virtuella nätverket namnet *myVnet* med adressprefix *192.168.0.0/16*. Ett undernät skapas med ett namn *myAKSSubnet* med adressprefixet *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myAKSVnet \
-    --address-prefixes 10.0.0.0/8 \
+    --address-prefixes 192.168.0.0/16 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
+    --subnet-prefix 192.168.1.0/24
 ```
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>Skapa ett tjänstobjekt och tilldela behörigheter
@@ -150,7 +150,7 @@ Följande IP-adressintervall också definieras som en del av klustret skapa proc
 
 * Den *--pod-cidr* ska vara ett stort adressutrymme som inte används i din nätverksmiljö. Det här intervallet inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
     * Den här adressintervallet måste vara tillräckligt stor för att anpassa antalet noder som du förväntar dig att skala upp till. Du kan inte ändra den här adressintervall när klustret distribueras om du behöver fler adresser för ytterligare noder.
-    * Pod IP-adressintervall som används för att tilldela en */24* adressutrymme till varje nod i klustret. I följande exempel visas den *--pod-cidr* av *192.168.0.0/16* tilldelar den första noden *192.168.0.0/24*, den andra noden *192.168.1.0/24*, och den tredje nod *192.168.2.0/24*.
+    * Pod IP-adressintervall som används för att tilldela en */24* adressutrymme till varje nod i klustret. I följande exempel visas den *--pod-cidr* av *10.244.0.0/16* tilldelar den första noden *10.244.0.0/24*, den andra noden *10.244.1.0/24*, och den tredje nod *10.244.2.0/24*.
     * Som klustret skalas eller uppgraderingar kan fortsätter Azure-plattformen att tilldela en pod IP-adressintervall till varje ny nod.
     
 * Den *--docker-bridge-adress* tillåter AKS-noder kommunicerar med den underliggande hanteringsplattformen. Den här IP-adressen får inte vara inom det virtuella nätverket IP-adressintervallet på klustret och får inte överlappa med andra adressintervall som används i nätverket.
@@ -163,7 +163,7 @@ az aks create \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
-    --pod-cidr 192.168.0.0/16 \
+    --pod-cidr 10.244.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \

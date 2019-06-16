@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799850"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
@@ -139,11 +139,11 @@ Ange följande information i dialogrutan:
 
 |Inställning|Beskrivning|
 |---|---|
-|Video Indexer-kontoregion|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
+|Region för video Indexer|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
 |Azure Active Directory (AAD)-klient|Namnet på Azure AD-klient, till exempel ”contoso.onmicrosoft.com”. Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domän**.|
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas. Prenumerations-ID kan hämtas från Azure-portalen. Klicka på **alla tjänster** i den vänstra panelen och söka efter ”prenumerationer”. Välj **prenumerationer** och välj önskad ID i listan med dina prenumerationer.|
-|Azure Media Services-resursgruppens namn|Namnet på resursgruppen där du skapade Media Services-kontot.|
-|Mediatjänstresursnamn|Namnet på Media Services-konto som du skapade i föregående avsnitt.|
+|Azure Media Services resursgruppens namn|Namnet på resursgruppen där du skapade Media Services-kontot.|
+|Media service-resursnamn|Namnet på Media Services-konto som du skapade i föregående avsnitt.|
 |Program-ID:t|Azure AD application ID (med behörigheter för det angivna Media Services-kontot) som du skapade i föregående avsnitt.|
 |Programnyckel|Nyckeln för Azure AD-program som du skapade i föregående avsnitt. |
 

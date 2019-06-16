@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083926"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -91,24 +91,26 @@ Följande administratörsroller är tillgängliga:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla Intune-granskningsdata
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har skrivskyddad behörighet och kan hantera aviseringar<br>Kan skapa och ändra principer för filer och Tillåt styrningsåtgärder<br> Kan visa de inbyggda rapporterna under datahantering
 
-<!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
+* **[Data Efterlevnadsadministratör](#compliance-data-administrator)** : Användare med den här rollen har behörighet att skydda och spåra data i efterlevnadscentret för Microsoft 365, Microsoft 365 Administrationscenter och Azure. Användare kan också hantera alla funktioner i administrationscentret för Exchange, Compliance Manager, Teams och Skype för företag-administrationscentret och skapa supportbegäranden för Azure och Microsoft 365.
 
-  In | Can do
+  I | Kan göra
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
--->
-* **[Administratör för villkorsstyrd åtkomst](#conditional-access-administrator)** : Användare med den här rollen har behörighet att hantera inställningar för villkorlig åtkomst i Azure Active Directory.
+  [Microsoft 365 efterlevnadscenter](https://protection.office.com) | Övervaka efterlevnad-relaterade principer i Microsoft 365-tjänster<br>Hantera aviseringar för efterlevnad
+  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera din organisations regelefterlevnad aktiviteter
+  [Och Efterlevnadscenter för Office 365-säkerhet](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera datastyrning<br>Utför juridisk information och data undersökning<br>Hantera begäran om ämne
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla Intune-granskningsdata
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har skrivskyddad behörighet och kan hantera aviseringar<br>Kan skapa och ändra principer för filer och Tillåt styrningsåtgärder<br> Kan visa de inbyggda rapporterna under datahantering
+
+* **[Administratör för villkorsstyrd åtkomst](#conditional-access-administrator)** : Användare med den här rollen har behörighet att hantera inställningar för Azure Active Directory villkorlig åtkomst.
   > [!NOTE]
-  > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara en Global administratör.
+  > Om du vill distribuera principen för villkorlig åtkomst för Exchange ActiveSync i Azure, måste användaren också vara en Global administratör.
   
 * **[Customer Lockbox åtkomst godkännaren](#customer-lockbox-access-approver)** : Hanterar [Customer Lockbox begär](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) i din organisation. De kan får e-postmeddelanden för Customer Lockbox begäranden och godkänna och Neka förfrågningar från Administrationscenter för Microsoft 365. De kan också aktivera funktionen Customer Lockbox eller inaktivera. Endast globala administratörer kan återställa lösenorden för personer som har tilldelats den här rollen.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[Enhetsadministratörer](#device-administrators)** : Den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
+* **[Desktop Analytics-administratör](#desktop-analytics-administrator)** : Användare i den här rollen kan hantera Desktop Analytics och Office-anpassning & princip för tjänster. Detta inkluderar möjligheten att visa tillgångar, skapa planer för distribution, visa status för distribution och hälsa för Desktop analys. För Office-anpassning & princip för tjänsten kan den här rollen du hantera principer för Office.
+
+* **[Enhetsadministratör](#device-administrators)** : Den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
 
 * **[Katalogläsare](#directory-readers)** : Det här är en roll som ska tilldelas endast till äldre program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Inte tilldela den till användare.
 
@@ -210,19 +212,20 @@ Dessutom kan användaren komma åt rapporter som rör införande och användning
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer
   [Tjänstehälsa för Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälsotillståndet för Office 365-tjänster
 
-<!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
+* **[Säkerhetsansvarig](#security-operator)** : Användare med den här rollen kan hantera aviseringar och har global skrivskyddad åtkomst på säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Säkerhetscenter, Azure Active Directory, Identity Protection, Privileged Identity Management och Office 365 Säkerhets- och Efterlevnadscenter. Mer information om behörigheter för Office 365 finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscenter](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-  In | Can do
+  I | Kan göra
   --- | ---
-  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-  Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-  [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
--->
+  [Microsoft 365 Säkerhetscenter](https://protection.office.com) | Alla behörigheter för rollen Säkerhetsläsare<br>Visa, undersöka och åtgärda säkerhetsaviseringar för hot
+  Identity Protection Center | Alla behörigheter för rollen Säkerhetsläsare<br>Dessutom kan utföra alla åtgärder för Identity Protection Center förutom för återställning av lösenord
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alla behörigheter för rollen Säkerhetsläsare
+  [Och Efterlevnadscenter för Office 365-säkerhet](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Alla behörigheter för rollen Säkerhetsläsare<br>Visa, undersöka och åtgärda säkerhetsaviseringar
+  Windows Defender ATP och EDR | Alla behörigheter för rollen Säkerhetsläsare<br>Visa, undersöka och åtgärda säkerhetsaviseringar
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Alla behörigheter för rollen Säkerhetsläsare
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alla behörigheter för rollen Säkerhetsläsare
+  [Tjänstehälsa för Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälsotillståndet för Office 365-tjänster
+<!--* **[Security Operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
+
 * **[Security Reader](#security-reader)** : Användare med den här rollen har global skrivskyddad åtkomst på säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Säkerhetscenter, Azure Active Directory, Identity Protection, Privileged Identity Management, samt möjlighet att läsa Azure Active Directory-inloggningsrapporter och granskningsloggar, och i Office 365 säkerhets- och Efterlevnadscenter. Mer information om behörigheter för Office 365 finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscenter](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
   I | Kan göra
@@ -406,22 +409,6 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="desktop-analytics-administrator"></a>Desktop Analytics-administratör
-Kan hantera Desktop Analytics och Office-anpassning & princip för tjänster. Detta inkluderar möjligheten att visa tillgångar, skapa planer för distribution, visa status för distribution och hälsa för Desktop analys. För Office-anpassning & princip för tjänsten kan den här rollen du hantera principer för Office.
-
-  > [!NOTE]
-  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
-| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | Hantera alla aspekter av Desktop Analytics. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
 ### <a name="cloud-application-administrator"></a>Molnprogramadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar förutom App Proxy.
@@ -565,6 +552,28 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
+### <a name="compliance-data-administrator"></a>Efterlevnadsadministratör för Data
+Skapar och hanterar efterlevnad innehåll.
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
+| microsoft.azure.informationProtection/allEntities/allTasks | Hantera alla aspekter av Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
+| microsoft.office365.complianceManager/allEntities/allTasks | Hantera alla aspekter av Office 365-efterlevnad Manager |
+| microsoft.office365.exchange/allEntities/allTasks | Hantera alla aspekter av Exchange Online. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| microsoft.office365.sharepoint/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag Online. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
 ### <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
 Kan hantera funktioner för villkorlig åtkomst.
 
@@ -608,6 +617,23 @@ Kan godkänna förfrågningar till åtkomst till kundens organisationsdata Micro
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Hantera alla aspekter av Office 365 Customer Lockbox |
+
+### <a name="desktop-analytics-administrator"></a>Desktop Analytics-administratör
+Kan hantera Desktop Analytics och Office-anpassning & princip för tjänster. Detta inkluderar möjligheten att visa tillgångar, skapa planer för distribution, visa status för distribution och hälsa för Desktop analys. För Office-anpassning & princip för tjänsten kan den här rollen du hantera principer för Office.
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Hantera alla aspekter av Desktop Analytics. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
 ### <a name="device-administrators"></a>Enhetsadministratörer
 Användare som tilldelats den här rollen har lagts till i gruppen lokala administratörer på Azure AD-anslutna enheter.
@@ -1081,6 +1107,25 @@ Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azur
 | microsoft.office365.protectionCenter/allEntities/update | Uppdatera alla resurser i microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
+### <a name="security-operator"></a>Säkerhetsansvarig
+Skapar och hanterar säkerhetshändelser.
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
+| microsoft.aad.identityProtection/allEntities/read | Läsa alla resurser i microsoft.aad.identityProtection. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | Läsa alla resurser i microsoft.aad.privilegedIdentityManagement. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Läsa och konfigurera Azure AD Advanced Threat Protection. |
+| microsoft.intune/allEntities/allTasks | Hantera alla aspekter av Intune. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Läsa och konfigurera säkerhets- och Efterlevnadscenter. |
+| microsoft.office365.usageReports/allEntities/read | Läs Office 365 användningsrapporter. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Läsa och konfigurera Windows Defender Avancerat skydd. |
+
 ### <a name="security-reader"></a>Säkerhetsläsare
 Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 
@@ -1261,14 +1306,15 @@ B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475-9f94-5c398ef6c070
 Faktureringsadministratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
-Desktop Analytics-administratör | Desktop Analytics-administratör | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Molnprogramadministratör | Molnprogramadministratör | 158c047a-c907-4556-b7ef-446551a6b5f7
 Molnenhetsadministratör | Molnenhetsadministratör | 7698a772-787b-4ac8-901f-60d6b08affd2
 Företagsadministratör | Global administratör | 62e90394-69f5-4237-9190-012177145e10
 Efterlevnadsadministratör | Efterlevnadsadministratör | 17315797-102d-40b4-93e0-432062caca18
+Efterlevnadsadministratör för Data | Efterlevnadsadministratör för data | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administratör för villkorsstyrd åtkomst | Administratör för villkorlig åtkomst | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM-tjänstadministratör | Dynamics 365-administratör | 44367163-eba1-44c3-98af-f5787879f96a
 Customer LockBox åtkomst godkännaren | Customer Lockbox åtkomst godkännaren | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Desktop Analytics-administratör | Desktop Analytics-administratör | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Enhetsadministratörer | Enhetsadministratörer | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Enhetskoppling | Enhetskoppling | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Enhetshanterare | Enhetshanterare | 2b499bcd-da44-4968-8aec-78e1674fa64d
@@ -1295,6 +1341,7 @@ Rapportläsare | Rapportläsare | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Sök-administratör | Sökadministratör | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 Sök-redigeraren | Sök-redigeraren | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Säkerhetsadministratör | Säkerhetsadministratör | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Säkerhetsansvarig | Säkerhetsansvarig | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Säkerhetsläsare | Säkerhetsläsare | 5d6b6bb7-de71-4623-b4af-96380a352509
 Tjänstsupportadministratör | Tjänstadministratör | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint Service Administrator | SharePoint-administratör | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

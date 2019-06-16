@@ -12,10 +12,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65465180"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Konfigurera offentlig slutpunkt i Azure SQL Database-hanterad instans
@@ -97,7 +97,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Källa**     |Alla IP-adress eller en tjänsttagg         |<ul><li>Välj Azure Cloud Service Tag för Azure-tjänster som Power BI</li> <li>Använd NAT IP-adressen för din dator eller virtuell dator i Azure</li></ul> |
     |**Källportsintervall**     |*         |Lämna det här alternativet om du till * (alla) som källportar är vanligtvis dynamiskt allokerade och som oförutsägbar |
-    |**mål**     |Valfri         |Lämna mål som helst att tillåta trafik till hanterad instans-undernät |
+    |**mål**     |Alla         |Lämna mål som helst att tillåta trafik till hanterad instans-undernät |
     |**Målportsintervall**     |3342         |Omfång målport till 3342, vilket är den offentliga TDS-slutpunkten för hanterad instans |
     |**Protokoll**     |TCP         |Hanterad instans använder TCP-protokollet för TDS |
     |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till managed instance via den offentliga slutpunkten |

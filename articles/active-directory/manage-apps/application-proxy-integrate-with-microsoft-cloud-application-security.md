@@ -1,6 +1,6 @@
 ---
 title: Integrera lokala appar med Cloud App Security - Azure Active Directory | Microsoft Docs
-description: Konfigurera ett lokalt program i Azure Active Directory för att arbeta med Microsoft Cloud App Security (MCAS). Använda MCAS-Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
+description: Konfigurera ett lokalt program i Azure Active Directory för att arbeta med Microsoft Cloud App Security (MCAS). Använda MCAS-Appkontroll för villkorsstyrd åtkomst att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,12 +11,12 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c614d636e572eb261ec28c55ac49fec0e2b58b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783591"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108455"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av realtidsprogram åtkomst med Microsoft Cloud App Security och Azure Active Directory
 Konfigurera ett lokalt program i Azure Active Directory (AD Azure) att använda Microsoft Cloud App Security (MCAS) för övervakning i realtid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).

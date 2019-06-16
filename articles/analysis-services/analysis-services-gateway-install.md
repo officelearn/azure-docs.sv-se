@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062247"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -40,7 +40,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Installera gatewayen på en dator som finns kvar och går inte i viloläge.
 * Installera inte gatewayen på en dator som trådlöst anslutna till nätverket. Prestanda kan minskas.
 * När du installerar gatewayen, måste du är inloggad på datorn med användarkontot ha Log på som tjänsten privilegier. När installationen är klar använder lokala data gateway-tjänsten NT SERVICE\PBIEgwService-konto för att logga in som en tjänst. Ett annat konto kan anges under installationen eller i tjänster när installationen är klar. Kontrollera inställningarna för grupprincipen Tillåt både det konto som du är inloggad med när du installerar och det tjänstkonto som du väljer ha loggen som tjänsten privilegier.
-* Logga in på Azure med ett konto i Azure AD för samma [klient](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
+* Logga in på Azure med ett konto i Azure AD för samma [klient](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
 * Om datakällor finns på Azure Virtual Network (VNet), måste du konfigurera den [AlwaysUseGateway](analysis-services-vnet-gateway.md) serveregenskap.
 * (Enhetlig) gatewayen beskrivs här stöds inte i Azure Tyskland-regioner. Använd i stället **dedikerad lokal gateway för Azure Analysis Services**, installerad från serverns **Snabbstart** i portalen. 
 
@@ -90,7 +90,7 @@ När du har installerat och registrerat din gateway, måste du skapa en resurs f
 
 2. I **skapa anslutningsgatewayen**, anger dessa inställningar:
 
-   * **Namn**: Ange ett namn för din gatewayresursen. 
+   * **Namn på**: Ange ett namn för din gatewayresursen. 
 
    * **Prenumeration**: Välj den Azure-prenumerationen ska associeras med din gateway-resurs. 
    

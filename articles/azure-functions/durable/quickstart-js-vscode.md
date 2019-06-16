@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065510"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -32,7 +32,7 @@ För att slutföra den här självstudien behöver du:
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Kontrollera att du har de [senaste Azure Functions-verktygen](../functions-develop-vs.md#check-your-tools-version).
+* Kontrollera att du har den senaste versionen av den [Azure Functions Core Tools](../functions-run-local.md).
 
 * På en Windows-dator kontrollerar du att [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) är installerad och körs. På en Mac- eller Linux-dator måste du använda ett faktiskt Azure Storage-konto.
 
@@ -48,69 +48,61 @@ För att slutföra den här självstudien behöver du:
 
 1. Installera npm-paketet för `durable-functions` genom att köra `npm install durable-functions` i funktionsappens rotkatalog.
 
-## <a name="create-a-starter-function"></a>Skapa en startfunktion
+## <a name="creating-your-functions"></a>Skapa dina funktioner
+
+Nu ska vi skapa de tre funktionerna som du behöver för att komma igång med varaktiga funktioner: en HTTP-starter, en initierare och funktion som en aktivitet. HTTP-starter initierar hela lösningen och orchestrator kommer skicka ut arbete till olika Aktivitetsfunktioner.
+
+### <a name="http-starter"></a>HTTP-starter
 
 Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig funktion.
 
-1. I **Azure: Functions** väljer du ikonen Skapa funktion.
+1. I *Azure: Functions*, Välj den **Create Function** ikon.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-2. Välj mappen med funktionsappsprojektet och välj funktionsmallen **HTTP-utlösare**.
+2. Välj mappen med ditt funktionsappsprojekt och välj den **HTTP-Starter för beständiga funktioner** funktionsmallen.
 
-    ![Välj mallen HTTP-utlösare](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Välj den HTTP-starter-mallen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Skriv `HttpStart` som funktionens namn och tryck på Retur. Välj sedan **Anonym** autentisering.
+3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på *** RETUR ** och välj sedan **anonym** autentisering.
 
     ![Välj anonym autentisering](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    En funktion skapas på ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion.
-
-4. Ersätt index.js med nedanstående JavaScript:
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. Ersätt function.json med nedanstående JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 Nu har vi skapat en startpunkt till vår beständiga funktion. Vi lägger till en orkestrerare.
 
-## <a name="create-an-orchestrator-function"></a>Skapa en orkestrerarfunktion
+### <a name="orchestrator"></a>Orchestrator
 
-Därefter skapar du en annan funktion som ska vara orkestrerare. Vi gör det enklare genom att använda mallen för HTTP-utlösarfunktion. Själva funktionskoden ersätts av orkestrerarkoden.
+Nu ska skapa vi en orchestrator för att samordna Aktivitetsfunktioner.
 
-1. Upprepa stegen från föregående avsnitt och skapa en andra funktion med hjälp av HTTP-utlösarmallen. Den här gången ger du funktionen namnet `OrchestratorFunction`.
+1. I *Azure: Functions*, Välj den **Create Function** ikon.
 
-2. Öppna filen index.js för den nya funktionen och ersätt innehållet med följande kod:
+    ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. Välj mappen med ditt funktionsappsprojekt och välj den **varaktiga funktioner orchestrator** funktionsmallen. Lämna namnet som standard ”DurableFunctionsOrchestrator”
 
-3. Öppna filen function.json och ersätt den med följande JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![Välj den orchestrator-mallen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Vi har lagt till en orkestrerare för att samordna aktivitetsfunktioner. Nu lägger vi till den refererade aktivitetsfunktionen.
 
-## <a name="create-an-activity-function"></a>Skapa en aktivitetsfunktion
+### <a name="activity"></a>Aktivitet
 
-1. Upprepa stegen från föregående avsnitt och skapa en tredje funktion med hjälp av HTTP-utlösarmallen. Den här gången ger du dock funktionen namnet `E1_SayHello`.
+Nu ska skapa vi en aktivitet funktion att faktiskt utföra verk som tillhör lösningen.
 
-2. Öppna filen index.js för den nya funktionen och ersätt innehållet med följande kod:
+1. I *Azure: Functions*, Välj den **Create Function** ikon.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-3. Ersätt function.json med nedanstående JSON:
+2. Välj mappen med ditt funktionsappsprojekt och välj den **varaktiga funktioner aktivitet** funktionsmallen. Lämna namnet som standard ”Hello”.
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![Välj mall för aktivitet](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Nu har vi lagt till alla komponenter som behövs för att påbörja en orkestrering och kedja ihop aktivitetsfunktioner.
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
-Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.  
+Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.
 
-1. På en Windows-dator startar du Azure Storage Emulator och se till att egenskapen **AzureWebJobsStorage** för local.settings.json har angetts till `UseDevelopmentStorage=true`. 
+1. Starta Azure Storage-emulatorn på en Windows-dator och se till att den **AzureWebJobsStorage** egenskapen för *local.settings.json* är inställd på `UseDevelopmentStorage=true`.
 
     För Storage-emulatorn 5.8 se till att den **AzureWebJobsSecretStorageType** egenskapen för local.settings.json har angetts `files`. På en Mac- eller Linux-dator måste du ange den **AzureWebJobsStorage** egenskapen för anslutningssträngen för ett befintligt Azure storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
 
@@ -123,9 +115,9 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
     ![Lokala Azure-utdata](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Ersätt `{functionName}` med `OrchestratorFunction`.
+4. Ersätt `{functionName}` med `DurableFunctionsOrchestrator`.
 
-5. Med ett verktyg som [Postman](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/) skickar du en HTTP POST-begäran till URL-slutpunkten.
+5. Med ett verktyg som [Postman](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/), skicka en HTTP POST-begäran till URL-slutpunkten.
 
    Svaret är det första resultatet från HTTP-funktionen, som anger att den beständiga orkestreringen har startats korrekt. Det är inte ännu slutresultatet av orkestreringen. Svaret innehåller några användbara URL:er. För tillfället kör vi en fråga om orkestreringens status.
 

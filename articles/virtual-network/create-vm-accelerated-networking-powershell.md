@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190282"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med Accelererat nätverk
@@ -52,7 +52,7 @@ På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för
 
 Läs mer på VM-instanser, [Windows VM-storlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regioner
+### <a name="regions"></a>Regions
 Tillgängligt i alla offentliga Azure-regioner och Azure Government-molnet.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivering av Accelererat nätverk på en aktiv virtuell dator
@@ -64,7 +64,7 @@ Virtuella datorer (klassiska) kan inte distribueras med Accelererat nätverk.
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Skapa en Windows VM med Azure Accelererat nätverk
 ## <a name="portal-creation"></a>Skapa Portal
 Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure Powershell, du kan också [skapa en virtuell dator med accelererat nätverk med Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen, i den **skapa en virtuell dator** bladet väljer du den **nätverk** fliken.  I den här fliken finns ett alternativ för **Accelerated networking**.  Om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances), det här alternativet kommer automatiskt att fylla i ”på”.  Om inte, den fylla i alternativet ”Off” för Accelererat nätverk och ge användaren en orsak till varför den inte är aktiveras.   
-* *Obs!* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
+* *Obs:* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
 
 När den virtuella datorn har skapats kan bekräfta du Accelererat nätverk är aktiverat genom att följa anvisningarna i Bekräfta att accelererat nätverk är aktiverat.
 

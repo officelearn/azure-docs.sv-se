@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062165"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -55,7 +55,7 @@ En LUIS-app innehåller en domänspecifik modell för naturligt språk. Du kan s
 ## <a name="build-the-luis-model"></a>Skapa LUIS-modellen
 Skapa modellerna med [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087)-API:er eller med LUIS-portalen.
 
-LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avsikter](luis-concept-intent.md)**. Varje avsikt behöver exempel på **[yttranden](luis-concept-utterance.md)** från användaren. Varje yttrande kan ge olika data som måste extraheras med **[entiteter](luis-concept-entity-types.md)**. 
+LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avsikter](luis-concept-intent.md)** . Varje avsikt behöver exempel på **[yttranden](luis-concept-utterance.md)** från användaren. Varje yttrande kan ge olika data som måste extraheras med **[entiteter](luis-concept-entity-types.md)** . 
 
 |Exempel på användaryttrande|Avsikt|Entiteter|
 |-----------|-----------|-----------|
@@ -101,7 +101,7 @@ LUIS tillhandahåller verktyg, versionshantering och samarbete med andra LUIS-f�
 LUIS kan, som REST-API, användas med alla produkter, tjänster eller ramverk som gör en HTTP-begäran. Följande lista innehåller de främsta Microsoft-produkterna och -tjänsterna som används med LUIS.
 
 Det vanligaste klientprogram för LUIS är:
-* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) eller [4.x](https://github.com/Microsoft/botbuilder-dotnet) för en komplett robotupplevelse.
+* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [Bot Framework] [ bot-framework] version [4.x](https://github.com/Microsoft/botbuilder-dotnet) för en fullständig bot-upplevelse.
 
 Verktyg för att snabbt och enkelt använda LUIS med en robot:
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) The NPM-paketet innehåller redigering och förutsägelser med som antingen en fristående kommandoradsverktyg eller importera. 

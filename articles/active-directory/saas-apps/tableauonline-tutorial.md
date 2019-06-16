@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5e405dc4ea323a6869207de53b7577ee960924eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Självstudier: Azure Active Directory-integrering med Tableau Online
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Tableau Online i Azure AD, som du behöver l
 
 **Om du vill lägga till Tableau Online från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -229,7 +229,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i Tableau O
   
     ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Välj **lägga till användare för autentisering (SAML)**. I den **RETUR e-postadresser** textrutan Lägg till britta.simon\@contoso.com
+2. Välj **lägga till användare för autentisering (SAML)** . I den **RETUR e-postadresser** textrutan Lägg till britta.simon\@contoso.com
   
     ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
@@ -247,4 +247,4 @@ När du klickar på panelen Tableau Online i åtkomstpanelen, bör det vara logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

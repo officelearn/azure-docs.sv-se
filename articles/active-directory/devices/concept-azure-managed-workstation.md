@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110704"
 ---
 # <a name="building-secure-workstations"></a>Att skapa säkra arbetsstationer
 
 Säker isolerade arbetsstationer är ytterst viktiga för att skydda känsliga roller som administratörer, utvecklare och operatörer av kritiska tjänster. Många andra säkerhetskontroller och garanterar kommer att misslyckas eller har ingen effekt om den underliggande arbetsstation klientsäkerheten har komprometterats.
 
 Det här dokumentet beskriver vad som krävs för att skapa en säker klienten arbetsstation med detaljerade steg för steg-instruktioner, inklusive hur du ställer in startar säkerhetskontroller. Den här typen av arbetsstationer ibland kallas för en arbetsstation för privilegierad åtkomst (PAW), som den här referensen används, och bygger på. Vägledningen men ser för molnbaserade teknik för att hantera tjänsten och introducerar säkerhetsfunktioner som introducerades med början i Windows 10RS5, Microsoft Defender ATP, Azure Active Directory och Intune.
+
+> [!NOTE]
+> Den här artikeln förklarar begreppet säker arbetsstation och dess betydelse. Om du redan är bekant med konceptet och vill gå vidare till distribution, Läs [så här distribuerar du en säker arbetsstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
 ## <a name="why-securing-workstation-access-is-important"></a>Varför säkerhetsåtkomst arbetsstation är viktigt
 

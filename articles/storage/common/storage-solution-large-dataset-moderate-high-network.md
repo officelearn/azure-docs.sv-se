@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729246"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföringen för stora datauppsättningar med måttlig till hög nätverksbandbredd
@@ -74,7 +74,7 @@ Om du använder offline dataöverföring, information om skillnaderna i viktiga 
 |    Maskinvara                         |     Från Microsoft          |    Från Microsoft                            |    Från Microsoft                    |    Kunder som har angetts                   |
 |    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
-|    Fraktas                         |    Hanteras av Microsoft            |    Hanteras av Microsoft                             |    Hanteras av Microsoft                     |    Hanteras av kunden                    |
+|    Leveransadress                         |    Hanteras av Microsoft            |    Hanteras av Microsoft                             |    Hanteras av Microsoft                     |    Hanteras av kunden                    |
 | Använd när data flyttas         |Inom ett handel|Inom ett handel|Inom ett handel|Över geografiska gränser, t.ex. Vi kan EU|
 |    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 

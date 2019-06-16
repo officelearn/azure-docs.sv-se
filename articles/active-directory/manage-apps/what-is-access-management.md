@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108188"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätta att vara en utmaning att när en app har integrerats i din organisations identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i hanteringen av åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-team. Ofta tilldelning beslutet är avsedd att delegeras till beslutsfattare företag som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, som rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och utveckling av regeln brukar vara särskilda och dyra. Övervakning eller rapporter på antingen hanteringsstrategi är en egen separat, kostsamma och komplexa investering.
@@ -51,7 +51,7 @@ Med Azure AD kan program som Salesforce vara redan konfigurerats för enkel inlo
 
 I det här fallet skulle alla tilldelade användare etableras automatiskt till Salesforce, när de läggs till olika grupper sina rolltilldelning skulle uppdateras i Salesforce. Användare kommer att kunna upptäcka och komma åt Salesforce via Microsoft programåtkomstpanelen, Office web-klienter, eller även genom att gå till sin organisations Salesforce-inloggningssidan. Administratörer kommer att kunna lätt visa användning och tilldelning status med hjälp av Azure AD-rapportering.
 
-Administratörer kan använda [Azure AD villkorsstyrd åtkomst](../active-directory-conditional-access-azure-portal.md) att ställa in åtkomstprinciper för specifika roller. Dessa principer kan innehålla om åtkomst tillåts utanför företagets miljö och även Multi-Factor Authentication eller enhet kraven för att få åtkomst i olika fall.
+Administratörer kan använda [Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) att ställa in åtkomstprinciper för specifika roller. Dessa principer kan innehålla om åtkomst tillåts utanför företagets miljö och även Multi-Factor Authentication eller enhet kraven för att få åtkomst i olika fall.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)

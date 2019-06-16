@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922786"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)
@@ -38,21 +38,21 @@ Alla data i Log Analytics-arbetsytan lagras som en post med en viss posttyp.  Du
 
 
 
-## <a name="create-a-request"></a>Skapa en förfrågan
+## <a name="create-a-request"></a>Skapa en begäran
 Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som innehåller data som skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
-### <a name="request-uri"></a>Förfrågans URI
-| Attribut | Egenskap  |
+### <a name="request-uri"></a>Begärande-URI
+| Attribut | Egenskap |
 |:--- |:--- |
 | Metod |POST |
-| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI: N |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Innehållstyp |application/json |
 
 ### <a name="request-uri-parameters"></a>Begäran-URI-parametrar
 | Parameter | Beskrivning |
 |:--- |:--- |
 | CustomerID |Den unika identifieraren för Log Analytics-arbetsytan. |
-| Resurs |Resursnamnet API: / api/logs. |
+| Resource |Resursnamnet API: / api/logs. |
 | API-version |Versionen av API för användning med den här begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
@@ -200,9 +200,9 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 | 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har inte angetts. |
 | 400 |Felaktig förfrågan |UnsupportedContentType |Innehållstyp angavs inte **application/json**. |
 | 403 |Förbjudna |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
-| 404 |Kunde inte hittas | | Antingen av Webbadressen som tillhandahålls är felaktig eller begäran är för stor. |
+| 404 |Det gick inte att hitta | | Antingen av Webbadressen som tillhandahålls är felaktig eller begäran är för stor. |
 | 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran igen senare. |
-| 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök med förfrågan. |
+| 500 |Internt serverfel |UnspecifiedError |Tjänsten påträffade ett internt fel. Försök med förfrågan. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök igen. |
 
 ## <a name="query-data"></a>Söka i data

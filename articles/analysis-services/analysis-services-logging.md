@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142609"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
@@ -83,7 +83,7 @@ Mått-kategorin loggar samma [serverstatistik](analysis-services-monitor.md#serv
 
     * **Arkivera till ett lagringskonto**. Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md). Följ anvisningarna för att skapa en Resource Manager Allmänt konto och välj sedan ditt lagringskonto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Stream till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och event hub att ansluta till. Mer information finns i [skapa ett Event Hubs-namnområde och en event hub med Azure-portalen](../event-hubs/event-hubs-create.md). Gå sedan tillbaka till den här sidan i portalen för att välja Event Hub-namnområde och principen.
-    * **Skicka till Azure Monitor (Log Analytics-arbetsytan)**. Om du vill använda det här alternativet måste du använda en befintlig arbetsyta eller [skapa en ny arbetsyta](../azure-monitor/learn/quick-create-workspace.md) resurs i portalen. Mer information om hur du visar dina loggar finns i [visa loggar i Log Analytics-arbetsyta](#view-logs-in-log-analytics-workspace) i den här artikeln.
+    * **Skicka till Azure Monitor (Log Analytics-arbetsytan)** . Om du vill använda det här alternativet måste du använda en befintlig arbetsyta eller [skapa en ny arbetsyta](../azure-monitor/learn/quick-create-workspace.md) resurs i portalen. Mer information om hur du visar dina loggar finns i [visa loggar i Log Analytics-arbetsyta](#view-logs-in-log-analytics-workspace) i den här artikeln.
 
     * **Motorn**. Välj det här alternativet för att logga xEvents. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Tjänsten**. Välj det här alternativet att logga in på tjänsten-händelser. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.

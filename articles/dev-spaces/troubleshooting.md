@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058551"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -36,24 +36,26 @@ För närvarande Azure Dev blanksteg fungerar bäst när du felsöker en enda in
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
 
+### <a name="reason"></a>Reason
 Det här felet kan uppstå när något går fel med skapandet av kontrollanten. Om det är ett tillfälligt fel, ta bort och återskapa styrenheten för att åtgärda det.
 
-### <a name="try"></a>Prova:
+### <a name="try"></a>Testa
 
-Använda Azure Dev blanksteg CLI för att ta bort kontrollanten. Det går inte att göra det i Visual Studio eller Cloud Shell. Om du vill installera CLI AZDS först installera Azure CLI och kör sedan det här kommandot:
+Ta bort kontrollanten:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Du måste använda Azure Dev blanksteg CLI för att ta bort en domänkontrollant. Det går inte att ta bort en domänkontrollant från Visual Studio. Du kan även installera Azure Dev blanksteg CLI i Azure Cloud Shell så att du inte kan ta bort en domänkontrollant från Azure Cloud Shell.
+
+Om du inte har installerat Azure Dev blanksteg CLI kan du först installera den med hjälp av följande kommando sedan ta bort din kontrollant:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-Och kör sedan detta kommando för att ta bort kontrollanten:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Återskapa kontrollanten kan du göra detta från CLI eller Visual Studio. Följ instruktionerna i självstudier som om startar för första gången.
-
+Återskapa kontrollanten kan du göra detta från CLI eller Visual Studio. Se den [Team utveckling](quickstart-team-development.md) eller [utveckla med .NET Core](quickstart-netcore-visualstudio.md) snabbstarter exempel.
 
 ## <a name="error-service-cannot-be-started"></a>Fel-tjänsten kan inte startas ”.
 
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Aktivera Dev blanksteg misslyckas när Windows nodpooler läggs till i ett AKS-kluster
 
 ### <a name="reason"></a>Reason
-För närvarande är Azure Dev blanksteg avsedd att köras på Linux-poddar och endast noder. Du kan inte aktivera Azure Dev blanksteg i ett AKS-kluster med en pool för Windows-nod för tillfället.
+För närvarande är Azure Dev blanksteg avsedd att köras på Linux-poddar och endast noder. När du har ett AKS-kluster med en pool för Windows-nod, måste du kontrollera att Azure Dev blanksteg poddar endast är schemalagda på Linux-noder. Om en Azure Dev blanksteg pod är schemalagd att köras på en Windows-nod, kommer inte att starta den pod och aktiverar Dev blanksteg misslyckas.
+
+### <a name="try"></a>Testa
+[Lägg till en färg](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) till AKS-klustret för att se till att Linux poddar inte är schemalagda att köras på en Windows-nod.

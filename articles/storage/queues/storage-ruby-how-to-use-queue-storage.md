@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153155"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
@@ -98,8 +98,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Instruktioner: Ta bort från kön nästa meddelande
 Du kan ta bort ett meddelande från en kö i två steg.
 
-1. När du anropar **lista\_messages()**, du får nästa meddelande i en kö som standard. Du kan även ange hur många meddelanden som du vill hämta. Meddelanden som returneras från **lista\_messages()** blir osynligt för andra kod som läser meddelanden från den här kön. Du skickar i synlighet tidsgräns i sekunder som en parameter.
-2. Om du vill slutföra borttagningen av meddelandet från kön, måste du även anropa **delete_message()**.
+1. När du anropar **lista\_messages()** , du får nästa meddelande i en kö som standard. Du kan även ange hur många meddelanden som du vill hämta. Meddelanden som returneras från **lista\_messages()** blir osynligt för andra kod som läser meddelanden från den här kön. Du skickar i synlighet tidsgräns i sekunder som en parameter.
+2. Om du vill slutföra borttagningen av meddelandet från kön, måste du även anropa **delete_message()** .
 
 Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin- eller programvarufel, kan en annan instans av koden hämta samma meddelande och försök igen. Koden anropar **ta bort\_message()** direkt efter att meddelandet har bearbetats.
 

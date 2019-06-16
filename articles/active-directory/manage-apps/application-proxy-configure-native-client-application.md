@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825494"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Så här aktiverar du interna klientprogram att interagera med proxy-program
@@ -54,7 +54,7 @@ Nu måste du registrera ditt program i Azure AD finns på följande sätt:
    - Om du vill rikta bara de konton som är interna för din organisation, Välj **konton i den här organisationens katalogen**.
    - Om du vill rikta endast företag eller högskolor kunder, Välj **konton i alla organisationskatalog**.
    - Om du vill anpassa den största uppsättningen Microsoft identiteter, Välj **konton alla organisationskatalog och personliga Microsoft-konton**.
-7. I den **omdirigerings-URI** väljer **offentlig klient (mobila och stationära)**, och skriv sedan omdirigeringen-URI för ditt program.
+7. I den **omdirigerings-URI** väljer **offentlig klient (mobila och stationära)** , och skriv sedan omdirigeringen-URI för ditt program.
 8. Välj och läsa den **principer för Microsoft-plattformen**, och välj sedan **registrera**. En översiktssida för ny programregistrering skapas och visas.
 
 Mer information om hur du skapar en ny programregistrering finns [integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996525"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
@@ -75,7 +75,7 @@ Om en tidsstämpel avgränsare används, fylls TimeGenerated-egenskapen för var
 4. Ändra den avgränsare som används för att identifiera en ny post och välj den avgränsare som bäst identifierar poster i loggfilen.
 5. Klicka på **Nästa**.
 
-### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till sökvägar till loggsamling
+### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till insamlingssökvägar
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en specifik sökväg och ett namn för loggfilen eller du kan ange en sökväg med ett jokertecken för namnet. Detta har stöd för program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enda loggfil.
 
 Till exempel kan ett program skapa en loggfil skapas varje dag med det datum som ingår i namnet som log20100316.txt. Ett mönster för sådana en logg kan vara *log\*.txt* som skulle gälla för alla loggfiler efter programmet namngivning av schemat.
@@ -86,7 +86,7 @@ Till exempel kan ett program skapa en loggfil skapas varje dag med det datum som
 
 Följande tabell innehåller exempel på giltiga att ange olika loggfilerna.
 
-| Beskrivning | Sökväg |
+| Beskrivning | `Path` |
 |:--- |:--- |
 | Alla filer i *C:\Logs* med filnamnstillägget .txt på Windows-agent |C:\Logs\\\*.txt |
 | Alla filer i *C:\Logs* med ett namn som börjar med logg filnamnstillägget .txt på Windows-agent |C:\Logs\log\*.txt |
@@ -131,7 +131,7 @@ Hela innehållet i loggposten skrivs till en enskild egenskap med namnet **\data
 ## <a name="custom-log-record-properties"></a>Anpassade egenskaper för posten
 Poster för den anpassade loggen har en typ med namnet på loggen som du anger och egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | TimeGenerated |Datum och tid då posten har samlats in från Azure Monitor.  Om loggen använder en tidsbaserad avgränsare är den tid som samlas in från posten. |
 | SourceSystem |Typ av posten har samlats in från agenten. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller System Center Operations Manager <br> Linux – alla Linux-agenter |
@@ -153,7 +153,7 @@ Vi tillhandahåller en av filerna och kan se de händelser som kommer samla in. 
 
 ![Ladda upp och parsa en exempellogg](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Lägg till sökvägar till loggsamling
+### <a name="add-log-collection-paths"></a>Lägg till insamlingssökvägar
 Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datum i mönstret *appYYYYMMDD.log*.  Arbetsprofilen tillräcklig för den här loggen är *C:\MyApp\Logs\\\*.log*.
 
 ![Samling loggsökväg](media/data-sources-custom-logs/collection-path.png)

@@ -1,18 +1,18 @@
 ---
 title: Implementera Azure Databricks med en Cosmos DB-slutpunkt
 description: Den här självstudien beskrivs hur du implementerar Azure Databricks i ett virtuellt nätverk med en tjänstslutpunkt aktiverad för Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054640"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Självstudier: Implementera Azure Databricks med en Cosmos DB-slutpunkt
 
@@ -62,14 +62,14 @@ Innan du börjar måste du göra följande:
    |Kontonamn|db-vnet-service-endpoint|
    |API|Core (SQL)|
    |Location|Västra USA|
-   |Geo-redundans|Inaktivera|
-   |Skrivningar i flera regioner|Aktivera|
+   |GEO-redundans|Inaktivera|
+   |Skrivningar med flera regioner|Aktivera|
 
    ![Lägg till en Cosmos DB-tjänstslutpunkt](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
 3. Välj den **nätverk** fliken och konfigurera ditt virtuella nätverk. 
 
-   a. Välj det virtuella nätverket som du skapade som ett krav och välj sedan *offentliga undernät*. Observera att *privat undernät* har Anmärkning *slutpunkten för ”Microsoft AzureCosmosDB” saknas ”*. Detta beror på att Cosmos DB-tjänstslutpunkt aktiveras endast på den *offentliga undernät*.
+   a. Välj det virtuella nätverket som du skapade som ett krav och välj sedan *offentliga undernät*. Observera att *privat undernät* har Anmärkning *slutpunkten för ”Microsoft AzureCosmosDB” saknas ”* . Detta beror på att Cosmos DB-tjänstslutpunkt aktiveras endast på den *offentliga undernät*.
 
    b. Kontrollera att du har **tillåta åtkomst från Azure-portalen** aktiverat. Den här inställningen kan du komma åt ditt Cosmos DB-konto från Azure-portalen. Om det här alternativet är inställt på **neka**, du får fel vid försök att komma åt ditt konto. 
 

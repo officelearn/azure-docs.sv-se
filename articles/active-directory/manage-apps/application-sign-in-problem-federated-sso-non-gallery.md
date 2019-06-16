@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825443"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en icke-galleriprogram som konfigurerats för federerad enkel inloggning
@@ -146,7 +146,7 @@ De användare som du har valt att kunna starta dessa program med hjälp av metod
 
 Azure AD stöder inte SAML-begäran som skickades av programmet för enkel inloggning. Några vanliga problem är:
 
--   Obligatoriska fält saknas i SAML-begäran
+-   Saknar obligatoriska fält i SAML-begäran
 
 -   SAML-begäranskodad metod
 
@@ -264,7 +264,7 @@ Ta bort oanvända svars-URL som konfigurerats för programmet.
 
 6.  Välj det program som du vill konfigurera för enkel inloggning.
 
-7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)**, ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)** , ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

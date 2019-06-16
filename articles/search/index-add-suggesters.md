@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521891"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Lägg till förslagsställare till ett index för typeahead i Azure Search
@@ -101,7 +101,7 @@ Nyckeln pekar på meddelande om förslagsställare är att det finns ett namn (f
 
 Egenskaper som definierar en förslagsställare inkluderar följande:
 
-|Egenskap       |Beskrivning      |
+|Egenskap      |Beskrivning      |
 |--------------|-----------------|
 |`name`        |Namnet på förslagsställare. Du använder namnet på förslagsställare när du anropar den [förslag REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [REST-API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Den strategi som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching`, vilket genomför flexibla matchningar av fraser i början eller mitten meningar.|

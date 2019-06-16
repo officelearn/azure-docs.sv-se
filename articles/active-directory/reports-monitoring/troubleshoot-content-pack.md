@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807521"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Felsöka Azure Active Directory-aktivitet loggarna fel i innehållspaket 
 
@@ -39,7 +39,7 @@ När du arbetar med Power BI-Innehållspaketet för Azure Active Directory (AD A
 
 Den här artikeln finns information om möjliga orsaker och hur du åtgärdar de här felen.
  
-## <a name="refresh-failed"></a>Det gick inte att uppdatera 
+## <a name="refresh-failed"></a>Uppdateringen misslyckades 
  
 **Hur det här felet visas**: E-post från Power BI- eller felstatus i historiken för uppdatering. 
 
@@ -47,7 +47,7 @@ Den här artikeln finns information om möjliga orsaker och hur du åtgärdar de
 | Orsak | Hur du åtgärdar |
 | ---   | ---        |
 | Uppdatera fel kan inträffa fel när autentiseringsuppgifterna för de användare som ansluter till Innehållspaketet har återställa men inte uppdateras i anslutningsinställningarna för Innehållspaketet. | Leta upp datauppsättningen för instrumentpanelen för aktivitetsloggar i Azure AD i Power BI (**Azure Active Directory-aktivitetsloggar**), välj Uppdatera schema och ange dina autentiseringsuppgifter för Azure AD. |
-| En uppdatering kan misslyckas på grund av problem med i det underliggande Innehållspaketet. | [Öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| En uppdatering kan misslyckas på grund av stora datauppsättningar. | Azure AD Innehållspaketet med Power BI kan för närvarande stöder endast små datauppsättningar (färre än 500,00 rader) på grund av vissa begränsningar i tidsgränser i Power BI-tjänsten. Om du stöter på begränsningsfel eller om uppdateringen misslyckas på grund av timeout-problem, kan det bero på att du försöker hämta en stor datauppsättning. Minska hur lång tid i frågan och försök igen.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Det gick inte att uppdatera datakällans autentiseringsuppgifter 

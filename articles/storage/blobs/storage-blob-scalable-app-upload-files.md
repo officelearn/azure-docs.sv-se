@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 63de2045498b312580640859c1911046f9785d8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 83a888a28c1d1e51a1fe59649dfb956cd0f72203
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071428"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
 
@@ -31,7 +31,7 @@ I del två i serien lär du dig hur du:
 
 Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt program ska få bästa möjliga prestanda rekommenderar vi att du lär dig hur Blob Storage fungerar. Det är viktigt att känna till gränserna för Azure-blobar. Du kan läsa mer om dessa gränser i [skalbarhetsmål för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Namngivning för partitioner](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) är en annan viktig faktor när du designar ett program med höga prestanda med hjälp av blobar. I Azure Storage används ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den container som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika containrar med slumpmässiga namn.
+[Namngivning för partitioner](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) är en annan potentiellt viktig faktor när du utformar ett program med höga prestanda med BLOB-objekt. Om du behöver block är större än eller lika med fyra MiB [högt dataflöde blockblobar](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) används och partitionera naming påverkar inte prestanda. För att blockera storlekar färre än fyra MiB: Azure storage använder ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den container som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika containrar med slumpmässiga namn.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -69,7 +69,7 @@ Programmet skapar fem containrar med slumpmässiga namn och börjar överföra f
 
 Förutom att ange inställningarna för trådning och anslutningsgräns konfigureras [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) för metoden [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) för att använda parallellitet och inaktivera MD5-hashverifiering. Filerna överförs i block om 100 MB. Den här konfigurationen ger bättre prestanda, men kan vara kostsam om du använder ett bristfälligt nätverk eftersom hela blocket på 100 MB hämtas om det uppstår ett fel.
 
-|Egenskap |Value|Beskrivning|
+|Egenskap|Värde|Beskrivning|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Den här inställningen delar in bloben i block vid överföringen. Det här värdet ska vara åtta gånger antalet kärnor för högsta prestanda. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs.   |

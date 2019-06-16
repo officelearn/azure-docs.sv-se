@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101633"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper i Azure
@@ -96,7 +96,7 @@ Skapa tillgänglighetsgruppens lyssnare i två steg. Först skapar klienten åtk
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Konfigurera klusterresurserna i PowerShell
 1. Extern belastningsutjämning, måste du hämta den offentliga virtuella IP-adressen för den molntjänst som innehåller dina repliker. Logga in på Azure-portalen. Navigera till den molntjänst som innehåller din tillgänglighetsgruppen VM. Öppna den **instrumentpanelen** vy.
-2. Observera den adress som anges under **offentlig virtuell IP-adress (VIP)**. Om din lösning sträcker sig över virtuella nätverk, upprepa det här steget för varje molntjänst som innehåller en virtuell dator som är värd för en replik.
+2. Observera den adress som anges under **offentlig virtuell IP-adress (VIP)** . Om din lösning sträcker sig över virtuella nätverk, upprepa det här steget för varje molntjänst som innehåller en virtuell dator som är värd för en replik.
 3. På en av de virtuella datorerna, kopiera PowerShell-skriptet nedan i en textredigerare och ange variabler till de värden du antecknade tidigare.
    
         # Define variables

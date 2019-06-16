@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052663"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-program och tjänstmanifest
 Den här artikeln beskriver hur Service Fabric-program och tjänster är definierad och version med hjälp av filen ApplicationManifest.xml och ServiceManifest.xml.  Mer detaljerade exempel finns i [och en tjänst manifest exempel](service-fabric-manifest-examples.md).  XML-schemat för dessa manifestfiler dokumenteras i [ServiceFabricServiceModel.xsd schemat dokumentation](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Läs mer om hur du konfigurerar SetupEntryPoint [konfigurera principen för en t
 </Settings>
 ```
 
-Ett Service Fabric-tjänst **Endpoint** är ett exempel på ett Service Fabric-resurs. En Service Fabric-resurs kan vara deklarerats/ändras utan att ändra den kompilerade koden. Åtkomst till Service Fabric-resurser som anges i tjänstmanifestet kan styras via den **Tilldelningsmodulen** i manifestet. När en Slutpunktsresurs har definierats i tjänstmanifestet tilldelar Service Fabric portar från portintervallet för reserverade programmet när en port inte anges explicit. Läs mer om [att ange eller åsidosätter slutpunkten resurser](service-fabric-service-manifest-resources.md).
+Ett Service Fabric-tjänst **Endpoint** är ett exempel på en Service Fabric-resurs. En Service Fabric-resurs kan vara deklarerats/ändras utan att ändra den kompilerade koden. Åtkomst till Service Fabric-resurser som anges i tjänstmanifestet kan styras via den **Tilldelningsmodulen** i manifestet. När en Slutpunktsresurs har definierats i tjänstmanifestet tilldelar Service Fabric portar från portintervallet för reserverade programmet när en port inte anges explicit. Läs mer om [att ange eller åsidosätter slutpunkten resurser](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Som tjänstmanifest, **Version** attribut är Ostrukturerade strängar och inte 
 
 **Certifikat** (inte anges i föregående exempel) deklarerar de certifikat som används för att [konfigurera HTTPS-slutpunkter](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) eller [kryptera hemligheter i applikationsmanifestet](service-fabric-application-secret-management.md).
 
-**Principer** (inte anges i föregående exempel) beskriver Logginsamling, [standard kör som-](service-fabric-application-runas-security.md), [hälsotillstånd](service-fabric-health-introduction.md#health-policies), och [säkerhetsåtkomst](service-fabric-application-runas-security.md) principer för att ställa in på den programnivå.
+**Principer** (inte anges i föregående exempel) beskriver Logginsamling, [standard kör som-](service-fabric-application-runas-security.md), [hälsotillstånd](service-fabric-health-introduction.md#health-policies), och [säkerhetsåtkomst](service-fabric-application-runas-security.md) principer för att ställa in på den applikationsnivå, bland annat om tjänster har åtkomst till Service Fabric-körningen.
+
+> [!NOTE] 
+> Som standard om Service Fabric-program till Service Fabric-körningen i form av en slutpunkt som tar emot programspecifika begäranden och miljövariabler som som pekar på sökvägar på värden som innehåller Infrastrukturresurser och programspecifika filer . Överväg att inaktivera den här åtkomsten när programmet är värd för ej betrodda koden (d.v.s. vars sändande är okänd eller som programmets ägare vet ska inte säkert att köra). Mer information finns i [säkerhetsmetoder i Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Huvudnamn** (ej angivet i föregående exempel) beskriver de säkerhetsobjekt (användare eller grupper) som krävs för att [kör tjänster och säker tjänstresurser](service-fabric-application-runas-security.md).  Huvudnamn refereras till i den **principer** avsnitt.
 

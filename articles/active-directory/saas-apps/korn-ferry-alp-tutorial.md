@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 41efce8eeb09e09af2473af6c16074d0fbcd45f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Självstudier: Azure Active Directory-katalogintegrering med Korn Ferry ALP
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Korn Ferry ALP i Azure AD behöver du lägga
 
 **Utför följande steg för att lägga till Korn Ferry ALP från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -199,5 +199,5 @@ När du klickar på Korn Ferry ALP-panelen på åtkomstpanelen bör du automatis
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

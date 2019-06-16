@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 341f5a30fe03de4c69b5a7e18703931988d2d185
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063628"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudier: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
 
@@ -110,7 +110,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>Uppdatera projektets AndroidManifest.xml
 
-1. För att stöda GCM, implementerar du en lyssnartjänst för instans-ID i koden som används för att [hämta registreringstoken](https://developers.google.com/cloud-messaging/android/client#sample-register) med hjälp av [Googles API för instans-ID](https://developers.google.com/instance-id/). I den här självstudien är namnet på klassen `MyInstanceIDService`.
+1. För att stöda GCM, implementerar du en lyssnartjänst för instans-ID i koden som används för att [hämta registreringstoken](https://developers.google.com/cloud-messaging/) med hjälp av [Googles API för instans-ID](https://developers.google.com/instance-id/). I den här självstudien är namnet på klassen `MyInstanceIDService`.
 
     Lägg till följande tjänstedefinition i filen AndroidManifest.xml inuti taggen `<application>`. Ersätt platshållaren `<your package>` med det faktiska paketnamnet som visas överst i filen `AndroidManifest.xml`.
   
@@ -144,7 +144,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
     ```
 4. Lägg till följande nödvändiga GCM-behörigheter under taggen `</application>`. Ersätt `<your package>` med det paketnamn som visas högst upp i filen `AndroidManifest.xml`.
 
-    Mer information om dessa behörigheter finns i [Konfigurera en GCM-klientapp för Android](https://developers.google.com/cloud-messaging/android/client#manifest).
+    Mer information om dessa behörigheter finns i [Konfigurera en GCM-klientapp för Android](https://developers.google.com/cloud-messaging/).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

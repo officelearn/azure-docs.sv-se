@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e206cb29338445e30a7462bcbaf0079236e75510
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bdd68d9ec5d0dd83df4628f39785ce255482245d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111152"
 ---
 # <a name="protected-web-api---code-configuration"></a>Skyddade webb-API - kod-konfiguration
 
@@ -61,7 +61,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 Det här avsnittet beskriver vad du behöver konfigurera ägartoken.
 
-### <a name="config-file"></a>Konfigurationsfil
+### <a name="config-file"></a>Config-fil
 
 ```Json
 {
@@ -159,4 +159,4 @@ Systemhälsoverifierare som är associerade med egenskaperna för den `TokenVali
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Flytta till produktion](scenario-protected-web-api-production.md)
+> [Kontrollera scope och roller i din kod](scenario-protected-web-api-verification-scope-app-roles.md)

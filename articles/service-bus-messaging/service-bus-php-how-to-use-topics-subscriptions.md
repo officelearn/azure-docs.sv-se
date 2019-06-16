@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063873"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Hur du använder Service Bus-ämnen och prenumerationer med PHP
 
@@ -51,7 +51,23 @@ Det enda kravet för att skapa en PHP-program som har åtkomst till Azure Blob-t
 Den här artikeln beskriver hur du använder service-funktioner som kan anropas inom ett PHP-program lokalt eller i koden som körs i en Azure-webbroll, arbetsroll eller en webbplats.
 
 ## <a name="get-the-azure-client-libraries"></a>Hämta Azure libraries
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Installera via Composer
+1. Skapa en fil med namnet **composer.json** i roten av projektet och Lägg till följande kod:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Ladda ned **[composer.phar] [composer-phar]** i projektroten.
+3. Öppna en kommandotolk och kör följande kommando i projektroten
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet att använda Service Bus
 Använda Service Bus-API: er:
@@ -67,7 +83,7 @@ I följande exempel visas hur du lägger till den automatiska bandladdaren filen
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 

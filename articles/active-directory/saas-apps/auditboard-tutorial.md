@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b91c0e55ba3400d4d601556d214bb2c9d6ff170
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Självstudier: Azure Active Directory-integrering med AuditBoard
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integrering av AuditBoard i Azure AD måste du lägga til
 
 **Lägg till AuditBoard från galleriet genom att göra följande:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -192,4 +192,4 @@ När du klickar på AuditBoard-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

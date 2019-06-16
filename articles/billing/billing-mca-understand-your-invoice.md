@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604032"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Förstå villkoren på din faktura för Microsoft kundavtal
@@ -41,7 +41,7 @@ Den **fakturasammanfattning** är överst på första sidan som visar informatio
 
 ![Sammanfattningen av fakturan](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | Såldes till |Adressen för din juridisk person som finns i fakturering Kontoegenskaper|
 | Fakturera till |Fakturering-adressen för fakturering profilen får fakturan, finns i fakturering profilegenskaper|
@@ -57,16 +57,16 @@ Den **fakturering sammanfattning** visar avgifter avseende fakturering profilen 
 
 ![Fakturering sammanfattningsavsnittet](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | Avgifter|Totalt antal Microsoft debiterar för fakturering profilen sedan den senaste faktureringsperioden |
 | Eftertexter |Krediter som du har fått från returnerar |
 | Azure-krediter tillämpas | Azure-krediter som automatiskt tillämpas på Azure-avgifter varje faktureringsperiod |
 | Delsumma |Före skatt beloppet |
-| Moms |Typ och skatt du betalar, beroende på land/region för fakturering-profilen. Om du inte betala skatt kan se du inte skatt på din faktura. |
+| Skatt |Typ och skatt du betalar, beroende på land/region för fakturering-profilen. Om du inte betala skatt kan se du inte skatt på din faktura. |
 | Uppskattade totala besparingar |Det uppskattade totala beloppet som du sparade från effektiva rabatter. Om så är tillämpligt, visas effektiva rabatterna nedanför köp posterna i informationen om faktura-avsnittet. |
 
-### <a name="invoice-sections"></a>Fakturaavsnitt
+### <a name="invoice-sections"></a>Faktura-avsnitt
 
 För varje faktura avsnitt under din faktureringsinformation profil visas avgifterna, mängden Azure-krediter tillämpas, skatt och det totala beloppet.
 
@@ -82,7 +82,7 @@ Totalsumman för varje tjänst-familjen beräknas genom att subtrahera *Azure-kr
 
 ![Information om fakturan avsnittet](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Period |Beskrivning |
+| Term |Beskrivning |
 | --- | --- |
 | A-pris | Effektiva enhetspriset för tjänsten (pris för valuta) som används för att frekvensen användningen. Detta är unik för en produkt, tjänst-familjen, mätare och erbjudandet. |
 | Antal | Kvantitet som har köpt eller förbrukats under fakturaperioden |

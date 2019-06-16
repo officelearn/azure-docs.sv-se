@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076951"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 
@@ -42,7 +42,7 @@ Följande avsnitt innehåller förslag på tänka igenom de här punkterna.
 
 ## <a name="secure-connections"></a>Säkra anslutningar
 
-När du skapar en SQL Server-dator med en galleriavbildningen den **SQL Server-anslutning** alternativet kan du välja **lokala (inuti VM)**, **privat (inom virtuellt nätverk)**, eller **offentlig (Internet)**.
+När du skapar en SQL Server-dator med en galleriavbildningen den **SQL Server-anslutning** alternativet kan du välja **lokala (inuti VM)** , **privat (inom virtuellt nätverk)** , eller **offentlig (Internet)** .
 
 ![SQL Server-anslutning](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -62,9 +62,11 @@ Slutligen bör du aktivera krypterade anslutningar för instansen av SQL Server 
 
 Som standard lyssnar SQL Server på en känd port 1433. Konfigurera SQL Server för att lyssna på en icke-standardport, till exempel 1401 för ökad säkerhet. Om du etablerar en SQL Server-avbildning för galleriet i Azure-portalen kan du ange den här porten i den **SQL Server-inställningar** bladet.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Om du vill konfigurera detta efter etablering, har du två alternativ:
 
-- För Resource Manager-VM, kan du välja **konfiguration av SQL Server** från översiktsbladet för virtuell dator. Detta ger ett alternativ för att ändra porten.
+- För Resource Manager-VM, kan du välja **Security** från den [SQL VM-resurs](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource). Detta ger ett alternativ för att ändra porten.
 
   ![TCP-port ändras i portalen](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688506"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Felsökning: En Azure VPN-anslutning för plats-till-plats kan inte ansluta och slutar fungera
 
@@ -102,7 +102,10 @@ Sök efter och ta bort en användardefinierad routning (UDR) eller Nätverkssäk
 2. Klicka dig igenom certifikatvarningen.
 3. Om du får ett svar, anses VPN-gatewayen felfritt. Om du inte får ett svar kan gatewayen kanske inte är felfri eller en NSG på gateway-undernätet som orsakar problemet. Följande text är ett exempelsvaret:
 
-    &lt;? XML-version = ”1.0”? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">primära-instansen: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Steg 8. Kontrollera om den lokala VPN-enheten har funktionen PFS aktiverad
 

@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023448"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteten erkännande kognitiva kunskaper
@@ -49,7 +49,7 @@ Det här är de enheter som är välkänt men inte har klassificerats som en del
 
 ## <a name="skill-inputs"></a>Färdighet indata
 
-| Indatanamn      | Beskrivning                   |
+| Indatanamnet      | Beskrivning                   |
 |---------------|-------------------------------|
 | languageCode  | Valfri. Standardvärdet är `"en"`.  |
 | text          | Texten att analysera.          |
@@ -62,14 +62,14 @@ Det här är de enheter som är välkänt men inte har klassificerats som en del
 | Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
 | personer      | En matris med strängar där varje sträng representerar namnet på en person. |
-| platser  | En matris med strängar där varje sträng representerar en plats. |
+| locations  | En matris med strängar där varje sträng representerar en plats. |
 | organisationer  | En matris med strängar där varje sträng representerar en organisation. |
 | kvantiteter  | En matris med strängar där varje sträng representerar en kvantitet. |
 | dateTimes  | En matris med strängar där varje sträng representerar ett datetime-värde (som det visas i texten) värde. |
 | URL: er | En matris med strängar där varje sträng representerar en URL |
 | e-postmeddelanden | En matris med strängar där varje sträng representerar ett e-postmeddelande |
 | namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (faktiska entitetsnamnet)</li><li>förskjutning (plats där det hittades i texten)</li><li>förtroende (används inte för tillfället. Anges till värdet -1)</li></ul> |
-| entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> (det faktiska entitet namn. Detta motsvarar ett ”normaliserade” formulär)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sida för entiteten)</li><li>bingId</li><li>typ (kategorin för den entitet som känns igen)</li><li>Undertyp (tillgänglig endast för särskilda kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (rå text för entiteten)</li><li>förskjutning (plats där det hittades)</li><li>längden (längden på texten raw entitet)</li></ul></li></ul> |
+| Entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> (det faktiska entitet namn. Detta motsvarar ett ”normaliserade” formulär)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sida för entiteten)</li><li>bingId</li><li>typ (kategorin för den entitet som känns igen)</li><li>Undertyp (tillgänglig endast för särskilda kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (rå text för entiteten)</li><li>förskjutning (plats där det hittades)</li><li>längden (längden på texten raw entitet)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Exempeldefinition
 

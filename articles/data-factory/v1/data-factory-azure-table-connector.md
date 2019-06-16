@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146903"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabell med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-table-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-table-storage.md)
 
@@ -61,7 +61,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet typeProperties är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **AzureTable** har följande egenskaper.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Azure Table-databasinstansen som den länkade tjänsten refererar till. |Ja. När du anger ett tabellnamn utan en azureTableSourceQuery kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery anges också kopieras poster från den tabell som uppfyller villkoren i frågan till målet. |
 
@@ -80,7 +80,7 @@ Egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens variera
 
 **AzureTableSource** stöder följande egenskaper i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Använd anpassad fråga för att läsa data. |Frågesträng för Azure-tabell. Se exemplen i nästa avsnitt. |Nej. När du anger ett tabellnamn utan en azureTableSourceQuery kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery anges också kopieras poster från den tabell som uppfyller villkoren i frågan till målet. |
 | azureTableSourceIgnoreTableNotFound |Indikera om det inte finns swallow undantag av tabellen. |SANT<br/>FALSKT |Nej |
@@ -100,7 +100,7 @@ Om Azure Table-kolumn är av datetime-typ:
 
 **AzureTableSink** stöder följande egenskaper i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Standard partitionsnyckelvärde som kan användas av mottagaren. |Ett strängvärde. |Nej |
 | azureTablePartitionKeyName |Ange namnet på kolumnen vars värden används som partitionsnycklar. Om den inte anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumnnamn. |Nej |

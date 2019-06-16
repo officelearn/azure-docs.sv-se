@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236448"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup-arbetsbelastningar
@@ -34,7 +34,7 @@ Jobb från följande Azure Backup-lösningar visas här:
   - Säkerhetskopiering av virtuell Azure-dator
   - Azure säkerhetskopiering av filer
   - Arbetsbelastning i Azure backup, till exempel SQL
-  - Azure Backup-agenten (MAB)
+  - Azure Backup-agent (MAB)
 
 Jobb från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte.
 
@@ -48,7 +48,7 @@ Aviseringar är främst scenarier där användarna får en avisering så att de 
 ### <a name="alert-scenarios"></a>Scenarier för avisering
 Följande scenarier definieras av tjänsten som kanske scenarier.
 
-  - Säkerhetskopiering/återställning fel
+  - Fel vid säkerhetskopiering/återställning
   - Säkerhetskopieringen slutfördes med varningar för Azure Backup Agent (MAB)
   - Avbryt skyddet med Behåll data/Avbryt skyddet med ta borttagningsdata
 
@@ -63,10 +63,10 @@ Undantagen ovan är utformade från uppfattningen att resultatet av dessa åtgä
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup-lösningar visas här:
 
-  - Azure VM-säkerhetskopieringar
-  - Azure säkerhetskopior av filer
-  - Azure-arbetsbelastning säkerhetskopior, till exempel SQL
-  - Azure Backup-agenten (MAB)
+  - Säkerhetskopior av virtuella Azure-datorer
+  - Säkerhetskopior av Azure-fil
+  - Azure-arbetsbelastningssäkerhetskopior, till exempel SQL
+  - Azure Backup-agent (MAB)
 
 > [!NOTE]
 > Aviseringar från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte här.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943162"
 ---
 <a name="web-analytics"></a>Webbanalys
@@ -71,7 +71,7 @@ Här är ett exempel:
     2.  Webbadress för informationssida = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. Användaren klickar på den \"försök min produkt\" länka och hamnar i AppSource.
     1. URL: en för hänvisning =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Webbadress för informationssida (**se till att den här URL: en har utm\_kampanj- och utm\_källor du lägger till denna URL**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_kampanj = MyCampaignAdName & utm\_källa = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. Webbadress för informationssida (**se till att den här URL: en har utm\_kampanj- och utm\_källor du lägger till denna URL**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ kampanj = MyCampaignAdName & utm\_ källa = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Så här utvärderar framgången för en kampanj
 -----------------------------------------

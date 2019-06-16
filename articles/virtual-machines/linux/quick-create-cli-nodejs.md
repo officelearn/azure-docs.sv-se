@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473747"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Skapa en Linux-VM med hjälp av den klassiska Azure CLI
@@ -67,7 +67,7 @@ Det tidigare `quick-create` exemplet anropade bara `-M` flaggan för att identif
 * VM-namn
 * plats (`westus` eller `westeurope` är lämpliga standardvärden)
 * linux (så att Azure vet vilka operativsystem du vill ha)
-* användarnamn
+* username
 
 Följande exempel anger alla värden så att ingen ytterligare uppmaning krävs. Så länge som du har en `~/.ssh/id_rsa.pub` som offentlig nyckelfil i ssh-rsaformat, fungerar det.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478602"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella datornätverk
@@ -29,7 +29,7 @@ Det är enkelt att skapa ett virtuellt nätverk för att experimentera med, men 
 
 Alla Azure-resurser ha ett namn. Namnet måste vara unika inom en omfattning som kan variera för varje resurstyp. Till exempel namnet på ett virtuellt nätverk måste vara unika inom en [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan vara flera gånger i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure [region](https://azure.microsoft.com/regions/#services). Det är bra att definiera en namngivningskonvention som du kan använda konsekvent när du namnger resurser när du hanterar flera nätverksresurser över tid. Förslag finns i [namngivningskonventioner](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 
 Alla Azure-resurser skapas i ett Azure-region och prenumeration. En resurs kan bara skapas i ett virtuellt nätverk som finns i samma region och prenumeration som resursen. Men du kan ansluta virtuella nätverk som finns i olika prenumerationer och regioner. Mer information finns i [anslutning](#connectivity). Tänk på att där resurserna som använder befinner sig fysiskt när du bestämmer vilken region du distribuerar resurser i:
 

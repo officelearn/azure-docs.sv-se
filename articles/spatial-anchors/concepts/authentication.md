@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073945"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure Spatial fästpunkter
 
@@ -56,7 +56,7 @@ När det är klart, hanterar SDK: N utbyte av kontonyckeln för en åtkomsttoken
 
 ## <a name="azure-ad-user-authentication"></a>Autentisering av Azure AD-användare
 
-För program som riktar in sig på Azure Active Directory-användare, den rekommenderade metoden är att använda en Azure AD-token för användaren, vilket du kan hämta med ADAL-biblioteket enligt beskrivningen i följande dokumentation: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; du bör följa dessa steg under ”snabb startar”, som innehåller:
+För program som riktar in sig på Azure Active Directory-användare, den rekommenderade metoden är att använda en Azure AD-token för användaren, vilket du kan hämta med ADAL-biblioteket enligt beskrivningen i följande dokumentation: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); du Följ stegen som visas under ”snabb startar”, bland annat:
 
 1. Konfigurationen i Azure-portalen
     1.  Registrera ditt program i Azure AD som **programspecifik**. Som en del av registreringen behöver att fastställa om ditt program bör vara flera innehavare eller inte, och ange omdirigerings-URL: er tillåts för ditt program.  
@@ -89,7 +89,7 @@ Det rekommenderade alternativet för att distribuera appar som utnyttjar Azure S
 
 Här förutsätts att appen använder en egen mekanism (till exempel: Microsoft-konto, PlayFab, Facebook, Google-ID, anpassade användarnamn/lösenord osv.) att autentisera till en backend-tjänst. När användarna autentiseras till serverdelstjänsten, som tjänsten kan hämta en Azure AD-token exchange det för en åtkomsttoken för Azure Spatial ankare och returnera den tillbaka till klientprogrammet.
 
-Azure AD-åtkomsttoken har hämtats med hjälp av ADAL-biblioteket enligt beskrivningen i följande dokumentation: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; du bör följa stegen under ”snabb startar”, bland annat:
+Azure AD-åtkomsttoken har hämtats med hjälp av ADAL-biblioteket enligt beskrivningen i följande dokumentation: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); du bör följa stegen under ”snabb startar”, bland annat:
 
 1.  Konfiguration i Azure-portalen:
     1.  Registrera ditt program i Azure AD:

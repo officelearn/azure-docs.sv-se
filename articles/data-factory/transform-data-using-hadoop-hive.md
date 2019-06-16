@@ -13,14 +13,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 3852b2d18b48be63cbc612159facb6273f23dc2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848118"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformera data med Hadoop Hive-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-hive-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-hive.md)
 
@@ -56,17 +56,17 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap             | Beskrivning                                                  | Krävs |
+| Egenskap            | Beskrivning                                                  | Krävs |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| namn                | Namn på aktiviteten                                         | Ja      |
+| name                | Namn på aktiviteten                                         | Ja      |
 | description         | Text som beskriver vad aktiviteten används till                | Nej       |
-| typ                | Aktivitetstypen är HDinsightHive för Hive-aktivitet        | Ja      |
+| type                | Aktivitetstypen är HDinsightHive för Hive-aktivitet        | Ja      |
 | linkedServiceName   | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | scriptLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Hive-skriptet som ska köras. Om du inte anger den här länkade tjänsten, används den Azure Storage länkade tjänsten definieras i den länkade tjänsten HDInsight. | Nej       |
 | scriptPath          | Ange sökvägen till skriptfilen som lagras i Azure Storage som anges med scriptLinkedService. Filnamnet är skiftlägeskänsligt. | Ja      |
 | getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges med scriptLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
 | argument           | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
-| definierar             | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
+| defines             | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
 | queryTimeout        | Fråga efter värdet för tidsgränsen (i minuter). Gäller när HDInsight-klustret är med Enterprise Security Package aktiverat. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814869"
 ---
 # <a name="grammar-format"></a>Grammatikformat
@@ -99,7 +99,7 @@ Den `ruleref` elementet anger giltiga expanderar via referenser till en annan `r
 
 ### <a name="attrref-element"></a>attrref Element
 
-Den `attrref` element refererar till ett indexattribut som tillåter matchning mot attributvärden observerats i indexet.  De nödvändiga `uri` attributet anger index schemanamn och attributnamnet med syntaxen ”*%{SchemaName/*#*%{attrname/*”.  Det måste finnas en föregående `import` element som importerar schemat med namnet *%{SchemaName/*.  Attributets namn är namnet på ett attribut som angetts i motsvarande schemat.
+Den `attrref` element refererar till ett indexattribut som tillåter matchning mot attributvärden observerats i indexet.  De nödvändiga `uri` attributet anger index schemanamn och attributnamnet med syntaxen ” *%{SchemaName/* # *%{attrname/* ”.  Det måste finnas en föregående `import` element som importerar schemat med namnet *%{SchemaName/* .  Attributets namn är namnet på ett attribut som angetts i motsvarande schemat.
 
 Utöver att matcha indata från användaren, den `attrref` elementet returnerar också en strukturerade frågeobjektet som utdata som väljer deluppsättning objekt i indexet matchar indatavärdet.  Använd det valfria `name` attribut för att ange namnet på variabeln där objektet frågeresultatet ska sparas.  Frågeobjektet kan sammanställas med andra frågeobjekt för att skapa mer komplexa uttryck.  Se [semantisk tolkning](SemanticInterpretation.md) mer information.  
 
@@ -128,9 +128,9 @@ I följande tabell visas de stöds `op` värden för varje attributtyp.  Deras a
 
 | Attributtyp | Op värde | Beskrivning | Indexåtgärden
 |----|----|----|----|
-| String | eq | Exakt matchning av sträng | lika med |
+| String | eq | Exakt matchning av sträng | är lika med |
 | String | starts_with | Prefix för strängmatchning | starts_with |
-| Int32, Int64, Double-värde | eq |  Numeriska likhetsmatchning | lika med |
+| Int32, Int64, Double-värde | eq |  Numeriska likhetsmatchning | är lika med |
 | Int32, Int64, Double-värde | lt, le, gt, ge | Numeriska ojämlikhet matchning (<, < =, >, > =) | is_between |
 | Int32, Int64, Double-värde | starts_with | Prefixmatchning värde i decimalform | starts_with |
 

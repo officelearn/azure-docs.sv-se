@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aae6de49a3df3f1e648b99aa9936d6af85fc020f
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093531"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Självstudier: Integrera Projectplace med Azure Active Directory
 
@@ -173,4 +173,4 @@ När du väljer panelen Projectplace i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

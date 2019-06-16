@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055628"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 Den *IgnoredDuringExecution* en del av inställningen anger att om noden etiketter ändringen, poden inte bör tas bort från noden. Kubernetes-scheduler använder bara de uppdaterade noden etiketterna för nya poddarna schemalagda, inte de poddar som redan har schemalagts på noderna.

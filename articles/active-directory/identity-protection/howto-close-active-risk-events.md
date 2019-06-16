@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453503"
+ms.locfileid: "67109018"
 ---
 # <a name="how-to-close-active-risk-events"></a>Instruktioner: Stäng aktiva riskhändelser
 
@@ -48,7 +48,7 @@ Om du vill stänga active riskhändelser har följande alternativ:
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>Kräv lösenord för självbetjäning med en princip för användarrisk
 
-Genom att konfigurera [användarriskprincipen för villkorsstyrd åtkomst](howto-user-risk-policy.md) kan du kräva att lösenordet ändras om en viss användarrisknivå har identifierats automatiskt. 
+Genom att konfigurera den [användarrisk princip för villkorlig åtkomst](howto-user-risk-policy.md), kan du kräva ändring av lösenordet om en risknivå för angiven användare har identifierats automatiskt. 
 
 ![Återställ lösenord](./media/howto-close-active-risk-events/13.png)
 

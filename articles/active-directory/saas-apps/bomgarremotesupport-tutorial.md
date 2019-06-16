@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65e7192bdcc148ba081d0de954b51535778e750
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b25007fa8e9d547b9e5671390514b3bc10f329fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Självstudier: Azure Active Directory-integrering med Bomgar Remote Support
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Bomgar Remote Support i Azure AD behöver du
 
 **Utför följande steg för att lägga till Bomgar Remote Support från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -201,4 +201,4 @@ När du klickar på Bomgar Remote Support-panelen på åtkomstpanelen bör du au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

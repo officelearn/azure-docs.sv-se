@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072498"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -78,14 +78,14 @@ Det här är en delmängd av publishing regioner som stöds av den [tjänst för
 
 Speech-tjänsten exponerar även REST-slutpunkter för förfrågningar om tal till text och text till tal.
 
-### <a name="speech-to-text"></a>Tal-till-text
+### <a name="speech-to-text"></a>Tal till text
 
-Tal till text referensdokumentation finns [REST API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Tal till text referensdokumentation finns [tal till text REST API](rest-speech-to-text.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Text till tal
 
-För text till tal-referensdokumentation finns i [REST API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+För text till tal-referensdokumentation finns i [REST-API för text till tal](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

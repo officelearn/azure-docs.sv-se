@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693242"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Använda StorSimple Manager-tjänsten för att hantera åtkomstkontrollposter
 
@@ -59,7 +59,7 @@ Utför följande steg för att lägga till en ACR.
 
     1. Ange ett namn för din ACR.
     
-    2. Ange namnet på din Windows Server-värd under **iSCSI initierare namn (IQN)**.
+    2. Ange namnet på din Windows Server-värd under **iSCSI initierare namn (IQN)** .
 
     3. Klicka på **Lägg till** att skapa i ACR.
 

@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471785"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Felsökning av Azure-diagnostik
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure Diagnostics. Läs mer om Azure diagnostics [översikt över Azure Diagnostics](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Logiska komponenter
-**Diagnostics Plugin Launcher (DiagnosticsPluginLauncher.exe)**: Startar Azure Diagnostics-tillägget. Fungerar som posten pekar processen.
+**Diagnostics Plugin Launcher (DiagnosticsPluginLauncher.exe)** : Startar Azure Diagnostics-tillägget. Fungerar som posten pekar processen.
 
-**Diagnostics Plugin (DiagnosticsPlugin.exe)**: Konfigurerar, startar och hanterar livslängden för övervakningsagenten. Det är den viktigaste process som startas av starta.
+**Diagnostics Plugin (DiagnosticsPlugin.exe)** : Konfigurerar, startar och hanterar livslängden för övervakningsagenten. Det är den viktigaste process som startas av starta.
 
-**Monitoring Agent (MonAgent\*.exe processer)**: Övervakar, samlar in och överför diagnostics-data.  
+**Monitoring Agent (MonAgent\*.exe processer)** : Övervakar, samlar in och överför diagnostics-data.  
 
 ## <a name="logartifact-paths"></a>Logg-/ artefakt sökvägar
 Följande är sökvägarna till vissa viktiga loggar och artefakter. Vi refererar till den här informationen i resten av dokumentet.

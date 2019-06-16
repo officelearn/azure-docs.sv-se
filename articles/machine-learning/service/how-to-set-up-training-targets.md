@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074951"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
-Med Azure Machine Learning-tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, samlingsnamnet [ __beräkningsmål__](concept-azure-machine-learning-architecture.md#compute-target). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel ett Azure beräkning av Machine Learning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräkningsmål för distribution av modeller som beskrivs i [”där och hur du distribuerar dina modeller”](how-to-deploy-and-where.md).
+Med Azure Machine Learning-tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, samlingsnamnet [ __beräkningsmål__](concept-azure-machine-learning-architecture.md#compute-targets). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel ett Azure beräkning av Machine Learning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräkningsmål för distribution av modeller som beskrivs i [”där och hur du distribuerar dina modeller”](how-to-deploy-and-where.md).
 
 Du kan skapa och hantera beräkningsmål med SDK för Azure Machine Learning, Azure-portalen, Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
  
@@ -75,7 +75,7 @@ Följande kod visar ett exempel på hur du konfigurerar träningskörningar för
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Konfigurera beräkningsmål med Python
+## <a name="set-up-in-python"></a>Konfigurera i Python
 
 Använd nedanstående avsnitt för att konfigurera dessa beräkningsmål:
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Konfigurera beräkning i Azure portal
+## <a name="set-up-in-azure-portal"></a>Konfigurera i Azure-portalen
 
 Du kan komma åt beräkningsmål som är associerade med din arbetsyta i Azure-portalen.  Du kan använda portalen för att:
 
@@ -357,7 +357,7 @@ Följ stegen som beskrivs ovan för att visa en lista över beräkningsmål. Sed
 1. Välj __bifoga__. 
 1. Visa status för åtgärden koppla genom att välja beräkningsmål i listan.
 
-## <a name="set-up-compute-with-the-cli"></a>Konfigurera beräkning med CLI
+## <a name="set-up-with-cli"></a>Konfigurera med CLI
 
 Du kan komma åt beräkningsmål som är associerade med din arbetsyta med hjälp av den [CLI-tillägg](reference-azure-machine-learning-cli.md) för Azure Machine Learning-tjänsten.  Du kan använda CLI för att:
 
@@ -367,7 +367,7 @@ Du kan komma åt beräkningsmål som är associerade med din arbetsyta med hjäl
 
 Mer information finns i [resurshantering](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>Konfigurera beräkning med VS Code
+## <a name="set-up-with-vs-code"></a>Konfigurera med VS Code
 
 Du kan använda, skapa och hantera beräkningsmål som är associerade med din arbetsyta med hjälp av den [VS Code-tillägg](how-to-vscode-tools.md#create-and-manage-compute-targets) för Azure Machine Learning-tjänsten.
 
@@ -384,7 +384,7 @@ När du skapar en körningskonfiguration kan du bara använda den för att köra
 >
 > Om du vill förhindra att filer som ingår i ögonblicksbilden, skapa en [.gitignore](https://git-scm.com/docs/gitignore) eller `.amlignore` filen i katalogen och Lägg till filer till den. Den `.amlignore` filen använder samma syntax och mönster som den [.gitignore](https://git-scm.com/docs/gitignore) fil. Om båda filerna finns i `.amlignore` filen företräde.
 > 
-> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
+> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 

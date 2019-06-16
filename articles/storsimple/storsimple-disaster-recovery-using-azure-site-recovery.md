@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150515"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
@@ -171,16 +171,16 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
 1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
 
    - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
-   - *RecoveryPlanName***-ManagerName**: StorSimple-resursen med StorSimple-enheten.
-   - *RecoveryPlanName***-DeviceName**: StorSimple-enheten som har växlas.
-   - *RecoveryPlanName***-DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **nätverk** &gt; **DNS-inställningarna** grupp).
-   - *RecoveryPlanName***-VolumeContainers**: En kommaavgränsad sträng med volymbehållare på enheten som behöver växlas; till exempel: volcon1 volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: StorSimple-Molninstallationen som är behållarna som ska redundansväxlas.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** grupp &gt; **nätverk** fliken).
-   - *RecoveryPlanName***-StorageAccountName**: Namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
-   - *RecoveryPlanName***-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
-   - *RecoveryPlanName***-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
+   - *RecoveryPlanName* **-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
+   - *RecoveryPlanName* **-ManagerName**: StorSimple-resursen med StorSimple-enheten.
+   - *RecoveryPlanName* **-DeviceName**: StorSimple-enheten som har växlas.
+   - *RecoveryPlanName* **-DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **nätverk** &gt; **DNS-inställningarna** grupp).
+   - *RecoveryPlanName* **-VolumeContainers**: En kommaavgränsad sträng med volymbehållare på enheten som behöver växlas; till exempel: volcon1 volcon2, volcon3.
+   - *RecoveryPlanName* **-TargetDeviceName**: StorSimple-Molninstallationen som är behållarna som ska redundansväxlas.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** grupp &gt; **nätverk** fliken).
+   - *RecoveryPlanName* **-StorageAccountName**: Namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
+   - *RecoveryPlanName* **-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
+   - *RecoveryPlanName* **-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
 
      Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
 
@@ -241,7 +241,7 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
    
    - Klicka på **+ Återställ plan** knappen öppnas under bladet.
       
-      ![Skapa återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Skapa en återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Ange ett namn på recovery plan, Välj källa, mål och distribution modell-värden.
    

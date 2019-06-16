@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06112361434a8217df6714a70d0059c175e98ac8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: df20c8b863a6abb1cdb4d53c0057b223fe9fdaf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110433"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -196,7 +196,7 @@ Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage
 - - -
 **F: Hur kräver jag Multi-Factor authentication för användare som har åtkomst till ett visst program?**
 
-**S:** Med Azure AD villkorlig åtkomst, kan du tilldela en unik åtkomstprincip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
+**S:** Du kan tilldela en unik åtkomstprincip för varje program med Azure AD villkorlig åtkomst. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
 Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 

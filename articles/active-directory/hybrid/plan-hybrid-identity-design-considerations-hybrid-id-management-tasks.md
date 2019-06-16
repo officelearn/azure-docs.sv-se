@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109388"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identitetslivscykel
 Identitet är en av grundpelarna i enterprise mobility och programmet åtkomststrategi. Om du loggar din mobila enhet eller SaaS-app, är din identitet på för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering förena och synkronisering mellan din identitet lagringsplatser, bland annat automatisera och centralisera att etablera resurser. ID-lösning bör vara en centraliserad identitet i både lokalt och i molnet och även använda någon form av identitetsfederation att underhålla centraliserad autentisering och på ett säkert sätt dela och samarbeta med externa användare och företag. Resurser mellan operativsystem och program till personer i eller tillhör en organisation. Organisationsstruktur kan ändras för att hantera etablering principer och procedurer.

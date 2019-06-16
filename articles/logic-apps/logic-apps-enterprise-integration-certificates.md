@@ -12,10 +12,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167184"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Säkra B2B-meddelanden med certifikat
@@ -47,10 +47,10 @@ Du använder en *offentligt certifikat* i logic apps som har B2B-funktioner mås
 
 3. Under **certifikat**, Välj **Lägg till**. Under **Lägg till certifikat**, ange den här informationen för ditt certifikat. När du är klar väljer du **OK**.
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certificate-name*> | Namn på certifikat som är ”publicCert” i det här exemplet | 
-   | **Certifikattyp** | Offentlig | Din certifikattyp |
+   | **Certifikattyp** | Offentligt | Din certifikattyp |
    | **Certifikat** | <*certificate-file-name*> | För att hitta och markera den certifikatfil du vill ladda upp, Välj mappikonen bredvid den **certifikat** box. |
    ||||
 
@@ -86,7 +86,7 @@ När du har definierat egenskaperna i den [avtal](logic-apps-enterprise-integrat
 
 5. Under **certifikat**, Välj **Lägg till**. Under **Lägg till certifikat**, ange den här informationen för ditt certifikat. När du är klar väljer du **OK**.
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certificate-name*> | Namn på certifikat som är ”privateCert” i det här exemplet | 
    | **Certifikattyp** | Privat | Din certifikattyp |

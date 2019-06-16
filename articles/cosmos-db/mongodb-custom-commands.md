@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925661"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använda MongoDB-tillägg-kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB 
@@ -163,7 +163,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    | string | Namnet på det anpassade kommandot. Måste vara ”CreateCollection”     |
-| samling      | string | Namnet på samlingen                                   |
+| Samling      | string | Namnet på samlingen                                   |
 | offerThroughput | int    | Etablerat dataflöde för att ställa in i databasen. Det är en valfri parameter |
 | shardKey        | string | Shard Nyckelsökväg för att skapa en fragmenterad samling. Det är en valfri parameter |
 
@@ -208,7 +208,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Namnet på det anpassade kommandot. Måste vara ”UpdateCollection”.      |
-|  samling   |   string      |   Namnet på samlingen.       |
+|  Samling   |   string      |   Namnet på samlingen.       |
 | offerThroughput   |int|   Etablerat dataflöde för att ange för samlingen.|
 
 ## <a name="output"></a>Resultat
@@ -243,7 +243,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    |   string      |   Namnet på det anpassade kommandot. Måste vara ”GetCollection”.      |
-| samling    |    string     |    Namnet på samlingen.     |
+| Samling    |    string     |    Namnet på samlingen.     |
 
 ### <a name="output"></a>Resultat
 

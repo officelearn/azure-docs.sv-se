@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075796"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
@@ -94,13 +94,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> Ändra SQL-anslutningsinställningarna
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Du kan ändra anslutningsinställningarna för din SQL Server-dator i Azure-portalen.
 
-1. I Azure-portalen väljer du **virtuella datorer**.
+1. I Azure-portalen väljer du **virtuella datorer med SQL**.
 
 2. Välj din SQLServer-dator.
 
-3. Under **inställningar**, klickar du på **konfiguration av SQL Server**.
+3. Under **inställningar**väljer **Security**.
 
 4. Ändra den **SQL-anslutningsnivå** till den obligatoriska inställningen. Du kan också använda det här området ändra SQL Server-porten eller inställningarna för SQL-autentisering.
 

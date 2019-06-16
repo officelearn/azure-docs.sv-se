@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64736978"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67113549"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
@@ -98,7 +98,7 @@ Mät sedan kraven för maximala prestanda för ditt program under hela dess livs
 | Min. Svarstid | | | |
 | Genomsnittlig svarstid | | | |
 | Max. Processor | | | |
-| Processorgenomsnitt | | | |
+| Genomsnittlig CPU | | | |
 | Max. Minne | | | |
 | Genomsnittligt minne | | | |
 | Ködjup | | | |
@@ -114,7 +114,7 @@ Det bästa sättet att mäta prestandakrav för ditt program är att använda ö
 
 Prestandaräknarna är tillgängliga för processor, minne, och varje logisk disk och fysisk disk för din server. När du använder premium storage-diskar med en virtuell dator, fysisk disk är för varje premium storage disk och logisk diskräknare anges för varje volym som skapats på premium-lagringsdiskar. Måste du samla in värden för de diskar som värd för din arbetsbelastning. Om det finns en en-till-en-mappning mellan logiska och fysiska diskar, kan du referera till fysisk diskräknare; Annars finns de logiska disk-räknarna. På Linux genererar kommandot iostat en processor- och diskresurser rapport över minnesanvändning. Diskanvändningsrapporten innehåller statistik per fysisk enhet eller partition. Om du har en databasserver med dess data och loggfiler på separata diskar kan du samla in dessa data för båda diskarna. Tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Beskrivning | PerfMon | iostat |
+| Räknaren | Beskrivning | PerfMon | iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antal i/o-begäranden som utfärdats till Lagringsdisken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |tps <br> r/s <br> w/s |
 | **Diskläsningar och skrivningar** |% Läsningar- och skrivåtgärder utföras på disken. |Läs Disktid i procent <br> Skriv Disktid i procent |r/s <br> w/s |
@@ -178,10 +178,10 @@ Här är ett exempel på hur du kan beräkna IOPS och dataflöde/bandbredd för 
 
 | Programkrav | I/o-storlek | IOPS | Dataflöde/bandbredd |
 | --- | --- | --- | --- |
-| Max IOPS |8 kB |5 000 |40 MB per sekund |
-| Högsta dataflöde |1 024 kB |200 |200 MB per sekund |
+| Maximalt antal IOPS |8 kB |5,000 |40 MB per sekund |
+| Högsta dataflöde |1024 KB |200 |200 MB per sekund |
 | Max Throughput + hög IOPS |64 kB |3,200 |200 MB per sekund |
-| Maximal IOPS och dataflöden |32 KB |5 000 |160 MB per sekund |
+| Maximal IOPS och dataflöden |32 KB |5,000 |160 MB per sekund |
 
 Hämta IOPS och bandbredd som är högre än det högsta värdet för en enskild premiumdisk för lagring med flera premium-diskar stripe används tillsammans. Till exempel stripe två P30 diskar för att få en kombinerad IOPS över 10 000 IOPS eller ett kombinerade dataflöde på 400 MB per sekund. Enligt beskrivningen i nästa avsnitt, måste du använda en VM-storlek som har stöd för det kombinerade disk-IOPS och dataflöden.
 
@@ -236,7 +236,7 @@ Azure Premium Storage erbjuder åtta GA-diskstorlekar och tre diskstorlekar som 
 | Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 TiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15,000              | 20,000              |
 | Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per second | 750 MiB per second |
 
 Hur många diskar som du väljer beror på disken storlek väljs. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina behov. Väg in överväganden för användarkonton som anges nedan när du gör valet.
@@ -271,7 +271,7 @@ Det är viktigt att aktivera cachen på rätt uppsättning diskar. Om du ska akt
 
 | **Disktyp** | **Standardinställningen för cache** |
 | --- | --- |
-| OS-disk |Läs/skriv |
+| OS-disk |ReadWrite |
 | Datadisk |ReadOnly |
 
 Följande är rekommenderade disk cacheinställningarna för datadiskar
@@ -280,7 +280,7 @@ Följande är rekommenderade disk cacheinställningarna för datadiskar
 | --- | --- |
 | Ingen |Konfigurera värd-cache som None för lässkyddad och skrivintensiv diskar. |
 | ReadOnly |Konfigurera värd-cache som skrivskyddad för skrivskyddade och läs-och diskar. |
-| Läs/skriv |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
+| ReadWrite |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
 
 *ReadOnly*  
 Genom att konfigurera skrivskyddad cachelagring i Premium Storage-data diskar kan du uppnå Läs svarstider och få mycket hög Läs IOPS och dataflöden för ditt program. Detta är på grund av två skäl

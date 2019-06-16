@@ -2,24 +2,24 @@
 title: Introduktion till Azure Stream Analytics-fönsterfunktioner
 description: Den här artikeln beskriver fyra fönsterfunktioner (rullande, hoppar, glidande, session) som används i Azure Stream Analytics-jobb.
 services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: jseb225
+ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066752"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics-fönsterfunktioner
+
 Tid för direktuppspelning scenarier är utföra åtgärder på data i den temporala windows ett vanligt mönster. Stream Analytics har inbyggt stöd för fönsterfunktioner, så att utvecklare kan skapa komplexa strömbearbetning jobb med minimal ansträngning.
 
-Det finns fyra typer av temporala windows att välja mellan: [**Rullande**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **hoppar**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **glidande**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), och [ **Session**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Du använder fönstret funktionerna i den [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) satsen på frågesyntax i Stream Analytics-jobb.
+Det finns fyra typer av temporala windows att välja mellan: [**Rullande**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **hoppar**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **glidande**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), och [ **Session**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Du använder fönstret funktionerna i den [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) satsen på frågesyntax i Stream Analytics-jobb. Du kan även aggregera händelser över flera windows med hjälp av den [ **Windows()** funktionen](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Alla de [fönsterhantering](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) operations utdataresultat på den **slutet** i fönstret. Utdata från fönstret blir enskild händelse baserat på mängdfunktionen används. Utdata-händelsen kommer att ha tidsstämpeln för slutet av fönstret och alla fönsterfunktioner definieras med en fast längd. 
 
@@ -51,6 +51,7 @@ Om händelser hålla inträffar inom den angivna tidsgränsen kan förlängts se
 
 När en partitionsnyckel anges händelserna grupperas tillsammans med nyckeln och sessionsfönstret tillämpas på varje grupp oberoende av varandra. Den här partitionering är användbart för fall där du behöver annan session windows för olika användare eller enheter.
 
+
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -58,4 +59,3 @@ När en partitionsnyckel anges händelserna grupperas tillsammans med nyckeln oc
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->

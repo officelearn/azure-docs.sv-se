@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61250623"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-web-table-connector.md)
 > * [Version 2 (aktuell version)](../connector-web-table.md)
 
@@ -71,10 +71,10 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för länkade webbtjänsten.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **Webb** |Ja |
-| URL |URL: en till webbadressen |Ja |
+| Url |URL: en till webbadressen |Ja |
 | authenticationType |Anonym. |Ja |
 
 ### <a name="using-anonymous-authentication"></a>Använder anonym autentisering
@@ -99,9 +99,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **WebTable** har följande egenskaper
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
+| type |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används bara den URL som anges i länkade tjänstedefinition. |
 | index |Index för tabellen i resursen. Se [Get index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet anvisningar för hur du hämtar index för en tabell i en HTML-sida. |Ja |
 

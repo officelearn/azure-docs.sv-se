@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65538301"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
@@ -57,9 +57,9 @@ Platsen är den region där den anpassade avbildningen skapas. För Image Builde
 
 - Östra USA
 - USA, östra 2
-- USA, västra centrala 
-- USA, västra
-- USA, västra 2
+- Västra centrala USA
+- Västra USA
+- Västra USA 2
 
 
 ```json

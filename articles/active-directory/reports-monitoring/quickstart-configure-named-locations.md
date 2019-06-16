@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107638"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
@@ -37,15 +37,15 @@ Följande krävs för att slutföra den här snabbstarten:
 
 * En Azure AD-klientorganisation. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * En användare som är en global administratör för klienten.
-* Ett IP-adressintervall som är etablerat och betrott inom din organisation. IP-intervallet måste använda formatet **Classless Interdomain Routing (CIDR)**.
+* Ett IP-adressintervall som är etablerat och betrott inom din organisation. IP-intervallet måste använda formatet **Classless Interdomain Routing (CIDR)** .
 
 ## <a name="configure-named-locations"></a>Konfigurera namngivna platser
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. I den vänstra rutan väljer du **Azure Active Directory** och sedan **Villkorlig åtkomst** från avsnittet **Säkerhet**.
+2. I den vänstra rutan väljer **Azure Active Directory**och välj sedan **villkorlig åtkomst** från den **Security** avsnittet.
 
-    ![Fliken villkorlig åtkomst](./media/quickstart-configure-named-locations/entrypoint.png)
+    ![Fliken för villkorlig åtkomst](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. På sidan **Villkorlig åtkomst** väljer du **Namngivna platser** och **Ny plats**.
 
@@ -63,6 +63,6 @@ Följande krävs för att slutföra den här snabbstarten:
 
 Mer information finns i:
 
-- [Azure AD villkorsstyrd åtkomst](../active-directory-conditional-access-azure-portal.md).
-- [Platsvillkor i villkorsstyrd åtkomst i Azure AD](../conditional-access/location-condition.md)
+- [Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
+- [Platsvillkor i Azure AD villkorlig åtkomst](../conditional-access/location-condition.md)
 - [Rapport över riskfyllda inloggningar](concept-risky-sign-ins.md).  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Självstudier: Azure Active Directory-integrering med Uberflip
 
@@ -152,7 +152,7 @@ I det här avsnittet skapar du en användare med namnet B. Simon i Azure-portale
 
     1. I den **namn** anger **BSimon**.
   
-    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BSimon\@contoso.com**.
+    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >** . Till exempel **BSimon\@contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -203,4 +203,4 @@ När du väljer **Uberflip** i portalen Mina appar du bör vara loggas in automa
 
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

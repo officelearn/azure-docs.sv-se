@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b649c77b34837ba2220d04b36d4a46598c321fdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 47f3885d9bd71abeb2a1bffe27b3ca1b2aa611ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudier: Azure Active Directory-integrering med bröstknappar SAML SSO
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av bröstknappar SAML SSO till Azure AD, so
 
 **Utför följande steg för att lägga till bröstknappar SAML SSO från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -204,4 +204,4 @@ När du klickar på panelen bröstknappar SAML SSO i åtkomstpanelen, bör det v
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

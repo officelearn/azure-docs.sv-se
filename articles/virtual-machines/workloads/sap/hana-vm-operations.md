@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 156bb4cbf43dc71627f9db785dba574f25139285
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077649"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -66,6 +66,11 @@ Distribuera virtuella datorer i Azure med hjälp av:
 - Azure CLI.
 
 Du kan även distribuera en fullständig installerade SAP HANA-plattform på Virtuella Azure-tjänster via den [SAP-molnplattform](https://cal.sap.com/). Installationsprocessen beskrivs i [distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) eller med automation är [här](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+
+>[!IMPORTANT]
+> Du måste vara noga med att välja din SUSE Linux-avbildning från avbildningsgalleriet för virtuella Azure-datorn för att kunna använda M208xx_v2 virtuella datorer. För att kunna läsa information finns i artikeln [storlekar för virtuella datorer för den minnesoptimerade](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat stöds inte ännu för att använda HANA på Mv2 familj virtuella datorer. Aktuella planering är att ge stöd för Red Hat-versioner som körs HANA på Mv2 VM-familj i kvartal 4/CY2019 
+> 
+
 
 ### <a name="storage-configuration-for-sap-hana"></a>Lagringskonfigurationen för SAP HANA
 För lagringskonfigurationer och lagringstyper som ska användas med SAP HANA i Azure, kan du läsa dokumentet [lagringskonfigurationer för SAP HANA Azure VM](./hana-vm-operations-storage.md)

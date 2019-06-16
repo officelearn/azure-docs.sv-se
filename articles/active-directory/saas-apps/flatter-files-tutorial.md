@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e4ba987393628af07f8a8a507f635047eb18cc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65740248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Självstudier: Azure Active Directory-integrering med Flatter Files
 
@@ -52,7 +52,7 @@ För att konfigurera integreringen av Flatter Files i Azure AD måste du lägga 
 
 **Utför följande steg för att lägga till Flatter Files från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -239,5 +239,5 @@ När du klickar på Flatter Files-panelen i åtkomstpanelen bör du automatiskt 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054291"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installera Azure IoT Edge-körningen på Linux (x64)
 
@@ -83,6 +83,18 @@ Installera Moby kommandoradsgränssnittet (CLI). CLI är användbart för utveck
    sudo apt-get install moby-cli
    ```
 
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Kontrollera din Linux-kernel för Moby kompatibilitet
+
+Många tillverkare av inbäddade enheter skicka enhet-avbildningar som innehåller anpassade Linux-kernel som saknar funktioner som krävs för kompatibilitet för körning av behållare. Om det uppstår problem när du installerar den rekommenderade [Moby](https://github.com/moby/moby) körning av behållare, kanske du felsöker din Linux kernel konfiguration med hjälp av den [Kontrollera-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) skriptet som anges i den officiella [Moby Github-lagringsplatsen](https://github.com/moby/moby) genom att köra följande kommandon på enheten.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+Detta ger ett detaljerat resultat som innehåller statusen för kernelfunktioner som används av Moby-körningen. Du måste kontrollera att alla objekt `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibelt med Moby runtime.  Om du har identifierat några saknas funktioner, kan du aktivera dem genom att återskapa din kernel från källan och välja de associerade modulerna ska ingå i lämplig kernel-.config.  Om du använder en kernel-konfiguration-generator som defconfig eller menuconfig behöver du på samma sätt att hitta och aktivera respektive funktioner och därefter återskapa din kernel.  När du har distribuerat din nyligen ändrade kernel, kör du skriptet Kontrollera-config igen för att kontrollera att dina identifierade funktioner har aktiverats.
+
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
 Den **IoT Edge security daemon** tillhandahåller och underhåller säkerhetsstandarder på IoT Edge-enhet. Daemonen startar vid varje start och startar enheten genom att starta resten av IoT Edge-körningen.
@@ -143,7 +155,7 @@ Starta om daemon när du har angett etableringsinformationen i konfigurationsfil
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk försörjning
+### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk etablering
 
 Att automatiskt etablera en enhet [konfigurera Device Provisioning-tjänsten och hämta din enhet registrerings-ID](how-to-auto-provision-simulated-device-linux.md). Automatisk etablering fungerar bara med enheter som har ett chip för Trusted Platform Module (TPM). Till exempel levereras Raspberry Pi enheter inte med TPM som standard.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071941"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,7 +54,7 @@ Använd den `cross-domain` princip att göra API tillgängligt från Adobe Flash
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |mellan domäner|Rotelement. Underordnade element måste motsvara den [Adobe domänerna filen principspecifikationen](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
@@ -129,7 +129,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 |tillåtna ursprung|Innehåller `origin` element som beskriver de tillåtna ursprung för begäranden mellan domäner. `allowed-origins` kan innehålla antingen ett enskilt `origin` element som anger `*` så att alla ursprung, eller en eller flera `origin` element som innehåller en URI.|Ja|Gäller inte|
 |ursprung|Värdet kan vara antingen `*` så att alla ursprung eller en URI som anger ett enda ursprung. URI: N måste innehålla ett schema, värd och port.|Ja|Om porten utelämnas i en URI, används port 80 för HTTP och port 443 används för HTTPS.|
 |tillåtna metoder|Det här elementet krävs om metoder än får eller publicera tillåts. Innehåller `method` element som anger HTTP-verb som stöds.|Nej|Om det här avsnittet inte är tillgänglig, stöds GET och POST.|
-|metod|Anger ett HTTP-verb.|Minst en `method` elementet krävs om de `allowed-methods` avsnittet finns.|Gäller inte|
+|method|Anger ett HTTP-verb.|Minst en `method` elementet krävs om de `allowed-methods` avsnittet finns.|Gäller inte|
 |tillåtna huvuden|Det här elementet innehåller `header` element att ange namnen på de rubriker som kan tas med i begäran.|Nej|Gäller inte|
 |Exponerar rubriker|Det här elementet innehåller `header` element att ange namnen på de rubriker som ska vara tillgängliga för klienten.|Nej|Gäller inte|
 |sidhuvud|Anger en rubrik.|Minst en `header` elementet krävs i `allowed-headers` eller `expose-headers` om finns i avsnittet.|Gäller inte|
@@ -145,7 +145,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Princip-avsnitt:** inkommande
-- **Princip-scope:** globala, API, igen
+- **Princip-scope:** globala, produkt, API, igen
 
 ## <a name="JSONP"></a> JSONP
 Den `jsonp` Grupprincip lägger till JSON med stöd för utfyllnad (JSONP) till en åtgärd eller ett API för att tillåta anrop mellan domäner från JavaScript-webbläsarbaserade klienter. JSONP är en metod som används i JavaScript-program att begärandedata från en server i en annan domän. JSONP kringgår den begränsning som tillämpas av de flesta webbläsare där åtkomst till webbsidor måste vara i samma domän.
@@ -168,7 +168,7 @@ Om du lägger till parametern återanrop `?cb=XXX` returneras ett JSONP-resultat
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |jsonp|Rotelement.|Ja|
 

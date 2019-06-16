@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241696"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
@@ -25,7 +25,7 @@ API Management-principer är en kraftfull funktion i systemet som tillåter Azur
 
 Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-par, som kallas med namnet värden, som är globala för tjänstinstansen. Dessa värden med namnet kan användas för att hantera konstant strängvärden i alla API-konfiguration och principer. Varje egenskap kan ha följande attribut:
 
-| Attribut | Type | Beskrivning |
+| Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | `Display name` |string |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
 | `Value`        |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |

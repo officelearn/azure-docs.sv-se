@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868432"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
@@ -101,8 +101,8 @@ Välj **Inställningar** överst på sidan för att övervaka förloppet för ko
 ## <a name="publish-content"></a>Publicera innehåll
 För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Lokaliserare ger åtkomst till filer som finns i tillgången. Azure Media Services stöder två typer av lokaliserare: 
 
-* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassad strömning är HLS, Smooth Streaming och MPEG-DASH. Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. 
-* **Progressiv lokaliserare (signatur för delad åtkomst)**. Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
+* **Strömningslokaliserare (OnDemandOrigin)** . Strömningslokaliserare används för anpassad strömning. Exempel på anpassad strömning är HLS, Smooth Streaming och MPEG-DASH. Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. 
+* **Progressiv lokaliserare (signatur för delad åtkomst)** . Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
 
 Lägg till *(format = m3u8 aapl)* till URL:en för att skapa en HLS-strömnings-URL:
 

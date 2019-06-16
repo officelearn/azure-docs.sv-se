@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713850"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
@@ -147,7 +147,7 @@ Om du har en befintlig nyckel i en PEM-fil kan överföra du den till Azure Key 
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Du kan nu referera till den nyckel som du har skapat eller överfört till Azure Key Vault med hjälp av dess URI. Använd **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** att alltid hämta den aktuella versionen. Använd https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+Du kan nu referera till den nyckel som du har skapat eller överfört till Azure Key Vault med hjälp av dess URI. Använd **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** att alltid hämta den aktuella versionen. Använd https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
 
 Lägga till en hemlighet till valvet, vilket är ett lösenord med namnet SQLPassword och som har värdet för ”hVFkk965BuUv” till Azure Key Vaults. 
 
@@ -155,7 +155,7 @@ Lägga till en hemlighet till valvet, vilket är ett lösenord med namnet SQLPas
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Referera till det här lösenordet med hjälp av dess URI. Använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword** att alltid hämta den aktuella versionen och https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Referera till det här lösenordet med hjälp av dess URI. Använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword** att alltid hämta den aktuella versionen och https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** .
 
 Importera ett certifikat till valvet med hjälp av en PEM- eller .pfx.
 

@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: tomfitz
 ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712987"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för distributioner av klar
@@ -44,10 +44,10 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | ------------- | ----------- |
 | aadsupportcases | Nej | 
 | addsservices | Nej | 
-| agenter | Nej | 
+| Agenter | Nej | 
 | anonymousapiusers | Nej | 
 | konfiguration | Nej | 
-| loggar | Nej | 
+| logs | Nej | 
 | rapporter | Nej | 
 | services | Nej | 
 
@@ -56,7 +56,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | ------------- | ----------- |
 | Konfigurationer | Nej | 
 | generateRecommendations | Nej | 
-| rekommendationer | Nej | 
+| Rekommendationer | Nej | 
 | suppressions | Nej | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -74,7 +74,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| servrar | Ja | 
+| Servrar | Ja | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Resurstyp | Borttagning i complete-läget |
@@ -243,7 +243,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | reservationOrders/split | Nej | 
 | reservationOrders/swap | Nej | 
 | reservationer | Nej | 
-| resurser | Nej | 
+| Resurser | Nej | 
 | validateReservationOrder | Nej | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -338,7 +338,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | restorePointCollections/restorePoints | Nej | 
 | sharedVMImages | Ja | 
 | sharedVMImages/versions | Ja | 
-| ögonblicksbilder | Ja | 
+| Ögonblicksbilder | Ja | 
 | virtualMachines | Ja | 
 | virtualMachines/diagnosticSettings | Nej | 
 | virtualMachines/extensions | Ja | 
@@ -363,12 +363,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | många | Nej | 
 | Marknadsplatser | Nej | 
 | Pricesheets | Nej | 
-| produkter | Nej | 
+| Produkter | Nej | 
 | ReservationDetails | Nej | 
 | ReservationRecommendations | Nej | 
 | ReservationSummaries | Nej | 
 | ReservationTransactions | Nej | 
-| Taggar | Nej | 
+| Tags | Nej | 
 | Villkor | Nej | 
 | UsageDetails | Nej | 
 
@@ -427,7 +427,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Aviseringar | Nej | 
 | billingAccounts | Nej | 
 | Anslutningar | Ja | 
-| Avdelningar | Nej | 
+| avdelningar | Nej | 
 | Dimensioner | Nej | 
 | EnrollmentAccounts | Nej | 
 | Fråga | Nej | 
@@ -455,7 +455,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| jobb | Ja | 
+| Jobb | Ja | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resurstyp | Borttagning i complete-läget |
@@ -465,7 +465,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| arbetsytor | Ja | 
+| Arbetsytor | Ja | 
 | workspaces/virtualNetworkPeerings | Nej | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -511,21 +511,21 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| servrar | Ja | 
+| Servrar | Ja | 
 | servrar/recoverableServers | Nej | 
 | servers/virtualNetworkRules | Nej | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| servrar | Ja | 
+| Servrar | Ja | 
 | servrar/recoverableServers | Nej | 
 | servers/virtualNetworkRules | Nej | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| servrar | Ja | 
+| Servrar | Ja | 
 | servers/advisors | Nej | 
 | servrar/queryTexts | Nej | 
 | servrar/recoverableServers | Nej | 
@@ -616,7 +616,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | myareas/områden/galleryitems | Nej | 
 | myareas/galleryitems | Nej | 
 | Registrera dig | Nej | 
-| resurser | Nej | 
+| Resurser | Nej | 
 | retrieveresourcesbyid | Nej | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -639,7 +639,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| jobb | Ja | 
+| Jobb | Ja | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Resurstyp | Borttagning i complete-läget |
@@ -658,7 +658,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | alertrules | Ja | 
 | automatedExportSettings | Nej | 
 | autoscalesettings | Ja | 
-| baslinje | Nej | 
+| Baslinje | Nej | 
 | calculatebaseline | Nej | 
 | Komponenter | Ja | 
 | komponenter/händelser | Nej | 
@@ -671,7 +671,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | extendedDiagnosticSettings | Nej | 
 | logDefinitions | Nej | 
 | logprofiles | Nej | 
-| loggar | Nej | 
+| logs | Nej | 
 | metricAlerts | Ja |
 | migrateToNewPricingModel | Nej | 
 | myWorkbooks | Nej | 
@@ -733,7 +733,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| loggar | Nej | 
+| logs | Nej | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Resurstyp | Borttagning i complete-läget |
@@ -766,7 +766,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| arbetsytor | Ja | 
+| Arbetsytor | Ja | 
 | arbetsytor/beräkningar | Nej | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -780,7 +780,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | ------------- | ----------- |
 | getEntities | Nej | 
 | managementGroups | Nej | 
-| resurser | Nej | 
+| Resurser | Nej | 
 | startTenantBackfill | Nej | 
 | tenantBackfillStatus | Nej | 
 
@@ -802,7 +802,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej | 
 | offerTypes/publishers/offers/plans/configs/importImage | Nej | 
 | privategalleryitems | Nej | 
-| produkter | Nej | 
+| Produkter | Nej | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Resurstyp | Borttagning i complete-läget |
@@ -849,7 +849,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | azureFirewallFqdnTags | Nej | 
 | azureFirewalls | Ja | 
 | bgpServiceCommunities | Nej | 
-| anslutningar | Ja | 
+| Anslutningar | Ja | 
 | ddosCustomPolicies | Ja | 
 | ddosProtectionPlans | Ja | 
 | dnsOperationStatuses | Nej | 
@@ -868,7 +868,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | dnszones/TXT | Nej | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nej | 
-| ytterdörrar | Ja | 
+| frontdoors | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nej | 
 | interfaceEndpoints | Ja | 
@@ -914,7 +914,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | enheter | Nej | 
 | linkTargets | Nej | 
 | storageInsightConfigs | Nej | 
-| arbetsytor | Ja | 
+| Arbetsytor | Ja | 
 | arbetsytor/datakällor | Nej | 
 | arbetsytor/linkedServices | Nej | 
 | arbetsytor/fråga | Nej | 
@@ -925,7 +925,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | managementassociations | Nej | 
 | managementconfigurations | Ja | 
 | lösningar | Ja | 
-| visningar | Ja | 
+| Vyer | Ja | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Resurstyp | Borttagning i complete-läget |
@@ -976,7 +976,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| resurser | Nej | 
+| Resurser | Nej | 
 | subscriptionsStatus | Nej | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -987,19 +987,19 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | childResources | Nej | 
 | evenemang | Nej | 
 | impactedResources | Nej | 
-| meddelanden | Nej | 
+| Meddelanden | Nej | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| distributioner | Nej | 
+| Distributioner | Nej | 
 | Distributioner/operations | Nej | 
 | Länkar | Nej | 
 | notifyResourceJobs | Nej | 
 | Providers | Nej | 
 | resourceGroups | Nej | 
-| resurser | Nej | 
-| prenumerationer | Nej | 
+| Resurser | Nej | 
+| Prenumerationer | Nej | 
 | Prenumerationer/providers | Nej | 
 | subscriptions/resourceGroups | Nej | 
 | prenumerationer/resourcegroups/resurser | Nej | 
@@ -1041,11 +1041,11 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | externalSecuritySolutions | Nej | 
 | InformationProtectionPolicies | Nej | 
 | jitNetworkAccessPolicies | Nej | 
-| övervakning | Nej | 
+| Övervakning | Nej | 
 | övervaka/program mot skadlig kod | Nej | 
 | övervaka/baslinje | Nej | 
 | övervaka/patch | Nej | 
-| principer | Nej | 
+| Principer | Nej | 
 | prissättningar | Nej | 
 | securityContacts | Nej | 
 | securitySolutions | Nej | 
@@ -1124,7 +1124,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | managedInstances/keys | Nej |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nej |
 | managedInstances/vulnerabilityAssessments | Nej |
-| servrar | Ja | 
+| Servrar | Ja | 
 | servrar/administratörer | Nej | 
 | servers/communicationLinks | Nej | 
 | servrar/databaser | Ja (Se kommentaren nedan) | 
@@ -1197,7 +1197,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | providerRegistrations | Ja | 
-| resurser | Ja | 
+| Resurser | Ja | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resurstyp | Borttagning i complete-läget |
@@ -1228,9 +1228,9 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | apiManagementAccounts/connectionAcls | Nej | 
 | apiManagementAccounts/connections | Nej | 
 | billingMeters | Nej | 
-| certifikat | Ja | 
+| Certifikat | Ja | 
 | connectionGateways | Ja | 
-| anslutningar | Ja | 
+| Anslutningar | Ja | 
 | customApis | Ja | 
 | deletedSites | Nej | 
 | functions | Nej | 
@@ -1240,7 +1240,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | hostingEnvironments/workerPools | Nej | 
 | hostingEnvironments-workerPools-instanser | Nej | 
 | publishingUsers | Nej | 
-| rekommendationer | Nej | 
+| Rekommendationer | Nej | 
 | resourceHealthMetadata | Nej | 
 | körningar | Nej | 
 | serverFarms | Ja | 

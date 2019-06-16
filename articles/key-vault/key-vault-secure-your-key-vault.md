@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a88451403f242c39212c80e3c7425a901c6819cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118984"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckelvalv
 
@@ -125,7 +125,7 @@ I följande tabell sammanfattas åtkomstbehörigheter för våra roller och prog
 
 | Roll | Behörigheter på hanteringsplanet | Behörigheter på dataplanet |
 | --- | --- | --- |
-| Säkerhetsteamet | Nyckelvalvsdeltagare | Nycklar: Säkerhetskopiera, skapa, ta bort, hämta, importera, lista, återställa<br>Hemligheter: alla åtgärder för |
+| Säkerhetsteamet | Nyckelvalvsdeltagare | Nycklar: säkerhetskopiering, skapa, ta bort, hämta, importera, lista, återställa<br>Hemligheter: alla åtgärder för |
 | Utvecklare och&nbsp;operatörer | Nyckelvalvet distribueringsbehörighet<br><br> **Obs!** Den här behörigheten kan distribuerade virtuella datorer att hämta hemligheter från key vault. | Ingen |
 | Granskare | Ingen | Nycklar: lista<br>Hemligheter: lista<br><br> **Obs!** Den här behörigheten kan granskare att granska attribut (taggar, aktivering datum, förfallodatum) för nycklar och hemligheter som inte släpps i loggarna. |
 | Program | Ingen | Nycklar: signera<br>Hemligheter: hämta |

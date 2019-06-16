@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595181"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
@@ -236,7 +236,7 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan **Service Configuration** (Tjänstkonfiguration).
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp (**...**) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
+3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp ( **...** ) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
 
     ![Öppna dialogrutan för att skapa anslutningssträng](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. I dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng) markerar du **Your subscription** (Din prenumeration), väljer det lagringskonto som du skapade tidigare och klickar sedan på **OK**. Om du inte redan har loggat in uppmanas du ange dina Azure-autentiseringsuppgifter.
@@ -381,7 +381,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 3. Högerklicka på ContosoAdsWeb under **Roles** (Roller) i ContosoAdsCloudService-projektet, och klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
+4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]** , och klicka sedan på **Add Setting** (Lägg till inställning).
 
     Lämna **Service Configuration** (Tjänstkonfiguration) inställd på **All Configurations** (Alla konfigurationer).
 5. Lägg till en inställning med namnet *StorageConnectionString*. Ange **typen** som *ConnectionString*, och ställ in **värdet** till *UseDevelopmentStorage=true*.
@@ -392,7 +392,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Typ: String
+   * Ange: String
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```
@@ -522,7 +522,7 @@ imagesQueue.CreateIfNotExists();
 Filen *_Layout.cshtml* anger appnamnet i sidhuvudet och sidfoten, och skapar en menypost som heter ”Ads”.
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
-Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna överför heltalsvärdet för uppräkningen `Category` i en QueryString-variabel till Ads-indexsidan. 
+Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna överför heltalsvärdet för uppräkningen `Category` i en QueryString-variabel till Ads-indexsidan.
 
 ```razor
 <li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>

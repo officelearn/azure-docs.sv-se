@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696603"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiv sökning
 
@@ -84,7 +84,7 @@ Lägg till en ```enriched``` fältet som en del av din Indexdefinition för fels
 
 Innehåll saknas kan vara resultatet av dokument som avbryts under indexering. Nivåerna kostnadsfri och Basic har låg begränsningar på dokumentstorlek. Alla filer som överstiger gränsen ignoreras under indexering. Du kan söka efter släppta dokument i Azure-portalen. Dubbelklicka på panelen indexerare i instrumentpanelen för search-tjänsten. Granska förhållandet mellan lyckade dokument som indexerats. Om det inte är 100%, klickar du på förhållandet mellan för att få mer information. 
 
-Om problemet är relaterat till filstorlek, kan du se ett fel så här: ”Blob < filnamn >” har storleken på < filstorlek > byte, vilket överskrider den maximala storleken för extrahering av dokumentet för din aktuella tjänstnivå ”. Mer information om indexerare gränser finns [tjänstbegränsningar](search-limits-quotas-capacity.md).
+Om problemet är relaterat till filstorlek, kan du se ett fel så här: ”Blob \<filnamn >” har storleken på \<filstorleken > byte, vilket överskrider den maximala storleken för extrahering av dokumentet för din aktuella tjänstnivå ”. Mer information om indexerare gränser finns [tjänstbegränsningar](search-limits-quotas-capacity.md).
 
 En andra orsak för innehåll som inte visas kan vara relaterade indata/utdata Mappningsfel. Till exempel en utdatanamnet för målet är ”personer” men fältnamnet index är gemena ”användare”. Systemet kan returnera 201 meddelanden om lyckade åtgärder för hela pipelinen så att du tycker att indexering lyckades, när i själva verket ett fält är tom. 
 

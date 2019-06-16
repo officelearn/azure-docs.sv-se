@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713809"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
@@ -71,7 +71,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
    ![Välj HTTP-åtgärd](./media/connectors-native-http/select-http-action.png)
 
    Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange den [HTTP-åtgärd parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) du vill ska ingå i anropet till mål-slutpunkten. 
 

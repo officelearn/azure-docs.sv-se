@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059679"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -53,7 +53,7 @@ Det här scenariot liknar föregående. Kanske ett program har flyttats, eller d
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Värdprogram för Utjämning av nätverksbelastning i basdomänen
 
-Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Till exempel om domänen är contoso.com; Du kan skapa CNAME-poster för somelable.contoso.com; men du kan inte skapa CNAME-post för contoso.com själva.
+Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Till exempel om domänen är contoso.com; Du kan skapa CNAME-poster för somelabel.contoso.com; men du kan inte skapa CNAME-post för contoso.com själva.
 Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom du använder en Traffic Manager-profil kräver skapandet av en CNAME-post, är det inte går att den pekar på Traffic Manager-profilen från zonens apex.
 
 Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster skapas alias poster i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808617"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar integrera Microsoft Azure och Oracle Cloud Infrastructure (förhandsversion)
 
@@ -45,7 +45,7 @@ Du kan köra i en konfiguration med molnöverskridande-programmen innehåller:
 * Oracle Retail-program
 * Oracle Hyperion finansiell hantering
 
-Följande diagram är en översikt över ansluten lösningen. För enkelhetens skull visar diagrammet endast en programnivå och en datanivå. Beroende på program-architecutre kan din lösning omfatta fler nivåer, till exempel en webbnivå i Azure. Mer information finns i följande avsnitt.
+Följande diagram är en översikt över ansluten lösningen. För enkelhetens skull visar diagrammet endast en programnivå och en datanivå. Beroende på programarkitektur, kan din lösning omfatta fler nivåer, till exempel en webbnivå i Azure. Mer information finns i följande avsnitt.
 
 ![Översikt över lösning för Azure OCI](media/oracle-oci-overview/crosscloud.png)
 

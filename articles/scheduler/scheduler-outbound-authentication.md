@@ -10,11 +10,11 @@ ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708943"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
@@ -47,7 +47,7 @@ När du lägger till autentisering med den `ClientCertificate` modellera, ange d
 | Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
-| **typ** | Ja | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
+| **type** | Ja | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
 | **pfx** | Ja | Base64-kodad innehållet i PFX-filen |
 | **Lösenord** | Ja | Lösenord för åtkomst till PFX-filen |
 ||| 
@@ -59,7 +59,7 @@ När en begäran skickas med autentiseringsinformation, innehåller svaret de h�
 | Element | Beskrivning | 
 |---------|-------------| 
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
-| **typ** | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
+| **type** | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
 | **certificateThumbprint** |Certifikatets tumavtryck |
 | **certificateSubjectName** |Det unika ämnesnamnet för certifikatet |
 | **certificateExpiration** | Certifikatets förfallodatum |
@@ -167,7 +167,7 @@ När du lägger till autentisering med den `Basic` modellera, ange dessa ytterli
 | Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda grundläggande autentisering | 
-| **typ** | Ja | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. | 
+| **type** | Ja | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. | 
 | **användarnamn** | Ja | Användarnamnet för att autentisera | 
 | **Lösenord** | Ja | Lösenordet för autentisering |
 |||| 
@@ -179,7 +179,7 @@ När en begäran skickas med autentiseringsinformation, innehåller svaret de h�
 | Element | Beskrivning | 
 |---------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda grundläggande autentisering |
-| **typ** | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. |
+| **type** | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. |
 | **användarnamn** | Det autentiserade användarnamnet |
 ||| 
 
@@ -285,7 +285,7 @@ När du lägger till autentisering med den `ActiveDirectoryOAuth` modellera, ang
 | Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Ja | Autentiseringsobjektet för att använda ActiveDirectoryOAuth autentisering |
-| **typ** | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. |
+| **type** | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. |
 | **klient** | Ja | Klient-ID för Azure AD-klient. Du hittar klient-ID för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell. |
 | **Målgrupp** | Ja | Det här värdet anges till `https://management.core.windows.net/`. | 
 | **clientId** | Ja | Klient-ID för Azure AD-programmet | 
@@ -299,7 +299,7 @@ När en begäran skickas med autentiseringsinformation, innehåller svaret de h�
 | Element | Beskrivning |
 |---------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ActiveDirectoryOAuth autentisering |
-| **typ** | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
+| **type** | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
 | **klient** | Klient-ID för Azure AD-klient |
 | **Målgrupp** | Det här värdet anges till `https://management.core.windows.net/`. |
 | **clientId** | Klient-ID för Azure AD-programmet |

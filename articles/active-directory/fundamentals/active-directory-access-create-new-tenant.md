@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f970e9d43bc6dd67fe55ca9cdcfcae716c9f166a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110608"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabbstart: Skapa en ny klientorganisation i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -69,6 +69,6 @@ Om du inte planerar att fortsätta använda det här programmet kan du ta bort k
 
 - Se [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md) för att lägga till grupper och medlemmar
 
-- Lär dig mer om [rollbaserad åtkomst med hjälp av privilegierad identitetshantering](../../role-based-access-control/pim-azure-resource.md) och [Villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md) för att hantera din organisations program och åtkomst.
+- Lär dig mer om [rollbaserad åtkomst med hjälp av Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) och [villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md) för att hantera din organisations program- och åtkomst.
 
 - Lär dig mer om Azure AD, bland annat [grundläggande licensinformation, terminologi och associerade funktioner](active-directory-whatis.md).

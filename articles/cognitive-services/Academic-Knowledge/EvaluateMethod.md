@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339104"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
@@ -35,8 +35,8 @@ Namn     | Värde | Krävs?  | Beskrivning
 **uttryck för Markörstorlek**       | Textsträngen | Ja | Ett frågeuttryck som anger vilka enheter som ska returneras.
 **model**      | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
 **Attribut** | Textsträngen | Nej<br>standard: Id | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
-**antal**        | Tal | Nej<br>Standard: 10 | Antalet resultat som ska returneras.
-**offset**     | Tal |   Nej<br>Standard: 0    | Index för det första resultatet ska returneras.
+**antal**        | Tal | Nej<br>standard: 10 | Antalet resultat som ska returneras.
+**offset**     | Tal |   Nej<br>standard: 0    | Index för det första resultatet ska returneras.
 **orderby** |   Textsträngen | Nej<br>Standard: genom att minska sannolikhet | Namnet på ett attribut som används för att sortera entiteterna. Du kan också kan stigande/fallande anges. Formatet är: *namn: asc* eller *namn: desc*.
   
  <br>

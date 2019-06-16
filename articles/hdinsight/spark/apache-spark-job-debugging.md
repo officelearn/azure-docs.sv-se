@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707822"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
@@ -24,7 +24,7 @@ Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Du bör har börjat köra anteckningsboken  **[Machine learning: Förutsägande analys mat inspektion data med hjälp av MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Följ länken för mer information om hur du kör den här anteckningsboken finns.  
+* Du bör har börjat köra anteckningsboken  **[Machine learning: Förutsägande analys mat inspektion data med hjälp av MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Följ länken för mer information om hur du kör den här anteckningsboken finns.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Spåra ett program i YARN-Användargränssnittet
 1. Starta Användargränssnittet för YARN. Klicka på **Yarn** under **Klusterinstrumentpaneler**.
@@ -41,7 +41,7 @@ Du måste ha följande:
     Typen av program som startas från Jupyter notebooks, statusen är alltid **kör** tills du avslutar anteckningsboken.
 3. Från program-vyn kan granska du nedåt ytterligare till ta reda på de behållare som är associerade med programmet och loggar (stdout/stderr). Du kan också starta Spark-Användargränssnittet genom att klicka på det länkande som motsvarar den **spårnings-URL: en**, enligt nedan. 
    
-    ![Hämta containgerloggar](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![Hämta behållarloggar](./media/apache-spark-job-debugging/download-container-logs.png)
 
 ## <a name="track-an-application-in-the-spark-ui"></a>Spåra ett program i Spark-Användargränssnittet
 I Användargränssnittet för Spark kan du granska nedåt i Spark-jobb som skapade av programmet som du tidigare har startat.

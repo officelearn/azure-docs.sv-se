@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679576"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
@@ -44,7 +44,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    
     ![Lägg till slutpunkt-sida](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser i domänen  _\<endpointname >_. azureedge.net.
+3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser i domänen  _\<endpointname >_ . azureedge.net.
 
 4. För **ursprungstyp**, väljer du något av följande typer av ursprung: 
    - **Storage** för Azure Storage
@@ -62,7 +62,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
     
-8. För **protokollet** och **ursprungsport**, ange protokoll och portar du använder för att komma åt resurser i den ursprungliga servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-definierade domänen (_\<endpointname >_. azureedge.net) att komma åt HTTPS-innehåll. 
+8. För **protokollet** och **ursprungsport**, ange protokoll och portar du använder för att komma åt resurser i den ursprungliga servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-definierade domänen ( _\<endpointname >_ . azureedge.net) att komma åt HTTPS-innehåll. 
    
    > [!NOTE]
    > Den **ursprungsport** värdet påverkar bara vilken port slutpunkten använder för att hämta information från den ursprungliga servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  

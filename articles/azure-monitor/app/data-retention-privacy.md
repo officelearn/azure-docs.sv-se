@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: mbullwin
 ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518846"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
@@ -240,10 +240,10 @@ SDK: erna kan variera mellan plattformar och det finns flera komponenter som du 
 
 | Åtgärden | Dataklasser som samlas in (se nästa tabell) |
 | --- | --- |
-| [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>Användare |
+| [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
 | [Installera Status Monitor på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härledd<br/>Prestandaräknare |
-| [Lägg till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härledd<br/>Begäran<br/>Session<br/>Användare |
-| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sida<br/>ClientPerf<br/>Ajax |
+| [Lägg till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härledd<br/>Förfrågan<br/>Session<br/>användare |
+| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sidan<br/>ClientPerf<br/>Ajax |
 | [Definiera standardegenskaper][apiproperties] |**Egenskaper för** på alla standardentiteter och anpassade händelser |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Anropa spåra *][api] |Händelsenamn<br/>**Egenskaper** |
@@ -263,7 +263,7 @@ För [SDK: er för andra plattformar][platforms], finns i sina dokument.
 | ServerContext |Datornamn, språk, OS, enhet, användarens session, användarkontext, igen |
 | Härledd |geoplats från IP-adress, tidsstämpel, operativsystem, webbläsare |
 | Mått |Tjänstmåttets namn och värde |
-| Händelser |Händelsenamn och värde |
+| Events |Händelsenamn och värde |
 | PageViews |URL- och eller inloggningsnamn |
 | Klienten perf |URL-/ sidnamn, inläsningstid för webbläsare |
 | Ajax |HTTP-anrop från webbsida till servern |

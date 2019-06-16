@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/19/2019
 ms.author: robinsh
 ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719322"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT fjärrövervakning och aviseringar med Azure Logic Apps ansluter dina IoT-hubb och postlåda
 
@@ -56,7 +56,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
 1. På den **skapa namnområde** fönstret, ange följande information:
 
-   **Namn**: Namnet på service bus-namnområdet. Namnområdet måste vara unikt inom Azure.
+   **Namn på**: Namnet på service bus-namnområdet. Namnområdet måste vara unikt inom Azure.
 
    **Prisnivå**: Välj **grundläggande** från den nedrullningsbara listan. Basic-nivån är tillräcklig för den här självstudien.
 
@@ -78,7 +78,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
    ![Lägg till en service bus-kö i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Gå tillbaka till den **Service Bus Namespace** fönstret under **entiteter**väljer **köer**. Öppna Service Bus-kön i listan och välj sedan **principer för delad åtkomst** > **+ Lägg till**.
+1. Gå tillbaka till den **Service Bus Namespace** fönstret under **entiteter**väljer **köer**. Öppna Service Bus-kön i listan och välj sedan **principer för delad åtkomst** >  **+ Lägg till**.
 
 1. Ange ett namn för principen, kontrollera **hantera**, och välj sedan **skapa**.
 
@@ -114,7 +114,7 @@ Lägg till en anpassad slutpunkt för Service Bus-kön till din IoT hub och skap
 
 1. På den **lägga till en väg** fönstret anger du följande information:
 
-   **Namn**: Namnet på regel för vidarebefordran.
+   **Namn på**: Namnet på regel för vidarebefordran.
 
    **Slutpunkt**: Välj vilken slutpunkt som du skapade.
 
@@ -136,7 +136,7 @@ I föregående avsnitt ställer du in din IoT-hubb för att dirigera meddelanden
 
 1. Ange följande information:
 
-   **Namn**: Namnet på logikappen.
+   **Namn på**: Namnet på logikappen.
 
    **Resursgrupp**: Använd samma resursgrupp som din IoT-hubb använder.
 
@@ -158,7 +158,7 @@ I föregående avsnitt ställer du in din IoT-hubb för att dirigera meddelanden
 
    ![Välj Service Bus för att börja skapa din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Under **utlösare**väljer **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)**.
+1. Under **utlösare**väljer **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)** .
 
    ![Välj utlösaren för din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
@@ -214,7 +214,7 @@ I föregående avsnitt ställer du in din IoT-hubb för att dirigera meddelanden
 
    1. På den **smtp API-anslutningen** fönstret under **Allmänt**väljer **redigera API-anslutningen**.
 
-   1. På den **redigera API-anslutningen** väljer **aktivera SSL?**, anger du lösenordet för ditt e-postkonto igen och välj **spara**.
+   1. På den **redigera API-anslutningen** väljer **aktivera SSL?** , anger du lösenordet för ditt e-postkonto igen och välj **spara**.
 
       ![Redigera SMTP-API-anslutning i din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

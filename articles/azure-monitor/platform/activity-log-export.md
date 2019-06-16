@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248151"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera aktivitetslogg för Azure storage eller Azure Event Hubs
@@ -109,7 +109,7 @@ Om det finns redan en loggprofil, måste du först ta bort den befintliga log-pr
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Egenskap  | Krävs | Beskrivning |
+    | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
     | Name |Ja |Namnet på din loggprofil. |
     | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
@@ -152,11 +152,11 @@ Om det finns redan en loggprofil, måste du först ta bort den befintliga log-pr
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Egenskap  | Krävs | Beskrivning |
+    | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
     | name |Ja |Namnet på din loggprofil. |
     | storage-account-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
-    | platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
+    | locations |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
     | days |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 365. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
     |enabled | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
     | kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
@@ -235,7 +235,7 @@ Elementen i den här JSON beskrivs i följande tabell.
 | callerIpAddress |IP-adressen för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
 | identity |JSON-blob som beskriver auktorisering och anspråk. |
-| Auktorisering |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
+| authorization |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
 | nivå |Nivån på händelsen. En av följande värden: _Kritiska_, _fel_, _varning_, _endast i informationssyfte_, och _utförlig_ |
 | location |Region i platsen uppstod (eller global). |
 | properties |Uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver informationen om händelsen. |

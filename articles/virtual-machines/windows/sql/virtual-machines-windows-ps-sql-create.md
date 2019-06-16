@@ -17,10 +17,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165735"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Så här etablerar du SQL Server-datorer med Azure PowerShell
@@ -427,7 +427,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 ## <a name="next-steps"></a>Nästa steg
 När den virtuella datorn har skapats kan du:
 
-- Anslut till den virtuella datorn med RDP
+- Ansluta till den virtuella datorn med RDP
 - Konfigurera SQL Server-inställningar i portalen för din virtuella dator, inklusive:
    - [Lagringsinställningar](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Automatiserade hanteringsuppgifter](virtual-machines-windows-sql-server-agent-extension.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636817"
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
@@ -120,7 +120,7 @@ Inte alla resurser som kan cachelagras. I följande tabell visas vilka resurser 
 
 För **Azure CDN Standard från Microsoft** cachelagring för att fungera på en resurs, den ursprungliga servern måste ha stöd för alla HEAD och GET HTTP-begäranden och innehållslängden värdena måste vara samma för alla huvud- och GET HTTP-svar för tillgången. Den ursprungliga servern för en HEAD-begäran måste ha stöd för HEAD-begäran och måste svara med samma rubriker som om den fick en GET-begäran.
 
-## <a name="default-caching-behavior"></a>Beteende för standardcachelagring
+## <a name="default-caching-behavior"></a>Standardcachelagring
 
 I följande tabell beskrivs Standardinställningarna för cachelagring beteende för Azure CDN-produkter och deras optimeringar.
 

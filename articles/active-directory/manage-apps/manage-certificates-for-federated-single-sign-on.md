@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824747"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
@@ -30,11 +30,11 @@ Den här artikeln gäller enbart för appar som är konfigurerade för att anvä
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram
 
-När du lägger till ett nytt program från galleriet och konfigurera en SAML-baserad inloggning (genom att välja **enkel inloggning** > **SAML** från översiktssidan program), genererar Azure AD en certifikat för det program som är giltig i tre år. Att hämta det aktiva certifikatet som säkerhetscertifikat (**.cer**) filen, gå tillbaka till sidan (**SAML-baserad inloggning**) och välj en nedladdningslänk i den **SAML-signeringscertifikat** rubrik. Du kan välja mellan raw (binära) certifikatet eller Base64-(base 64-kodad text)-certifikat. För galleriprogram, i det här avsnittet kan visar också en länk för att hämta certifikatet som federationsmetadata XML (en **.xml** fil), beroende på krav för programmet.
+När du lägger till ett nytt program från galleriet och konfigurera en SAML-baserad inloggning (genom att välja **enkel inloggning** > **SAML** från översiktssidan program), genererar Azure AD en certifikat för det program som är giltig i tre år. Att hämta det aktiva certifikatet som säkerhetscertifikat ( **.cer**) filen, gå tillbaka till sidan (**SAML-baserad inloggning**) och välj en nedladdningslänk i den **SAML-signeringscertifikat** rubrik. Du kan välja mellan raw (binära) certifikatet eller Base64-(base 64-kodad text)-certifikat. För galleriprogram, i det här avsnittet kan visar också en länk för att hämta certifikatet som federationsmetadata XML (en **.xml** fil), beroende på krav för programmet.
 
 ![SAML active signeringscertifikat certifikatalternativ för nedladdning](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-Du kan också hämta ett aktiva eller inaktiva certifikat genom att välja den **SAML-signeringscertifikat** rubrikens **redigera** ikon (en penna), som visar den **SAML-signeringscertifikat** sidan. Välj ellipsen (**...** ) bredvid det certifikat som du vill ladda ned och väljer sedan vilken certifikatformatet du vill. Du har ytterligare alternativet att hämta certifikatet i utökad sekretess e-(PEM)-postformat. Det här formatet är identisk med Base64 men med en **.pem** filnamnstillägget, som inte känns igen i Windows som en certifikat-format.
+Du kan också hämta ett aktiva eller inaktiva certifikat genom att välja den **SAML-signeringscertifikat** rubrikens **redigera** ikon (en penna), som visar den **SAML-signeringscertifikat** sidan. Välj ellipsen ( **...** ) bredvid det certifikat som du vill ladda ned och väljer sedan vilken certifikatformatet du vill. Du har ytterligare alternativet att hämta certifikatet i utökad sekretess e-(PEM)-postformat. Det här formatet är identisk med Base64 men med en **.pem** filnamnstillägget, som inte känns igen i Windows som en certifikat-format.
 
 ![SAML-signeringscertifikat certifikat hämtningsalternativ (aktiv och inaktiv)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -88,7 +88,7 @@ Ladda ned det nya certifikatet i rätt format, överför den till programmet och
 
 3. Följ instruktionerna i den [automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram](#auto-generated-certificate-for-gallery-and-non-gallery-applications) ovan. Det här steget hämtar certifikatet i Kodningsformatet som krävs för överföring av programmet.
 
-4. När du vill förnya till det nya certifikatet går du tillbaka till den **SAML-signeringscertifikat** och välj de tre punkterna i certifikatraden sparade (**...** ) och välj **aktivera certifikatet**. Status för det nya certifikatet ändras till **Active**, och det tidigare aktiva certifikatet ändras till statusen **inaktiv**.
+4. När du vill förnya till det nya certifikatet går du tillbaka till den **SAML-signeringscertifikat** och välj de tre punkterna i certifikatraden sparade ( **...** ) och välj **aktivera certifikatet**. Status för det nya certifikatet ändras till **Active**, och det tidigare aktiva certifikatet ändras till statusen **inaktiv**.
 
 5. Vill du fortsätta följande programmets SAML inloggnings-instruktioner för konfiguration som du visade tidigare, så att du kan ladda upp SAML-signering av certifikat i rätt kodningsformat.
 
@@ -116,7 +116,7 @@ Om det är ett certifikat upphör snart att gälla, kan du förnya den med hjäl
 
 2. Om programmet kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv genom att följa dessa steg:
    1. Gå tillbaka till den **SAML-signeringscertifikat** sidan.
-   2. Välj ellipsen i certifikatraden sparade (**...** ) och välj sedan **aktivera certifikatet**.
+   2. Välj ellipsen i certifikatraden sparade ( **...** ) och välj sedan **aktivera certifikatet**.
    3. Hoppa över de kommande två stegen.
 
 3. Om appen kan endast hantera ett certifikat i taget, Välj ett driftstopp intervall att utföra nästa steg. (Annars om programmet automatiskt hämtar inte det nya certifikatet men kan hantera flera signeringscertifikat, du kan utföra nästa steg när som helst.)

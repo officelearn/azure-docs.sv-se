@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561217"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
@@ -369,7 +369,7 @@ Värdet som anges i egenskapen nod kan vara en sträng, bool, eller signerats l�
 
 1) villkorliga kontroller för att skapa specifika instruktioner
 
-| Meddelande | Syntax |
+| Instruktionen | Syntax |
 | --- |:---:|
 | ”lika med” | "==" |
 | ”inte lika med” | "!=" |
@@ -380,7 +380,7 @@ Värdet som anges i egenskapen nod kan vara en sträng, bool, eller signerats l�
 
 2) Booleskt uttryck för gruppering och logiska åtgärder
 
-| Meddelande | Syntax |
+| Instruktionen | Syntax |
 | --- |:---:|
 | ”och” | "&&" |
 | ”eller” | "&#124;&#124;" |

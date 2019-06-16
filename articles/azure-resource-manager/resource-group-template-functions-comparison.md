@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128680"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Jämförelse av funktioner för Azure Resource Manager-mallar
@@ -33,7 +33,7 @@ Resource Manager tillhandahåller flera funktioner för att göra jämförelser 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="equals"></a>lika med
+## <a name="equals"></a>är lika med
 `equals(arg1, arg2)`
 
 Kontrollerar om två värden är lika med varandra.
@@ -137,10 +137,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| checkInts | Booleskt | True |
+| checkStrings | Booleskt | True |
+| checkArrays | Booleskt | True |
+| checkObjects | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -175,7 +175,7 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -250,8 +250,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falskt |
-| checkStrings | Bool | True |
+| checkInts | Booleskt | False |
+| checkStrings | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -326,8 +326,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falskt |
-| checkStrings | Bool | True |
+| checkInts | Booleskt | False |
+| checkStrings | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -402,8 +402,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | Falskt |
+| checkInts | Booleskt | True |
+| checkStrings | Booleskt | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -478,8 +478,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | Falskt |
+| checkInts | Booleskt | True |
+| checkStrings | Booleskt | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 

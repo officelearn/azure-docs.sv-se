@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295793"
+ms.locfileid: "67108973"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
 
@@ -114,7 +114,7 @@ En översikt över relaterade användarupplevelsen finns:
 
 ## <a name="what-is-a-user-risk-policy"></a>Vad är en användarprincip?
 
-Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. När en risk händelser kan identifieras i realtid, det finns även riskhändelser som kräver mer tid. Till exempel kräver systemet för att identifiera en omöjlig resa till ovanliga platser, en inledande inlärningsperiod på 14 dagar för att lära dig om en användares vanligt beteende. Det finns flera alternativ för att lösa identifierade riskhändelserna. Exempelvis kan du kan lösa enskilda riskhändelser manuellt eller du kan hämta dem matchas med en inloggningsrisk eller en villkorlig åtkomstprincip för användarrisk.
+Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. När en risk händelser kan identifieras i realtid, det finns även riskhändelser som kräver mer tid. Till exempel kräver systemet för att identifiera en omöjlig resa till ovanliga platser, en inledande inlärningsperiod på 14 dagar för att lära dig om en användares vanligt beteende. Det finns flera alternativ för att lösa identifierade riskhändelserna. Exempelvis kan du kan lösa enskilda riskhändelser manuellt eller du kan hämta dem matchas med en inloggningsrisk eller användarrisk princip för villkorlig åtkomst.
 
 Alla riskhändelser som har identifierats för en användare och inte löses kallas active riskhändelser. De aktiva riskhändelser som är kopplade till användaren kallas användarrisk. Azure AD beräknar utifrån användarrisk en sannolikhet (låg, medelhög och hög) att en användare har komprometterats. Sannolikheten kallas risknivån.
 

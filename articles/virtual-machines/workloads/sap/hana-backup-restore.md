@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987903"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
@@ -303,7 +303,7 @@ Om du vill visa mer information om ögonblicksbilder kan använda skriptet `azur
    * Storleken på totalt antal ögonblicksbilder för en volym
    * Följande information i varje ögonblicksbild i volymen: 
       - Namnet på ögonblicksbilden 
-      - Tid för skapande 
+      - Skapa tid 
       - Storleken på ögonblicksbilden
       - Frekvensen för ögonblicksbilden
       - HANA Backup-ID som är associerade med den ögonblicksbilden, om det behövs

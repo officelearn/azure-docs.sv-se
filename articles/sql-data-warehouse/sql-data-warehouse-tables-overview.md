@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851579"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Utforma tabeller i Azure SQL Data Warehouse
@@ -43,7 +43,7 @@ För att visa hur tabellerna i SQL Data Warehouse, kan du använda fakta och dim
 | WideWorldImportersDW tabell  | Registertyp | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
 | Stad | Dimension | wwi.DimCity |
-| Ordning | Fakta för | wwi.FactOrder |
+| Beställa | Fakta för | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Tabellen persistence 

@@ -17,10 +17,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835659"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
@@ -130,10 +130,10 @@ Distribuera SQL Server som DBMS för Business One, finns längs dokumentet [SQL 
 
 Ungefärlig storleksberäkningar för DBMS-sida för SQL Server är:
 
-| Antal användare | vCPU:er | Minne | Exempel VM-typer |
+| Antal användare | virtuella processorer | Minne | Exempel VM-typer |
 | --- | --- | --- | --- |
 | upp till 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
-| upp till 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
+| upp till 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
 | upp till 80 | 16 | 64 GB | D16s_v3, E16s_v3 |
 | upp till 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
@@ -150,7 +150,7 @@ SAP HANA säkerhetskopierar och återställer strategier, bör du läsa dokument
 ### <a name="business-one-client-server"></a>Företag ett klient-server
 Överväganden för lagring är inte det viktigaste här för dessa komponenter. dock du har en tillförlitlig plattform. Därför bör du använda Azure Premium Storage för den här virtuella datorn, även för en bas-VHD. Ändra storlek på den virtuella datorn med de data som anges i [SAP Business en maskinvara Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2.4 i dokumentet. När du beräknar kraven, måste du jämföra dem med följande dokument för att hitta den perfekta Virtuellt åt dig:
 
-- [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Storlekar för virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP-kommentar #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Jämför antalet processorer och minne som krävs som de som beskrivs av Microsoft. Tänk också nätverkets dataflöde på när du väljer de virtuella datorerna.

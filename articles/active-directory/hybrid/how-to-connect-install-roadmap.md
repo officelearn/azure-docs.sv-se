@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243702"
+ms.locfileid: "67109454"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -68,7 +68,7 @@ Azure AD Connect har flera funktioner som du kan aktivera om du vill eller som �
 
 Med [tillbakaskrivning av lösenord](../authentication/quickstart-sspr.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
 
-Med [tillbakaskrivning av enheter](how-to-connect-device-writeback.md) kan en enhet som är registrerad i Azure AD skrivas tillbaka till lokala Active Directory och användas för villkorlig åtkomst.
+[Tillbakaskrivning av enhet](how-to-connect-device-writeback.md) kan en enhet registreras i Azure AD skrivas tillbaka till den lokala Active Directory så att den kan användas för villkorlig åtkomst.
 
 Funktionen [förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md) är aktiverad som standard och skyddar din molnkatalog mot flera samtidiga borttagningar. Som standard tillåts 500 borttagningar per körning. Du kan ändra den här inställningen beroende på storleken på din organisation.
 

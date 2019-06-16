@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900266"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
@@ -114,7 +114,7 @@ En sökning efter fullständiga ord, inte delsträngar. Använd citattecken om d
 
 | string | är *inte* genom | men dessa gör att hitta |
 | --- | --- | --- |
-| HomeController.About |hem<br/>domänkontrollant<br/>ut | homecontroller<br/>om<br/>"homecontroller.about"|
+| HomeController.About |Startsida<br/>domänkontrollant<br/>ut | homecontroller<br/>Om<br/>"homecontroller.about"|
 |USA|UNI<br/>valda|USA<br/>tillstånd<br/>USA och<br/>”USA”
 
 Här följer sökuttryck som du kan använda:

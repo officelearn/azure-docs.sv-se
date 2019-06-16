@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743215"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av Azure-dator
@@ -41,8 +41,8 @@ Börja [ladda ned användningsinformation](https://docs.microsoft.com/azure/bill
 | Resursplats  | Identifierar det datacenter där resursen körs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ”Japan, östra”                                                                                                                                                                                                                                                                                                                                                        |
 | Förbrukad tjänst   | Tjänsten Azure-plattformen som du använde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
 | Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [översikt över Azure Resource Manager.](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
-| Instans-ID        | Identifieraren för resursen. Identifieraren innehåller namnet du angav för resursen när den skapades. Instans-ID innehåller de SubscriptionId, ResourceGroupName och VMName för virtuella datorer (eller skalningsuppsättning namn för skala användning).                                                                                                                                                                                                                                                                                                                                                                                                                    | ”/ prenumerationer/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>eller<br><br>”/ prenumerationer/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
-| Taggar               | Tagg som du tilldelar till resursen. Använd taggar om du vill gruppera faktureringsposter. Lär dig hur du [tagga dina virtuella datorer.](tag.md) Detta är tillgänglig för Resource Manager virtuella datorer bara.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
+| Instans-ID        | Identifierare för resursen. Identifieraren innehåller namnet du angav för resursen när den skapades. Instans-ID innehåller de SubscriptionId, ResourceGroupName och VMName för virtuella datorer (eller skalningsuppsättning namn för skala användning).                                                                                                                                                                                                                                                                                                                                                                                                                    | ”/ prenumerationer/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>eller<br><br>”/ prenumerationer/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
+| Tags               | Tagg som du tilldelar till resursen. Använd taggar om du vill gruppera faktureringsposter. Lär dig hur du [tagga dina virtuella datorer.](tag.md) Detta är tillgänglig för Resource Manager virtuella datorer bara.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Ytterligare info    | Tjänstspecifik metadata. För virtuella datorer fyller vi följande data i fältet ytterligare information: <ul><li>Bild typspecifika avbildning som du körde. Hitta en fullständig lista över strängar som stöds under under bildtyper.</li><li>Service Type: storleken som du har distribuerat.</li><li>VMName: namnet på den virtuella datorn. Det här fältet fylls bara för skalningsuppsättningar i virtuella datorer. Om du behöver ditt VM-namn för VM-skaluppsättning, du kan hitta det i instans-ID-strängen ovan.</li><li>UsageType: Detta anger vilken typ av användning som representerar.<ul><li>ComputeHR är den Beräkningstimmar användningen av den underliggande virtuella datorn som Standard_D1_v2.</li><li>ComputeHR_SW är premium programvara dig om Virtuellt datorn använder premium-programmet, t.ex. Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Premium Software {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
 ## <a name="image-type"></a>Avbildningstyp
@@ -72,41 +72,41 @@ Regionsnamn fylls i fältet resursplats i användningsinformation varierar från
 
 |    **Resource Manager Regionsnamn**       |    **Resursplats i användningsinformation**    |
 |--------------------------|------------------------------------------|
-|    australienöstra         |    Australien, Öst                               |
-|    australiensydöstra    |    Australien, sydöstra                          |
+|    Australien         |    Australien, Öst                               |
+|    sydöstra Australien    |    Australien, sydöstra                          |
 |    brasiliensödra           |    Brasilien, Syd                              |
 |    CanadaCentral         |    Kanada, centrala                            |
 |    Kanadaöstra            |    Kanada, östra                               |
 |    Indiencentrala          |    Indien, centrala                            |
-|    usacentrala             |    Centrala USA                            |
+|    centralus             |    Centrala USA                            |
 |    chinaeast             |    Östra Kina                            |
 |    chinanorth            |    Norra Kina                           |
 |    eastasia              |    Östasien                             |
 |    usaöstra                |    Östra USA                               |
-|    usaöstra2               |    USA, östra 2                             |
+|    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    Tyskland, centrala                            |
 |    GermanyNortheast      |    Tyskland, nordöstra                          |
-|    japanöstra             |    Japan, östra                               |
-|    japanvästra             |    Japan, västra                               |
+|    Sydostasien             |    Japan, östra                               |
+|    japanöstra             |    Japan, västra                               |
 |    KoreaCentral          |    Sydkorea, centrala                            |
 |    KoreaSouth            |    Sydkorea, södra                              |
 |    usanorracentrala        |    Norra centrala USA                      |
 |    northeurope           |    Norra Europa                          |
 |    southcentralus        |    Södra centrala USA                      |
-|    sydostasien         |    Sydostasien                        |
+|    southeastasia         |    Sydostasien                        |
 |    Indiensödra            |    Indien, södra                              |
 |    UKNorth               |    USA, Norra                              |
 |    södrastorbritannien               |    Storbritannien, södra                              |
 |    UKSouth2              |    Storbritannien, södra 2                            |
-|    västrastorbritannien                |    Storbritannien, västra                               |
+|    ukwest                |    Storbritannien, västra                               |
 |    USDoDCentral          |    US DoD, centrala                        |
 |    USDoDEast             |    US DoD, östra                           |
-|    USGovArizona          |    Arizona (USA-förvaltad region)                         |
+|    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Texas (USA-förvaltad region)                           |
+|    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    Västra centrala USA         |    USA, västra centrala                       |
-|    europavästra            |    Västra Europa                           |
+|    westeurope            |    Västra Europa                           |
 |    Indienvästra             |    Indien, västra                               |
 |    westus                |    Västra USA                               |
 |    westus2               |    USA, västra 2                             |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991772"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
@@ -42,7 +42,7 @@ Skriv ett C#-konsolprogram med Visual Studio för att skicka meddelanden till k�
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
+Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
@@ -389,7 +389,7 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
    
     ![Kölängd][queue-message-receive]
 
-Gratulerar! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot meddelandena från samma kö.
+Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot meddelandena från samma kö.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 

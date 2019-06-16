@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734942"
 ---
 # <a name="action-rules-preview"></a>Åtgärdsregler (förhandsversion)
@@ -162,8 +162,8 @@ Du bäst utnyttjar loggvarningar med Åtgärdsregler, rekommenderar vi att du at
 
     A. Du kan se en lista över Åtgärdsregler som överlappar på samma definitionsområde (i förekommande fall) när du har definierat ett scope när du konfigurerar en åtgärdsregel för. Den här överlappar varandra kan vara något av följande alternativ:
     * En exakt matchning: Till exempel finns åtgärdsregeln som du definierar och överlappande åtgärdsregeln på samma prenumeration.
-    * En del: Till exempel åtgärdsregeln som du definierar är på en prenumeration och överlappande åtgärdsregeln är på en resursgrupp i prenumerationen.
-    * Inbegriper: Till exempel åtgärdsregeln som du definierar är på en resursgrupp och överlappande åtgärdsregeln finns på den prenumeration som innehåller resursgruppen.
+    * En delmängd: Till exempel åtgärdsregeln som du definierar är på en prenumeration och överlappande åtgärdsregeln är på en resursgrupp i prenumerationen.
+    * En supermängd: Till exempel åtgärdsregeln som du definierar är på en resursgrupp och överlappande åtgärdsregeln finns på den prenumeration som innehåller resursgruppen.
     * En skärningspunkt: Till exempel åtgärdsregeln som du definierar finns på ”VM1” och ”VM2” och överlappande åtgärdsregeln finns på ”VM2” och ”VM3”.
 
     ![Överlappande Åtgärdsregler](media/alerts-action-rules/action-rules-overlapping.png)
@@ -172,8 +172,8 @@ Du bäst utnyttjar loggvarningar med Åtgärdsregler, rekommenderar vi att du at
 
     A. Du kan se listan över Åtgärdsregler som fungerar på samma definitionsområde (i förekommande fall) genom att klicka på ”Visa konfigurerade åtgärder' under avsnittet” åtgärder ”när du har definierat målresursen för din varningsregeln. Den här listan har fyllts i baserat på följande scenarier för detta scope:
     * En exakt matchning: Till exempel finns varningsregeln som du definierar och åtgärdsregeln på samma prenumeration.
-    * En del: Till exempel varningsregeln som du definierar finns på en prenumeration och åtgärdsregeln är på en resursgrupp i prenumerationen.
-    * Inbegriper: Till exempel varningsregeln som du definierar finns på en resursgrupp och åtgärdsregeln finns på den prenumeration som innehåller resursgruppen.
+    * En delmängd: Till exempel varningsregeln som du definierar finns på en prenumeration och åtgärdsregeln är på en resursgrupp i prenumerationen.
+    * En supermängd: Till exempel varningsregeln som du definierar finns på en resursgrupp och åtgärdsregeln finns på den prenumeration som innehåller resursgruppen.
     * En skärningspunkt: Till exempel varningsregeln som du definierar finns på ”VM1” och ”VM2” och åtgärdsregeln finns på ”VM2” och ”VM3”.
     
     ![Överlappande Åtgärdsregler](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)

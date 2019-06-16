@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657854"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
@@ -88,7 +88,7 @@ Mallar i det här avsnittet kan du anpassa innehållet på sidorna API: et i dev
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`apis`|Insamling av [API-sammanfattning](api-management-template-data-model-reference.md#APISummary) entiteter.|API: erna synliga för den aktuella användaren.|  
   
@@ -343,7 +343,7 @@ Mallar i det här avsnittet kan du anpassa innehållet på sidorna API: et i dev
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`apiId`|string|Id för den aktuella API: T.|  
 |`apiName`|string|Namnet på API: et.|  
@@ -352,7 +352,7 @@ Mallar i det här avsnittet kan du anpassa innehållet på sidorna API: et i dev
 |`operation`|[Åtgärd](api-management-template-data-model-reference.md#Operation)|För närvarande visas igen.|  
 |`sampleUrl`|string|URL-Adressen för den aktuella åtgärden.|  
 |`operationMenu`|[Åtgärd-menyn](api-management-template-data-model-reference.md#Menu)|En meny med åtgärder för detta API.|  
-|`consoleUrl`|URI|URI för den **prova** knappen.|  
+|`consoleUrl`|URI: N|URI för den **prova** knappen.|  
 |`samples`|Insamling av [kodexempel](api-management-template-data-model-reference.md#Sample) entiteter.|Kodexempel för den aktuella åtgärden...|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  

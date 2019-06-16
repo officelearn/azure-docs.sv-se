@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110374"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -177,7 +177,7 @@ Läs mer om hur du använder för anpassade tilläggsegenskaper för regler för
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nya godkända klientappar för Microsoft Azure Active Directory-appbaserad villkorlig åtkomst
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Ny godkända klientappar för Azure AD-appbaserad villkorlig åtkomst
 
 **Typ:** Planera för ändring  
 **Tjänstekategori:** Villkorlig åtkomst  
@@ -191,7 +191,7 @@ Följande appar är i listan över [godkända klientappar](https://docs.microsof
 
 Mer information finns i:
 
-- [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD-appbaserad villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -439,7 +439,7 @@ Mer information om de här nya funktionerna finns i vår blogg [Azure AD-aktivit
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Information för villkorlig åtkomst har lagts till iAzure AD-inloggningsrapporten
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Information om villkorlig åtkomst läggs till rapporten för Azure AD-inloggningar
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Rapportering  
@@ -707,13 +707,13 @@ Mer information finns i [Azure Active Directory-villkoren i Använd funktion](ht
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Ny ”anpassad” villkorlig åtkomst Principmall som skapades under gäller att skapa för användning
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Ny ”anpassad” villkorlig åtkomst-Principmall som skapades under gäller att skapa för användning
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Användningsvillkor  
 **Produkten kapacitet:** Styrning
 
-När du skapar dina användningsvillkor skapas också en ny Principmall ”anpassad” villkorlig åtkomst. Den här nya principmallen kan du skapa användningsvillkoren och sedan omedelbart gå till principbladet skapa villkorlig åtkomst utan att behöva gå manuellt via portalen.
+När du skapar dina användningsvillkor skapas också en ny ”anpassad” Principmall för villkorlig åtkomst. Den här nya principmallen kan du skapa användningsvillkoren och sedan omedelbart gå till principbladet skapa villkorlig åtkomst utan att behöva gå manuellt via portalen.
 
 Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -891,7 +891,7 @@ Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i A
 **Tjänstekategori:** Annat  
 **Produkten kapacitet:** Katalog
  
-Nya, stegvisa anvisningar om hur du distribuerar Azure Active Directory (Azure AD), inklusive lösenordsåterställning via självbetjäning (SSPR), enkel inloggning (SSO), villkorlig åtkomst (CA), App proxy, Användaretablering, Active Directory Federation Services (ADFS) till Direktautentisering (PTA) och ADFS till lösenordets hash-synkronisering (PHS).
+Ny, stegvis vägledning om hur du distribuerar Azure Active Directory (AD Azure), återställa, inklusive lösenord för självbetjäning (SSPR), enkel inloggning (SSO), villkorlig åtkomst (CA), App proxy, Användaretablering, Active Directory Federation Services (ADFS) till Direktautentisering (PTA) och ADFS till lösenordets hash-synkronisering (PHS).
 
 Om du vill visa distributionsguiden, går du till den [identitet distributionsguider](https://aka.ms/DeploymentPlans) lagringsplatsen på GitHub. Om du vill ge feedback om distributionsguiden, använda den [distributionen planera feedbackformulär](https://aka.ms/deploymentplanfeedback). Om du har frågor om distributionsguiden kontaktar du oss på [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1034,7 +1034,7 @@ Du kan nu ange vilka partnerorganisationer som du vill dela och samarbeta med i 
 
 Detta hjälper dig att styra åtkomsten till dina resurser, samtidigt som en smidig upplevelse för godkända användare.
 
-Den här funktionen för B2B-samarbete är tillgängligt för alla Azure Active Directory-kunder och kan användas tillsammans med Azure AD Premium-funktioner som villkorlig åtkomst och identitet skydd för mer detaljerad kontroll över när och hur externa företagsanvändare loggar i och få åtkomst.
+Den här funktionen för B2B-samarbete är tillgängligt för alla Azure Active Directory-kunder och kan användas tillsammans med Azure AD Premium-funktioner som villkorlig åtkomst-och identitetsskydd för mer detaljerad kontroll över när och hur externa företagsanvändare loggar i och få åtkomst.
 
 Mer information finns i [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
 
@@ -1147,7 +1147,7 @@ Mer information finns i [vad är Azure AD B2B-samarbete?](https://docs.microsoft
 
 **Intune Managed Browser enkel inloggning:** Dina anställda kan använda enkel inloggning i interna klienter (till exempel Microsoft Outlook) och Intune Managed Browser för alla Azure AD-anslutna appar.
 
-**Intune Managed Browser stöd för villkorlig åtkomst:** Du kan nu kräva anställda att använda Intune Managed browser med programbaserade villkorliga åtkomstprinciper.
+**Intune Managed Browser stöd för villkorlig åtkomst:** Du kan nu kräva anställda att använda Intune Managed browser med programbaserade principer för villkorlig åtkomst.
 
 Läs mer om detta i vår [blogginlägget](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
 
@@ -1494,7 +1494,7 @@ Den här versionen har följande uppdateringar och ändringar:
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Program som stöder Intune App Protection principer som lagts till med Azure AD-programbaserad villkorsstyrd åtkomst
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Program med stöd för Intune App Protection-principer har lagts till för användning med Azure AD-programbaserad villkorsstyrd åtkomst
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Villkorlig åtkomst  
@@ -1513,7 +1513,7 @@ Följande program kommer att läggas i slutet av februari:
 Mer information finns i:
 
 - [Krav för godkända appar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD-appbaserad villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1793,11 +1793,11 @@ Idag, blockeras åtkomst när du använder det här tillståndet. När förhands
 
 Leta efter den här funktionen och mer information finns i kommande bloggar och viktig information. 
 
-Mer information finns i [för villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+Mer information finns i [villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nya godkända klientappar för Microsoft Azure Active Directory-appbaserad villkorlig åtkomst
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Ny godkända klientappar för Azure AD-appbaserad villkorlig åtkomst
 
 **Typ:** Planera för ändring  
 **Tjänstekategori:** Villkorlig åtkomst  
@@ -1811,7 +1811,7 @@ Följande appar är i listan över [godkända klientappar](https://docs.microsof
 Mer information finns i:
 
 - [Krav för godkända appar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD-appbaserad villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1842,13 +1842,13 @@ Mer information finns i [lokal integration](https://docs.microsoft.com/azure/act
 
 ---
 
-### <a name="azure-ad-app-based-conditional-access"></a>Azure AD-appbaserad villkorlig åtkomst 
+### <a name="azure-ad-app-based-conditional-access"></a>Azure AD-appbaserad villkorsstyrd åtkomst 
  
 **Typ:** Ny funktion  
 **Tjänstekategori:** Azure AD  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
 
-Du kan nu begränsa åtkomst till Office 365 och andra Azure AD-anslutna molnappar till [godkända klientappar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) som stöder Intunes appskyddsprinciper med hjälp av [appbaserad villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intunes appskyddsprinciper används för att konfigurera och skydda företagets data på dessa klientprogram.
+Du kan nu begränsa åtkomst till Office 365 och andra Azure AD-anslutna molnappar till [godkända klientappar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) som stöder Intunes appskyddsprinciper med hjälp av [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intunes appskyddsprinciper används för att konfigurera och skydda företagets data på dessa klientprogram.
 
 Genom att kombinera [appbaserad](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) med [enhetsbaserad](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) principer för villkorlig åtkomst har du flexibiliteten att skydda data för personliga och företagets enheter.
 
@@ -1867,7 +1867,7 @@ Följande villkor och kontroller är nu tillgängliga för användning med appba
 
 - Kräv godkänd klientapp
 
-Mer information finns i [appbaserad villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+Mer information finns i [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1888,17 +1888,17 @@ Mer information finns i [hantera enheter med hjälp av Azure portal](https://doc
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Stöd för macOS som en enhetsplattform för Azure AD villkorsstyrd åtkomst 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Stöd för macOS som en enhetsplattform för Azure AD villkorlig åtkomst 
 
 **Typ:** Ny funktion    
 **Tjänstekategori:** Villkorlig åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd 
 
-Du nu inkludera (eller exkludera) macOS som ett villkor för plattformen av enheten i din Azure AD-princip för villkorlig åtkomst. Med hjälp av Mac OS för att enhetsplattformar som stöds kan du:
+Du nu inkludera (eller exkludera) macOS som ett villkor för plattformen av enheten i din Azure AD villkorlig åtkomstprincip. Med hjälp av Mac OS för att enhetsplattformar som stöds kan du:
 
 - **Registrera och hantera macOS-enheter med hjälp av Intune.** Precis som för andra plattformar som iOS och Android finns ett företagets portalprogram är tillgängliga för macOS att enhetlig registreringar. Du kan använda den nya företagsportalappen för macOS för att registrera en enhet med Intune och registrera den med Azure AD.
 - **Se till att macOS-enheter uppfylla organisationens efterlevnadsprinciper som definierats i Intune.** I Intune på Azure portal kan ställa du nu in principer för efterlevnad för macOS-enheter. 
-- **Begränsa åtkomsten till program i Azure AD för att endast kompatibla macOS-enheter.** Skapa principer med villkorlig åtkomst har macOS som en separat Enhetsinställningar som plattform. Nu kan du skapa principer för villkorlig åtkomst för macOS-specifika för det aktuella programmet i Azure.
+- **Begränsa åtkomsten till program i Azure AD för att endast kompatibla macOS-enheter.** Skapa för villkorlig åtkomst principer har macOS som en separat Enhetsinställningar som plattform. Du kan nu skapa macOS-specifika principer för villkorlig åtkomst för program i Azure.
 
 Mer information finns i:
 
@@ -1942,7 +1942,7 @@ I Azure AD-administrationscentret kan du nu:
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nya godkända klientappar för Microsoft Azure Active Directory-appbaserad villkorlig åtkomst
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Ny godkända klientappar för Azure AD-appbaserad villkorlig åtkomst
  
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Villkorlig åtkomst  
@@ -1956,7 +1956,7 @@ Följande appar har lagts till i listan över [godkända klientappar](https://do
 Mer information finns i:
 
 - [Krav för godkända appar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD-appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD-appbaserad villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1966,9 +1966,9 @@ Mer information finns i:
 **Tjänstekategori:** Villkorlig åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
  
-Nu kan du använda ”eller” (begär en av de valda kontrollerna) för villkorlig åtkomstkontroller. Du kan använda den här funktionen för att skapa principer med ”eller” mellan åtkomstkontroller. Du kan till exempel använda den här funktionen för att skapa en princip som kräver att en användare att logga in med hjälp av Multi-Factor Authentication ”eller” på en kompatibel enhet.
+Nu kan du använda ”eller” (begär en av de valda kontrollerna) för villkorlig åtkomst kontroller. Du kan använda den här funktionen för att skapa principer med ”eller” mellan åtkomstkontroller. Du kan till exempel använda den här funktionen för att skapa en princip som kräver att en användare att logga in med hjälp av Multi-Factor Authentication ”eller” på en kompatibel enhet.
 
-Mer information finns i [kontroller i Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
+Mer information finns i [kontroller i Azure AD villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  
 ---
 

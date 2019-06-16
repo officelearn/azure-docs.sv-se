@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 73aab0750d97981d6684d04415683435bbd28797
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: be00f8338430452faa8bd5a20d9e2ddfcbb9d09d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980422"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701300"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Ändra OS-disken som används av en Azure-dator med hjälp av PowerShell
 
 Om du har en befintlig virtuell dator, men du vill växla disken för en säkerhetskopiering disk eller en annan OS-disk, kan du använda Azure PowerShell för att växla OS-diskar. Du behöver ta bort och återskapa den virtuella datorn. Du kan även använda en hanterad disk i en annan resursgrupp, förutsatt att den inte redan används.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Den virtuella datorn måste vara stopped\deallocated och resurs-ID för hanterad disk kan ersättas med resurs-ID för en annan hanterad disk.
 

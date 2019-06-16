@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074879"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Användaren profilmallar i Azure API Management
@@ -104,7 +104,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Den aktuella användarens förnamn.|  
 |`lastName`|string|Efternamn för den aktuella användaren.|  
@@ -325,7 +325,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Den aktuella användarens förnamn.|  
 |`lastName`|string|Efternamn för den aktuella användaren.|  
@@ -488,7 +488,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Den aktuella användarens förnamn.|  
 |`lastName`|string|Efternamn för den aktuella användaren.|  

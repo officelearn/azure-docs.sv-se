@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023639"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
@@ -134,7 +134,7 @@ Radfilter definierar vilka rader i en tabell kan efterfrågas av medlemmar i en 
   
 Radfilter kan definieras endast för roller med läs- och läsa och bearbeta behörigheter. Som standard om ett radfilter inte har definierats för en viss tabell, medlemmar kan fråga efter alla rader i tabellen, såvida inte korsfiltrering gäller från en annan tabell.
   
- Radfilter kräver en DAX-formel, som måste utvärderas till ett TRUE/FALSE-värde, att definiera de rader som kan efterfrågas av medlemmar i specifika rollen. Rader som inte ingår i DAX-formeln kan inte frågas. Till exempel tabellen kunder med följande rad filtrerar uttryck, *= kunder [Land] = ”USA”*, medlemmar i rollen kan bara se kunder i USA.  
+ Radfilter kräver en DAX-formel, som måste utvärderas till ett TRUE/FALSE-värde, att definiera de rader som kan efterfrågas av medlemmar i specifika rollen. Rader som inte ingår i DAX-formeln kan inte frågas. Till exempel tabellen kunder med följande rad filtrerar uttryck, *= kunder [Land] = ”USA”* , medlemmar i rollen kan bara se kunder i USA.  
   
 Radfilter gäller för de angivna raderna och relaterade rader. När en tabell har flera relationer, tillämpa filter säkerhet för relationen är aktiv. Radfilter överlappar med andra raden filter som definierats för relaterade tabeller, till exempel:  
   
@@ -146,7 +146,7 @@ Radfilter gäller för de angivna raderna och relaterade rader. När en tabell h
   
  Nettoeffekten är medlemmar kan fråga efter rader med data där kunden finns i USA, produktkategorin cyklar och året 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte cyklar eller transaktioner inte i 2016 om de inte är medlem i en annan roll som ger dessa behörigheter.
   
- Du kan använda filtret, *=FALSE()*, för att neka åtkomst till alla rader för en hel tabell.
+ Du kan använda filtret, *=FALSE()* , för att neka åtkomst till alla rader för en hel tabell.
 
 ## <a name="next-steps"></a>Nästa steg
 

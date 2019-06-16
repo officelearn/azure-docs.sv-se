@@ -8,17 +8,17 @@ ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
 ms.openlocfilehash: f930b5c478cc880952b4559be4c6647b260efcf2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243496"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Skala etablerat dataflöde globalt 
 
 I Azure Cosmos DB, etablerat dataflöde representeras som begäran begärandeenheter/sekund (RU/s eller pluralform ru: er). RU: er mäta kostnaden för både läs- och skrivåtgärder mot din Cosmos-behållare som du ser i följande bild:
 
-![Begäransenheter](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+![Enheter för programbegäran](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Du kan etablera ru: er i en Cosmos-behållare eller en Cosmos-databas. RU som etableras i en behållare är endast tillgängligt för de åtgärder som utförs på den behållaren. RU som etableras för en databas delas mellan alla behållare i databasen (förutom för alla behållare som exklusivt tilldelade ru: er).
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710408"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
@@ -169,8 +169,8 @@ Det här valfria avsnittet definierar ytterligare mål som tillägget skickar in
 
 Element | Värde
 ------- | -----
-namn | En sträng som används för att referera till den här mottagare någon annanstans i konfigurationen av tillägget.
-typ | Typ av mottagare som definieras. Anger de andra värdena (om sådan finns) i instanser av den här typen.
+name | En sträng som används för att referera till den här mottagare någon annanstans i konfigurationen av tillägget.
+type | Typ av mottagare som definieras. Anger de andra värdena (om sådan finns) i instanser av den här typen.
 
 Version 3.0 av Linux-Diagnostiktillägget stöder två typer av mottagare: EventHub och JsonBlob.
 
@@ -312,13 +312,13 @@ Det här valfria avsnittet kontroll över insamlingen av mått. Rå exempel räk
 Element | Värde
 ------- | -----
 mottagare | (valfritt) En kommaavgränsad lista över namnen på mottagare till vilka LAD skickar aggregerade mätvärden resultat. Alla aggregerade mätvärden publiceras till varje listad mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
-typ | Identifierar den faktiska leverantören av måttet.
-klass | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”räknaren”.
+type | Identifierar den faktiska leverantören av måttet.
+Klass | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”räknaren”.
 räknare | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”class”.
 counterSpecifier | Identifierar det specifika måttet i ett namnområde för Azure-mått.
-villkor | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer aggregering i alla instanser av objektet. Mer information finns i den `builtin` definitioner av mått.
+condition | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer aggregering i alla instanser av objektet. Mer information finns i den `builtin` definitioner av mått.
 sampleRate | ÄR 8601 intervall som anger den hastighet som raw-exempel för det här måttet har samlats in. Om inte har angetts samling intervallet anges av värdet för [sampleRateInSeconds](#ladcfg). Kortaste stöds samplingsfrekvensen är 15 sekunder (PT15S).
-enhet | Bör vara något av de här strängarna: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
+Enhet | Bör vara något av de här strängarna: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av de associera nationella inställningarna) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är ett valfritt ID. Konsumenter av mätvärden, som Azure portal diagram och aviseringar funktion, använda counterSpecifier som ”nyckeln” som identifierar ett mått eller en instans av ett mått. För `builtin` mätvärden, rekommenderar vi du använder counterSpecifier värden som börjar med `/builtin/`. Om du kan samla in en specifik instans av ett mått, rekommenderar vi du bifoga identifierare för instansen till counterSpecifier-värde. Några exempel:
@@ -388,7 +388,7 @@ Element | Värde
 ------- | -----
 namnområde | (valfritt) OMI-namnområde som frågan ska köras. Om inget anges standardvärdet är ”root/scx”, implementeras av den [System Center plattformsoberoende Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 DocumentDB | OMI-fråga som ska köras.
-tabell | (valfritt) Azure storage-tabell i avsedda storage-konto (se [inställningarna för Replikeringsskyddade](#protected-settings)).
+table | (valfritt) Azure storage-tabell i avsedda storage-konto (se [inställningarna för Replikeringsskyddade](#protected-settings)).
 frequency | (valfritt) Antal sekunder mellan körning av frågan. Standardvärdet är 300 (5 minuter). minsta värde är 15 sekunder.
 mottagare | (valfritt) En kommaavgränsad lista över namnen på ytterligare mottagare som raw mått exempelresultat ska publiceras. Ingen sammansättning av exemplen raw beräknas genom att tillägget eller genom Azure-mått.
 
@@ -410,8 +410,8 @@ Styr infångandet av loggfiler. LAD samlar in ny textrader som de skrivs till fi
 
 Element | Värde
 ------- | -----
-fil | Den fullständiga sökvägen till loggfilen som sett och avbildas. Sökvägen måste namnge en enstaka fil. Det går inte att namnge en katalog eller innehålla jokertecken.
-tabell | (valfritt) Azure storage tabellen i avsedda storage-konto (som anges i konfigurationen av skyddade), som nya rader från ”pilslut” i filen skrivs.
+file | Den fullständiga sökvägen till loggfilen som sett och avbildas. Sökvägen måste namnge en enstaka fil. Det går inte att namnge en katalog eller innehålla jokertecken.
+table | (valfritt) Azure storage tabellen i avsedda storage-konto (som anges i konfigurationen av skyddade), som nya rader från ”pilslut” i filen skrivs.
 mottagare | (valfritt) En kommaavgränsad lista över namnen på ytterligare mottagare till vilka log linjer som skickas.
 
 Antingen ”tabell” eller ”egenskaperna”, eller både och måste anges.

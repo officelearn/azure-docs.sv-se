@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307429"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717282"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Använd Administrationsverktyg för att felsöka problem med virtuella Azure-datorer
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. Öppna en instans av en annan virtuell dator på samma virtuella nätverk, **Services.msc**.
 
-2. Högerklicka på **tjänster (lokala)**.
+2. Högerklicka på **tjänster (lokala)** .
 
 3. Välj **Anslut till en annan dator**.
 

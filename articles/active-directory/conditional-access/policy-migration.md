@@ -1,8 +1,8 @@
 ---
-title: Vad är en migrering av princip för villkorlig åtkomst i Azure Active Directory? | Microsoft Docs
+title: Vad är en princip för migrering i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig vad du behöver veta för att migrera klassiska principer i Azure-portalen.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 07/24/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3246a7efa36e6c6ef0dac93e659a73dac17090a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 25161a6317392274ccce8865f7cc0071f0ec89b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301684"
+ms.locfileid: "67112172"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en migrering av princip för villkorlig åtkomst i Azure Active Directory? 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en princip för migrering i Azure Active Directory villkorlig åtkomst? 
 
 
 [Villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active directory (Azure AD) som ger dig möjlighet att styra hur behöriga användare har åtkomst till dina appar i molnet. Syftet är fortfarande samma, har lanseringen av den nya Azure-portalen infört avsevärda förbättringar för hur villkorlig åtkomst fungerar.
@@ -80,7 +80,7 @@ Genom att antingen ändra de valda grupperna eller genom att exkludera specifika
 
 
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD-principer för villkorlig åtkomst
+## <a name="azure-ad-conditional-access-policies"></a>Principer för Azure AD villkorlig åtkomst
 
 Du kan hantera alla dina principer på en central plats med villkorlig åtkomst i Azure-portalen. Eftersom implementeringen av hur villkorlig åtkomst har ändrat, bör du bekanta dig med de grundläggande begreppen innan du migrerar din klassiska principer.
 
@@ -90,13 +90,13 @@ Se:
 
 - [Bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md) att få vägledning om att distribuera villkorlig åtkomst i din organisation.
 
-- [Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md) att bekanta dig med användargränssnittet i Azure-portalen.
+- [Kräva MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md) att bekanta dig med användargränssnittet i Azure-portalen.
 
 
  
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
-I den här artikeln, Azure AD-principer för villkorlig åtkomst är kallas även *nya principer*.
+I den här artikeln, principer för Azure AD villkorlig åtkomst är kallas även *nya principer*.
 Din klassiska principer fortsätta att fungera sida vid sida med din nya principer tills du inaktivera eller ta bort dem. 
 
 Följande aspekter är viktiga i samband med en princip för konsolidering:
@@ -171,6 +171,6 @@ I en ny princip, du måste välja den [enhetsplattformar](technical-reference.md
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

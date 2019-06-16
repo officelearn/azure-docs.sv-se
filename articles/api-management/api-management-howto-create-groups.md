@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658468"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hur du skapar och använda grupper för att hantera utvecklarkonton i Azure API Management
@@ -87,10 +87,10 @@ Det här avsnittet visar hur du associera grupper med medlemmar.
 1. Välj den **grupper** fliken till vänster på skärmen.
 2. Välj **medlemmar**.
 
-    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups005.png)
+    ![Lägg till medlem](./media/api-management-howto-create-groups/groups005.png)
 3. Tryck på **+ Lägg till** och välj en medlem.
 
-    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups006.png)
+    ![Lägg till medlem](./media/api-management-howto-create-groups/groups006.png)
 4. Tryck på **Välj**.
 
 När kopplingen har lagts till mellan utvecklare och gruppen, kan du visa den i den **användare** fliken.

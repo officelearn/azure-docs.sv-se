@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171723"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
@@ -183,20 +183,20 @@ Kör installationsfilen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Type | Beskrivning| Värden|
+|Parameternamn| Typ | Beskrivning| Värden|
 |-|-|-|-|
-| /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
-|/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
+| /ServerMode|Obligatoriskt|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
+|/InstallLocation|Obligatoriskt|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
 |/MySQLCredsFilePath|Obligatoriskt|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
 |/VaultCredsFilePath|Obligatoriskt|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
-|/EnvType|Krävs|Typ av miljö som du vill skydda |VMware<br>NonVMware|
+|/EnvType|Obligatoriskt|Typ av miljö som du vill skydda |VMware<br>NonVMware|
 |/PSIP|Obligatoriskt|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
-|/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
-|/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
+|/CSIP|Obligatoriskt|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
+|/PassphraseFilePath|Obligatoriskt|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
+|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
 |/AcceptThirdpartyEULA|Obligatoriskt|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
 |/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 

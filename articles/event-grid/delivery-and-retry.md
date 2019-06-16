@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
 ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952896"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
@@ -29,9 +29,9 @@ Event Grid väntar 30 sekunder för ett svar efter att leverera meddelandet. Eft
 - 10 sekunder
 - 30 sekunder
 - 1 minut
-- 5 minuter
-- 10 minuter
-- 30 minuter
+- 5 minuter
+- 10 minuter
+- 30 minuter
 - 1 timme
 - Per timme för upp till 24 timmar
 
@@ -74,7 +74,7 @@ Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckade
 
 - 400 Felaktig förfrågan
 - 401 Ej behörig
-- 404 Kunde ej hittas
+- 404 Hittades inte
 - 408 timeout för begäran
 - 413 begäran entiteten är för stor
 - 414 URI för lång

@@ -12,15 +12,15 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343033"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511833"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Välj versionen av Azure Functions-runtime som du använder: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
@@ -1711,7 +1711,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `cosmosDB`.        |
+|**type**     || Måste anges till `cosmosDB`.        |
 |**direction**     || Måste anges till `in`.         |
 |**name**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** |**databaseName** |Den databas som innehåller dokumentet.        |
@@ -2296,7 +2296,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `cosmosDB`.        |
+|**type**     || Måste anges till `cosmosDB`.        |
 |**direction**     || Måste anges till `out`.         |
 |**name**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** | **databaseName**|Den databas som innehåller den samling där dokumentet skapas.     |
@@ -2342,7 +2342,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 }
 ```  
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |GatewayMode|Gateway|Anslutningsläge som används av funktionen när du ansluter till Azure Cosmos DB-tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protocol|Https|Anslutningsprotokoll som används av funktionen när anslutningen till Azure Cosmos DB-tjänsten.  Läs [här som en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)| 

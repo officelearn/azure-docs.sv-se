@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
 ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60200299"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
@@ -70,7 +70,7 @@ Filresursen fortsätter att existera såvida inte du ta bort den manuellt. Cloud
 ![Kör den ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om inte tas bort några resurser genom att köra följande kommando, ta bort en resursgrupp, en storage-konto eller en filresurs som är mappad till Cloud Shell manuellt raderar din `$Home` directory diskavbildning och alla filer i filresursen. Det går inte att ångra den här åtgärden.
+> Även om inte tas bort några resurser genom att köra följande kommando, ta bort en resursgrupp, en storage-konto eller en filresurs som är mappad till Cloud Shell manuellt raderar din `$Home` directory diskavbildning och alla filer i filresursen. Den här åtgärden kan inte ångras.
 
 ### <a name="list-clouddrive"></a>Lista `clouddrive`
 Identifiera vilka filresursen monteras som `clouddrive`, kör den `df` kommando. 

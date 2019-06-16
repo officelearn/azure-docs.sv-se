@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026305"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Språk och din region stöd för pennanteckningar Igenkännande API
@@ -54,10 +54,10 @@ Den här artikeln beskriver vilka språk som stöds för pennanteckningar Igenk�
 | Italienska (Italien)                            |     `it-IT`     |
 | Japanska                                   |     `ja-JP`     |
 | Rwanda                                |     `rw-RW`     |
-| Swahili (Kenya)                          |     `sw-KE`     |
+| Kiswahili (Kenya)                          |     `sw-KE`     |
 | Koreanska                                     |     `ko-KR`     |
-| Luxemburgiska                              |     `lb-LU`     |
-| Malajiska (Brunei Darussalam)                  |     `ms-BN`     |
+| Luxemburgska                              |     `lb-LU`     |
+| Malay (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajiska (Malaysia)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
 | Norska (bokmål)                         |     `nb-NO`     |
@@ -68,10 +68,10 @@ Den här artikeln beskriver vilka språk som stöds för pennanteckningar Igenk�
 | Rätoromanska                                    |     `rm-CH`     |
 | Rumänska                                   |     `ro-RO`     |
 | Ryska                                    |     `ru-RU`     |
-| Skotsk gaeliska                            |     `gd-GB`     |
-| Nordsotho                           |    `nso-ZA`     |
+| Scottish Gaelic                            |     `gd-GB`     |
+| Sesotho sa Leboa                           |    `nso-ZA`     |
 | Serbiska (kyrillisk, Bosnien och Hercegovina) |  `sr-Cyrl-BA`   |
-| Serbiska (kyrillisk, Montenegro)             |  `sr-Cyrl-ME`   |
+| Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbiska (kyrillisk, Serbien)                 |  `sr-Cyrl-RS`   |
 | Serbiska (latinsk, Bosnien och Hercegovina)    |  `sr-Latn-BA`   |
 | Serbiska (latinsk, Montenegro)                |  `sr-Latn-ME`   |

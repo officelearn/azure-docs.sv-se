@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531064"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Viktig information om StorSimple 8000-serien uppdatering 2.2
@@ -57,7 +57,7 @@ Följande tabeller innehåller en översikt över problem som har korrigerats i 
 | 5 |Openstack-autentisering |När du använder Openstack som molntjänstleverantören kan skulle användaren stöter på ett ovanligt fel som rör autentiseringen där JSON-parsern resulterade i en krasch. Det här felet åtgärdas i den här versionen. |Ja |Nej |
 | 6 |Värd-kopia |I tidigare versioner av programvaran påträffades ett ovanligt fel som rör ODX tidtagningen när du kopierar data från en volym till en annan volym. Detta resulterar i en kontrollenhetsredundans och systemet kan potentiellt styrenheterna i återställningsläge. Det här felet åtgärdas i den här versionen. |Ja |Nej |
 | 7 |Windows Management Instrumentation (WMI) |I tidigare versioner av programvaran, det fanns flera instanser av web proxy misslyckades med undantaget ”\<ManagementException > providern kunde inte läsas in”. Den här buggen har tilldelats en WMI-minnesläcka och nu har lösts. |Ja |Nej |
-| 8 |Uppdatering |I vissa sällsynta fall kan i tidigare versioner av programvara, emot ”CisPowershellHcsscripterror” av användaren att skanna eller installera uppdateringar. Det här problemet löses i den här versionen. |Ja |Ja |
+| 8 |Uppdatera |I vissa sällsynta fall kan i tidigare versioner av programvara, emot ”CisPowershellHcsscripterror” av användaren att skanna eller installera uppdateringar. Det här problemet löses i den här versionen. |Ja |Ja |
 | 9 |Supportpaket |I den här versionen har förbättringar i hur supportpaketet samlas in och laddat upp. |Ja |Ja |
 
 ## <a name="known-issues-in-update-22"></a>Kända problem i uppdatering 2.2

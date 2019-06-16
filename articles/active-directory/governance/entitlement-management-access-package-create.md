@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832861"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt åtkomst-paket i Azure AD rättigheten hantering (förhandsversion)
@@ -56,7 +56,7 @@ Följande diagram visar den övergripande processen att skapa ett nytt åtkomst-
 
 1. Klicka på **nya åtkomst paketet**.
 
-## <a name="basics"></a>Grundinställningar
+## <a name="basics"></a>Grundläggande inställningar
 
 På den **grunderna** fliken du namnge paketets åtkomst och ange vilken katalog för att skapa åtkomst-paketet i.
 

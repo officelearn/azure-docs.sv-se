@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119371"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
@@ -31,7 +31,7 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 | Lösenord | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
-| Microsoft Authenticator-app | MFA och förhandsversion för SSPR |
+| Microsoft Authenticator-appen | MFA och förhandsversion för SSPR |
 | OATH-token för maskinvara | Offentlig förhandsversion för MFA och SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
@@ -60,40 +60,40 @@ Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan
 
 ### <a name="predefined-questions"></a>Fördefinierade frågor
 
-* I vilken stad träffade du din första partner?
+* I vilken stad du uppfyllde dina första make/maka?
 * I vilken stad träffades dina föräldrar?
-* I vilken stad bor ditt närmsta syskon?
+* I vilken stad ditt närmsta syskon?
 * I vilken stad föddes din far?
 * I vilken stad var ditt första jobb?
 * I vilken stad föddes din mor?
-* I vilken stad var du på Nyårsafton 2000?
-* Vad hette din favoritlärare på gymnasiet i efternamn?
-* Vad är namnet på ett universitet du ansökte till men inte gick på?
-* Vad heter stället där du höll din första bröllopsmottagning?
+* Vilken stad var du i på nyårsafton 2000?
+* Vad är din favoritlärare på gymnasiet i efternamn?
+* Vad är namnet på ett universitet du tillämpas på men inte deltog i?
+* Vad är namnet på den plats där du höll din första bröllopsmottagning?
 * Vad heter din far i mellannamn?
 * Vad är din favoriträtt?
 * Vad heter din mormor i för- och efternamn?
-* Vad var din mors namn som ogift?
+* Vad är din Mors namn?
 * Vad är ditt äldsta syskon månad och år? (t.ex. November 1985)
 * Vad heter ditt äldsta syskon i mellannamn?
 * Vad heter din farfar i för- och efternamn?
 * Vad heter ditt yngsta syskon i mellannamn?
-* I vilken skola gick du i sjätte klass?
-* Vad var för- och efternamnet på din bästa barndomsvän?
-* Vad var för- och efternamnet på din första partner?
+* Vilken skola gick du i sjätte klass?
+* Vad hette det första och sista namnet på din bästa barndomsvän?
+* Vad hette det första och sista namnet på din första andra viktiga?
 * Vad hette din favoritlärare i grundskolan i efternamn?
-* Vilket märke och modell hade din första bil eller motorcykel?
-* Vad hette den första skolan du gick på?
+* Vad var för datorns märke och modell för din första bil eller motorcykel?
+* Vad hette den första skolan du gick?
 * Vad hette sjukhuset där du föddes?
-* Vilken gata låg ditt första barndomshem på?
+* Vad var för gata låg ditt första barndomshem?
 * Vad hette din barndomshjälte?
 * Vad hette ditt favoritgosedjur?
 * Vad hette ditt första husdjur?
 * Vad var ditt smeknamn som barn?
-* Vad var din favoritsport i gymnasiet?
+* Vad hette din favorit sport på gymnasiet i?
 * Vad var ditt första jobb?
-* Vad var de sista fyra siffrorna i telefonnumret du hade som barn?
-* När du var ung, vad ville du bli när du växte upp?
+* Vad är de sista fyra siffrorna i telefonnumret?
+* När du var ung, vad du vill ska vara när du växte upp?
 * Vem är den mest berömda personen du någonsin träffat?
 
 Alla de fördefinierade säkerhetsfrågorna är översättas och lokaliserad till den fullständiga uppsättningen Office 365-språk baserat på användarens webbläsare språkinställningar.
@@ -119,7 +119,7 @@ E-postadress finns **endast i Azure AD-självbetjäning lösenord återställa**
 
 Microsoft rekommenderar användningen av ett e-postkonto som inte kräver användarens Azure AD-lösenord för att få åtkomst till.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-app
+## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
 
 Microsoft Authenticator-appen innehåller en extra nivå av säkerhet för din Azure AD-arbets- eller skolkonto eller ditt Microsoft-konto.
 

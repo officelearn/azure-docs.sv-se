@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596677"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa anpassade roller för Azure-resurser med hjälp av REST-API
@@ -58,7 +58,7 @@ Visa anpassade roller för ett omfång genom att använda den [rolldefinitioner 
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{filter}* med rolltypen.
 
@@ -82,7 +82,7 @@ Om du vill ha information om en anpassad roll efter dess visningsnamn kan använ
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{filter}* med visningsnamnet för rollen.
 
@@ -108,7 +108,7 @@ Om du vill ha information om en anpassad roll efter des unika identifierare kan 
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för rolldefinitionen.
 
@@ -156,7 +156,7 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
 
@@ -221,7 +221,7 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
 
@@ -305,7 +305,7 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
 

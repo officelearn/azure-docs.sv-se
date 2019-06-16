@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190070"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
@@ -23,7 +23,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 1. Kommentarer i den här artikeln.
 2. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -360,7 +360,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     Nej. Den maximala storleken för en Azure-filresurs är 5 TiB. Det här är för närvarande en hård gräns som vi kan justera. Vi arbetar på en lösning för att öka resursstorleken på till 100 TiB, men vi har inte tidslinjer för att dela just nu.
 
 * <a id="open-handles-quota"></a>
-**Hur många klienter har åtkomst till samma fil samtidigt?**   
+**Hur många klienter har åtkomst till samma fil samtidigt?**    
     Det finns en kvot på 2 000 öppna referenser i en enda fil. När du har 2 000 öppna referenser visas ett felmeddelande som säger kvoten har uppnåtts.
 
 * <a id="zip-slow-performance"></a>

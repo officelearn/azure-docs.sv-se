@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732373"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
@@ -57,7 +57,7 @@ I följande tabell visas hur filtrering och sortering alternativ kan användas p
 |Namn|Filter|Beställa|
 |---|---|---|
 |id|||
-|namn|eq, gt, lt| Stigande och fallande|
+|name|eq, gt, lt| Stigande och fallande|
 |properties.alternateId |eq||
 |properties.assetId |eq||
 |Properties.container |||
@@ -144,13 +144,13 @@ Följande tabell visar hur dessa alternativ kan användas på den [Innehållspri
 |Namn|Filter|Beställa|
 |---|---|---|
 |id|||
-|namn|eq, ne, ge, le, gt, lt|Stigande och fallande|
+|name|eq, ne, ge, le, gt, lt|Stigande och fallande|
 |Properties.Created |eq, ne, ge, le,  gt, lt|Stigande och fallande|
 |properties.description |eq, ne, ge, le, gt, lt||
 |properties.lastModified|eq, ne, ge, le, gt, lt|Stigande och fallande|
 |Properties.Options |||
 |properties.policyId|eq, ne||
-|typ|||
+|type|||
 
 ### <a name="pagination"></a>Sidbrytning
 
@@ -178,7 +178,7 @@ Följande tabell visar hur dessa alternativ kan användas på den [jobb](https:/
 
 | Namn    | Filter                        | Beställa |
 |---------|-------------------------------|-------|
-| namn                    | eq            | Stigande och fallande|
+| name                    | eq            | Stigande och fallande|
 | properties.state        | eq, ne        |                         |
 | Properties.Created      | gt, ge, lt, le| Stigande och fallande|
 | properties.lastModified | gt, ge, lt, le | Stigande och fallande| 
@@ -226,7 +226,7 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingLocator
 |Namn|Filter|Beställa|
 |---|---|---|
 |id |||
-|namn|eq, ne, ge, le, gt, lt|Stigande och fallande|
+|name|eq, ne, ge, le, gt, lt|Stigande och fallande|
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
@@ -236,7 +236,7 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingLocator
 |properties.startTime   |||
 |properties.streamingLocatorId  |||
 |properties.streamingPolicyName |||
-|typ   |||
+|type   |||
 
 ### <a name="pagination"></a>Sidbrytning
 
@@ -265,14 +265,14 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingPolicy 
 |Namn|Filter|Beställa|
 |---|---|---|
 |id|||
-|namn|eq, ne, ge, le, gt, lt|Stigande och fallande|
+|name|eq, ne, ge, le, gt, lt|Stigande och fallande|
 |properties.commonEncryptionCbcs|||
 |properties.commonEncryptionCenc|||
 |Properties.Created |eq, ne, ge, le,  gt, lt|Stigande och fallande|
 |properties.defaultContentKeyPolicyName |||
 |properties.envelopeEncryption|||
 |properties.noEncryption|||
-|typ|||
+|type|||
 
 ### <a name="pagination"></a>Sidbrytning
 
@@ -300,7 +300,7 @@ Följande tabell visar hur dessa alternativ kan användas på den [omvandlar](ht
 
 | Namn    | Filter                        | Beställa |
 |---------|-------------------------------|-------|
-| namn                    | eq            | Stigande och fallande|
+| name                    | eq            | Stigande och fallande|
 | Properties.Created      | gt, ge, lt, le| Stigande och fallande|
 | properties.lastModified | gt, ge, lt, le | Stigande och fallande|
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799407"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scener, klipp och nyckelbilder
@@ -30,7 +30,7 @@ Video Indexer avgör när en scen ändras i videon baserat på visuella tips. En
 > [!NOTE]
 > Gäller för videor som innehåller minst 3 scener.
 
-## <a name="shot-detection"></a>Bildidentifiering
+## <a name="shot-detection"></a>Som identifiering
 
 Video Indexer avgör när en som ändras i videon baserat på visuella tips genom att spåra både kraftig och gradvis övergångar i färgschemat för intilliggande bildrutor. På nedan metadata innehåller en start- och sluttid samt listan över nyckelrutor som ingår i den som visar. Skärmbilder är bildrutor som kommer från samma kameran på samma gång.
 

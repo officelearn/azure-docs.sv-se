@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540652"
 ---
 # <a name="application-types-in-v10"></a>Programtyper i v1.0
@@ -34,11 +34,11 @@ Följande diagram illustrerar scenarier och programtyper, och hur du kan lägga 
 
 Det här är de fem primära programmet scenarier som stöds av Azure AD:
 
-- **[Ensidesapplikation (SPA)](single-page-application.md)**: En användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
-- **[Webbläsarens webbprogram](web-app.md)**: En användare måste logga in till ett webbprogram som skyddas av Azure AD.
-- **[Internt program till webb-API](native-app.md)**: Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
-- **[Webbprogram till webb-API](web-api.md)**: Ett webbprogram måste hämta resurser från ett webb-API som skyddas av Azure AD.
-- **[Daemon eller ett serverprogram till webb-API](service-to-service.md)**: En daemon-program eller ett serverprogram utan användargränssnitt för web måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Ensidesapplikation (SPA)](single-page-application.md)** : En användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
+- **[Webbläsarens webbprogram](web-app.md)** : En användare måste logga in till ett webbprogram som skyddas av Azure AD.
+- **[Internt program till webb-API](native-app.md)** : Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Webbprogram till webb-API](web-api.md)** : Ett webbprogram måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Daemon eller ett serverprogram till webb-API](service-to-service.md)** : En daemon-program eller ett serverprogram utan användargränssnitt för web måste hämta resurser från ett webb-API som skyddas av Azure AD.
 
 Följ länkarna för att lära dig mer om varje typ av app och förstå de övergripande scenarierna innan du börjar arbeta med kod. Du kan också läsa om skillnader som du behöver veta när du skriver en viss app som fungerar med v1.0 slutpunkten eller v2.0-slutpunkten.
 

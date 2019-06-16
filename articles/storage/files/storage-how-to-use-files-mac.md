@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715942"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
@@ -38,7 +38,7 @@ ms.locfileid: "64715942"
 1. **Öppna Finder**: Som standard är Finder redan öppet på macOS, men du kan kontrollera att det är det för tillfället valda programmet genom att klicka på ”ikonen med macOS-ansiktet” i Dock:  
     ![ikonen med macOS-ansiktet](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Välj ”Anslut till Server” från menyn ”Gå”**: Med hjälp av UNC-sökvägen från kraven konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Din länk bör se ut så här: ![Dialogrutan ”Anslut till server”](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Välj ”Anslut till Server” från menyn ”Gå”** : Med hjälp av UNC-sökvägen från kraven konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Din länk bör se ut så här: ![Dialogrutan ”Anslut till server”](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på ”Anslut” i dialogrutan ”Anslut till server” uppmanas du att ange ett användarnamn och lösenord (det kommer att fyllas i automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
 

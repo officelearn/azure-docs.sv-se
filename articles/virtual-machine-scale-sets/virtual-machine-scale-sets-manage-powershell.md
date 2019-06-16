@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683534"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en VM-skalningsuppsättning med Azure PowerShell
 
@@ -28,7 +28,7 @@ Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller 
 
 Om du vill skapa en skalningsuppsättning för virtuell dator kan du [skapa en skalningsuppsättning med Azure PowerShell](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skalningsuppsättning
 Du kan visa den övergripande informationen om en skalningsuppsättning [Get-AzVmss](/powershell/module/az.compute/get-azvmss). I följande exempel hämtar information om skalningsuppsättningen *myScaleSet* i den *myResourceGroup* resursgrupp. Ange egna namn enligt följande:

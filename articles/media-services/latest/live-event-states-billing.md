@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074900"
 ---
 # <a name="live-event-states-and-billing"></a>Live-händelse tillstånd och fakturering
 
 I Azure Media Services, en direktsänd händelse börjar fakturering när dess status övergår till **kör**. Du måste stoppa Live-händelsen för att stoppa Live-händelse från fakturering.
 
-När **LiveEventEncodingType** på din [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) till Standard, Media Services automatiskt stängs av en Live-händelse som fortfarande är i den **kör** tillstånd 12 timmar efter det indata-flöde går förlorad och det finns inga **Live utdata**datorer som körs. Men du kommer fortfarande att debiteras för tiden Live-händelsen som fanns i den **kör** tillstånd.
+När **LiveEventEncodingType** på din [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) är inställd på Standard- eller Premium1080p, Media Services automatiskt stängs av en Live-händelse som fortfarande är i den **kör** tillstånd 12 timmar efter inkommande flödet går förlorad och det finns inga **Live utdata**datorer som körs. Men du kommer fortfarande att debiteras för tiden Live-händelsen som fanns i den **kör** tillstånd.
 
 ## <a name="states"></a>Tillstånd
 

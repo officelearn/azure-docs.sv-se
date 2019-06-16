@@ -10,12 +10,12 @@ ms.date: 05/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bd4c0bbe4e4ef1cfbd4d9da92d6fcfac509f45ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110423"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
@@ -54,7 +54,7 @@ För att förbättra din Azure AD-implementering kan du lägga till betalfunktio
 
 - **Azure Active Directory Premium P1.** Utöver Free- och Basic-funktionerna får du med P1 även funktioner för hybridanvändare att få åtkomst till både lokala och molnbaserade resurser. Det finns även stöd för avancerad administration, tom dynamiska grupper, grupphantering via självbetjäning, Microsoft Identity Manager (en lokal programsvit för identitets- och åtkomsthantering) och funktioner för tillbakaskrivning i molnet, med lösenordsåterställning via självbetjäning för dina lokala användare.
 
-- **Azure Active Directory Premium P2.** Utöver Free-, Basic- och P1-funktioner innehåller P2 även [Azure Active Directory Identity Protection](../identity-protection/enable.md) som ger riskbaserad villkorsstyrd åtkomst för appar kritiska företagsdata och [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) för att upptäcka, begränsa och övervaka administratörer och deras åtkomst till resurser och för att ge just-in-time-åtkomst när det behövs.
+- **Azure Active Directory Premium P2.** Förutom funktionerna som är kostnadsfri, Basic och P1, P2 erbjuder även [Azure Active Directory Identity Protection](../identity-protection/enable.md) för att ge riskbaserad villkorlig åtkomst till dina appar och viktiga företagsdata och [Privileged Identity Hantering av](../privileged-identity-management/pim-getting-started.md) för att upptäcka, begränsa och övervaka administratörer och deras åtkomst till resurser och ger just-in-time-åtkomst när det behövs.
 
 - **Funktionslicenser med användningsbaserad betalning.** Du finns även extra funktionslicenser, till exempel Azure Active Directory Business-to-Customer (B2C). B2C kan hjälpa dig att ge identitets- och åtkomsthanteringslösningar för dina kundriktade appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).
 

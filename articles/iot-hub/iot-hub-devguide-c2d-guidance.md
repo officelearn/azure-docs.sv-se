@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61224786"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Moln-till-enhet-kommunikation
@@ -37,7 +37,7 @@ Här är en detaljerad jämförelse av de olika alternativ för kommunikation fr
 | Mål | Enskild enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb](iot-hub-devguide-jobs.md). | Enskild enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb](iot-hub-devguide-jobs.md). | Enskild enhet genom att **deviceId**. |
 | Storlek | Maximal direkt metod Nyttolaststorlek är 128 KB. | Maximalt önskade egenskaper är 8 KB. | Upp till 64 KB-meddelanden. |
 | Frekvens | Hög. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). |
-| Protokoll | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgänglig på alla protokoll. Enheten måste avsöka när du använder HTTPS. |
+| Protocol | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgänglig på alla protokoll. Enheten måste avsöka när du använder HTTPS. |
 
 Lär dig hur du använder direkta metoder, egenskaper och meddelanden från molnet till enheten i följande Självstudier:
 

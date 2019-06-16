@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709526"
 ---
 # <a name="encoding-error-codes"></a>Kodning felkoder
 
@@ -27,10 +27,10 @@ I följande tabell visas felkoder som kan returneras om ett fel uppstod under ak
 
 | ErrorDetail.Code | Möjliga orsaker till felet |
 | --- | --- |
-| Inte tillgängligt |Ett okänt fel när aktiviteten körs |
+| Okänt |Ett okänt fel när aktiviteten körs |
 | ErrorDownloadingInputAssetMalformedContent |Kategori för fel som avser fel nedladdningen av indatatillgången, till exempel felaktigt filnamn, noll längd-filer, som felaktigt format och så vidare. |
 | ErrorDownloadingInputAssetServiceFailure |Kategori för fel som beskriver problem på serversidan - exempel nätverks- eller fel vid nedladdning. |
-| ErrorParsingConfiguration |Kategori för fel där uppgiften <see cref="MediaTask.PrivateData"/> (konfiguration) är inte giltigt, till exempel konfigurationen är inte ett giltigt system förinställda eller innehåller ogiltig XML. |
+| ErrorParsingConfiguration |Kategori för fel där uppgiften \<Se cref="MediaTask.PrivateData"/ > (konfiguration) är inte giltigt, till exempel konfigurationen är inte ett giltigt system förinställda eller innehåller ogiltig XML. |
 | ErrorExecutingTaskMalformedContent |Kategori för fel vid körning av aktiviteten där problemen i de inkommande mediefilerna leda till fel. |
 | ErrorExecutingTaskUnsupportedFormat |Kategori för fel där mediebearbetare kan inte bearbeta de filer som tillhandahålls – medieformat inte stöds eller matchar inte konfigurationen. Exempel: försöker producera utdata enbart ljud från en tillgång som har endast video |
 | ErrorProcessingTask |Kategori för andra fel som mediebearbetare som uppstår under bearbetningen av uppgiften som inte är relaterade till innehåll. |

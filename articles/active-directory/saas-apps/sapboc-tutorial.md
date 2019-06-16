@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903700"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Självstudier: Azure Active Directory-integrering med SAP Business Object Cloud
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av SAP Business Object Cloud till Azure AD be
 
 **Lägg till SAP Business Object Cloud från galleriet genom att utföra följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -225,7 +225,7 @@ Så här etablerar du ett användarkonto:
 
     ![Lägga till medarbetare](./media/sapboc-tutorial/user1.png)
 
-3. På sidan **Användare** lägger du till nya användaruppgifter genom att välja **+**. 
+3. På sidan **Användare** lägger du till nya användaruppgifter genom att välja **+** . 
 
     ![Sidan Lägg till användare](./media/sapboc-tutorial/user4.png)
 
@@ -243,7 +243,7 @@ Så här etablerar du ett användarkonto:
 
     f. På sidan **Select Roles** (Välj roller) väljer du rätt roll för användaren och väljer sedan **OK**.
 
-      ![Välj roll](./media/sapboc-tutorial/user3.png)
+      ![Välja en roll](./media/sapboc-tutorial/user3.png)
 
     g. Välj ikonen **Spara**.    
 
@@ -259,5 +259,5 @@ När du klickar på SAP Business Object Cloud-panelen i åtkomstpanelen bör du 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

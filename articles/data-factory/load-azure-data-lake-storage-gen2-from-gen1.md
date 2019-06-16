@@ -11,164 +11,168 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: d13dad6e87bd6c821b497138ad75d7ae2b9a052d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068980"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
-Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata, inbyggda i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Det kan du samverka med dina data med paradigm för lagring av system- och båda fil.
+Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata som är inbyggd i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Du kan använda den för att samverka med dina data med hjälp av paradigm för lagring av system- och båda fil.
 
-Om du använder Azure Data Lake Storage Gen1, kan du utvärdera den nya funktionen för Gen2 genom att kopiera data från Data Lake Storage Gen1 till Gen2 med Azure Data Factory.
+Om du använder Azure Data Lake Storage Gen1, kan du utvärdera Azure Data Lake Storage Gen2 genom att kopiera data från Data Lake Storage Gen1 till Gen2 med hjälp av Azure Data Factory.
 
-Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i sjön med data från ett stort utbud av lokala och molnbaserade datalager och spara tid när du skapar Analyslösningar. En detaljerad lista över kopplingar som stöds finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i sjön med data från ett stort utbud av lokala och molnbaserade datalager och spara tid när du skapar Analyslösningar. En lista över kopplingar som stöds finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory är en lösning för flytt av skalbara, hanterade data. På grund av ADF skalbar arkitektur, kan det mata in data med ett högt dataflöde. Mer information finns i [kopiera aktivitet prestanda](copy-activity-performance.md).
+Azure Data Factory är en lösning för flytt av skalbara, hanterade data. På grund av skalbar arkitektur för Data Factory, kan det mata in data med ett högt dataflöde. Mer information finns i [kopiera aktivitet prestanda](copy-activity-performance.md).
 
-Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory för att kopiera data från _Azure Data Lake Storage Gen1_ till _Azure Data Lake Storage Gen2_. Du kan följa liknande steg för att kopiera data från andra typer av datalager.
+Den här artikeln visar hur du använder Data Factory kopiera data för att kopiera data från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2. Du kan följa liknande steg för att kopiera data från andra typer av datalager.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Data Lake Storage Gen1-konto med data i den.
-* Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto [skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Azure Storage-konto med Data Lake Storage Gen2 aktiverat. Om du inte har ett lagringskonto [skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**:
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**.
    
-   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Valet data Factory i den nya rutan](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. I den **ny datafabrik** anger värden för fälten som visas i följande bild: 
+2. På den **ny datafabrik** anger värden för fälten som visas i följande bild: 
       
    ![Sida för ny datafabrik](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSDemo\" är inte tillgänglig”, ange ett annat namn för data factory. Använd till exempel namnet _**dittnamn**_ **ADFTutorialDataFactory**. Skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data factory. 
-    * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+    * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan. Du kan också välja den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
     * **Version**: Välj **V2**.
-    * **Plats**: Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas på andra platser och regioner. 
+    * **Plats**: Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används i datafabriken kan finnas på andra platser och regioner. 
 
 3. Välj **Skapa**.
 4. När datafabriken har skapats går du till din datafabrik. Du ser den **Data Factory** startsida, enligt följande bild: 
    
    ![Datafabrikens startsida](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
 
-   Välj den **författare och Övervakare** att starta Dataintegrationsprogrammet i en separat flik.
+5. Välj den **författare och Övervakare** att starta programmet för dataintegrering i en separat flik.
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Läs in data till Azure Data Lake Storage Gen2
 
-1. I den **börjar** väljer den **kopieringsdata** att starta verktyget kopieringsdata: 
+1. På den **börjar** väljer den **kopieringsdata** att starta verktyget kopiera data. 
 
-   ![Panel för verktyget Kopiera data](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. I den **egenskaper** anger **CopyFromADLSGen1ToGen2** för den **aktivitetsnamn** och markerar **nästa**:
+   ![Panel för verktyget kopiera data](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
+2. På den **egenskaper** anger **CopyFromADLSGen1ToGen2** för den **aktivitetsnamn** fält. Välj **Nästa**.
 
     ![Sidan Egenskaper](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
-3. I den **källdatalagret** klickar du på **+ Skapa ny anslutning**:
+3. På den **källdatalagret** väljer **+ Skapa ny anslutning**.
 
     ![Sidan Källdatalager](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
     
-    Välj **Azure Data Lake Storage Gen1** i galleriet för anslutningen och välj **Fortsätt**
+4. Välj **Azure Data Lake Storage Gen1** i galleriet för anslutningen och välj **Fortsätt**.
     
     ![Azure Data Lake Storage Gen1 sidan källans datalager](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
-4. I den **ange Azure Data Lake Storage Gen1 anslutning** gör du följande steg:
-   1. Välj Data Lake Storage Gen1 för namnet på kontot och ange eller verifiera den **klient**.
-   2. Klicka på **Testanslutning** för att verifiera inställningarna kan sedan välja **Slutför**.
-   3. Du ser en ny anslutning skapas. Välj **Nästa**.
+5. På den **ange Azure Data Lake Storage Gen1 anslutning** utför de här stegen:
+
+   a. Välj Data Lake Storage Gen1 för namnet på kontot och ange eller verifiera den **klient**.
+  
+   b. Välj **Testanslutning** att verifiera inställningarna. Välj sedan **Slutför**.
+  
+   c. Du kan se att en ny anslutning skapades. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska använda du en hanterad identitet för Azure-resurser för att autentisera ditt Data Lake Storage Gen1. Se till att ge MSI rätt behörighet i Azure Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
+   > I den här genomgången använder du en hanterad identitet för Azure-resurser för att autentisera din Azure Data Lake Storage Gen1. Om du vill bevilja den hanterade identitet i Azure Data Lake Storage Gen1 rätt behörigheter, Följ [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
    
    ![Ange konto för Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-5. I den **Välj indatafil eller mapp** sidan, bläddra till mappen och filen som du vill kopiera över. Välj mappen/filen, Välj **Välj**:
+6. På den **Välj indatafil eller mapp** sidan, bläddra till mappen och filen som du vill kopiera över. Välj mappen eller filen och välj **Välj**.
 
     ![Välj indatafil eller mapp](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-6. Ange kopieringsbeteendet genom att markera den **kopiera filer rekursivt** och **binär kopia** alternativ. Välj **nästa**:
+7. Ange kopieringsbeteendet genom att välja den **kopiera filer rekursivt** och **binär kopia** alternativ. Välj **Nästa**.
 
     ![Ange Utdatamappen](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. I den **måldatalager** klickar du på **+ Skapa ny anslutning**, och välj sedan **Azure Data Lake Storage Gen2**, och välj **Fortsätt**:
+8. På den **måldatalager** väljer **+ Skapa ny anslutning** > **Azure Data Lake Storage Gen2**  >   **Fortsätta**.
 
     ![Sidan Måldatalager](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
-8. I den **ange Azure Data Lake Storage Gen2 anslutning** gör du följande steg:
+9. På den **ange Azure Data Lake Storage Gen2 anslutning** utför de här stegen:
 
-   1. Välj din Data Lake Storage Gen2 kan kontot från ”lagringskontonamnet” nedrullningsbar listruta.
-   2. Välj **Slutför** att skapa anslutningen. Välj sedan **Nästa**.
+   a. Välj Data Lake Storage Gen2 kan kontot från de **lagringskontonamn** listrutan.
+   
+   b. Välj **Slutför** att skapa anslutningen. Välj sedan **Nästa**.
    
    ![Ange konto för Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. I den **Välj utdatafil eller mapp** anger **copyfromadlsgen1** som utdata mappnamn och välj **nästa**. ADF skapar motsvarande ADLS Gen2 filsystemet och undermappar vid kopiering om det inte finns.
+10. På den **Välj utdatafil eller mapp** anger **copyfromadlsgen1** som utdata mappnamn och välj **nästa**. Data Factory skapar motsvarande Azure Data Lake Storage Gen2 filsystemet och undermappar vid kopiering om de inte finns.
 
     ![Ange Utdatamappen](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
-10. I den **inställningar** väljer **nästa** att använda standardinställningarna.
+11. På den **inställningar** väljer **nästa** att använda standardinställningarna.
 
-11. I den **sammanfattning** , granskar du inställningarna och välj **nästa**:
+12. På den **sammanfattning** , granskar du inställningarna och välj **nästa**.
 
     ![Sammanfattningssida](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-12. I den **distributionssida**väljer **övervakaren** att övervaka pipelinen:
+13. På den **distributionssida**väljer **övervakaren** att övervaka pipelinen.
 
     ![Distributionssida](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
-13. Observera att fliken **Övervaka** till vänster väljs automatiskt. Den **åtgärder** -kolumnen innehåller länkar för att visa information om aktivitetskörningar och köra pipelinen på nytt:
+14. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen.
 
     ![Övervaka pipelinekörningar](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
-14. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningen, väljer den **visa Aktivitetskörningar** länken i den **åtgärder** kolumn. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Växla tillbaka till vyn med pipelinekörningar, Välj den **Pipelines** länken längst upp. Om du vill uppdatera listan väljer du **Uppdatera**. 
+15. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningen, väljer den **visa Aktivitetskörningar** länken i den **åtgärder** kolumn. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Växla tillbaka till vyn med pipelinekörningar, Välj den **Pipelines** länken längst upp. Om du vill uppdatera listan väljer du **Uppdatera**. 
 
     ![Övervaka aktivitetskörningar](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
-15. För att övervaka körning-information för varje kopieringsaktiviteten, Välj den **information** länken (glasögonbilden) under **åtgärder** i övervakningsvyn-aktivitet. Du kan övervaka information som mängden data som kopieras från källan till mottagare, dataflöde, utförande med motsvarande tid och används konfigurationer:
+16. För att övervaka körning-information för varje kopieringsaktiviteten, Välj den **information** länken (glasögonbilden) under **åtgärder** i övervakningsvyn-aktivitet. Du kan övervaka information som mängden data som kopieras från källan till mottagare, dataflöde, utförande med motsvarande tid och används konfigurationer.
 
     ![Övervaka aktivitetskörningsinformation](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
 
-16. Kontrollera att data har kopierats till ditt Data Lake Storage Gen2-konto.
+17. Kontrollera att data har kopierats till ditt konto för Azure Data Lake Storage Gen2.
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
-För att utvärdera uppgradera från Azure Data Lake Storage (ADLS) Gen1 till Gen2 i allmänhet avser [uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). I följande avsnitt beskrivs bästa praxis för att använda ADF för datauppgradering från Gen1 till Gen2.
+Om du vill utvärdera uppgradera från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2 i allmänhet, se [uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). I följande avsnitt beskrivs bästa praxis för att använda Data Factory för en datauppgradering från Data Lake Storage Gen1 till Data Lake Storage Gen2.
 
 ### <a name="data-partition-for-historical-data-copy"></a>Datapartition för kopiering av historiska data
 
-- Om storleken på din totala mängden data i ADLS Gen1 är mindre än **30TB** och antalet filer är mindre än **1 miljon**, du kan kopiera alla data i enkel kopieringsaktivitetskörning.
-- Om du har större storlek på data som ska kopieras, eller om du vill ha flexibiliteten att hantera migrering av data i batchar och göra dem slutförts inom en viss tidsinställning windows du rekommenderas för att partitionera data, i så fall kan den också minska risken för eventuella oväntade iss UE.
+- Om din totala mängden data i Data Lake Storage Gen1 är mindre än 30 TB och antalet filer är mindre än 1 miljon, kan du kopiera alla data i en enda kopieringsaktivitetskörning.
+- Om du har en större mängd data som ska kopieras, eller om du vill ha flexibiliteten att hantera migrering av data i batchar och göra dem klar inom en specifik tidsgräns, partitionera data. Partitionering minskar också risken för eventuella oväntade problem.
 
-Ett PoC (Proof of Concept) rekommenderas för att kontrollera lösningen från slutpunkt till slutpunkt och testa kopia dataflödet i din miljö. Viktiga steg att göra PoC: 
+Använd ett Konceptbevis för att kontrollera slutpunkt till slutpunkt-lösningen och testa kopia dataflödet i din miljö. Viktigaste proof of concept-stegen: 
 
-1. Skapa en ADF-pipeline med en enda Kopieringsaktivitet som kopierar flera TB data från ADLS Gen1 till ADLS Gen2 att hämta en kopia baslinje för prestanda, från och med [integrering enheter (DIUs)](copy-activity-performance.md#data-integration-units) som 128. 
-2. Baserat på Kopiera dataflödet som du får i steg #1 kan beräkna den uppskattade tid som krävs för migrering av hela data. 
-3. (Valfritt) Skapa en tabell med kontroll och definiera filtret om du vill partitionera på filerna så att migreras. Sätt att partitionera filer som följande avsnitt: 
+1. Skapa en Data Factory-pipeline med en enda Kopieringsaktivitet som kopierar flera TB data från Data Lake Storage Gen1 till Data Lake Storage Gen2 att hämta en kopia baslinje för prestanda. Börja med [integrering enheter (DIUs)](copy-activity-performance.md#data-integration-units) som 128. 
+2. Baserat på Kopiera dataflödet som du får i steg 1, beräkna den beräknade tiden som krävs för migrering av hela data. 
+3. (Valfritt) Skapa en tabell med kontroll och definiera filtret om du vill partitionera på filerna så att migreras. Sättet att partitionera filerna är att: 
 
-    - Partitioneras efter mapp- eller mappnamn med jokertecken-filtret (rekommenderas) 
-    - Partitioneras efter filens tid för senaste ändring 
+    - Partitionen av mapp- eller mappnamn med jokertecken-filtret. Vi rekommenderar den här metoden.
+    - Partitionen av en fil är senast ändrad.
 
 ### <a name="network-bandwidth-and-storage-io"></a>Nätverk i/o med bandbredd och lagring 
 
-Du kan styra samtidighet ADF kopia jobb som läser data från ADLS Gen1 och skriva data till ADLS Gen2 så att du kan hantera användning på lagring i/o för att inte påverkar företagets normala arbete på ADLS Gen1 under migreringen.
+Du kan styra samtidighet av Data Factory kopia jobb som läser data från Data Lake Storage Gen1 och skriva data till Data Lake Storage Gen2. På så sätt kan hantera du användningen på lagringssystemet i/o för att undvika påverkar företagets normala arbete på Data Lake Storage Gen1 under migreringen.
 
 ### <a name="permissions"></a>Behörigheter 
 
-I Data Factory [ADLS Gen1 connector](connector-azure-data-lake-store.md) har stöd för tjänstens huvudnamn och hanterade identiteter för Azure-resurs autentiseringar; [ADLS Gen2 connector](connector-azure-data-lake-storage.md) stöder kontonyckel, tjänstens huvudnamn och hanterade identiteter för Azure-resurs-autentiseringar. För att göra Data Factory kan navigera och kopiera alla filer/ACL: er som du behöver, se till att du hög beviljar tillräcklig behörighet för konton som du anger att åtkomst/läsa/skriva alla filer och ange ACL: er om du vill. Föreslå för att godkänna den som super slutanvändaren/ägare roll under migreringsperioden. 
+I Data Factory den [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) stöder tjänsten huvudnamn och hanterad identitet för Azure-resurs-autentiseringar. Den [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) stöder konto nyckel, tjänstens huvudnamn och hanterad identitet för Azure-resurs-autentiseringar. Att göra Data Factory kan navigera och kopierar alla filer eller åtkomstkontrollistor (ACL) du behöver, beviljar hög tillräcklig behörighet för det konto som du anger för att komma åt, läsa, eller skriva alla filer och ange ACL: er om du vill. Bevilja en roll för en användare eller ägare under migreringsperioden. 
 
 ### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Bevara ACL: er från Data Lake Storage Gen1
 
-Om du vill replikera ACL: er tillsammans med filer när du uppgraderar från Data Lake Storage Gen1 till Gen2 finns [bevara ACL: er från Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+Om du vill replikera ACL: er tillsammans med filer när du uppgraderar från Data Lake Storage Gen1 till Data Lake Storage Gen2 [bevara ACL: er från Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
 
 ### <a name="incremental-copy"></a>Inkrementell kopia 
 
-Flera metoder för att läsa in bara nya eller uppdaterade filer från ADLS Gen1:
+Du kan använda flera metoder för att läsa in bara nya eller uppdaterade filer från Data Lake Storage Gen1:
 
-- Läsa in nya eller uppdaterade filer efter tid partitionerade mapp eller fil-namn, t.ex. / 2019/05/13 / *;
-- Läsa in nya eller uppdaterade filer av LastModifiedDate;
-- Identifiera nya eller uppdaterade filer av en 3 part verktyget/lösning och sedan skicka filen eller mappen namnet till ADF pipeline via parametern eller en tabell/fil.  
+- Läsa in nya eller uppdaterade filer efter tid partitionerade mapp eller fil namn. Ett exempel är/2019/05/13 / *.
+- Läsa in nya eller uppdaterade filer enligt LastModifiedDate.
+- Identifiera nya eller uppdaterade filer av några verktyg från tredje part eller lösningen. Skicka sedan filen eller mappen namnet till Data Factory-pipeline via parametern eller en tabell eller fil. 
 
-Rätt frekvensen göra stegvis inläsning är beroende av det totala antalet filer i ADLS Gen1 och de nya eller uppdaterade fil som ska läsas in varje gång.  
+Rätt frekvensen göra stegvis inläsning är beroende av det totala antalet filer i Azure Data Lake Storage Gen1 och de nya eller uppdaterade filer som ska läsas in varje gång. 
 
 ## <a name="next-steps"></a>Nästa steg
 

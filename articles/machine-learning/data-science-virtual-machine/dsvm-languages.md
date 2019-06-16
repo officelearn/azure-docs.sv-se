@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502268"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på den virtuella datorn för datavetenskap 
@@ -234,12 +234,12 @@ Förvalet Julia platsen är en global miljö som kan läsas av alla användare. 
 
 ## <a name="other-languages"></a>Andra språk
 
-**C#**: Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `csc` kommando. 
+**C#** : Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `csc` kommando. 
 
 **Java**: OpenJDK är tillgänglig på både Linux och Windows-versionen av DSVM och ange på vägen. Du kan skriva `javac` eller `java` kommando på Kommandotolken i Windows eller på bash-gränssnittet i Linux för att använda Java. 
 
 **node.js**: node.js finns på både Linux och Windows-versionen av DSVM och ange på vägen. Du kan skriva `node` eller `npm` kommando på Kommandotolken i Windows eller på bash-gränssnittet i Linux för att komma åt node.js. Node.js tools for Visual Studio-tillägget installeras på Windows, för att tillhandahålla en grafisk IDE för att utveckla node.js-programmet. 
 
-**F#**: Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `fsc` kommando. 
+**F#** : Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `fsc` kommando. 
 
 

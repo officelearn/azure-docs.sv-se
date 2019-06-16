@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543157"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
@@ -146,7 +146,7 @@ Utdata ser ut ungefär så här:
 
 ![Skärmbild av kommandoraden med hela virtuella nätverksnamnet markerat.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-I exemplet ovan den **virtualNetworkName** är namnet **”grupp classicubuntu16 classicubuntu16”**.
+I exemplet ovan den **virtualNetworkName** är namnet **”grupp classicubuntu16 classicubuntu16”** .
 
 Verifiera först om du kan migrera det virtuella nätverket med hjälp av följande kommando:
 

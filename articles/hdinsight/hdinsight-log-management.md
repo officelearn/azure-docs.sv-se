@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
 ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686845"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
@@ -33,7 +33,7 @@ Vanliga steg i hantering av HDInsight är:
 
 Det första steget i att skapa ett HDInsight-kluster log management strategi är att samla in information om affärsscenarier och lagringskrav för jobbet körning historik.
 
-### <a name="cluster-details"></a>Klusterinformation
+### <a name="cluster-details"></a>Information om kluster
 
 Information om följande kluster är användbara i hjälper till att samla in information i din strategi för hantering av loggen. Samla in informationen från alla HDInsight-kluster som du har skapat i en viss Azure-konto.
 

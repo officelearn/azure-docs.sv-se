@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867900"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Översikt över liveuppspelning med Media Services
@@ -114,7 +114,7 @@ Varje Media Services-konto kan innehålla flera kanaler, flera program och flera
 
 När du skapar en kanal kan ange du tillåtna IP-adresser på något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
 
-### <a name="program"></a>Program
+### <a name="program"></a>Programmet
 En [programmet](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 Du kan ange antalet timmar som du vill behålla inspelat innehåll för programmet genom att ange den **ArchiveWindowLength** egenskapen. Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
@@ -152,7 +152,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
 | Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
-| Stoppas |Stoppas |Nej (övergångsläge) |
+| Stoppar |Stoppar |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

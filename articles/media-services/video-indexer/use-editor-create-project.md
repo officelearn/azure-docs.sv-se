@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518141"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Använda Video Indexer-Redigeraren för att skapa projekt
@@ -55,7 +55,7 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 
     Du kan filtrera resultatet ytterligare genom att välja **filtrera resultaten**. Du kan filtrera att visa videor som har en viss person i dem eller ange att du bara vill se videon resultat som är en i ett visst språk eller ha en specifik ägare. <br/> Du kan också ange omfattningen av din fråga. Till exempel om du vill söka efter ”GitHub” i OCR väljer **Visual Text**.
 
-    ![Filtrera](./media/video-indexer-view-edit/visual-text.png)
+    ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     Du kan även lägga till flera filter i frågan. Använd den **+** / **-** knappar för att lägga till/ta bort filter. Använd **ta bort filter** att ta bort alla filter.
 1. Om du vill lägga till videor, markerar du dem och välj sedan **Lägg till**.
@@ -77,11 +77,11 @@ Om du klickar på pilen till höger i varje video nedåt öppnas dig insikter i 
 1. Använd sökrutan som säger ”söka i avskriften, visual text, personer och etiketter” för att skapa frågor för specifika klipp.
 1. Lägg till filter för att ange ytterligare information om på vilka scener som du letar efter genom att välja **filteralternativ**.
 
-    ![Filteralternativ](./media/video-indexer-view-edit/filter-options.png)
+    ![Filtrera alternativ](./media/video-indexer-view-edit/filter-options.png)
 
     Du kan till exempel vill se klipp där GitHub nämns medan Donovan Brown som visas på skärmen. För det behöver du lägga till ett ”inkluderar”-filter som har ”användare” som typ av information. Sedan måste du ange ”Donovan Brown” i sökrutan för filtret.
     
-    ![Ta med](./media/video-indexer-view-edit/include.png)
+    ![Inkludera](./media/video-indexer-view-edit/include.png)
     
     Om du vill att klipp där GitHub nämns Donovan Brown är _inte_ på skärmen helt enkelt ändrar du filtret ”inkluderar” i ett ”exkluderingsfilter”, med hjälp av listrutan. 
 
@@ -96,7 +96,7 @@ Om du klickar på pilen till höger i varje video nedåt öppnas dig insikter i 
 > [!TIP]
 > När du att välja och ordning klippen, kan du förhandsgranska video i spelaren till höger på sidan. 
 
-![Förhandsgranska](./media/video-indexer-view-edit/preview.png)
+![Förhandsversion](./media/video-indexer-view-edit/preview.png)
 
 Kom ihåg att spara projektet när du gör ändringar genom att välja **spara projektet**. 
 
@@ -119,7 +119,7 @@ Kom ihåg att spara projektet när du gör ändringar genom att välja **spara p
 
     Om du väljer det här projektet kan se du alla insikter och tidslinje för det här projektet. Om du väljer **Videoredigerare**, du kan fortsätta att göra ändringar för det här projektet. Redigeringar omfattar att lägga till eller ta bort videor och klipp eller byta namn på projektet.
 
-    ![Videoredigeraren](./media/video-indexer-view-edit/video-editor.png)
+    ![Redigeraren för video](./media/video-indexer-view-edit/video-editor.png)
      
 ## <a name="create-a-project-from-your-video"></a>Skapa ett projekt från din video
 

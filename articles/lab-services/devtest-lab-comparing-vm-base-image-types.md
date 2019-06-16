@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64680303"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade bilder och formler i DevTest Labs
 Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapas nya virtuella datorer](devtest-lab-add-vm.md). Dock viktiga skillnaden mellan anpassade bilder och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuellt nätverk undernät och artefakter. Dessa förkonfigurerade inställningar är inställda med standardvärden som kan åsidosättas när den virtuella datorn skapas. Den här artikeln förklarar några av (personal) och nackdelarna (nackdelar) till att använda anpassade bilder med hjälp av formler.

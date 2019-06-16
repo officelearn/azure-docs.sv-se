@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60760508"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägg till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway
@@ -63,7 +63,7 @@ Kontrollera följande:
 5. På den **Lägg till anslutning** fyller du i följande fält:
    
    * **Namn:** Det namn som du vill ge till den plats som du skapar anslutningen till.
-   * **Anslutningstyp:** Välj **plats-till-plats (IPsec)**.
+   * **Anslutningstyp:** Välj **plats-till-plats (IPsec)** .
      
      ![Lägg till anslutningssidan](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Lägg till sida")<br>
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198334"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagrats i Azure Data Lake Storage Gen1
@@ -55,7 +55,7 @@ När du tilldelar användare eller säkerhetsgrupper till Data Lake Storage Gen1
 
 1. Öppna ett Data Lake Storage Gen1-konto. I den vänstra rutan klickar du på **alla resurser**, och klicka sedan på namnet på kontot som du vill tilldela en grupp med användare eller säkerhetsgrupp från bladet alla resurser.
 
-2. I ditt Data Lake Storage Gen1-kontoblad klickar du på **åtkomstkontroll (IAM)**. Bladet som standard visas prenumerationsägarna som ägare.
+2. I ditt Data Lake Storage Gen1-kontoblad klickar du på **åtkomstkontroll (IAM)** . Bladet som standard visas prenumerationsägarna som ägare.
    
     ![Tilldela säkerhetsgrupp till Azure Data Lake Storage Gen1 konto](./media/data-lake-store-secure-data/adl.select.user.icon1.png "tilldela säkerhetsgrupp till Azure Data Lake Storage Gen1 konto")
 
@@ -127,7 +127,7 @@ När du tar bort säkerhetsgrupper från Data Lake Storage Gen1 konton kan ändr
 
 Åtkomst till data ändras och fortfarande hanteras av åtkomst-ACL: er.  Undantaget till detta är användare/grupper i rollen ägare.  Användare/grupper tas bort från rollen ägare är inte längre superanvändare och deras åtkomst faller tillbaka till inställningar för åtkomst-ACL. 
 
-1. I ditt Data Lake Storage Gen1-kontoblad klickar du på **åtkomstkontroll (IAM)**. 
+1. I ditt Data Lake Storage Gen1-kontoblad klickar du på **åtkomstkontroll (IAM)** . 
    
     ![Tilldela säkerhetsgrupp till Data Lake Storage Gen1 konto](./media/data-lake-store-secure-data/adl.select.user.icon.png "tilldela säkerhetsgrupp till Data Lake Storage Gen1 konto")
 2. I den **åtkomstkontroll (IAM)** bladet klickar du på security-grupper som du vill ta bort. Klicka på **Ta bort**.

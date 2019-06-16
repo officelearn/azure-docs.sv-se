@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762312"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
@@ -32,7 +32,7 @@ De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utv
 
 Det här avsnittet visas hur vissa vanliga branschvillkor mappas till Media Services v3-API.
 
-### <a name="live-event"></a>Direktsändning
+### <a name="live-event"></a>Live-händelse
 
 En **direktsänd händelse** representerar en pipeline för inmatning, transkodning (valfritt) och paketering direktsända strömmar av video, ljud och i realtid metadata.
 
@@ -62,7 +62,7 @@ Om du vill koda med Media Services v3, måste du skapa **omvandlar** och **jobb*
 - [Transformeringar och jobb](transforms-jobs-concept.md)
 - [Encoding med Media Services](encoding-concept.md)
 
-## <a name="media-analytics"></a>Mediaanalys
+## <a name="media-analytics"></a>Medieanalys
 
 För att analysera din video och ljud filer kan du även behöva skapa **omvandlar** och **jobb**.
 
@@ -114,7 +114,7 @@ Följande bild illustrerar arbetsflödet direkt typ:
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name="event-grid"></a>Händelserutnät
+### <a name="event-grid"></a>Event Grid
 
 Om du vill se förloppet för jobbet, bör du använda **Event Grid**. Media Services genererar även Live-händelse-typer. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. 
 

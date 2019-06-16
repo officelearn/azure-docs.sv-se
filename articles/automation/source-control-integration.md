@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574118"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
@@ -45,7 +45,7 @@ Välj **källkontroll typ**, klickar du på **autentisera**. Ett webbläsarföns
 
 På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klickar på **spara**. I följande tabell visas en beskrivning av tillgängliga fält.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Namn på datakälla kontroll     | Ett eget namn för källkontrollen. *Det här namnet måste innehålla endast bokstäver och siffror.*        |
 |Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure-lagringsplatser (Git)</br> Azure-lagringsplatser (TFVC)        |
@@ -103,7 +103,7 @@ Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns [skap
 |write:repo_hook     | Skriva lagringsplats hookar         |
 |read:repo_hook|Läs lagringsplats hookar|
 
-#### <a name="azure-repos"></a>Azure Repos
+#### <a name="azure-repos"></a>Azure-lagringsplatser
 
 Mer information om hur du skapar en personlig åtkomsttoken i Azure-lagringsplatser finns [autentisera åtkomsten med personliga åtkomsttoken](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
@@ -118,7 +118,7 @@ Mer information om hur du skapar en personlig åtkomsttoken i Azure-lagringsplat
 
 <sup>1</sup> the Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
 
-## <a name="syncing"></a>Synkroniserar
+## <a name="syncing"></a>Synkronisera
 
 Välj källa från tabellen på den **källkontroll** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.
 

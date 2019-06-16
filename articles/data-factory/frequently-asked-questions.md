@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61345762"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
@@ -139,7 +139,7 @@ En datauppsättning är en starkt typifierad parameter och en entitet som du kan
 
 En länkad tjänst är också en starkt typifierad parameter som innehåller anslutningsinformationen till antingen ett datalager eller en beräkningsmiljö. Det är också en entitet som du kan återanvända eller referera till.
 
-### <a name="control-flows"></a>Kontrollen flöden
+### <a name="control-flows"></a>Styr flöden
 Kontrollen flöden dirigera pipelineaktiviteter som innehåller kedjesammansättning av aktiviteter i en sekvens, branchning, parametrar som du anger på pipelinenivå och argument som du skickar du anropa pipeline på begäran eller från en utlösare. Kontrollen flöden inkluderar även skicka anpassade tillstånd och loopbehållare (det vill säga foreach-Iteratorer).
 
 

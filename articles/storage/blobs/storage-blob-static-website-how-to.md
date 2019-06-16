@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 7a1aef14a2a32266c893933482527c361f17d7fb
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071441"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -181,11 +181,13 @@ Du kan visa innehåll från en webbläsare med hjälp av en offentlig URL för w
 Hitta URL: en med hjälp av följande kommando:
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-Ersätt den `<subscription-id>` platshållarvärdet med ID: T för din prenumeration.
+* Ersätt den `<resource-group-name>` platshållarvärdet med namnet på resursgruppen.
+
+* Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
 <a id="metrics" />
 

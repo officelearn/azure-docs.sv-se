@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520259"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
@@ -229,7 +229,7 @@ Ange tillåtna internet-adressintervall med hjälp av [CIDR-notation](https://to
    > [!NOTE]
    > Små adressintervall med hjälp av ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Dessa områden ska konfigureras med regler för enskilda IP-adress.
 
-IP-Nätverksregler är bara tillåtna för **offentliga internet** IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10.*_, _172.16. *_ - _172.31. *_, och _192.168. *_.
+IP-Nätverksregler är bara tillåtna för **offentliga internet** IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10.*_ , _172.16. *_  - _172.31. *_ , och _192.168. *_ .
 
    > [!NOTE]
    > IP-Nätverksregler har ingen effekt på förfrågningar som kommer från samma Azure-region som lagringskontot. Använd [virtuella Nätverksregler](#grant-access-from-a-virtual-network) att tillåta begäranden för samma region.

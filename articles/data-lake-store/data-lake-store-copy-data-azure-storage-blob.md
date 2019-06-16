@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878842"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Kopiera data från Azure Storage BLOB till Azure Data Lake Storage Gen1
@@ -54,7 +54,7 @@ Parametrarna i syntaxen beskrivs nedan:
 
 | Alternativ | Beskrivning |
 | --- | --- |
-| Källa |Anger platsen för datakällan i Azure storage-blob. Källan kan vara en blobbehållare, en blob eller ett annat Data Lake Storage Gen1-konto. |
+| source |Anger platsen för datakällan i Azure storage-blob. Källan kan vara en blobbehållare, en blob eller ett annat Data Lake Storage Gen1-konto. |
 | Dest |Anger Data Lake Storage Gen1 målet att kopiera till. |
 | SourceKey |Anger lagringsåtkomstnyckel för Azure storage blob-källan. Detta krävs endast om källan är en blob-behållare eller en blob. |
 | Konto |**Valfritt**. Använd det här alternativet om du vill använda Azure Data Lake Analytics-konto för att köra jobbet kopia. Om du använder alternativet /Account i syntax men inte anger ett Data Lake Analytics-konto, använder AdlCopy ett standardkonto för att köra jobbet. Även om du använder det här alternativet kan du måste lägga till källan (Azure Storage Blob) och målet (Azure Data Lake Storage Gen1) som datakällor för Data Lake Analytics-kontot. |

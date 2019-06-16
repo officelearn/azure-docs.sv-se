@@ -9,10 +9,10 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681804"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
@@ -27,7 +27,7 @@ Webhook-åtgärder kan du anropa en extern process via en HTTP POST-begäran.  T
 
 Webhook-åtgärder kräver egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Webhook-URL |URL till webhooken. |
 | Anpassad JSON-nyttolast |Anpassad nyttolast ska skicka med webhook, när det här alternativet väljs under skapande av varning. Information som är tillgängliga på [Hantera aviseringar](alerts-log.md) |

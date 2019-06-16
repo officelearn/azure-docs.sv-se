@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922808"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
@@ -45,7 +45,7 @@ Händelsehubbar ta emot data från Azure-diagnostik har stöd för molntjänster
 * Event Hubs-namnområde etablerat per artikel, [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure Diagnostics-data till Event Hubs-mottagare
-Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure Storage-konto. Ett program kan också skicka data till Event Hubs genom att lägga till en ny **egenskaperna** avsnittet den **PublicConfig** / **WadCfg** elementet i den *. wadcfgx* fil. I Visual Studio i *.wadcfgx* lagras i följande sökväg: **Cloud Service-projekt** > **roller** > **(RoleName)** > **diagnostics.wadcfgx** fil.
+Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure Storage-konto. Ett program kan också skicka data till Event Hubs genom att lägga till en ny **egenskaperna** avsnittet den **PublicConfig** / **WadCfg** elementet i den *. wadcfgx* fil. I Visual Studio i *.wadcfgx* lagras i följande sökväg: **Cloud Service-projekt** > **roller** >  **(RoleName)**  > **diagnostics.wadcfgx** fil.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ I följande exempel visar hur utvecklare kan begränsa mängden skickade data sk
 I det här exemplet sink tillämpas loggar och är filtrerad endast för fel på spårningen.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuera och uppdatera en Cloud Services-konfiguration i programmet och diagnostik
-Visual Studio har det enklaste sättet för att distribuera det program- och Event Hubs mottagare. Om du vill visa och redigera filen, öppna den *.wadcfgx* i Visual Studio, redigera den och spara den. Sökvägen är **Molntjänstprojekt** > **roller** > **(RoleName)** > **diagnostics.wadcfgx**.  
+Visual Studio har det enklaste sättet för att distribuera det program- och Event Hubs mottagare. Om du vill visa och redigera filen, öppna den *.wadcfgx* i Visual Studio, redigera den och spara den. Sökvägen är **Molntjänstprojekt** > **roller** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
 Nu kan alla och distributionen uppdatera åtgärder i Visual Studio, Visual Studio Team System, och alla kommandon eller skript som är baserade på MSBuild och Använd den **/t: publicera** mål är den *.wadcfgx* paketering pågår. Dessutom distribuera distributioner och uppdateringar filen till Azure med hjälp av Azure Diagnostics-tillägget för lämplig agent på dina virtuella datorer.
 

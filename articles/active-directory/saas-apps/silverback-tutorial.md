@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Självstudier: Azure Active Directory-integrering med Silverback
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Silverback i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Silverback från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -217,7 +217,7 @@ Om du vill aktivera Azure AD-användare att logga in på Silverback, måste de e
 
     c. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
-    d. I **e-postadress** text, ange den e-postadressen för användaren som **Brittasimon@contoso.com**.
+    d. I **e-postadress** text, ange den e-postadressen för användaren som **Brittasimon@contoso.com** .
 
     e. I den **lösenord** text, ange ditt lösenord.
 
@@ -240,5 +240,5 @@ När du klickar på panelen Silverback i åtkomstpanelen, bör det vara loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

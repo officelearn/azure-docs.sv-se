@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083899"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Användare, grupper, licensiering och roller för stora organisationer
 
@@ -52,7 +52,7 @@ Många stora organisationer vill ha alternativ för att kunna ge användarna til
 
  Rollnamn | Sammanfattning av behörigheter
  --------- | -------------------
- **Programadministratör** | Kan lägga till och hantera företagsprogram och programregistreringar och konfigurera inställningar för proxyprogram. Programadministratörer kan visa villkorsstyrda åtkomstprinciper och enheter, men inte hantera dem.
+ **Programadministratör** | Kan lägga till och hantera företagsprogram och programregistreringar och konfigurera inställningar för proxyprogram. Administratörer kan visa principer för villkorlig åtkomst och enheter, men inte hanteras.
  **Molnprogramadministratör** | Kan lägga till och hantera företagsprogram och registreringar av företagsprogram. Den här rollen har samtliga programadministratörsbehörigheter, förutom att den inte kan hantera proxyinställningarna för programmet.
 **Programutvecklare** | Kan lägga till och uppdatera programregistreringar, men kan inte hantera företagsprogram eller konfigurera inställningar för programproxy.
 

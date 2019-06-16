@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606937"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enhet
@@ -41,7 +41,7 @@ EBOD-höljet använder en 580 W PCM och primära hölje använder en 764 W PCM. 
 | Maximal översvämning aktuella |20 A |20 A |
 | Power factor korrigering |> 95% nominell ingångsspänning |> 95% nominell ingångsspänning |
 | Övertoner |Uppfyller EN61000-3-2 |Uppfyller EN61000-3-2 |
-| Utdata |5v vänteläge spänning \@ 2.0 A |5v vänteläge spänning \@ 2.7 A |
+| Resultat |5v vänteläge spänning \@ 2.0 A |5v vänteläge spänning \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | Hot plug |Ja |Ja |
@@ -117,7 +117,7 @@ Det här avsnittet listas de specifikationer som rör hölje-miljö. Temperatur,
 
 | Hölje | Omgivande temperaturintervall | Omgivande relativ fuktighet | Maximal våt termometerkulans |
 | --- | --- | --- | --- |
-| I drift |5°C - 35°C(41°F - 95°F) |20% till 80% icke-förenklas- |28°C (82°F) |
+| Operativa |5°C - 35°C(41°F - 95°F) |20% till 80% icke-förenklas- |28°C (82°F) |
 | Kan inte användas |-40 OC - 70 OC 40° F - 158° F |icke förenklas 5% till 100% |29°C (84°F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luftflödet, höjd, chocka, vibrationer, orientering, säkerhet och EMC

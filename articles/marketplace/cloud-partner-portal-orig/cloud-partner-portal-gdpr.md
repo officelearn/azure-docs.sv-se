@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935427"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner Portal GDPR-kompatibilitet
@@ -31,7 +31,7 @@ Partnerportalen i molnet ger åtkomst till alla dina data på fliken användare.
 
 Du kan hantera dina personliga data genom att trycka på Ta bort på ditt konto på fliken användare. Vi har roller av en **ägare** och en **deltagare** som kan tilldelas till varje specifik användare och båda kan vara tilldelade/kopierade/uppdaterade/borttagna.
 
-<a name="consent"></a>Samtycke
+<a name="consent"></a>Medgivande
 -------
 
 För att hantera godkännande i partnerportalen i molnet, visas alltid först en utgivare avtal kontrakt kan du behöva samtycker till för att utgivare hos Microsoft. Om du inte samtycker till att utgivaren avtal kontraktet begränsar vi utgivaren för att du inte att kunna sälja med Microsoft.

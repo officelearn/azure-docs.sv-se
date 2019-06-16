@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925947"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik och övervakning av programprestanda för fjärrstyrd tillförlitlig tjänst
@@ -30,8 +30,8 @@ Tillförlitlig ServiceRemoting runtime definierar följande prestandaräknarkate
 
 | Category | Beskrivning |
 | --- | --- |
-| Service Fabric-tjänst |Räknare som är specifika för Azure Service Fabric Service Remoting, till exempel Genomsnittlig tid det tar att bearbeta begäran |
-| Service Fabric-tjänstmetod |Räknare som är specifika för metoder implementeras av fjärrkommunikation i Service Fabric, till exempel hur ofta en tjänst-metoden har anropats |
+| Service Fabric Service |Räknare som är specifika för Azure Service Fabric Service Remoting, till exempel Genomsnittlig tid det tar att bearbeta begäran |
+| Service Fabric-Tjänstmetod |Räknare som är specifika för metoder implementeras av fjärrkommunikation i Service Fabric, till exempel hur ofta en tjänst-metoden har anropats |
 
 Var och en av ovanstående kategorier har en eller flera räknare.
 
@@ -85,19 +85,19 @@ Reliable Services-runtime publicerar följande prestandaräknare som rör körni
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-tjänstmetod |Anrop/sek |Antal gånger som Servicemetoden har anropats per sekund |
-| Service Fabric-tjänstmetod |Genomsnittligt antal millisekunder per anrop |Åtgången tid att köra service-metod i millisekunder |
-| Service Fabric-tjänstmetod |Undantag/sek |Antal gånger att metoden tjänsten utlöste ett undantag per sekund |
+| Service Fabric-Tjänstmetod |Anrop/sek |Antal gånger som Servicemetoden har anropats per sekund |
+| Service Fabric-Tjänstmetod |Genomsnittlig tid i millisekunder per anrop |Åtgången tid att köra service-metod i millisekunder |
+| Service Fabric-Tjänstmetod |Undantag/sek |Antal gånger att metoden tjänsten utlöste ett undantag per sekund |
 
 ### <a name="service-request-processing-performance-counters"></a>Prestandaräknare för bearbetning av begäran
 När en klient anropar en metod som via en proxy serviceobjektet, resulterar det i ett meddelande om begäran som skickas över nätverket till tjänsten för fjärrkommunikation. Tjänsten bearbetar meddelandet med begäran och skickar tillbaka ett svar till klienten. Tillförlitlig ServiceRemoting runtime publicerar följande prestandaräknare som rör bearbetning av begäran av tjänsten.
 
 | Kategorinamn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-tjänst |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
-| Service Fabric-tjänst |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder) av tjänsten kan bearbeta en begäran |
-| Service Fabric-tjänst |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att deserialisera begärandemeddelandet för tjänsten när den tas emot på tjänsten |
-| Service Fabric-tjänst |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet service på tjänsten innan svaret skickas till klienten |
+| Service Fabric Service |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
+| Service Fabric Service |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder) av tjänsten kan bearbeta en begäran |
+| Service Fabric Service |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att deserialisera begärandemeddelandet för tjänsten när den tas emot på tjänsten |
+| Service Fabric Service |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet service på tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempelkod](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)

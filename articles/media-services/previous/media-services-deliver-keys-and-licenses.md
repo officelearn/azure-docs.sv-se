@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 73a76162efaf7317c5e2f1668b76325da6f018ce
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868133"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Använd Media Services för att leverera DRM-licenser eller AES-nycklar 
@@ -352,4 +352,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Se också
 * [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
-* [Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans](media-services-protect-with-aes128.md)
+* [Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst](media-services-protect-with-aes128.md)

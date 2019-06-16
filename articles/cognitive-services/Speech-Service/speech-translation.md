@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072398"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -46,7 +46,7 @@ Vi erbjuder snabbstarter som utformats för att du köra kod i mindre än 10 min
 | [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Bläddra](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Bläddra](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Bläddra](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Exempelkod
 

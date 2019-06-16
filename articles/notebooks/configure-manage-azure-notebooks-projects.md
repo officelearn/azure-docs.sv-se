@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
 ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596738"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
@@ -35,7 +35,7 @@ Ett projekt i Azure-datorer är i grunden en konfiguration av den underliggande 
 
 Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar dator eller en annan fil. Servern sparar filer automatiskt och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med den **avstängning** kommando (kortkommandot: h).
 
-## <a name="compute-tier"></a>Compute-nivå
+## <a name="compute-tier"></a>Beräkningsnivån
 
 Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå dessa begränsningar och öka beräkningskraft med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Mer information finns i [hur du använder virtuella datorer för datavetenskap](use-data-science-virtual-machine.md).
 
@@ -69,7 +69,7 @@ Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du 
 | **Tom fil** | En fil som du kan lagra innehåll, till exempel text, data, osv. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
 | **Markdown** | En markdownfil. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
 
-### <a name="upload-files"></a>Ladda upp filer
+### <a name="upload-files"></a>Överföra filer
 
 Den **överför** kommandot ger två alternativ för att importera data från andra platser: **Från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
 

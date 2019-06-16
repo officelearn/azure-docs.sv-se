@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779907"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka efter en Tweet – hämta ett Twitter-meddelande med Azure Functions
@@ -136,7 +136,7 @@ Efter initieringen av appen, klickar du på och utgåva knappen A sedan försikt
 
 ![Redo att skaka](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-3.png)
 
-### <a name="processing"></a>Bearbetar ...
+### <a name="processing"></a>Bearbetar...
 
 ![Bearbetar](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 

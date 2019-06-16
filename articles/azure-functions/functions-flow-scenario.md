@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787680"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Anropa en funktion från Microsoft Flow
@@ -226,7 +226,7 @@ Nu när flödet är slutfört kan du lägga till en rad i SharePoint-listan och 
 
 2. Ange följande värden i rutnätet Redigera.
 
-    | Listkolumn     | Value           |
+    | Listkolumn     | Värde           |
     |-----------------|---------------------|
     | **Rubrik**           | Turbinen 60 |
     | **LastServiceDate** | 08/04/2017 |
@@ -246,7 +246,7 @@ Nu när flödet är slutfört kan du lägga till en rad i SharePoint-listan och 
 
 5. Under **KÖRNINGSHISTORIK**, klickar du på körning av flöde.
 
-    ![Körn.historik](media/functions-flow-scenario/run-history.png)
+    ![Körningshistorik](media/functions-flow-scenario/run-history.png)
 
     Om körningen lyckades, kan du granska flow-åtgärder på nästa sida. Om körningen misslyckades av någon anledning, felsökningsinformation nästa sida.
 

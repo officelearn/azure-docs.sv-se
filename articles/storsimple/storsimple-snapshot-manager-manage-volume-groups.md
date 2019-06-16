@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699719"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Använd StorSimple Snapshot Manager för att skapa och hantera volymgrupper
 ## <a name="overview"></a>Översikt
@@ -53,7 +53,7 @@ Om du klickar på den **Volymgrupper** noden den **resultat** visar följande in
 | Namn |Den **namn** kolumnen innehåller namnet på gruppen volym. |
 | Program |Den **program** kolumn visar antalet VSS-skrivarna är installerade och körs på Windows-värd. |
 | Vald |Den **valda** kolumn visar antalet volymer som ingår i gruppen volym. Ett noll (0) anger att inget program är kopplad till volymer i gruppen volym. |
-| Har importerats |Den **importerat** kolumn visar antalet importerade volymer. När värdet **SANT**, den här kolumnen anger att en volym-grupp har importerats från Azure-portalen och inte har skapats i StorSimple Snapshot Manager. |
+| Importerade |Den **importerat** kolumn visar antalet importerade volymer. När värdet **SANT**, den här kolumnen anger att en volym-grupp har importerats från Azure-portalen och inte har skapats i StorSimple Snapshot Manager. |
 
 > [!NOTE]
 > StorSimple Snapshot Manager volymgrupper visas också på den **principer för säkerhetskopiering** fliken i Azure-portalen.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610775"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
 
-Microsoft Threat Modeling Tool 2018 gavs ut som allmänt tillgänglig i September 2018 som en kostnadsfri  **[klickar du på att hämta](https://aka.ms/threatmodelingtool)**. Ändringen av leveransmekanismen gör att vi kan skicka de senaste förbättringar och felkorrigeringar till kunder varje gång de öppnar verktyget, vilket gör det enklare att underhålla och använda.
+Microsoft Threat Modeling Tool 2018 gavs ut som allmänt tillgänglig i September 2018 som en kostnadsfri  **[klickar du på att hämta](https://aka.ms/threatmodelingtool)** . Ändringen av leveransmekanismen gör att vi kan skicka de senaste förbättringar och felkorrigeringar till kunder varje gång de öppnar verktyget, vilket gör det enklare att underhålla och använda.
 Den här artikeln tar dig igenom processen med att komma igång med Microsoft SDL hotet modellering metoden och visar hur du använder för att utveckla fantastiska hotmodeller som en ryggraden för din säkerhetsprocess.
 
 Den här artikeln bygger vidare på befintliga kunskaper i SDL hotet modellering metod. En snabb genomgång finns i **[Threat Modeling webbprogram](https://msdn.microsoft.com/library/ms978516.aspx)** och en arkiverad version av **[avslöja säkerhetsfel med hjälp av STRIDE-metoden](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN-artikeln publiceras i 2006.
@@ -79,14 +79,14 @@ De går igenom processen för att utveckla sina första hotmodell.
 > - De skickar kommandon till vår webbserver – cirkeln
 > - Webbservern är consulting en databas (två parallella linjer)
 
-Vad Ricardo just visade Cristina är en DFD kort för  **[dataflödesdiagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool kan du ange förtroendegränser, som anges med röd kantlinjerna, så att var olika entiteter är i kontrollen. IT-administratörer kräver en Active Directory-system i autentiseringssyfte, så att Active Directory är utanför deras kontroll.
+Vad Ricardo just visade Cristina är en DFD kort för  **[dataflödesdiagram](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool kan du ange förtroendegränser, som anges med röd kantlinjerna, så att var olika entiteter är i kontrollen. IT-administratörer kräver en Active Directory-system i autentiseringssyfte, så att Active Directory är utanför deras kontroll.
 
 > Cristina: Det verkar rätt för mig. Vad gäller hoten?
 > Ricardo: Låt mig visar.
 
 ## <a name="analyzing-threats"></a>Analysera hot
 
-När han klickar på analysvy från ikonen menyalternativet (fil med förstoringsglas), han hämtas till en lista över genererade hot i Threat Modeling Tool hitta utifrån standardmallen som använder SDL-metoden som kallas  **[ STRIDE (förfalskning, manipulering, avslöjande av information, Repudiation, Denial of Service och rättighetsökning)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Tanken är att programvaran kommer under en förutsägbar uppsättning hot, som finns med hjälp av dessa 6 kategorier.
+När han klickar på analysvy från ikonen menyalternativet (fil med förstoringsglas), han hämtas till en lista över genererade hot i Threat Modeling Tool hitta utifrån standardmallen som använder SDL-metoden som kallas  **[ STRIDE (förfalskning, manipulering, avslöjande av information, Repudiation, Denial of Service och rättighetsökning)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Tanken är att programvaran kommer under en förutsägbar uppsättning hot, som finns med hjälp av dessa 6 kategorier.
 
 Den här metoden fungerar som säkra huset genom att se till att varje dörr- och har en mekanism för låsning på plats innan du lägger till ett larmsystem eller jaga efter tjuven.
 

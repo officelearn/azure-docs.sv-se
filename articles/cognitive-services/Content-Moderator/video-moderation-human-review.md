@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: sajagtap
 ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228124"
 ---
 # <a name="video-moderation-with-human-review"></a>Videomoderering med mänsklig granskning
@@ -25,7 +25,7 @@ Använd Content Moderator datorstödd [videomoderering](video-moderation-api.md)
 
 Maskinassisterad video klassificering uppnås antingen med bild som tränas modeller eller video tränade modeller. Till skillnad från avbildningen tränas video klassificerare tränas Microsofts vuxet och vågat innehåll video klassificerare med videor. Den här metoden resulterar i bättre matchning kvalitet.
 
-## <a name="shot-detection"></a>Bildidentifiering
+## <a name="shot-detection"></a>Som identifiering
 
 När du genererar klassificering information kan ytterligare video intelligens mer flexibilitet att analysera videor. I stället för att mata ut bara bildrutor innehåller Microsofts videomodereringen på servernivå som visar information för. Du har nu möjlighet att analysera dina videoklipp på som nivå och RAM-nivå.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466020"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Använd FMLE-kodare för att skicka en direktsänd dataström med enkel bithastighet 
@@ -102,7 +102,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
      När du använder sammanflätad källor, kan du markera alternativet ”Ej sammanflätning”
 2. Välj skiftnyckelikonen bredvid Format, dessa ytterligare inställningar ska vara:
 
-   * Profil: Huvud
+   * Profil: Main
    * Nivå: 4.0
    * Bildrutan frekvens: 2 sekunder
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808814"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Aktuell version](copy-activity-fault-tolerance.md)
 
@@ -71,12 +71,12 @@ I följande exempel innehåller en JSON-definition för att konfigurera hoppar �
 }
 ```
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om du vill hoppa över inkompatibla rader vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) att lagra loggen som innehåller raderna hoppades över. | Namnet på en `AzureStorage` eller `AzureDataLakeStore` skriver länkad tjänst som refererar till den instans som du vill använda för att lagra loggfilen. | Nej
-path | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej
+sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej
 
 ## <a name="monitor-skipped-rows"></a>Övervaka hoppades över rader
 När körningen av kopieringsaktiviteten är klar ser du hur många hoppades över rader i utdata för kopieringsaktiviteten:

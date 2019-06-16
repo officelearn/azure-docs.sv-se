@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685180"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut till parallella grenar för arbetsflödesåtgärder i Azure Logic Apps
@@ -44,7 +44,7 @@ Logikappen väntar tills alla grenar slutförts innan du fortsätter arbetsflöd
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna logikappen i Logic App Designer.
 
-1. Flyttar du pekaren över pilen ovanför steget där du vill lägga till parallella grenar. Välj den **plus** logga (**+**) som visas och välj sedan **lägga till en parallell gren**. 
+1. Flyttar du pekaren över pilen ovanför steget där du vill lägga till parallella grenar. Välj den **plus** logga ( **+** ) som visas och välj sedan **lägga till en parallell gren**. 
 
    ![Lägg till parallell gren](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -56,7 +56,7 @@ Logikappen väntar tills alla grenar slutförts innan du fortsätter arbetsflöd
 
    ![Sök efter och välj vilken åtgärd du önska](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Lägg nu till de steg som du vill i varje parallell gren. Om du vill lägga till en annan åtgärd till en gren, flyttar du pekaren under åtgärden där du vill lägga till en sekventiell åtgärd. Välj den **plus** (**+**) tecken som visas och välj sedan **Lägg till en åtgärd**.
+1. Lägg nu till de steg som du vill i varje parallell gren. Om du vill lägga till en annan åtgärd till en gren, flyttar du pekaren under åtgärden där du vill lägga till en sekventiell åtgärd. Välj den **plus** ( **+** ) tecken som visas och välj sedan **Lägg till en åtgärd**.
 
    ![Lägga till sekventiella åtgärd parallell gren](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

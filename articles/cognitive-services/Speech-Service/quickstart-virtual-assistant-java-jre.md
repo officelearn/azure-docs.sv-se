@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072538"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Snabbstart: Skapa en röst-första virtuella assistenter med Speech-SDK för Java
 
@@ -30,11 +30,11 @@ För den här snabbstarten krävs:
 * Operativsystem: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bitars) och macOS 10.13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumeration-nyckel för Taltjänster i den **westus2** region. Skapa den här prenumerationen på den [Azure-portalen](https://portal.azure.com).
 * En förkonfigurerad robot som skapats med Bot Framework version 4.2 eller senare. Roboten måste prenumerera på den nya ”Direct Line tal”-kanalen för att ta emot röst indata.
 
     > [!NOTE]
-    > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
+    > Direct Line-tal (förhandsversion) är för närvarande endast tillgängliga i den **westus2** region.
 
     > [!NOTE]
     > En 30-dagars utvärderingsversion för standardprisnivån som beskrivs i [testa Speech Services kostnadsfritt](get-started.md) är begränsad till **westus** (inte **westus2**) och är därför inte kompatibel med direktanslutning Rad tal. Nivåerna kostnadsfri och standard **westus2** prenumerationer är kompatibla.
@@ -156,8 +156,8 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
-    final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
-    final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
+    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
     final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867972"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
@@ -52,7 +52,7 @@ Data som samlas in av Azure Monitor Metrics lagras i en time series-databas som 
 * Vissa mått kan ha flera dimensioner som beskrivs i [flerdimensionella mått](#multi-dimensional-metrics). Anpassade mått kan ha upp till 10 dimensioner.
 
 ## <a name="multi-dimensional-metrics"></a>Flerdimensionella mått
-En av utmaningarna till måttdata är att det ofta har begränsad information för att ge ett sammanhang för insamlade värdena. Azure Monitor löser detta problem med flerdimensionella mått. Storleken på ett mått är namn / värde-par som innehåller ytterligare data för att beskriva mätvärdet. Till exempel ett mått _tillgängligt diskutrymme_ kan ha en dimension som kallas _enhet_ med värden _C:_, _D:_, vilket gör att visa antingen finns tillräckligt med diskutrymme på alla enheter eller för varje enhet individuellt.
+En av utmaningarna till måttdata är att det ofta har begränsad information för att ge ett sammanhang för insamlade värdena. Azure Monitor löser detta problem med flerdimensionella mått. Storleken på ett mått är namn / värde-par som innehåller ytterligare data för att beskriva mätvärdet. Till exempel ett mått _tillgängligt diskutrymme_ kan ha en dimension som kallas _enhet_ med värden _C:_ , _D:_ , vilket gör att visa antingen finns tillräckligt med diskutrymme på alla enheter eller för varje enhet individuellt.
 
 Exemplet nedan visar två datauppsättningar för ett hypotetiskt mått som kallas _Nätverksdataflöde_. Den första datauppsättningen har inga dimensioner. Andra datauppsättningen visas värden med två dimensioner _IP-adress_ och _riktning_:
 

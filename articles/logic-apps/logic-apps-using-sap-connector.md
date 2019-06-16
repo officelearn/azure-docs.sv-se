@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
 ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258157"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
@@ -399,7 +399,7 @@ Om du vill aktivera SNC för dina förfrågningar till eller från SAP-system, V
 
    ![Konfigurera SAP SNC i anslutning](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Egenskap  | Beskrivning |
+   | Egenskap | Beskrivning |
    |----------| ------------|
    | **SNC-bibliotek** | SNC-Biblioteksnamn eller sökväg i förhållande till NCo installationsplats eller absolut sökväg. Till exempel `sapsnc.dll` eller `.\security\sapsnc.dll` eller `c:\security\sapsnc.dll` |
    | **SNC SSO** | När du ansluter via SNC, används vanligtvis SNC-identiteten för att autentisera anroparen. Ett annat alternativ är att åsidosätta så att information om användare och lösenord kan användas för att autentisera anroparen, men raden fortfarande är krypterad. |

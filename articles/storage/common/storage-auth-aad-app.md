@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e45fe20e93d81c1cfd1f868b40f76743558758bb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073429"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
 En stor fördel med att använda Azure Active Directory (Azure AD) med Azure Blob storage eller Queue storage är att det inte längre behöver dina autentiseringsuppgifter som ska lagras i din kod. I stället kan du begära en OAuth 2.0-åtkomsttoken från Microsoft identity-plattformen (tidigare Azure AD). Azure AD autentiserar säkerhetsobjekt (en användare, grupp eller tjänstens huvudnamn) där programmet körs. Om autentiseringen lyckas, Azure AD tillbaka åtkomsttoken till programmet och programmet kan sedan använda den åtkomst-token för att godkänna begäranden till Azure Blob storage och Queue storage.
 
-Den här artikeln visar hur du konfigurerar ditt interna program eller en webbapp för autentisering med Azure AD. Använd ett liknande sätt kod exempel funktioner .NET, men andra språk.
+Den här artikeln visar hur du konfigurerar ditt interna program eller en webbapp för autentisering med Microsoft identity-plattformen 2.0. Använd ett liknande sätt kod exempel funktioner .NET, men andra språk. Läs mer om Microsoft identity-plattformen 2.0 [översikt över Microsoft identity-plattformen (v2.0)](../../active-directory/develop/v2-overview.md).
 
 En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Tilldela en RBAC-roll till en Azure AD-säkerhetsobjekt
+## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Tilldela en roll till en Azure AD-säkerhetsgrupp huvudnamn
 
 För att autentisera ett säkerhetsobjekt från ditt Azure Storage-program måste du först konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar inbyggda RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC](storage-auth-aad-rbac.md).
 
@@ -54,13 +54,25 @@ Därefter måste ge ditt program behörighet att anropa API: erna för Azure Sto
 
     ![Skärmbild som visar behörigheter för lagring](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Under **vilken typ av behörigheter för ditt program kräver?** , Observera att den tillgängliga behörighetstypen **delegerade behörigheter**. Det här alternativet väljs automatiskt som standard.
+1. Under **vilken typ av behörigheter för ditt program kräver?** , Observera att det är tillgängligt behörighetstyp **delegerade behörigheter**. Det här alternativet väljs automatiskt som standard.
 1. I den **Välj behörigheter** delen av den **begär API-behörigheter** fönstret markerar du kryssrutan bredvid **user_impersonation**, klicka sedan på **Lägg till behörigheter**.
 1. Den **API-behörigheter** nu visar att din Azure AD-program har åtkomst till både Microsoft Graph och Azure Storage. Behörigheterna har beviljats till Microsoft Graph automatiskt när du först registrera din app med Azure AD.
 
     ![Skärmbild som visar registrera app-behörigheter](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="libraries-for-token-acquisition"></a>Bibliotek för tokenförvärv
+## <a name="create-a-client-secret"></a>Skapa en klienthemlighet
+
+Programmet måste en klienthemlighet för att bevisa sin identitet när du begär en token. Lägg till klienthemligheten genom att följa dessa steg:
+
+1. Gå till din appregistrering i Azure-portalen.
+1. Välj den **certifikat och hemligheter** inställningen.
+1. Under **klienten hemligheter**, klickar du på **nya klienthemligheten** att skapa en ny hemlighet.
+1. Ange en beskrivning för hemligheten och välja önskad giltighetsintervallet.
+1. Kopiera värdet för den nya hemligheten direkt till en säker plats. Hela värdet visas bara en gång till dig.
+
+    ![Skärmbild som visar klienthemlighet](media/storage-auth-aad-app/client-secret.png)
+
+## <a name="client-libraries-for-token-acquisition"></a>Klientbibliotek för tokenförvärv
 
 När du har registrerat ditt program och den har beviljat behörighet att komma åt data i Azure Blob storage eller Queue storage kan du lägga till kod till programmet att autentisera ett säkerhetsobjekt och få en OAuth 2.0-token. För att autentisera och hämta token, kan du använda någon av de [autentiseringsbibliotek för Microsoft identity-plattformen](../../active-directory/develop/reference-v2-libraries.md) eller ett annat bibliotek för öppen källkod som har stöd för OpenID Connect 1.0. Programmet kan sedan använda den åtkomst-token för att godkänna en begäran mot Azure Blob storage och Queue storage.
 
@@ -70,10 +82,13 @@ En lista över scenarier för vilka hämta token stöds finns i den [scenarier](
 
 Exemplet visar hur du hämta en token från Azure AD. Åtkomsttoken används för att autentisera den angivna användaren och sedan godkänna en begäran om att skapa en blockblob. För att få det här exemplet fungerar, följer du stegen som i föregående avsnitt.
 
-> [!NOTE]
-> Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller behållare eller kön.
->
-> Till exempel om du vill köra exempelkod för ett lagringskonto där du är ägare och på din egen användaridentitet, måste du tilldela rollen RBAC för Blob Data-deltagare till dig själv. I annat fall misslyckas anropet för att skapa bloben med HTTP-statuskod 403 (förbjudet). Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
+Om du vill begära token, behöver du följande värden från appens registrering:
+
+- Namnet på din Azure AD-domän. Hämtar värdet från den **översikt** sidan i Azure Active Directory.
+- Klient (eller katalog)-ID. Hämtar värdet från den **översikt** sidan i din appregistrering.
+- Klienten (eller program)-ID. Hämtar värdet från den **översikt** sidan i din appregistrering.
+- Den klient omdirigeringen-URI. Hämtar värdet från den **autentisering** inställningar för appregistrering av din.
+- Värdet för klienthemligheten. Hämta värdet från den plats som du tidigare har kopierat.
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Välkända värden för autentisering med Azure AD
 
@@ -85,7 +100,7 @@ För offentliga Microsoft-molnet, grundläggande Azure AD-utfärdare är enligt 
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
-Klient-ID identifierar Azure AD-klient ska användas för autentisering. Om du vill hämta klient-ID, följer du stegen som beskrivs i avsnittet **hämta klient-ID för Azure Active Directory**.
+Klient-ID identifierar Azure AD-klient ska användas för autentisering. Det också kallas katalog-ID Om du vill hämta klient-ID, navigera till den **översikt** för din appregistrering i Azure-portalen och kopiera värdet därifrån.
 
 #### <a name="storage-resource-id"></a>Storage resurs-ID
 
@@ -93,25 +108,22 @@ Använd Azure Storage resurs-ID för att hämta en token för auktorisering av f
 
 `https://storage.azure.com/`
 
-### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Hämta klient-ID för Azure Active Directory
+### <a name="create-a-storage-account-and-container"></a>Skapa ett lagringskonto och en behållare
 
-Följ dessa steg om du vill hämta klient-ID:
+Skapa ett lagringskonto i samma prenumeration som Azure Active Directory för att köra kodexemplet. Sedan skapa en behållare i det lagringskontot. Exempelkoden skapar en blockblob i den här behållaren.
 
-1. Välj din Active Directory i Azure-portalen.
-2. Klicka på **Egenskaper**.
-3. Kopiera GUID-värdet som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
+Sedan uttryckligen tilldela den **Storage Blob Data-deltagare** rollen till det användarkonto som du ska köras under exempelkoden. Anvisningar om hur du tilldelar den här rollen i Azure-portalen finns i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac-portal.md).
 
-![Skärmbild som visar hur du kopierar klient-ID](./media/storage-auth-aad-app/aad-tenant-id.png)
+> [!NOTE]
+> När du skapar ett Azure Storage-konto kan tilldelas du automatiskt inte behörighet att komma åt data via Azure AD. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller behållare eller kön.
 
-## <a name="set-up-a-basic-web-app-to-authenticate-to-azure-ad"></a>Konfigurera en grundläggande webbapp för att autentisera till Azure AD
+### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Skapa ett webbprogram som auktoriserar åtkomst till Blob storage med Azure AD
 
-När programmet ansluter till Azure storage, handlar det på användarens vägnar. Om du vill testa detta kodexempel du behöver en web application som ber användaren kan logga in med en Azure AD-identitet. Du kan ladda ned det [kodexempel](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) att testa ett grundläggande webbprogram som autentiserar med Azure AD-konto.
+När ditt program har åtkomst till Azure Storage, handlar det på användarens vägnar, vilket innebär att blob eller kön resurser används med behörigheterna för den användare som är inloggad. Om du vill testa detta kodexempel, behöver du ett webbprogram som uppmanar användaren att logga in med en Azure AD-identitet. Du kan skapa en egen eller använda det exempelprogram som tillhandahålls av Microsoft.
 
-### <a name="completed-sample"></a>Färdiga exemplet
+Ett slutförda exempelwebbprogram som hämtar en token och används för att skapa en blob i Azure Storage är tillgängligt på [GitHub](http://aka.ms/aadstorage). Granska och köra den färdiga exemplet kan vara till hjälp för att förstå kodexemplen. Instruktioner om hur du kör det färdiga exemplet finns i avsnittet [visa och köra den färdiga exemplet](#view-and-run-the-completed-sample).
 
-En fullständig fungerande version av exempelkoden i den här artikeln kan laddas ned från [GitHub](http://aka.ms/aadstorage). Granska och som kör hela exemplet kan vara till hjälp för att förstå kodexemplen.
-
-### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-satser  
+#### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-satser  
 
 Installera Azure Storage-klientbibliotek från Visual Studio. Från den **verktyg** menyn och välj **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**. Skriv följande kommandon i konsolfönstret för att installera de nödvändiga paketen från Azure Storage-klientbiblioteket för .NET:
 
@@ -123,13 +135,12 @@ Install-Package Microsoft.Azure.Storage.Common
 Lägg sedan till följande using-satser i filen HomeController.cs:
 
 ```csharp
-using System;
 using Microsoft.Identity.Client; //MSAL library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-### <a name="create-a-block-blob"></a>Skapa en blockblob
+#### <a name="create-a-block-blob"></a>Skapa en blockblob
 
 Lägg till följande kodavsnitt för att skapa en blockblob:
 
@@ -143,7 +154,7 @@ private static async Task<string> CreateBlob(string accessToken)
     // Replace the URL below with your storage account URL
     CloudBlockBlob blob =
         new CloudBlockBlob(
-            new Uri("https://<storage-account>.blob.core.windows.net/sample-container/Blob1.txt"),
+            new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
             storageCredentials);
     await blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
     return "Blob successfully created";
@@ -164,17 +175,11 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-### <a name="get-an-oauth-token-from-azure-ad"></a>Hämta en OAuth-token från Azure AD
+#### <a name="get-an-oauth-token-from-azure-ad"></a>Hämta en OAuth-token från Azure AD
 
 Lägg sedan till en metod som begär en token från Azure AD. Den token som du begär blir användarens räkning och vi kommer att använda metoden GetTokenOnBehalfOfUser.
 
-För att begära token, behöver du följande värden från appens registrering
-
-- Klient (eller katalog)-ID
-- ID för klient (eller program)
-- Klienten omdirigerings-URI
-
-Kom ihåg att om du precis har loggat in och du begär en token för den `storage.azure.com` resurs, behöver du presentera ett användargränssnitt där användaren kan godkänna sådan åtgärd för deras räkning. Att underlätta att du behöver att fånga upp den `MsalUiRequiredException` och lägga till funktioner för att begära tillstånd, som visas i följande exempel:
+Kom ihåg att om du nyligen har loggat in och du begär en token för den `storage.azure.com` resurs, behöver du presentera ett användargränssnitt där användaren kan godkänna sådan åtgärd för deras räkning. Att underlätta att du behöver att fånga upp den `MsalUiRequiredException` och lägga till funktioner för att begära tillstånd, som visas i följande exempel:
 
 ```csharp
 public async Task<IActionResult> Blob()
@@ -195,7 +200,9 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Medgivande är en process för en användare beviljas behörighet att ett program för att komma åt skyddade resurser å deras vägnar. Microsoft identity-plattformen 2.0 stöder inkrementella medgivande, vilket innebär att ett säkerhetsobjekt kan begära en minsta uppsättning behörigheter från början och Lägg till behörigheter över tid efter behov. När koden begär en åtkomsttoken, ange omfånget för behörigheter som din app behöver vid något tillfälle genom att i den `scope` parametern. Följande metod konstruktioner egenskaper för autentisering för att begära inkrementella medgivande:
+Medgivande är en process för en användare beviljas behörighet att ett program för att komma åt skyddade resurser å deras vägnar. Microsoft identity-plattformen 2.0 stöder inkrementella medgivande, vilket innebär att ett säkerhetsobjekt kan begära en minsta uppsättning behörigheter från början och Lägg till behörigheter över tid efter behov. När koden begär en åtkomsttoken, ange omfånget för behörigheter som din app behöver vid något tillfälle genom att i den `scope` parametern. Mer information om inkrementella medgivande finns i avsnittet **inkrementell och dynamiska medgivande** i [Varför uppdateras till Microsoft identity-plattformen (v2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+
+Följande metod konstruktioner egenskaper för autentisering för att begära inkrementella medgivande:
 
 ```csharp
 private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
@@ -225,6 +232,66 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
     return properties;
 }
 ```
+
+## <a name="view-and-run-the-completed-sample"></a>Visa och köra den färdiga exemplet
+
+Om du vill köra exempelprogrammet, klona eller ladda ned det från [GitHub](http://aka.ms/aadstorage). Uppdatera sedan programmet enligt beskrivningen i följande avsnitt.
+
+### <a name="provide-values-in-the-settings-file"></a>Ange värden i filen
+
+Därefter uppdaterar den *appsettings.json* fil med dina egna värden, enligt följande:
+
+```json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
+    "TenantId": "<tenant-id>",
+    "ClientId": "<client-id>",
+    "CallbackPath": "/signin-oidc",
+    "SignedOutCallbackPath ": "/signout-callback-oidc",
+
+    // To call an API
+    "ClientSecret": "<client-secret>"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### <a name="update-the-storage-account-and-container-name"></a>Uppdatera namnet för storage-konto och en behållare
+
+I den *HomeController.cs* uppdaterar den URI som refererar till blockblob för att använda namnet på ditt lagringskonto och en behållare:
+
+```csharp
+CloudBlockBlob blob = new CloudBlockBlob(
+                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
+                      storageCredentials);
+```
+
+### <a name="enable-implicit-grant-flow"></a>Aktivera implicit beviljande av flöde
+
+Du kan behöva konfigurera implicit beviljande av flödet för appregistrering av din om du vill köra exemplet. Följ de här stegen:
+
+1. Gå till din appregistrering i Azure-portalen.
+1. I avsnittet ”Hantera”, väljer du den **autentisering** inställningen.
+1. Under **avancerade inställningar**i den **Implicit beviljande** väljer du kryssrutorna för att aktivera åtkomst-token och ID-token som visas i följande bild:
+
+    ![Skärmbild som visar hur du aktiverar inställningarna för implicit beviljande av flöde](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
+
+### <a name="update-the-port-used-by-localhost"></a>Uppdatera den port som används av localhost
+
+När du kör exemplet hända att du behöver uppdatera omdirigerings-URI som angetts i din appregistrering för att använda den *localhost* port som har tilldelats vid körning. Följ dessa steg om du vill uppdatera omdirigeringen-URI att använda tilldelad port:
+
+1. Gå till din appregistrering i Azure-portalen.
+1. I avsnittet ”Hantera”, väljer du den **autentisering** inställningen.
+1. Under **omdirigerings-URI: er**, redigera porten för att matcha som används av exempelprogrammet, enligt följande bild:
+
+    ![Skärmbild som visar omdirigerings-URI: er för appregistrering](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

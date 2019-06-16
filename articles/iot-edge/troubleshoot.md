@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797611"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
@@ -243,7 +243,7 @@ En behållare kan inte köras och edgeAgent loggarna visar ett 403-fel.
 ### <a name="root-cause"></a>Rotorsak
 Iot Edge-agenten har inte behörighet att få åtkomst till en moduls avbildning. 
 
-### <a name="resolution"></a>Matchning
+### <a name="resolution"></a>Lösning
 Se till att dina autentiseringsuppgifter för registret har angetts korrekt i ditt manifest för distribution
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge security daemon misslyckas med ett ogiltigt värdnamn
@@ -287,7 +287,7 @@ Du kan stöta på instabilitet begränsad t.ex. för enheter Raspberry Pi, särs
 ### <a name="root-cause"></a>Rotorsak
 IoT Edge-hubben, som är en del av IoT Edge-körningen, optimeras för prestanda som standard och att allokera stora mängder minne. Denna optimering är inte idealiskt för begränsad edge-enheter och kan orsaka stabilitetsproblem med.
 
-### <a name="resolution"></a>Matchning
+### <a name="resolution"></a>Lösning
 Ange en miljövariabel för IoT Edge-hubben **OptimizeForPerformance** till **FALSKT**. Det finns två sätt att göra detta:
 
 I Användargränssnittet: 
@@ -364,7 +364,7 @@ Enheten har problem med att starta moduler som anges i distributionen. Endast ed
 ### <a name="potential-root-cause"></a>Eventuella grundorsaken
 Som standard startar IoT Edge moduler i sin egen isolerad behållare nätverk. Enheten kan ha problem med DNS-namnmatchning i det här privata nätverket.
 
-### <a name="resolution"></a>Matchning
+### <a name="resolution"></a>Lösning
 
 **Alternativ 1: Ange DNS-server i behållaren motorn inställningarna**
 

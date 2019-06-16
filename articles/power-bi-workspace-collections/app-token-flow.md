@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707105"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autentisering och auktorisering med Power BI-Arbetsytesamlingar
@@ -41,7 +41,7 @@ Din apptoken kan innehålla följande anspråk:
 | **ver** |Versionen av apptoken. 0.2.0 är den aktuella versionen. |
 | **aud** |Den avsedda mottagaren av token. För att använda Power BI-Arbetsytesamlingar: *https:\//analysis.windows.net/powerbi/api*. |
 | **ISS** |En sträng som anger det program som utfärdade token. |
-| **typ** |Typ av apptoken som håller på att skapas. Aktuella den enda typ som stöds är **bädda in**. |
+| **type** |Typ av apptoken som håller på att skapas. Aktuella den enda typ som stöds är **bädda in**. |
 | **wcn** |Namn på arbetsytesamling token utfärdas för. |
 | **wid** |Arbetsyte-ID token utfärdas för. |
 | **rid** |Rapport-ID token utfärdas för. |

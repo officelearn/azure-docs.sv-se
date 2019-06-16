@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121859"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>AuthenticationResult egenskaper i MSAL.NET
@@ -44,7 +44,7 @@ Följande diagram visar strukturen för de `IAccount` gränssnitt:
 
 Den `AccountId` klass identifierar ett konto i en specifik klient. Den har följande egenskaper:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |----------|-------------|
 | `TenantId` | En strängrepresentation för ett GUID som är ID för klienten där kontot finns. |
 | `ObjectId` | En strängrepresentation för ett GUID som är ID för användaren som äger konto i klient. |
@@ -52,7 +52,7 @@ Den `AccountId` klass identifierar ett konto i en specifik klient. Den har följ
 
 Den `IAccount` gränssnittet representerar information om ett enda konto. Samma användare kan finnas i olika klienter, dvs, en användare kan ha flera konton. Medlemmar är:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |----------|-------------|
 | `Username` | En sträng som innehåller några värdet i UserPrincipalName (UPN) format, till exempel john.doe@contoso.com. Den här strängen kan vara null, medan HomeAccountId och HomeAccountId.Identifier inte vara null. Den här egenskapen ersätter den `DisplayableId` egenskapen för `IUser` i tidigare versioner av MSAL.NET. |
 | `Environment` | En sträng som innehåller identitetsleverantören för det här kontot, till exempel `login.microsoftonline.com`. Den här egenskapen ersätter den `IdentityProvider` egenskapen för `IUser`, förutom att `IdentityProvider` hade också information om klientorganisation (förutom molnmiljö), medan det här värdet är bara värden. |

@@ -10,10 +10,10 @@ ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
 ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430669"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med ACS-motor och Docker Swarm-läge med hjälp av Azure DevOps
@@ -197,7 +197,7 @@ Azure DevOps kan du [hantera versioner i alla miljöer](https://www.visualstudio
 
 ### <a name="initial-release-setup"></a>Första versionen installationen
 
-1. Klicka för att skapa en releasepipeline **versioner** > **+ Release**
+1. Klicka för att skapa en releasepipeline **versioner** >  **+ Release**
 
 2. Om du vill konfigurera artefakt källan, klickar du på **artefakter** > **länka en artefakt källa**. Här kan länka den här nya releasepipeline till den version som du definierade i föregående steg. Efter det är tillgängligt i lanseringsprocessen filen docker-compose.yml.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144886"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
@@ -26,9 +26,9 @@ Parquet-format stöds för följande kopplingar: [Amazon S3](connector-amazon-si
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Parquet-datauppsättningen.
 
-| Egenskap          | Beskrivning                                                  | Krävs |
+| Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Type-egenskapen för datauppsättningen måste anges till **Parquet**. | Ja      |
+| type             | Type-egenskapen för datauppsättningen måste anges till **Parquet**. | Ja      |
 | location         | Platsinställningar för filen eller filerna. Varje filbaserade anslutning har sin egen platstyp och stöds egenskaper under `location`. **Mer information finns i artikeln connector -> datauppsättning egenskapsavsnittet**. | Ja      |
 | compressionCodec | Komprimerings-codec ska användas vid skrivning till Parquet-filer. Vid läsning från Parquet-filer, fastställa Data Factory automatiskt komprimerings-codec baserat på filens metadata.<br>Typer som stöds är ”**ingen**” ”,**gzip**” ”,**snappy**” (standard), och ”**lzo**”. Observera för närvarande Kopieringsaktivitet inte stöder LZO. | Nej       |
 
@@ -67,18 +67,18 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i kopieringsaktiviteten ***\*källa\**** avsnittet.
 
-| Egenskap       | Beskrivning                                                  | Krävs |
+| Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSource**. | Ja      |
+| type          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSource**. | Ja      |
 | storeSettings | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserade anslutningsprogrammet har sin egen Läs inställningar som stöds under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
 
 ### <a name="parquet-as-sink"></a>Parquet som mottagare
 
 Följande egenskaper stöds i kopieringsaktiviteten ***\*mottagare\**** avsnittet.
 
-| Egenskap       | Beskrivning                                                  | Krävs |
+| Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSink**. | Ja      |
+| type          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSink**. | Ja      |
 | storeSettings | En grupp egenskaper om hur du skriver data till ett datalager. Varje filbaserade anslutning har sin egen stöds skrivning inställningar under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
 
 ## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde

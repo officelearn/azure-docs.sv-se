@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717127"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Apache Spark MLlib för att skapa en machine learning-program och analysera en datauppsättning
@@ -199,12 +199,12 @@ Låt oss börja att få en uppfattning om vad som innehåller datauppsättningen
 
     För att förutsäga ett mat inspektion resultat, måste du utveckla en modell som baseras på överträdelser. Eftersom logistic regression är en metod för binär klassificering, är det praktiskt att gruppera Resultatdata i två kategorier: **Misslyckas** och **skicka**:
 
-   - Godkänd
-       - Godkänd
+   - Skicka
+       - Skicka
        - Skicka meddelanden med av villkor
    - Misslyckades
        - Misslyckades
-   - Kasta bort
+   - Ta bort
        - Företag som inte finns
        - Verksamhet
 

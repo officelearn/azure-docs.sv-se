@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796261"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera hälsotillstånd integration distribution till Azure Deployment Manager (förhandsversion)
@@ -144,7 +144,7 @@ Nu vet Azure Deployment Manager hur du frågar efter hälsotillståndet för din
 
     1. När en Distributionsåtgärden har slutförts kan startas om virtuella datorer, konfigurera om baserat på nya data eller även startas för första gången. Det tar tid för tjänster för att börja avger hälsotillstånd signaler ska aggregeras av providern i ett beskrivande också. Under den här tumultuous processen kan det inte vara klokt att söka efter tjänstehälsa eftersom uppdateringen inte har ännu nå ett stabilt tillstånd. Verkligen, kan tjänsten vibrerande felfria och defekta emellan som resurserna reglera. 
     1. Under fasen för vänta övervakas inte tjänstehälsa. Det här används så att distribuerade resurserna tid att skapa innan du börjar kontrollera hälsa. 
-1. Elastisk
+1. Flexibilitet
 
     1. Eftersom det är omöjligt att veta i samtliga fall hur lång tid tar resurser för att skapa innan de blir stabila, elastisk fas möjliggör en flexibel tidsperioden mellan när resurserna är potentiellt instabil och när de inte behövs för att upprätthålla en felfri stabilt tillstånd.
     1. När den elastiska fasen inleds, börjar Azure Deployment Manager avsökning angivna REST-slutpunkten för tjänstehälsa med jämna mellanrum. Avsökningsintervallet kan konfigureras. 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481619"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka lokala Always On-Tillgänglighetsgrupper till Azure
@@ -42,7 +42,7 @@ Det här avsnittet visar hur du använder den **guiden för Lägg till Azure-rep
 > [!IMPORTANT]
 > Den **guiden för Lägg till Azure-replik** stöder bara virtuella datorer som skapats med den klassiska distributionsmodellen. Nya VM-distributioner bör använda den nya Resource Manager-modellen. Om du använder virtuella datorer med Resource Manager måste du manuellt lägga till den sekundära Azure repliken med hjälp av Transact-SQL-commmands (visas inte här). Den här guiden fungerar inte i Resource Manager-scenario.
 
-1. I SQL Server Management Studio expanderar **alltid på hög tillgänglighet** > **Tillgänglighetsgrupper** > **[namn i Tillgänglighetsgruppen]**.
+1. I SQL Server Management Studio expanderar **alltid på hög tillgänglighet** > **Tillgänglighetsgrupper** >  **[namn i Tillgänglighetsgruppen]** .
 2. Högerklicka på **Tillgänglighetsrepliker**, klicka sedan på **lägga till repliken**.
 3. Som standard den **lägga till repliken för att Availability Group Wizard** visas. Klicka på **Nästa**.  Om du har valt den **Visa inte den här sidan igen** alternativet längst ned på sidan under en föregående Start i den här guiden, den här skärmen visas inte.
    

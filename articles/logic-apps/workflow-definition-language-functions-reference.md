@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
 ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733074"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps och Microsoft Flow
@@ -1813,7 +1813,7 @@ Och returnera följande resultat:
 
 <a name="float"></a>
 
-### <a name="float"></a>flyt
+### <a name="float"></a>float
 
 Konvertera en strängversion för ett Flyttalsnummer till en faktiska Flyttalsnummer.
 Du kan använda den här funktionen endast när skicka anpassade parametrar till en app, till exempel en logikapp eller ett flöde.

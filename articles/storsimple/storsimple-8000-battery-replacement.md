@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693757"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersätt extrabatteriet modulen på StorSimple-enheten
 
@@ -51,8 +51,8 @@ Modulen extrabatteri för StorSimple-enheten är en-fältutbytbar enhet. Innan d
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Kontrollenhet 0 |
-   | 4 |Kontrollenhet 1 |
+   | 3 |Kontrollant 0 |
+   | 4 |Kontrollant 1 |
    
     Efter nummer 3 i bild 2 visas övervakning indikatorn LEDDE i PCM 0 som motsvarar **batteri fel** bör tändas.
    

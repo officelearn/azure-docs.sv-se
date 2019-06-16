@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935785"
 ---
 <a name="retrieve-operations"></a>Hämta åtgärder
@@ -183,7 +183,7 @@ Hämtar alla åtgärder på erbjudandet, eller för att hämta en viss åtgärd 
 |  createdDateTime             | UTC-datum/tid när åtgärden har skapats                                                       |
 |  lastActionDateTime          | UTC-datum/tid när den senaste uppdateringen gjordes på åtgärden                                       |
 |  status                      | Status för åtgärden, antingen `not started` \| `running` \| `failed` \| `completed`. Endast en åtgärd kan ha status `running` i taget. |
-|  fel                       | Felmeddelande för misslyckade åtgärder                                                               |
+|  error                       | Felmeddelande för misslyckade åtgärder                                                               |
 |  |  |
 
 

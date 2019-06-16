@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325820"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer #
@@ -34,7 +34,7 @@ Diagrammet visar delarna av en fullständig SQL Server-tillgänglighetsgrupp i A
 
 Den viktigaste skillnaden för en tillgänglighetsgrupp i Azure Virtual Machines är att Azure-datorer, kräver en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md). Belastningsutjämnaren innehåller IP-adresser för tillgänglighetsgruppens lyssnare. Om du har mer än en tillgänglighetsgrupp måste varje grupp en lyssnare. En belastningsutjämnare har stöd för flera lyssnare.
 
-Dessutom på en virtuell Azure IaaS-dator gästredundanskluster rekommenderar vi ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azure-nätverk har fysiska redundans, vilket gör ytterligare nätverkskort och undernät onödiga på ett gästkluster för virtuella Azure IaaS-datorer. Även om verifieringsrapporten utfärdar en varning att noderna är endast kan nås i ett enda nätverk, kan den här varningen ignoreras på Azure IaaS VM-gästredundanskluster. 
+Dessutom på en virtuell Azure IaaS-dator gästredundanskluster rekommenderar vi ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azures nätverk har fysisk redundans, vilket innebär att det inte behövs fler nätverkskort och undernät för gästkluster på virtuella Azure IaaS-datorer. Även om klustrets verifieringsrapport utfärdar en varning om att noderna endast kan nås i ett enda nätverk, kan varningen ignoreras för redundanskluster på virtuella Azure IaaS-gästdatorer. 
 
 |  | Windows Server Version | SQL Server Version | SQL Server-version | WSFC kvorum Config | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med flera zoner samma region | Dist AG-stöd med ingen AD-domän | Dist AG-stöd med inget kluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|

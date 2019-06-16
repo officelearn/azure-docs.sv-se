@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711923"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda infångade paket för proaktiv nätverksövervakning med varningar och Azure Functions
@@ -84,7 +84,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
     |**Plats**|Centrala USA| Den region där du vill skapa funktionsappen.|
     |**Lagringskonto**|{automatiskt genererade}| Det lagringskonto som Azure Functions behöver för allmän lagring.|
 
-3. På den **PacketCaptureExample Funktionsappar** bladet väljer **Functions** > **anpassad funktion**  >  **+**.
+3. På den **PacketCaptureExample Funktionsappar** bladet väljer **Functions** > **anpassad funktion**  >  **+** .
 
 4. Välj **HttpTrigger-Powershell**, och ange sedan återstående information. Välj slutligen, om du vill skapa funktionen **skapa**.
 
@@ -208,7 +208,7 @@ Klient-ID är program-ID för ett program i Azure Active Directory.
    > [!NOTE]
    > Lösenordet som du använder när du skapar programmet ska vara samma lösenord som du skapade tidigare när du sparar filen för nyckeln.
 
-1. I Azure-portalen väljer du **prenumerationer**. Välj prenumerationen som ska användas och välj sedan **åtkomstkontroll (IAM)**.
+1. I Azure-portalen väljer du **prenumerationer**. Välj prenumerationen som ska användas och välj sedan **åtkomstkontroll (IAM)** .
 
     ![Functions IAM][functions9]
 

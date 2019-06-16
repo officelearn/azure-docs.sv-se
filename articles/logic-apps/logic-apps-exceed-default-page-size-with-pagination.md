@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476548"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Få mer data, objekt eller poster med hjälp av sidbrytning i Azure Logic Apps
@@ -51,7 +51,7 @@ Här följer en lista med bara några av de kopplingar som där du kan överskri
 
 För att avgöra om en åtgärd har stöd för sidbrytning i Logic App Designer, kontrollera åtgärdens inställningarna för den **sidbrytning** inställningen. Det här exemplet visar hur du aktiverar sidbrytning i SQL Server **hämta rader** åtgärd.
 
-1. I åtgärdens övre högra hörnet väljer du ellipserna (**...** ) och välj **inställningar**.
+1. I åtgärdens övre högra hörnet väljer du ellipserna ( **...** ) och välj **inställningar**.
 
    ![Öppna den åtgärdsinställningar](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 

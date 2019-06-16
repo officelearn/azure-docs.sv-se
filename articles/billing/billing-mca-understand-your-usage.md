@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371316"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Förstå villkoren på Azure-användning och kostnader CSV för en Microsoft-kundavtal
@@ -42,27 +42,27 @@ Om du har ett EA-kund, märker du som villkoren i fakturering profilen Azure-anv
 | Månad| date |
 | Dag | date |
 | År | date |
-| Product | produkt |
-| Mätar-ID | meterID |
-| Mätarkategori | meterCategory |
-| Underkategori för mätare | meterSubCategory |
-| Mätarregion | meterRegion |
-| Mätarnamn | meterName |
-| Använd kvantitet | kvantitet |
-| Resurskostnad | effectivePrice | <!-- this was highlighted -->
-| Utökad kostnad | cost |
-| Resursplats | resourceLocation |
-| Använd tjänst | consumedService |
-| Instans-ID | instanceId |
-| Tjänstinformation 1 | serviceInfo1 |
-| Tjänstinformation 2 | serviceInfo2 |
-| Ytterligare information | additionalInfo |
-| Taggar | tags |
-| ID för lagringstjänst | Gäller inte |
+| Product | Produkten |
+| MeterId | meterID |
+| MeterCategory | meterCategory |
+| MeterSubCategory | meterSubCategory |
+| MeterRegion | meterRegion |
+| meterName | meterName |
+| ConsumedQuantity | kvantitet |
+| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ExtendedCost | cost |
+| resourceLocation | resourceLocation |
+| ConsumedService | consumedService |
+| InstanceId | instanceId |
+| ServiceInfo1 | ServiceInfo1 |
+| ServiceInfo2 | serviceInfo2 |
+| AdditionalInfo | AdditionalInfo |
+| Tags | taggar |
+| StoreServiceIdentifier | Gäller inte |
 | Avdelningsnamn | invoiceSection | <!-- this was highlighted -->
 | Kostnadsställe | costCenter |
-| Måttenhet | unitofMeasure |
-| ResourceGroup | resourceGroup |
+| unitOfMeasure | unitofMeasure |
+| ResourceGroup | ResourceGroup |
 | ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
 
 <!-- TO DO: Marketplace CSV? -->
@@ -71,7 +71,7 @@ Om du har ett EA-kund, märker du som villkoren i fakturering profilen Azure-anv
 
 I följande avsnitt beskrivs viktiga termer som visas i Azure-användning och avgifter.
 
-Period | Beskrivning
+Term | Beskrivning
 --- | ---
 invoiceId | Det unika dokument-ID som visas på fakturan PDF
 previousInvoiceId | Referens till en ursprungliga faktura om den här radartikeln är en återbetalning
@@ -79,8 +79,8 @@ billingAccountName | Namnet på kontot fakturering
 billingAccountId | Unik identifierare för roten fakturering konto
 billingProfileId | Namnet på den fakturering profil som betalar avgifter som faktureras
 billingProfileName | Unik identifierare för fakturering profilen som betalar avgifter som faktureras
-InvoiceSectionId | Unik identifierare för fakturan
-InvoiceSectionName | Namnet på avsnittet faktura
+invoiceSectionId | Unik identifierare för fakturan
+invoiceSectionName | Namnet på avsnittet faktura
 costCenter | Det kostnadsställe som definierats i prenumerationen för att spåra kostnader (endast tillgängligt i öppen faktureringsperioder)
 billingPeriodStartDate | Startdatumet för den faktureringsperioden som fakturan skapas
 billingPeriodEndDate | Slutdatum för den faktureringsperioden som fakturan skapas
@@ -98,13 +98,13 @@ meterSubCategory | Namnet på underkategori för mätning klassificering
 meterRegion | Namnet på den region där mätaren för tjänsten är tillgänglig. Identifierar platsen för datacenter för vissa tjänster som prissätts baserat på datacenterplats.
 erbjudande | Namnet på erbjudandet har köpt
 productId | Unik identifierare för den produkt som betalar avgifterna
-produkt | Namnet på den produkt som betalar avgifterna
+Produkten | Namnet på den produkt som betalar avgifterna
 prenumerations-ID | Unik identifierare för den prenumeration betalar avgifterna
 subscriptionName | Namnet på den prenumeration betalar avgifterna
 reservationId | Unik identifierare för den köpta reservation-instansen
 reservationName | Namnet på den köpta reservation-instansen
 publisherType | Typ av utgivare (värden: firstParty, thirdPartyReseller, thirdPartyAgency)
-publisherName | Utgivare för Marketplace-tjänster
+PublisherName | Utgivare för Marketplace-tjänster
 resourceGroupId | Unik identifierare för resursgruppen som hör till resursen
 resourceGroupName | Namnet på resursgruppen som hör till resursen
 resourceId | Unik identifierare för resursinstansen
@@ -115,10 +115,10 @@ kvantitet | Antalet enheter som har köpt eller förbrukat
 unitOfMeasure | Måttenhet för fakturering för tjänsten. Beräkningstjänster, till exempel faktureras per timme.
 chargeType | Typ av avgift. Värden: <ul><li>AsCharged-Usage: Avgifter som ackumuleras baserat på användning av en Azure-tjänst. Detta inkluderar användning mot virtuella datorer som inte debiteras på grund av reserverade instanser.</li><li>AsCharged-PurchaseMarketplace: Enstaka eller fasta återkommande debiteringar från Marketplace-köp</li><li>AsCharged-UsageMarketplace: Avgifter för Marketplace-tjänster som debiteras baserat på enheter med användning</li></ul>
 isAzureCreditEligible | Flagga som anger om tillägget mot tjänsten är berättigade att betalas för användning av Azure-krediter (värden: True, False)
-serviceInfo1 | Tjänstspecifik metadata
+ServiceInfo1 | Tjänstspecifik metadata
 serviceInfo2 | Äldre fält som samlar in valfria tjänstspecifika metadata
-additionalInfo | Ytterligare tjänstspecifika metadata.
-tags | Taggar som du tilldelar till resursen
+AdditionalInfo | Ytterligare tjänstspecifika metadata.
+taggar | Taggar som du tilldelar till resursen
 
 ### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Hur gör jag till att kostnader på min Azure användning och avgifter fil är korrekta?
 

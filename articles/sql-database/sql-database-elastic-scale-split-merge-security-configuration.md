@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335232"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
@@ -446,7 +446,7 @@ I den **certifikat exportguiden**:
 11. Klicka på **Slutför**.
 12. Klicka på **OK**.
 
-## <a name="import-certificate"></a>Importera certifikatet
+## <a name="import-certificate"></a>Importera certifikat
 I guiden Importera certifikat:
 
 1. Välj lagringsplatsen.

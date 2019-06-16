@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258666"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-sap-business-warehouse-connector.md)
 > * [Version 2 (aktuell version)](../connector-sap-business-warehouse.md)
 
@@ -62,13 +62,13 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SAP Business Warehouse (BW) länkad tjänst.
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
 server | Namnet på den server som SAP BW-instansen finns. | string | Ja
 systemNumber | Systemnummer för SAP BW-system. | Tvåsiffrig decimaltal representeras som en sträng. | Ja
-ClientId | Klient-ID för klienten i SAP W systemet. | Tresiffrig decimaltal representeras som en sträng. | Ja
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | string | Ja
-lösenord | Lösenordet för användaren. | string | Ja
+clientId | Klient-ID för klienten i SAP W systemet. | Tresiffrig decimaltal representeras som en sträng. | Ja
+username | Namnet på den användare som har åtkomst till SAP-server | string | Ja
+password | Lösenordet för användaren. | string | Ja
 gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SAP BW-instansen. | string | Ja
 encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | string | Nej
 
@@ -85,9 +85,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som innehåller SAP BW), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| DocumentDB | Anger MDX-fråga för att läsa data från SAP BW-instans. | MDX-fråga. | Ja |
+| query | Anger MDX-fråga för att läsa data från SAP BW-instans. | MDX-fråga. | Ja |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON-exempel: Kopiera data från SAP Business Warehouse till Azure Blob
@@ -306,10 +306,10 @@ LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-RÅDATA | Byte[]
+RAW | Byte[]
 RAWSTRING | Byte[]
-STRÄNG | String
-ENHET | String
+STRING | String
+UNIT | String
 DATS | String
 NUMC | String
 TIMS | String

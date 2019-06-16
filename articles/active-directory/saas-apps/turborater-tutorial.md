@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Självstudier: Azure Active Directory-integrering med TurboRater
 
@@ -109,9 +109,9 @@ Om du vill konfigurera Azure AD enkel inloggning med TurboRater, gör du följan
 
     1. I den **svars-URL (försäkran URL för Konsumenttjänst)** anger en URL med hjälp av följande mönster:
 
-       | Miljö | Webbadress |
+       | Miljö | URL |
        | ---------------| --------------- |
-       | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Testa  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
@@ -151,7 +151,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     1. I den **namn** anger **BSimon**.
   
-    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BSimon\@contoso.com**.
+    1. I den **användarnamn** anger **BSimon\@\<företagsdomänen >.\< tillägget >** . Till exempel **BSimon\@contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -199,4 +199,4 @@ När du väljer **TurboRater** i portalen Mina appar du bör vara loggas in auto
 
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

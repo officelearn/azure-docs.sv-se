@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387290"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
@@ -33,7 +33,7 @@ Arbetsböcker är användbart för scenarier som:
 
 Azure Monitor för virtuella datorer innehåller flera arbetsböcker för att komma igång och i följande tabell sammanfattas de.
 
-| Arbetsbok | Beskrivning | Scope |
+| Arbetsboken | Beskrivning | Scope |
 |----------|-------------|-------|
 | Prestanda | Innehåller en anpassningsbar version av våra Top N-listan och visa diagram i en enda arbetsbok som utnyttjar alla av Log Analytics-prestandaräknare som du har aktiverat.| I stor skala |
 | Prestandaräknare | En Top N diagramvy över en bred uppsättning prestandaräknare. | I stor skala |
@@ -57,7 +57,7 @@ En arbetsbok består av avsnitt som består av oberoende redigerbara diagram, ta
 
 3. Välj en virtuell dator i listan.
 
-4. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)**.
+4. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
 
 5. På sidan VM insikter väljer **prestanda** eller **Maps** fliken och välj sedan **visa arbetsböcker** från länken på sidan. 
 
@@ -173,7 +173,7 @@ Det finns fyra olika typer av parametrar som stöds för närvarande:
 
 ### <a name="using-a-text-parameter"></a>Med hjälp av en textparameter
 
-Det värde som en användare skriver i textrutan ersätts direkt i frågan, utan undantagstecken eller citera. Om värdet som du behöver är en sträng är frågan bör ha citattecken runt parametern (t.ex. **'{parameter}'**).
+Det värde som en användare skriver i textrutan ersätts direkt i frågan, utan undantagstecken eller citera. Om värdet som du behöver är en sträng är frågan bör ha citattecken runt parametern (t.ex. **'{parameter}'** ).
 
 Textparametern att värdet i en textruta som ska användas var som helst. Det kan vara ett tabellnamn, kolumnnamn, funktionsnamn, operatorn osv.  Parametertypen text har en inställning **hämta standardvärdet från analysfrågan**, vilket gör att arbetsboksförfattare att använda en fråga för att fylla i standardvärdet för textrutan.
 

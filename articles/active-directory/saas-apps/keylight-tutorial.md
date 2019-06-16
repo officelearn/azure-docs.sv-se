@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Självstudier: Azure Active Directory-integrering med LockPath Keylight
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av LockPath Keylight i Azure AD, som du behöve
 
 **Utför följande steg för att lägga till LockPath Keylight från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -172,11 +172,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med LockPat
 
     j. Ange **automatiskt etablera security config**väljer **Standard Användarkonfiguration**.
 
-    k. I den **e-attributet** textrutan typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. I den **e-attributet** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. I den **förnamn attributet** textrutan typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. I den **förnamn attributet** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. I den **senaste namnattributet** textrutan typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. I den **senaste namnattributet** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Klicka på **Spara**.
 
@@ -246,4 +246,4 @@ När du klickar på panelen LockPath Keylight i åtkomstpanelen, bör det vara l
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

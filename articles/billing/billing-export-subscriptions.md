@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 8a3d1a3a6b1dce1d729942715bbe5962837ff093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918830"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportera och visa översta prenumerationsinformation
@@ -28,7 +28,7 @@ Om du vill visa en uppsättning prenumerations-ID som är associerade med dina a
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Hämtade JSON-fil innehåller följande information:
-- E-post: E-postadress som är associerade med ditt konto.
+- E-postadress: E-postadress som är associerade med ditt konto.
 - PUID: Den unika identifieraren som är kopplade till ditt faktureringskonto.
 - SubscriptionIds: En lista över prenumerationer som hör till ditt konto, av prenumerations-ID.
 

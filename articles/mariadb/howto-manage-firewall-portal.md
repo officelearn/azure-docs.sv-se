@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746412"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal
@@ -50,7 +50,7 @@ Om du vill tillåta att program från Azure att ansluta till din Azure Database 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Hantera befintliga brandväggsregler i Azure portal
 Upprepa stegen för att hantera brandväggsreglerna.
 * Lägg till den aktuella datorn, klicka på **+ Lägg till Min IP**. Klicka på **Spara** för att spara ändringarna.
-* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-**, och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
+* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-** , och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ändra en befintlig regel klickar du på något av fälten i regeln och sedan ändra. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ta bort en befintlig regel, klicka på ellipsen [...] och klicka sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
 

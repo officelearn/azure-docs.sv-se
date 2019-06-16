@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128023"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Datasynkronisering offline i Azure Mobile Apps
@@ -65,7 +65,7 @@ Ett lokalt arkiv som är associerad med sync-kontext med ett initieringsmetoden 
 ## <a name="how-sync-works"></a>Hur offline fungerar synkronisering
 När du använder sync tabeller, styr klientkoden när lokala ändringar synkroniseras med en mobilappsserverdel i Azure. Inget skickas till serverdelen tills det är ett anrop till *push* lokala ändringar. På samma sätt kan det lokala arkivet fylls med nya data endast när det är ett anrop till *pull* data.
 
-* **Push-**: Push-meddelanden är en åtgärd avseende synkroniseringen kontexten och skickar alla CUD ändringar sedan den senaste push. Observera att det inte går att skicka bara en enskild tabell ändringar, eftersom du annars operations kunde skickas i fel ordning. Push kör en serie med REST-anrop till din Azure-Mobilapp-serverdel, vilket i sin tur ändrar din server-databas.
+* **Push-** : Push-meddelanden är en åtgärd avseende synkroniseringen kontexten och skickar alla CUD ändringar sedan den senaste push. Observera att det inte går att skicka bara en enskild tabell ändringar, eftersom du annars operations kunde skickas i fel ordning. Push kör en serie med REST-anrop till din Azure-Mobilapp-serverdel, vilket i sin tur ändrar din server-databas.
 * **Pull**: Pull utförs på basis av per tabell och kan anpassas med en fråga för att hämta endast en delmängd av data från servern. Azure Mobile-klient SDK Infoga sedan resultatet i det lokala arkivet.
 * **Implicit push-meddelanden**: Om en hämtning körs mot en tabell som har väntande lokala uppdateringar, pull först kör en `push()` på sync-kontext. Den här push hjälper till att minimera konflikter mellan ändringar som redan i kö och nya data från servern.
 * **Inkrementell synkronisering**: den första parametern för pull-åtgärd är en *Frågenamnet* som används bara på klienten. Om du använder en icke-null Frågenamnet Azure Mobile SDK utför en *inkrementell synkronisering*. Varje gång en pull-åtgärd returnerar en uppsättning resultat, den senaste `updatedAt` tidsstämpel som resultatmängden lagras i lokalt system-tabeller SDK. Efterföljande pull operations hämta bara poster efter den tidsstämpeln.

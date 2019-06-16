@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304146"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enda klient fristående program som använder Azure SQL Database
@@ -82,7 +82,7 @@ Appen visar platser som är värdar för händelser.  Platser är innehavare av 
 
      (I varje URL ersätter &lt;användaren&gt; med värdet för användarnamn för din distribution.)
 
-   ![Händelser](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Att styra distributionen av inkommande begäranden, appen använder [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Varje klientspecifik appinstansen innehåller klientnamnet på som en del av domännamnet i URL: en. Alla klient URL: er inkluderar ditt specifika **användaren** värde. URL: er följer följande format:
 - http://events.&lt; venuename&gt;.&lt; användaren&gt;. trafficmanager.net

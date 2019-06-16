@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875809"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
@@ -88,7 +88,7 @@ Du kan ange vilka kolumner som ska mappa i kopieringsaktiviteten -> `translator`
 
 Följande egenskaper stöds `translator`  ->  `mappings` -> objekt med `source` och `sink`:
 
-| Egenskap  | Beskrivning                                                  | Krävs |
+| Egenskap | Beskrivning                                                  | Krävs |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Namnet på källan eller mottagaren kolumn.                           | Ja      |
 | ordinal  | Kolumnindex. Börja med 1. <br>Tillämpa och krävs när med avgränsad text utan rubrikrad. | Nej       |
@@ -99,13 +99,13 @@ Följande egenskaper stöds `translator`  ->  `mappings` -> objekt med `source` 
 
 Följande egenskaper stöds `translator`  ->  `mappings` förutom objekt med `source` och `sink`:
 
-| Egenskap             | Beskrivning                                                  | Krävs |
+| Egenskap            | Beskrivning                                                  | Krävs |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Stöds endast när hierarkiska data t.ex. MongoDB/REST är källan.<br>Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till ange JSON-sökvägen för matrisen för cross-gäller per rad per objekt. | Nej       |
 
 ### <a name="alternative-column-mapping"></a>Alternativa kolumnmappning
 
-Du kan ange copy activity -> `translator`  ->  `columnMappings` att mappa mellan tabular-formade data. I det här fallet krävs ”struktur” avsnittet för både in- och utdatauppsättningar. Stöd för mappning av kolumnen **mappning av alla eller en delmängd med kolumner i datauppsättningen för källan ”struktur” på alla kolumner i datauppsättning för mottagare ”struktur”**. Här följer felvillkor som resulterar i ett undantag:
+Du kan ange copy activity -> `translator`  ->  `columnMappings` att mappa mellan tabular-formade data. I det här fallet krävs ”struktur” avsnittet för både in- och utdatauppsättningar. Stöd för mappning av kolumnen **mappning av alla eller en delmängd med kolumner i datauppsättningen för källan ”struktur” på alla kolumner i datauppsättning för mottagare ”struktur”** . Här följer felvillkor som resulterar i ett undantag:
 
 * Källans datalager fråga resultatet inte har ett kolumnnamn som anges i avsnittet ”struktur” datauppsättningen för indata.
 * Datalager för mottagare (med fördefinierat schema) har inte ett kolumnnamn som anges i avsnittet ”struktur” utdata-datauppsättning.
@@ -201,7 +201,7 @@ Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGro
 
 Du kan ange copy activity -> `translator`  ->  `schemaMapping` för att mappa mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfilen och kopiera från Oracle till Azure Cosmos DB API för MongoDB. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
 | schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br>När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |

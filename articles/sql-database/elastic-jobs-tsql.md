@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475821"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
@@ -456,7 +456,7 @@ Beskrivning av jobbet. Beskrivningen är nvarchar(512) med standardvärdet NULL.
 [  **\@aktiverad =** ] aktiverad  
 Om den jobbschemat är aktiverat. Aktiverad bitar, med standardvärdet 0 (inaktiverad). Om värdet är 0 jobbet är inte aktiverad och kan inte köras enligt sitt schema; men kan det köras manuellt. Om 1, jobbet ska köras enligt sitt schema och kan även köras manuellt.
 
-[  **\@schedule_interval_type =**] schedule_interval_type  
+[  **\@schedule_interval_type =** ] schedule_interval_type  
 Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar(50) med ett standardvärde på en gång, och kan vara något av följande värden:
 - ”En gång”,
 - Minuter,
@@ -1244,7 +1244,7 @@ Visar alla jobb.
 |**job_name**|  nvarchar(128)   |Namnet på jobbet.|
 |**job_id**|    uniqueidentifier    |Unikt ID för jobbet.|
 |**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).|
-|**Beskrivning**    |nvarchar(512)| Beskrivning för jobbet. aktiverade biten anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 indikerar inaktiverade jobb.|
+|**description**    |nvarchar(512)| Beskrivning för jobbet. aktiverade biten anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 indikerar inaktiverade jobb.|
 |**schedule_interval_type** |nvarchar(50)   |Värde som anger när jobbet ska köras: ”en gång”, ”minuter”, ”timmar”, ”dagar”, ”veckor”, ”månader”
 |**schedule_interval_count**|   int|    Antalet schedule_interval_type perioder ska ske mellan varje körning av jobbet.|
 |**schedule_start_time**    |datetime2(7)|  Datum och tid som jobbet har senaste startade körningen.|

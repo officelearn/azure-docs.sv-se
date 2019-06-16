@@ -15,15 +15,15 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61257650"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory-pipelines
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Transformeringsaktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md)
 > * [Piggningsåtgärd](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
@@ -327,15 +327,15 @@ Här är exempel JSON-definition för en pipeline med en Spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| namn | Namnet på aktiviteten i pipelinen. | Ja |
+| name | Namnet på aktiviteten i pipelinen. | Ja |
 | description | Text som beskriver hur aktiviteten ska hantera. | Nej |
-| typ | Den här egenskapen måste anges till HDInsightSpark. | Ja |
+| type | Den här egenskapen måste anges till HDInsightSpark. | Ja |
 | linkedServiceName | Namnet på den länkade HDInsight-tjänst som Spark-programmet körs. | Ja |
 | rootPath | Blobbehållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänsligt. | Ja |
 | entryFilePath | Relativa sökvägen till rotmappen för koden/paketet Spark. | Ja |
-| Klassnamn | Programmets Java/Spark-huvudklass. | Nej |
+| className | Programmets Java/Spark-huvudklass. | Nej |
 | argument | En lista med kommandoradsargument till Spark-programmet. | Nej |
 | proxyUser | Användarkontot att personifiera för att köra Spark-programmet. | Nej |
 | sparkConfig | Ange värden för Spark-konfigurationsegenskaper som anges i [Spark-konfiguration: Programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej |
@@ -347,7 +347,7 @@ Spark-aktiviteten har inte stöd för ett infogat skript som Pig och Hive aktivi
 
 Skapa följande mappstrukturen i blob-lagringen som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel ladda upp Python-filer till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas i Data Factory-tjänsten följande mappstrukturen i blob storage: 
 
-| Sökväg | Beskrivning | Krävs | Typ |
+| `Path` | Beskrivning | Obligatoriskt | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Rotsökvägen för Spark-jobb i länkade storage-tjänsten. | Ja | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar på Spark-jobbet startfil. | Ja | Fil |

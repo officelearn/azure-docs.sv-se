@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130134"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
@@ -166,7 +166,7 @@ Ditt program bör nu ha två tjänster: den tillståndslösa tjänsten HelloWorl
 
 En tillståndskänslig tjänst har samma startpunkter som en tillståndslös tjänst. Den största skillnaden är tillgängligheten för en tillståndsprovider som lagrar tillstånd på ett tillförlitligt sätt. Service Fabric levereras med en implementering av databasleverantör som tillståndet kallas tillförlitliga samlingar som du kan skapa replikerade datastrukturer via Reliable State Manager. En tillståndskänslig tillförlitlig tjänst använder den här tillståndsprovider som standard.
 
-Öppna HelloWorldStateful.java i **HelloWorldStateful src ->**, som innehåller följande RunAsync-metod:
+Öppna HelloWorldStateful.java i **HelloWorldStateful src ->** , som innehåller följande RunAsync-metod:
 
 ```java
 @Override

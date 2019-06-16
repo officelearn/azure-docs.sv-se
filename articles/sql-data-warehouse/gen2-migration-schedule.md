@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596107"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
@@ -22,7 +22,7 @@ ms.locfileid: "65596107"
 Microsoft hjälper sänka på ingångsnivå kostnaden för att köra ett data warehouse.  Compute lägre nivåer kan hantera krävande frågor är nu tillgängliga för Azure SQL Data Warehouse. Läs hela tillkännagivandet [lägre compute nivå av support för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Nytt erbjudande är tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds, kan befintliga Gen1 informationslager uppgraderas till Gen2 via antingen:
 
 - **Automatiska uppgraderingen:** Automatiska uppgraderingar starta inte så snart som tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region, ska enskilda DW-uppgraderingar äga rum under ditt valda underhållsschema.
-- [**Lokal uppgradera till Gen2:**](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en lokal uppgradera till Gen2. Om din region inte stöds ännu, kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
+- [**Lokal uppgradera till Gen2:** ](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en lokal uppgradera till Gen2. Om din region inte stöds ännu, kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Automatiserad schema och tabellen för Region tillgänglighet
 
@@ -32,38 +32,38 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 
 | **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Australien, östra |Tillgänglig |Den 1 juni 2019 |
-| Australien, sydöstra |Tillgänglig |Den 1 maj 2019 |
-| Brasilien, södra |Tillgänglig |Den 1 juni 2019 |
-| Kanada, centrala |Tillgänglig |Den 1 juni 2019 |
-| Kanada, östra |\* |\* |
-| Centrala USA |Tillgänglig |Den 1 juni 2019 |
-| Kina, östra |\* |\* |
+| Östra Australien |Tillgängligt |Den 1 juni 2019 |
+| Sydöstra Australien |Tillgängligt |Den 1 maj 2019 |
+| Södra Brasilien |Tillgängligt |Den 1 juni 2019 |
+| Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
+| Östra Kanada |\* |\* |
+| Centrala USA |Tillgängligt |Den 1 juni 2019 |
+| Östra Kina |\* |\* |
 | Kina, östra 2 |\* |Endast Gen2 |
-| Kina, norra |\* |\* |
-| Kina, norra 2 |Tillgänglig |Endast Gen2 |
-| Asien, östra |Tillgänglig |Den 1 juni 2019 |
-| Östra USA |Tillgänglig |Den 1 juni 2019 |
-| USA, östra 2 |Tillgänglig |Den 1 juni 2019 |
-| Centrala Frankrike |\* |Den 1 juni 2019 |
-| Tyskland, centrala |\* |\* |
+| Norra Kina |\* |\* |
+| Kina, norra 2 |Tillgängligt |Endast Gen2 |
+| Östasien |Tillgängligt |Den 1 juni 2019 |
+| Östra USA |Tillgängligt |Den 1 juni 2019 |
+| USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
+| Frankrike, centrala |\* |Den 1 juni 2019 |
+| Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
-| Indien, centrala |Tillgänglig |Den 1 juni 2019 |
-| Indien, södra |Tillgänglig |Den 1 juni 2019 |
-| Japan, östra |Tillgänglig |Den 1 juni 2019 |
-| Japan, västra |Tillgänglig |Den 1 maj 2019 |
-| Sydkorea, centrala |Tillgänglig |Den 1 juni 2019 |
-| Sydkorea, södra |Tillgänglig |Den 1 maj 2019 |
-| USA, norra centrala |Tillgänglig |Den 1 maj 2019 |
-| Europa, norra |Tillgänglig |Den 1 juni 2019 |
-| USA, södra centrala |Tillgänglig |Den 1 juni 2019 |
-| Asien, sydöstra |Tillgänglig |Den 1 juni 2019 |
-| Södra Storbritannien |Tillgänglig, 2019 |Den 1 juni 2019 |
-| Västra Storbritannien |\*|\* |
-| USA, västra centrala  |2 september 2019 |Den 2 januari 2020|
-| Europa, västra |Tillgänglig |Den 1 juni 2019 |
-| USA, västra |Tillgänglig |Den 1 juni 2019 |
-| USA, västra 2 |Tillgänglig |Den 1 juni 2019 |
+| Centrala Indien |Tillgängligt |Den 1 juni 2019 |
+| Södra Indien |Tillgängligt |Den 1 juni 2019 |
+| Östra Japan |Tillgängligt |Den 1 juni 2019 |
+| Västra Japan |Tillgängligt |Den 1 maj 2019 |
+| Sydkorea, centrala |Tillgängligt |Den 1 juni 2019 |
+| Sydkorea, södra |Tillgängligt |Den 1 maj 2019 |
+| Norra centrala USA |Tillgängligt |Den 1 maj 2019 |
+| Norra Europa |Tillgängligt |Den 1 juni 2019 |
+| Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
+| Sydostasien |Tillgängligt |Den 1 juni 2019 |
+| Storbritannien, södra |Tillgänglig, 2019 |Den 1 juni 2019 |
+| Storbritannien, västra |\*|\* |
+| Västra centrala USA |2 september 2019 |Den 2 januari 2020|
+| Västra Europa |Tillgängligt |Den 1 juni 2019 |
+| Västra USA |Tillgängligt |Den 1 juni 2019 |
+| Västra USA 2 |Tillgängligt |Den 1 juni 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
 

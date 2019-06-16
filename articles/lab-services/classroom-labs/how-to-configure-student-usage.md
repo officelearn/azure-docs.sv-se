@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067326"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Konfigurera inställningar och principer
 Den här artikeln beskriver hur du lägga till användare i labbet, hämta dem registrerad labbet, antalet timmar som de kan använda den virtuella datorn och mycket mer. 
@@ -80,19 +80,24 @@ Välj **användare** på den vänstra menyn för att se en lista över användar
 Du kan ange kvoter per användare med hjälp av följande steg: 
 
 1. Välj **Användare** på den vänstra menyn.
-2. Välj **kvot per användare: obegränsad** i verktygsfältet. 
-3. På den **kvot per användare** väljer du något av följande alternativ: 
-    1. **Ingen**. Användare kan använda sina virtuella datorer under schema eller när labbägare sätter på virtuella datorer för dessa.
-    2. **Obegränsat (standard)**. Användare kan använda sina virtuella datorer utan några tidsbegränsningar.
-    3. **Ange antal timmar per användare**. Användare kan använda sina virtuella datorer för ett angivet antal timmar (anges nedan) utöver den schemalagda tiden. Om du väljer det här alternativet anger du den **antal timmar** i textrutan. 
+2. Välj **kvot per användare:** i verktygsfältet. 
+3. På den **kvot per användare** anger antalet timmar som du vill ge varje användare (student): 
+    1. **0 timmar (schema)** . Användare kan använda sina virtuella datorer endast under den schemalagda tiden eller när du som labbägare till sätter på virtuella datorer för dessa.
+
+        ![Noll timmar – endast schema](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Totalt antal lab timmar per användare**. Användare kan använda sina virtuella datorer för ett angivet antal timmar (anges i det här fältet) **utöver den schemalagda tiden**. Om du väljer det här alternativet anger du den **antal timmar** i textrutan. 
 
         ![Antal timmar per användare](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Välj **Spara**. 
-5. Du ser uppdaterade värden i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;**. 
+5. Du ser uppdaterade värden i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;** . 
 
     ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Innan du skickar registreringslänken till studenterna, lärare måste antingen ange schemat för klassen om de väljer 0 kvot timmar eller ange kvot timmar för övningen.
+>
 > Den [schemalagda körningstid för virtuella datorer](how-to-create-schedules.md) räknas inte mot kvoten som tilldelats till en användare. Kvoten är tiden utanför Schemalägg timmar som en student tillbringar på virtuella datorer. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Lägga till användare genom att ladda upp en CSV-fil

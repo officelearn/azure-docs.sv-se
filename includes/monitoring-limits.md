@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 050d3314345e64e3d69a07367a0e9acc318fa106
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271562"
 ---
 | Resource | Standardgräns | Övre gräns |
@@ -29,7 +29,7 @@ ms.locfileid: "66271562"
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Azure-app-push | 10 azure åtgärder per åtgärdsgruppen. | Kontakta supporten. |
-| Email | 1 000 e poståtgärder i en åtgärdsgrupp. Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| E-post | 1 000 e poståtgärder i en åtgärdsgrupp. Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
 | ITSM | 10 ITSM-åtgärder i en åtgärdsgrupp. | Kontakta supporten. | 
 | Logikapp | 10 åtgärder för logikappar i en åtgärdsgrupp. | Kontakta supporten. |
 | Runbook | 10 runbook-åtgärder i en åtgärdsgrupp. | Kontakta supporten. |

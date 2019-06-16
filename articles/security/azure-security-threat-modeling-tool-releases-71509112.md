@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
 ms.openlocfilehash: bdf8b701567aaa3a0d9006333557bcec4f312723
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586460"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA-versionen 7.1.50911.2 - 9/12/2018
@@ -61,7 +61,7 @@ I vyn analys av verktyget om användaren har en högupplösta skärm som anges s
 
 ![Kända problem med högupplösta skärmar](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
 
-#### <a name="workaround"></a>Lösning
+#### <a name="workaround"></a>Lösning:
 
 Användaren kan klickar du på minskning texten och använder standard Windows zoomkontrollen (CTRL-mus hjul upp) dit av avsnittet.
 
@@ -73,7 +73,7 @@ Funktionen ”Öppna från OneDrive” i förhandsversionen har tagits bort. Anv
 
 ![OneDrive-funktionen har tagits bort](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
-#### <a name="workaround"></a>Lösning
+#### <a name="workaround"></a>Lösning:
 
 Användare av OneDrive uppmuntras att använda Microsofts [OneDrive för Windows](https://onedrive.live.com/about/en-us/download/) klienten att komma åt deras filer lagras på OneDrive via standard- och ”öppna en modell” dialogrutan.
 
@@ -85,7 +85,7 @@ Ja, du kan! Den [Azure stencil är tillgängliga på github](https://github.com/
 
 ![Azure Stencil uppdateringar i 2016-klienten](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="system-requirements"></a>Systemkraven
 
 - Operativsystem som stöds
   - Microsoft Windows 10

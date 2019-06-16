@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633426"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installera och konfigurera StorSimple Adapter för SharePoint
@@ -92,7 +92,7 @@ Innan du kan installera StorSimple Adapter för SharePoint, måste du konfigurer
 ## <a name="configure-prerequisites"></a>Konfigurera krav
 Innan du kan installera StorSimple Adapter för SharePoint måste du kontrollera att StorSimple-enheten, SharePoint-servergrupp och SQL Server-instansiering uppfyller följande krav.
 
-### <a name="system-requirements"></a>Systemkrav
+### <a name="system-requirements"></a>Systemkraven
 StorSimple Adapter för SharePoint fungerar med följande maskinvara och programvara:
 
 * Operativsystem som stöds – Windows Server 2008 R2 SP1, Windows Server 2012 eller Windows Server 2012 R2

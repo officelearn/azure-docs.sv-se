@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813565"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
@@ -68,7 +68,7 @@ Mönstret syntax stöder följande syntax:
 |Funktion|Syntax|Kapslingsnivå|Exempel|
 |--|--|--|--|
 |entitet| {} -klammerparenteser|2|Var är formuläret {entity-name}?|
-|valfri|[] - hakparenteser<BR><BR>Det finns en gräns på 3 på kapslingsnivåer av valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
+|Valfritt|[] - hakparenteser<BR><BR>Det finns en gräns på 3 på kapslingsnivåer av valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
 |Gruppering|() - parenteser|2|is (a \| b)|
 |eller| \| -vertikalstreck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Där är formuläret ({formulär-name-kort} &#x7c; {formuläret namn-långa} &#x7c; {formuläret number})| 
 |början och/eller slutet av uttryck|^-hatt|-|^ börjar uttryck<br>uttryck görs ^<br>^ strikt literal matchning av hela uttryck med entiteten {number} ^|
@@ -97,7 +97,7 @@ Om Entity1 är en plats med roller som ursprung (Seattle) och mål (Kairo) och e
 
 En kombination av **gruppering** med **valfritt** syntax har en begränsning på 3 kapslingsnivåer.
 
-|Behörig|Exempel|
+|Tillåtna|Exempel|
 |--|--|
 |Ja|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
 |Nej|([([test1] &#x7c; test2)] &#x7c; test3)|
@@ -106,7 +106,7 @@ En kombination av **gruppering** med **valfritt** syntax har en begränsning på
 
 En kombination av **gruppering** med **eller-ing** syntax har en gräns på 2 lodräta staplar.
 
-|Behörig|Exempel|
+|Tillåtna|Exempel|
 |--|--|
 |Ja|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
 |Nej|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
@@ -170,7 +170,7 @@ Markera valfri text i uttryck som använder syntax för reguljära uttryck hakpa
 |Mönstret med valfri text|Betydelse|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
-|”Kan du hjälpa mig [?] | Skiljetecknet är valfritt|
+|”Kan du hjälpa mig [?]|Skiljetecknet är valfritt|
 
 Skiljetecken (`?`, `!`, `.`) ska ignoreras och du behöver att ignorera dem med hjälp av hakparentes-syntax i ett mönster. 
 

@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804080"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
-Med hjälp av Azure Stream Analytics (ASA) på IoT Edge kan utvecklare distribuera nära realtid analytisk intelligens närmare IoT-enheter så att de kan låsa upp hela värdet av data som genereras av enheten. Azure Stream Analytics har utformats för korta svarstider, hög elasticitet, effektiv bandbreddsanvändning och bra efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och komplettera analyser av Stordata i molnet.  
+Med hjälp av Azure Stream Analytics (ASA) på IoT Edge kan utvecklare distribuera nära realtid analytisk intelligens närmare IoT-enheter så att de kan låsa upp hela värdet av data som genereras av enheten. Azure Stream Analytics har utformats för låg latens, elasticitet och effektiv användning av bandbredd och efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och komplettera analyser av Stordata i molnet.  
 
 Azure Stream Analytics på IoT Edge som körs inom den [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. När jobbet har skapats i ASA, kan du distribuera och hantera den med hjälp av IoT Hub.
 
@@ -74,9 +74,9 @@ En lagringsbehållare krävs för att exportera ASA kompileras frågan och jobbk
 
    ![Skapa Stream Analytics-jobb i Microsoft Edge](media/stream-analytics-edge/create-asa-edge-job.png)
 3. Jobbdefinition
-    1. **Definiera inkommande Stream(s)**. Definiera en eller flera inkommande dataströmmar för jobbet.
+    1. **Definiera inkommande Stream(s)** . Definiera en eller flera inkommande dataströmmar för jobbet.
     2. Definiera referensdata (valfritt).
-    3. **Definiera utdata Stream(s)**. Definiera en eller flera strömmar av utdata för jobbet. 
+    3. **Definiera utdata Stream(s)** . Definiera en eller flera strömmar av utdata för jobbet. 
     4. **Definiera fråga**. Definiera ASA-frågan i molnet med hjälp av infogade-redigeraren. Kompilatorn kontrollerar automatiskt den syntax som aktiverats för ASA edge. Du kan också testa frågan genom att ladda upp exempeldata. 
 
 4. Ange information för storage-behållaren i den **IoT Edge-inställningar** menyn.

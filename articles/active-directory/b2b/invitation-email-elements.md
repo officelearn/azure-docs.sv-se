@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768372"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
@@ -31,10 +31,10 @@ Nu ska vi titta på några få av e-postmeddelandet så att du vet hur du bäst 
 ### <a name="subject"></a>Subject
 Ämnet för e-postmeddelandet följer följande mönster: Du är inbjuden till den &lt;tenantname&gt; organisation
 
-### <a name="from-address"></a>Från adress
+### <a name="from-address"></a>Från-adress
 Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: Microsoft Invitations <invites@microsoft.com> eller &lt;visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
-### <a name="reply-to"></a>Svara
+### <a name="reply-to"></a>Svara till
 Svara till e-postmeddelandet är inställd på inbjudaren e-postmeddelande när det är tillgängligt, så att svara på e-postmeddelandet skickar ett e-postmeddelande till avsändaren.
 
 ### <a name="branding"></a>Anpassning
@@ -53,7 +53,7 @@ Om du ännu inte har konfigurerat din profilbild visas en ikon med den inbjudare
 
   ![Skärmbild som visar inbjudan med avsändaren initialer visas](media/invitation-email-elements/inviters-initials.png)
 
-### <a name="body"></a>Brödtext
+### <a name="body"></a>Innehåll
 Texten innehåller meddelandet att avsändaren composes när [bjuda in en gästanvändare till den katalog, en grupp eller en app](add-users-administrator.md) eller [med hjälp av inbjudan API](customize-invitation-api.md). Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
 
   ![Skärmbild som visar innehållet i e-postinbjudan](media/invitation-email-elements/invitation-email-body.png)

@@ -16,10 +16,10 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127641"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och hämta din organisations Azure-prissättning
@@ -51,7 +51,7 @@ Du måste vara den fakturering profilens ägare, deltagare, läsare eller faktur
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Ladda ned prisdokument för den aktuella faktureringsperioden
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök på **Cost Management + fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. I den **översikt** bladet hitta nedladdningslänkarna under månaden-till-date-avgifter.
 1. Välj **Azure prisdokument**.
@@ -60,7 +60,7 @@ Du måste vara den fakturering profilens ägare, deltagare, läsare eller faktur
 ### <a name="download-price-sheets-for-billed-charges"></a>Ladda ned prisdokument för fakturerade kostnader
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök på **Cost Management + fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. Välj **Fakturor**.
 1. Hitta raden motsvarar prisdokument som du vill hämta fakturans i rutnätet för fakturan.
@@ -78,7 +78,7 @@ Du kan också använda organisationens priser uppskatta kostnader med Azures pri
 
 1. Gå till den [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator).
 1. Längst upp till höger, Välj **logga in**.
-1. Under **program och erbjudandet** > **licensieringsprogrammet**väljer **Enterprise Agreement (EA)**.
+1. Under **program och erbjudandet** > **licensieringsprogrammet**väljer **Enterprise Agreement (EA)** .
 1. Under **program och erbjudandet** > **valt avtal**väljer **inga valda**.
 
     ![Skärmbild som visar prisdokumentet ladda ned csv-knappen](./media/billing-ea-pricing/ea-pricing-calculator-estimate.png)

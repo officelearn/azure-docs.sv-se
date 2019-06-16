@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410727"
 ---
 # <a name="create-a-custom-voice"></a>Skapa en anpassad röst
@@ -46,9 +46,9 @@ I följande tabell visas bearbetning tillstånden för importerade datauppsättn
 
 | Status | Betydelse |
 | ----- | ------- |
-| Bearbetning | Din datauppsättning har tagits emot och bearbetas. |
+| Bearbetar | Din datauppsättning har tagits emot och bearbetas. |
 | Lyckades | Din datauppsättning har verifierats och kan nu användas för att skapa en röst-modell. |
-| Fungerar inte | Din datauppsättning misslyckades under bearbetning på grund av flera orsaker, till exempel filfel, data problem eller nätverksproblem. |
+| Misslyckad | Din datauppsättning misslyckades under bearbetning på grund av flera orsaker, till exempel filfel, data problem eller nätverksproblem. |
 
 När verifieringen är klar kan du se det totala antalet matchande yttranden för var och en av dina datauppsättningar i den **yttranden** kolumn. Om den datatyp som du har valt kräver långa ljud segmentering, visar den här kolumnen endast talade vi har segmenterade antingen baserat på dina betyg eller via tjänsten tal avskrift. Ytterligare kan du hämta datauppsättningen verifieras för att visa information om resultatet av yttranden som har importerats och deras mappning avskrifter. Tips: långa ljud segmentering kan ta mer än en timme att slutföra databearbetning.
 
@@ -88,9 +88,9 @@ Den status som visas återspeglar att konvertera datauppsättningen till en rös
 
 | Status | Betydelse |
 | ----- | ------- |
-| Bearbetning | Din röst modell skapas. |
+| Bearbetar | Din röst modell skapas. |
 | Lyckades | Din röst-modellen har skapats och kan distribueras. |
-| Fungerar inte | Din röst-modell misslyckades i utbildning på grund av flera orsaker, till exempel överblivna data problem eller nätverksproblem. |
+| Misslyckad | Din röst-modell misslyckades i utbildning på grund av flera orsaker, till exempel överblivna data problem eller nätverksproblem. |
 
 Utbildning tiden varierar beroende på mängden bearbetade ljud data. Vanliga gånger mellan om 30 minuter för hundratals yttranden och 40 timmar för 20 000 yttranden. När din modellträning är slutfört kan du börja testa den.
 

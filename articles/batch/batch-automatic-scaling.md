@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118119"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
@@ -160,8 +160,8 @@ Dessa är tillåtet för de typer som anges i föregående avsnitt.
 | doubleVec *operatorn* doubleVec |+, -, *, / |doubleVec |
 | TimeInterval *operatorn* dubbla |*, / |timeinterval |
 | TimeInterval *operatorn* timeinterval |+, - |timeinterval |
-| TimeInterval *operatorn* tidsstämpel |+ |tidsstämpel |
-| tidsstämpel *operatorn* timeinterval |+ |tidsstämpel |
+| TimeInterval *operatorn* tidsstämpel |+ |timestamp |
+| tidsstämpel *operatorn* timeinterval |+ |timestamp |
 | tidsstämpel *operatorn* tidsstämpel |- |timeinterval |
 | *operatorn*dubbla |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ Dessa fördefinierade **functions** är tillgängliga som du kan använda för a
 | std(doubleVecList) |double |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
 | stop() | |Stoppar utvärderingen av uttrycket för automatisk skalning. |
 | sum(doubleVecList) |double |Returnerar summan av alla komponenter i doubleVecList. |
-| time(string dateTime="") |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-strängen om den skickas. Stöds dateTime-format är W3C-DTF och RFC 1123. |
+| time(string dateTime="") |timestamp |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-strängen om den skickas. Stöds dateTime-format är W3C-DTF och RFC 1123. |
 | val (doubleVec v dubbla i) |double |Returnerar värdet för det element som är på plats i i vektor v, med ett startIndex noll. |
 
 Några av de funktioner som beskrivs i föregående tabell kan acceptera en lista som ett argument. Kommaavgränsad lista är en kombination av *dubbla* och *doubleVec*. Exempel:

@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484479"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
@@ -33,8 +33,8 @@ Tack vare att de betala hyra varje klient tar emot åtkomst till beroenderelatio
 
 Termen *innehavare modellen* avser hur klienternas lagrade data ordnas:
 
-- *Single-innehavare:*&nbsp; Varje databas lagrar data från endast en klient.
-- *Multitenans:*&nbsp; Varje databas lagrar data från flera olika klienter (med mekanismer för att skydda integriteten).
+- *Single-innehavare:* &nbsp; Varje databas lagrar data från endast en klient.
+- *Multitenans:* &nbsp; Varje databas lagrar data från flera olika klienter (med mekanismer för att skydda integriteten).
 - Det finns också hybridmodeller för innehavare.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Så här väljer du lämplig innehavare modellen
@@ -47,9 +47,9 @@ I allmänhet innehavare modellen påverkar inte funktionen för ett program, men
     - Lagring i samlingen.
     - Arbetsbelastning.
 
-- **Klientisolering:**&nbsp; Dataisolering och prestanda (om en klientarbetsbelastning påverkar andra).
+- **Klientisolering:** &nbsp; Dataisolering och prestanda (om en klientarbetsbelastning påverkar andra).
 
-- **Kostnad per klient:**&nbsp; Databaskostnader.
+- **Kostnad per klient:** &nbsp; Databaskostnader.
 
 - **Utveckling komplexiteten:**
     - Ändringar i schemat.
@@ -61,7 +61,7 @@ I allmänhet innehavare modellen påverkar inte funktionen för ett program, men
     - Återställa en klient.
     - Haveriberedskap.
 
-- **Anpassningsbarhet:**&nbsp; Enkel stöder schemat anpassningar som är klientspecifika eller klass-specifika-klient.
+- **Anpassningsbarhet:** &nbsp; Enkel stöder schemat anpassningar som är klientspecifika eller klass-specifika-klient.
 
 Innehavare diskussion fokuserar på de *data* lager.  Men hänsyn till vid en tidpunkt då den *program* lager.  Programlagret behandlas som en monolitisk entitet.  Om du delar upp programmet i många små komponenter kan ditt val av innehavare modell ändras.  Du kan hantera vissa komponenter annorlunda än andra om både innehavare och lagringsteknik eller plattform.
 
@@ -126,9 +126,9 @@ En annan tillgänglig mönster är att lagra många klienter i en databas för f
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Klientisolering bort
 
-*Data:*&nbsp; En databas för flera innehavare offrar nödvändigtvis klientisolering.  Data för flera klienter lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från fler än en klient under utvecklingen.  SQL Database stöder [säkerhet på radnivå][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enda klient.
+*Data:* &nbsp; En databas för flera innehavare offrar nödvändigtvis klientisolering.  Data för flera klienter lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från fler än en klient under utvecklingen.  SQL Database stöder [säkerhet på radnivå][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enda klient.
 
-*Bearbetar:*&nbsp; En databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
+*Bearbetar:* &nbsp; En databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
 
 #### <a name="lower-cost"></a>Lägre kostnad
 

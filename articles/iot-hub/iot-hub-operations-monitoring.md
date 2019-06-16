@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345744"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub operations monitoring (inaktuell)
@@ -29,7 +29,7 @@ IoT Hub övervakar sex typer av händelser:
 * Meddelanden från moln till enhet
 * Anslutningar
 * Filöverföringar
-* Meddelanderedigering
+* Meddelanderoutning
 
 > [!IMPORTANT]
 > IoT Hub åtgärdsövervakning garanterar inte tillförlitligt och sorterad leverans av händelser. Beroende på IoT Hub underliggande infrastruktur, kan vissa händelser tappas bort eller levereras i ordning. Använd åtgärdsövervakning för att generera aviseringar baserat på signaler fel, till exempel misslyckade anslutningsförsök eller hög frekvens frånkopplingar för specifika enheter. Du bör inte förlita dig på åtgärdsövervakning händelser för att skapa en konsekvent lagring för enhetens tillstånd, t.ex. en butik spåra ansluten eller frånkopplad tillståndet för en enhet. 
@@ -96,7 +96,7 @@ Telemetri enhetskategorin spårar fel som inträffar på IoT-hubben och som är 
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
+### <a name="cloud-to-device-commands"></a>Kommandon för moln-till-enhet
 
 Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår när du skickar meddelanden från molnet till enheten (till exempel obehöriga avsändare), ta emot meddelanden från molnet till enheten (till exempel leveransantalet har överskridits) och mottagande moln till enhet-meddelande (t ex feedback har gått ut). Den här kategorin fånga inte fel från en enhet som hanterar ett moln-till-enhet-meddelande felaktigt om moln till enhet meddelandet levererades har.
 
@@ -169,7 +169,7 @@ Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp
 }
 ```
 
-### <a name="message-routing"></a>Meddelanderedigering
+### <a name="message-routing"></a>Meddelanderoutning
 
 Meddelandet routning kategorin spårar fel som inträffar när meddelandet vägen utvärdering och slutpunktshälsa anser vara av IoT Hub. Den här kategorin innehåller händelser, som när en regel som utvärderas till ”odefinierad”, när IoT Hub markerar en slutpunkt som dead och eventuella andra fel togs emot från en slutpunkt. Den här kategorin omfattar inte specifika fel om själva meddelandena (till exempel enhet begränsningsfel) som har rapporterats under kategorin ”enhetstelemetri”.
 

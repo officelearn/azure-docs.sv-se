@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703174"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använda diagnostikloggen för Intelligent Insights Azure SQL Database-prestanda
@@ -98,7 +98,7 @@ Prestandaproblemet som har identifierats, information för utdata i diagnostiken
 
 Effekten (inverkan) egenskapen beskriver hur mycket ett identifierade beteende bidragit till problemet som har en databas. Påverkan på mellan 1 och 3, med 3 som högsta bidrag, 2 som Måttlig och 1 som lägst bidrag. Påverkan värdet kan användas som indata för anpassade aviseringar automation, beroende på dina specifika behov. Frågor om egenskaper påverkas (QueryHashes) tillhandahåller en lista över frågan hashvärden som har påverkats av en viss identifiering.
 
-### <a name="impacted-queries"></a>Frågor som påverkas
+### <a name="impacted-queries"></a>Påverkade frågor
 
 Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som har påverkats av de identifierade prestandaproblem. Den här informationen anges som en matris med objekt som är inbäddade i egenskapen impact_s. Hur egenskapen påverkan består av entiteter och mått. Entiteter som refererar till en viss fråga (typ: Fråga). Unikt fråge-hash anges under egenskapen value (värde). Dessutom är alla frågor uppges följt av ett mått och ett värde som indikerar ett identifierade prestandaproblem.
 

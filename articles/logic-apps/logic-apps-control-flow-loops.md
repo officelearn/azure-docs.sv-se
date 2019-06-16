@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684098"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
@@ -54,7 +54,7 @@ Det här exemplet logikappen skickar en daglig sammanfattning för en webbplats 
 2. Mellan RSS utlösa och e-poståtgärd, lägga till en ”Foreach”-loop. 
 
    1. Om du vill lägga till en loop mellan stegen, flyttar du pekaren över pilen mellan de här stegen. 
-   Välj den **plustecknet** (**+**) som visas, välj sedan **Lägg till en åtgärd**.
+   Välj den **plustecknet** ( **+** ) som visas, välj sedan **Lägg till en åtgärd**.
 
       ![Välj ”Lägg till en åtgärd”](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -122,11 +122,11 @@ Om du arbetar i kodvyn för din logikapp, kan du definiera den `Foreach` loop i 
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>”Foreach” slinga: Sekventiell
+## <a name="foreach-loop-sequential"></a>”Foreach” slinga: Sekventiella
 
 Som standard köras cykler i en ”Foreach”-loop parallellt. Ange om du vill köra varje cykel sekventiellt Loopens **sekventiella** alternativet. ”Foreach” slingor måste köra sekventiellt när du har kapslade loopar eller variabler i slingor där du förväntar dig förutsägbara resultat. 
 
-1. I Loopens övre högra hörnet, väljer **ellipserna** (**...** ) > **Inställningar**.
+1. I Loopens övre högra hörnet, väljer **ellipserna** ( **...** ) > **Inställningar**.
 
    ![På ”Foreach”-loop, väljer du ”...” > ”Inställningar”](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -177,7 +177,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
    ![Konfigurera upprepningsschemat](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Egenskap  | Värde |
+   | Egenskap | Värde |
    | -------- | ----- |
    | **Intervall** | 1 | 
    | **Frekvens** | Dag |
@@ -193,7 +193,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
    ![Ange egenskaper för variabeln](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Egenskap  | Värde | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Ditt namn | 
    | **Typ** | Integer | Data variabeltyp | 
@@ -234,7 +234,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
       ![Konfigurera postegenskaper för e](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Egenskap  | Värde | Beskrivning |
+      | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
       | **Till** | *\<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
       | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
@@ -251,7 +251,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
 En ”tills”-loop har standardgränser som stoppa körning om något av följande villkor:
 
-| Egenskap  | Standardvärde | Beskrivning | 
+| Egenskap | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
 | **Antal** | 60 | Det högsta antalet loopar som körs innan slingan avslutas. Standardvärdet är 60 cykler. | 
 | **Timeout** | PT1H | De flesta lång tid att köra en loop innan loopen avslutas. Standardvärdet är en timme och har angetts i ISO 8601-format. <p>Värdet för tidsgränsen ska utvärderas för varje loop cykel. Om något i loopen tar längre tid än tidsgränsen, slutar inte den aktuella cykeln. Dock starta nästa cykel inte eftersom gränsen villkoret inte uppfylls. | 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;
 ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61247398"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigera ansikten med Azure Media Analytics 
@@ -34,7 +34,7 @@ Förutom ett helt automatisk läge finns det ett arbetsflöde för två gånger,
 ### <a name="combined-mode"></a>Kombinerade läge
 Detta ger en omarbetade mp4 automatiskt utan att alla manuella som indata.
 
-| Fas | Filnamn | Anteckningar |
+| Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Indatatillgången |foo.bar |Video i WMV, MOV eller MP4-format |
 | Ange config |Jobbkonfigurationen förinställning |{'version':'1.0 ', 'alternativ ”: {'mode': 'kombineras'}} |
@@ -49,7 +49,7 @@ Detta ger en omarbetade mp4 automatiskt utan att alla manuella som indata.
 ### <a name="analyze-mode"></a>Analysera läge
 Den **analysera** pass två gånger arbetsflödets tar en video som indata och producerar en JSON-fil med ansikts-platser och jpg-bilder för var och en identifieras ansikte.
 
-| Fas | Filnamn | Anteckningar |
+| Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Indatatillgången |foo.bar |Video i WMV, MPV eller MP4-format |
 | Ange config |Jobbkonfigurationen förinställning |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Detta omfattar en lista med ID: N till oskärpa, den ursprungliga videon och ant
 
 Utdata från analysera passet innehåller inte den ursprungliga videon. Videon måste laddas upp till indatatillgången för aktiviteten Redact läge och valt som den primära filen.
 
-| Fas | Filnamn | Anteckningar |
+| Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Indatatillgången |foo.bar |Video i WMV, MPV eller MP4-format. Samma video som i steg 1. |
 | Indatatillgången |foo_annotations.json |anteckningar metadatafilen från den första fasen, med valfria ändringar. |

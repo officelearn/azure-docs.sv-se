@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325433"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: En ordlista med termer i molnet på Azure-plattformen
@@ -39,7 +39,7 @@ Ett annat namn för [App Service-app](#app-service-app).
 ## <a name="app-service-app"></a>App Service-app
 Beräkningsresurserna som [Azure App Service](app-service/overview.md) tillhandahåller för hantering av en webbplatsen eller programmet, webb-API, eller [mobilappserverdel](app-service-mobile/app-service-mobile-value-prop.md). App Service-appar kallas även att *Apptjänster*, *webbappar*, *API apps*, och *mobilappar*.
 
-## <a name="availability-set"></a>tillgänglighetsuppsättning
+## <a name="availability-set"></a>Tillgänglighetsuppsättning
 En samling med virtuella datorer som hanteras tillsammans att tillhandahålla program redundans och tillförlitlighet. Användning av en tillgänglighetsuppsättning säkerställer att minst en virtuell dator under en planerad eller oplanerad underhållshändelse är tillgänglig.  
 Se [hantera tillgängligheten för Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,10 +77,10 @@ Se [navigera och välja Windows-avbildningar i Azure med PowerShell eller CLI](v
 Hur många resurser som kan skapas eller benchmark för prestanda som kan uppnås. Gränser är vanligtvis kopplade prenumerationer, tjänster och erbjudanden.  
 Se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>lastbalanserare
+## <a name="load-balancer"></a>Belastningsutjämnare
 En resurs som distribuerar inkommande trafik mellan datorer i ett nätverk. I Azure distribuerar en belastningsutjämnare trafiken till virtuella datorer som har definierats i en belastningsutjämnare. En [belastningsutjämnare](load-balancer/load-balancer-overview.md) kan vara webbservergrupper på internet eller det kan vara intern.  
 
-## <a name="mobile-app"></a>mobilapp
+## <a name="mobile-app"></a>Mobilapp
 Ett annat namn för [Apptjänstapp](#app-service-app).
 
 ## <a name="offer"></a>erbjudande
@@ -94,7 +94,7 @@ Säker webbportalen används för att distribuera och hantera Azure-tjänster.
 Ett område inom ett geografiskt område som inte mellan nationella kantlinjer och innehåller ett eller flera datacenter. Priser, regionala tjänster och typer av erbjudanden blir tillgängliga på regionsnivån. En region är vanligtvis kopplad till en annan region, vilket kan vara upp till flera hundra mil bort. Regionala par kan användas som en mekanism för katastrofåterställning och scenarier med hög tillgänglighet. Kallas även *plats*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>resurs
+## <a name="resource"></a>resource
 Ett objekt som är en del av din Azure-lösning. Azure-tjänster kan du distribuera olika typer av resurser, till exempel databaser eller virtuella datorer.   
 Se [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
@@ -110,7 +110,7 @@ Se [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.m
 En tjänst som tillhandahåller resurserna som du kan distribuera och hantera via Resource Manager. Varje resursprovider tillhandahåller åtgärder som hjälper dig att arbeta med de resurser du distribuerar. Resursproviders kan nås via Azure portal, Azure PowerShell och flera programmeringsspråk SDK: er.  
 Se [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>roll
+## <a name="role"></a>role
 Ett sätt för att styra åtkomst som kan tilldelas till användare, grupper och tjänster. Roller kan utföra åtgärder som att skapa, hantera, och Läs om Azure-resurser.  
 Se [RBAC: Inbyggda roller](role-based-access-control/built-in-roles.md)
 
@@ -129,7 +129,7 @@ Se [om Azure storage-konton](storage/common/storage-create-storage-account.md)
 Kundens avtal med Microsoft som gör det möjligt för dem att få Azure-tjänster. Prenumerationspriser och tillhörande villkor regleras av erbjudandet som valts för prenumerationen.
 Se [prenumerationsavtalet för Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) och [hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>tagg
+## <a name="tag"></a>tag
 En indexering term som gör att du kan kategorisera resurser utifrån dina hanterings- eller faktureringskrav. När du har en komplex samling resurser kan använda du taggar för att visualisera dessa tillgångar på ett sätt som passar bäst. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning.  
 Se [med taggar för att organisera Azure-resurser](resource-group-using-tags.md)
 

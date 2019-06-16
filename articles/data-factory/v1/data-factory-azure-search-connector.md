@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567239"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-search-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-search.md)
 
@@ -56,7 +56,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 
 I följande tabell innehåller beskrivningar av JSON-element som är specifika för Azure Search länkade tjänsten.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | type | Type-egenskapen måste anges till: **AzureSearch**. | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
@@ -66,7 +66,7 @@ I följande tabell innehåller beskrivningar av JSON-element som är specifika f
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av. Den **typeProperties** är olika för varje typ av datauppsättning. TypeProperties avsnittet för en datauppsättning av typen **AzureSearchIndex** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | type | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
 | indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
@@ -77,7 +77,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För Kopieringsaktiviteten, när mottagaren är av typen **AzureSearchIndexSink**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
 | WriteBatchSize | Överför data till Azure Search-indexet när buffertstorleken når writeBatchSize. Se den [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 och 1 000. Standardvärdet är 1 000. | Nej |

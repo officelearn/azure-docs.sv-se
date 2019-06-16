@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606502"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
@@ -29,7 +29,7 @@ Den här artikeln innehåller information om onboarding och med hjälp av Tjäns
 >Om du redan har distribuerat Service Map kan du nu också se dina kartor i Azure Monitor för virtuella datorer, som innehåller ytterligare funktioner för att övervaka VM-hälsa och prestanda. Mer information finns i [Azure Monitor för virtuella datorer översikt](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Aktivera Tjänstkarta
@@ -297,7 +297,7 @@ Poster i tabellerna genereras från data som rapporteras av beroendeagenten. Var
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett visst minuts intervall, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `Direction` |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
 | `Machine` |Datorn FQDN |
@@ -309,7 +309,7 @@ För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte en
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `LinksEstablished` |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 | `LinksTerminated` |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -320,7 +320,7 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `BytesSent` |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 | `BytesReceived` |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
@@ -346,16 +346,16 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `RemoteCountry` |Namnet på det land/region som är värd för RemoteIp.  Till exempel *USA* |
 | `RemoteLatitude` |Geoplats latitud.  Till exempel *47.68* |
 | `RemoteLongitude` |Geoplats longitud.  Till exempel *-122.12* |
 
-#### <a name="malicious-ip"></a>Skadlig IP
+#### <a name="malicious-ip"></a>Skadlig IP-adress
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `MaliciousIp` |RemoteIp-adress |
 | `IndicatorThreadType` |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
@@ -372,7 +372,7 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med Service Map agenter. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -397,7 +397,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL poster
 Poster med en typ av *ServiceMapProcess_CL* ha inventeringsdata för TCP-anslutna processer på servrar med Service Map agenter. Dessa poster har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -493,7 +493,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Alla data för server, process och beroenden i Tjänstkarta är tillgängligt via den [REST-API för Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata

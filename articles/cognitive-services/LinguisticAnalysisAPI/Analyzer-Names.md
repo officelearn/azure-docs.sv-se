@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954703"
 ---
 # <a name="analyzer-names"></a>Analyzer-namn
@@ -31,7 +31,7 @@ Rollen för varje komponent definieras nedan.
 Först måste har en analyzer ett unikt ID; ett GUID.
 Dessa GUID bör ändras relativt sällan, men är det enda sättet att beskriva en viss analyzer unikt.
 
-## <a name="kind"></a>Typ
+## <a name="kind"></a>Kind
 Sedan måste varje analyzer är ett **typ**.
 Detta definierar mycket mer allmänt typ av analys returneras och unikt bör definiera datastrukturen som används för att representera den här analysen.
 Det finns tre olika typer:

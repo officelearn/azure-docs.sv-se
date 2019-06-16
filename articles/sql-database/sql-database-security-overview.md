@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070207"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -100,7 +100,7 @@ SQL Database skyddar kundernas data genom att kryptera data i rörelse med [Tran
 
 SQL Server använder kryptering (SSL/TLS) på hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras ”under överföringen” mellan klienten och servern oavsett inställningen för **Encrypt** eller **TrustServerCertificate** i anslutningssträngen.
 
-Som bästa praxis rekommenderar att i ditt programs anslutning sträng som du anger en krypterad anslutning och _**inte**_ lita på servercertifikatet. Detta gör att i ditt program för att verifiera servercertifikatet och innebär att ditt program från att vara sårbar för mannen i de mellersta typen av attackerna.
+Som bästa praxis rekommenderar att i ditt programs anslutning sträng som du anger en krypterad anslutning och _**inte**_ lita på servercertifikatet. Detta tvingar programmet att verifiera servercertifikatet och innebär att ditt program från att vara sårbar för mannen i de mellersta typen av attackerna.
 
 Till exempel när du använder ADO.NET-drivrutinen detta görs **Encrypt = True** och **TrustServerCertificate = False**. Om du har fått anslutningssträngen från Azure portal, har de korrekta inställningarna.
 

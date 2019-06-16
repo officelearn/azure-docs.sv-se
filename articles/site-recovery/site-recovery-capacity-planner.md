@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036782"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för Hyper-V VM-katastrofåterställning 
@@ -54,7 +54,7 @@ Du kan köra verktyget i två lägen:
 
    a. I **väljer ditt scenario**, Välj **Hyper-V till Azure** eller **VMware/fysisk till Azure**.
 
-   b. I **genomsnittliga dagliga dataändringshastighet (%)**, ange den information som du har samlat in med hjälp av den [kapacitetsplanering för Hyper-V verktyget](site-recovery-capacity-planning-for-hyper-v-replication.md) eller [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
+   b. I **genomsnittliga dagliga dataändringshastighet (%)** , ange den information som du har samlat in med hjälp av den [kapacitetsplanering för Hyper-V verktyget](site-recovery-capacity-planning-for-hyper-v-replication.md) eller [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. Den **komprimering** inställningen används inte när du replikerar virtuella Hyper-V-datorer till Azure. Använd en tredje parts-installation, till exempel Riverbed för komprimering.
 
@@ -66,9 +66,9 @@ Du kan köra verktyget i två lägen:
 
 4. När du har angett värden för källmiljön innehåller visas utdata:
 
-   * **Bandbredd som krävs för deltareplikering (i megabit per sekund)**: Nätverkets bandbredd för deltareplikering beräknas på den genomsnittliga dagliga förändringstakten för data.
-   * **Bandbredd som krävs för inledande replikering (i megabit per sekund)**: Nätverkets bandbredd för inledande replikering beräknas på den inledande replikeringen värdena som du anger.
-   * **Lagring som krävs (i GB)**: Totalt antal Azure storage krävs.
+   * **Bandbredd som krävs för deltareplikering (i megabit per sekund)** : Nätverkets bandbredd för deltareplikering beräknas på den genomsnittliga dagliga förändringstakten för data.
+   * **Bandbredd som krävs för inledande replikering (i megabit per sekund)** : Nätverkets bandbredd för inledande replikering beräknas på den inledande replikeringen värdena som du anger.
+   * **Lagring som krävs (i GB)** : Totalt antal Azure storage krävs.
    * **Totalt antal IOPS med standardlagring**: Hur många beräknas baserat på 8 kB IOPS enhetens storlek på totalt antal standard storage-konton. Hur många beräknas baserat på alla diskar för käll-VM och daglig dataändringshastighet för snabb Planner. För detaljerad Planner antalet beräknas baserat på det totala antalet virtuella datorer som är mappade till standard virtuella Azure-datorer och dataändringshastighet på de virtuella datorerna.
    * **Antal Standard storage-konton som krävs för**: Totalt antal standard storage-konton som krävs för att skydda de virtuella datorerna. Ett standardlagringskonto kan innehålla upp till 20 000 IOPS i alla virtuella datorer i standardlagring. Finns stöd för högst 500 IOPS per disk.
    * **Antal Blob-diskar som måste**: Antalet diskar som skapas på Azure storage.
@@ -92,17 +92,17 @@ Du kan köra verktyget i två lägen:
 
    a. I **processorkärnor**, ange det totala antalet kärnor på en källserver.
 
-   b. I **minnesallokering (i MB)**, ange RAM-storleken på en källserver.
+   b. I **minnesallokering (i MB)** , ange RAM-storleken på en källserver.
 
    c. I **antalet nätverkskort**, ange antalet nätverkskort på en källserver.
 
-   d. I **totalt lagringsutrymme (i GB)**, ange den totala storleken på VM-lagring. Om källservern har tre diskar med 500 GB, är totala storlek 1 500 GB.
+   d. I **totalt lagringsutrymme (i GB)** , ange den totala storleken på VM-lagring. Om källservern har tre diskar med 500 GB, är totala storlek 1 500 GB.
 
    e. I **antalet diskar som är anslutna**, ange det totala antalet diskar på en källserver.
 
-   f. I **Disk kapacitetsanvändning (%)**, ange den genomsnittliga användningen.
+   f. I **Disk kapacitetsanvändning (%)** , ange den genomsnittliga användningen.
 
-   g. I **daglig dataändringshastighet för (%)**, ange den dagliga datavolymen på ändra frekvensen för en källserver.
+   g. I **daglig dataändringshastighet för (%)** , ange den dagliga datavolymen på ändra frekvensen för en källserver.
 
    h. I **mappning Azure VM-storlek**, ange den Virtuella Azure-storlek som du vill mappa. Om du inte vill göra detta manuellt, Välj **Compute virtuella IaaS-datorer**. Om du ange en manuell inställning och välj sedan **Compute virtuella IaaS-datorer**, manuell inställning kan skrivas över. Compute-processen identifierar automatiskt den bästa matchningen på Azure VM-storlek.
 

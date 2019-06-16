@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610729"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
@@ -36,7 +36,7 @@ ms.locfileid: "60610729"
 
 ## <a id="csp-js"></a>Implementera Content Security Policy (CSP) och inaktivera infogade javascript
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -68,7 +68,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Aktivera webbläsarens XSS-filter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -79,7 +79,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="trace-deploy"></a>ASP.NET-program måste du inaktivera spårning och felsökning före distributionen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -90,7 +90,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>Åtkomst från tredje part JavaScript-skript från betrodda källor
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -101,7 +101,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>Se till att autentiserade ASP.NET-sidor införliva Användargränssnittet Redressing eller klicka på fästpunkter försvar
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -136,7 +136,7 @@ Web.config kod för platser som bara bör utformas av sidor i samma domän:
 
 ## <a id="cors-aspnet"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på ASP.NET-webbprogram
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -167,7 +167,7 @@ Observera att det är viktigt att se till att listan med ursprung i ”Access-Co
 
 ## <a id="validate-aspnet"></a>Aktivera ValidateRequest attributet på ASP.NET-sidor
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -193,7 +193,7 @@ Observera att begära valideringsfunktionen stöds inte och är inte en del av M
 
 ## <a id="local-js"></a>Använd lokalt värdbaserade senaste versionerna av JavaScript-bibliotek
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -204,7 +204,7 @@ Observera att begära valideringsfunktionen stöds inte och är inte en del av M
 
 ## <a id="mime-sniff"></a>Inaktivera automatisk MIME-kontroll
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -269,7 +269,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Ta bort standardserver rubriker på Windows Azure Web Sites att undvika fingeravtryck
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -280,7 +280,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Konfigurera en Windows-brandvägg för Databasmotoråtkomst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -291,7 +291,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på ASP.NET Web API
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -387,7 +387,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -479,7 +479,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="config-sensitive"></a>Kryptera avsnitt i konfigurationsfilerna för webb-API som innehåller känslig information
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Distribution |  
@@ -490,7 +490,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="admin-strong"></a>Se till att alla administrationsgränssnitt säkras med starka autentiseringsuppgifter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Distribution |  
@@ -501,7 +501,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="unknown-exe"></a>Se till att okänd kod inte kan köras på enheter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -512,7 +512,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="partition-iot"></a>Kryptera OS och fler partitioner av IoT-enheter med BitLocker
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -523,7 +523,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="min-enable"></a>Kontrollera att endast de minsta tjänster/funktionerna som är aktiverade på enheter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Distribution |  
@@ -534,7 +534,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="field-bit-locker"></a>Kryptera OS och fler partitioner av IoT fält-Gateway med BitLocker
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Distribution |  
@@ -545,7 +545,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="default-change"></a>Se till att standard-inloggningsuppgifter för fält-gateway ändras under installationen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Distribution |  
@@ -556,7 +556,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="cloud-firmware"></a>Kontrollera att Molngatewayen använder en process för att hålla den anslutna enheter inbyggda programvaran uppdaterad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
@@ -567,7 +567,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="controls-policies"></a>Se till att enheter har slutpunkt säkerhetskontroller som konfigurerats enligt organisationens principer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -578,7 +578,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="secure-keys"></a>Se till att säker hantering av nycklar för Azure storage-åtkomst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Distribution |  
@@ -589,7 +589,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="cors-storage"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på Azure storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -600,7 +600,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="throttling"></a>Aktivera begränsning funktionens WCF-tjänsten
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -623,7 +623,7 @@ Följande är ett exempel på en konfiguration med begränsning aktiverat:
 
 ## <a id="info-metadata"></a>WCF-utlämnande via metadata
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  

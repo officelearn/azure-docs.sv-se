@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150020"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Påbörja en växling för storage-konto (förhandsversion)
@@ -55,7 +55,7 @@ Följ dessa steg för att initiera en konto-redundans från Azure portal:
 
 3. Kontrollera att ditt lagringskonto har konfigurerats för geo-redundant lagring (GRS) eller read-access geo-redundant lagring (RA-GRS). Om du inte väljer **Configuration** under **inställningar** att uppdatera ditt konto för att vara geo-redundant. 
 4. Den **senaste synkroniseringstid** egenskapen anger hur långt sekundärt ligger bakom från primärt. **Senaste synkroniseringstid** ger en uppskattning av omfattningen av förlust av data som uppstår när redundansen är klar.
-5. Välj **förbereda för redundans (förhandsversion)**. 
+5. Välj **förbereda för redundans (förhandsversion)** . 
 6. Granska i bekräftelsedialogrutan. När du är klar anger **Ja** att bekräfta och påbörja redundans.
 
     ![Skärmbild som visar bekräftelsedialogruta för kontot växling](media/storage-initiate-account-failover/portal-failover-confirm.png)

@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787806"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
@@ -31,7 +31,7 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    Mall-körning har skapat en standardinställning för automatisk skalning med namnet **'autoscalewad'**. Till höger, kan du visa den fullständiga definitionen av den här autoskalningsinställningen. I det här fallet kommer standardinställningen för automatisk skalning med en processor % baserat skalning och skala in regel.  
+    Mall-körning har skapat en standardinställning för automatisk skalning med namnet **'autoscalewad'** . Till höger, kan du visa den fullständiga definitionen av den här autoskalningsinställningen. I det här fallet kommer standardinställningen för automatisk skalning med en processor % baserat skalning och skala in regel.  
 
 3. Du kan nu lägga till fler profiler och regler baserat på det schema eller specifika krav. Vi skapa en autoskalningsinställning med tre profiler. För att förstå profiler och regler i automatisk skalning, granska [Metodtips för autoskalning](autoscale-best-practices.md).  
 

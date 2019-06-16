@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749452"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
@@ -144,49 +144,49 @@ Pilarna i följande tabell visar performative flödesriktning.
 
 #### <a name="create-message-receiver"></a>Skapa meddelande mottagare
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>role=**receiver**,<br/>källa = {entitetsnamn}<br/>Target = {klient länk-ID}<br/>) |Klienten ansluter till entitet som mottagare |
 | Service Bus-svar som kopplar dess slutet av länken |<-- attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>rollen =**avsändaren**,<br/>källa = {entitetsnamn}<br/>Target = {klient länk-ID}<br/>) |
 
 #### <a name="create-message-sender"></a>Skapa meddelandets avsändare
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>rollen =**avsändaren**,<br/>källa = {klient länk-ID}<br/>Target = {entitetsnamn}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<-- attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>role=**receiver**,<br/>källa = {klient länk-ID}<br/>Target = {entitetsnamn}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Skapa meddelandets avsändare (fel)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>rollen =**avsändaren**,<br/>källa = {klient länk-ID}<br/>Target = {entitetsnamn}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<-- attach(<br/>namn = {länk-name},<br/>Hantera = {numeriska referensen}<br/>role=**receiver**,<br/>källa = null,<br/>Target = null<br/>)<br/><br/><-- detach(<br/>Hantera = {numeriska referensen}<br/>stängd =**SANT**,<br/>fel = {felinformation}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Stäng mottagare/avsändaren
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> detach(<br/>Hantera = {numeriska referensen}<br/>stängd =**SANT**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<-- detach(<br/>Hantera = {numeriska referensen}<br/>stängd =**SANT**<br/>) |
 
 #### <a name="send-success"></a>Skicka (lyckades)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> transfer(<br/>leverans-id = {numeriska referensen}<br/>leverans-taggen = {binära referensen}<br/>reglerats =**FALSKT**, mer =**FALSKT**,<br/>tillstånd =**null**,<br/>resume=**false**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>role=receiver,<br/>först = {leverans ID}<br/>senast = {leverans ID}<br/>reglerats =**SANT**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Skicka (fel)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> transfer(<br/>leverans-id = {numeriska referensen}<br/>leverans-taggen = {binära referensen}<br/>reglerats =**FALSKT**, mer =**FALSKT**,<br/>tillstånd =**null**,<br/>resume=**false**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>role=receiver,<br/>först = {leverans ID}<br/>senast = {leverans ID}<br/>reglerats =**SANT**,<br/>state=**rejected**(<br/>fel = {felinformation}<br/>)<br/>) |
 
 #### <a name="receive"></a>Ta emot
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Ingen åtgärd |
 | Ingen åtgärd |< överföra ()<br/>leverans-id = {numeriska referensen}<br/>leverans-taggen = {binära referensen}<br/>settled=**false**,<br/>more=**false**,<br/>tillstånd =**null**,<br/>resume=**false**<br/>) |
@@ -194,7 +194,7 @@ Pilarna i följande tabell visar performative flödesriktning.
 
 #### <a name="multi-message-receive"></a>Får flera meddelande
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |Ingen åtgärd |
 | Ingen åtgärd |< överföra ()<br/>leverans-id = {numeriska referensen}<br/>leverans-taggen = {binära referensen}<br/>settled=**false**,<br/>more=**false**,<br/>tillstånd =**null**,<br/>resume=**false**<br/>) |
@@ -225,7 +225,7 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 | message-id |Programdefinierade, fri form identifierare för det här meddelandet. Används för identifiering av dubbletter. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | användar-id |Programdefinierade användar-ID, tolkas inte av Service Bus. |Är inte tillgängliga via Service Bus-API. |
 | till |Programdefinierade mål-ID, tolkas inte av Service Bus. |[Till](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| ämne |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| topic |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Svara till |Programdefinierade svars-path indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Korrelations-id |Programdefinierade Korrelations-ID, tolkas inte av Service Bus. |[Korrelations-ID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | innehållstyp |Programdefinierade innehållstyp indikator för brödtexten, tolkas inte av Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -270,7 +270,7 @@ Att börja transaktionella arbeta. kontrollanten måste skaffa en `txn-id` från
 | --- | --- | --- |
 | bifoga)<br/>namn = {länk-name},<br/>... ,<br/>rollen =**avsändaren**,<br/>Target =**Coordinator**<br/>) | ------> |  |
 |  | <------ | bifoga)<br/>namn = {länk-name},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
+| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (**Declare()** )}| ------> |  |
 |  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>state=**Declared**(<br/>**txn-id**= {transaktions-ID}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Avslutning av en transaktion
@@ -284,8 +284,8 @@ Kontrollanten avslutar transaktionella arbetet genom att skicka en `discharge` m
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Transaktionell arbete<br/>på andra länkar<br/> . . . |
-| transfer(<br/>leverans-id = 57,...)<br/>{AmqpValue)<br/>**Utskrivning (txn-id = 0,<br/>misslyckas = false)**)}| ------> |  |
-| | <------ | disposition ( <br/> först = 57, senast = 57, <br/>state=**Accepted()**)|
+| transfer(<br/>leverans-id = 57,...)<br/>{AmqpValue)<br/>**Utskrivning (txn-id = 0,<br/>misslyckas = false)** )}| ------> |  |
+| | <------ | disposition ( <br/> först = 57, senast = 57, <br/>state=**Accepted()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Skicka ett meddelande i en transaktion
 
@@ -295,8 +295,8 @@ Alla transaktionella arbetet utförs med transaktionella leverans tillstånd `tr
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| transfer(<br/>handle=1,<br/>leverans-id = 1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{nyttolast}| ------> |  |
-| | <------ | disposition ( <br/> först = 1, senast = 1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| transfer(<br/>handle=1,<br/>leverans-id = 1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{nyttolast}| ------> |  |
+| | <------ | disposition ( <br/> först = 1, senast = 1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Tar bort ett meddelande i en transaktion
 
@@ -307,7 +307,7 @@ Meddelandet disposition innehåller åtgärder som `Complete`  /  `Abandon`  /  
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>Hantera = 2,<br/>leverans-id = 11, <br/>tillstånd = null)<br/>{nyttolast}|  
-| disposition ( <br/> först = 11, senast = 11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| disposition ( <br/> först = 11, senast = 11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Avancerade funktioner för Service Bus
@@ -325,7 +325,7 @@ AMQP management specifikation är först av draft-tilläggen som beskrivs i den 
 
 Alla dessa gester kräver en begäran/svar-interaktion mellan klienten och infrastruktur för meddelanden och därför specifikationen definierar hur den interaktionsmönstret ovanpå AMQP: klienten ansluter till infrastruktur för meddelanden initierar en session och skapar sedan ett par med länkar. På en länk klienten fungerar som avsändare och på den andra fungerar den som mottagare, vilket skapar ett par med länkar som kan fungera som en dubbelriktad-kanal.
 
-| Logisk åtgärd | Client | Service Bus |
+| Logisk åtgärd | Klient | Service Bus |
 | --- | --- | --- |
 | Skapa sökvägen för begäran-svar |--> attach(<br/>namn = {*Länknamnet*},<br/>hantera = {*numeriska referensen*},<br/>rollen =**avsändaren**,<br/>källa =**null**,<br/>target=”myentity/$management”<br/>) |Ingen åtgärd |
 | Skapa sökvägen för begäran-svar |Ingen åtgärd |\<-- attach(<br/>namn = {*Länknamnet*},<br/>hantera = {*numeriska referensen*},<br/>role=**receiver**,<br/>källa = null,<br/>target=”myentity”<br/>) |
@@ -361,10 +361,10 @@ Meddelandet med begäran har följande egenskaper för program:
 
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
-| åtgärd |Nej |string |**PUT-token** |
-| typ |Nej |string |Typ av token som är put. |
-| namn |Nej |string |Den ”målgruppen” som gäller för token. |
-| upphörande |Ja |tidsstämpel |Förfallotid för token. |
+| Åtgärden |Nej |string |**PUT-token** |
+| type |Nej |string |Typ av token som är put. |
+| name |Nej |string |Den ”målgruppen” som gäller för token. |
+| upphör att gälla |Ja |timestamp |Förfallotid för token. |
 
 Den *namn* egenskapen identifierar den entitet som token vara associerad. Det är sökvägen till köer eller ämnen/prenumerationer i Service Bus. Den *typ* egensapen identifierar vydat typ:
 
@@ -380,7 +380,7 @@ Svarsmeddelande har följande *egenskaper för program* värden
 
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
-| statuskod |Nej |int |HTTP-svarskoden **[RFC2616]**. |
+| statuskod |Nej |int |HTTP-svarskoden **[RFC2616]** . |
 | status-description |Ja |string |Beskrivning av status. |
 
 Klienten kan anropa *put-token* flera gånger och för entiteter i meddelandeinfrastrukturen. Token är begränsade till den befintliga klienten och Fäst mot den aktuella anslutningen, vilket innebär att servern avslutar de sparade token när anslutningen bryts.
@@ -401,9 +401,9 @@ På så sätt kan du skapa en avsändare och upprätta länken till den `via-ent
 
 > Obs! Autentisering måste utföras för både *via entitet* och *målentitet* innan du etablerar den här länken.
 
-| Client | | Service Bus |
+| Klient | | Service Bus |
 | --- | --- | --- |
-| bifoga)<br/>namn = {länk-name},<br/>role=sender,<br/>källa = {klient länk-ID}<br/>Target =**{via entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| bifoga)<br/>namn = {länk-name},<br/>role=sender,<br/>källa = {klient länk-ID}<br/>Target = **{via entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | bifoga)<br/>namn = {länk-name},<br/>role=receiver,<br/>källa = {klient länk-ID}<br/>Target = {via-entity},<br/>Egenskaper för = kartan [()<br/>com.microsoft:transfer-destination-address=<br/>{målentitet})] ) |
 
 ## <a name="next-steps"></a>Nästa steg

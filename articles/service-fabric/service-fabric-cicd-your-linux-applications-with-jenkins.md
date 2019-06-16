@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038842"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Skapa och distribuera ditt Linux-program med hjälp av Jenkins
@@ -298,7 +298,7 @@ Du kan konfigurera Azure-autentiseringsuppgifter eller slutpunkten för klusterh
 
 1. Om du vill skapa en Azure Active Directory-tjänstobjekt och tilldela den behörigheter i din Azure-prenumeration, följer du stegen i [använda portalen för att skapa en Azure Active Directory-program och tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Ta hänsyn till följande:
 
-   * När du följa stegen i avsnittet måste du kopiera och spara följande värden: *Program-ID*, *programnyckel*, *katalog-ID (klient-ID)*, och *prenumerations-ID*. Du behöver dem för att konfigurera Azure-autentiseringsuppgifter i Jenkins.
+   * När du följa stegen i avsnittet måste du kopiera och spara följande värden: *Program-ID*, *programnyckel*, *katalog-ID (klient-ID)* , och *prenumerations-ID*. Du behöver dem för att konfigurera Azure-autentiseringsuppgifter i Jenkins.
    * Om du inte har den [nödvändiga behörigheter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) på din katalog måste du be en administratör bevilja dig behörigheter eller skapa tjänstens huvudnamn för dig eller måste du konfigurera hanteringsslutpunkten för ditt kluster i den **post-build Actions** för ditt jobb i Jenkins.
    * I den [skapar ett Azure Active Directory-program](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) avsnittet, som du kan ange valfri giltig URL för den **inloggnings-URL**.
    * I den [tilldela program till en roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) avsnittet kan du tilldela programmet den *läsare* rollen på resursgruppen för klustret.

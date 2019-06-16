@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436502"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Krav för Azure Data Box-Blob-lagring
@@ -57,7 +57,7 @@ För Data Box-Blob-lagring finns specifika klientbibliotek och viss slutpunkts-s
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    filen App.config                 |
 |    Java                |    7.0.0                                           |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Anslutningsinställningar för sträng         |
-|    Node.js             |    2.8.3                                           |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Kör: `npm install azure-storage@2.7.0`)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Instans tjänstedeklaration    |
+|    Node.js             |    2.8.3                                           |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Kör: `npm install azure-storage@2.7.0` )   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Instans tjänstedeklaration    |
 |    C++                 |    5.2.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Anslutningsinställningar för sträng         |
 |    PHP                 |    1.2.0                                           |    GitHub-version:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installera via Composer (om du vill veta mer, se information nedan.)                                                                                                             |    Anslutningsinställningar för sträng         |
 |    Python              |    1.1.0                                           |    GitHub-version:<br>Vanliga:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Instans tjänstedeklaration    |

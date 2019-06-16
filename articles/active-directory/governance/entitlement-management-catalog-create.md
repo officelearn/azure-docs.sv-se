@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541622"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Skapa och hantera en katalog i Azure AD rättigheten hantering (förhandsversion)
@@ -98,7 +98,7 @@ Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en k
 
 1. Välj de resurser som du vill ta bort.
 
-1. Klicka på **ta bort** (eller klicka på ellipsen (**...** ) och klicka sedan på **ta bort resursen**).
+1. Klicka på **ta bort** (eller klicka på ellipsen ( **...** ) och klicka sedan på **ta bort resursen**).
 
 ## <a name="add-catalog-owners-or-access-package-managers"></a>Lägg till katalogen ägare eller få åtkomst till pakethanterare
 

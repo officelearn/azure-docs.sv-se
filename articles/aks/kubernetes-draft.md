@@ -2,17 +2,16 @@
 title: Använda Draft med AKS och Azure Container Registry
 description: Använda Draft med AKS och Azure Container Registry
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465157"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använda Draft med Azure Kubernetes Service (AKS)
@@ -77,7 +76,7 @@ Nu när du har en förtroenderelation mellan AKS och ACR, aktivera användning a
 1. Konfigurera Draft *registret* värde. I följande kommandon och Ersätt `<acrName>` med namnet på din ACR-registret:
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. Logga in på ACR-registret med [docker login][az-acr-login]:
@@ -220,7 +219,7 @@ Uppdatera Java-exempelprogrammet för att ändra texten som visas i det här exe
 vi src/main/java/helloworld/Hello.java
 ```
 
-Uppdatera utdata texten ska visas, *Hello World, jag är Java i AKS!*:
+Uppdatera utdata texten ska visas, *Hello World, jag är Java i AKS!* :
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Mer information om hur du använder Draft finns i Draft-dokumentationen på GitH
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

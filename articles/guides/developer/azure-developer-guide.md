@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570562"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
@@ -158,7 +158,7 @@ Azure tillhandahåller flera olika sätt att använda behållare i dina program.
 
 Det är viktigt att inte bara veta vem som använder dina program utan också för att förhindra obehörig åtkomst till dina resurser. Azure tillhandahåller flera olika sätt att autentisera din appklienter.
 
-- **Azure Active Directory (Azure AD)**: Microsoft med flera klienter, molnbaserade identitets- och hanteringstjänsten. Du kan lägga till enkel inloggning (SSO) till dina program genom att integrera med Azure AD. Du kan komma åt katalogegenskaper för med hjälp av Azure AD Graph API: et direkt eller Microsoft Graph API. Du kan integrera med Azure AD-stöd för OAuth2.0 auktorisering framework och öppna ID Connect med hjälp av inbyggda HTTP/REST-slutpunkter och multiplatform Azure AD-autentiseringsbibliotek.
+- **Azure Active Directory (Azure AD)** : Microsoft med flera klienter, molnbaserade identitets- och hanteringstjänsten. Du kan lägga till enkel inloggning (SSO) till dina program genom att integrera med Azure AD. Du kan komma åt katalogegenskaper för med hjälp av Azure AD Graph API: et direkt eller Microsoft Graph API. Du kan integrera med Azure AD-stöd för OAuth2.0 auktorisering framework och öppna ID Connect med hjälp av inbyggda HTTP/REST-slutpunkter och multiplatform Azure AD-autentiseringsbibliotek.
 
   > **När du ska använda**: Om du vill att tillhandahålla enkel inloggning kan arbeta med graf-baserade data eller autentisera domänbaserade användare.
   > 
@@ -281,7 +281,7 @@ Azure Resource Explorer är ett bra verktyg för visualisering av de resurser so
 
 När du tillåter åtkomst till Azure-resurser, men det är alltid en bra idé att förse användarna med det lägsta privilegium som krävs för att utföra en viss uppgift.
 
-- **Rollbaserad åtkomstkontroll (RBAC)**: I Azure, kan du bevilja åtkomst till användarkonton (huvudkonton) på ett angivet omfång: prenumerationen, resursgruppen eller enskilda resurser. Med RBAC kan du distribuera en uppsättning resurser i en resursgrupp och tilldela behörigheter till en specifik användare eller grupp. Du kan också begränsa åtkomsten till endast de resurser som tillhör målresursgruppen. Du kan också ge åtkomst till en enda resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst, tilldela en roll till användare, grupp eller tjänstens huvudnamn. Det finns många fördefinierade roller du kan även definiera dina egna anpassade roller. Mer information finns i [vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
+- **Rollbaserad åtkomstkontroll (RBAC)** : I Azure, kan du bevilja åtkomst till användarkonton (huvudkonton) på ett angivet omfång: prenumerationen, resursgruppen eller enskilda resurser. Med RBAC kan du distribuera en uppsättning resurser i en resursgrupp och tilldela behörigheter till en specifik användare eller grupp. Du kan också begränsa åtkomsten till endast de resurser som tillhör målresursgruppen. Du kan också ge åtkomst till en enda resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst, tilldela en roll till användare, grupp eller tjänstens huvudnamn. Det finns många fördefinierade roller du kan även definiera dina egna anpassade roller. Mer information finns i [vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
 
   > **När du ska använda**: När du behöver tillgång till ingående åtkomsthantering för användare och grupper eller när du behöver göra en ägare av en prenumeration för en användare.
   > 
@@ -291,7 +291,7 @@ När du tillåter åtkomst till Azure-resurser, men det är alltid en bra idé a
 
   > **När du ska använda**: När du programmässigt hantera Azure-resurser eller beviljar åtkomst för program. Mer information finns i [Skapa Active Directory-program och tjänstens huvudnamn](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Taggar
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager kan du tilldela anpassade taggar till enskilda resurser. Taggar som är nyckel / värde-par, kan vara användbart när du behöver organisera resurser för fakturering och övervakning. Taggar ger dig ett sätt att spåra resurser mellan flera resursgrupper. Du kan tilldela taggar i portalen i Azure Resource Manager-mall eller programmässigt, med hjälp av REST API, Azure CLI eller PowerShell. Du kan tilldela flera taggar till varje resurs. Mer information finns i [med taggar för att organisera Azure-resurser](../../resource-group-using-tags.md).
 

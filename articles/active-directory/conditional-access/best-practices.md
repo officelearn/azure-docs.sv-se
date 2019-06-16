@@ -1,8 +1,8 @@
 ---
 title: Bästa praxis för villkorlig åtkomst i Azure Active Directory | Microsoft Docs
-description: Läs mer om saker du bör känna till och vad det är du bör undvika att göra när du konfigurerar principer för villkorlig åtkomst.
+description: Läs om saker du bör känna till och vad det är du bör undvika att göra när du konfigurerar principer för villkorlig åtkomst.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67811e03bfa87a991b9eeb6f80ddddd87f781335
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8e7b77376989031dc1697d155cccf59954233a85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112655"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
 
@@ -109,7 +109,7 @@ För varje inloggning, Azure Active Directory utvärderar alla principer och sä
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Fungerar villkorlig åtkomst med Exchange ActiveSync?
 
-Ja, du kan använda Exchange ActiveSync i principer för villkorlig åtkomst med några [begränsningar](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Ja, du kan använda Exchange ActiveSync i principer för villkorlig åtkomst med några [begränsningar](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hur ska jag konfigurera villkorlig åtkomst med Office 365-appar?
 
@@ -183,5 +183,5 @@ Mer information finns i [migrera klassiska principer i Azure-portalen](policy-mi
 
 Om du vill veta:
 
-- Hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 - Hur du planerar principer för villkorlig åtkomst finns i [hur du planerar distributionen av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).

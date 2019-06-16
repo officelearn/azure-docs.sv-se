@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868507"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
@@ -39,7 +39,7 @@ Du kan skapa en anpassad avbildning från en etablerad virtuell dator och däref
  
 1. På den **Mina virtuella datorer** fönstret, Välj den virtuella datorn från vilken du vill skapa den anpassade avbildningen.
 
-1. Fönstret för hantering av den virtuella datorn, Välj **Skapa anpassad avbildning (VHD)**.
+1. Fönstret för hantering av den virtuella datorn, Välj **Skapa anpassad avbildning (VHD)** .
 
     ![Skapa anpassad avbildning menyalternativ](./media/devtest-lab-create-template/create-custom-image.png)
 

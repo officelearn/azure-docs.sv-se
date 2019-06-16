@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320438"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda StorSimple Device Manager-tjänsten för att visa och hantera aviseringar för StorSimple
@@ -72,7 +72,7 @@ När du aktiverar e-postmeddelande om en enhet kan får medlemmar i meddelandeli
       
 3. Om du vill skicka ett testmeddelande för e-post, klickar du på **skicka e-posttestmeddelande**. StorSimple Device Manager-tjänsten visar statusmeddelanden som vidarebefordras av test-meddelande.
 
-    ![Aviseringsinställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![aviseringsinställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. Du får ett meddelande när test-e-postmeddelande skickas. 
    
@@ -159,8 +159,8 @@ Om molnanslutning misslyckas på din StorSimple-enhet för produktion, kan sedan
 | Enheten redundansväxlades till <*enhetsnamn*>. |Oplanerad redundans. |StorSimple är utformat för att återställa automatiskt från oplanerade redundanser. Om du ser ett stort antal dessa aviseringar kan du kontakta Microsoft Support. |
 | Enheten redundansväxlades till <*enhetsnamn*>. |Andra/okänd orsak. |Om du ser ett stort antal dessa aviseringar kan du kontakta Microsoft Support. Radera aviseringen från aviseringssidan när problemet är löst. |
 | En tjänst för kritiska enheter rapporterar status som misslyckad. |DataPath tjänstfel. |Kontakta Microsoft Support för hjälp. |
-| Virtuella IP-adressen för nätverksgränssnittet <*DATA #*> rapporterar status som misslyckad. |Andra/okänd orsak. |Ibland kan tillfälliga förhållanden utlösa dessa aviseringar. Om så är fallet, sedan rensas den här aviseringen automatiskt efter en stund. Kontakta Microsoft-supporten om problemet kvarstår. |
-| Virtuella IP-adressen för nätverksgränssnittet <*DATA #*> rapporterar status som misslyckad. |Namnet på nätverksgränssnittet som: <*DATA #*> IP-adress `<IP address>` kunde inte försättas online eftersom en duplicerad IP-adress har identifierats i nätverket. |Se till att IP-adressdubblett tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
+| Virtuella IP-adressen för nätverksgränssnittet <*DATA #* > rapporterar status som misslyckad. |Andra/okänd orsak. |Ibland kan tillfälliga förhållanden utlösa dessa aviseringar. Om så är fallet, sedan rensas den här aviseringen automatiskt efter en stund. Kontakta Microsoft-supporten om problemet kvarstår. |
+| Virtuella IP-adressen för nätverksgränssnittet <*DATA #* > rapporterar status som misslyckad. |Namnet på nätverksgränssnittet som: <*DATA #* > IP-adress `<IP address>` kunde inte försättas online eftersom en duplicerad IP-adress har identifierats i nätverket. |Se till att IP-adressdubblett tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
 
 ### <a name="disaster-recovery-alerts"></a>Disaster recovery aviseringar
 

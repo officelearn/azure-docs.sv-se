@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104841"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
@@ -80,10 +80,10 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
 | displayname (visningsnamn) | Namn som ska visas på den sparade sökningen i portalen. |
-| DocumentDB | Frågan ska köras. |
+| query | Frågan ska köras. |
 
 > [!NOTE]
-> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON. Exempel: om din fråga var **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write”**, den måste skrivas i lösningsfilen som **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
+> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON. Exempel: om din fråga var **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write”** , den måste skrivas i lösningsfilen som **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Aviseringar
 [Azure loggaviseringar](../../azure-monitor/platform/alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum. Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
@@ -271,7 +271,7 @@ Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| typ | Ja | Typ av åtgärd. Det här är **Webhook** för webhook-åtgärder. |
+| type | Ja | Typ av åtgärd. Det här är **Webhook** för webhook-åtgärder. |
 | namn | Ja | Visningsnamn för åtgärden. Detta visas inte i konsolen. |
 | webhookUri | Ja | URI för webhook. |
 | customPayload | Nej | Anpassad nyttolast som ska skickas till webhooken. Formatet beror på vad webhooken förväntas. |

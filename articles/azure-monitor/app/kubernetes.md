@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555823"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Noll instrumentering av program för Kubernetes värdbaserade program
@@ -34,7 +34,7 @@ Azure Monitor använder nu service nät teknisk på Kubernetes-kluster för att 
 - En [Application Insights-resurs](create-new-resource.md)
 - Ha ett tjänst-nät. Om klustret inte har distribuerats Istio, kan du lära dig hur du [installera och använda Istio i Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>FUNKTIONER
+## <a name="capabilities"></a>Funktioner
 
 Med hjälp av noll instrumentation programövervakning för Kubernetes värdbaserade appar, kommer du att kunna använda:
 
@@ -130,7 +130,7 @@ Nedan är felsökning flödet ska användas när telemetri inte visas i Azure-po
    ```
    Leta efter fel, särskilt om kommunikation med *applicationinsightsadapter* nätverkskort.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Den senaste informationen för status för det här projektet, finns det [Application Insights-adapter för Istio Mixer projektets GitHub](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

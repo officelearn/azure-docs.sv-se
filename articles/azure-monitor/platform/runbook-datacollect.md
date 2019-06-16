@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454195"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
@@ -63,7 +63,7 @@ PowerShell-galleriet ger dig dock ett snabbt alternativ att distribuera en modul
 2. Välj **variabler** under **delade resurser**.
 2. Klicka på **Lägg till en variabel** och skapa de två variablerna i följande tabell.
 
-| Egenskap  | ID-värdet för arbetsyta | Nyckelvärdet för arbetsyta |
+| Egenskap | ID-värdet för arbetsyta | Nyckelvärdet för arbetsyta |
 |:--|:--|:--|
 | Namn | WorkspaceId | WorkspaceKey |
 | Typ | String | String |
@@ -179,12 +179,12 @@ Det vanligaste sättet att starta en runbook som samlar in övervakningsdata är
 2. Klicka på **lägga till ett schema** > **länka ett schema till din runbook** > **skapa ett nytt schema**.
 5. Skriv in följande värden för schemat och klicka på **skapa**.
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 |:--|:--|
 | Namn | Varje AutomationJobs timme |
 | Startar | Välj när som helst på minst 5 minuter efter aktuell tid. |
 | Upprepning | Återkommande |
-| Återkommer varje | 1 timme |
+| Utför varje | 1 timme |
 | Ange förfallodatum | Nej |
 
 När schemat skapas, måste du ange de parametervärden som ska användas varje gång som det här schemat startar runbook.

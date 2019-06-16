@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61296476"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure portal
@@ -46,7 +46,7 @@ Du kan lägga till upp till 20 poster valfri uppsättning av poster. En postupps
 3. Klicka på **spara** överst på bladet för att spara dina inställningar. Stäng bladet.
 4. I hörnet ser du att posten sparas.
 
-    ![Sparar uppsättning av poster](./media/dns-operations-recordsets-portal/saving150.png)
+    ![Sparar uppsättningen av poster](./media/dns-operations-recordsets-portal/saving150.png)
 
 När posten har sparats, värdena på den **DNS-zon** bladet visas den nya posten.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48a26b2eea3004d5f2203409603ffe623a8cb5c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2fb881678c694754c8cfc0714038c030d4b2218
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113134"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Jämför B2B-samarbete och B2C i Azure Active Directory
 
@@ -36,7 +36,7 @@ Identiteter som stöds: Anställda med arbets- eller skolkonton, partner med arb
 Externa användare hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, kan läggas till i samma grupper och så vidare  | Externa användare hanteras i programkatalogen. De hanteras separat från organisationens anställda och partnerkatalogen (i förekommande fall).
 Enkel inloggning (SSO) för alla Azure AD-anslutna appar stöds. Du kan till exempel ge åtkomst till Office 365 eller lokala appar och till andra SaaS-appar som Salesforce eller Workday.  |  Stöd för enkel inloggning till kundägda appar i Azure AD B2C-klientorganisationer. Enkel inloggning till Office 365 eller andra Microsoft- och icke-Microsoft-SaaS-appar stöds inte.
 Livscykel för partner: Hanteras av värden/den inbjudande organisationen.  | Livscykel för kunden: Självbetjäning eller hanteras av programmet.
-Säkerhetsprincip och efterlevnad: Hanteras av värden/den inbjudande organisationen (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Säkerhetsprincip och efterlevnad: Hanteras av programmet.
+Säkerhetsprincip och efterlevnad: Hanteras av den värd/bjuda in organisation (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Säkerhetsprincip och efterlevnad: Hanteras av programmet.
 Varumärke: Värden/den inbjudande organisationens varumärke används.  |    Varumärke: Hanteras av programmet. Brukar vanligtvis vara produktanpassad med organisationens varumärke intonat i bakgrunden.
 Mer information: [Blogginlägg](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Dokumentation](what-is-b2b.md)  | Mer information: [Produktsida](https://azure.microsoft.com/services/active-directory-b2c/), [Dokumentation](https://docs.microsoft.com/azure/active-directory-b2c/)
 

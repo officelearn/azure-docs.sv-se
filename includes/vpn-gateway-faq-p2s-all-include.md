@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056472"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
@@ -40,11 +40,11 @@ Följande klientoperativsystem stöds:
 
 Azure stöder tre typer av alternativ för punkt-till-plats-VPN:
 
-* SSTP (Secure Socket Tunneling Protocol). SSTP är en SSL-baserad lösning från Microsoft som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar TCP-port 443 som SSL använder.
+* SSTP (Secure Socket Tunneling Protocol). SSTP är en Microsoft egna SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar utgående TCP-porten som 443 som SSL använder.
 
-* OpenVPN. OpenVPN är en SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar TCP-porten som 443 som SSL använder.
+* OpenVPN. OpenVPN är en SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar utgående TCP-porten som 443 som SSL använder.
 
-* IKEv2 VPN. IKEv2 VPN är en standardbaserad IPsec VPN-lösning som använder UDP-port 500 och 4500 och IP-protokoll nummer 50. Eftersom inte alla brandväggar öppnar dessa portar kan det hända att IKEv2 VPN inte kan komma igenom proxyservrar och brandväggar.
+* IKEv2 VPN. IKEv2 VPN är en standardbaserad IPsec VPN-lösning som inte använder utgående UDP-port 500 och 4500 och IP-protokoll. 50. Eftersom inte alla brandväggar öppnar dessa portar kan det hända att IKEv2 VPN inte kan komma igenom proxyservrar och brandväggar.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Om jag startar om en klientdator som konfigurerats för punkt-till-plats, kommer då VPN att återansluta automatiskt?
 

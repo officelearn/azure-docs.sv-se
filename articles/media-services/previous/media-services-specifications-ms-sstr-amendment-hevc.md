@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963251"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Jämn direktuppspelning Protocol (MS-SSTR)-tillägg för – HEVC 
@@ -34,7 +34,7 @@ Användning av en MPEG-4 ([[MPEG4 RA])](https://go.microsoft.com/fwlink/?LinkId=
 
 ## <a name="11-glossary"></a>1.1-ordlista 
 
-Följande villkor är definierade i *[MS-GLOS]*:
+Följande villkor är definierade i *[MS-GLOS]* :
 
 >   **globalt unik identifierare (GUID) universell unik identifierare (UUID)**
 
@@ -161,7 +161,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 > 
 >   * PPSField innehåller sektorn Parameter angetts (PPS).
 > 
->   Anteckning: Video Parameter angetts (VPS) ingår inte i CodecPrivateData, men ska finnas i filhuvudet lagrade filernas i rutan ”hvcC”. System med hjälp av Smooth Streaming-protokollet måste skicka en signal ytterligare avkodning parametrar (till exempel – HEVC nivå) med hjälp av det anpassade attributet ”codec”.
+>   Obs! Video Parameter angetts (VPS) ingår inte i CodecPrivateData, men ska finnas i filhuvudet lagrade filernas i rutan ”hvcC”. System med hjälp av Smooth Streaming-protokollet måste skicka en signal ytterligare avkodning parametrar (till exempel – HEVC nivå) med hjälp av det anpassade attributet ”codec”.
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -211,7 +211,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 > 
 >   enligt definitionen i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
->   Anteckning: Detta förhindrar en video synkroniseringsfel på grund av video släpar ljud som motsvarar den största avkodade bild buffert borttagning fördröjningen och underhåller presentation tidsinställning mellan alternativa fragment som kan ha olika borttagning av fördröjningar.
+>   Obs! Detta förhindrar en video synkroniseringsfel på grund av video släpar ljud som motsvarar den största avkodade bild buffert borttagning fördröjningen och underhåller presentation tidsinställning mellan alternativa fragment som kan ha olika borttagning av fördröjningar.
 > 
 >   Syntaxen för de fält som definierats i det här avsnittet anges i ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) förblir detsamma utom på följande sätt:
 > 

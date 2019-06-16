@@ -10,10 +10,10 @@ ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
 ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811627"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Maven-pluginprogrammet för Service Fabric-nät
@@ -79,7 +79,7 @@ Om du vill använda Maven-pluginprogrammet i Maven Java-appen lägger du till f�
 
 Maven-pluginprogrammet stöder för närvarande inte vanliga konfigurationer för Maven-pluginprogram för Azure.
 
-## <a name="how-to"></a>Instruktioner
+## <a name="how-to"></a>Anvisningar:
 
 ### <a name="initialize-maven-project-for-azure-service-fabric-mesh"></a>Initiera Maven-projekt för Azure Service Fabric nät
 Kör följande kommando för att skapa resursen YAML-fil för programmet.

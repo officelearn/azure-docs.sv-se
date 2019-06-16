@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444214"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hur du använder Azures sekundära plugin-program med kontinuerlig integrering med Hudson
@@ -152,7 +152,7 @@ I det här avsnittet ska du skapa en Hudson-aktivitet som körs på en underordn
 5. Välj i konfigurationssidan för jobbet **begränsa där du kan köra det här projektet**.
 6. Välj **nod och etiketten menyn** och välj **linux** (vi anges den här etiketten när du skapar mallen för virtuella datorer i föregående avsnitt).
 7. I den **skapa** klickar du på **Lägg till byggsteg** och välj **köra shell**.
-8. Redigera följande skript och ersätter **{github namnet på ditt konto}**, **{ditt projektnamn}**, och **{projektkatalogen}** med lämpliga värden och klistra in den redigerade skript i textområdet som visas.
+8. Redigera följande skript och ersätter **{github namnet på ditt konto}** , **{ditt projektnamn}** , och **{projektkatalogen}** med lämpliga värden och klistra in den redigerade skript i textområdet som visas.
    
         # Clone from git repo
    

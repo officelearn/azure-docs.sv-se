@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957387"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
@@ -26,7 +26,7 @@ Börja, gå till den [Azure-portalen](https://portal.azure.com) och logga in på
 
 ![Översikt över funktionen i Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-Du kan navigera till allt du behöver för att hantera funktionsappen från översiktssidan i synnerhet de **[programinställningar](#settings)** och **[plattformsfunktioner](#platform-features)**.
+Du kan navigera till allt du behöver för att hantera funktionsappen från översiktssidan i synnerhet de **[programinställningar](#settings)** och **[plattformsfunktioner](#platform-features)** .
 
 ## <a name="settings"></a>programinställningar
 

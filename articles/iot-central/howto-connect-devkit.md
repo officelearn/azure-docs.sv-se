@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235886"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
@@ -212,7 +212,7 @@ Ett program som skapats med mallen för exemplet Devkits program innehåller en 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
 
-#### <a name="events"></a>Händelser 
+#### <a name="events"></a>Events 
 | Namn             | Visningsnamn      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knappen B är nedtryckt  | 
@@ -235,7 +235,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Type            | Visningsnamn | Fältnamn | Datatyp |
+| Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Enhetsegenskap | Enhetsplats   | location  | location    |

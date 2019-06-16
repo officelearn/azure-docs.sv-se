@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899761"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
@@ -133,7 +133,7 @@ Till exempel är det enkelt att:
 * Spåra sessioner och svarstider för specifika användare att aktivera och team att ge support direkt.
 * Fastställa app som används ofta funktioner för att besvara frågor för prioritering av funktionen.
 
-Kunden DNN SA: ”Application Insights har gett oss med saknas del av formeln för att du att kombinera, sortera, fråga och filtrera data efter behov. Vilket gör att vårt team att använda sina egna ingenuity och erfarenhet för att hitta data med ett kraftfullt frågespråk kan vi att söka efter insikter och lösa problem visste vi vi hade. Mycket intressant svar kommer från frågor som börjar med *”jag wonder om...”.*”
+Kunden DNN SA: ”Application Insights har gett oss med saknas del av formeln för att du att kombinera, sortera, fråga och filtrera data efter behov. Vilket gör att vårt team att använda sina egna ingenuity och erfarenhet för att hitta data med ett kraftfullt frågespråk kan vi att söka efter insikter och lösa problem visste vi vi hade. Mycket intressant svar kommer från frågor som börjar med *”jag wonder om...”.* ”
 
 ## <a name="development-tools-integration"></a>Utveckling av verktyg för integrering
 ### <a name="configuring-application-insights"></a>Konfiguration av Application Insights

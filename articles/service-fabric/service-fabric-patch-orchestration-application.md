@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951991"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
@@ -293,7 +293,7 @@ NodeAgentNTService skapar [reparera uppgifter](https://docs.microsoft.com/dotnet
 
    Om det finns mycket mer som ska returneras sedan, loggar du in till specifika virtuella vill veta mer om problemet med hjälp av Windows-händelseloggar. Ovanstående nämns reparationsuppgiften kan bara ha executor underordnade tillståndet:
 
-      ExecutorSubState | Information
+      ExecutorSubState | Detalj
     -- | -- 
       Ingen = 1 |  Innebär att det inte fanns en pågående åtgärd på noden. Möjliga tillståndsövergångar.
       DownloadCompleted=2 | Antyder hämtningen har slutförts med åtgärden lyckades delvis fel eller fel.

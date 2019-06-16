@@ -10,10 +10,10 @@ ms.custom: seodec18
 ms.reviewer: arduppal
 manager: philmea
 ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990470"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage på IoT Edge-modul till din enhet
@@ -157,7 +157,7 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
    | ----- | ----- |
    | Välj mapp | Välj platsen på utvecklingsdatorn för Visual Studio Code för att skapa lösningsfiler. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
-   | Välj modulmall | Välj **modul (RETUR hela avbildningen URL)**. |
+   | Välj modulmall | Välj **modul (RETUR hela avbildningen URL)** . |
    | Ange ett modulnamn | Ange ett namn på alla gemena för din modul som **azureblobstorage**.<br /><br />Det är viktigt att använda ett gemener namn för Azure Blob Storage på IoT Edge-modul. IoT Edge är skiftlägeskänsligt när det gäller moduler och Storage-SDK som standard till gemener. |
    | Ange Docker-avbildning för modulen | Ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage:latest** |
 

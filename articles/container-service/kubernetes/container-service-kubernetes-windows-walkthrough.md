@@ -10,10 +10,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148798"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(INAKTUELL) Distribuera Kubernetes-kluster för Windows-behållare
@@ -183,7 +183,7 @@ Du kan använda en webbläsare som du väljer för att se IIS-välkomstsidan på
 ![Bild som visar hur du går till IIS](./media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-## <a name="delete-cluster"></a>Ta bort kluster
+## <a name="delete-cluster"></a>Ta bort klustret
 När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive 

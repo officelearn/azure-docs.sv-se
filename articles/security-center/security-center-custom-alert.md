@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192628"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
@@ -58,7 +58,7 @@ Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya 
 
 Öppna instrumentpanelen för **Security Center** och gör så här för att skapa en anpassad aviseringsregel:
 
-1.  I den vänstra rutan under **Identifiering** klickar du på **Anpassade aviseringsregler (förhandsversion)**.
+1.  I den vänstra rutan under **Identifiering** klickar du på **Anpassade aviseringsregler (förhandsversion)** .
 2.  På sidan **Security Center – Anpassade aviseringsregler (förhandsversion)** klickar du på **Ny anpassad aviseringsregel**.
 
     ![Anpassad avisering](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)

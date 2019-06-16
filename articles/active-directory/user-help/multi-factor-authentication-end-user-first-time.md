@@ -15,10 +15,10 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230036"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
@@ -30,7 +30,7 @@ Den här artikeln visar hur du konfigurerar din **arbets- eller skolkonto**. Om 
 
 När företagets support kräver att du börjar använda tvåstegsverifiering, visas en skärm som anger **din administratör har begärt att du ställer in det här kontot för ytterligare säkerhetsverifiering**:
 
-![Inställningar](./media/multi-factor-authentication-end-user-first-time/first.png)
+![Konfiguration](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 För att komma igång, Välj **konfigurera nu.**
 
@@ -80,13 +80,13 @@ Följ dessa steg om du vill lägga till ett konto i mobilappen manuellt, iställ
 1. Välj den **ange konto manuellt** knappen.  
 2. Ange koden och URL: en som tillhandahålls på samma sida som visar streckkoden. Den här informationen används i den **kod** och **URL** rutor i mobilappen.
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. När aktiveringen är klar, Välj **kontakta mig**. Det här steget skickar en avisering eller en Verifieringskod till din telefon. Välj **Kontrollera**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Använda din mobiltelefon som kontaktmetod
 1. Välj **Autentiseringstelefon** från den nedrullningsbara listan.  
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/phone.png)  
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Välj land/region i listrutan och ange ditt mobiltelefonnummer.
 3. Välj den metod som du föredrar att använda med mobiltelefonen - textmeddelande eller samtal.
 4. Välj **kontakta mig** att verifiera ditt telefonnummer. Beroende på läge du har valt, vi skickar ett SMS eller ringer upp dig. Följ anvisningarna på skärmen och välj sedan **Kontrollera**.
@@ -97,7 +97,7 @@ Följ dessa steg om du vill lägga till ett konto i mobilappen manuellt, iställ
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Använda din Arbetstelefon som kontaktmetod
 1. Välj **Arbetstelefon** från listrutan  
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. Rutan telefonnummer fylls automatiskt med din kontaktinformation för företag. Om talet är felaktig eller saknas, be administratören att göra ändringar.
 3. Välj **kontakta mig** för att verifiera telefonen tal, och vi ska ringa ditt nummer. Följ anvisningarna på skärmen och välj sedan **Kontrollera**.
 4. Nu uppmanas du att ställa in applösenord för icke-webbläsarappar, till exempel Outlook 2010 eller äldre eller interna e-postappen på Apple-enheter. Det beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **klar** och hoppa över resten av stegen.

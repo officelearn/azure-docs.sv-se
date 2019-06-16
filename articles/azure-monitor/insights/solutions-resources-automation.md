@@ -15,10 +15,10 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110369"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Att lägga till Azure Automation-resurser i en lösning för hantering (förhandsversion)
@@ -75,7 +75,7 @@ Du bör innehålla alla runbooks som används av lösningen i lösningsfilen så
 
 I följande tabell beskrivs egenskaperna för runbooks.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | runbookType |Anger vilka typer av runbook. <br><br> Skript - PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell - grafiska PowerShell script-runbook <br> GraphPowerShellWorkflow - grafiskt PowerShell-Arbetsflödesbaserade runbook |
 | logProgress |Anger om [vidare poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbook. |
@@ -111,7 +111,7 @@ Jobbresurser har en typ av **Microsoft.Automation/automationAccounts/jobs** och 
 
 I följande tabell beskrivs egenskaperna för automation-jobb.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | runbook |Namn på enskild entitet med namnet på runbook att starta. |
 | parameters |Entitet för varje parametervärde som krävs av runbook. |
@@ -142,7 +142,7 @@ Namnet på en resurs för jobbet måste innehålla ett GUID som tilldelas vanlig
 
 Egenskaper för certifikat resurser beskrivs i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | base64Value |Base 64-värde för certifikatet. |
 | thumbprint |Tumavtryck för certifikatet. |
@@ -169,7 +169,7 @@ Egenskaper för certifikat resurser beskrivs i följande tabell.
 
 Egenskaper för autentiseringsuppgifter resurser beskrivs i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | userName |Användarnamn för autentiseringsuppgifter. |
 | password |Lösenordet för autentiseringsuppgifterna. |
@@ -197,7 +197,7 @@ Egenskaper för autentiseringsuppgifter resurser beskrivs i följande tabell.
 
 Egenskaper för schema resurser beskrivs i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | description |Valfri beskrivning för schemat. |
 | startTime |Anger starttiden för ett schema som ett datum/tid-objekt. En sträng kan anges om den kan konverteras till en giltig DateTime. |
@@ -240,7 +240,7 @@ Schema för jobbresurser länkar en runbook med ett schema.  De har en typ av **
 
 I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | schedule name |Enkel **namn** entitet med namnet på schemat. |
 | runbook name  |Enkel **namn** entitet med namnet på runbooken.  |
@@ -267,7 +267,7 @@ I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
 
 I följande tabell beskrivs egenskaperna för variabeln resurser.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | description | Valfri beskrivning för variabeln. |
 | isEncrypted | Anger om variabeln ska vara krypterat. |
@@ -307,7 +307,7 @@ Din lösning inte behöver definiera [globala modulerna](../../automation/automa
 
 I följande tabell beskrivs egenskaperna för modulen resurser.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | contentLink |Anger innehållet i modulen. <br><br>URI - Uri för att innehållet i modulen.  Det här är en .ps1-fil för runbooks med PowerShell och skript och en exporterade grafiska runbook-fil för en runbook i diagrammet.  <br> version - versionen av modulen för dina egna spårning. |
 

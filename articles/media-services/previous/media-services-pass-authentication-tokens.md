@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463233"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Lär dig hur klienter skickar token till Azure Media Services-nyckelleveranstjänst
@@ -29,7 +29,7 @@ Kunder frågar ofta hur en spelare kan skicka token till Azure Media Services-ny
 
 - Via HTTP auktoriseringsrubriken.
     > [!NOTE]
-    > Prefixet ”ägar” förväntas per OAuth 2.0-specifikationer. En exempel-spelare med konfigurationen finns på Azure Media Player [Demonstrationssida](https://ampdemo.azureedge.net/). Om du vill ange videokällan väljer **AES (JWT-Token)** eller **AES (SWT Token)**. Token skickas via auktoriseringsrubriken.
+    > Prefixet ”ägar” förväntas per OAuth 2.0-specifikationer. En exempel-spelare med konfigurationen finns på Azure Media Player [Demonstrationssida](https://ampdemo.azureedge.net/). Om du vill ange videokällan väljer **AES (JWT-Token)** eller **AES (SWT Token)** . Token skickas via auktoriseringsrubriken.
 
 - Via tillägg av en URL-frågeparameter med ”token = tokenvalue”.  
     > [!NOTE]

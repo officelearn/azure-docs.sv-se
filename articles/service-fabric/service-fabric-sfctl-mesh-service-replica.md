@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038456"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
@@ -28,7 +28,7 @@ Få information om repliker och lista replikeringar av en viss tjänst i en resu
 
 |Kommando|Beskrivning|
 | --- | --- |
-| lista | Visar en lista över alla repliker av en tjänst. |
+| list | Visar en lista över alla repliker av en tjänst. |
 | visa | Hämtar den angivna repliken av tjänsten för ett program. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl nät tjänsterepliken lista

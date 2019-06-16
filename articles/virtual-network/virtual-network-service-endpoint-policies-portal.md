@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: kumud
 ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710887"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstslutpunktsprincipen med Azure portal
@@ -73,7 +73,7 @@ Logga in på Azure Portal på https://portal.azure.com.
  
 ## <a name="view-endpoint-policies"></a>Visa endpoint principer 
 
-1. I den *alla tjänster* rutan i portalen, börjar du skriva *tjänstslutpunktsprinciper*. Välj **tjänsten Endpoint Policies(Preview)**.
+1. I den *alla tjänster* rutan i portalen, börjar du skriva *tjänstslutpunktsprinciper*. Välj **tjänsten Endpoint Policies(Preview)** .
 2. Under **prenumerationer**, väljer din prenumeration och resursgrupp, så som visas i följande bild
 
    ![Visa princip](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)

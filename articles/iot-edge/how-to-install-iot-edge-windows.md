@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808857"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -86,7 +86,7 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator på en version som stöds, aktiverar funktionen behållare och laddar sedan ned moby-runtime och IoT Edge-körningen. Kommandot som standard med hjälp av Windows-behållare. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -95,7 +95,7 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 5. Den **initiera IoTEdge** kommando konfigurerar IoT Edge-körningen på din dator. Kommandot som standard till manuell etableras med Windows-behållare. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -135,7 +135,7 @@ I följande exempel visar en automatisk installation med Windows-behållare:
 3. Den **distribuera IoTEdge** kommandot kontrollerar att din Windows-dator på en version som stöds, aktiverar funktionen behållare och laddar sedan ned moby-runtime och IoT Edge-körningen. Kommandot som standard med hjälp av Windows-behållare. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -144,7 +144,7 @@ I följande exempel visar en automatisk installation med Windows-behållare:
 6. Den **initiera IoTEdge** kommando konfigurerar IoT Edge-körningen på din dator. Kommandot som standard till manuell etableras med Windows-behållare. Använd den `-Dps` flagga för att använda Device Provisioning-tjänsten i stället för manuell etablering.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -172,7 +172,7 @@ De senaste IoT Edge-installationsfilerna tillsammans med tidigare versioner, se 
 Om du vill installera med offline-komponenter på `-OfflineInstallationPath` parametern som en del av distribuera-IoTEdge kommandot och ange den absoluta sökvägen till filen katalogen. Exempel:
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -189,7 +189,7 @@ Get-Service iotedge
 Granska loggarna för tjänsten från de senaste 5 minuterna. Om du har installera IoT Edge-körningen, kan du se en lista över fel från tiden mellan körs **distribuera IoTEdge** och **initiera IoTEdge**. Dessa fel förväntas som tjänsten försöker starta före håller på att konfigureras. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 Lista med moduler. När du har en ny installation endast modulen bör du se körs är **edgeAgent**. När du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md), ser du andra. 
@@ -233,7 +233,7 @@ Mer information finns i [uppdatera IoT Edge security daemon och runtime](how-to-
 Det här exemplet visar en installation som pekar på en befintlig konfigurationsfil och använder Windows-behållare: 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 
@@ -266,19 +266,19 @@ I föregående avsnitt introducerade Vanliga installationsscenarier med exempel 
 
 Distribuera IoTEdge kommandot laddar ned och distribuerar daemonen IoT Edge säkerhet och dess beroenden. Distributionskommandot accepterar dessa vanliga parametrar, bland annat. Använd kommandot för en fullständig lista `Get-Help Deploy-IoTEdge -full`.  
 
-| Parameter | Godkända värden | Kommentarer |
+| Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** eller **Linux** | Om inget operativsystem är behållaren anges är standardvärdet i Windows.<br><br>För Windows-behållare använder IoT Edge moby behållare motor inkluderad i installationen. För Linux-behållare som du behöver installera en motor för behållaren innan du påbörjar installationen. |
-| **Proxy** | URL för proxyserver | Använder den här parametern om din enhet måste gå via en proxyserver för att nå internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
+| **Proxy** | Proxy-URL | Använder den här parametern om din enhet måste gå via en proxyserver för att nå internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Katalogsökväg | Om den här parametern ingår kontrollerar installationsprogrammet katalogen för IoT Edge CAB-filen och VC Runtime MSI-filerna som krävs för installationen. Alla filer som inte finns i katalogen laddas ned. Om båda filerna finns i katalogen, kan du installera IoT Edge utan Internetanslutning. Du kan också använda den här parametern för att använda en specifik version. |
 | **InvokeWebRequestParameters** | Hash-tabell parametrar och värden | Flera webb-begäranden som görs under installationen. Använd det här fältet för att ange parametrar för dessa begäranden. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxy-servrar. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | inga | Den här flaggan kan distributionsskriptet att starta om datorn utan att fråga, om det behövs. |
+| **RestartIfNeeded** | Ingen | Den här flaggan kan distributionsskriptet att starta om datorn utan att fråga, om det behövs. |
 
 ### <a name="initialize-iotedge"></a>Initiera IoTEdge
 
 Initiera IoTEdge-kommando konfigurerar IoT Edge med enhetens anslutningssträng och information. Mycket av den information som genereras av det här kommandot lagras sedan i filen iotedge\config.yaml. Kommandot initieringen accepterar dessa vanliga parametrar, bland annat. Använd kommandot för en fullständig lista `Get-Help Initialize-IoTEdge -full`. 
 
-| Parameter | Godkända värden | Kommentarer |
+| Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
 | **Manuell** | Ingen | **Växla parametern**. Om ingen etablering typ har angetts, manuell är standardvärdet.<br><br>Deklarerar att tillhandahålla en enhetens anslutningssträng för att etablera enheten manuellt |
 | **DPS** | Ingen | **Växla parametern**. Om ingen etablering typ har angetts, manuell är standardvärdet.<br><br>Deklarerar att tillhandahålla en Device Provisioning Service (DPS) för scope-ID och din enhets registrerings-ID för att etablera via DPS.  |
@@ -293,21 +293,21 @@ Initiera IoTEdge-kommando konfigurerar IoT Edge med enhetens anslutningssträng 
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 
-| Parameter | Godkända värden | Kommentarer |
+| Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** eller **Linux** | Om någon behållare som OS anges är standardvärdet i Windows. För Windows-behållare inkluderas en motor för behållaren i installationen. För Linux-behållare som du behöver installera en motor för behållaren innan du påbörjar installationen. |
-| **Proxy** | URL för proxyserver | Använder den här parametern om din enhet måste gå via en proxyserver för att nå internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
+| **Proxy** | Proxy-URL | Använder den här parametern om din enhet måste gå via en proxyserver för att nå internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hash-tabell parametrar och värden | Flera webb-begäranden som görs under installationen. Använd det här fältet för att ange parametrar för dessa begäranden. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxy-servrar. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Katalogsökväg | Om den här parametern ingår kontrollerar installationsprogrammet katalogen för IoT Edge CAB-filen och VC Runtime MSI-filerna som krävs för installationen. Alla filer som inte finns i katalogen laddas ned. Om båda filerna finns i katalogen, kan du installera IoT Edge utan Internetanslutning. Du kan också använda den här parametern för att använda en specifik version. |
-| **RestartIfNeeded** | inga | Den här flaggan kan distributionsskriptet att starta om datorn utan att fråga, om det behövs. |
+| **RestartIfNeeded** | Ingen | Den här flaggan kan distributionsskriptet att starta om datorn utan att fråga, om det behövs. |
 
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
-| Parameter | Godkända värden | Kommentarer |
+| Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
-| **Force** | inga | Den här flaggan tvingar en avinstallation om tidigare försök att avinstallera lyckades. 
-| **RestartIfNeeded** | inga | Den här flaggan kan avinstallationsskriptet att starta om datorn utan att fråga, om det behövs. |
+| **Force** | Ingen | Den här flaggan tvingar en avinstallation om tidigare försök att avinstallera lyckades. 
+| **RestartIfNeeded** | Ingen | Den här flaggan kan avinstallationsskriptet att starta om datorn utan att fråga, om det behövs. |
 
 
 ## <a name="next-steps"></a>Nästa steg

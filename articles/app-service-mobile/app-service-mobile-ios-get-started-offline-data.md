@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112658"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera offline synkroniseras med iOS-appar
@@ -147,7 +147,7 @@ När du använder grundläggande Data offline store måste du definiera specifik
   * TodoItem: Lagrar att göra-objekt. Systemkolumner **createdAt**, **updatedAt**, och **version** är valfritt Systemegenskaper.
 
 > [!NOTE]
-> SDK för Mobile Apps reserverar kolumnnamn som börjar med ”**``**”. Använd inte det här prefixet med något annat än Systemkolumner. I annat fall ändras kolumnnamn som när du använder fjärranslutna backend-servern.
+> SDK för Mobile Apps reserverar kolumnnamn som börjar med ” **``** ”. Använd inte det här prefixet med något annat än Systemkolumner. I annat fall ändras kolumnnamn som när du använder fjärranslutna backend-servern.
 >
 >
 
@@ -164,7 +164,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 | id | Heltal 64 |
 | itemId | String |
 | properties | Binära Data |
-| tabell | String |
+| table | String |
 | tableKind | Heltal 16 |
 
 
@@ -188,7 +188,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 | id |String |
 | key |String |
 | KeyType |Heltal 64 |
-| tabell |String |
+| table |String |
 | value |String |
 
 ### <a name="data-table"></a>Datatabell

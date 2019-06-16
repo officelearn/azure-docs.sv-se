@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772543"
 ---
 # <a name="resource-governance"></a>Resursstyrning
@@ -58,7 +58,7 @@ Men finns det två situationer där andra processer kan tävla om CPU. I sådana
 
 * *Blanda styrt och ej styrda tjänster och behållare*: Om en användare skapar en tjänst utan någon resurs-styrning som angetts, körningen ser det som förbrukar inga resurser och kan placera den på noden i vårt exempel. I det här fallet använder den här nya processen effektivt vissa CPU på bekostnad av tjänster som redan körs på noden. Det finns två lösning på problemet. Antingen inte blanda styrt och ej styrda tjänster i samma kluster eller använda [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) så att dessa två typer av tjänster inte hamnar på samma uppsättning noder.
 
-* *När en annan process har startats på noden utanför Service Fabric (till exempel en OS-service)*: I så fall kan contends processen utanför Service Fabric också för processor med befintliga tjänster. Lösning på problemet är att ställa in nodkapaciteterna korrekt till kontot för OS-kostnader, som du ser i nästa avsnitt.
+* *När en annan process har startats på noden utanför Service Fabric (till exempel en OS-service)* : I så fall kan contends processen utanför Service Fabric också för processor med befintliga tjänster. Lösning på problemet är att ställa in nodkapaciteterna korrekt till kontot för OS-kostnader, som du ser i nästa avsnitt.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Konfiguration för att aktivera resursstyrning
 

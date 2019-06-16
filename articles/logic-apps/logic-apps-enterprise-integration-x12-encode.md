@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
 ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705696"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Koda X12 meddelanden i Azure Logic Apps med Enterprise-Integrationspaket
@@ -47,7 +47,7 @@ Här är de objekt som du behöver:
 
     Egenskaper med en asterisk krävs.
 
-    | Egenskap  | Information |
+    | Egenskap | Information |
     | --- | --- |
     | Anslutningsnamn * |Ange ett namn för anslutningen. |
     | Integrationskontot * |Ange ett namn för ditt integrationskonto. Se till att din app med integration-kontot och logik finns i samma Azure-plats. |

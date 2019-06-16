@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516708"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
@@ -37,7 +37,7 @@ Anta att du vill börja skriva och distribuera din tjänst. Nu vet du inte vilka
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Hög |
 | ReplicaCount |0 |1 |1 |Medel |
-| Antal |1 |1 |1 |Låg |
+| Count |1 |1 |1 |Låg |
 
 
 För grundläggande arbetsbelastningar och ange mått som standard en vettigt fördelning av arbete i klustret. I följande exempel, låt oss se vad som händer när vi skapar två tjänster och förlitar sig på standard-mått för belastningsutjämning. Den första tjänsten är en tillståndskänslig tjänst med tre partitioner och en mål-replik ange storleken på tre. Andra tjänsten är en tillståndslös tjänst med en partition och ett instansantal på tre.
@@ -143,7 +143,7 @@ Som en påminnelse: Om du bara vill använda mått som standard behöver du inte
 
 Nu ska vi gå igenom dessa inställningar i detalj och prata om det beteende som den inverkar.
 
-## <a name="load"></a>Läsa in
+## <a name="load"></a>Laddning
 Hela syftet med att definiera mått är att representera vissa belastningen. *Läs in* är hur mycket av ett visst mått som används av vissa tjänstinstansen eller repliken på en viss nod. Belastningen kan konfigureras på nästan vilken punkt. Exempel:
 
   - Belastningen kan definieras när en tjänst har skapats. Detta kallas _standard load_.

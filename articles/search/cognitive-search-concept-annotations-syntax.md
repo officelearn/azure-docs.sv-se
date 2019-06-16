@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023880"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hur du refererar till kommentarer i en kognitiv sökning-kompetens
@@ -28,7 +28,7 @@ Exemplen i den här artikeln baseras på den *innehåll* fältet genereras autom
 
 Innan du granska syntaxen kan vi gå tillbaka till några viktiga begrepp för att bättre förstå exemplen senare i den här artikeln.
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 |------|-------------|
 | Avancerad och dokument | En avancerad och dokumentet är en intern struktur skapas och används av pipelinen för att lagra alla kommentarer som är relaterade till ett dokument. Tänk på en avancerad och dokumentet som ett träd med anteckningar. I allmänhet blir en anteckning som skapats från en tidigare anteckningen dess underordnade.<p/>Avancerad och dokument finns bara för hela kompetens körning. När innehållet har mappats till search-index, behövs avancerad och dokumentet inte längre. Även om du inte interagerar med avancerad och dokument direkt, är det praktiskt att ha en mentala modell dokument när du skapar en kompetens. |
 | Berikande kontext | Kontexten där berikande äger rum, enligt vilken elementet berikats. Berikande kontexten är som standard på den `"/document"` nivå, begränsad till enskilda dokument. När en färdighet körs utdata på kompetensen blir [egenskaperna för kontexten definierade](#example-2).|

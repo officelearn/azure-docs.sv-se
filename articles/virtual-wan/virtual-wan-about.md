@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077550"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
-Azure virtuellt WAN-nätverk är en nätverkstjänst som tillhandahåller optimerade och automatiserade gren anslutningar till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta din grenar kan. Du kan utnyttja Azures stamnät för att upprätta en anslutning för gren-till-VNet och gren till grenen när grenarna är ansluten. En lista över partner och platser som har stöd för virtuella WAN VPN finns i den [virtuella WAN-partner och platser](virtual-wan-locations-partners.md) artikeln.
+Azure virtuellt WAN-nätverk är en nätverkstjänst som tillhandahåller optimerade och automatiserade gren anslutningar till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta din grenar kan. Du kan utnyttja Azures stamnät för att även ansluta grenar och dra nytta av gren-till-VNet-anslutning. Vi har en lista med partner som har stöd för automatisering för anslutning med Azure virtuella WAN VPN. Mer information finns i den [virtuella WAN-partner och platser](virtual-wan-locations-partners.md) artikeln.
 
 Azure virtuellt WAN-nätverk innehåller många Azure-molnet anslutning tjänster, till exempel plats-till-plats VPN (allmänt tillgänglig), ExpressRoute (förhandsversion) användare punkt-till-plats VPN (förhandsversion) i ett enda gränssnitt som fungerar. Upprätta en anslutning till virtuella Azure-nätverk är med hjälp av virtuella nätverksanslutningar.
 

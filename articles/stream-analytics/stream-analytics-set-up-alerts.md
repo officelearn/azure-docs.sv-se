@@ -7,20 +7,19 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077674"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
 
 Det är viktigt att övervaka dina Azure Stream Analytics-jobb för att säkerställa att jobbet körs kontinuerligt utan problem. Den här artikeln beskriver hur du ställer in aviseringar för vanliga scenarier som bör övervakas. 
 
-Regler kan ställas in på mått via portalen och kan konfigureras [programmässigt](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) Åtgärdsloggar data.
+Du kan definiera regler för mått från Åtgärdsloggar data via portalen, samt [programmässigt](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Konfigurera aviseringar i Azure portal
 
@@ -30,7 +29,7 @@ I följande exempel visar hur du ställer in aviseringar för när dina jobb fö
 
 2. På den **jobbet** sidan, gå till den **övervakning** avsnittet.  
 
-3. Välj **mått**, och klicka sedan på **ny aviseringsregel**.
+3. Välj **mått**, och sedan **ny aviseringsregel**.
 
    ![Azure Stream Analytics aviseringar portalinställningarna](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +37,7 @@ I följande exempel visar hur du ställer in aviseringar för när dina jobb fö
 
    ![Välj Signalnamn för Stream Analytics-avisering](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Under **konfigurera signallogiken**, ändra **Händelsenivå** till **alla** och ändra **Status** till **misslyckades** . Lämna **händelsen initieras av** tomt och klicka på **klar**.
+5. Under **konfigurera signallogiken**, ändra **Händelsenivå** till **alla** och ändra **Status** till **misslyckades** . Lämna **händelsen initieras av** tom och väljer **klar**.
 
    ![Konfigurera signallogiken för Stream Analytics-avisering](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 

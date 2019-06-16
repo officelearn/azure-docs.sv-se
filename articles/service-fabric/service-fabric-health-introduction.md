@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60949189"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
@@ -211,7 +211,7 @@ Den [hälsorapporter](https://docs.microsoft.com/dotnet/api/system.fabric.health
 * **RemoveWhenExpired**. Ett booleskt värde. Om värdet är true, har upphört att gälla hälsorapporten tas automatiskt bort från health store och rapporten påverkar inte entiteten hälsotillstånd utvärdering. Används när rapporten är giltig för en angiven tidsperiod endast och personen behöver inte uttryckligen tar den bort. Den används också för att ta bort rapporter från health store (till exempel en watchdog ändras och slutar att skicka rapporter med föregående källa och egenskap). Den kan skicka en rapport med en kort TimeToLive tillsammans med RemoveWhenExpired för att rensa alla tidigare tillstånd från health store. Om värdet är inställt på FALSKT, behandlas har upphört att gälla rapporten som ett fel på hälsotillståndet utvärderingen. False-värde som signalerar till health store att källan bör regelbundet rapportera om den här egenskapen. Om så inte är måste sedan det vara något fel med watchdog. Den watchdog hälsa samlas in av överväger händelsen som ett fel.
 * **SequenceNumber**. Ett positivt heltal som måste vara begripliga, representerar ordningen på rapporterna. Den används av health store för att identifiera inaktuella rapporter som tas emot sent på grund av fördröjningar i nätverket eller andra problem. En rapport avvisas om sekvensnumret är mindre än eller lika med de nyligen tillämpade nummer för samma entitet, källa och egenskap. Om det inte anges genereras sekvensnumret automatiskt. Det är nödvändigt att placera i sekvensnumret endast om du rapporterar för övergångslägen. I så fall måste källan kommer ihåg vilka rapporter som har det skickats och hålla informationen för återställning vid redundans.
 
-Dessa fyra delar av information – SourceId, entitets-ID, egenskap och HealthState – krävs för varje hälsorapport. SourceId strängen får inte inledas med prefixet ”**System.**”, som är reserverade för systemrapporter. Det finns endast en rapport för samma källa och egenskap för samma entitet. Flera rapporter för samma käll- och egenskapen åsidosätter varandra, antingen på klientsidan hälsotillstånd (om de grupperas) eller på hälsotillståndet lagra sida. Ersättningen är baserad på sekvensnummer; nyare rapporter (med högre sekvensnummer) ersätter äldre rapporter.
+Dessa fyra delar av information – SourceId, entitets-ID, egenskap och HealthState – krävs för varje hälsorapport. SourceId strängen får inte inledas med prefixet ”**System.** ”, som är reserverade för systemrapporter. Det finns endast en rapport för samma källa och egenskap för samma entitet. Flera rapporter för samma käll- och egenskapen åsidosätter varandra, antingen på klientsidan hälsotillstånd (om de grupperas) eller på hälsotillståndet lagra sida. Ersättningen är baserad på sekvensnummer; nyare rapporter (med högre sekvensnummer) ersätter äldre rapporter.
 
 ### <a name="health-events"></a>Hälsohändelser
 Internt i hälsoarkivet håller [hälsohändelser](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), som innehåller all information från rapporter och ytterligare metadata. Metadata innehåller den tid som rapporten har angetts till klienten hälsotillstånd och den tid som den har ändrats på serversidan. Health-händelser som returneras av [hälsoförfrågningar](service-fabric-view-entities-aggregated-health.md#health-queries).

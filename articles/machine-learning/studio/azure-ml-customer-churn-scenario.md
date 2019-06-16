@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699444"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
@@ -188,7 +188,7 @@ Modeller som finns i Machine Learning Studio – bättre än SAS med 15-25% för
 I branschen telekommunikation, flera metoder har vuxit fram för att analysera omsättningen, inklusive:  
 
 * Härled mätvärden för fyra grundläggande kategorier:
-  * **Entiteten (till exempel en prenumeration)**. Etablera grundläggande information om den prenumeration och/eller kund som omfattas av omsättning.
+  * **Entiteten (till exempel en prenumeration)** . Etablera grundläggande information om den prenumeration och/eller kund som omfattas av omsättning.
   * **Aktivitet**. Hämta alla möjliga användningsinformation som är relaterade till entiteten, till exempel antalet inloggningar.
   * **Kundsupport**. Samla information från customer support loggar att indikera om prenumerationen har problem eller interaktioner med kundsupport.
   * **Data konkurrenskraftiga och företagsdata**. Få all information som möjligt om kunden (till exempel kan vara otillgänglig eller svårt att spåra).

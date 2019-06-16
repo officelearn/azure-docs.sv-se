@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700290"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Storage-konto
@@ -50,10 +50,10 @@ Instruktioner om hur du skapar ett AAD-program (som även skapar ett huvudnamn f
 
 Vissa viktiga saker att tänka på.
 
-- Två nivå mappstrukturen (**/kluster/ekonomi/**) måste skapas och etableras med rätt behörighet av Data Lake Storage administratören **innan** använder storage-konto för kluster. Den här strukturen skapas inte automatiskt när du skapar kluster.
+- Två nivå mappstrukturen ( **/kluster/ekonomi/** ) måste skapas och etableras med rätt behörighet av Data Lake Storage administratören **innan** använder storage-konto för kluster. Den här strukturen skapas inte automatiskt när du skapar kluster.
 - I exemplet ovan rekommenderar att den ägande gruppen för **/kluster/ekonomi** som **FINGRP** och gör det möjligt att **r-x** åtkomst till FINGRP till hela mapphierarkin startar från roten. Detta säkerställer att medlemmarna i FINGRP kan navigera mappstrukturen från roten.
 - I fall när olika AAD-tjänsthuvudnamn kan skapa kluster under **/kluster/ekonomi**, sticky-bit (när inställda på den **ekonomi** mapp) så att mappar skapas av en tjänstens huvudnamn Det går inte att tas bort av den andra.
-- När mappstrukturen och behörigheter är på plats kan HDInsight-klusterskapningsprocessen skapar en klusterspecifika lagringsplats under **/kluster/ekonomi/**. Lagring för ett kluster med namnet fincluster01 kan till exempel vara **/clusters/finance/fincluster01**. Äganderätt och behörigheter för mappar som skapas av HDInsight-klustret visas i den här tabellen.
+- När mappstrukturen och behörigheter är på plats kan HDInsight-klusterskapningsprocessen skapar en klusterspecifika lagringsplats under **/kluster/ekonomi/** . Lagring för ett kluster med namnet fincluster01 kan till exempel vara **/clusters/finance/fincluster01**. Äganderätt och behörigheter för mappar som skapas av HDInsight-klustret visas i den här tabellen.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Behörigheter för namngiven användare | Namngiven grupp | Behörigheter för namngiven grupp |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -87,8 +87,8 @@ De här inställningarna är kända för att påverka en specifik HDInsight anv�
 
 Enligt informationen i YARN-JIRA länkad tidigare under lokaliseringen offentliga resurser, verifierar localizer att de begärda resurserna är verkligen offentliga genom att kontrollera deras behörigheter på fjärr-filsystemet. Alla LocalResource som inte passar villkoret avvisas för lokalisering. Kontroll av behörigheter, innehåller läsbehörighet till filen för ”andra”. Det här scenariot fungerar inte out-of the box när HDInsight-kluster i Azure Data Lake, eftersom Azure Data Lake nekar all åtkomst till ”andra” på rotnivå för mappen.
 
-#### <a name="workaround"></a>Lösning
-Ange Läs-körbehörighet för **andra** via hierarkin, till exempel på **/**, **/kluster** och   **/kluster/ekonomi** som visas i tabellen ovan.
+#### <a name="workaround"></a>Lösning:
+Ange Läs-körbehörighet för **andra** via hierarkin, till exempel på **/** , **/kluster** och   **/kluster/ekonomi** som visas i tabellen ovan.
 
 ## <a name="see-also"></a>Se också
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690839"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller redundans
 
@@ -89,7 +89,9 @@ Det sista steget är att gå till målservern eller servrar och generera inloggn
 > [!NOTE]
 > Om du vill bevilja användaråtkomst till sekundärt, men inte till primärt kan du göra det genom att ändra användarinloggning på den primära servern med hjälp av följande syntax.
 >
-> ALTER LOGIN <login name> INAKTIVERA
+> ```sql
+> ALTER LOGIN <login name> DISABLE
+> ```
 >
 > Inaktivera Ändra inte lösenordet, så att du kan aktivera den alltid om det behövs.
 

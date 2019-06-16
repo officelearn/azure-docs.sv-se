@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585627"
 ---
 # <a name="elastic-database-tools-glossary"></a>Ordlista för verktyg för elastiska databaser
@@ -29,7 +29,7 @@ Dessa villkor används i [att lägga till en shard med elastiska Databasverktyg]
 
 **Databasen**: En Azure SQL-databas. 
 
-**Databeroende routning**: Funktioner som gör att ett program kan ansluta till en shard som ett specifikt horisontell partitionering nyckel. Se [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med  **[Multi-shard fråga](sql-database-elastic-scale-multishard-querying.md)**.
+**Databeroende routning**: Funktioner som gör att ett program kan ansluta till en shard som ett specifikt horisontell partitionering nyckel. Se [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med  **[Multi-shard fråga](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Global fragmentkartan**: Mappningen mellan nycklar för horisontell partitionering och deras respektive fragment i en **shard set**. Global fragmentkartan lagras i den **karthanteraren**. Jämför med **lokala fragmentkartan**.
 

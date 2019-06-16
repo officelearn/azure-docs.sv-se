@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.author: robb
 ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65914719"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
@@ -81,7 +81,7 @@ Men Använd inte äldre måttaviseringar åtgärdsgrupper. I stället kan du kon
 
 Webhooks gör automation och åtgärder, till exempel med hjälp av:
 - Azure Automation – Runbook
-- Azure-funktion
+- Azure Function
 - Azure Logic App
 - En tjänst från tredje part
 

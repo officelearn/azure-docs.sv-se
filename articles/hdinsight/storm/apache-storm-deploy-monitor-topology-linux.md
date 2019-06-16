@@ -8,21 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078247"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
 I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på Storm i HDInsight-kluster.
-
-> [!IMPORTANT]  
-> Stegen i den här artikeln kräver ett Linux-baserade Storm på HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
->
-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -159,7 +154,7 @@ Ombalansering en topologi gör att systemet kan ändra topologins parallellitet.
 
 ## <a name="monitor-and-manage-storm-ui"></a>Övervaka och hantera: Storm UI
 
-Storm-användargränssnittet innehåller ett webbgränssnitt för att arbeta med topologier som körs och ingår i ditt HDInsight-kluster. Om du vill visa Storm-Användargränssnittet, Använd en webbläsare för att öppna **https://CLUSTERNAME.azurehdinsight.net/stormui**, där **CLUSTERNAME** är namnet på klustret.
+Storm-användargränssnittet innehåller ett webbgränssnitt för att arbeta med topologier som körs och ingår i ditt HDInsight-kluster. Om du vill visa Storm-Användargränssnittet, Använd en webbläsare för att öppna **https://CLUSTERNAME.azurehdinsight.net/stormui** , där **CLUSTERNAME** är namnet på klustret.
 
 > [!NOTE]  
 > Om du uppmanas att ange ett användarnamn och lösenord, anger du klusteradministratören (admin) och lösenordet du använde när du skapade klustret.
@@ -213,7 +208,7 @@ Mer information finns i [Apache Storm UI REST API](https://storm.apache.org/rele
 
 ### <a name="base-uri"></a>Bas-URI
 
-Bas-URI för REST-API: et på Linux-baserade HDInsight-kluster är tillgängliga på klustrets huvudnod vid **https:\//HEADNODEFQDN:8744/api/v1/**. Domännamnet för huvudnoden genereras när klustret skapas och är inte statiska.
+Bas-URI för REST-API: et på Linux-baserade HDInsight-kluster är tillgängliga på klustrets huvudnod vid **https:\//HEADNODEFQDN:8744/api/v1/** . Domännamnet för huvudnoden genereras när klustret skapas och är inte statiska.
 
 Du kan hitta det fullständigt kvalificerade domännamnet (FQDN) för klustrets huvudnod på flera olika sätt:
 

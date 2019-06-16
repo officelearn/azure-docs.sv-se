@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133300"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Aktivera och distribuera Azure ultra SSD: er (förhandsversion)
 
@@ -33,11 +33,12 @@ Svaret ska vara detsamma som i formuläret här nedan, där X är den zon som sk
 
 Bevara den **zoner** värde representerar din tillgänglighetszon och du behöver för att distribuera ett ultra SSD.
 
-|Resurstyp  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
+|ResourceType  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
-|Diskar     |UltraSSD_LRS         |usaöstra2         |X         |         |         |         |
+|Diskar     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Om inget svar från kommandot kommer registreringen att funktionen är fortfarande väntande eller inte godkänd ännu.
+> [!NOTE]
+> Om inget svar från kommandot kommer registreringen att funktionen är fortfarande väntande eller inte godkänd ännu.
 
 Nu när du vet vilken zon att distribuera till följer du stegen i den här artikeln för att få din första virtuella datorer som distribueras med ultra SSD för distributionen.
 

@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826755"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av övervakning och hantering av appen
@@ -61,7 +61,7 @@ Om du inte har ett Data Factory-program för att testa de här stegen med igenom
 ## <a name="understand-the-monitoring-and-management-app"></a>Förstå övervakning och hantering av app
 Det finns tre flikar till vänster: **Resursläsaren**, **övervakningsvyer**, och **aviseringar**. Den första fliken (**Resursläsaren**) väljs som standard.
 
-### <a name="resource-explorer"></a>Resursläsaren
+### <a name="resource-explorer"></a>Resource Explorer
 Du ser följande:
 
 * Resursläsaren **trädvy** i den vänstra rutan.
@@ -76,7 +76,7 @@ I resursutforskaren ser du alla resurser (pipelines, datauppsättningar, länkad
 * Egenskaper för det markerade objektet visas i fönstret Egenskaper i den högra rutan.
 * JSON-definition för det markerade objektet visas, om tillämpligt. Till exempel: en länkad tjänst, en datauppsättning eller en pipeline.
 
-![Resursläsaren](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Se den [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln för detaljerad information om aktivitetsfönster.
 
@@ -163,7 +163,7 @@ Aktivitetsfönster kan vara i något av följande statusar:
     <th align="left">Status</th><th align="left">Understatus</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Tiden har inte inne för aktivitetsfönstret att köra.</td>
+    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte inne för aktivitetsfönstret att köra.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Uppströmsberoendena är inte redo.</td>
@@ -188,7 +188,7 @@ Aktivitetsfönster kan vara i något av följande statusar:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Aktivitetsfönstret bearbetas.</td>

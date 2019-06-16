@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
 ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706324"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning för att skapa en pool med virtuella datorer 
@@ -27,7 +27,7 @@ Med en anpassad avbildning sparar tid i att förbereda beräkningsnoder för din
 
 Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera fördelar:
 
-- **Konfigurera operativsystem (OS)**. Du kan anpassa konfigurationen av avbildningens operativsystemdisken. 
+- **Konfigurera operativsystem (OS)** . Du kan anpassa konfigurationen av avbildningens operativsystemdisken. 
 - **Förinstallation program.** Förinstallation av program på OS-disk, vilket är mer effektiv och mindre felbenägna än att installera program när du har etablerat compute-noder med hjälp av en startaktivitet.
 - **Spara Omstartstid på virtuella datorer.** Programinstallation kräver normalt att starta om den virtuella datorn, vilket är tidskrävande. Du kan spara Omstartstid genom före installation av program. 
 - **Kopiera mycket stora mängder data en gång.** Kontrollera statiska data som en del av den anpassade avbildningen genom att kopiera den till en hanterad avbildning datadiskar. Detta endast måste göras en gång och gör data tillgängliga för varje nod i poolen.

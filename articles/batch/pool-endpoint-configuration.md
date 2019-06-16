@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071521"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurera och inaktivera fjärråtkomst till beräkningsnoder i en Azure Batch-pool
 
@@ -27,7 +27,7 @@ Konfigurationen av slutpunkten består av en eller flera [network adress transla
 Varje konfiguration för NAT-pool som innehåller ett eller flera [network regler för nätverkssäkerhetsgrupper (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Varje NSG-regel som tillåter eller nekar vissa nätverkstrafik till slutpunkten. Du kan välja att tillåta eller neka all trafik, trafik som identifierats av en [servicetagg](../virtual-network/security-overview.md#service-tags) (till exempel ”Internet”) eller trafik från specifika IP-adresser eller undernät.
 
 ### <a name="considerations"></a>Överväganden
-* Slutpunktskonfiguration i pool är en del av poolens [nätverkskonfiguration](/rest/api/batchservice/pool/add#NetworkConfiguration). Nätverkskonfigurationen kan även inkludera inställningar för att ansluta till poolen till en [Azure-nätverk](batch-virtual-network.md). Om du ställer in pool i ett virtuellt nätverk, kan du skapa NSG-regler som använder inställningar för adresser i det virtuella nätverket.
+* Slutpunktskonfiguration i pool är en del av poolens [nätverkskonfiguration](/rest/api/batchservice/pool/add#networkconfiguration). Nätverkskonfigurationen kan även inkludera inställningar för att ansluta till poolen till en [Azure-nätverk](batch-virtual-network.md). Om du ställer in pool i ett virtuellt nätverk, kan du skapa NSG-regler som använder inställningar för adresser i det virtuella nätverket.
 * Du kan konfigurera flera NSG-regler när du konfigurerar en NAT-pool. Regler kontrolleras enligt prioritetsordning. När villkoren för en regel uppfylls testas inga fler regler.
 
 

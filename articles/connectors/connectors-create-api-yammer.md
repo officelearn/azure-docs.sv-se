@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104739"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Övervaka och hantera ditt Yammer-konto med hjälp av Azure Logic Apps
@@ -60,7 +60,7 @@ Du kan använda utlösare som få svar från dina Yammer-konto och se utdata som
        ELLER
 
      * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-     Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
      
        I sökrutan anger du ”yammer” som filter. 
        Välj vilken åtgärd du önska under åtgärder.

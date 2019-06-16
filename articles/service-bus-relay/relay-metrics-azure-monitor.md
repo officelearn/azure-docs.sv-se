@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421817"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay-mått i Azure Monitor (förhandsversion)
@@ -41,7 +41,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)**. 
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)** . 
 
 För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde.
 
@@ -60,16 +60,16 @@ Alla mått-värden skickas till Azure Monitor varje minut. Tidskornighet definie
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| ListenerConnections lyckades (förhandsversion) | Antal lyckade lyssnare som har anslutningar till Azure Relay under en angiven period. <br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|ListenerConnections ClientError (förhandsversion)|Antalet klientfel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|ListenerConnections ServerError (förhandsversion)|Antal fel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+| ListenerConnections lyckades (förhandsversion) | Antal lyckade lyssnare som har anslutningar till Azure Relay under en angiven period. <br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections ClientError (förhandsversion)|Antalet klientfel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections ServerError (förhandsversion)|Antal fel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |SenderConnections lyckades (förhandsversion)|Antal lyckade avsändaren anslutningar som görs under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|SenderConnections-ClientError (förhandsversion)|Antalet klientfel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderConnections-ClientError (förhandsversion)|Antalet klientfel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |SenderConnections-ServerError (förhandsversion)|Antal fel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|ListenerConnections TotalRequests (förhandsversion)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections TotalRequests (förhandsversion)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |SenderConnections-TotalRequests (förhandsversion)|Vilka begäranden som görs av avsändare under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|ActiveConnections (förhandsversion)|Antal aktiva anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|ActiveListeners (förhandsversion)|Antal aktiva lyssnare under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveConnections (förhandsversion)|Antal aktiva anslutningar under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveListeners (förhandsversion)|Antal aktiva lyssnare under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |ListenerDisconnects (förhandsversion)|Antal frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |SenderDisconnects (förhandsversion)|Antal frånkopplade avsändare under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 

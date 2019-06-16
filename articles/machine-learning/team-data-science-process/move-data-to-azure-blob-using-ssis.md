@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429896"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-anslutningsappar
@@ -42,7 +42,7 @@ Du måste ha en Azure-prenumeration och konfigurera Azure-lagringskonton för at
 
 Du använder den **SSIS-anslutningsappar**, måste du ladda ned:
 
-* **SQL Server 2014 eller 2016 Standard (eller senare)**: Installationen inkluderar SQL Server Integration Services.
+* **SQL Server 2014 eller 2016 Standard (eller senare)** : Installationen inkluderar SQL Server Integration Services.
 * **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: Dessa kan laddas ned, från den [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
 
 > [!NOTE]

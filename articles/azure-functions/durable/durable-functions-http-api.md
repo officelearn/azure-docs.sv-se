@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787287"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
@@ -104,7 +104,7 @@ Följande avsnitt beskriver den specifika HTTP APIs stöds av tillägget och inn
 
 Hämtar status för en angiven orchestration-instans.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -134,7 +134,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält                   | Parametertyp  | Beskrivning |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | Webbadress             | ID för orchestration-instans. |
+| **`instanceId`**        | URL             | ID för orchestration-instans. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
 | **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
 | **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
@@ -146,11 +146,11 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 Flera möjliga status code-värden kan returneras.
 
-* **HTTP 200 (OK)**: Den angivna instansen är i slutfört tillstånd.
-* **HTTP 202 (godkänt)**: Den angivna instansen pågår.
-* **HTTP 400 (felaktig begäran)**: Den angivna instansen misslyckades eller avbröts.
-* **HTTP 404 (hittades inte)**: Den angivna instansen finns inte eller har inte startats.
-* **HTTP 500 (Internt serverfel)**: Den angivna instansen misslyckades med ett ohanterat undantag.
+* **HTTP 200 (OK)** : Den angivna instansen är i slutfört tillstånd.
+* **HTTP 202 (godkänt)** : Den angivna instansen pågår.
+* **HTTP 400 (felaktig begäran)** : Den angivna instansen misslyckades eller avbröts.
+* **HTTP 404 (hittades inte)** : Den angivna instansen finns inte eller har inte startats.
+* **HTTP 500 (Internt serverfel)** : Den angivna instansen misslyckades med ett ohanterat undantag.
 
 Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
 
@@ -228,7 +228,7 @@ Du kan också fråga status för alla instanser genom att ta bort den `instanceI
 En sak som att komma ihåg är att `connection` och `code` är valfria. Om du har anonym autentisering om funktionen inte kod krävs.
 Om du inte vill använda en annan lagringsanslutningssträng än definieras i appinställningen AzureWebJobsStorage, kan sedan du ignorera frågesträngparametern för anslutningen.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -262,7 +262,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält                   | Parametertyp  | Beskrivning |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | Webbadress             | ID för orchestration-instans. |
+| **`instanceId`**        | URL             | ID för orchestration-instans. |
 | **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
 | **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
 | **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
@@ -336,7 +336,7 @@ Om du ställer in fortsättning token värde i nästa rubriken får nästa sida 
 
 Tar bort historik och relaterade artefakter för en angiven orchestration-instans.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -360,14 +360,14 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
 
 #### <a name="response"></a>Svar
 
 Följande HTTP-status code värden kan returneras.
 
-* **HTTP 200 (OK)**: Instans-historik har tagits bort.
-* **HTTP 404 (hittades inte)**: Den angivna instansen finns inte.
+* **HTTP 200 (OK)** : Instans-historik har tagits bort.
+* **HTTP 404 (hittades inte)** : Den angivna instansen finns inte.
 
 Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
 
@@ -387,7 +387,7 @@ Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
 Du kan också ta bort historik och relaterade artefakter för flera instanser inom en uppgift hubb genom att ta bort den `{instanceId}` i ”rensa historiken för enskild instans-begäran. För att selektivt Rensa instansen historik, använder du samma filter som beskrivs i ”Hämta status för alla instanser'-begäran.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -428,8 +428,8 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 Följande HTTP-status code värden kan returneras.
 
-* **HTTP 200 (OK)**: Instans-historik har tagits bort.
-* **HTTP 404 (hittades inte)**: Inga instanser hittades som matchar filtret-uttryck.
+* **HTTP 200 (OK)** : Instans-historik har tagits bort.
+* **HTTP 404 (hittades inte)** : Inga instanser hittades som matchar filtret-uttryck.
 
 Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
 
@@ -449,7 +449,7 @@ Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
 Skickar en händelse-meddelande till en orchestration-instans som körs.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -473,18 +473,18 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
-| **`eventName`**   | Webbadress             | Namnet på den händelse som orchestration målinstansen väntar på. |
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`eventName`**   | URL             | Namnet på den händelse som orchestration målinstansen väntar på. |
 | **`{content}`**   | Begära innehåll | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
 
 Flera möjliga status code-värden kan returneras.
 
-* **HTTP 202 (godkänt)**: Händelsen aktiverades togs emot för bearbetning.
-* **HTTP 400 (felaktig begäran)**: Innehållet i begäran var inte av typen `application/json` eller är inte giltig JSON.
-* **HTTP 404 (hittades inte)**: Den angivna instansen hittades inte.
-* **HTTP 410 (rest)**: Den angivna instansen har slutförts eller misslyckats och det går inte att bearbeta alla händelser som har aktiverats.
+* **HTTP 202 (godkänt)** : Händelsen aktiverades togs emot för bearbetning.
+* **HTTP 400 (felaktig begäran)** : Innehållet i begäran var inte av typen `application/json` eller är inte giltig JSON.
+* **HTTP 404 (hittades inte)** : Den angivna instansen hittades inte.
+* **HTTP 410 (rest)** : Den angivna instansen har slutförts eller misslyckats och det går inte att bearbeta alla händelser som har aktiverats.
 
 Här är en exempelbegäran som skickar JSON-sträng `"incr"` till en instans som väntar på en händelse med namnet **åtgärden**:
 
@@ -502,7 +502,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Avbryter en orchestration-instans som körs.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -528,16 +528,16 @@ Begära parametrar för detta API innehåller en standarduppsättning som tidiga
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
 | **`reason`**      | Frågesträng    | Valfri. Orsak för att avsluta orchestration-instans. |
 
 #### <a name="response"></a>Svar
 
 Flera möjliga status code-värden kan returneras.
 
-* **HTTP 202 (godkänt)**: Avslutningsbegäran togs emot för bearbetning.
-* **HTTP 404 (hittades inte)**: Den angivna instansen hittades inte.
-* **HTTP 410 (rest)**: Den angivna instansen har slutförts eller misslyckats.
+* **HTTP 202 (godkänt)** : Avslutningsbegäran togs emot för bearbetning.
+* **HTTP 404 (hittades inte)** : Den angivna instansen hittades inte.
+* **HTTP 410 (rest)** : Den angivna instansen har slutförts eller misslyckats.
 
 Här är en exempelbegäran som avslutar en instans som körs och anger en anledning för **buggy**:
 
@@ -551,7 +551,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Återställer en misslyckad orchestration-instans till ett körningsläge genom att spela upp de senaste misslyckade åtgärderna.
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -577,16 +577,16 @@ Begära parametrar för detta API innehåller en standarduppsättning som tidiga
 
 | Fält             | Parametertyp  | Beskrivning |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Webbadress             | ID för orchestration-instans. |
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
 | **`reason`**      | Frågesträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
 
 ### <a name="response"></a>Svar
 
 Flera möjliga status code-värden kan returneras.
 
-* **HTTP 202 (godkänt)**: Tillbakaspolning begäran togs emot för bearbetning.
-* **HTTP 404 (hittades inte)**: Den angivna instansen hittades inte.
-* **HTTP 410 (rest)**: Den angivna instansen har slutförts eller har avslutats.
+* **HTTP 202 (godkänt)** : Tillbakaspolning begäran togs emot för bearbetning.
+* **HTTP 404 (hittades inte)** : Den angivna instansen hittades inte.
+* **HTTP 410 (rest)** : Den angivna instansen har slutförts eller har avslutats.
 
 Här är en exempelbegäran som Spolar tillbaka en instans som misslyckats och anger en anledning för **fast**:
 

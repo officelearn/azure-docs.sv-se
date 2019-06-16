@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712666"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera problem med virtuella nätverk trafik filter
@@ -168,13 +168,13 @@ Regeln med namnet **defaultSecurityRules/DenyAllInBound** är vad förhindrar in
 
 Om du använder Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), eller [Azure CLI](#diagnose-using-azure-cli) att diagnosticera problemet visas i den [scenariot](#scenario) i det här artikeln lösningen är att skapa en regel för säkerhet med följande egenskaper:
 
-| Egenskap                 | Värde                                                                              |
+| Egenskap                | Värde                                                                              |
 |---------                |---------                                                                           |
-| Källa                  | Alla                                                                                |
+| source                  | Alla                                                                                |
 | Källportintervall      | Alla                                                                                |
 | Mål             | IP-adressen för den virtuella datorn, ett intervall med IP-adresser eller alla adresser i undernätet. |
-| Målportintervall | 80                                                                                 |
-| Protokoll                | TCP                                                                                |
+| Målportsintervall | 80                                                                                 |
+| Protocol                | TCP                                                                                |
 | Åtgärd                  | Tillåt                                                                              |
 | Prioritet                | 100                                                                                |
 | Namn                    | Allow-HTTP-All                                                                     |

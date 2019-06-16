@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431235"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
@@ -132,7 +132,7 @@ Tillgängliga egenskaper för en parameter är:
 |:--- |:--- |:--- |
 | parameterName |Ja |Namnet på parametern. Måste vara en giltig JavaScript-identifierare. |
 | typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **securestring**, **int**, **bool**, **objekt**, **secureObject**, och **matris**. |
-| Standardvärde |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
+| defaultValue |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att se till att rätt värde har angetts. |
 | minValue |Nej |Det minsta värdet för parametrar av typen int det här värdet är inkluderande. |
 | maxValue |Nej |Det maximala värdet för parametrar av typen int det här värdet är inkluderande. |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: amsriva
 ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697166"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsök Felaktig gateway-fel i Application Gateway
@@ -84,10 +84,10 @@ I följande tabell visas de värden som är associerade med standard-hälsoavsö
 
 | Avsökningen egenskapen | Värde | Beskrivning |
 | --- | --- | --- |
-| Avsökningswebbadress |`http://127.0.0.1/` |URL-sökväg |
+| URL för webbavsökning |`http://127.0.0.1/` |URL-sökväg |
 | Interval |30 |Avsökningsintervall i sekunder |
 | Time-out |30 |Avsökningen tidsgräns i sekunder |
-| Tröskelvärde för Ej felfri |3 |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för ej felfri |3 |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 ### <a name="solution"></a>Lösning
 
@@ -109,12 +109,12 @@ Följande ytterligare egenskaper har lagts till:
 | Avsökningen egenskapen | Beskrivning |
 | --- | --- |
 | Namn |Namnet på avsökningen. Det här namnet används för att referera till avsökning i backend-HTTP-inställningar. |
-| Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definieras i backend-HTTP-inställningar |
+| Protocol |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definieras i backend-HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när multisite är konfigurerad på application gateway. Detta skiljer sig från den virtuella datorns värdnamn. |
-| Sökväg |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. Avsökningen skickas till \<protokollet\>://\<värden\>:\<port\>\<sökväg\> |
+| `Path` |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. Avsökningen skickas till \<protokollet\>://\<värden\>:\<port\>\<sökväg\> |
 | Interval |Avsökningsintervall i sekunder. Det här är tidsintervallet mellan två på varandra följande avsökningar. |
 | Time-out |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte emot inom denna tidsgräns, markeras avsökningen som misslyckat. |
-| Tröskelvärde för Ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 ### <a name="solution"></a>Lösning
 

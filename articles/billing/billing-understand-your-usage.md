@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
 ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683989"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i din Azure-användning och avgifter
@@ -40,11 +40,11 @@ Användning och avgifter-filen är tillgänglig i en fil med kommaavgränsade v�
 I följande tabell beskrivs viktiga termer som används i den senaste versionen av filen för Azure-användning och kostnader.
 Listan innehåller betala per användning (PAYG), Enterprise Agreement (EA) och Microsoft Customer avtal MCA ()-konton.
 
-Period | Kontotyp | Beskrivning
+Term | Kontotyp | Beskrivning
 --- | --- | ---
 Kontonamn | EA | Visningsnamn för registreringskontot.
-ID för kontoägare | EA | Unik identifierare för registreringskontot.
-Ytterligare information | Alla | Tjänstspecifik metadata. Till exempel detta en Avbildningstyp för en virtuell dator.
+AccountOwnerId | EA | Unik identifierare för registreringskontot.
+AdditionalInfo | Alla | Tjänstspecifik metadata. Till exempel detta en Avbildningstyp för en virtuell dator.
 BillingAccountId | EA, MCA | Unik identifierare för roten fakturering konto.
 BillingAccountName | EA, MCA | Namnet på faktureringskontot.
 BillingCurrency | EA, MCA | Valuta som är associerade med faktureringskontot.
@@ -54,8 +54,8 @@ BillingPeriodStartDate | EA, MCA | Startdatum för faktureringsperioden.
 BillingProfileId | EA, MCA | Unik identifierare för EA-avtal eller MCA fakturering profil.
 BillingProfileName | EA, MCA | Namnet på EA-avtal eller MCA fakturering profil.
 chargeType | EA, MCA | Anger om tillägget representerar användning (**användning**), ett köp (**köpa**), eller en återbetalning (**återbetalning**).
-Använd kvantitet | PAYG | Se kvantitet.
-Använd tjänst | Alla | Namnet på tjänsten avgiften är kopplad till.
+ConsumedQuantity | PAYG | Se kvantitet.
+ConsumedService | Alla | Namnet på tjänsten avgiften är kopplad till.
 Kostnad | EA | Se CostInBillingCurrency.
 Kostnadsställe | EA, MCA | Det kostnadsställe som definierats för prenumerationen för att spåra kostnader (endast tillgängligt i öppna faktureringsperioder för MCA konton).
 CostInBillingCurrency | MCA | Kostnaden för tillägget i faktureringsvalutan innan krediter eller skatter.
@@ -66,25 +66,25 @@ ExchangeRateDate | MCA | Datum som en valutakurs har upprättats.
 ExchangeRatePricingToBilling | MCA | Exchange-hastighet som används för att konvertera kostnaden i pris valuta till valutan.
 Frekvens | EA, MCA | Anger om en avgift förväntas ska upprepas. Avgifter kan antingen göras en gång (**OneTime**) Upprepa på basis av per månad eller år (**återkommande**), eller baseras på användning (**UsageBased**).
 IncludedQuantity | PAYG | Mängden mätaren som ingår utan kostnad i den aktuella faktureringsperioden.
-Instans-ID | PAGY | Se ResourceId.
+InstanceId | PAGY | Se ResourceId.
 InvoiceId | EA, MCA | Det unika dokument-ID som visas på fakturan PDF.
 invoiceSection | MCA | Se InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Unik identifierare för EA-avdelningen eller MCA faktura avsnittet.
 InvoiceSectionName | EA, MCA | Namnet på EA-avdelningen eller MCA faktura avsnittet.
 IsAzureCreditEligible | EA, MCA | Anger om tillägget är berättigade att betalas för användning av Azure-krediter (värden: True, False).
 Location | EA, MCA | Plats för datacenter där resursen körs.
-Mätarkategori | Alla | Namnet på klassificeringskategori för mätaren. Till exempel *molntjänster* och *nätverk*.
-Mätar-ID | Alla | Den unika identifieraren för mätaren.
-Mätarnamn | Alla | Namnet på mätaren.
-Mätarregion | Alla | Namnet på datacenterplatsen för tjänster som prissätts baserat på plats. Visa plats.
-Underkategori för mätare | Alla | Namnet på underkategori för etablering.
-OfferId | EA, MCA | Namnet på erbjudandet har köpt.
+MeterCategory | Alla | Namnet på klassificeringskategori för mätaren. Till exempel *molntjänster* och *nätverk*.
+MeterId | Alla | Den unika identifieraren för mätaren.
+meterName | Alla | Namnet på mätaren.
+MeterRegion | Alla | Namnet på datacenterplatsen för tjänster som prissätts baserat på plats. Visa plats.
+MeterSubCategory | Alla | Namnet på underkategori för etablering.
+offerId | EA, MCA | Namnet på erbjudandet har köpt.
 PartNumber | EA | Identifierare som används för att få prisinformation om specifika mätaren.
 PlanName | EA | Marketplace-planens namn.
 PreviousInvoiceId | MCA | Referens till en ursprungliga faktura om den här radartikeln är en återbetalning.
 pricingCurrency | MCA | Valutan som används när klassificering utifrån förhandlade priser.
 Product | MCA | Se ProductName.
-Produkt-ID | EA, MCA | Unik identifierare för produkten.
+ProductId | EA, MCA | Unik identifierare för produkten.
 ProductName | EA | Namnet på produkten.
 ProductOrderId | EA, MCA | Unik identifierare för produkten ordningen.
 productOrderName | EA, MCA | Unikt namn för den produkt ordningen.
@@ -97,19 +97,19 @@ ReservationName | EA, MCA | Namnet på den köpta reservation-instansen.
 ResourceGroupId | EA, MCA | Unik identifierare för den [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) resursen finns i.
 ResourceGroupName | EA, MCA | Namnet på den [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) resursen finns i.
 ResourceId | EA, MCA | Unik identifierare för den [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) resurs.
-Resursplats | EA, MCA | Plats för datacenter där resursen körs. Visa plats.
-ResourceName | EA | Resursens namn.
+resourceLocation | EA, MCA | Plats för datacenter där resursen körs. Visa plats.
+ResourceName | EA | Namnet på resursen.
 ResourceType | MCA | Typ av resursinstans.
 ServiceFamily | EA, MCA | Tjänsten familj som tillhör tjänsten.
-Tjänstinformation 1 | Alla | Tjänstspecifik metadata.
-Tjänstinformation 2 | Alla | Äldre fält med valfria tjänstspecifika metadata.
+ServiceInfo1 | Alla | Tjänstspecifik metadata.
+ServiceInfo2 | Alla | Äldre fält med valfria tjänstspecifika metadata.
 ServicePeriodEndDate | MCA | Slutdatum för klassificering perioden som definieras och låst priser för förbrukade eller köpta-tjänsten.
 ServicePeriodStartDate | MCA | Startdatumet för den klassificering perioden som definieras och låst priser för förbrukade eller köpta-tjänsten.
 SubscriptionId | Alla | Unikt ID för prenumerationen.
-Prenumerationsnamn | Alla | Namnet på prenumerationen.
-Taggar | Alla | Taggar som tilldelats till resursen. Omfattar inte gruppen resurstaggar. Kan användas för att gruppera eller fördela kostnader för interna återbetalning. Mer information finns i [ordna dina Azure-resurser med taggar](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+subscriptionName | Alla | Namnet på prenumerationen.
+Tags | Alla | Taggar som tilldelats till resursen. Omfattar inte gruppen resurstaggar. Kan användas för att gruppera eller fördela kostnader för interna återbetalning. Mer information finns i [ordna dina Azure-resurser med taggar](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
 Enhet | PAYG | Se UnitOfMeasure.
-Måttenhet | Alla | Måttenhet för fakturering för tjänsten. Beräkningstjänster, till exempel faktureras per timme.
+unitOfMeasure | Alla | Måttenhet för fakturering för tjänsten. Beräkningstjänster, till exempel faktureras per timme.
 UnitPrice | EA | Pris per enhet för tillägget.
 UsageDate | PAYG | Visa datum.
 

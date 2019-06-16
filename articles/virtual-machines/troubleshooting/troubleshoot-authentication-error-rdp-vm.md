@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594929"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsök autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
@@ -101,7 +101,7 @@ gpupdate /force
 
 Om ändringen återställs, innebär det att problemet orsakas av en princip för Active Directory. 
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Undvik det här problemet, kör du följande kommandon i kommandofönstret att inaktivera NLA:
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606421"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
@@ -295,12 +295,12 @@ Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställning |Gäller| Value |
+| Inställning |Gäller| Värde |
 |----|---|---|
-| Klusternamn |alltid| yourclustername |
-| Databricks Runtime |alltid| Alla icke ML-körning (icke ML 4.x, 5.x) |
-| Python-version |alltid| 3 |
-| Arbetare |alltid| 2 eller högre |
+| Klusternamn |Alltid| yourclustername |
+| Databricks Runtime |Alltid| Alla icke ML-körning (icke ML 4.x, 5.x) |
+| Python-version |Alltid| 3 |
+| Arbetare |Alltid| 2 eller högre |
 | VM-typer för Worker-nod <br>(avgör max antal samtidiga iterationer) |Automatisk ML<br>endast| Minnesoptimerade virtuella datorer rekommenderas |
 | Aktivera automatisk skalning |Automatisk ML<br>endast| Avmarkera |
 
@@ -311,7 +311,7 @@ När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide
 
 1. Välj **endast en** alternativet (inga andra SDK-installation stöds)
 
-   |SDK&nbsp;paketet&nbsp;tillägg|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;paketet&nbsp;tillägg|source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |För Databricks| Ladda upp Python ägg eller PyPI | azureml-sdk[databricks]|
    |För Databricks - med-<br> automatiserad ML-kapacitet| Ladda upp Python ägg eller PyPI | azureml-sdk[automl_databricks]|

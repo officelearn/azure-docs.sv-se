@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
 ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510757"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric konsortienätverk
@@ -70,11 +70,11 @@ I den **Hyperledger Fabric Consortium** mall, väljer **skapa**.
 
 Malldistributionen vägleder dig genom konfigurationen med flera noder [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) nätverk. Distributionsflödet är uppdelad i fyra steg: Grunderna, Consortium nätverksinställningar, infrastrukturresurskonfigurationen och valfria komponenter.
 
-### <a name="basics"></a>Grundinställningar
+### <a name="basics"></a>Grundläggande inställningar
 
 I **grunderna**, ange värden för standard parametrar för alla distributioner. Prenumeration, resursgrupp och grundläggande virtuell dator som till exempel, egenskaper.
 
-![Grundinställningar](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![Grundläggande inställningar](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|

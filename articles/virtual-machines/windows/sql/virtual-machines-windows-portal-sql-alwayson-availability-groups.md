@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129561"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always On-Tillgänglighetsgrupper i Azure Virtual Machines automatiskt: Resource Manager
@@ -206,7 +206,7 @@ Följ dessa steg för RDP till en SQL Server:
 1. Från instrumentpanelen för Azure portal, kontrollerar du att distributionen har slutförts.
 2. Klicka på **resurser**.
 3. I den **resurser** bladet klickar du på **sqlserver-0**, vilket är namnet på en av de virtuella datorer som kör SQL Server.
-4. På bladet för **sqlserver-0**, klickar du på **Connect**. Webbläsaren ber om du vill öppna eller spara objektet för fjärranslutning. Klicka på **Open** (Öppna).
+4. På bladet för **sqlserver-0**, klickar du på **Connect**. Webbläsaren ber om du vill öppna eller spara objektet för fjärranslutning. Klicka på **öppna**.
 5. **Anslutning till fjärrskrivbord** kan varna dig att utgivaren av den här fjärranslutningen inte kan identifieras. Klicka på **Anslut**.
 6. Windows security uppmanas du att ange dina autentiseringsuppgifter för att ansluta till IP-adressen för den primära domänkontrollanten. Klicka på **Använd ett annat konto**. För **användarnamn**, typ **contoso\DomainAdmin**. Du har konfigurerat det här kontot när du ställer in administratören användarnamn i mallen. Använd komplexa lösenord som du valde när du konfigurerade mallen.
 7. **Fjärrskrivbord** kan varna dig fjärrdatorn inte kunde autentiseras på grund av problem med dess säkerhetscertifikat. Den visar namnet på säkerhet. Om du har följt självstudierna namnet är **sqlserver-0.contoso.com**. Klicka på **Ja**.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711446"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installera och konfigurera MongoDB på en Windows-dator i Azure
@@ -47,7 +47,7 @@ Att börja installera och konfigurera MongoDB, [logga in på din Windows Server-
      
      ![Konfigurera säkerhetsinställningar för Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Bläddra till den [MongoDB - hämtningar](https://www.mongodb.com/downloads) sidan (https://www.mongodb.com/downloads).
-5. Om det behövs, Välj den **gruppservern** edition och välj sedan det senaste aktuella stabilt viktig för*Windows Server 2008 R2 64-bitars och senare*. För att hämta installationsprogrammet, klickar du på **DOWNLOAD (msi)**.
+5. Om det behövs, Välj den **gruppservern** edition och välj sedan det senaste aktuella stabilt viktig för*Windows Server 2008 R2 64-bitars och senare*. För att hämta installationsprogrammet, klickar du på **DOWNLOAD (msi)** .
    
     ![Ladda ned installationsprogrammet för MongoDB](./media/install-mongodb/download-mongodb.png)
    

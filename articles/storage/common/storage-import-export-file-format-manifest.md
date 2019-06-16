@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478631"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-tjänstens manifestfilformat
@@ -106,7 +106,7 @@ Dataelement och attribut för manifest-XML-format för enheten har angetts i tab
 |`BlobList/PropertiesPath/@Hash`|Attribut, sträng|Anger Base16-kodad MD5-hash-värde för filen egenskaper.|  
 |`Blob`|Kapslade XML-element|Innehåller information om varje blob i varje blob-lista.|  
 |`Blob/BlobPath`|String|Relativ URI till bloben från och med behållarens namn. Om blobben finns i Rotbehållare, det måste börja med `$root`.|  
-|`Blob/FilePath`|String|Anger den relativa sökvägen till filen på enheten. För export-jobb, ska blobbsökvägen användas för sökvägen om möjligt. *t.ex.*, `pictures/bob/wild/desert.jpg` kommer att exporteras till `\pictures\bob\wild\desert.jpg`. En blob kan dock på grund av begränsningar av NTFS som exporteras till en fil med en sökväg som inte liknar den blobbsökvägen.|  
+|`Blob/FilePath`|String|Anger den relativa sökvägen till filen på enheten. För export-jobb, ska blobbsökvägen användas för sökvägen om möjligt. *t.ex.* , `pictures/bob/wild/desert.jpg` kommer att exporteras till `\pictures\bob\wild\desert.jpg`. En blob kan dock på grund av begränsningar av NTFS som exporteras till en fil med en sökväg som inte liknar den blobbsökvägen.|  
 |`Blob/ClientData`|String|Valfri. Innehåller kommentarer från kunden. Det här värdet tolkas inte av Import/Export-tjänsten.|  
 |`Blob/Snapshot`|DateTime|Valfritt av export-jobb. Anger identifieraren för ögonblicksbild för en exporterade blobögonblicksbild.|  
 |`Blob/Length`|Integer|Anger den totala längden på blob i byte. Värdet kan vara upp till 200 GB för en blockblob och upp till 1 TB för en sidblob. Det här värdet måste vara en multipel av 512 för en sidblob.|  
@@ -116,7 +116,7 @@ Dataelement och attribut för manifest-XML-format för enheten har angetts i tab
 |`PageRange/@Offset`|Integer-attribut|Anger förskjutningen i överföringen fil- och blob där ett angivet intervall börjar. Det här värdet måste vara en multipel av 512.|  
 |`PageRange/@Length`|Integer-attribut|Anger hur lång sidintervallet. Det här värdet måste vara en multipel av 512 och mer än 4 MB.|  
 |`PageRange/@Hash`|Attribut, sträng|Anger värdet för Base16-kodad MD5-hash för sidintervallet.|  
-|`BlockList`|Kapslade XML-element|Krävs för en blockblob med namngivna blocken.<br /><br /> För en import-åtgärd anger i blockeringslistan en uppsättning av block som ska importeras till Azure Storage. För en export anger blockeringslistan där varje block har lagrats i filen på disken för export. Varje block beskrivs av en förskjutning i filen och en Blockets längd; varje block vidare med namnet av ett block-ID-attribut och innehåller en MD5-hash för blocket. Upp till 50 000 block kan användas för att beskriva en blob.  Alla block måste beställas av Förskjutning, och tillsammans ska täcka hela utbudet av filen *d.v.s.*, det måste vara Ingen klyftan mellan block. Om blobben som är mer än 64 MB, måste block-ID: N för varje block vara antingen alla saknade eller alla finns. Block-ID: N måste vara Base64-kodade strängar. Se [placera Block](/rest/api/storageservices/put-block) för ytterligare krav för block-ID: N.|  
+|`BlockList`|Kapslade XML-element|Krävs för en blockblob med namngivna blocken.<br /><br /> För en import-åtgärd anger i blockeringslistan en uppsättning av block som ska importeras till Azure Storage. För en export anger blockeringslistan där varje block har lagrats i filen på disken för export. Varje block beskrivs av en förskjutning i filen och en Blockets längd; varje block vidare med namnet av ett block-ID-attribut och innehåller en MD5-hash för blocket. Upp till 50 000 block kan användas för att beskriva en blob.  Alla block måste beställas av Förskjutning, och tillsammans ska täcka hela utbudet av filen *d.v.s.* , det måste vara Ingen klyftan mellan block. Om blobben som är mer än 64 MB, måste block-ID: N för varje block vara antingen alla saknade eller alla finns. Block-ID: N måste vara Base64-kodade strängar. Se [placera Block](/rest/api/storageservices/put-block) för ytterligare krav för block-ID: N.|  
 |`Block`|XML-element|Representerar ett block.|  
 |`Block/@Offset`|Integer-attribut|Anger förskjutningen där det angivna blocket börjar.|  
 |`Block/@Length`|Integer-attribut|Anger antalet byte i blocket; Det här värdet måste vara mer än 4MB.|  

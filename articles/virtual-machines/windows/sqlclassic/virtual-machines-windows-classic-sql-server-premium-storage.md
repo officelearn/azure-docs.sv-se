@@ -17,10 +17,10 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583268"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
@@ -294,7 +294,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 Det här scenariot visar där du har befintliga anpassade avbildningar som finns i ett standardlagringskonto. Som vi redan nämnt om du vill placera OS-VHD på Premium-lagring måste du kopiera den avbildning som finns i standardlagringskontot och överför dem till ett Premium Storage innan den kan användas. Om du har en bild på plats, kan du också använda den här metoden för att kopiera som direkt till Premium Storage-kontot.
 
-#### <a name="step-1-create-storage-account"></a>Steg 1: Skapa lagringskonto
+#### <a name="step-1-create-storage-account"></a>Steg 1: Skapa Lagringskonto
 
 ```powershell
 $mysubscription = "DansSubscription"

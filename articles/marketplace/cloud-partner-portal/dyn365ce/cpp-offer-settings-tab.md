@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942444"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Dynamics 365 för Customer Engagement erbjuder inställningar-fliken
@@ -29,7 +29,7 @@ I följande tabell beskrivs fälten i den här fliken. Required fields are indic
 
 |    Fält         |       Beskrivning                                                            |
 |  ---------       |     ---------------                                                          |
-| **Erbjudande-ID\***   | En unik identifierare (inom en utgivarprofil för) för erbjudandet. Den här identifieraren syns i URL: er och insikter rapporter i produkten. Det har högst 50 tecken och kan använda gemena alfanumeriska tecken och bindestreck (-). (Det ID: t får inte sluta med ett bindestreck.) **Obs!** Det här fältet kan inte ändras när ett erbjudande lanseras eftersom den är kopplad till erbjudandets marketplace bas-URL.  |
+| **Erbjudande-ID\***   | En unik identifierare (inom en utgivarprofil för) för erbjudandet. Den här identifieraren syns i URL: er och insikter rapporter i produkten. Det har högst 50 tecken och kan använda gemena alfanumeriska tecken och bindestreck (-). (Det ID: t får inte sluta med ett bindestreck.) **Obs:** Det här fältet kan inte ändras när ett erbjudande lanseras eftersom den är kopplad till erbjudandets marketplace bas-URL.  |
 | **Utgivar-ID\***  | Din organisations unika identifieraren i Azure Marketplace. Alla dina erbjudanden som ska associeras med ditt publisher-ID. Det här värdet kan inte ändras när erbjudandet har sparats. |
 | **Namn\***       | Visningsnamn för ditt erbjudande. Det här namnet visas i AppSource-marknadsplatsen. Det får innehålla högst 50 tecken. Vi rekommenderar att du använder ett beskrivande namn för varumärke för din produkt. Omfattar inte namnet på din organisation om det inte är hur din produkt släpps. Om du marknadsföring det här erbjudandet i andra webbplatser och publiceringar, se till att namnet exakt samma i alla publikationer. |
 |  |  |

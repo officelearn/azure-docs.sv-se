@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347387"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
@@ -150,7 +150,7 @@ Kan anropa åtgärder direkt från utvecklarportalen, vilket är ett enkelt sät
 
 4. För **Begäranparametrar**, typ din **arbetsytan** och **service**, typ ”2.0 för den **apiversion**, och det är” true ”för **information**. Du kan hitta din **arbetsytan** och **service** i instrumentpanelen för webbtjänsten AzureML (se **testa webbtjänsten** i bilaga A).
 
-   För **begärandehuvuden**, klickar du på **Lägg till sidhuvud** och Skriv ”Content-Type” och ”application/json”. Klicka på **Lägg till sidhuvud** igen och Skriv ”Authorization” och ”ägar  *\<din tjänst API-NYCKELN\>*”. Du hittar din API-nyckel i instrumentpanelen för webbtjänsten AzureML (se **testa webbtjänsten** i bilaga A).
+   För **begärandehuvuden**, klickar du på **Lägg till sidhuvud** och Skriv ”Content-Type” och ”application/json”. Klicka på **Lägg till sidhuvud** igen och Skriv ”Authorization” och ”ägar  *\<din tjänst API-NYCKELN\>* ”. Du hittar din API-nyckel i instrumentpanelen för webbtjänsten AzureML (se **testa webbtjänsten** i bilaga A).
 
    För **Begärandetext**, typen `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 

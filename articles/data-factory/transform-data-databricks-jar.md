@@ -13,10 +13,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860997"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en Jar-aktivitet i Azure Databricks
@@ -56,11 +56,11 @@ Här är exempel JSON-definition för en Databricks Jar aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Krävs|
+|Egenskap|Beskrivning|Krävs|
 |:--|---|:-:|
-|namn|Namnet på aktiviteten i pipelinen.|Ja|
+|name|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|typ|För Databricks Jar-aktiviteten är aktivitetstypen DatabricksSparkJar.|Ja|
+|type|För Databricks Jar-aktiviteten är aktivitetstypen DatabricksSparkJar.|Ja|
 |linkedServiceName|Namnet på den länkade tjänsten för Databricks som Jar-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |mainClassName|Det fullständiga namnet på den klass som innehåller main-metoden som ska köras. Den här klassen måste finnas i en JAR som tillhandahålls som ett bibliotek.|Ja|
 |parameters|Parametrar som skickas till main-metoden.  Det här är en matris med strängar.|Nej|

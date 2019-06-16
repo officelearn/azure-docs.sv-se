@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062425"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -54,6 +54,25 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern och att systemet kan utöka lagringen automatiskt baserat på arbetsbelastningens lagringsanvändningen. Basic-nivån ger inte en garanti för IOPS. I generell användning och Minnesoptimerad prisnivåer, skala IOPS med den allokerade lagringsstorleken i ett 3:1-förhållande.
 
 Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure CLI-kommandon. De mått som är relevanta för att övervaka är [gränsen för lagring, lagringsprocent, lagringsutrymme och IO-procent](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Stora storage (förhandsversion)
+
+Lagringsgränserna ökar vi vår generell användning och Minnesoptimerad nivåer. Nyligen skapade servrarna kan att delta i förhandsversionen etablera upp till 16 TB lagring. IOPS skala på ett 3:1-förhållande upp till 20 000 IOPS. Precis som med den aktuella allmänt tillgänglig lagringen, du lägger till ytterligare lagringskapacitet efter skapandet av servern och att systemet kan utöka lagringen automatiskt baserat på arbetsbelastningens lagringsanvändningen.
+
+|              | **Generell användning** | **Optimerat minne** |
+|:-------------|:--------------------|:---------------------|
+| Lagringstyp | Azure Premium Storage | Azure Premium Storage |
+| Lagringsstorlek | 32 GB till 16 TB| 32-16 TB |
+| Öka lagringsstorleken | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS |
+
+> [!IMPORTANT]
+> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, västra USA 2, Nordeuropa, Västeuropa, Sydostasien, Japan östra, Korea centrala; Australien, östra.
+>
+> Förhandsversionen av stort lagringsutrymme stöder för närvarande inte:
+>
+> * Geografiskt redundanta säkerhetskopieringar
+> * Mellan region replikering
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 

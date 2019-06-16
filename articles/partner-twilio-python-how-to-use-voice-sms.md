@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457676"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Använda Twilio för röst- och SMS-funktioner i Python
@@ -46,17 +46,17 @@ API: et gör använda Twilio verb; till exempel den **&lt;Say&gt;** verb instrue
 
 Här följer en lista över Twilio-verb. Läs mer om andra verb och funktioner i form av [Twilio Markup Language dokumentation][twiml].
 
-* **&lt;Dial&gt;**: Ansluter anroparen till en annan telefon.
-* **&lt;Gather&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
-* **&lt;Hangup&gt;**: Slutar ett anrop.
-* **&lt;Pause&gt;**: Väntar tyst under ett angivet antal sekunder.
-* **&lt;Play&gt;**: Spelar upp en ljudfil.
-* **&lt;Kön&gt;**: Lägg till den till en kö med anropare.
-* **&lt;Post&gt;**: Registrerar anroparen röst och returnerar en URL för en fil som innehåller inspelningen.
-* **&lt;Redirect&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Reject&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du.
-* **&lt;Say&gt;**: Konverterar text till tal som görs på ett anrop.
-* **&lt;Sms&gt;**: Skickar ett SMS-meddelande.
+* **&lt;Dial&gt;** : Ansluter anroparen till en annan telefon.
+* **&lt;Gather&gt;** : Samlar in siffror som anges på telefon-tangentbordet.
+* **&lt;Hangup&gt;** : Slutar ett anrop.
+* **&lt;Pause&gt;** : Väntar tyst under ett angivet antal sekunder.
+* **&lt;Play&gt;** : Spelar upp en ljudfil.
+* **&lt;Kön&gt;** : Lägg till den till en kö med anropare.
+* **&lt;Post&gt;** : Registrerar anroparen röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt;Redirect&gt;** : Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
+* **&lt;Reject&gt;** : Avvisar inkommande samtal till din Twilio-nummer utan fakturering du.
+* **&lt;Say&gt;** : Konverterar text till tal som görs på ett anrop.
+* **&lt;Sms&gt;** : Skickar ett SMS-meddelande.
 
 ### <a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktionerna baserat på de Twilio-verb som meddelar Twilio av behandla ett samtal eller SMS.

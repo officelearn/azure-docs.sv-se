@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827761"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
@@ -96,7 +96,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
 6. Konfigurera granskning för skrivning loggar till ett lagringskonto, väljer **Storage** och öppna **lagringsinformation**. Välj Azure-lagringskontot där loggarna sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka sedan på **OK**.
 
-    ![lagringskonto](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Konfigurera granskning för skrivning loggar på en Log Analytics-arbetsyta väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa Log Analytics-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
 
@@ -231,7 +231,7 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
 
 ## <a id="subheading-7"></a>Hantera SQL database-granskning med Azure PowerShell
 
-**PowerShell-cmdletar (inklusive WHERE-satsen stöd för ytterligare filtrering)**:
+**PowerShell-cmdletar (inklusive WHERE-satsen stöd för ytterligare filtrering)** :
 
 - [Skapa eller uppdatera databasen granskningsprincip (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Skapa eller uppdatera princip för Server granskning (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121699"
 ---
 # <a name="azure-database-security-checklist"></a>Checklista för Azure database-säkerhet
@@ -34,7 +34,7 @@ Exempel på dessa är:
 -   Använda access management
 -   Datakryptering
 -   Granskning av SQL Database
--   SQL Database hotidentifiering
+-   Hotidentifieringen i SQL Database
 
 ## <a name="introduction"></a>Introduktion
 Molnbaserad databehandling kräver ny security paradigm som är okända för många programanvändare, databasadministratörer och programmerare. Vissa organisationer är därför tveksamma att implementera en molninfrastruktur för hantering av på grund av upplevd säkerhetsrisker. Mycket av det här problemet kan dock lindras genom en bättre förståelse för säkerhetsfunktioner som är inbyggda i Microsoft Azure och Microsoft Azure SQL Database.

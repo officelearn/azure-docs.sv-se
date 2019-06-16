@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868285"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader i samband med ett labb i Azure DevTest Labs
@@ -91,7 +91,7 @@ Funktionen trend månatlig kostnad för i labb kan du se hur mycket du använt i
 4. Välj **konfiguration och principer** på den vänstra menyn.
 5. Välj **kostnad per resurs** i den **Kostnadsuppföljning** avsnitt i den vänstra menyn. Du kan se kostnaderna för varje resurs som är associerad med ett labb. 
 
-    ![Kostnad efter resurs](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
+    ![Kostnad per resurs](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
 Den här funktionen hjälper dig att enkelt identifiera de resurser som kostar mest så att du kan vidta åtgärder för att minska lab utgifter. Till exempel baseras kostnaden för en virtuell dator på storleken på den virtuella datorn. Ju större storleken på den virtuella datorn, mer är kostnaden. Hittar du enkelt storleken på en virtuell dator och ägare, så att du kan kommunicera med VM-ägaren att förstå varför behövs sådana VM-storlek och om det finns en risk att minska storleken.
 

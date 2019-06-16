@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072422"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
@@ -32,7 +32,7 @@ Standard röster skapas med hjälp av statistiska parametrisk syntes och/eller s
 
 Neural röster använda djupa neurala nätverk för att övervinna gränserna för traditionella text till tal-system i matchar mönster av stress och intonation i talat språk och i synthesizing enheter av tal i en dator röst. Standard text till tal uppdelad prosody i separata språklig analys och akustiska förutsägelse steg som regleras av oberoende modeller. Som kan resultera i muffled, buzzy röst syntes. Vår neural funktion gör prosody prognoser och röst syntes samtidigt, vilket innebär att en mer flytande och naturligt standardrösttyper röst.
 
-Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska Neural röster avsevärt lyssnande utmattning när du interagerar med AI-system. 
+Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska neural röster avsevärt lyssnande utmattning när du interagerar med AI-system. 
 
 Få en neural stöder olika format, till exempel neutrala och trevligare. Exempel: röst Jessa (en-US) kan prata cheerfully, som är optimerad för varm, glada konversationen. Du kan justera voice-utdata som ton försäljningsargument, och snabbare med hjälp av [tal syntes Markup Language](speech-synthesis-markup.md). En fullständig lista över tillgängliga röster Se [språk som stöds](language-support.md#text-to-speech).
 

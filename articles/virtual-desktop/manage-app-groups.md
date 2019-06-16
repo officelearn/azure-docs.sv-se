@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cba13012bf165a097bd1382da8ef9897b0584d28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066881"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Självstudier: Hantera app-grupper för Windows Virtual Desktop-förhandsversion
 
@@ -73,7 +73,7 @@ Innan du börjar [hämta och importera modulen Windows PowerShell för virtuella
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa app-grupper, fyller den med RemoteApps och tilldela användare till app-gruppen. Om du vill veta mer om hur du loggar in till virtuella Windows-skrivbordet kan fortsätta att ansluta till virtuella skrivbord instruktioner för Windows.
+I den här självstudien lärde du dig att skapa app-grupper, fyller den med RemoteApps och tilldela användare till app-gruppen. Läs så här skapar du en värd för verifiering i poolen, vilket kan du övervaka uppdateringar av tjänsten innan du distribuerar dem till produktionsmiljön, skapa en värd-pool för att verifiera självstudie för service-uppdateringar.
 
-- [Ansluta till fjärrskrivbord-klienten på Windows 7 och Windows 10](connect-windows-7-and-10.md)
-- [Ansluta till webbklienten förhandsversion för virtuella skrivbord i Windows](connect-web.md)
+> [!div class="nextstepaction"]
+> [Skapa en pool med värden för att verifiera självstudie för service-uppdateringar](./create-validation-host-pool.md)

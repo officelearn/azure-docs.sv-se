@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
 ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61219376"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
@@ -132,7 +132,7 @@ Att återuppta skyddet av en virtuell dator:
 
     ![Meddelande om en har skyddad virtuell dator](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>ta bort säkerhetskopierade data
+## <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
 
 Du kan ta bort en virtuell dators säkerhetskopierade data under den **stoppa säkerhetskopiering** jobb eller när säkerhetskopieringen är klar. Innan du tar bort säkerhetskopierade data, Tänk på följande information:
 

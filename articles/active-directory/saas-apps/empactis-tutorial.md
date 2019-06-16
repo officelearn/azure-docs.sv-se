@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d4d9e988f54abc52eedf0dfc26c78a2d16f72032
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 94e326a2c8f75f2b498ddc603d5a0895baf71b3d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empactis"></a>Självstudier: Azure Active Directory-integrering med Empactis
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Empactis i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Empactis från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -190,5 +190,5 @@ När du klickar på panelen Empactis i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

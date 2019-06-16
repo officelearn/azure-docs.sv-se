@@ -1,6 +1,6 @@
 ---
-title: Visa neka tilldelningar för Azure-resurser med Azure portal | Microsoft Docs
-description: Lär dig hur du visar användare, grupper, tjänstens huvudnamn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder i visst omfång med Azure portal.
+title: Lista neka tilldelningar för Azure-resurser med Azure portal | Microsoft Docs
+description: Lär dig mer om att lista användare, grupper, tjänstens huvudnamn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder på viss scope med hjälp av Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194385"
+ms.locfileid: "67127491"
 ---
-# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa neka tilldelningar för Azure-resurser med Azure portal
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lista neka tilldelningar för Azure-resurser med Azure portal
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Den här artikeln beskriver hur du använder Azure-portalen för att visa neka tilldelningar.
+[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Den här artikeln beskriver hur du listar neka tilldelningar med Azure portal.
 
 > [!NOTE]
-> För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
+> Du kan inte direkt skapa en egen neka tilldelningar. Information om hur neka tilldelningar har skapats, finns i [neka tilldelningar](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -34,13 +34,13 @@ Om du vill ha information om en neka-tilldelning måste du ha:
 
 - `Microsoft.Authorization/denyAssignments/read` behörigheter, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Visa neka tilldelningar
+## <a name="list-deny-assignments"></a>Lista neka tilldelningar
 
-Följ anvisningarna nedan om du vill visa neka tilldelningar definitionsområdet prenumerations- eller grupp.
+Följ dessa steg för att lista neka tilldelningar definitionsområdet prenumerations- eller grupp.
 
 1. I Azure-portalen klickar du på **alla tjänster** och sedan **hanteringsgrupper** eller **prenumerationer**.
 
-1. Klicka på hanteringsgruppen eller prenumerationen som du vill visa.
+1. Klicka på hanteringsgruppen eller prenumerationen som du vill lista.
 
 1. Klicka på **åtkomstkontroll (IAM)** .
 
@@ -67,9 +67,9 @@ Följ anvisningarna nedan om du vill visa neka tilldelningar definitionsområdet
 
 1. Lägg till någon av de Aktivera objekt och klicka sedan på **OK** att visa de markerade kolumnerna.
 
-## <a name="view-details-about-a-deny-assignment"></a>Visa information om en neka-tilldelning
+## <a name="list-details-about-a-deny-assignment"></a>Information om en neka-tilldelning
 
-Följ dessa steg om du vill visa mer information om en neka-tilldelning.
+Följ dessa steg för att visa ytterligare information om en neka-tilldelning.
 
 1. Öppna den **neka tilldelningar** fönstret enligt beskrivningen i föregående avsnitt.
 
@@ -110,4 +110,4 @@ Följ dessa steg om du vill visa mer information om en neka-tilldelning.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå neka tilldelningar för Azure-resurser](deny-assignments.md)
-* [Lista neka tilldelningar för Azure-resurser med hjälp av REST-API](deny-assignments-rest.md)
+* [Lista neka tilldelningar för Azure-resurser med Azure PowerShell](deny-assignments-powershell.md)

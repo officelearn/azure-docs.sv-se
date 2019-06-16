@@ -14,10 +14,10 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61032593"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
@@ -28,21 +28,21 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 
 **Allmänt tillgänglig**
 
-- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Database for PostgreSQL-server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
-- **[Azure Database for MySQL-server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner där ADLS Gen1 är tillgängligt.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Database for PostgreSQL-server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
+- **[Azure Database for MySQL-server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** : Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Allmänt tillgängligt i alla Azure-regioner där ADLS Gen1 är tillgängligt.
 
 **Offentlig förhandsversion**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Förhandsgranska tillgängliga i alla Azure-regioner där Azure Container Registry är tillgänglig.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : Förhandsgranska tillgängliga i alla Azure-regioner där Azure Container Registry är tillgänglig.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

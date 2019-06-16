@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551438"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure portal
@@ -51,7 +51,7 @@ Den här artikeln innehåller kortkommandon som fungerar överallt i Azure-porta
 |Gå till **instrumentpanel** |G+D |
 |Gå till **alla resurser**|G+A |
 |Gå till **resursgrupper**|G+R |
-|Öppna vänstra sidorutan objektet på den här positionen |G+nummer|
+|Öppna vänstra sidorutan objektet på den här positionen |G+number|
 
 ## <a name="next-steps"></a>Nästa steg
 

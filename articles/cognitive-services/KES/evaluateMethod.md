@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814102"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
@@ -33,7 +33,7 @@ uttryck för Markörstorlek       | Textsträngen | Strukturerade frågeuttryck 
 Attribut | Textsträngen | Kommaavgränsad lista med attribut som ska ingå i svaret.
 count      | Antal (standard = 10) | Maximalt antal resultat som ska returneras.
 offset     | Antal (standard = 0) | Index för det första resultatet ska returneras.
-orderby |   Textsträngen | Namnet på attributet som används för att sortera resultaten, följt av valfritt sorteringsordningen (standard = asc) ”:*%{attrname/*[: (asc&#124;desc)]”.  Om inte anges returneras resultatet genom att minska sannolikheten för naturliga loggen.
+orderby |   Textsträngen | Namnet på attributet som används för att sortera resultaten, följt av valfritt sorteringsordningen (standard = asc) ”: *%{attrname/* [: (asc&#124;desc)]”.  Om inte anges returneras resultatet genom att minska sannolikheten för naturliga loggen.
 timeout  | Antal (standard = 1000) | Tidsgräns i millisekunder. Endast returneras en beräknad innan tidsgränsen har gått ut.
 
 Med hjälp av den *antal* och *offset* parametrar, ett stort antal resultat kan erhållas stegvis över flera förfrågningar.

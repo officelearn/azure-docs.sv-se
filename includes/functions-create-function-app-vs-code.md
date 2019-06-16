@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 894ca0e78dfb75dffc124d3d25aa7a8e72adf627
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065544"
 ---
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 
@@ -26,6 +26,9 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
 
 1. Välj språk för ditt funktionsappsprojekt. I den här artikeln används JavaScript.
     ![Välj projektspråk](./media/functions-create-function-app-vs-code/create-function-app-project-language.png)
+
+1. Välj en mall för den första funktionen för ditt projekt. Ange ett namn för din funktion.
+    ![Välj första funktion](./media/functions-create-function-app-vs-code/create-function-app-project-first-function.png)
 
 1. Välj **Lägg till på arbetsyta** när du uppmanas att göra det.
 

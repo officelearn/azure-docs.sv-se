@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064045"
 ---
 # <a name="inspect-custom-speech-data"></a>Granska data för anpassat tal
 
@@ -34,7 +34,7 @@ Följ dessa instruktioner för att skapa ett test:
 
 1. Gå till **tal till text > anpassat tal > Testa**.
 2. Klicka på **Lägg till Test**.
-3. Välj **inspektera kvalitet (enbart ljud data)**. Ge testet ett namn, beskrivning, och välj din ljud datauppsättning.
+3. Välj **inspektera kvalitet (enbart ljud data)** . Ge testet ett namn, beskrivning, och välj din ljud datauppsättning.
 4. Välj upp till två modeller som du vill testa.
 5. Klicka på **Skapa**.
 
@@ -46,7 +46,7 @@ När test-statusen är *lyckades*, klickar på objektnamn test visas detaljerad 
 
 För att inspektera sida-vid-sida-jämförelse, kan du växla olika feltyper inklusive infogning och borttagning av ersättningen. Genom att lyssna på ljudet och jämföra resultat i varje kolumn (visar mänskliga etikett transkription och resultatet av två modeller för tal-till-text), kan du bestämma vilken modell som passar dina behov och var förbättringar som krävs.
 
-Kontrollera kvalitetstestning är användbar för att verifiera om kvaliteten på en slutpunkt för taligenkänning räcker för ett program.  För ett servicenivåmål mått av Precision, kräver transkriberade ljud, följer du instruktionerna i testning: Utvärdera precision.
+Kontrollera kvalitetstestning är användbar för att verifiera om kvaliteten på en slutpunkt för taligenkänning räcker för ett program.  För ett servicenivåmål mått av Precision kräver transkriberade ljud, följer du instruktionerna i [utvärdera Precision](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

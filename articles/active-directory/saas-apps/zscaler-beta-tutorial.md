@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Självstudier: Azure Active Directory-integrering med Zscaler Beta
 
@@ -307,5 +307,5 @@ När du väljer panelen Zscaler Beta i åtkomstpanelen, bör det vara loggas in 
 
 - [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

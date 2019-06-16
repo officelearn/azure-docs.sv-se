@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8b1e2baa2cdaee511ecff614406a0e4c25d553c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Självstudier: Azure Active Directory-integrering med AppNeta Performance Monitor
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av AppNeta Performance Monitor med Azure AD beh
 
 **Utför följande steg för att lägga till AppNeta Performance Monitor från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -124,8 +124,8 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ap
     | firstName| user.givenname|
     | lastName| user.surname|
     | email| user.userprincipalname|
-    | namn| user.userprincipalname|
-    | Grupper  | user.assignedroles |
+    | name| user.userprincipalname|
+    | groups  | user.assignedroles |
     | phone| user.telephonenumber |
     | title| user.jobtitle|
     | | |
@@ -239,4 +239,4 @@ När du klickar på AppNeta Performance Monitor-panelen i åtkomstpanelen bör d
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

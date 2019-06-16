@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851383"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Konfigurera App Service-appen för att använda Azure Active Directory-inloggning
@@ -79,12 +79,12 @@ Du kan registrera interna klienter, vilket ger större kontroll över behörighe
 1. Gå till **Azure Active Directory** i den [Azure Portal].
 2. I det vänstra navigeringsfönstret väljer **appregistreringar**. Klicka på **ny appregistrering** högst upp.
 4. I den **skapa** anger en **namn** för appregistrering av din. Välj **interna** i **programtyp**.
-5. I den **omdirigerings-URI** Ange webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*. Om du skapar ett Windows-program, i stället använda den [paketera SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) som URI: N.
+5. I den **omdirigerings-URI** Ange webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done* . Om du skapar ett Windows-program, i stället använda den [paketera SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) som URI: N.
 5. Klicka på **Skapa**.
 6. När appregistreringen har lagts till, väljer du den för att öppna den. Hitta den **program-ID** och anteckna det här värdet.
 7. Klicka på **alla inställningar** > **nödvändiga behörigheter** > **Lägg till** > **Välj en API**.
 8. Skriv namnet på den App Service-app som du registrerade tidigare att söka efter den, och sedan markera den och klicka på **Välj**.
-9. Välj **åtkomst \<app_name >**. Klicka sedan på **Välj**. Klicka sedan på **Klar**.
+9. Välj **åtkomst \<app_name >** . Klicka sedan på **Välj**. Klicka sedan på **Klar**.
 
 Du har nu konfigurerat ett internt klientprogram som kan komma åt din App Service-app.
 

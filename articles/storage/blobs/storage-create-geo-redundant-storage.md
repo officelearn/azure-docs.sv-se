@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071400"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
 
@@ -82,9 +82,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
-   | **Replikering**| Read-Access Geo-Redundant Storage (RA-GRS) | Den här inställningen är nödvändigt för att exemplet ska fungera. |
-   |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Replikering**| Read-Access Geo-Redundant Storage (RA-GRS) | Detta krävs för att exemplet ska fungera. |
+   | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Plats** | Östra USA | Välj en plats. |

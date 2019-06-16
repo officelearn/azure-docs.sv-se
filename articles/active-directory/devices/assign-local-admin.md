@@ -17,12 +17,12 @@ ms.date: 01/08/2019
 ms.author: joflore
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da55370df55bcd9122bf87c561b00f3106cc6c58
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: f19a9dfe683ab1c58d373cb8ba88b6523d43623e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296782"
+ms.locfileid: "67110738"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
@@ -115,6 +115,6 @@ När du tar bort användare från administratörsrollen enhet ha de fortfarande 
 
 - Om du vill ha en översikt över hantering av enheter i Azure-portalen kan du läsa om att [hantera enheter med Azure-portalen](device-management-azure-portal.md)
 
-- Om du vill veta mer om enhetsbaserad villkorlig åtkomst kan du läsa mer om att [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
+- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 

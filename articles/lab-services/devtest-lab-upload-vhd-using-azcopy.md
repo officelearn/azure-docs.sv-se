@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 8cd778762bebf4a9dda3688292ac0a3674e446e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634986"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Överför VHD-filen till övningen storage-konto med hjälp av AzCopy
@@ -45,7 +45,7 @@ I följande steg vägleder dig genom att ladda upp en VHD-fil till Azure DevTest
 
 1. På den labb-bladet och välj **Configuration**. 
 
-1. På labbet **Configuration** bladet väljer **anpassade avbildningar (VHD)**.
+1. På labbet **Configuration** bladet väljer **anpassade avbildningar (VHD)** .
 
 1. På den **anpassade avbildningar** bladet välj **+ Lägg till**. 
 

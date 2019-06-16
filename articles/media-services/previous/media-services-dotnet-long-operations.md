@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464988"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Leverera direktsänd strömning med Azure Media Services
@@ -30,7 +30,7 @@ Microsoft Azure Media Services erbjuder API: er som skickar begäranden till Med
 Media Services .NET SDK innehåller API: er som skickar begäran och vänta tills åtgärden har slutförts (internt API: erna avsökningen för åtgärdsförlopp med vissa intervall). Till exempel när du anropar kanal. Start(), returnerar-metoden när kanalen har startats. Du kan också använda den asynkrona versionen: await kanal. StartAsync() (information om uppgiftsbaserat asynkront mönster finns i [trycker du på](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API: er som skickar en begäran om åtgärden och sedan söka efter status tills åtgärden har slutförts kallas ”avsökningen metoder”. Dessa metoder (särskilt den asynkron versionen) rekommenderas för rich-klientprogram och/eller tillståndskänsliga tjänster.
 
 Det finns scenarier där ett program inte kan vänta på en tidskrävande http-begäran och vill söka efter förloppet för åtgärden manuellt. Ett typexempel är en webbläsare som interagerar med en tillståndslös webbtjänst: när webbläsaren skickar en begäran för att skapa en kanal, webbtjänsten initierar en långvarig åtgärd och returnerar åtgärds-ID till webbläsaren. Webbläsaren kan sedan be webbtjänsten för att hämta Åtgärdsstatus för baseras på ID. Media Services .NET SDK innehåller API: er som är användbara för det här scenariot. Dessa API: er kallas ”icke-avsökning metoder”.
-”Icke-avsökning metoder” har följande namngivningsmönstret: Skicka*OperationName*åtgärden (till exempel SendCreateOperation). Skicka*OperationName*åtgärdsmetoder returnera den **IOperation** objekt; den returnerade objekt innehåller information som kan användas för att spåra igen. Skicka*OperationName*OperationAsync metoder returnerar **uppgift\<IOperation >**.
+”Icke-avsökning metoder” har följande namngivningsmönstret: Skicka*OperationName*åtgärden (till exempel SendCreateOperation). Skicka*OperationName*åtgärdsmetoder returnera den **IOperation** objekt; den returnerade objekt innehåller information som kan användas för att spåra igen. Skicka*OperationName*OperationAsync metoder returnerar **uppgift\<IOperation >** .
 
 Följande klasser stöder för närvarande icke-avsökning metoder:  **Kanalen**, **StreamingEndpoint**, och **programmet**.
 

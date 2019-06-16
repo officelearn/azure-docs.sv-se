@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567441"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Transformeringsaktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md)
 > * [Piggningsåtgärd](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
@@ -303,7 +303,7 @@ Vi rekommenderar att du går igenom den [skapa din första pipeline med Data Fac
       }
       ```
 
-      Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
+      Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.** ” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
 
       > [!NOTE]
       > Genom att ange indata för AzureMLBatchExecution är aktivitet valfritt.
@@ -407,7 +407,7 @@ När du använder läsmodulen i ett Azure Machine Learning-experiment, kan du an
 I JSON-exemplet ovan:
 
 * Den distribuerade Azure Machine Learning Web-tjänsten använder en läsare och en skrivarmodul för att läsa/skriva data från/till en Azure SQL Database. Den här webbtjänsten exponerar följande fyra parametrar:  -Databasens servernamn, databasnamn, Server användarens kontonamn och Server lösenord.
-* Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
+* Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.** ” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
 
 ### <a name="other-scenarios"></a>Andra scenarier
 #### <a name="web-service-requires-multiple-inputs"></a>Webbtjänsten kräver flera inmatningar

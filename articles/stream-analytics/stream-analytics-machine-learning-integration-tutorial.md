@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480816"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning
@@ -175,7 +175,7 @@ I det här avsnittet av självstudiekursen definierar du en funktion i Stream An
 
 1. Kontrollera att du har den web service URL och API-nyckeln som du hämtade tidigare i Excel-arbetsboken.
 
-2. Navigera till bladet för jobbet > **Functions** > **+ Lägg till** > **AzureML**
+2. Navigera till bladet för jobbet > **Functions** >  **+ Lägg till** > **AzureML**
 
 3. Fyll i **Azure Machine Learning-funktion** bladet med följande värden:
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885524"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Enhet-till-molnet kommunikation
@@ -35,7 +35,7 @@ Här är en detaljerad jämförelse av de olika kommunikationsalternativen för 
 | Lagring och hämtning | Lagras temporärt i IoT Hub, upp till 7 dagar. Sekventiell läsning. | Lagras av IoT Hub i enhetstvillingen. Hämtningsbar med hjälp av den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md). | Lagras i Azure Storage-konto för användaren. |
 | Storlek | Upp till 256 KB meddelanden. | Maximal rapporterade egenskaper är 8 KB. | Maximal filstorlek som stöds av Azure Blob Storage. |
 | Frekvens | Hög. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). |
-| Protokoll | Tillgänglig på alla protokoll. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängliga när du använder alla protokoll, men kräver HTTPS på enheten. |
+| Protocol | Tillgänglig på alla protokoll. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängliga när du använder alla protokoll, men kräver HTTPS på enheten. |
 
 Ett program kan behöva skicka information om både som en telemetri tidsserier eller varning och gör den tillgänglig i enhetstvillingen. I det här scenariot kan du välja något av följande alternativ:
 

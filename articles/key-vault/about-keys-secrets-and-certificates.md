@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708685"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
@@ -330,7 +330,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 > [!Note] 
 > Om ett Key Vault-certifikat upphör att gälla, är det adresserbara nyckel och hemlighet sluta fungera.  
 
-#### <a name="tags"></a>Taggar
+#### <a name="tags"></a>Tags
 
  Klienten angivna ordlista med nyckelvärdepar, liknar taggar i nycklar och hemligheter.  
 

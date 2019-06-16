@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a8c28546417e5de22b363e425728c97cbe5288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dce74d2e526ca5a961ad6ea0da433ac070026549
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Självstudier: Azure Active Directory-integrering med Stormboard
 
@@ -56,7 +56,7 @@ Om du vill konfigurera integrering av Stormboard i Azure AD måste du lägga til
 
 **Utför följande steg för att lägga till Stormboard från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -204,5 +204,5 @@ När du klickar på Stormboard-ikonen i åtkomstpanelen bör du automatiskt logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f6a5878d1afe35b9e155425275466ecfa07de9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 655a02e41311e6842351287e3615639c3cc95e0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Självstudier: Azure Active Directory-integrering med Quantum arbetsplats
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Quantum arbetsplats i Azure AD, som du behö
 
 **Utför följande steg för att lägga till Quantum arbetsplats från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -186,5 +186,5 @@ När du klickar på panelen Quantum arbetsplats i åtkomstpanelen, bör det vara
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407983"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Självstudier: Azure Active Directory-integrering med TextMagic
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av TextMagic i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till TextMagic från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -114,12 +114,12 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMag
 
 6. Förutom ovanstående TextMagic program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Namn |   Källattribut| Namnområde  |
+    | Namn |   Källattribut| Namnrymd  |
     | --------------- | --------------- | --------------- |
-    | Företagets | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefon               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Företagets | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -166,13 +166,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMag
 
     ![TextMagic konfiguration](./media/textmagic-tutorial/config2.png)
 
-    a. I **identitetsprovider entitets-ID:** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    a. I **identitetsprovider entitets-ID:**  textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
 
-    b. I **SSO-URL för identitetsprovider:** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    b. I **SSO-URL för identitetsprovider:**  textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
-    c. I **SLO-URL för identitetsprovider:** textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
+    c. I **SLO-URL för identitetsprovider:**  textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
 
-    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **offentliga x509 certifikat:** textrutan.
+    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **offentliga x509 certifikat:**  textrutan.
 
     e. Klicka på **Spara**.
 
@@ -194,7 +194,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**. Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -243,4 +243,4 @@ När du klickar på panelen TextMagic i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

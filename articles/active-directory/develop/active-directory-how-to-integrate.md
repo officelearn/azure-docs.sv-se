@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8804988387ba4a6cdc8dff5d93077de42ea2051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4af8cdc1072678de7e34458fc4b54d52aae9eff1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111601"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 
@@ -81,7 +81,7 @@ Integrering med Azure AD levereras med fördelar som inte behöver du skriva ytt
 
 **Avvikande inloggning identifiering.**  Azure AD bearbetar fler än en miljard inloggningar per dag, när machine learning-algoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer för möjliga problem. Eftersom det finns stöd för Azure AD-inloggningen, hämtar programmet fördelen med det här skyddet. Läs mer om [visa Azure Active Directory access-rapport](../active-directory-view-access-usage-reports.md).
 
-**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva särskilda villkor vara uppfyllda innan användarna kan logga in på ditt program. Villkor som kan ställas in omfattar IP-adressintervallet för klientenheter, medlemskap i angivna grupperna och tillståndet för enheten som används för åtkomst. Läs mer om [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva särskilda villkor vara uppfyllda innan användarna kan logga in på ditt program. Villkor som kan ställas in omfattar IP-adressintervallet för klientenheter, medlemskap i angivna grupperna och tillståndet för enheten som används för åtkomst. Läs mer om [Azure Active Directory villkorsstyrd åtkomst](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Enkel utveckling
 

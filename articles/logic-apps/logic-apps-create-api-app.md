@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681889"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
@@ -167,8 +167,8 @@ Här följer specifika åtgärder för en avsökning utlösare, som beskrivs av 
 
 | Hitta nya data eller händelse?  | API-svar | 
 | ------------------------- | ------------ |
-| Hittade | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
-| Kunde inte hittas | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` rubrik. <br/>För utlösare, den `location` rubriken ska också innehålla en `triggerState` frågeparameter som vanligtvis är ”timestamp”. Ditt API kan använda den här identifieraren för att spåra den senaste gången som logikappen utlöstes. | 
+| Hitta | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
+| Det gick inte att hitta | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` rubrik. <br/>För utlösare, den `location` rubriken ska också innehålla en `triggerState` frågeparameter som vanligtvis är ”timestamp”. Ditt API kan använda den här identifieraren för att spåra den senaste gången som logikappen utlöstes. | 
 ||| 
 
 För att regelbundet kontrollera din tjänst för nya filer, till exempel kan du skapa en avsökning utlösare som har dessa beteenden:

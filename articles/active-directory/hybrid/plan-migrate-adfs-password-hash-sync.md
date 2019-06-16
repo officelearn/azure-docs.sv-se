@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109266"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från federation till synkronisering av lösenordshash för Azure Active Directory
 
@@ -139,7 +139,7 @@ Innan du konverterar från federerad identitet till hanterad identitet, titta p�
 |-|-|
 | Du planerar att fortsätta att använda AD FS med andra program (än Azure AD och Office 365). | När du har konverterat domäner ska du använda både AD FS och Azure AD. Överväg att användarupplevelsen. I vissa situationer kan användare vara tvungna att autentiseras två gånger: en gång till Azure AD (där en användare får åtkomst med enkel inloggning till andra program som Office 365) och igen för alla program som fortfarande är bundna till AD FS som en förlitande part. |
 | Din instans av AD FS är kraftigt anpassad och förlitar sig på specifika anpassningsinställningarna i onload.js-filen (till exempel om du har ändrat inloggningen så att användare bara använda en **SamAccountName** format för sina användarnamn i stället för en användare har huvudnamn (UPN) eller din organisation kraftigt märkesprodukter inloggningen går). Vara det går inte att dubbletter av onload.js-filen i Azure AD. | Innan du fortsätter måste du kontrollera att Azure AD kan uppfylla din aktuella anpassningskrav. Mer information och anvisningar finns i avsnitt om anpassning av AD FS och AD FS-anpassning.|
-| Du kan använda AD FS för att blockera tidigare versioner av autentiseringsklienter.| Överväg att ersätta AD FS-kontroller som blockerar tidigare versioner av autentiseringsklienter med hjälp av en kombination av [villkorlig åtkomstkontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR). |
+| Du kan använda AD FS för att blockera tidigare versioner av autentiseringsklienter.| Överväg att ersätta AD FS-kontroller som blockerar tidigare versioner av autentiseringsklienter med hjälp av en kombination av [villkorlig åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR). |
 | Du behöver användare att utföra multifaktorautentisering mot en lokal Multi-Factor authentication server-lösning när användare autentiseras till AD FS.| I en hanterad identitet-domän, kan du mata in en utmaning för multifaktorautentisering via lokal multifaktorautentisering lösning i autentiseringsflödet. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för multi-Factor authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication, krävs ett genomfört användaren registreringssteget. Du måste förbereda för och kommunicera planerad registreringen till dina användare. |
 | Du använder principer för åtkomstkontroll (AuthZ-regler) i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR).|
 
@@ -155,7 +155,7 @@ Den **InsideCorporateNetwork** anspråk är inte tillgängligt när dina domäne
 
 När du har konfigurerat namngivna platser måste du uppdatera alla principer för villkorlig åtkomst som är konfigurerade för antingen inkludera eller exkludera nätverket **alla betrodda platser** eller **MFA tillförlitliga IP-adresser** värden till återspegla den nya namngivna platser.
 
-Mer information om den **plats** ange villkor för villkorlig åtkomst, se [Active Directory-platser för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Mer information om den **plats** ange villkor för villkorlig åtkomst, se [villkorlig åtkomst för Active Directory-platser](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 

@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506980"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
@@ -23,7 +23,7 @@ Datauppdateringsåtgärder kan ta lite tid beroende på ett antal faktorer, blan
 
 REST-API för Azure Analysis Services kan datauppdateringsåtgärder utföras asynkront. Med hjälp av REST-API är tidskrävande HTTP-anslutningar från klientprogram inte behövs. Det finns även andra inbyggda funktioner för tillförlitlighet, bland annat automatiska återförsök och gruppbaserade incheckningar.
 
-## <a name="base-url"></a>Grundläggande URL
+## <a name="base-url"></a>Bas-URL
 
 Den grundläggande Webbadressen följer det här formatet:
 
@@ -188,8 +188,8 @@ Värden för `syncstate`:
 
 - 0: Replikerar. Databasfilerna replikeras till en målmapp.
 - 1: Återställning. Databasen extraheras på skrivskyddade server-instanser.
-- 2: Har slutförts. Synkroniseringsåtgärden har slutförts.
-- 3: Misslyckades. Det gick inte att synkronisera.
+- 2: Slutfört. Synkroniseringsåtgärden har slutförts.
+- 3: Det gick inte. Det gick inte att synkronisera.
 - 4: Slutför. Synkroniseringsåtgärden slutfördes men utför Rensa.
 
 ## <a name="code-sample"></a>Kodexempel

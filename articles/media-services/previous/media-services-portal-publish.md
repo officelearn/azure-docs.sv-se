@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127879"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure portal  
@@ -37,8 +37,8 @@ ms.locfileid: "61127879"
 
 För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Lokaliserare ger åtkomst till tillgångsfiler. Azure Media Services stöder två typer av lokaliserare: 
 
-* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassad strömning är Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming over HTTP (DASH, kallas även MPEG-DASH). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. Till exempel http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
-* **Progressiv lokaliserare (signatur för delad åtkomst)**. Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
+* **Strömningslokaliserare (OnDemandOrigin)** . Strömningslokaliserare används för anpassad strömning. Exempel på anpassad strömning är Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming over HTTP (DASH, kallas även MPEG-DASH). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. Till exempel http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Progressiv lokaliserare (signatur för delad åtkomst)** . Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
 
 Lägg till *(format = m3u8 aapl)* till URL:en för att skapa en HLS-strömnings-URL:
 

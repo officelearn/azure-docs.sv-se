@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130763"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
@@ -58,12 +58,12 @@ När den *azuredeploy.parameters.json* fil har fyllts i för en ILB ASE, ILB ASE
 När du har Azure Resource Manager mallen skickas det tar några timmar innan ILB ASE som ska skapas.  När den har skapats, visas ILB ASE i UX-portalen i listan över App Service-miljöer för den prenumeration som utlöste distributionen.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Ladda upp och konfigurera SSL-certifikat ”standard”
-När ILB ASE har skapats ska ett SSL-certifikat associeras med ASE som ”standard” SSL-certifikat använder för att upprätta en SSL-anslutningar till appar.  Fortsättning på hypotetiska Contoso Corporation exemplet, om ASE standard DNS-suffix är *intern contoso.com*, sedan en anslutning till *https://some-random-app.internal-contoso.com* kräver ett SSL-certifikat som är giltigt för **.internal contoso.com*. 
+När ILB ASE har skapats ska ett SSL-certifikat associeras med ASE som ”standard” SSL-certifikat använder för att upprätta en SSL-anslutningar till appar.  Fortsättning på hypotetiska Contoso Corporation exemplet, om ASE standard DNS-suffix är *intern contoso.com*, sedan en anslutning till *https://some-random-app.internal-contoso.com* kräver ett SSL-certifikat som är giltigt för * *.internal contoso.com*. 
 
 Det finns en mängd olika sätt att skaffa ett giltigt SSL-certifikat, inklusive interna CA: er, köpa ett certifikat från en extern utfärdare och använder ett självsignerat certifikat.  Följande certifikatattribut måste konfigureras korrekt oavsett källan för SSL-certifikat:
 
-* *Ämne*:  Det här attributet måste anges till **.your-root-domain-here.com*
-* *Alternativt namn för certifikatmottagare*:  Det här attributet måste innehålla både **.your-root-domain-here.com*, och **.SCM.Your-root-domain-here.com*.  Orsaken till den andra posten är att SSL-anslutningar till SCM/Kudo-sajten för varje app görs med en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
+* *Ämne*:  Det här attributet måste anges till * *.your-root-domain-here.com*
+* *Alternativt namn för certifikatmottagare*:  Det här attributet måste innehålla både * *.your-root-domain-here.com*, och * *.SCM.Your-root-domain-here.com*.  Orsaken till den andra posten är att SSL-anslutningar till SCM/Kudo-sajten för varje app görs med en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
 
 Med ett giltigt SSL-certifikat i hand behövs två ytterligare förberedande steg.  SSL-certifikatet måste vara konverteras/sparas som en .pfx-fil.  Kom ihåg att .pfx-filen måste innehålla alla mellanliggande och rotcertifikat och måste även vara skyddad med ett lösenord.
 
@@ -130,7 +130,7 @@ När den *azuredeploy.parameters.json* fil har fyllts i, SSL-standardcertifikate
 
 När du har Azure Resource Manager mallen skickas det tar ungefär 40 minuter per ASE klientdelen för att tillämpa ändringen.  Till exempel med en standard storlek ASE med hjälp av två klientdelar, tar mallen ungefär en timme och 20 minuter för att slutföra.  När mallen körs inte ASE skalas.  
 
-När mallen är klar appar på ILB ASE kan nås över HTTPS och anslutningar som ska skyddas med SSL-standardcertifikatet.  SSL-standardcertifikatet ska användas när appar på ILB ASE åtgärdas med en kombination av programnamnet plus standardvärdnamnet.  Till exempel *https://mycustomapp.internal-contoso.com* använder SSL-standardcertifikatet för **.internal contoso.com*.
+När mallen är klar appar på ILB ASE kan nås över HTTPS och anslutningar som ska skyddas med SSL-standardcertifikatet.  SSL-standardcertifikatet ska användas när appar på ILB ASE åtgärdas med en kombination av programnamnet plus standardvärdnamnet.  Till exempel *https://mycustomapp.internal-contoso.com* använder SSL-standardcertifikatet för * *.internal contoso.com*.
 
 Men precis som appar som körs på den offentliga multiklienttjänst, kan utvecklare även konfigurera anpassade värdnamn för enskilda appar, och sedan konfigurera unika SNI SSL-certifikatbindningar för enskilda appar.  
 

@@ -2,7 +2,7 @@
 title: Vad är villkor i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur villkor används i Azure Active Directory villkorlig åtkomst för att utlösa en princip.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112596"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst?
 
@@ -73,7 +73,7 @@ Organisationer kan välja mellan följande:
 > [!NOTE]
 > Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till.
 
-**Användaråtgärder** uppgifter som kan utföras av en användare. Den enda åtgärden som stöds för närvarande **registrera säkerhetsinformation (förhandsversion)**, vilket gör att principen för villkorlig åtkomst att tvinga när användare som har aktiverats för registrering av kombinerade försöker registrera sina säkerhet information. Mer information finns i artikeln [aktivera kombineras security information registrering (förhandsversion)](../authentication/howto-registration-mfa-sspr-combined.md).
+**Användaråtgärder** uppgifter som kan utföras av en användare. Den enda åtgärden som stöds för närvarande **registrera säkerhetsinformation (förhandsversion)** , vilket gör att principen för villkorlig åtkomst att tvinga när användare som har aktiverats för registrering av kombinerade försöker registrera sina säkerhet information. Mer information finns i artikeln [aktivera kombineras security information registrering (förhandsversion)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Inloggningsrisk
 
@@ -113,7 +113,7 @@ Enhetstillståndsvillkor utesluter hybrid Azure AD-anslutna enheter och enheter 
 
 Det här villkoret är användbart när en princip för endast ska tillämpas på en ohanterad enhet att tillhandahålla ytterligare sessionssäkerhet. Endast tillämpa exempelvis sessionskontroll för Microsoft Cloud App Security när en enhet är hanterad. 
 
-## <a name="locations"></a>Sökvägar
+## <a name="locations"></a>Platser
 
 Du kan definiera villkor baserat på var ett fel med hjälp av platser. 
 
@@ -125,7 +125,7 @@ Vanliga användningsområden för det här villkoret är principer med de följa
 
 - Blockera åtkomst för användare som ansluter till en tjänst från vissa länder eller regioner. 
 
-Mer information finns i [vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Mer information finns i [vad är platsvillkoret i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 
 ## <a name="client-apps"></a>Klientappar
@@ -168,7 +168,7 @@ Du kan bara välja **Exchange ActiveSync-klienter** om:
 
 - Du har inte andra villkor som konfigurerats i en princip. Men du kan begränsa omfånget för det här tillståndet gäller endast för [plattformar som stöds](technical-reference.md#device-platform-condition).
  
-    ![Tillämpa bara principen på plattformar som stöds](./media/conditions/33.png)
+    ![Tillämpa principen endast på plattformar som stöds](./media/conditions/33.png)
 
 
 När åtkomst har blockerats eftersom en [hanterad enhet](require-managed-devices.md) är krävs, de berörda användarna får en enda e-post som hjälper dem att använda Intune. 
@@ -182,7 +182,7 @@ Du kan bara använda den här inställningen till användare och grupper. Det st
 
  Mer information finns i:
 
-- [Konfigurera SharePoint Online och Exchange Online för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
+- [Konfigurera SharePoint Online och Exchange Online för Azure Active Directory villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
@@ -190,7 +190,7 @@ Du kan bara använda den här inställningen till användare och grupper. Det st
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill ta reda på hur du konfigurerar en princip för villkorlig åtkomst kan se [snabbstarten: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Om du vill ta reda på hur du konfigurerar en princip för villkorlig åtkomst kan se [snabbstarten: Kräva MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 
 - För att konfigurera principer för villkorlig åtkomst för din miljö, se den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
 

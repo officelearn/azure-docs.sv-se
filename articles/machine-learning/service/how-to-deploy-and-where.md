@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059231"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -108,6 +108,16 @@ Skriptet innehåller två funktioner som att läsa in och kör modellen:
 * `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs en gång när Docker-behållare för webbtjänsten har startats.
 
 * `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten.
+
+#### <a name="what-is-getmodelpath"></a>Vad är get_model_path?
+När du registrerar en modell kan ange du ett modellnamn som används för att hantera modellen i registret. Du använder det här namnet i get_model_path API som returnerar sökvägen till filen modellen på det lokala filsystemet. Den här API returnerar sökvägen till den katalog som innehåller filerna om du registrerar en mapp eller en uppsättning filer.
+
+När du registrerar en modell kan ge du den ett namn som motsvarar där modellen är placerad, antingen lokalt eller under distributionen av tjänster.
+
+I exemplet nedan returnerar en sökväg till en enskild fil som heter ”sklearn_mnist_model.pkl” (som har registrerats med namnet ”sklearn_mnist”)
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(Valfritt) Automatisk generering av Swagger-schemat
 
@@ -248,7 +258,9 @@ I det här exemplet innehåller konfigurationen följande objekt:
 * Den [post skriptet](#script), som används för att hantera begäranden skickas till den distribuerade tjänsten
 * Conda-fil som beskriver Python-paket som behövs för att inferens
 
-Information om InferenceConfig funktioner finns i den [avancerad konfiguration](#advanced-config) avsnittet.
+Information om InferenceConfig funktioner finns i den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klassen referens.
+
+Information om hur du använder en anpassad Docker-avbildning med inferens konfiguration finns i [hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md).
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definiera din distributionskonfiguration
 
@@ -265,6 +277,15 @@ I följande tabell innehåller ett exempel på hur du skapar en distributionskon
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan använda den för att distribuera webbtjänsten.
+
+### <a name="optional-profile-your-model"></a>Valfritt: Profilera din modell
+Innan du distribuerar modellen som en tjänst, kanske du vill profilera den för att fastställa optimal processor och minne.
+Du kan göra detta via SDK eller CLI.
+
+Mer information kan du ta en titt här vår SDK-dokumentation: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Modeller profilering resultat genereras som ett kör-objekt.
+Närmare information på modellen profil-schemat finns här: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>Avancerade inställningar 
-
-**<a id="customimage"></a> Använda en anpassad källinstallation**
-
-Internt skapar InferenceConfig en Docker-avbildning som innehåller modellen och andra resurser som krävs av tjänsten. Om den inte anges används en standard-basavbildning.
-
-När du skapar en bild som används med inferens konfigurationen måste avbildningen uppfylla följande krav:
-
-* Ubuntu 16.04 eller större.
-* Conda 4.5. # eller större.
-* Python 3.5. # eller 3.6. #.
-
-Om du vill använda en anpassad avbildning, ange den `base_image` egenskapen för inferens konfigurationen till adressen för avbildningen. I följande exempel visar hur du använder en avbildning från både en offentliga och privata Azure Container Registry:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-Följande bild URI: er för avbildningar som tillhandahålls av Microsoft och kan användas utan att ange ett värde som användaren namn eller lösenord:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-Om du vill använda dessa avbildningar, ange den `base_image` till URI: N i listan ovan. Ange `base_image_registry.address` till `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> Microsoft-avbildningar som använder CUDA eller TensorRT måste bara användas på Microsoft Azure-tjänster.
-
-Mer information om att ladda upp egna avbildningar till ett Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarregister](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Om din modell har tränats på beräkning av Azure Machine Learning, med hjälp av __version 1.0.22 eller större__ av SDK för Azure Machine Learning, en avbildning skapas under utbildning. I följande exempel visar hur du använder den här bilden:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
 Ta bort registrerade modellen genom att använda `model.delete()`.
@@ -547,6 +520,7 @@ Ta bort registrerade modellen genom att använda `model.delete()`.
 Mer information finns i referensdokumentationen för [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), och [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Nästa steg
+* [Hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md)
 * [Felsökning av distribution](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)

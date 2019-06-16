@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65915850"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
@@ -34,11 +34,11 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Skapa ett program för Azure Active Directory ”Web”** . Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
-2. Välj **Konsolapp (.NET Framework)**, och välj sedan **nästa**.
+2. Välj **Konsolapp (.NET Framework)** , och välj sedan **nästa**.
 3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
 
 4. Lägg till NuGet-paketen i projektet.

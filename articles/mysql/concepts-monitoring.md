@@ -1,17 +1,17 @@
 ---
 title: Övervakning i Azure Database for MySQL
 description: Den här artikeln beskriver mått för övervakning och avisering för Azure Database för MySQL, inklusive statistik för CPU-, lagrings- och anslutning.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/05/2019
+ms.openlocfilehash: 0122f952e586d0535fc2e482c7b78266f8809272
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "60525572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062434"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -41,7 +41,16 @@ De här måtten är tillgängliga för Azure Database for MySQL:
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar
-Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor-loggar, Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+Du kan aktivera långsamma fråga och granskningsloggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor-loggar, Händelsehubbar och Storage-konto. Mer information om loggning finns i [granskningsloggar](concepts-audit-logs.md) och [långsamma frågeloggar](concepts-server-logs.md) artiklar.
+
+## <a name="query-store"></a>Query Store
+[Query Store](concepts-query-store.md) är en funktion i offentlig förhandsversion som håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i den **mysql** schema. Du kan styra insamling och lagring av data via olika configuration rattar.
+
+## <a name="query-performance-insight"></a>Query Performance Insight
+[Query Performance Insight](concepts-query-performance-insight.md) fungerar tillsammans med Query Store att tillhandahålla visualiseringar som är tillgängliga från Azure-portalen. Dessa diagram kan du identifiera viktiga frågor som påverkas prestanda. Query Performance Insight är allmänt tillgänglig förhandsversion och är tillgänglig i den **Intelligent prestanda** delen av din Azure Database for MySQL-server portalsidan.
+
+## <a name="performance-recommendations"></a>Prestandarekommendationer
+Den [Prestandarekommendationer](concepts-performance-recommendations.md) funktionen identifierar möjligheter att förbättra prestanda för arbetsbelastningen. Den offentliga förhandsversionen av Prestandarekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbetsbelastningar. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du konfigurerar aviseringar](howto-alert-on-metric.md) anvisningar om hur du skapar en avisering på ett mått.

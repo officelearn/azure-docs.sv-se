@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 13bf27fd58530c357e3bb83f7cbc503855d40304
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075342"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.

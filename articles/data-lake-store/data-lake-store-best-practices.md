@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878968"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metodtips för Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Azure Active Directory-tjänstobjekt som vanligtvis används av tjänster som Az
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen1-brandväggen med Azure-tjänståtkomst
 
-Data Lake Storage Gen1 har stöd för aktivering av en brandvägg och begränsa åtkomst till Azure-tjänster, vilket rekommenderas för en mindre angreppsvinkel från utanför intrång. Brandväggen kan vara aktiverad på Data Lake Storage Gen1-konto i Azure-portalen via den **brandväggen** > **aktivera brandvägg (på)** > **Tillåt åtkomst till Azure tjänster** alternativ.
+Data Lake Storage Gen1 har stöd för aktivering av en brandvägg och begränsa åtkomst till Azure-tjänster, vilket rekommenderas för en mindre angreppsvinkel från utanför intrång. Brandväggen kan vara aktiverad på Data Lake Storage Gen1-konto i Azure-portalen via den **brandväggen** > **aktivera brandvägg (på)**  > **Tillåt åtkomst till Azure tjänster** alternativ.
 
 ![Brandväggsinställningar i Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "brandväggsinställningar i Data Lake Storage Gen1")
 

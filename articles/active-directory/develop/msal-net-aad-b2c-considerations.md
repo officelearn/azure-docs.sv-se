@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544063"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052354"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använd MSAL.NET för att logga in användare med sociala identiteter
 
@@ -177,7 +177,7 @@ Föreslagen lösning är att använda den [cachelagring av princip](#acquire-a-t
 Du kan också använda den `tid` anspråk, om du använder den [B2C anpassade principer](https://aka.ms/ief), eftersom den innehåller funktioner för att returnera ytterligare anspråk till programmet. Mer information om [anspråkstransformering](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Hur ”saknas från svaret som token”
-Ett alternativ är att använda ”name”-anspråk som önskade användarnamnet. Processen beskrivs i det här [B2C doc](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) -> ”i kolumnen returnerar anspråk Välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en slutförd redigering av profil. Till exempel välja visningsnamn, postnummer ”.
+Ett alternativ är att använda ”name”-anspråk som önskade användarnamnet. Processen beskrivs i det här [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> ”i kolumnen returnerar anspråk Välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en slutförd redigering av profil. Till exempel välja visningsnamn, postnummer ”.
 
 ## <a name="next-steps"></a>Nästa steg 
 

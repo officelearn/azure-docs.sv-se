@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822462"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Azure Event Hubs med hjälp av C
@@ -34,7 +34,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En C-utvecklingsmiljö. Den här självstudiekursen förutsätter gcc-stacken på en virtuell Linux-dator med Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+* **Skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriva kod för att skicka meddelanden till Event Hubs
 I det här avsnittet visar hur du skriver en app för C för att skicka händelser till din event hub. Koden använder Proton AMQP-biblioteket från den [Apache Qpid projekt](https://qpid.apache.org/). Detta motsvarar att använda Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i den [Qpid Proton dokumentation](https://qpid.apache.org/proton/index.html).

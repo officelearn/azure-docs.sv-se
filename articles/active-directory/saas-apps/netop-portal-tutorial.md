@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0bbd13a29b8d01f64ca68c35b751b0adf0a76c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751de509d17b05c2515261eeb7c036ae345986fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65743817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Självstudier: Azure Active Directory-integrering med Netop Portal
 
@@ -52,7 +52,7 @@ För att konfigurera integreringen av Netop Portal i Azure AD behöver du lägga
 
 **Utför följande steg för att lägga till Netop Portal från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -223,4 +223,4 @@ När du klickar på Netop Portal-panelen i åtkomstpanelen bör du automatiskt l
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576194"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använda StorSimple diagnostikverktyget för att felsöka problem med 8000 series-enhet
@@ -420,7 +420,7 @@ Här är en tabell som beskriver vilka olika Windows PowerShell parametrarna i s
 | Namn                    | Det egna namnet på enheten som konfigurerats via Azure portal under distributionen av enheten. Det egna namnet för standard är enhetens serienummer. |
 | Modell                   | Modell för din enhet i StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
 | serialNumber            | Enhetens serienummer tilldelas på fabriken och 15 tecken. Exempelvis kan anger 8600-SHX0991003G44HT:<br> 8600 – är den nuvarande enhetsmodellen.<br>SHX – är anläggning.<br> 0991003 - är en specifik produkt. <br> G44HT--de 5 senaste siffrorna ökas för att skapa unika serienummer. Det kanske inte är en sekventiell uppsättning.|
-| TimeZone                | Enhetens tidszon som konfigurerats i Azure-portalen under distributionen av enheten.|
+| Tidszon                | Enhetens tidszon som konfigurerats i Azure-portalen under distributionen av enheten.|
 | CurrentController       | Den styrenhet som du är ansluten till via Windows PowerShell-gränssnittet för StorSimple-enheten.|
 | ActiveController        | Den domänkontrollant som är aktiv på enheten och kontrollerar alla nätverks- och diskkonfiguration åtgärder. Detta kan vara kontrollenhet 0 eller kontrollenhet 1.  |
 | Controller0Status       | Status för kontrollenhet 0 på din enhet. Status för domänkontrollanten kan vara normala i återställningsläge eller inte kan nås.|

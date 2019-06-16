@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605451"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använda Azure Data Lake-verktyg för Visual Studio med begränsat Hortonworks-läge
@@ -120,7 +120,7 @@ Du kan också skapa ett projekt som innehåller flera Hive-skript. Använda ett 
 
 1. I Visual Studio väljer **filen**, **New**, och sedan **projekt**.
 
-2. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **HIVE (HDInsight)**. Välj i listan över mallar **Hive exempel**. Ange ett namn och plats och välj sedan **OK**.
+2. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **HIVE (HDInsight)** . Välj i listan över mallar **Hive exempel**. Ange ett namn och plats och välj sedan **OK**.
 
     ![Skärmbild av nytt projekt fönster, med Azure Data Lake, HIVE, Hive-exempel och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -130,7 +130,7 @@ Den **Hive exempel** projektet innehåller två skript **WebLogAnalysis.hql** oc
 
 Medan Hive innehåller ett SQL-liknande språk för att arbeta med strukturerade data, fungerar Pig genom att utföra omvandlingar på data. Pig innehåller ett språk (Pig Latin) som gör det möjligt att utveckla en pipeline med transformationer. Följ dessa steg om du vill använda Pig med det lokala klustret:
 
-1. Öppna Visual Studio och välj **filen**, **New**, och sedan **projekt**. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **Pig (HDInsight)**. Välj i listan över mallar **Pig program**. Ange ett namn, plats, och välj sedan **OK**.
+1. Öppna Visual Studio och välj **filen**, **New**, och sedan **projekt**. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **Pig (HDInsight)** . Välj i listan över mallar **Pig program**. Ange ett namn, plats, och välj sedan **OK**.
 
     ![Skärmbild av nytt projekt fönster, med Azure Data Lake, Pig, Pig-programmet och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332337"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med fragmentkartehanteraren
@@ -55,11 +55,11 @@ Elastisk skalning stöder följande typer som horisontell partitionering nycklar
 | .NET | Java |
 | --- | --- |
 | heltal |heltal |
-| lång |lång |
+| long |long |
 | GUID |uuid |
-| byte[]  |byte[] |
-| datetime | tidsstämpel |
-| TimeSpan | varaktighet|
+| byte  |byte |
+| datetime | timestamp |
+| TimeSpan | Varaktighet|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lista och intervallet shardkartor
@@ -98,8 +98,8 @@ I tabellerna ovan är en konceptuell exempel på en **ShardMap** objekt. Varje r
 
 I klientbiblioteket består fragmentkartehanteraren av fragmentkartor. De data som hanteras av en **ShardMapManager** instans sparas på tre platser:
 
-1. **Global Fragmentkartan (GSM)**: Du anger en databas som fungerar som lagringsplats för alla dess fragmentkartor och mappningar. Särskilda tabeller och lagrade procedurer skapas automatiskt för att hantera informationen. Detta är vanligtvis en liten databas och lätt öppnas och ska inte användas för andra behov av programmet. Tabeller är i ett särskilt schema med namnet **__ShardManagement**.
-2. **Lokala Fragmentkartan (LSM)**: Varje databas som du anger för att vara en shard ändras så att den innehåller flera små tabeller och särskilda lagrade procedurer som innehåller och hantera fragment kartan information om specifika för fragmentet. Den här informationen är redundant med informationen i GSM och det gör att programmet för att verifiera informationen i cachelagrade fragment kartan utan att placera all belastning på GSM; programmet använder LSM för att avgöra om en cachelagrad mappning är fortfarande giltig. Tabeller som motsvarar LSM på varje shard finns också i schemat **__ShardManagement**.
+1. **Global Fragmentkartan (GSM)** : Du anger en databas som fungerar som lagringsplats för alla dess fragmentkartor och mappningar. Särskilda tabeller och lagrade procedurer skapas automatiskt för att hantera informationen. Detta är vanligtvis en liten databas och lätt öppnas och ska inte användas för andra behov av programmet. Tabeller är i ett särskilt schema med namnet **__ShardManagement**.
+2. **Lokala Fragmentkartan (LSM)** : Varje databas som du anger för att vara en shard ändras så att den innehåller flera små tabeller och särskilda lagrade procedurer som innehåller och hantera fragment kartan information om specifika för fragmentet. Den här informationen är redundant med informationen i GSM och det gör att programmet för att verifiera informationen i cachelagrade fragment kartan utan att placera all belastning på GSM; programmet använder LSM för att avgöra om en cachelagrad mappning är fortfarande giltig. Tabeller som motsvarar LSM på varje shard finns också i schemat **__ShardManagement**.
 3. **Programcache**: Varje instans åtkomst program till en **ShardMapManager** objekt upprätthåller en lokal minnescache över dess mappningar. Registret lagrar routningsinformationen som nyligen har hämtats.
 
 ## <a name="constructing-a-shardmapmanager"></a>Skapa en ShardMapManager

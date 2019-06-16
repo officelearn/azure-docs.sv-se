@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 90ced740c2554b2364535125241a3ec91f6d899e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063826"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -38,7 +38,7 @@ App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utv
 | PHP | 5.6, 7.0, 7.2 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>Distributioner
 
@@ -63,7 +63,7 @@ App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utv
 
 * Kunderna kan skala upp och ned webbapparna genom att byta prisnivå för sin [App Service-plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
-## <a name="locations"></a>Sökvägar
+## <a name="locations"></a>Platser
 
 Kontrollera [instrumentpanelen för Azure-status](https://azure.microsoft.com/status).
 

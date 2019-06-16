@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815135"
 ---
 # <a name="command-line-interface"></a>Kommandoradsgränssnitt
@@ -80,9 +80,9 @@ Den **host_service** kommando har en instans av tjänsten KES på den lokala dat
 |-----------------|----------------------------|
 | `<grammarFile>` | Inkommande binära grammatik sökväg         |
 | `<indexFile>`   | Inkommande binära index sökväg           |
-| `--port <port>` | Lokala portnummer.  Standard: 8000 |
+| `--port <port>` | Lokala portnummer.  standard: 8000 |
 
-Dessa filer kan anges med lokala sökvägar eller URL-sökvägar till Azure BLOB.  En webbtjänst som kommer att finnas på http://localhost:&lt; porten&gt;/.  Se [Web API: erna](WebAPI.md) för en lista med åtgärder som stöds.
+Dessa filer kan anges med lokala sökvägar eller URL-sökvägar till Azure BLOB.  En webbtjänst som kommer att finnas på http://localhost:&lt ; porten&gt; /.  Se [Web API: erna](WebAPI.md) för en lista med åtgärder som stöds.
 
 Utanför Azure-miljö, lokalt värdbaserade tjänster är begränsade till index filer upp till 1 MB i storlek, 10 förfrågningar per sekund och 1000 totala anrop.  Om du vill lösa dessa begränsningar, kör **host_service** inuti en Azure-dator, eller distribuera till en Azure-molnet tjänsten med hjälp av **deploy_service**.
 

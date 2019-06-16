@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371959"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Hämta faktureringsägarskapet av Azure-prenumerationer från andra användare
@@ -35,7 +35,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning för kostnadshantering + fakturering](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -64,7 +64,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning för kostnadshantering + fakturering](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -80,8 +80,8 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
    |Kolumn|Definition|
    |---------|---------|
    |Datum för begäran|Det datum då överföringsbegäran skickades|
-   |Mottagare|E-postadressen för användaren som du har skickat förfrågan om att överföra faktureringsägarskapet|
-   |Upphörandedatum|Det datum då begäran upphör att gälla|
+   |Mottagaren|E-postadressen för användaren som du har skickat förfrågan om att överföra faktureringsägarskapet|
+   |Förfallodatum|Det datum då begäran upphör att gälla|
    |Status|Status för begäran om att överföra|
 
     Överföringsbegäran kan ha något av följande statusar:
@@ -94,7 +94,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
    |Slutfördes med fel|Begäran har slutförts men faktureringen för vissa prenumerationer som användaren har valt kunde inte överföras|
    |Har upphört att gälla|Användaren kunde inte godkänna begäran i tid och den har upphört att gälla|
    |Avbrutna|Användare med åtkomst till överföringsbegäran har avbrutit begäran|
-   |Avböjt|Användaren avböjde överföringsbegäran|
+   |Avvisade|Användaren avböjde överföringsbegäran|
 
 6. Välj en begäran att visa information om att överföra. Sidan överföring visar följande information:
    <!-- Todo - Add a screenshot -->

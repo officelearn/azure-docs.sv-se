@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816444"
 ---
 # <a name="migrate-to-the-30-api"></a>Migrera till 3.0 API
@@ -30,17 +30,17 @@ Den här guiden visar hur du uppdaterar dina projekt du arbetar med den nya API-
 
 ## <a name="use-the-updated-prediction-api"></a>Använd den uppdaterade förutsägelse-API
 
-2.x-API: er används samma förutsägelse anropet för både bildklassificerare och objekt detektor projekt. Båda projekttyperna av har godtagbar för den **PredictImage** och **PredictImageUrl** anrop. Från och med 3.0, har vi delat den här API: et så att du behöver att matcha projekttyp i anropet:
+2\.x-API: er används samma förutsägelse anropet för både bildklassificerare och objekt detektor projekt. Båda projekttyperna av har godtagbar för den **PredictImage** och **PredictImageUrl** anrop. Från och med 3.0, har vi delat den här API: et så att du behöver att matcha projekttyp i anropet:
 
 * Använd **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** och **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** att få förutsägelser för avbildning klassificering projekt.
 * Använd **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** och **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** att få förutsägelser för objektet identifiering projekt.
 
 ## <a name="use-the-new-iteration-publishing-workflow"></a>Använda det nya iteration publishing arbetsflödet
 
-2.x API: er används standard iteration eller en angiven iteration-ID för att välja iterationen ska användas för förutsägelse. Från och med 3.0, har vi antagit ett publicera flöde där du först publicera en iteration under ett visst angivet namn från API: et för utbildning. Du kan sedan skicka namnet till förutsägelse-metoder för att ange vilka iteration att använda.
+2\.x API: er används standard iteration eller en angiven iteration-ID för att välja iterationen ska användas för förutsägelse. Från och med 3.0, har vi antagit ett publicera flöde där du först publicera en iteration under ett visst angivet namn från API: et för utbildning. Du kan sedan skicka namnet till förutsägelse-metoder för att ange vilka iteration att använda.
 
 > [!IMPORTANT]
-> 3.0 API: er inte använder funktionen standard iteration. Tills vi avverka den äldre API: er kan du fortsätta att använda 2.x API: er för att växla en iteration som standard. Dessa API: er kommer att finnas kvar under en viss tidsperiod och du kan anropa den **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** metod för att markera en iteration som standard.
+> 3\.0 API: er inte använder funktionen standard iteration. Tills vi avverka den äldre API: er kan du fortsätta att använda 2.x API: er för att växla en iteration som standard. Dessa API: er kommer att finnas kvar under en viss tidsperiod och du kan anropa den **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** metod för att markera en iteration som standard.
 
 ### <a name="publish-an-iteration"></a>Publicera en iteration
 

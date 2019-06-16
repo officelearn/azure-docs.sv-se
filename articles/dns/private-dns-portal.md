@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: ef9c0cddf989a438d18871767c3353fbc2d621db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e3772d8f385ed93c96f8aa2f7ee2ded8f46d4e00
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126232"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147838"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-the-azure-portal"></a>Självstudier: Skapa en privat Azure DNS-zon med Azure portal
 
@@ -40,11 +40,13 @@ Om du vill kan du slutföra den här självstudien med [Azure PowerShell](privat
 
 I följande exempel skapas en DNS-zon med namnet **private.contoso.com** i en resursgrupp med namnet **MyAzureResourceGroup**.
 
-En DNS-zon innehåller DNS-poster för en domän. Om du vill låta Azure DNS vara värd för din domän skapar du en DNS-zon för det domännamnet. 
+En DNS-zon innehåller DNS-poster för en domän. Om du vill låta Azure DNS vara värd för din domän skapar du en DNS-zon för det domännamnet.
 
-1. På portalsidan längst upp till vänster, Välj **skapa en resurs**, sedan **nätverk**. Typ **privata DNS-zon** i sökrutan och tryck på **RETUR**.
+![Privata DNS-zoner sökning](media/private-dns-portal/search-private-dns.png)
+
+1. På portalen sökfältet skriver **privata dns-zoner** i sökrutan och tryck på **RETUR**.
 1. Välj **privata DNS-zon**.
-2. Välj **Skapa**.
+2. Välj **skapa privata DNS-zon**.
 
 1. På den **skapa privata DNS-zon** sidan, Skriv eller Välj följande värden:
 
@@ -69,6 +71,8 @@ Det kan ta några minuter att skapa zonen.
 ## <a name="link-the-virtual-network"></a>Länka virtuella nätverk
 
 Om du vill länka privata DNS-zonen till ett virtuellt nätverk, skapar du en länk för virtuellt nätverk.
+
+![Lägg till länk för virtuellt nätverk](media/private-dns-portal/dns-add-virtual-network-link.png)
 
 1. Öppna den **MyAzureResourceGroup** resource gruppen och välj den **private.contoso.com** privat zon.
 2. I det vänstra fönstret, Välj **virtuella nätverkslänkar**.

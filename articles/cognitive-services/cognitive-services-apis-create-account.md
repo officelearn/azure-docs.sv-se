@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: garye
-ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1149cc6bd4fa41514056342a06d31016123eb88c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145946"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062153"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
@@ -105,4 +105,4 @@ Anteckna platsen och alla nycklarna. Du kan hämta nycklar genom att välja **ny
 * [Snabbstart: Extrahera handskriven text från en avbildning](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Självstudie: Skapa en app för att upptäcka och RAM ansikten i en bild](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Skapa en anpassad sökning-webbsida](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Integrera Språkförståelse (LUIS) med en bot med Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [Integrera Språkförståelse (LUIS) med en bot med Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)

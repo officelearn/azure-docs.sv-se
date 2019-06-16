@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/04/2019
+ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055405"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -223,7 +223,7 @@ HDInsight kräver obegränsad åtkomst till HDInsight-hälsa och management serv
 
 ![Diagram över HDInsight-entiteter som skapats i Azure anpassade virtuella nätverk](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-### <a id="hdinsight-ip"></a> HDInsight med nätverkssäkerhetsgrupper
+### <a name="hdinsight-with-network-security-groups"></a>HDInsight med nätverkssäkerhetsgrupper
 
 Om du tänker använda **nätverkssäkerhetsgrupper** till nätverkstrafik genom att utföra följande åtgärder innan du installerar HDInsight:
 
@@ -291,11 +291,11 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     | &nbsp; | Södra Indien | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inkommande |
     | Japan | Östra Japan | 13.78.125.90</br>13.78.89.60 | \*:443 | Inkommande |
     | &nbsp; | Västra Japan | 40.74.125.69</br>138.91.29.150 | \*:443 | Inkommande |
-    | Korea | Sydkorea, centrala | 52.231.39.142</br>52.231.36.209 | \*:433 | Inkommande |
+    | Korea | Sydkorea, centrala | 52.231.39.142</br>52.231.36.209 | \*:443 | Inkommande |
     | &nbsp; | Sydkorea, södra | 52.231.203.16</br>52.231.205.214 | \*:443 | Inkommande
     | Storbritannien | Storbritannien, västra | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkommande |
     | &nbsp; | Storbritannien, södra | 51.140.47.39</br>51.140.52.16 | \*:443 | Inkommande |
-    | USA | Centrala USA | 13.67.223.215</br>40.86.83.253 | \*:443 | Inkommande |
+    | USA | Centrala USA | 13.89.171.122</br>13.89.171.124 | \*:443 | Inkommande |
     | &nbsp; | Östra USA | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkommande |
     | &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | \*:443 | Inkommande |
     | &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | \*:443 | Inkommande |
@@ -328,28 +328,29 @@ Följande Resource Manager-mallen skapar ett virtuellt nätverk som begränsar i
 
 * [Distribuera ett skyddat virtuellt Azure-nätverk och ett HDInsight Hadoop-kluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]  
-> Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Använd följande PowerShell-skript för att skapa ett virtuellt nätverk som begränsar inkommande trafik och tillåter trafik från IP-adresser för regionen Europa, norra.
 
 > [!IMPORTANT]  
-> Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
+> Ändra IP-adresser för `hdirule1` och `hdirule2` i det här exemplet så att den matchar den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
+
 # Get the Virtual Network object
 $vnet = Get-AzVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
+
 # Get the region the Virtual network is in.
 $location = $vnet.Location
+
 # Get the subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+
 # Create a Network Security Group.
 # And add exemptions for the HDInsight health and management services.
 $nsg = New-AzNetworkSecurityGroup `
@@ -422,8 +423,10 @@ $nsg = New-AzNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
+
 # Set the changes to the security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
 # Apply the NSG to the subnet
 Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
@@ -433,14 +436,12 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-> [!IMPORTANT]  
-> Det här exemplet visar hur du lägger till regler för att tillåta inkommande trafik på de begärda IP-adresserna. Den innehåller inte en regel för att begränsa inkommande åtkomst från andra källor.
->
-> I följande exempel visar hur du aktiverar SSH-åtkomst från Internet:
->
-> ```powershell
-> Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
-> ```
+Det här exemplet visar hur du lägger till regler för att tillåta inkommande trafik på de begärda IP-adresserna. Den innehåller inte en regel för att begränsa inkommande åtkomst från andra källor. Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
+
+```powershell
+Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
+Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -457,7 +458,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 2. Använd följande för att lägga till regler i den nya nätverkssäkerhetsgrupp som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälsotillstånd och hantering. Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller Azure virtuellt nätverk.
 
     > [!IMPORTANT]  
-    > Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
+    > Ändra IP-adresser för `hdirule1` och `hdirule2` i det här exemplet så att den matchar den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -471,14 +472,12 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 3. Om du vill hämta den unika identifieraren för den här nätverkssäkerhetsgruppen, använder du följande kommando:
 
     ```azurecli
-    az network nsg show -g RESOURCEGROUP -n hdisecure --query 'id'
+    az network nsg show -g RESOURCEGROUP -n hdisecure --query "id"
     ```
 
     Det här kommandot returnerar ett värde som liknar följande text:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
-
-    Använd dubbla citattecken runt `id` i kommandot om du inte får de förväntade resultaten.
 
 4. Använd följande kommando för att tillämpa nätverkssäkerhetsgruppen till ett undernät. Ersätt den `GUID` och `RESOURCEGROUP` med dem som returnerats från föregående steg. Ersätt `VNETNAME` och `SUBNETNAME` med namn på virtuellt nätverk och undernätsnamn som du vill skapa.
 
@@ -488,14 +487,14 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 
     När det här kommandot har slutförts kan installera du HDInsight i det virtuella nätverket.
 
-> [!IMPORTANT]  
-> De här stegen Öppna endast åtkomst till HDInsight hälso- och management-tjänsten på Azure-molnet. Alla andra åtkomst till HDInsight-kluster från utanför det virtuella nätverket är blockerad. Om du vill aktivera åtkomst från utanför det virtuella nätverket måste du lägga till ytterligare regler för Nätverkssäkerhetsgruppen.
->
-> I följande exempel visar hur du aktiverar SSH-åtkomst från Internet:
->
-> ```azurecli
-> az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
-> ```
+
+De här stegen Öppna endast åtkomst till HDInsight hälso- och management-tjänsten på Azure-molnet. Alla andra åtkomst till HDInsight-kluster från utanför det virtuella nätverket är blockerad. Om du vill aktivera åtkomst från utanför det virtuella nätverket måste du lägga till ytterligare regler för Nätverkssäkerhetsgruppen.
+
+Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
+
+```azurecli
+az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
+```
 
 ## <a id="example-dns"></a> Exempel: DNS-konfiguration
 
@@ -658,7 +657,7 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 ## <a name="next-steps"></a>Nästa steg
 
 * Slutpunkt till slutpunkt-exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
-* Konfigurera Apache Hbase-kluster i Azure-nätverk, finns i [skapa Apache HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Konfigurera Apache HBase-kluster i Azure-nätverk, finns i [skapa Apache HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
 * Konfigurerar Apache HBase-geo-replikering finns i [Konfigurera replikering för Apache HBase-kluster i Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i den [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 

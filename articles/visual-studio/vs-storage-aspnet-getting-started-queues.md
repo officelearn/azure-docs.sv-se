@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110493"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
@@ -572,7 +572,7 @@ Det här avsnittet visas hur du tar bort en kö.
 
 1. Kör programmet och välj **hämta kölängden** att se resultat som liknar följande skärmbild:
   
-    ![Ta bort kö](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
+    ![Ta bort kön](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.

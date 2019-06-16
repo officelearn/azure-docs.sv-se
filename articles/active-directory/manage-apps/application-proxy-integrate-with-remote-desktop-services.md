@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108467"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -57,6 +57,8 @@ I en RDS-distribution köra RD Web-roll och rollen för fjärrskrivbordsgateway 
 - När du publicerar webbåtkomst, rekommenderar vi att du använder samma FQDN för interna och externa. Om interna och externa FQDN: er är olika bör du inaktivera begär rubrik översättning för att undvika att klienten tar emot ogiltiga länkar. 
 
 - Aktivera RDS ActiveX-tillägg i Internet Explorer.
+
+- För Azure AD-förautentisering flow kan användare kan endast ansluta till resurser som publiceras till dem i den **RemoteApp- och skrivbord** fönstret. Användare kan inte ansluta till en skrivbord med hjälp av den **Anslut till en fjärransluten dator** fönstret.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Distribuera det gemensamma RDS och Application Proxy-scenariot
 
@@ -127,7 +129,7 @@ Konfigurationen som beskrivs i den här artikeln är avsedd för användare på 
 | Förautentisering    | Windows 7/10 med hjälp av Internet Explorer + RDS ActiveX-tillägg |
 | Genomströmning | Alla andra operativsystem som stöder Microsoft Remote Desktop-program |
 
-Flödet för förautentisering erbjuder mer säkerhetsfördelarna än genomströmning flödet. Du kan använda Azure AD-autentisering-funktioner som enkel inloggning, villkorlig åtkomst och tvåstegsverifiering för dina lokala resurser med förautentisering. Du kan också kontrollera som endast autentiserad trafik når ditt nätverk.
+Flödet för förautentisering erbjuder mer säkerhetsfördelarna än genomströmning flödet. Du kan använda Azure AD-autentisering-funktioner som enkel inloggning, villkorlig åtkomst och tvåstegsverifiering verifiering med förautentisering för dina lokala resurser. Du kan också kontrollera som endast autentiserad trafik når ditt nätverk.
 
 Om du vill använda direktautentisering, finns det bara två ändringar i stegen i den här artikeln:
 1. I [publicera RD värd slutpunkten](#publish-the-rd-host-endpoint) steg 1 genom att ange förautentiseringsmetoden **genomströmning**.

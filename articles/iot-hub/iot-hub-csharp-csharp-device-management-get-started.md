@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
 ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873292"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Kom igång med enhetshantering (.NET/.NET)
@@ -56,7 +56,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjärromstart på en enhet med en direkt metod. Appen använder enhetstvillingfrågor för att identifiera den senaste Omstartstid för enheten.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den nya lösningen med hjälp av projektmallen **Konsolapp (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **TriggerReboot**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den nya lösningen med hjälp av projektmallen **Konsolapp (.NET Framework)** . Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **TriggerReboot**.
 
     ![Nytt Visual C# Windows Classic Desktop-projekt](./media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png)
 
@@ -218,7 +218,7 @@ I det här avsnittet ska göra du följande:
    }
    ```
         
-8. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt...**. Välj **enda Startprojekt**, och välj sedan den **SimulateManagedDevice** projekt i den nedrullningsbara menyn. Skapa lösningen.       
+8. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt...** . Välj **enda Startprojekt**, och välj sedan den **SimulateManagedDevice** projekt i den nedrullningsbara menyn. Skapa lösningen.       
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).

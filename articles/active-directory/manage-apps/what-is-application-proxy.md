@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66403a18be8337939d457c061b07de948c3e34e8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108166"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranvändare
 
@@ -65,7 +65,7 @@ I dagens digitala arbetsplats arbeta användarna var som helst med flera enheter
 * Principtjänst utvärdering för att avgöra om en användare och enhet uppfyller den princip som av säkerhetsadministratörer.
 * Möjlighet att bevilja eller neka åtkomst till organisationens resurser.
 
-Med Application Proxy behåller Azure AD åtkomst till användare som behöver åtkomst till web apps publicerade lokalt och i molnet. Det ger en central hantering apparna. Måste inte, bör du också aktivera Azure AD villkorsstyrd åtkomst. Genom att definiera villkor för hur användare autentiseras och få åtkomst kan du ytterligare se till rätt personer har åtkomst till program.
+Med Application Proxy behåller Azure AD åtkomst till användare som behöver åtkomst till web apps publicerade lokalt och i molnet. Det ger en central hantering apparna. Du måste inte, bör du också aktivera Azure AD villkorlig åtkomst. Genom att definiera villkor för hur användare autentiseras och få åtkomst kan du ytterligare se till rätt personer har åtkomst till program.
 
 **Obs:** Det är viktigt att förstå att Azure AD Application Proxy är avsedd som en VPN- eller omvänd proxy ersättning för centrala (eller fjärranslutna) användare som behöver åtkomst till interna resurser. Det är inte avsett för interna användare i företagsnätverket. Intern användare som använder onödigt Application Proxy kan medföra oväntade och oönskade prestandaproblem.
 
@@ -107,7 +107,7 @@ Mer information om metoder som stöds finns i [välja en metod för enkel inlogg
 Lösning för fjärråtkomst som erbjuds av Application Proxy och Azure AD stöder flera säkerhetsfördelarna kunder kan dra nytta av, inklusive:
 
 * **Autentiserad åtkomst**. Programproxyn är bäst lämpad att publicera program med [förautentisering](application-proxy-security.md#authenticated-access) så att endast autentiserade anslutningar når ditt nätverk. För program som publiceras med förautentisering, tillåts ingen trafik att passera App Proxy-tjänsten till din lokala miljö, utan giltig token. Föregående autentisering blockerar till sin natur, ett stort antal riktade attacker som endast autentiserade identiteter har åtkomst till backend-programmet.
-* **Villkorlig åtkomst**. Rikare principkontroller kan tillämpas innan anslutningar till nätverket upprättas. Med villkorlig åtkomst kan du ange begränsningar för trafiken som du tillåter för att träffa backend-applikationer. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan hos autentisering och användarprofilen för risken. När villkorlig åtkomst utvecklas, läggs fler kontroller för att ge extra säkerhet som integrering med Microsoft Cloud App Security (MCAS). MCAS-integrering kan du konfigurera ett lokalt program för [realtidsövervakning](application-proxy-integrate-with-microsoft-cloud-application-security.md) genom att använda villkorlig åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst.
+* **Villkorlig åtkomst**. Rikare principkontroller kan tillämpas innan anslutningar till nätverket upprättas. Med villkorlig åtkomst kan du ange begränsningar för trafiken som du tillåter för att träffa backend-applikationer. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan hos autentisering och användarprofilen för risken. När villkorlig åtkomst utvecklas, läggs fler kontroller för att ge extra säkerhet som integrering med Microsoft Cloud App Security (MCAS). MCAS-integrering kan du konfigurera ett lokalt program för [realtidsövervakning](application-proxy-integrate-with-microsoft-cloud-application-security.md) genom att använda villkorlig åtkomst att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst.
 * **Trafik avslutning**. All trafik till backend-applikationer avslutas vid Application Proxy-tjänst i molnet, medan sessionen upprättas igen med backend-servern. Den här strategin för anslutning innebär att ditt serverdels-servrarna inte exponeras direkt HTTP-trafik. De är bättre skyddade mot riktade (denial of service) för DoS-attacker eftersom brandväggen inte är utsatt för en attack.
 * **All åtkomst är utgående**. Application Proxy-anslutningar använder bara utgående anslutningar till Application Proxy-tjänsten i molnet över portarna 80 och 443. Med inga inkommande anslutningar finns behöver inte öppna portar i brandväggen för inkommande anslutningar eller komponenter i Perimeternätverket. Alla anslutningar är utgående och via en säker kanal.
 * **Säkerhetsanalyser och Machine Learning (ML) baserade intelligence**. Eftersom det är en del av Azure Active Directory Application Proxy kan utnyttja [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview) (kräver [Premium P2 licensiering](https://azure.microsoft.com/pricing/details/active-directory/)). Azure AD Identity Protection kombinerar säkerhetsinformation för machine learning med datafeeds från Microsofts [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html) och [Microsoft Security Response Center](https://www.microsoft.com/msrc) att proaktivt identifiera kapade konton. Identity Protection ger realtidsskydd mot med hög risk inloggningar. Det tar i beräkningen faktorer som åtkomst från angripna enheter via maskera nätverk, eller från ovanliga och sannolikt inte kommer att öka risken profilen för en session. Den här profilen för risker används för realtidsskydd. Många av dessa rapporter och händelser är redan tillgänglig via ett API för integrering med SIEM-system.

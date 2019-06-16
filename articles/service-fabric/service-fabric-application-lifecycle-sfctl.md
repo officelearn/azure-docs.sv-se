@@ -2,18 +2,17 @@
 title: Hantera Azure Service Fabric-program med Azure Service Fabric CLI (sfctl)
 description: Lär dig hur du distribuerar och ta bort program från ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric CLI
 services: service-fabric
-author: rockboyfor
-manager: digimobile
+author: Christina-Kang
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 07/31/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 07/31/2018
+ms.author: bikang
 ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60621385"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Hantera ett Azure Service Fabric-program med hjälp av Azure Service Fabric CLI (sfctl)
@@ -171,5 +170,3 @@ Slutligen, om en uppgradering är pågående och måste avbrytas, kan du använd
 * [Grunderna i Service Fabric CLI](service-fabric-cli.md)
 * [Komma igång med Service Fabric i Linux](service-fabric-get-started-linux.md)
 * [Starta en Service Fabric-Programuppgradering](service-fabric-application-upgrade.md)
-
-<!--Update_Description: update meta properties -->

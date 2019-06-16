@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458565"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Storage Explorer
@@ -172,7 +172,7 @@ Följande steg illustrerar hur du hanterar blobar (och mappar) inom en blob-beh�
      1. Gå till verktygsfältet i huvudfönstret och välj **Överför**, och sedan **Överför filer** i den nedrullningsbara menyn.
 
         ![Menyn Ladda upp filer][15]
-     2. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
+     2. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter ( **...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Uppladdningsalternativ filer][16]
      3. Ange vilken typ av **typ av Blob**. Se [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) för mer information.
@@ -183,7 +183,7 @@ Följande steg illustrerar hur du hanterar blobar (och mappar) inom en blob-beh�
      1. Gå till verktygsfältet i huvudfönstret och klicka på **Överför**, och sedan på **Överför mapp** i den nedrullningsbara menyn.
 
         ![Menyn för mappöverföring][17]
-     2. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
+     2. I dialogen **Överför mapp** klickar du på knappen med tre punkter ( **...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         ![Ladda upp Mappalternativ][18]
      3. Ange vilken typ av **typ av Blob**. Se [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) för mer information.

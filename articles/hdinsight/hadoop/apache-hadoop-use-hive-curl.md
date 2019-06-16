@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078324"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST
 
@@ -24,9 +24,6 @@ Lär dig hur du använder REST-API WebHCat du kör Apache Hive-frågor med Apach
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Linux-baserat Hadoop i HDInsight-kluster av version 3.4 och senare.
-
-  > [!IMPORTANT]  
-  > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En REST-klient. Det här dokumentet används Windows PowerShell och [Curl](https://curl.haxx.se/) exempel.
 
@@ -141,7 +138,7 @@ Det här dokumentet använder också Windows PowerShell och [Jq](https://stedola
 
    * `ROW FORMAT` – Hur informationen har formaterats. Fälten i varje logg avgränsas med ett blanksteg.
    * `STORED AS TEXTFILE LOCATION` -Där data lagras (katalogen/exempeldata) och att den lagras som text.
-   * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]**. Det här uttrycket returnerar värdet **3** som det finns tre rader som innehåller det här värdet.
+   * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]** . Det här uttrycket returnerar värdet **3** som det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
      > Observera att blanksteg mellan HiveQL-instruktioner har ersatts av den `+` tecken när det används med Curl. Citerade värden som innehåller ett blanksteg, till exempel avgränsare, bör inte ersättas av `+`.

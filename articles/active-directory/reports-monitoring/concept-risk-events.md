@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107686"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -44,7 +44,7 @@ För närvarande kan identifierar Azure Active Directory sex typer av riskhände
 - [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) 
 
-![Riskhändelse](./media/concept-risk-events/91.png)
+![Riskhändelsen](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
 > Ibland, kan du hitta en riskhändelse utan en motsvarande inloggning transaktion i den [rapporten inloggningar](concept-sign-ins.md). Detta beror på att Identity Protection utvärderar risken för både **interaktiva** och **icke-interaktiv** inloggningar, medan den inloggningar rapporten visas endast de interaktiva inloggningarna.
@@ -107,7 +107,7 @@ I följande tabell visas hur lång tid det tar för en identifieringstyp visas i
 
 | Identifieringstyp | Rapporteringstiden |
 | --- | --- |
-| Realtid | 5 – 10 minuter |
+| I realtid | 5 – 10 minuter |
 | Offline | 2-4 timmar |
 
 
@@ -116,9 +116,9 @@ För de typer av riskhändelser Azure Active Directory identifierar, är identif
 | Typ av riskhändelse | Identifieringstyp |
 | :-- | --- | 
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtid |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | I realtid |
 | [Omöjlig resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtid |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | I realtid |
 | [Inloggningar från angripna enheter](#sign-ins-from-infected-devices) | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 

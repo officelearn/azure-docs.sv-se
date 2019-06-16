@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342061"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referensguide till Vydesigner paneler i Azure Monitor
@@ -31,7 +31,7 @@ Mer information om Vydesigner finns:
 
 Tillgängliga Vydesigner paneler beskrivs i följande tabell:  
 
-| Upprepa | Beskrivning |
+| panelen | Beskrivning |
 |:--- |:--- |
 | [Nummer](#number-tile) |Totalt antal poster från en fråga. |
 | [Två tal](#two-numbers-tile) |Antalet poster från två olika frågor. |
@@ -55,12 +55,12 @@ Den **nummer** panelen visar både antalet poster från en loggfråga och en eti
 | Namn |Den text som visas överst i panelen. |
 | Beskrivning |Den text som visas under namnet på panelen. |
 | **panelen** | |
-| Teckenförklaring |Den text som visas under värdet. |
+| Förklaring |Den text som visas under värdet. |
 | Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="two-numbers-tile"></a>Två tal panelen
@@ -73,15 +73,15 @@ Den här panelen visar antal poster från två olika loggfrågor och en etikett 
 | Namn |Den text som visas överst i panelen. |
 | Beskrivning |Den text som visas under namnet på panelen. |
 | **Panel 1** | |
-| Teckenförklaring |Den text som visas under värdet. |
+| Förklaring |Den text som visas under värdet. |
 | Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Panel 2** | |
-| Teckenförklaring |Den text som visas under värdet. |
+| Förklaring |Den text som visas under värdet. |
 | Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="donut-tile"></a>Ringdiagram panel
@@ -105,7 +105,7 @@ Den **ringdiagram** panelen visar ett enda tal som sammanfattar en värdekolumn 
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="line-chart-tile"></a>Rad diagram sida vid sida
@@ -126,7 +126,7 @@ Den här panelen är ett linjediagram som visar flera serier från en loggfråga
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="line-chart-and-callout-tile"></a>Rad linjediagram och bildtext panel
@@ -151,7 +151,7 @@ Den här panelen har både en rad diagram som visar flera serier från en logg f
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="two-timelines-tile"></a>Två tidslinjer panel
@@ -164,19 +164,19 @@ Den **två tidslinjer** panelen visar resultatet av två loggfrågor över tid s
 | Namn |Den text som visas överst i panelen. |
 | Beskrivning |Den text som visas under namnet på panelen. |
 | Diagram 1 | |
-| Teckenförklaring |Den text som visas under bildtext för den första serien. |
+| Förklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färg som används för kolumnerna i den första serien. |
 | Diagramfråga |Den fråga som körs för första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet.</li></ul> |
 | **Diagram 2** | |
-| Teckenförklaring |Den text som visas under bildtext för den andra serien. |
+| Förklaring |Den text som visas under bildtext för den andra serien. |
 | Färg |Färg som används för kolumnerna i den andra serien. |
 | Diagramfråga |Den fråga som körs för den andra serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet. |
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
-| Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
+| Message |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
 
 
 ## <a name="next-steps"></a>Nästa steg

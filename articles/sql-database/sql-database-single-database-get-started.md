@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 85bbd14c8d2bcd8e3699e5f5efdae9f52acd63e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
-ms.translationtype: HT
+ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070171"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -137,4 +137,4 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure CLI, se [Azure CLI-exempel](sql-database-cli-samples.md).
 - Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure PowerShell, se [Azure PowerShell-exempel](sql-database-powershell-samples.md).
-- För att skapa en enkel databas på nivån för beräkning utan server med Azure Powershell, se [Skapa databas utan server med hjälp av PowerShell](sql-database-serverless.md#create-new-database-in-serverless-compute-tier-using-powershell)
+- För att skapa en enkel databas på nivån för beräkning utan server med Azure Powershell, se [skapa serverlös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).

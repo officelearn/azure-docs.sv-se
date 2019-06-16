@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudier: Azure Active Directory-integrering med PageDNA
 
@@ -163,7 +163,7 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BrittaSimon\@contoso.com**.
+    1. I den **användarnamn** anger **BrittaSimon\@\<företagsdomänen >.\< tillägget >** . Till exempel **BrittaSimon\@contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -211,4 +211,4 @@ När du väljer **PageDNA** i portalen Mina appar du bör vara loggas in automat
 
 * [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

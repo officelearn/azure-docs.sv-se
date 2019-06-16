@@ -4,18 +4,16 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46a2b18309851bbe2934980137a53d2de6f6efc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681392"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135353"
 ---
-## <a name="set-up-your-device"></a>Konfigurera enheten
+## <a name="set-up-your-device-in-unity"></a>Konfigurera din enhet i Unity
 
-Öppna projektet i i Unity, den `Unity` mapp.
-
-![Unity-fönstret](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### <a name="set-up-an-android-device"></a>Konfigurera en Android-enhet
 
@@ -43,20 +41,26 @@ Logga in på din Android-enhet och ansluta den till datorn med hjälp av en USB-
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
-Under **scener i skapa**, markera kryssrutan bredvid den `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scen och rensa markeringarna från alla andra scener.
+Under **kulisserna i skapa**, se till att alla scener har en bock bredvid dem.
 
 Se till att **exportera projekt** inte är markerade. Välj **skapa och köra**. Du uppmanas att spara din `.apk` fil. Du kan välja ett namn för den.
 
-Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad gör jag. Du kommer till exempel bli ombedd att flytta din enhet för att samla in miljöinformation. Vid ett senare tillfälle kommer du placera en fästpunkt i hela världen, vänta medan den upp och så vidare.
+När appen startar i den **väljer en Demo** dialogrutan Använd pilarna vänster eller höger för att välja den **LocalShare** alternativet och tryck på **Gå!** . Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**.
+
+Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat.
+I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad du gör. Du kommer till exempel bli ombedd att flytta din enhet att samla in miljöinformation. Vid ett senare tillfälle du placera en fästpunkt i hela världen, vänta tills den är att spara och så vidare.
 
 ### <a name="deploy-to-an-ios-device"></a>Distribuera till en iOS-enhet
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
-Under **scener i skapa**, markera kryssrutan bredvid den `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scen och rensa markeringarna från alla andra scener.
+Under **kulisserna i skapa**, se till att alla scener har en bock bredvid dem.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad gör jag. Du kommer till exempel bli ombedd att flytta din enhet för att samla in miljöinformation. Vid ett senare tillfälle kommer du placera en fästpunkt i hela världen, vänta medan den upp och så vidare.
+När appen startar i den **väljer en Demo** dialogrutan Använd pilarna vänster eller höger för att välja den **LocalShare** alternativet och tryck på **Gå!** . Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**.
+
+Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat.
+I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad du gör. Du kommer till exempel bli ombedd att flytta din enhet att samla in miljöinformation. Vid ett senare tillfälle du placera en fästpunkt i hela världen, vänta tills den är att spara och så vidare.
 
 Stoppa appen i Xcode genom att välja **stoppa**.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749265"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
@@ -64,35 +64,35 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | .NET body objekttyp | Mappade AMQP-typ | AMQP-avsnittet strängtypen |
 | --- | --- | --- |
 | bool |boolesk |AMQP-värde |
-| byte |ubyte |AMQP-värde |
+| Mottagna byte |ubyte |AMQP-värde |
 | ushort |ushort |AMQP-värde |
 | uint |uint |AMQP-värde |
 | ulong |ulong |AMQP-värde |
-| sbyte |byte |AMQP-värde |
+| sbyte |Mottagna byte |AMQP-värde |
 | kort |kort |AMQP-värde |
 | int |int |AMQP-värde |
-| lång |lång |AMQP-värde |
-| flyt |flyt |AMQP-värde |
+| long |long |AMQP-värde |
+| float |float |AMQP-värde |
 | double |double |AMQP-värde |
 | decimal |decimal128 |AMQP-värde |
 | char |char |AMQP-värde |
-| DateTime |tidsstämpel |AMQP-värde |
+| DateTime |timestamp |AMQP-värde |
 | Guid |uuid |AMQP-värde |
 | byte |binary |AMQP-värde |
 | string |string |AMQP-värde |
-| System.Collections.IList |lista |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
+| System.Collections.IList |list |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
 | System.Array |matris |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
 | System.Collections.IDictionary |map |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. Obs: endast strängnycklar stöds. |
-| URI |Beskrivningen sträng (se nedan) |AMQP-värde |
-| Datetimeoffset |Beskrivningen länge (se nedan) |AMQP-värde |
+| URI: N |Beskrivningen sträng (se nedan) |AMQP-värde |
+| DateTimeOffset |Beskrivningen länge (se nedan) |AMQP-värde |
 | TimeSpan |Beskrivningen länge (se följande) |AMQP-värde |
-| Strömma |binary |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
+| Stream |binary |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
 | Andra objekt |binary |AMQP-Data (kan vara flera). Innehåller den serialiserade binära filen på det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
 | .NET-typ | Mappade AMQP beskrivs typ | Anteckningar |
 | --- | --- | --- |
-| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
-| Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
+| URI: N |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>Beteendeanalys skillnader
@@ -107,10 +107,10 @@ Det finns några mindre skillnader i beteendet för Service Bus .NET API när du
 
 Den [.NET API: er](/dotnet/api/) exponera flera inställningar för att styra beteendet för AMQP-protokollet:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Styr initial kredit som tillämpas på en länk. Standardvärdet är 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Kontroller som den maximala storleken för AMQP ramens erbjuds under förhandling vid anslutning öppna tid. Standardvärdet är 65 536 byte.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Om-överföringar är batchable, fastställer det här värdet den längsta tillåtna fördröjningen för att skicka disposition. Ärvs av avsändare/mottagare som standard. Enskilda avsändare/mottagare kan åsidosätta standardvärdet, vilket är 20 millisekunder.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Styr huruvida AMQP-anslutningar upprättas via en SSL-anslutning. Standardvärdet är **SANT**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)** : Styr initial kredit som tillämpas på en länk. Standardvärdet är 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)** : Kontroller som den maximala storleken för AMQP ramens erbjuds under förhandling vid anslutning öppna tid. Standardvärdet är 65 536 byte.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)** : Om-överföringar är batchable, fastställer det här värdet den längsta tillåtna fördröjningen för att skicka disposition. Ärvs av avsändare/mottagare som standard. Enskilda avsändare/mottagare kan åsidosätta standardvärdet, vilket är 20 millisekunder.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** : Styr huruvida AMQP-anslutningar upprättas via en SSL-anslutning. Standardvärdet är **SANT**.
 
 ## <a name="next-steps"></a>Nästa steg
 

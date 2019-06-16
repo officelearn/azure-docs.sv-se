@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29569302d20e23c95b6508a5b58c7ed96e005885
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66499256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108206"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -146,7 +146,7 @@ Information om MCAS finns i den [översikt över Microsoft Cloud App Security](h
 
 Du kan använda villkorlig åtkomst för att automatisera villkorsbaserade besluten om åtkomstkontroll för dina appar i molnet.
 
-Principer för villkorlig åtkomst tillämpas efter det att den första faktorautentiseringen har slutförts. Villkorlig åtkomst är därför inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som denial of service-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst. Till exempel inloggning risknivån kan platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns i [översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och [distributionsplan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Principer för villkorlig åtkomst tillämpas efter den första-factor-autentiseringen har slutförts. Villkorlig åtkomst är därför inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som denial of service-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst. Till exempel inloggning risknivån kan platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns i [översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och [distributionsplan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## <a name="azure-sso-technical-requirements"></a>Tekniska krav för Azure SSO
 

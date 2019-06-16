@@ -7,25 +7,25 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler
-ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1a45af2cb5eed8daa4b50bb6f0b504f9653c827a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068942"
 ---
 # <a name="handling-review-feedback"></a>Hantera feedback från granskning
 
 Den här artikeln förklarar hur du kommer åt Azure DevOps-miljö som används av granskningsteamet för Microsoft Azure Marketplace.  Om allvarliga problem som hittas i erbjudandet Azure-program under den **Microsoft granska** steg, du kan logga in på det här systemet att visa detaljerad information om dessa ärenden (granska feedback).  När du har åtgärdat alla problem, måste du skicka ditt erbjudande till fortsätta publicera på Azure Marketplace.  Följande diagram illustrerar hur den här feedbackprocessen relaterar till publiceringsprocessen.
 
-![Publicera steg med VSTS-feedback](./media/pub-flow-vsts-access.png)
+![Publicera steg med Azure DevOps-feedback](./media/pub-flow-vsts-access.png)
 
 Granska problem är normalt refereras till som pull-begäran (PR).  Varje pull-begäran är länkad till en Onlinekälla [Azure DevOps](https://azure.microsoft.com/services/devops/) (som tidigare kallades för Visual Studio Team Services (VSTS)) objekt som innehåller information om problemet.  Följande bild visar ett exempel på en granska PR-referens.  För komplexa situationer kan också granska och supportteam e du. 
 
 ![Status för fliken visas granska feedback](./media/status-tab-ms-review.png)
 
 
-## <a name="vsts-access"></a>VSTS-åtkomst
+## <a name="azure-devops-access"></a>Azure DevOps-åtkomst
 
 Om du vill visa PR-objekten som refereras i Granska feedback, måste utgivare först tilldelas rätt behörighet.  Annars kan nya utgivare ta emot en `401 - Not Authorized` svar sidan när du försöker visa pull-begäranden.  Utför följande steg för att begära åtkomst till den här Azure DevOps-lagringsplatsen:
 
@@ -40,7 +40,7 @@ Om du vill visa PR-objekten som refereras i Granska feedback, måste utgivare f�
     ![Stöd för biljett kategori](./media/support-incident1.png)
 
 4. I **steg 1 av 2** , ange din kontaktinformation och välj **Fortsätt**.
-5. I **steg 2 av 2** anger du ett incidentrubrik (till exempel `Request VSTS access`) och ange den information du samlade in i det första steget (ovan).  Läsa och godkänna avtalet och välj sedan **skicka**.
+5. I **steg 2 av 2** anger du ett incidentrubrik (till exempel `Request Azure DevOps access`) och ange den information du samlade in i det första steget (ovan).  Läsa och godkänna avtalet och välj sedan **skicka**.
 
 Om incidentskapande, visas en bekräftelsesida.  Spara bekräftelseinformationen som på den här sidan som referens.  Microsoft Support-teamet ska svara på din förfrågan inom ett par arbetsdagar.
 

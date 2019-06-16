@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128991"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervaka och felsöka från HANA-sida
@@ -94,10 +94,10 @@ Referera till den [SAP HANA Felsökning: Minnesproblem](https://help.sap.com/sap
 Referera till [SAP Obs! #2081065 – felsökning av nätverk för SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) och utföra felsökning i den här SAP-kommentar nätverk.
 
 1. Analysera mäts tiden mellan servern och klienten.
-  A. Kör SQL-skript [ _HANA\_nätverk\_klienter_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Kör SQL-skript [ _HANA\_nätverk\_klienter_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
 2. Analysera kommunikation mellan.
-  A. Kör SQL-skript [ _HANA\_nätverk\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Kör SQL-skript [ _HANA\_nätverk\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
 3. Kör Linux-kommandot **ifconfig** (utdata visar om några paketförluster sker).
 4. Kör Linux-kommandot **tcpdump**.

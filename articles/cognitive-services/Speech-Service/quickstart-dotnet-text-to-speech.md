@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db2a1eebd5b2184ceff8793cb51f4e95b9dea38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067593"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Omvandla text till tal med .NET Core
 
@@ -48,7 +48,7 @@ Den här snabbstarten kräver C# 7.1 eller senare. Det finns ett antal sätt att
 
 Öppna projektet och öppna sedan `tts-sample.csproj`. Se till att `LangVersion` är inställt på 7.1 eller senare. Om det inte finns en egenskapsgrupp med språkversion, lägger du till följande rader:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>

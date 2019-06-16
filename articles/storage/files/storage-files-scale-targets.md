@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078152"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 
@@ -42,16 +42,18 @@ Exempel: En enda resurs kan uppnå 100 000 IOPS och en enskild fil kan skala upp
 
 ### <a name="premium-filestorage-account-limits"></a>Premium FileStorage gränser
 
-Premium-filresurser har etablerats i ett särskilt lagringskonto med namnet **filestorage (förhandsversion)**. Det här kontot har något annorlunda skala mål än lagringskontot som används för standard-filresurser. Mål för storage-konto skala, finns i tabellen i den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) avsnittet.
+Premium-filresurser har etablerats i ett särskilt lagringskonto med namnet **filestorage (förhandsversion)** . Det här kontot har något annorlunda skala mål än lagringskontot som används för standard-filresurser. Mål för storage-konto skala, finns i tabellen i den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) avsnittet.
 
 > [!IMPORTANT]
 > Lagringskontogränser gäller för alla resurser. Skala upp till är max för storage-konton endast möjligt om det finns bara en resurs per lagringskonto.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure File Sync skala mål
 
-Med Azure File Sync försöker vi så mycket som möjligt att utforma för obegränsad användning, men detta inte är alltid möjligt. I tabellen nedan visar gränserna för våra tester och vilka riktar sig faktiskt gränser:
+Azure File Sync har utformats med målet att obegränsad användning, men obegränsad användning är inte alltid möjligt. I följande tabell anger gränserna för Microsofts testning och anger även vilken riktar sig gränser:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -82,7 +84,7 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 | Ladda upp dataflöde | 20 objekt per sekund |
 | Namespace Download dataflöde * | 400 objekt per sekund |
 
-* När en ny serverslutpunkt skapas, hämta någon av filinnehållet inte av Azure File Sync-agenten. Programmet först synkroniseras fullständig namnområdet och sedan utlösare bakgrund återkallande för att hämta filer, antingen i sin helhet eller, om molnnivå är aktiverat i molnet lagringsnivåer princip på server-slutpunkt.
+\* När en ny serverslutpunkt skapas, hämta någon av filinnehållet inte av Azure File Sync-agenten. Programmet först synkroniseras fullständig namnområdet och sedan utlösare bakgrund återkallande för att hämta filer, antingen i sin helhet eller, om molnnivå är aktiverat i molnet lagringsnivåer princip på server-slutpunkt.
 
 | Pågående synkronisering  |   |
 |-|--|
@@ -92,7 +94,7 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 | Ladda upp dataflöde | 30 objekt per sekund |
 | Fullständig nedladdning dataflöde * | 60 objekt per sekund |
 
-* Om molnet lagringsnivåer har aktiverats kan du förmodligen att Observera bättre prestanda som bara en del av filen som data hämtas. Azure File Sync hämtas bara de data för cachelagrade filer när de ändras på någon av slutpunkterna. Agenten för nivåindelade eller nyligen skapade filer, hämta inte fildata och synkroniserar i stället endast namnområdet som ska alla serverslutpunkter. Agenten stöder även partiella nedladdningar av nivåindelade filer som de används av användaren. 
+\* Om molnet lagringsnivåer har aktiverats kan du förmodligen att Observera bättre prestanda som bara en del av filen som data hämtas. Azure File Sync hämtas bara de data för cachelagrade filer när de ändras på någon av slutpunkterna. Agenten för nivåindelade eller nyligen skapade filer, hämta inte fildata och synkroniserar i stället endast namnområdet som ska alla serverslutpunkter. Agenten stöder även partiella nedladdningar av nivåindelade filer som de används av användaren. 
 
 > [!Note]  
 > Talen ovan är inte en indikation på prestanda som uppstår. Verkliga prestanda beror på flera faktorer som beskrivs i början av det här avsnittet.

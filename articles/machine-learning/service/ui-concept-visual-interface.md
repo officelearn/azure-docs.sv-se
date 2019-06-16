@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077380"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Vad är det visuella gränssnittet för Azure Machine Learning-tjänsten? 
 
@@ -27,7 +27,7 @@ Det visuella gränssnittet använder Azure Machine Learning-tjänsten [arbetsyta
 + Skriva artefakter i [experimentera](#experiment) körs till arbetsytan.
 + Åtkomst [datauppsättningar](#dataset).
 + Använd den [beräkningsresurser](#compute) i arbetsytan för att köra experimentet. 
-+ Registrera [modeller](concept-azure-machine-learning-architecture.md#model).
++ Registrera [modeller](concept-azure-machine-learning-architecture.md#models).
 + [Distribuera](#deployment) modeller som webbtjänster på beräkningsresurser i arbetsytan.
 
 ![Översikt över det visuella gränssnittet](media/ui-concept-visual-interface/overview.png)

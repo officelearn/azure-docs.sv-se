@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253733"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
@@ -37,26 +37,26 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 | Hanteringsåtgärd | Minsta RBAC-roll som krävs | Omfång som krävs |
 | --- | --- | --- |
 | Skapa Recovery Services-valv | Deltagare | Resursgruppen som innehåller valvet |
-| Aktivera säkerhetskopiering av virtuella Azure-datorer | Säkerhetskopieringsoperatör | Resursgruppen som innehåller valvet |
-| | Virtuell datordeltagare | VM-resurs |
-| Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| Återställa en virtuell dator | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| Aktivera säkerhetskopiering av virtuella Azure-datorer | Ansvarig för säkerhetskopiering | Resursgruppen som innehåller valvet |
+| | Virtuell Datordeltagare | VM-resurs |
+| Säkerhetskopiering på begäran för virtuell dator | Ansvarig för säkerhetskopiering | Recovery vault-resursen |
+| Återställa en virtuell dator | Ansvarig för säkerhetskopiering | Recovery Services-valv |
 | | Deltagare | Resursgruppen där virtuella datorn ska distribueras |
-| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
-| Återställa ohanterade diskar säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| | Virtuell Datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| Återställa ohanterade diskar säkerhetskopiering av virtuella datorer | Ansvarig för säkerhetskopiering | Recovery vault-resursen |
+| | Virtuell Datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | | Lagringskontodeltagare | Resursen för lagringskonton där diskar ska återställas |
-| Återställa hanterade diskar från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| Återställa hanterade diskar från säkerhetskopiering av virtuella datorer | Ansvarig för säkerhetskopiering | Recovery vault-resursen |
+| | Virtuell Datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | | Lagringskontodeltagare | Tillfällig lagringskonto har valts som en del av återställning för att lagra data från valvet innan du konverterar dem till hanterade diskar |
 | | Deltagare | Resursgruppen som hanterade diskar ska återställas |
-| Återställa enskilda filer från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| Återställa enskilda filer från säkerhetskopiering av virtuella datorer | Ansvarig för säkerhetskopiering | Recovery vault-resursen |
+| | Virtuell Datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | Skapa säkerhetskopieringsprincip för virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Ändra princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Ta bort princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Stoppa säkerhetskopiering (och behålla data eller ta bort data) säkerhetskopiering av virtuella datorer | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
-| Registrera den lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| Registrera den lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Ansvarig för säkerhetskopiering | Recovery vault-resursen |
 | Ta bort registrerade lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 
 > [!IMPORTANT]
@@ -69,10 +69,10 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 | --- | --- | --- |
 | Aktivera säkerhetskopiering av Azure-filresurser | Säkerhetskopieringsmedarbetare | Recovery Services-valv |
 | | Lagringskonto | Deltagare resursen för lagringskonton |
-| Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery Services-valv |
-| Återställa filresursen | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| Säkerhetskopiering på begäran för virtuell dator | Ansvarig för säkerhetskopiering | Recovery Services-valv |
+| Återställa filresursen | Ansvarig för säkerhetskopiering | Recovery Services-valv |
 | | Lagringskontodeltagare | Lagringskontoresurserna där återställning källa och mål-filresurser finns |
-| Återställa enskilda filer | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| Återställa enskilda filer | Ansvarig för säkerhetskopiering | Recovery Services-valv |
 | | Lagringskontodeltagare |   Lagringskontoresurserna där återställning källa och mål-filresurser finns |
 | Sluta skydda | Säkerhetskopieringsmedarbetare | Recovery Services-valv |      
 | Avregistrera lagringskontot från valvet |   Säkerhetskopieringsmedarbetare | Recovery Services-valv |

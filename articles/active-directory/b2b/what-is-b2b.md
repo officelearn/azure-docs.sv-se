@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab73b501fc9dbe6209a92fff6f6e19de03fcdc1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5c5c133fe728126ea07834c8ff5b02b1203ec326
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112692"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -46,7 +46,7 @@ Gästanvändarna loggar in på dina appar och tjänster med sina egna arbets- el
 ![Skärmbild som visar sidan Granska behörigheter](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Använda principer för att på ett säkert sätt dela dina appar och tjänster
-Du kan använda auktoriseringsprinciper för att skydda företagets innehåll. Principer för villkorsstyrd åtkomst, som multifaktorautentisering, kan tillämpas:
+Du kan använda auktoriseringsprinciper för att skydda företagets innehåll. Principer för villkorlig åtkomst, till exempel multifaktorautentisering, kan tillämpas:
 - På klientorganisationsnivå.
 - På programnivå.
 - För specifika gästanvändare för att skydda företagets appar och data.

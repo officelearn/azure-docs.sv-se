@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076027"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered AKV-integreringen
 Om du vill använda Azure Key Vault-integrering för att konfigurera SQL Server-dator, finns det flera förutsättningar: 
@@ -32,7 +32,7 @@ I följande avsnitt beskrivs dessa krav och den information du behöver samla in
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Installera Azure PowerShell
-Kontrollera att du har installerat den senaste Azure PowerShell SDK. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+Kontrollera att du har installerat den senaste Azure PowerShell-modulen. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Registrera ett program i Azure Active Directory
 

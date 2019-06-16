@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 580b96de401169caf767d1e965971495d68b09be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Självstudier: Azure Active Directory-integrering med LCVista
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av LCVista i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till LCVista från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -217,4 +217,4 @@ När du klickar på panelen LCVista i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

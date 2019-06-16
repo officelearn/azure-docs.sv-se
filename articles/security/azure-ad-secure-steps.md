@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119285"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -36,7 +36,7 @@ Den här checklistan hjälper dig att snabbt distribuera kritiska rekommenderade
 
 Rekommendationerna i det här dokumentet ligger i linje med de [identitet skyddar Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), en automatiserad bedömning av din Azure AD-klient identitet säkerhetskonfiguration. Organisationer kan använda sidan identitet skyddar Score i Azure AD-portalen för att hitta luckor i deras aktuella säkerhetskonfiguration att se till att de följer aktuella Metodtips för säkerhet. Implementera varje rekommendation på sidan skyddar Score förbättra resultatet och gör att du kan följa dina framgångar och hjälper dig att jämföra implementeringen mot andra liknande storlek organisationer eller din bransch.
 
-![Identitetsäkerhetspoäng](media/azure-ad/azure-ad-sec-steps0.png)
+![Säker identitets-poäng](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: Skydda Privilegierade konton med MFA
 
@@ -103,7 +103,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltig autentisering startpunkter
 
-Använda förutsätt intrång mentalitet kan minska effekten av avslöjade autentiseringsuppgifter när de inträffar. Överväg att giltig användningsfall för varje app i din miljö: vilka grupper, vilka nätverk, vilka enheter och andra element auktoriseras – och sedan blockera resten. Med [Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), du kan styra hur behöriga användare åtkomst till sina appar och resurser baserat på specifika villkor som du definierar.
+Använda förutsätt intrång mentalitet kan minska effekten av avslöjade autentiseringsuppgifter när de inträffar. Överväg att giltig användningsfall för varje app i din miljö: vilka grupper, vilka nätverk, vilka enheter och andra element auktoriseras – och sedan blockera resten. Med [Azure AD villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), du kan styra hur behöriga användare åtkomst till sina appar och resurser baserat på specifika villkor som du definierar.
 
 ### <a name="block-end-user-consent"></a>Blockera slutanvändarens medgivande
 

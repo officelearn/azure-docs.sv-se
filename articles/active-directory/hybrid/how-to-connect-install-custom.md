@@ -14,12 +14,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 969d08888002c97453cb2af18f42371227676597
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60352707"
+ms.locfileid: "67109488"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -177,7 +177,7 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 | Synkronisering av lösenordshash |Om du valde federation som inloggningslösning kan du aktivera det här alternativet. Synkronisering av lösenordshash kan sedan användas som ett reservalternativ. Mer information finns i [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md). </br></br>Om du valde Direktautentisering kan du även aktivera det här alternativet för att ge stöd för äldre klienter och som ett säkerhetskopieringsalternativ. Mer information finns i [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md).|
 | Tillbakaskrivning av lösenord |Om du aktiverar tillbakaskrivning av lösenord skrivs lösenordsändringar som kommer från Azure AD tillbaka till din lokala katalog. Mer information finns i [Komma igång med lösenordshantering](../authentication/quickstart-sspr.md). |
 | Tillbakaskrivning av grupp |Om du använder funktionen **Office 365-grupper** kan dessa grupper vara representerade i din lokala Active Directory. Det här alternativet är endast tillgänglig om Exchange finns i din lokala Active Directory. Mer information finns i [Tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback). |
-| Tillbakaskrivning av enheter |Med det här alternativet kan du skriva tillbaka enhetsobjekt i Azure AD till din lokala Active Directory för scenarier med villkorlig åtkomst. Mer information finns i [Aktivera tillbakaskrivning av enheter i Azure AD Connect](how-to-connect-device-writeback.md). |
+| Tillbakaskrivning av enheter |Du kan tillbakaskrivning av enhetsobjekt i Azure AD till din lokala Active Directory för scenarier med villkorlig åtkomst. Mer information finns i [Aktivera tillbakaskrivning av enheter i Azure AD Connect](how-to-connect-device-writeback.md). |
 | Synkronisering av katalogtilläggsattribut |Om du aktiverar Synkronisering av katalogtilläggsattribut synkroniseras angivna attribut till Azure AD. Mer information finns i [Katalogtillägg](how-to-connect-sync-feature-directory-extensions.md). |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrering av Azure AD-appar och -attribut

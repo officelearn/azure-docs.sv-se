@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Självstudier: Azure Active Directory-integrering med Rollbar
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Rollbar i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Rollbar från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -257,5 +257,5 @@ När du klickar på panelen Rollbar i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

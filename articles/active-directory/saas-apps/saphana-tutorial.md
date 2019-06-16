@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Självstudier: Azure Active Directory-katalogintegrering med SAP HANA
 
@@ -64,7 +64,7 @@ Om du vill konfigurera integreringen av SAP HANA i Azure Active Directory måste
 
 **Lägg till SAP HANA från galleriet genom att göra följande:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -160,7 +160,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP HANA genom att gö
 
     ![Lägg till identitetsproviderinställningar](./media/saphana-tutorial/sap2.png)
 
-    b. Om innehållet i XML-dokumentet är giltigt, extraherar parsningsprocessen den information som krävs för fälten **Ämne, Entitets-ID och Utfärdare** till skärmområdet **Allmänna data**. Den extraherar också den information som krävs för URL-fälten i skärmområdet **Mål**, till exempel fälten **Bas-URL och SingleSignOn URL (*)**.
+    b. Om innehållet i XML-dokumentet är giltigt, extraherar parsningsprocessen den information som krävs för fälten **Ämne, Entitets-ID och Utfärdare** till skärmområdet **Allmänna data**. Den extraherar också den information som krävs för URL-fälten i skärmområdet **Mål**, till exempel fälten **Bas-URL och SingleSignOn URL (*)** .
 
     ![Lägg till identitetsproviderinställningar](./media/saphana-tutorial/sap3.png)
 
@@ -272,5 +272,5 @@ När du klickar på SAP HANA-panelen i åtkomstpanelen så bör du automatiskt l
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

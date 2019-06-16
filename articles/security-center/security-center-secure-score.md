@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: v-mohabe
 ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968301"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säker poäng i Azure Security Center
@@ -43,7 +43,7 @@ Visa dina övergripande säker poäng:
 
 1. I Azure-instrumentpanelen klickar du på **Security Center** och klicka sedan på **säker poäng**.
 2. Överst ser du Secure bedöma viktiga funktioner:
-   - Den **övergripande skyddar score** representerar poäng per principer per vald prenumeration
+   - **Övergripande säkerhetspoäng** motsvarar antal poäng per principer per vald prenumeration
    - **Skydda poäng efter kategori** visar vilka resurser behöver mest åtgärdas
    - **Främsta rekommendationer av säker poäng inverkan** tillhandahåller en lista över rekommendationer som förbättrar dina säker poäng mest om du implementerar dem.
  
@@ -52,7 +52,7 @@ Visa dina övergripande säker poäng:
 3. Du kan se var och en av dina prenumerationer och den övergripande säker poängen för varje i tabellen nedan.
 
    > [!NOTE]
-   > Summan av den säkra poängen för varje prenumeration är inte lika med den övergripande säker poängen. Säker poängen är en beräkning som baserat på förhållandet mellan din felfria resurser och din totala resurserna per rekommendation, inte en summa av säker poäng för dina prenumerationer. 
+   > Summan av säkerhetspoängen för varje prenumeration är inte lika med den övergripande säkerhetspoängen. Säkerhetspoängen är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser per rekommendation, inte summan av säkerhetspoäng för dina prenumerationer. 
    >
 4. Klicka på **visa rekommendationer** att se rekommendationer för prenumerationen som du kan reparera för att förbättra dina säker poäng.
 4. I listan över rekommendationer kan du se att det för varje rekommendation finns en kolumn som representerar den **skyddar score påverkan**. Det här talet anger hur mycket den totala säkra dina poäng förbättras om du följer rekommendationerna. Till exempel på skärmen nedan om du **åtgärda sårbarheter i behållaren säkerhetskonfigurationer**, säker resultatet kommer att ökas med 35 punkter.
@@ -65,9 +65,9 @@ Visa dina övergripande säker poäng:
 
 Dessutom om du vill visa enskilda säker poäng hittar du dessa alternativ inom bladet enskilda rekommendation.  
 
-Den **rekommendation skyddar score** är en beräkning som baserat på förhållandet mellan din felfria resurser och dina totala resurser. Om antalet felfria resurser är lika med det totala antalet resurser, får du den maximala säkra poängen för rekommendation av 50. Försök att hämta säkra poängen närmare att högst poäng genom att åtgärda skadade resurser genom att följa rekommendationerna.
+**Säkerhetspoäng för rekommendation** är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser. Om antalet felfria resurser är lika med det totala antalet resurser, får du 50 poäng, vilket är högsta möjliga säkerhetspoäng för rekommendationer. Åtgärda resurserna med fel genom att följa rekommendationerna så kommer du närmare högsta möjliga säkerhetspoäng.
 
-Den **rekommendation inverkan** gör att du vet hur mycket säker poäng förbättrar om du har följt instruktionerna rekommendation. Exempel: om din säker poängen är 42 och **rekommendation inverkan** är + 3, utför stegen i rekommendationen för att förbättra dina poäng blir 45.
+**Rekommendationernas inverkan** visar med hur mycket dina säkerhetspoäng ökar om du utför de rekommenderade stegen. Exempel: om din säkerhetspoäng är 42 och **rekommendationens inverkan** är + 3 förbättras dina poäng till 45 om du utför stegen i rekommendationen.
 
 Rekommendationen visar vilka hot arbetsbelastningen utsätts för om åtgärdssteg inte utförs.
 

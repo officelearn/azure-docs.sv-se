@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390587"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
@@ -143,7 +143,7 @@ Din hanterade instans måste du ha behörighet att läsa Azure AD för att utfö
 
 8. Överst på sidan Active Directory-administratör väljer **spara**.
 
-    ![spara](./media/sql-database-aad-authentication/save.png)
+    ![Spara](./media/sql-database-aad-authentication/save.png)
 
     Processen med att ändra administratör kan ta några minuter. Ny administratör visas sedan i rutan Active Directory-administratör.
 
@@ -345,7 +345,7 @@ Använd den här metoden om du är inloggad Windows med hjälp av Azure Active D
 
     ![Välj namnet på databasen][13]
 
-## <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
+## <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
 
 Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp av Azure AD hanterade domän. Du kan också använda den för federerad konton utan åtkomst till domänen, till exempel när du arbetar via fjärranslutning.
 
@@ -377,7 +377,7 @@ conn.Open();
 
 Nyckelordet för anslutningssträngen ``Integrated Security=True`` stöds inte för att ansluta till Azure SQL Database. När du gör en ODBC-anslutning, måste du ta bort blanksteg och ställa in autentisering till 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
+### <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
 
 Nyckelordet autentisering måste anges till Active Directory-lösenord för att ansluta till en databas med integrerad autentisering och Azure AD-identitet. Anslutningssträngen måste innehålla användar-ID/UID och lösenord/PWD nyckelord och värden. Följande C# kodexemplet använder ADO .NET.
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 612bdd2a5813237f05e9a30a0c90c3b643ece4b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111452"
 ---
 # <a name="authentication-flows"></a>Autentiseringsflöden
 
@@ -61,7 +61,7 @@ Många moderna webbprogram skapas med en sida för klientsidan program som skriv
 
 Det här autentiseringsflödet inkluderar inte Programscenarier med hjälp av JavaScript-ramverk för flera plattformar, till exempel Electron och React Native, eftersom de vill kräva ytterligare funktioner för interaktion med de inbyggda plattformarna.
 
-## <a name="authorization-code"></a>Auktoriseringskod
+## <a name="authorization-code"></a>auktoriseringskod
 MSAL stöder den [OAuth 2 beviljande via auktoriseringskod](v2-oauth2-auth-code-flow.md), som kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till logga in och API-åtkomst till dina appar och program. 
 
 När användare loggar in till webbprogram (webbplatser), webbprogrammet tar emot en auktoriseringskod.  Auktoriseringskoden har löst in för att hämta en token för att anropa webb-API: er. I ASP.NET / ASP.NET core web apps och det enda syftet med `AcquireTokenByAuthorizationCode` är att lägga till en token tokens cacheminne, så att den kan sedan användas av programmet (vanligtvis i styrenheterna) som bara hämta en token för ett API med hjälp av `AcquireTokenSilent`.
@@ -124,13 +124,13 @@ MSAL stöder den [kodflöde för OAuth 2 enheten](v2-oauth2-device-code.md), vil
 
 Programmet hämtar token via en tvåstegsprocess som särskilt utformats för dessa enheter/OS med hjälp av kodflöde för enheten. Exempel på sådana program är program som körs på iOT-enheter eller kommandoradsverktyg (CLI). 
 
-![Enhetskodflöde](media/msal-authentication-flows/device-code.png)
+![Kodflöde för enhet](media/msal-authentication-flows/device-code.png)
 
 1. När autentisering av användare krävs appen innehåller en kod och uppmanar användaren att använda en annan enhet (till exempel en internet-anslutna smartphone) för att navigera till en URL (till exempel https://microsoft.com/devicelogin), där användaren uppmanas att ange koden. Att klar sidan kommer att ge användaren genom en normal autentiseringsupplevelse, inklusive medgivande och multifaktorautentisering om det behövs.
 
 2. Efter lyckad autentisering kommandoradsappen får de nödvändiga token via en tillbaka-kanal och använda den för att utföra webb-API-anrop som behövs.
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 - Kodflöde för enheten är bara tillgängligt på offentliga klientprogram.
 - Utfärdaren skickas när konstruera offentliga klientprogrammet måste vara:
@@ -146,7 +146,7 @@ MSAL stöder integrerad Windows autentisering (IWA) för desktop eller mobila pr
 1. Hämtar en token som använder integrerad Windows-autentisering.
 2. Använder token för att göra förfrågningar från resursen.
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 Har stöd för IWA **federerade** endast användare.  Användare skapas i en Active Directory och backas upp av Azure Active Directory. Användare som skapas direkt i Azure AD utan AD säkerhetskopiering (**hanteras** användare) kan inte använda det här autentiseringsflödet. Den här begränsningen inte påverkar den [användarnamn/lösenord flow](#usernamepassword).
 
@@ -190,7 +190,7 @@ Det här är inte kompatibel med lösenordslös.
 - användare som behöver du MFA kommer inte kunna logga in (eftersom det finns inga åtgärder från)
 - Användare kommer inte att kunna enkel inloggning
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 Förutom den [integrerad Windows-autentisering begränsningar](#integrated-windows-authentication), gäller även följande begränsningar:
 

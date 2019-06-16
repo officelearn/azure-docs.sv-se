@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c89f79c9654ed440134c1d65cdc01f1b580c73c0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2661af96a427a6656b00ff159daabd5a4fcbaec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Självstudier: Azure Active Directory-integrering med Kindling
 
@@ -54,7 +54,7 @@ Om du vill konfigurera integreringen av Kindling i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till Kindling från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -198,4 +198,4 @@ När du klickar på panelen Kindling i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

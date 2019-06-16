@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109580"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity styrning?
 
@@ -68,7 +68,7 @@ Historiskt sett har privilegierad åtkomst beskrivits av andra leverantörer som
 
 ![Livscykel för privilegierad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är skräddarsydda för att skydda åtkomsten rights för resurser i Azure AD, Azure och andra Microsoft Online Services.  Just-in-time-åtkomst och ändring av aviseringsfunktioner som tillhandahålls av Azure AD PIM förutom multifaktorautentisering och villkorlig åtkomst tillhandahålla en bred uppsättning styrning kontroller för att skydda företagets resurser (directory, Office 365 och Azure-resursroller). Organisationer kan använda åtkomstgranskningar för att konfigurera återkommande åtkomst ny certifiering i enlighet för alla användare i administratörsroller precis som med andra former av åtkomst.
+Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är skräddarsydda för att skydda åtkomsten rights för resurser i Azure AD, Azure och andra Microsoft Online Services.  Just-in-time-åtkomst och rollen ändra aviseringsfunktioner som tillhandahålls av Azure AD PIM förutom multifaktorautentisering och villkorlig åtkomst genom att tillhandahålla en bred uppsättning styrning kontroller för att skydda företagets resurser (directory, Office 365 och Azure-resursroller). Organisationer kan använda åtkomstgranskningar för att konfigurera återkommande åtkomst ny certifiering i enlighet för alla användare i administratörsroller precis som med andra former av åtkomst.
 
 ## <a name="getting-started"></a>Komma igång
 

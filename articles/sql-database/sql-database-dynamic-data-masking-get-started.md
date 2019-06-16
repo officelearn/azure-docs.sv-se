@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721549"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
 
@@ -43,7 +43,7 @@ Dynamisk datamaskning kan konfigureras av administratören för Azure SQL Databa
 
 | Maskeringsfunktion | Maskera logik |
 | --- | --- |
-| **Standard** |**Fullständig maskning enligt datatyperna för respektive fält**<br/><br/>• Använd XXXX eller färre Xs om fältet är mindre än 4 tecken för strängdatatyper (nchar, ntext, nvarchar).<br/>• Använd värdet noll för numeriska datatyper (bigint, bit, decimal, int, pengar, numeriska, smallint, smallmoney, tinyint, float, real).<br/>• Använd 01-01-1900 för datum/tid-datatyper (datum, datetime2, datetime, datetimeoffset, smalldatetime, tid).<br/>• För SQL-variant, aktuell typ standardvärdet används.<br/>• För XML-dokumentet <masked/> används.<br/>• Använd ett tomt värde för speciella datatyper (tidsstämpel tabell, hierarchyid, GUID, binary, bild, varbinary spatial typer). |
+| **Standard** |**Fullständig maskning enligt datatyperna för respektive fält**<br/><br/>• Använd XXXX eller färre Xs om fältet är mindre än 4 tecken för strängdatatyper (nchar, ntext, nvarchar).<br/>• Använd värdet noll för numeriska datatyper (bigint, bit, decimal, int, pengar, numeriska, smallint, smallmoney, tinyint, float, real).<br/>• Använd 01-01-1900 för datum/tid-datatyper (datum, datetime2, datetime, datetimeoffset, smalldatetime, tid).<br/>• För SQL-variant, aktuell typ standardvärdet används.<br/>• För XML-dokumentet \<maskeras / > används.<br/>• Använd ett tomt värde för speciella datatyper (tidsstämpel tabell, hierarchyid, GUID, binary, bild, varbinary spatial typer). |
 | **Kreditkort** |**Maskera metod, som visar de sista fyra siffrorna i fälten avsedda** och lägger till en konstant sträng som ett prefix i form av ett kreditkort.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-post** |**Maskera metod, som visar den första bokstaven och ersätter domänen med XXX.com** med hjälp av en konstantsträng prefix i form av en e-postadress.<br/><br/>aXX@XXXX.com |
 | **Slumptal** |**Maskering av metoden, vilket genererar ett slumptal** enligt de valda gränser och faktiska datatyper. Om de angivna gränserna är lika med, är maskningsfunktion ett tal.<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |

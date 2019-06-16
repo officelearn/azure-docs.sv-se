@@ -7,27 +7,24 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: be7479d3f042d6e64428a07e0509907b78595200
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9e3f7e3b23cba3fab87ee35aa2a15b6305d9ece4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054173"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Kör Azure IoT Edge på Windows Server-datorer
 Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
 
 Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller steg för att köra Azure IoT Edge-körningen på en Windows Server 2019 virtuell dator med den [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace-erbjudande. Följ anvisningarna på [installera Azure IoT Edge-körningen](how-to-install-iot-edge-windows.md) på Windows för användning med andra versioner.
-
-> [!NOTE]
-> IoT Edge-körningen på Windows Server finns i [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln innehåller steg för att köra Azure IoT Edge-körningen på en Windows Server 2019 virtuell dator med den [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudande. Följ anvisningarna på [installera Azure IoT Edge-körningen](how-to-install-iot-edge-windows.md) på Windows för användning med andra versioner.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Distribuera från Azure Marketplace
-1.  Navigera till den [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace-erbjudande eller genom att söka ”Windows Server” [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.  Navigera till den [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudande eller genom att söka ”Windows Server” [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.  Välj **Hämta nu** 
 3.  I **programvaruplanen**, hitta ”Windows Server 2019 Datacenter Server Core med behållare” och välj sedan **Fortsätt** på nästa dialogruta.
     * Du kan också använda de här instruktionerna för övriga versioner av Windows Server med behållare

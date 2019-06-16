@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425949"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Visa och analysera loggdata i Azure Monitor
@@ -55,7 +55,7 @@ Följande alternativ är ännu inte tillgängliga via vyn av Log Analytics:
 ## <a name="firewall-requirements"></a>Brandväggskrav
 Din webbläsare kräver åtkomst till följande adresser åtkomst till Log Analytics.  Om webbläsaren har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
 
-| URI | IP-adress | Portar |
+| URI: N | IP-adress | Portar |
 |:---|:---|:---|
 | portal.loganalytics.io | Dynamisk | 80,443 |
 | api.loganalytics.io    | Dynamisk | 80,443 |

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153638"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure portal
@@ -94,7 +94,7 @@ De mått som du valde i **diagnostik** upplösning mätvärden som är tillgäng
 
 Du kan skapa varningar som meddelar dig när tröskelvärdet har uppnåtts för mätvärden i storage resurs.
 
-1. Öppna den **Varningsregler bladet**, rulla ned till den **övervakning** delen av den **Appmenyns blad** och välj **aviseringar (klassisk)**.
+1. Öppna den **Varningsregler bladet**, rulla ned till den **övervakning** delen av den **Appmenyns blad** och välj **aviseringar (klassisk)** .
 2. Välj **Lägg till måttavisering (klassisk)** att öppna den **Lägg till en varningsregel** bladet
 3. Ange en **namn** och **beskrivning** för din nya aviseringsregeln.
 4. Välj den **mått** för vilket du vill lägga till en avisering en avisering **villkor**, och en **tröskelvärdet**. Tröskelvärde för enheten skriver ändras beroende på mått som du har valt. Till exempel ”antal” är enhetstypen av för *ContainerCount*, medan enheten för den *PercentNetworkError* mått är en procentandel.

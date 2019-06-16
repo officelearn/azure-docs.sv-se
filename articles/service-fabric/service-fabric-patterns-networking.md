@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125597"
 ---
 # <a name="service-fabric-networking-patterns"></a>Nätverksmönster för Service Fabric
 Du kan integrera Azure Service Fabric-klustret med andra funktioner för Azure. I den här artikeln visar vi dig hur du skapar kluster som använder följande funktioner:
@@ -268,7 +268,7 @@ Ett annat exempel finns i [som inte är specifika för Service Fabric](https://g
                     ],
     ```
 
-7. I den `Microsoft.ServiceFabric/clusters` resursen, ändra `managementEndpoint` till DNS-FQDN för den statiska IP-adressen. Om du använder ett säkert kluster, se till att du ändrar *http://* till *https://*. (Observera att det här steget gäller endast för Service Fabric-kluster. Om du använder en VM-skalningsuppsättning, hoppa över detta steg.)
+7. I den `Microsoft.ServiceFabric/clusters` resursen, ändra `managementEndpoint` till DNS-FQDN för den statiska IP-adressen. Om du använder ett säkert kluster, se till att du ändrar *http://* till *https://* . (Observera att det här steget gäller endast för Service Fabric-kluster. Om du använder en VM-skalningsuppsättning, hoppa över detta steg.)
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
                     ],
     ```
 
-6. I den `Microsoft.ServiceFabric/clusters` resursen, ändra `managementEndpoint` så att den pekar till den interna adressen för belastningsutjämnaren. Om du använder ett säkert kluster, se till att du ändrar *http://* till *https://*. (Observera att det här steget gäller endast för Service Fabric-kluster. Om du använder en VM-skalningsuppsättning, hoppa över detta steg.)
+6. I den `Microsoft.ServiceFabric/clusters` resursen, ändra `managementEndpoint` så att den pekar till den interna adressen för belastningsutjämnaren. Om du använder ett säkert kluster, se till att du ändrar *http://* till *https://* . (Observera att det här steget gäller endast för Service Fabric-kluster. Om du använder en VM-skalningsuppsättning, hoppa över detta steg.)
 
     ```json
                     "fabricSettings": [],
@@ -606,10 +606,7 @@ En nodtyp finns på den externa belastningsutjämnaren i ett kluster med två no
 Efter distributionen kan se du två belastningsutjämnare i resursgruppen. Du kan se de offentliga IP-adress och hantering av slutpunkterna (portar 19000 och 19080) tilldelas den offentliga IP-adressen om du bläddrar belastningsutjämnarna. Du kan också se den statiska interna IP-adress och programmet slutpunkten (port 80) tilldelade till den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma VM scale set backend-pool.
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa ett kluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[Skapa ett kluster](service-fabric-cluster-creation-via-arm.md)
 
 Efter distributionen kan se du två belastningsutjämnare i resursgruppen. Du kan se de offentliga IP-adress och hantering av slutpunkterna (portar 19000 och 19080) tilldelas den offentliga IP-adressen om du bläddrar belastningsutjämnarna. Du kan också se den statiska interna IP-adress och programmet slutpunkten (port 80) tilldelade till den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma VM scale set backend-pool.
 
-## <a name="next-steps"></a>Nästa steg
-[Skapa ett kluster](service-fabric-cluster-creation-via-arm.md)

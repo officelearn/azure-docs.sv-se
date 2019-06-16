@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e19489e216533ad6f0fb505b772ccecb04276109
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Självstudier: Azure Active Directory-katalogintegrering med Appinux
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Appinux i Azure AD måste du lägga till App
 
 **Utför följande steg för att lägga till Appinux från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -238,4 +238,4 @@ När du klickar på Appinux-panelen på åtkomstpanelen bör du automatiskt logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

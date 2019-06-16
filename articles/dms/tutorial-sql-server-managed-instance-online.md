@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/14/2019
+ms.openlocfilehash: 4e45251147561f2376ac4b044ebdf3a599092dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126092"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudier: Migrera SQL Server till en Azure SQL Database managed instance med DMS online
 
@@ -72,6 +72,10 @@ För att slutföra den här kursen behöver du:
 * Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörighet på nätverksresursen som du har skapat och att datorkontot för källservern har läs-/skrivåtkomst till samma resurs.
 * Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att ladda upp de säkerhetskopierade filerna till Azure Storage-container för återställning.
 * Skapa ett Azure Active Directory-program-ID som genererar den program-ID-nyckel som DMS-tjänsten kan använda för att ansluta till den hanterade Azure Database-målinstansen och Azure Storage-containern. Mer information finns i artikeln [Använda portalen för att skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+
+  > [!NOTE]
+  > DMS kräver behörigheten deltagare för prenumerationen för den angivna program-ID. Vi arbetar aktivt för att minska kraven behörigheter.
+
 * Skapa eller anteckna **Standard Performance-nivå** och Azure Storage-konto, som DMS-tjänsten kan överföra de säkerhetskopierade databasfilerna till och använda för att migrera databaser.  Var noga med att Azure Storage-kontot skapas i samma region där DMS-tjänsten har skapats.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration

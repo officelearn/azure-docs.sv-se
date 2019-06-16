@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790750"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värden Utjämning av nätverksbelastning Azure-webbappar i basdomänen
@@ -87,12 +87,12 @@ Nu kan du skapa slutpunkter för de två web apps.
 3. Klicka på **Lägg till**.
 4. Använd tabellen nedan för att konfigurera slutpunkter:
 
-   |Typ  |Namn  |Mål  |Location  |Inställningar för anpassat sidhuvud|
+   |Typ  |Namn  |Mål  |Location  |Den anpassade rubrikinställningar|
    |---------|---------|---------|---------|---------|
    |Extern slutpunkt     |End-01|IP-adress som du registrerade för App-01|Östra USA|värden:\<URL: en som du registrerade för App-01\><br>Exempel: **värden: app-01.azurewebsites.net**|
    |Extern slutpunkt     |End-02|IP-adress som du registrerade för App-02|Centrala USA|värden:\<URL: en som du registrerade för App-02\><br>Exempel: **värden: app-02.azurewebsites.net**
 
-## <a name="create-dns-zone"></a>Skapa en DNS-zon
+## <a name="create-dns-zone"></a>Skapa DNS-zon
 
 Du kan antingen använda en befintlig DNS-zon för testning eller du kan skapa en ny zon. För att skapa och delegera en ny DNS-zon i Azure, se [självstudien: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020306"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
@@ -55,7 +55,7 @@ I föregående steg om du inte har en anslutningssträng för lagringskonto har 
 
 ### <a name="required-application-settings"></a>Nödvändiga programinställningar
 
-* Krävs
+* Obligatoriskt
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Krävs för förbrukning Plan funktioner
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)

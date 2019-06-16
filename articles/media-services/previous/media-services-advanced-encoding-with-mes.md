@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61230261"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utföra avancerade encoding genom att anpassa MES-förinställningar 
@@ -244,7 +244,7 @@ Följande gäller:
     Du kan blanda och matcha beteckningar som du finns.
 
     Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (Steg och intervallet ignoreras när Start är inställd på {bästa})
-  * Standard: Start:{Best}
+  * Som standard: Start:{Best}
 * Utdataformat måste anges uttryckligen för varje bild-format: JPG/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
 
 ## <a id="trim_video"></a>Beskär video (urklippet)

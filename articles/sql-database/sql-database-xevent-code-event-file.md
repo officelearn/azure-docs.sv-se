@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233783"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Händelsefilens målkod för utökade händelser i SQL-databas
@@ -462,7 +462,7 @@ GO
 ```
 
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 När Transact-SQL-skriptet har slutförts klickar du på en cell under den **event_data_XML** kolumnrubriken. En  **\<händelse >** element visas som visar en UPDATE-instruktion.
 

@@ -4,17 +4,16 @@ description: Den här artikeln är avsedd som en snabb lektion för författare 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738340"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Lära dig viktiga begrepp i Windows PowerShell-arbetsflöde för Automation-runbooks
@@ -56,7 +55,7 @@ Du kan inte använda namngivna parametrar med aktiviteter och cmdlets i ett arbe
 
 Tänk dig följande kod som hämtar alla tjänster som körs.
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 Objekt i arbetsflöden är deserialisera.  Det innebär att deras egenskaper är fortfarande tillgängliga, men inte deras metoder.  Tänk dig följande PowerShell-kod som stoppar en tjänst som Stop-metoden i objektet.
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -172,7 +171,7 @@ Parallel
 
 Tänk dig följande PowerShell-kommandon som kopierar du flera filer till ett mål för nätverket.  Dessa kommandon körs sekventiellt så att en fil måste avslutas kopiera innan nästa startas.
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```

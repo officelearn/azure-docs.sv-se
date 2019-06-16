@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436485"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Storage Gen1
@@ -132,7 +132,7 @@ Om du stöter på gränserna för bandbredd som tillhandahålls av Data Lake Sto
 
 Du kan kontrollera om du hämtar begränsas genom att aktivera felsökningsloggning på klientsidan:
 
-1. I **Ambari** > **Storm** > **Config** > **avancerade storm-worker-log4j**, ändra **&lt;rot nivå = ”info”&gt;** till  **&lt;rot nivå = ”felsöka”&gt;**. Starta om alla noder/tjänsten för att konfigurationen ska börja gälla.
+1. I **Ambari** > **Storm** > **Config** > **avancerade storm-worker-log4j**, ändra **&lt;rot nivå = ”info”&gt;** till  **&lt;rot nivå = ”felsöka”&gt;** . Starta om alla noder/tjänsten för att konfigurationen ska börja gälla.
 2. Övervaka Storm-topologi som loggar in arbetsnoder (under /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;port&gt;/worker.log) för Data Lake Storage Gen1 begränsning av undantag.
 
 ## <a name="next-steps"></a>Nästa steg

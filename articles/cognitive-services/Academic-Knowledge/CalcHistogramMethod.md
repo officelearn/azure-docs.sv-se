@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498841"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram, metod
@@ -35,9 +35,9 @@ Namn  |Värde | Krävs?  |Beskrivning
 **uttryck för Markörstorlek**    |Textsträngen | Ja  |Ett frågeuttryck som anger de entiteter som att beräkna histogram.
 **model** |Textsträngen | Nej |Välj namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.
 **Attribut** | Textsträngen | Nej<br>standard: | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
-**antal** |Tal | Nej<br>Standard: 10 |Antalet resultat som ska returneras.
-**offset**  |Tal | Nej<br>Standard: 0 |Index för det första resultatet ska returneras.
-**timeout**  |Tal | Nej<br>Standard: 1000 |Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
+**antal** |Tal | Nej<br>standard: 10 |Antalet resultat som ska returneras.
+**offset**  |Tal | Nej<br>standard: 0 |Index för det första resultatet ska returneras.
+**timeout**  |Tal | Nej<br>standard: 1000 |Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
 
 ## <a name="response-json"></a>Svar (JSON)
 
@@ -65,7 +65,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>Uttrycket i den första tolkning som returneras från tolkningar API är *och (sammansatta (AA. AuN == ”jaime teevan”), Y > 2012)*.
+<br>Uttrycket i den första tolkning som returneras från tolkningar API är *och (sammansatta (AA. AuN == ”jaime teevan”), Y > 2012)* .
 <br>Det här uttrycksvärdet skickas sedan till den **calchistogram** API. Den *attributes=Y,F.FN* parametern anger att distributioner av dokumentet antal ska vara per år och fältet för studier, t.ex.:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

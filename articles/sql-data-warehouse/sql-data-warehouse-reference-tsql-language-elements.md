@@ -11,10 +11,10 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873484"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Språkelement för T-SQL som stöds i Azure SQL Data Warehouse
@@ -81,7 +81,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i Azure SQL Dat
 * [| = (Logiskt eller är lika med)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [& = (lika med bitvis AND)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)

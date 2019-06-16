@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57ed956ec50c8bac26720a27894c07353928336
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873907"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare MSAL.js
@@ -46,7 +46,7 @@ För de flesta av de här problemen beror på följande sätt. Lagring av sessio
     - [Bugg 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
     - [Bugg 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
-### <a name="update-fix-available-in-msaljs-023"></a>Uppdatera: En korrigering är tillgänglig i MSAL.js 0.2.3
+### <a name="update-fix-available-in-msaljs-023"></a>Uppdatering: En korrigering är tillgänglig i MSAL.js 0.2.3
 Korrigeringar för autentiseringsproblem omdirigerings-slingan har frisläppts under [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Aktivera flaggan `storeAuthStateInCookie` in MSAL.js konfigurationen att dra nytta av den här snabbkorrigeringen. Den här flaggan anges till false som standard.
 
 När den `storeAuthStateInCookie` flaggan är aktiverad, MSAL.js använder cookies i webbläsaren för att lagra tillstånd för begäran som krävs för verifiering av auth-flöden.

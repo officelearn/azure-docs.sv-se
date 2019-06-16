@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094926"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Kopiera data från Google AdWords med Azure Data Factory (förhandsversion)
@@ -42,7 +42,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Google AdWords länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **GoogleAdWords** | Ja |
 | clientCustomerID | Klient-kund-ID för AdWords-konto som du vill hämta rapportdata för.  | Ja |
@@ -98,7 +98,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Kopiera data från Google AdWords genom att ange typegenskapen på datauppsättningen till **GoogleAdWordsObject**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **GoogleAdWordsObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
@@ -128,7 +128,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Google AdWords, ange typ av datakälla i kopieringsaktiviteten till **GoogleAdWordsSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **GoogleAdWordsSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |

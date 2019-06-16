@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507228"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure-portalen
@@ -29,7 +29,7 @@ Andra artiklar om hur du hanterar resursgrupper:
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-is-a-resource-group"></a>Vad är ett resursgrupp
+## <a name="what-is-a-resource-group"></a>Vad är en resursgrupp
 
 En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. I allmänhet ska du lägga till resurser som delar samma livscykel i samma resursgrupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
 
@@ -57,7 +57,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursg
 
     ![Gå till resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
-## <a name="list-resource-groups"></a>Lista resursgrupper
+## <a name="list-resource-groups"></a>Lista över resursgrupper
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om du vill visa resursgrupper, Välj **resursgrupper**

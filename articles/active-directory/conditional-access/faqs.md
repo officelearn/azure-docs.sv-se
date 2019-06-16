@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory villkorsstyrd åtkomst vanliga frågor och svar | Microsoft Docs
+title: Azure Active Directory villkorlig åtkomst vanliga frågor och svar | Microsoft Docs
 description: Få svar på vanliga frågor om villkorlig åtkomst i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21c89d9d686c4af594aa7a0fd921471105669e02
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354544"
+ms.locfileid: "67112400"
 ---
-# <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory villkorsstyrd åtkomst vanliga frågor och svar
+# <a name="azure-active-directory-conditional-access-faqs"></a>Villkorlig åtkomst vanliga frågor och svar för Azure Active Directory
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>Vilka program fungerar med principer för villkorlig åtkomst?
 
@@ -61,6 +61,6 @@ För närvarande kan tillämpas selektivt principer för villkorlig åtkomst fö
 
 Microsoft Teams förlitar sig kraftigt på Exchange Online och SharePoint Online för core produktivitet lösningar, till exempel möten, kalendrar och fildelning. Principer för villkorlig åtkomst som har angetts för de här molnapparna gäller för Microsoft Teams när en användare loggar direkt i Microsoft Teams.
 
-Microsoft Teams kan också användas separat som en cloud-app i Azure Active Directory-principer för villkorlig åtkomst. Principer för villkorlig åtkomst som har angetts för en molnapp gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer på andra appar som Exchange Online och SharePoint Online kan användare fortfarande att kunna komma åt dessa resurser direkt.
+Microsoft Teams kan också användas separat som en cloud-app i Azure Active Directory villkorliga åtkomstprinciper. Principer för villkorlig åtkomst som har angetts för en molnapp gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer på andra appar som Exchange Online och SharePoint Online kan användare fortfarande att kunna komma åt dessa resurser direkt.
 
 Microsoft Teams stationära klienter för Windows och Mac stöd för modern autentisering. Modern autentisering skapar stöd för inloggning baserat på de Azure Active Directory Authentication Library (ADAL) till Microsoft Office-program mellan plattformar.

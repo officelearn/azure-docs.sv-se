@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822299"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
 Du kan visa två typer av loggar för Azure Event Hubs:
 
-* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)**: Dessa loggar har information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)**: Du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)** : Dessa loggar har information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
+* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)** : Du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
 
 ## <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
 

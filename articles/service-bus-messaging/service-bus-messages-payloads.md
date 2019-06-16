@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61315647"
 ---
 # <a name="messages-payloads-and-serialization"></a>Meddelanden, nyttolaster och serialisering
@@ -32,7 +32,7 @@ De fördefinierade asynkrona egenskaperna visas i följande tabell. Namn som anv
  
 De motsvarande namn som används på protokollnivån AMQP visas inom parentes. 
 
-| Namn på egenskap                         | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Egenskapsnamn                         | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (innehållstyp)           | Du kan också beskriver nyttolasten för meddelandet med en beskrivning som följer formatet på RFC2045, avsnitt 5; till exempel `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (Korrelations-id)       | Gör att ett program att ange en kontext för meddelandet för korrelation; till exempel återger den **MessageId** av ett meddelande som besvaras.                                                                                                                                                                                                                                                                  |

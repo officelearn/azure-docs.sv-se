@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: 8a8feb0f12fbf5eadcddf239ff2e13c058a566fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64693306"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverksundernät
@@ -44,7 +44,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
 3. Under **INSTÄLLNINGAR** väljer du **Undernät**.
 4. Välj **+ undernät**.
 5. Ange värden för följande parametrar:
-   - **Namn**: Namnet måste vara unikt inom det virtuella nätverket. För maximal kompatibilitet med andra Azure-tjänster rekommenderar vi med en bokstav som det första tecknet i namnet. Azure Application Gateway inte kommer att exempelvis distribuera i ett undernät som har ett namn som börjar med en siffra.
+   - **Namn på**: Namnet måste vara unikt inom det virtuella nätverket. För maximal kompatibilitet med andra Azure-tjänster rekommenderar vi med en bokstav som det första tecknet i namnet. Azure Application Gateway inte kommer att exempelvis distribuera i ett undernät som har ett namn som börjar med en siffra.
    - **Adressintervall**: Intervallet måste vara unikt inom adressutrymmet för det virtuella nätverket. Intervallet får inte överlappa med andra undernät adressintervall inom det virtuella nätverket. Adressutrymmet måste anges med hjälp av Classless Inter-Domain Routing CIDR-notering. Du kan till exempel definiera ett adressutrymme för undernätet 10.0.0.0/24 i ett virtuellt nätverk med adressutrymmet 10.0.0.0/16. Den minsta intervall som du kan ange är /29, vilket möjliggör åtta IP-adresser för undernätet. Azure reserverar de första och sista adressen i varje undernät för protokollöverensstämmelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänsten. Därför kan definiera ett undernät med ett/29 åtgärda resulterar i tre användbara IP-adresser i undernätet. Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway, måste du skapa ett gateway-undernät. Läs mer om [specifik adressintervallet överväganden för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adressintervallet när undernätet har lagts till, vissa villkor. Läs hur du ändrar ett adressintervall för undernätet i [ändra undernätsinställningar](#change-subnet-settings).
    - **Nätverkssäkerhetsgrupp**: Du kan associera noll eller en befintlig nätverkssäkerhetsgrupp till ett undernät för att filtrera inkommande och utgående nätverkstrafik för undernätet. Nätverkssäkerhetsgruppen måste finnas i samma prenumeration och plats som det virtuella nätverket. Läs mer om [nätverkssäkerhetsgrupper](security-overview.md) och [hur du skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md).
    - **Routningstabellen**: Du kan associera noll eller en befintlig routningstabellen till ett undernät för att styra trafikdirigering till andra nätverk. Routningstabellen måste finnas i samma prenumeration och plats som det virtuella nätverket. Läs mer om [Azure routning](virtual-networks-udr-overview.md) och [så här skapar du en routningstabell](tutorial-create-route-table-portal.md)

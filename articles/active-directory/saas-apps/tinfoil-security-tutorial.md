@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 135b5719422d1b28a82ac2eda06f76d6dd746800
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 627a324c580661220712a0598a996844fac0c169
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Självstudier: Azure Active Directory-integrering med TINFOIL SECURITY
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av TINFOIL SECURITY i Azure AD, som du behöver
 
 **Utför följande steg för att lägga till TINFOIL SECURITY från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TINFOIL
 
     ![TINFOIL SECURITY domän och URL: er med enkel inloggning för information](common/preintegrated.png)
 
-5. TINFOIL SECURITY programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. TINFOIL SECURITY programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
-        ![image](common/edit-attribute.png)
+        ![image](common/edit-attribute.png)
 
 6. Dessutom ovan TINFOIL SECURITY-program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
@@ -255,5 +255,5 @@ När du klickar på panelen TINFOIL SECURITY i åtkomstpanelen, bör det vara lo
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

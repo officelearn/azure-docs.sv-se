@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110378"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -277,7 +277,7 @@ För att hantera din feedback om visualiseringar med aktivitetsloggar för Azure
 
 - **Inloggningar.** Innehåller information om appar och användare, inklusive inloggningsplats, operativsystemet och används eller webbläsarklienten och version och antalet lyckade eller misslyckade inloggningar.
 
-- **Äldre autentisering och villkorsbaserad åtkomst.** Innehåller information om appar och användare som använder äldre autentisering och Multifaktorautentisering användning som utlöses av principer för villkorlig åtkomst, appar med principer för villkorlig åtkomst, och så vidare.
+- **Äldre autentisering och Villkorsbaserad åtkomst.** Innehåller information om appar och användare som använder äldre autentisering och Multifaktorautentisering användning som utlöses av principer för villkorlig åtkomst, appar med principer för villkorlig åtkomst, och så vidare.
 
 - **Inloggningsfel analys.** Hjälper dig att avgöra om din inloggningsfel inträffar på grund av en användaråtgärd, problem med principer eller din infrastruktur.
 
@@ -339,7 +339,7 @@ Mer information finns i [felsöka fel under synkronisering](https://docs.microso
 
 ---
 
-### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Ökad säkerhet med hjälp av principen för app-protection-baserad villkorlig åtkomst i Azure AD (förhandsversion)
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Ökad säkerhet med hjälp av app protection-baserade principen för villkorlig åtkomst i Azure AD (förhandsversion)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Villkorlig åtkomst  
@@ -477,7 +477,7 @@ Mer information om den nya **granskningsloggar** sidan ser [granska aktivitetsra
 **Tjänstekategori:** Villkorlig åtkomst  
 **Produkten kapacitet:** Identitetssäkerhet och skydd
 
-För att förhindra att administratörer av misstag låser sig av sina egna klienter via felkonfigurerad principer för villkorlig åtkomst, har vi skapat nya varningar och uppdaterade riktlinjer i Azure-portalen. Mer information om nya vägledning finns i [vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+För att förhindra att administratörer av misstag låser sig av sina egna klienter via felkonfigurerad principer för villkorlig åtkomst, har vi skapat nya varningar och uppdaterade riktlinjer i Azure-portalen. Mer information om nya vägledning finns i [vad är tjänstens beroenden i Azure Active Directory villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

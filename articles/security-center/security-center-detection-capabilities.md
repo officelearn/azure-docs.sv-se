@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
 ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60705889"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskrivs avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser – både Windows och Linux - och ger dig de information som behövs för att svara snabbt.
 
-Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="responding-to-todays-threats"></a>Svara på vår tids hot

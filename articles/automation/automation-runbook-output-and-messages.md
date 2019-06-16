@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61227013"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
@@ -21,13 +21,13 @@ De flesta Azure Automation-runbooks har någon form av utdata. Dessa utdata kan 
 
 Följande tabell innehåller en kort beskrivning av varje ström och deras beteende i Azure-portalen för publicerade runbooks och när [testar en runbook](automation-testing-runbook.md). Mer information om varje dataström finns i senare avsnitt.
 
-| Strömma | Beskrivning | Publicerad | Test |
+| Stream | Beskrivning | Publicerad | Test |
 |:--- |:--- |:--- |:--- |
 | Utdata |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter runbooken när ett felmeddelande visas som standard. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Utförlig |Meddelanden som ger information om allmänna eller felsökning. |Skrivs till jobbhistoriken endast om utförlig loggning är aktiverad för runbooken. |Visas i rutan Testutdata endast om $VerbosePreference är inställt på Fortsätt i runbooken. |
-| Förlopp |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbook bör inte försöka skapa sina egna förloppsposter eftersom de är avsedda för en interaktiv användare. |Skrivs till jobbhistoriken endast om förloppsloggning är aktiverad för runbooken. |Inte visas i rutan Testutdata. |
+| Pågår |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbook bör inte försöka skapa sina egna förloppsposter eftersom de är avsedda för en interaktiv användare. |Skrivs till jobbhistoriken endast om förloppsloggning är aktiverad för runbooken. |Inte visas i rutan Testutdata. |
 | Felsöka |Meddelanden avsedda för en interaktiv användare. Bör inte användas i runbooks. |Skrivs inte till jobbhistoriken. |Skrivs inte till rutan Testutdata. |
 
 ## <a name="output-stream"></a>Utdataströmmen

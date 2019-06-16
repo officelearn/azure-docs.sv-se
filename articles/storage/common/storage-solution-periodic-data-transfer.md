@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729927"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodiska dataöverföring
@@ -55,7 +55,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 | Funktion                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Formfaktor                                   | Virtuell enhet             | Fysisk enhet          | Tjänsten i Azure-portalen agenten lokalt                                                            |
-| Maskinvara                                      | Din hypervisor-programmet            | Tillhandahålls av Microsoft    | Ej tillämpligt                                                            |
+| Maskinvara                                      | Din hypervisor-programmet            | Tillhandahålls av Microsoft    | Saknas                                                            |
 | Den ursprungliga installationen arbete                          | Låg (< 30 minuter.)            | Måttlig (~ koppla timmar) | Stor (~ dagar)                                                 |
 | Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Stöder 70 + dataanslutningar för datalager och format](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Förbearbetning av data                           | Nej                         | Ja, via Edge-beräkning    | Ja                                                           |

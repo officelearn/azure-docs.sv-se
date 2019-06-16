@@ -9,10 +9,10 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152325"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Hur du använder hanterade identiteter med Azure Container Instances
@@ -170,7 +170,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Nu Använd åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att ersätta namnet på ditt nyckelvalv i URL-Adressen (*https://mykeyvault.vault.azure.net/...*):
+Nu Använd åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att ersätta namnet på ditt nyckelvalv i URL-Adressen ( *https://mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

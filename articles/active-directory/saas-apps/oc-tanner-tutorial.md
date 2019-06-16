@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8814dc9ba94ca7fa56a2225c71895520467bf05f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Självstudier: Azure Active Directory-integrering med O.C. Tanner - AppreciateHub
 
@@ -53,7 +53,7 @@ Konfigurera integreringen av O.C. Turesson - AppreciateHub till Azure AD, som du
 
 **Att lägga till O.C. Turesson - AppreciateHub från galleriet, utför följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -209,4 +209,4 @@ När du klickar på O.C. Turesson - AppreciateHub panel i åtkomstpanelen, det b
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

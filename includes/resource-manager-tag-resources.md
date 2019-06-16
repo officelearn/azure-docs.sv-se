@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128987"
 ---
 1. Om du vill visa taggarna för en resurs eller en resursgrupp, söker du efter befintliga taggar i översikten. Om du inte tidigare har tillämpar taggar är listan tom.
@@ -33,7 +33,7 @@ ms.locfileid: "66128987"
    
 1. Välj Papperskorgen om du vill ta bort en tagg. Välj sedan **Spara**.
 
-     ![Ta bort tagg](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Ta bort taggen](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Massregistrera tilldela taggar till flera resurser:
@@ -46,7 +46,7 @@ Massregistrera tilldela taggar till flera resurser:
 
      ![Tilldela taggar](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. När du har varje namn och värde väljer **+**. När du är klar, Välj **tilldela**.
+1. När du har varje namn och värde väljer **+** . När du är klar, Välj **tilldela**.
 
      ![Välj tilldela](./media/resource-manager-tag-resources/select-assign.png)
 
@@ -66,7 +66,7 @@ Visa alla resurser med en tagg:
 
 1. Fäst vyn på instrumentpanelen för snabb åtkomst.
 
-     ![Fäst på instrumentpanelen](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+     ![Fäst vid instrumentpanelen](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
 1. Vyn är tillgängligt från instrumentpanelen.
 

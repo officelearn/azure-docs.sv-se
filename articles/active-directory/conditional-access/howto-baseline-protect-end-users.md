@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e5b72be0dbe35cf95eed404c7c1407c53f5f2ecb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112354"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Baslinjeprincip: Slutanvändaren protection (förhandsgranskningsversion)
 
@@ -88,6 +88,6 @@ Aktivera den här principen och skydda dina användare:
 
 Mer information finns i:
 
-* [Principer för villkorlig åtkomst baslinje-skydd](concept-baseline-protection.md)
+* [Protection principer för villkorlig åtkomst baslinje](concept-baseline-protection.md)
 * [Fem steg för att skydda din infrastruktur för Identitetshantering](../../security/azure-ad-secure-steps.md)
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](overview.md)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390078"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Skapa en ruttbaserad VPN-gateway med Azure portal
@@ -27,7 +27,7 @@ Stegen i den här artikeln skapar ett virtuellt nätverk, ett undernät, ett gat
 3. Nästan längst ned på sidan virtuellt nätverk från den **Välj en distributionsmodell** Kontrollera som **Resource Manager** väljs i listrutan och klicka sedan på **skapa**. Då öppnas det **skapa virtuellt nätverk** sidan.
 4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk**. När du fyller i fälten blir det röda utropstecknet en grön bock om tecknen som anges i fältet är giltiga. Ange följande värden:
 
-   - **Namn**: TestVNet1
+   - **Namn på**: TestVNet1
    - **Adressutrymme**: 10.1.0.0/16
    - **Prenumeration**: Kontrollera att prenumerationen som visas är den som du vill använda. Du kan ändra prenumerationer i listrutan.
    - **Resursgrupp**: TestRG1
@@ -49,7 +49,7 @@ Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna f
    ![Lägg till gatewayundernätet](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Lägg till gatewayundernätet")
 4. Den **namn** för undernätet fylls automatiskt i med det obligatoriska värdet ”GatewaySubnet”. Justera de automatiskt ifyllda **adressintervall** värdena för att matcha följande värden:
 
-   **Adressintervall (CIDR-block)**: 10.1.255.0/27
+   **Adressintervall (CIDR-block)** : 10.1.255.0/27
 
    ![Lägg till gatewayundernät](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Lägg till gatewayundernät")
 5. Om du vill skapa gateway-undernätet, klickar du på **OK** längst ned på sidan.
@@ -60,7 +60,7 @@ Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna f
 2. Längst ned på sidan ”virtuell nätverksgateway” klickar du på **skapa** att öppna den **Skapa virtuell nätverksgateway** sidan.
 3. På sidan **Skapa virtuell nätverksgateway** anger du värdena för din virtuella nätverksgateway.
 
-   - **Namn**: Vnet1GW
+   - **Namn på**: Vnet1GW
    - **Gateway-typ**: VPN 
    - **VPN-typ**: Routningsbaserad
    - **SKU**: VpnGw1

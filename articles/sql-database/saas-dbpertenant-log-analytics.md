@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61390735"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Azure Monitor-loggar med en multitenant SQL Database SaaS-app
@@ -57,7 +57,7 @@ OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics-arbetsytor
 
 1. Nu starta belastningsgeneratorn för att köra en simulerad belastning på alla klienter.
 
-    a. Ange **$DemoScenario = 2**, _generera normal intensitet (cirka 30 DTU)_.
+    a. Ange **$DemoScenario = 2**, _generera normal intensitet (cirka 30 DTU)_ .
 
     b. Tryck på F5 för att köra skriptet.
 
@@ -83,7 +83,7 @@ Nu kan du öppna Azure Monitor-loggar i Azure-portalen. Det tar några minuter a
 
    ![Öppna Log Analytics-arbetsyta](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Välj arbetsytan med namnet _wtploganalytics -&lt;användaren&gt;_.
+1. Välj arbetsytan med namnet _wtploganalytics -&lt;användaren&gt;_ .
 
 1. Välj **översikt** att öppna log analytics-lösningen i Azure-portalen.
 

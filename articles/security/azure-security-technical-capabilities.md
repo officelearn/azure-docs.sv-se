@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c28c87339bbfda7cc47e329c8fe6cebdee4a7843
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127196"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhet i Azure-tjänster som hjälper dig att skydda du data, resurser och program i molnet och uppfylla säkerhetsbehoven hos ditt företag.
@@ -124,9 +124,9 @@ När du använder Azure Active Directory B2C kan kan dina användare registrera 
 
 #### <a name="device-registration"></a>Enhetsregistrering
 
-[Azure AD-enhetsregistrering](https://docs.microsoft.com/azure/active-directory/device-management-introduction) är grunden för enhetsbaserad [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) scenarier. När en enhet registreras ger Azure AD-enhetsregistrering enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att genomdriva principer för villkorlig åtkomst för program som finns i molnet och lokalt.
+[Azure AD-enhetsregistrering](https://docs.microsoft.com/azure/active-directory/device-management-introduction) är grunden för enhetsbaserad [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) scenarier. När en enhet registreras ger Azure AD-enhetsregistrering enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten, kan sedan användas för att framtvinga principer för villkorlig åtkomst för program som finns i molnet och lokalt.
 
-När de kombineras med en [hantering av mobilenheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) lösning, till exempel Intune, enhetens egenskaper i Azure Active Directory har uppdaterats med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav.
+När de kombineras med en [hantering av mobilenheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) lösning, till exempel Intune, enhetens egenskaper i Azure Active Directory har uppdaterats med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina krav för säkerhet och efterlevnad.
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 

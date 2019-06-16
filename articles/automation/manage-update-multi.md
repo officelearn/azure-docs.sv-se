@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055578"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -85,7 +85,7 @@ Datorer som nyligen har aktiverats för uppdateringshantering kanske har ännu i
 
 - **Icke-kompatibla**: Datorer som saknar minste en kritisk uppdatering eller säkerhetsuppdatering.
 
-- **Ej utvärderat**: Uppdatera utvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen under de senaste 3 timmarna. För Windows-datorer är den förväntade tidsramen under de senaste 12 timmarna.
+- **Ej utvärderat**: Uppdatera utvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen under den senaste timmen. För Windows-datorer är den förväntade tidsramen under de senaste 12 timmarna.
 
 Om du vill visa statusen för agenten, väljer du länken i den **uppdatera AGENTBEREDSKAP** kolumn. Om du väljer det här alternativet öppnas den **Hybrid Worker** fönstret och visar status för Hybrid Worker. Följande bild visar ett exempel på en agent som inte har anslutits till hantering av uppdateringar under en längre tidsperiod:
 
@@ -116,7 +116,7 @@ När en dator är klar en sökning efter uppdateringskompatibilitet vidarebeford
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
 
-För en Linux-dator utförs kompatibilitetsgenomsökningen var tredje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
+För en Linux-dator utförs kompatibilitetsgenomsökningen varje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
 
 Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
 
@@ -128,9 +128,9 @@ Att schemalägga en ny uppdateringsdistribution för en eller flera virtuella da
 
 I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
-- **Namn**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
+- **Namn på**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystem**: Välj **Windows** eller **Linux**.
-- **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
+- **Grupper som ska uppdateras (förhandsversion)** : Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
 - **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
@@ -154,7 +154,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
    ![Dialogrutan Schemainställningar](./media/manage-update-multi/update-set-schedule.png)
 
 - **Förskript och efterskript**: Välj vilka skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
-- **Underhållsperiod (minuter)**: Ange tidsperioden som uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
+- **Underhållsperiod (minuter)** : Ange tidsperioden som uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
 - **Starta om kontrollen** – den här inställningen avgör hur omstarter hanteras för distributionen.
 

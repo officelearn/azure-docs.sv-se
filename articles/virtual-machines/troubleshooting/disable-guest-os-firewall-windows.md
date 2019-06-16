@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505469"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
@@ -104,11 +104,11 @@ Följ dessa steg för att använda [Remote Registry](https://support.microsoft.c
 
 4.  Öppna en instans av **Services.msc**.
 
-5.  Klicka på **tjänster (lokala)**.
+5.  Klicka på **tjänster (lokala)** .
 
 6.  Välj **Anslut till en annan dator**.
 
-7.  Ange den **privata IP-adress (DIP)** problemets VM.
+7.  Ange den **privata IP-adress (DIP)**  problemets VM.
 
 8.  Starta om den lokala principen.
 

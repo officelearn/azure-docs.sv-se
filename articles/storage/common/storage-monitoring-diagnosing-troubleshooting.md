@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912343"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
@@ -124,7 +124,7 @@ Resten av det här avsnittet beskriver vilka mått som bör du övervaka och var
 Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsotillståndet för Storage-tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Övervakning kan påverkar du direkt se om ett problem utanför din kontroll lagringstjänst i den region som du använder för ditt program.
 
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
-Anteckning: Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](https://status.azure.com).
+Obs! Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](https://status.azure.com).
 
 Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: Övervakning med Application Insights för Azure DevOps](#appendix-5)”.
 
@@ -467,14 +467,14 @@ Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403 (förbjudet) meddelanden
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visar ett exempel från klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
 
-| Source | Utförlighet | Utförlighet | ID för klientbegäran | Åtgärden text |
+| source | Detaljnivå | Detaljnivå | ID för klientförfrågan | Åtgärden text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
-| Microsoft.Azure.Storage |Varning! |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
+| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.Azure.Storage |Varning! |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) Forbidden.. |
+| Microsoft.Azure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) Forbidden.. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden ska göras. Antal nya försök = 0, HTTP-statuskod = 403, undantag = fjärrservern returnerade ett fel: (403) Forbidden.. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primär, beroende på plats. |
 | Microsoft.Azure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) Förbjuden. |
@@ -505,7 +505,7 @@ Du kan använda loggen på klientsidan från Storage-klientbiblioteket för att 
 
 Följande klientsidan loggen genereras av Storage-klientbiblioteket illustrerar problemet när klienten inte kan hitta behållaren för blob skapas. Den här loggfilen innehåller information om följande lagringsåtgärder:
 
-| ID för förfrågan | Operation |
+| Fråge-ID | Åtgärd |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** metod för att ta bort blob-behållaren. Observera att den här åtgärden innehåller en **HEAD** begäran om att kontrollera om finns i behållaren. |
 | e2d06d78… |**CreateIfNotExists** metod för att skapa blob-behållaren. Observera att den här åtgärden innehåller en **HEAD** begäran som kontrollerar om finns i behållaren. Den **HEAD** returnerar ett 404 meddelande men fortsätter. |
@@ -513,7 +513,7 @@ Följande klientsidan loggen genereras av Storage-klientbiblioteket illustrerar 
 
 Loggposter:
 
-| ID för förfrågan | Åtgärden Text |
+| Fråge-ID | Åtgärden Text |
 | --- | --- |
 | 07b26a5d-... |Startar synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
@@ -569,10 +569,10 @@ I följande tabell visas ett exempel från serversidan loggmeddelande från logg
 | HTTP-statuskod   | 404                          |
 | Autentiseringstyp| SAS                          |
 | Typ av tjänst       | Blob                         |
-| Fråge-URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID för klientbegäran  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Undersök varför ditt klientprogram försöker utföra en åtgärd som den inte har beviljats behörighet.
@@ -626,7 +626,7 @@ Om detta inträffar ofta bör du undersöka varför klienten kan inte ta emot be
 ### <a name="the-client-is-receiving-409-messages"></a>Klienten tar emot HTTP 409 (konflikt) meddelanden
 I följande tabell visas ett utdrag ur serversidan loggen för två Klientåtgärder: **DeleteIfExists** följt omedelbart av **CreateIfNotExists** med hjälp av samma blobbehållarens namn. Varje klientåtgärden resulterar i två begäranden som skickas till servern, först en **GetContainerProperties** begäran om att kontrollera om behållaren finns, följt av den **DeleteContainer** eller  **CreateContainer** begäran.
 
-| Timestamp | Operation | Resultat | Behållarnamn | ID för klientbegäran |
+| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |

@@ -3,20 +3,20 @@ title: Installera och köra containrar
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Så här hämtar, installerar och kör behållare för textanalys i den här genomgången självstudien.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: fc9e2b6e5ab2d2103cab2681fe603c1ca9b725c8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069222"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och köra textanalys behållare
 
@@ -48,7 +48,7 @@ I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6
 
 | Container | Minimum | Rekommenderas | TPS<br>(Lägsta, högsta)|
 |-----------|---------|-------------|--|
-|Extrahering av diskussionsämne | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
+|Extrahering av nyckelfraser | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
 |Språkidentifiering | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
 |Attitydanalys | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
 

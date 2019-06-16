@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110601"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -32,7 +32,7 @@ På liknande sätt till en användare är en enhet en annan core identitet som d
 - Hybrid Azure Active Directory-anslutning
 - Azure Active Directory-registrering
 
-När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. Samtidigt kan du skydda tillgången till dina resurser i molnet och lokalt med [villkorad åtkomst](../active-directory-conditional-access-azure-portal.md).
+När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång, kan du skydda åtkomst till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
 
 Om du har en lokal Active Directory (AD)-miljö och du vill ansluta till din AD domänanslutna datorer till Azure AD, kan du göra detta genom att göra hybrid Azure AD-anslutning. Den här artikeln innehåller du med relaterade stegen för att implementera en hybrid Azure AD join i din miljö. 
 

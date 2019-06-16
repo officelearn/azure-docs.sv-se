@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
 ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205460"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
@@ -73,7 +73,7 @@ Mer information finns i [uppdaterar till geospatiala funktioner i Azure Stream A
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Inbyggd grupp API-integration med CosmosDB-utdata
 
-**Föregående nivåer:** Beteendet upsert har *insert- eller merge-*.
+**Föregående nivåer:** Beteendet upsert har *insert- eller merge-* .
 
 **1.2 nivå:** Inbyggd grupp API-integration med CosmosDB-utdata maximerar dataflödet och hanterar effektivt begränsningsbegäranden. Mer information finns i [Azure Stream Analytics-utdata till Azure Cosmos DB-sidan](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 

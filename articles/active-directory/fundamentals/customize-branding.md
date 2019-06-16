@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441638"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till företagsanpassning till din organisations Azure Active Directory-inloggningssida
@@ -27,7 +27,7 @@ Använda organisationens logotyp och egna färgscheman för att tillhandahålla 
 >Lägga till anpassade anpassning kräver att du använder Azure Active Directory Premium 1, 2 för Premium eller Basic-utgåvor och ha en licens för Office 365. Läs mer om licensiering och utgåvor [registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
-Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
 Ditt varumärke omedelbart visas inte när användarna gå till platser, till exempel www\.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
 

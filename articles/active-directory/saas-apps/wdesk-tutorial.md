@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 71feb455457fdf75fb19121bac1927b42fe38b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f614838ae44b5c4263bc9eac81e43fd13f87baa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Självstudier: Azure Active Directory-integrering med Wdesk
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Wdesk i Azure AD, som du behöver lägga til
 
 **Utför följande steg för att lägga till Wdesk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -266,5 +266,5 @@ När du klickar på panelen Wdesk i åtkomstpanelen, bör det vara loggas in aut
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

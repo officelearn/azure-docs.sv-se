@@ -1,21 +1,21 @@
 ---
 title: Utmärkelse poäng - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Trafik-poäng indikerar hur väl personanpassning valet, RewardActionID, resulterade för användaren. Värdet för ersättning poängen bestäms av din affärslogik som baseras på observationer av användarbeteende. Personalizer träna dess machine learning-modeller genom att utvärdera fördelarna.
+description: Trafik-poäng indikerar hur väl personanpassning valet, RewardActionID, resulterade för användaren. Värdet för ersättning poängen bestäms av din affärslogik som baseras på observationer av användarbeteende. Personalizer träna dess maskininlärningsmodeller genom att utvärdera fördelarna.
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244237"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077401"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Utmärkelse resultat anger framgången för anpassning
 
@@ -30,6 +30,18 @@ Belöningar som ska skickas till Personalizer genom den [utmärkelse API](https:
 Belöningar skickas när användarnas beteende har skett, vilket kan vara dagar senare. Längsta tid som Personalizer ska vänta tills en händelse ska anses ha ingen ersättning eller standard ersättning har konfigurerats med den [utmärkelse väntetid](#reward-wait-time) i Azure-portalen.
 
 Om trafik poängen för en händelse inte har tagits emot inom den **utmärkelse väntetid**, kommer **standard utmärkelse** kommer att tillämpas. Normalt den **[standard utmärkelse](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** är konfigurerad för att vara noll.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Beteenden och data att tänka på för alla
+
+Överväg dessa signaler och beteenden för kontexten för ersättning poäng:
+
+* Dirigera användarindata förslag när alternativ används (”menas X”?).
+* Sessionslängd.
+* Tid mellan sessioner.
+* Känsloanalys av användarens interaktioner.
+* Dirigera frågor och mini undersökningar där roboten frågar användaren om feedback om användbarhet, Precision.
+* Svar på aviseringar eller fördröjning till svar på aviseringar.
 
 ## <a name="composing-reward-scores"></a>Skapa utmärkelse poäng
 

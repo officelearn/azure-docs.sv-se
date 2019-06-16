@@ -19,10 +19,10 @@ ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544505"
 ---
 # <a name="federation-metadata"></a>Federationsmetadata
@@ -50,7 +50,7 @@ Till exempel en klientspecifik slutpunkt kanske `https://login.microsoftonline.c
 ## <a name="contents-of-federation-metadata"></a>Innehållet i federation Metadata
 Följande avsnitt innehåller information som krävs av tjänster som använder de token som utfärdats av Azure AD.
 
-### <a name="entity-id"></a>Enhets-id
+### <a name="entity-id"></a>Entitets-ID
 Den `EntityDescriptor` elementet innehåller ett `EntityID` attribut. Värdet för den `EntityID` attributet representerar utfärdaren, det vill säga den säkerhetstokentjänst (STS) som utfärdade token. Det är viktigt att verifiera utfärdaren när du tar emot en token.
 
 Följande metadata visar ett urval klientspecifik `EntityDescriptor` element med ett `EntityID` element.

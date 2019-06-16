@@ -9,17 +9,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61364070"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
 Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar](https://azure.microsoft.com/documentation/services/event-hubs/). Den här slutpunkten är för närvarande endast synliga använder den [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
 
-| Egenskap             | Beskrivning |
+| Egenskap            | Beskrivning |
 | ------------------- | ----------- |
 | **Antalet partitioner** | Ange den här egenskapen när du skapar för att definiera hur många [partitioner](../event-hubs/event-hubs-features.md#partitions) för enhet-till-moln händelsepåfyllning. |
 | **Kvarhållningstid**  | Den här egenskapen anger hur länge i dagar som meddelanden ska bevaras av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
@@ -46,7 +46,7 @@ När du använder SDK: er för Event Hubs eller produktintegreringar som inte k�
 
 3. Den **händelser** avsnittet innehåller följande värden: **Partitioner**, **Event Hub-kompatibla namnet**, **Event Hub-kompatibla slutpunkten**, **kvarhållningstid**, och **konsumentgrupper**.
 
-    ![Inställningar för enhet till moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![Inställningar för enhet-till-moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 I portalen innehåller en fullständig Event Hubs-anslutningssträng som ser ut som i fältet Event Hub-kompatibla slutpunkten: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Om du använder SDK: N kräver andra värden, skulle och vara:
 
@@ -54,7 +54,7 @@ I portalen innehåller en fullständig Event Hubs-anslutningssträng som ser ut 
 | ---- | ----- |
 | Slutpunkt | sb://abcd1234namespace.servicebus.windows.net/ |
 | Värdnamn | abcd1234namespace.servicebus.windows.net |
-| Namnområde | abcd1234namespace |
+| Namnrymd | abcd1234namespace |
 
 Du kan sedan använda någon princip för delad åtkomst som har den **ServiceConnect** behörighet att ansluta till den angivna Event Hub.
 

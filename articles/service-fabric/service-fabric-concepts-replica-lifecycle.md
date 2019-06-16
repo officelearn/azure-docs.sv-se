@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882426"
 ---
 # <a name="replicas-and-instances"></a>Repliker och instanser 
@@ -116,11 +116,11 @@ Rollen repliken är inte relevant i tillståndet vänteläge.
 ## <a name="replica-role"></a>Replikeringsroll 
 Rollen för repliken avgör dess funktion i replikuppsättningen:
 
-- **Primära (P)**: Det finns en primär i uppsättningen som ansvarar för att utföra läsningar och skrivningar. 
-- **ActiveSecondary (S)**: Det här är repliker som tar emot tillstånd uppdateringar från primärt, tillämpa dem och sedan skicka tillbaka bekräftelser. Det finns flera aktiva sekundära databaser i uppsättningen. Antalet dessa active sekundärservrar anger antalet fel som kan hantera tjänsten.
-- **IdleSecondary (I)**: De här replikeringarna skapas av primärt. De får tillstånd från primärt innan de kan höjas upp till aktiv sekundär. 
-- **Ingen (N)**: De här replikeringarna har inte ett ansvar i uppsättningen.
-- **Okänd (U)**: Det är den första rollen av en replik som innan den tar emot eventuella **ChangeRole** API-anrop från Service Fabric.
+- **Primära (P)** : Det finns en primär i uppsättningen som ansvarar för att utföra läsningar och skrivningar. 
+- **ActiveSecondary (S)** : Det här är repliker som tar emot tillstånd uppdateringar från primärt, tillämpa dem och sedan skicka tillbaka bekräftelser. Det finns flera aktiva sekundära databaser i uppsättningen. Antalet dessa active sekundärservrar anger antalet fel som kan hantera tjänsten.
+- **IdleSecondary (I)** : De här replikeringarna skapas av primärt. De får tillstånd från primärt innan de kan höjas upp till aktiv sekundär. 
+- **Ingen (N)** : De här replikeringarna har inte ett ansvar i uppsättningen.
+- **Okänd (U)** : Det är den första rollen av en replik som innan den tar emot eventuella **ChangeRole** API-anrop från Service Fabric.
 
 Följande diagram illustrerar repliken rollen övergångar och vissa scenarier där de inträffar:
 

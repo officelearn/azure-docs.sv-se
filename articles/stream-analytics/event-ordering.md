@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789492"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurera principer för Händelseordning för Azure Stream Analytics
@@ -41,7 +41,7 @@ Låt oss se ett exempel på dessa principer fungerar i praktiken.
 <br> **Sen ankomst princip:** 15 sekunder
 <br> **Princip för out ordning:** 8 sekunder
 
-| Händelsen Nej. | Tidpunkt för händelse | Ankomsttid | System.Timestamp | Förklaring |
+| Händelsen Nej. | Tidpunkt för händelsen | Ankomsttid | System.Timestamp | Förklaring |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Händelsen anlänt sent och utanför toleransnivån. Tidpunkt för händelsen hämtar så justeras till högsta tolerans för sent ankomst.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Händelsen anlänt sent men inom toleransnivån. Tidpunkt för händelsen därför inte få justeras.  |
@@ -73,7 +73,9 @@ När flera partitioner från samma Indataströmmen kombineras, är sen ankomst t
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Det här meddelandet om att minst en partition i dina indata är tom och att fördröja dina utdata av sent ankomst tröskelvärdet. Om du vill lösa det, bör du antingen: 1. Se till att alla partitioner i Event Hub/IoT-hubben ta emot indata. 2. Använd Partition by PartitionID-sats i frågan. 
+Det här meddelandet om att minst en partition i dina indata är tom och att fördröja dina utdata av sent ankomst tröskelvärdet. Om du vill lösa det, bör du antingen: 
+1. Se till att alla partitioner i Event Hub/IoT-hubben ta emot indata. 
+2. Använd Partition by PartitionID-sats i frågan. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväganden för hantering av tid](stream-analytics-time-handling.md)

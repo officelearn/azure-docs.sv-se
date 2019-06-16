@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406536"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Självstudier: Azure Active Directory-integrering med LearnUpon
 
@@ -58,7 +58,7 @@ För att konfigurera integrering av LearnUpon i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till LearnUpon från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -165,9 +165,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med LearnUp
 
      ![Konfigurera enkel inloggning](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. I den **förnamn identifierare Format** textrutan typ som det värde som talar om för oss var i SAML-försäkran användare firstname finns – till exempel: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. I den **förnamn identifierare Format** textrutan typ som det värde som talar om för oss var i SAML-försäkran användare firstname finns – till exempel: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. I den **senaste Format för namn på identifierare** textrutan typ som det värde som talar om för oss var i SAML-försäkran användare lastname finns – till exempel: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. I den **senaste Format för namn på identifierare** textrutan typ som det värde som talar om för oss var i SAML-försäkran användare lastname finns – till exempel: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -235,4 +235,4 @@ När du klickar på panelen LearnUpon i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

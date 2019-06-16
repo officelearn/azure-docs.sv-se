@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443030"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
@@ -88,16 +88,16 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Se till att du använ
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn på händelsekälla | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
-    | Källa | **IoT Hub** |
+    | Händelsekällans namn | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
+    | source | **IoT Hub** |
     | Importalternativ | **Använd IoT Hub från tillgängliga prenumerationer** |
     | Prenumerations-ID:t | I listrutan väljer du din Azure-prenumeration. |
-    | IoT Hub-namn | **contosorma57a6**. Använd namnet på IoT-hubben från lösningen för fjärrövervakning. |
-    | IoT Hub-principnamn | **iothubowner** se till att den princip som används är en ägare. |
-    | IoT Hub-principnyckel | Det här fältet fylls i automatiskt. |
-    | IoT Hub-konsumentgrupp | **timeseriesinsights** |
+    | Namnet på IOT hub | **contosorma57a6**. Använd namnet på IoT-hubben från lösningen för fjärrövervakning. |
+    | Principnamn för IOT hub | **iothubowner** se till att den princip som används är en ägare. |
+    | Principnyckel för IOT hub | Det här fältet fylls i automatiskt. |
+    | IOT hub-konsumentgrupp | **timeseriesinsights** |
     | Händelseserialiseringsformat | **JSON**     | 
-    | Egenskapsnamn för tidsstämpel | Lämna tomt |
+    | Egenskapsnamnet för tidsstämpeln | Lämna tomt |
 
     ![Skapa händelsekälla](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -136,7 +136,7 @@ Nästa steg är att konfigurera Azure Stream Analytics Manager mikrotjänster f�
 
 1. Välj den **ContosoRM** resursgrupp.
 
-1. Hitta den Azure Stream Analytics (ASA) direktuppspelningsjobbet i listan över resurser. Resursnamnet som börjar med **streamingjobs -**.
+1. Hitta den Azure Stream Analytics (ASA) direktuppspelningsjobbet i listan över resurser. Resursnamnet som börjar med **streamingjobs -** .
 
 1. Klicka på knappen för att stoppa ASA direktuppspelningsjobb överst på sidan.
 

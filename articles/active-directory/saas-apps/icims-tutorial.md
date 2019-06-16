@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 83a18d05533058dfe564c1f936403e43194abc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Självstudier: Azure Active Directory-integrering med ICIMS
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av ICIMS i Azure AD behöver du lägga till I
 
 **Utför följande steg för att lägga till ICIMS från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,4 +197,4 @@ När du klickar på ICIMS-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

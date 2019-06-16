@@ -8,21 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 62c9dcc039c68b0b6c8b8bf29ed9f13f88936723
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059585"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid tidpunkten dumpen skapades. Så att de är användbara för att diagnostisera problem som uppstår vid körning.
-
-> [!IMPORTANT]  
-> Stegen i det här dokumentet fungerar bara med HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Tjänster
 

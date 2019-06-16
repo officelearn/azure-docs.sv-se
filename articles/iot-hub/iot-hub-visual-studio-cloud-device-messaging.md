@@ -5,14 +5,13 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/07/2018
-ms.date: 05/06/2019
+ms.date: 01/07/2018
 ms.author: xshi
 ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440754"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använda Cloud Explorer för Visual Studio för att skicka och ta emot meddelanden mellan enheten och IoT Hub
@@ -49,12 +48,16 @@ Cloud Explorer-komponenten från installationsprogrammet för Visual Studio stö
 
     ![Klicka på hantering](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Klicka på **hantera konton** i Cloud Explorer.
-1. Klicka på **Lägg till ett konto...**  i nytt fönster för att logga in på Azure för första gången.
-1. När du har loggat in visas listan Azure-prenumeration. Välj de Azure-prenumerationer du vill visa och klicka på **tillämpa**.
-1. Expandera **prenumerationen** > **IoT-hubbar** > **din IoT Hub**, enhetslistan visas under din IoT Hub-nod.
 
-    ![Enhetslista](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
+2. Klicka på **hantera konton** i Cloud Explorer.
+
+3. Klicka på **Lägg till ett konto...**  i nytt fönster för att logga in på Azure för första gången.
+
+4. När du har loggat in visas listan Azure-prenumeration. Välj de Azure-prenumerationer du vill visa och klicka på **tillämpa**.
+
+5. Expandera **prenumerationen** > **IoT-hubbar** > **din IoT Hub**, enhetslistan visas under din IoT Hub-nod.
+
+    ![Listan över enheter](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
 ## <a name="monitor-device-to-cloud-messages"></a>Övervaka meddelanden från enheten till molnet
 
@@ -64,11 +67,11 @@ Följ dessa steg för att övervaka meddelanden som skickas från enheten till I
 
     ![Börja övervaka D2C-meddelande](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. Övervakade meddelandena visas i den **IoT Hub** utdatarutan.
+2. Övervakade meddelandena visas i den **IoT Hub** utdatarutan.
 
     ![Övervakning av D2C Meddelanderesultatet](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. Att stoppa övervakning, högerklicka på valfri IoT-hubb eller en enhet och välj **stoppa övervakning av D2C-meddelande**.
+3. Att stoppa övervakning, högerklicka på valfri IoT-hubb eller en enhet och välj **stoppa övervakning av D2C-meddelande**.
 
 ## <a name="send-cloud-to-device-messages"></a>Skicka meddelanden från moln till enhet
 
@@ -78,8 +81,9 @@ Om du vill skicka ett meddelande från IoT Hub till enheten, Följ dessa steg:
 
     ![Skicka C2D-meddelande](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. Skriv meddelandet i textrutan.
-1. Resultaten visas i den **IoT Hub** utdatarutan.
+2. Skriv meddelandet i textrutan.
+
+3. Resultaten visas i den **IoT Hub** utdatarutan.
 
     ![Skicka C2D Meddelanderesultatet](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

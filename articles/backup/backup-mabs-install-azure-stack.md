@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60852217"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
@@ -323,11 +323,11 @@ När du vet för Azure anslutningen och den Azure-prenumerationen kan kan du anv
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Aktiv |Tillåtna |Tillåtna |Tillåtna |Tillåtna |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Tillåtna |Tillåtna |
+| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från förlust av anslutning

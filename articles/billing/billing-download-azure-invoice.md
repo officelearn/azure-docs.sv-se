@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617967"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
@@ -55,7 +55,7 @@ Läs mer om fakturan [förstå fakturan för Microsoft Azure](billing-understand
 Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#understand-billing-profiles) i Microsoft kundavtal. Du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att ladda ner fakturor från Azure-portalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök på **Cost Management + fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. Välj **Fakturor**.
 1. Hitta raden på fakturan som du vill hämta i rutnätet för fakturan.
@@ -98,7 +98,7 @@ Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och kl
 Om du har ett Microsoft-kundavtal, kan du välja för att hämta din faktura i ett e-postmeddelande. Alla fakturering profil ägare, deltagare, läsare och faktura chefer får fakturan via e-post. Läsare kan inte uppdatera dina inställningar för e-faktura.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering**.
+1. Sök på **Cost Management + fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. Under **inställningar**väljer **egenskaper**.
 1. Under **e-Postfaktura**väljer **inställning för Update e-faktura**.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
 ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61215813"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
@@ -263,7 +263,7 @@ Om det finns ett fel, Azure Media Indexer ska rapportera tillbaka en av följand
 | 2002 |Ogiltigt manifest |Manifest är tom eller manifest innehåller ogiltigt objekt. |
 | 2003 |Det gick inte att hämta mediefil |Ogiltig URL i manifestfilen. |
 | 2004 |Protokoll som inte stöds |Protokollet för media-URL stöds inte. |
-| 2005 |Filtypen stöds inte |Mediafiltypen stöds inte. |
+| 2005 |Filtyper som inte stöds |Mediafiltypen stöds inte. |
 | 2006 |För många indatafiler |Det finns fler än 10 filer i det inkommande manifestet. |
 | 3000 |Det gick inte att avkoda mediefil |Codec för stöds inte <br/>eller<br/> Skadat mediefil <br/>eller<br/> Inga ljudström i mediet. |
 | 4000 |Batch indexering delvis |Några av de inkommande mediefilerna växlas som ska indexeras. Mer information finns i <a href="#output_files">utdatafiler</a>. |

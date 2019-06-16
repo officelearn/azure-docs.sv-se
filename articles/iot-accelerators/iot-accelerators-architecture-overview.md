@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067914"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introduktion till Azure IoT-Referensarkitektur
 
 Den här artikeln introducerar de [Azure IoT-Referensarkitektur](https://aka.ms/iotrefarchitecture) och ger exempel på hur [Azure IoT-Lösningsacceleratorer](about-iot-accelerators.md) följa sina rekommendationer.
 
-Öppen källkod [fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md) och [ansluten fabrik](iot-accelerators-connected-factory-sample-walkthrough.md) Lösningsacceleratorer följer många av rekommendationerna för referens-arkitektur. Du kan använda Lösningsacceleratorer som en startpunkt för dina egna IoT-lösning eller som learning-verktyg.
+Öppen källkod [fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md) och [ansluten fabrik](iot-accelerators-connected-factory-features.md) Lösningsacceleratorer följer många av rekommendationerna för referens-arkitektur. Du kan använda Lösningsacceleratorer som en startpunkt för dina egna IoT-lösning eller som learning-verktyg.
 
 ## <a name="overview"></a>Översikt
 

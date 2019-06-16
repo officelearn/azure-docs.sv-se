@@ -3,7 +3,7 @@ title: Vad är Azure Security Center?| Microsoft Docs
 description: Här får du lära dig om Azure Security Center, de viktigaste funktionerna och hur Security Center fungerar.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064333"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -125,6 +125,10 @@ Security Center hjälper dig att begränsa exponeringen för råstyrkeattacker. 
 ### <a name="protect-data-services"></a>Skydda datatjänster
 
 Security Center innehåller funktioner som hjälper dig att utföra automatisk klassificering av dina data i Azure SQL. Du kan också få utvärderingar avseende potentiella säkerhetsrisker för Azure SQL- och lagringstjänster och rekommendationer för hur du löser dem.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Skydda IoT och hybrid arbetsbelastningar (förhandsversion)
+
+Azure Security Center för IoT (Internet of Things) förenklar hybrid skydd av arbetsbelastningar genom att tillhandahålla enhetlig synlighet och kontroll, adaptivt skydd och intelligent hotidentifiering och svar i arbetsbelastningar som körs på edge, lokalt, Azure, och i andra moln. Mer information finns i [Azure Security Center för IoT (förhandsversion)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 

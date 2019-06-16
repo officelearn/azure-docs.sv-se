@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131831"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina medier med Azure Portal 
@@ -53,7 +53,7 @@ Den **Azure Media Indexer** medieprocessor kan du göra mediefiler och innehåll
 ### <a name="language"></a>Språk
 Naturligt språk ska identifieras i multimediefilen. Till exempel engelska eller spanska. 
 
-### <a name="captions"></a>Textning
+### <a name="captions"></a>undertexter
 Du kan välja en etikett-format som genereras från ditt innehåll. Ett indexeringsjobb kan generera filer med dold textning i följande format:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Stängd textning (kopia) filer i formaten som kan användas för att göra det t
 ### <a name="aib-file"></a>AIB-fil
 Välj det här alternativet om du vill generera en Audio Index-Blob-fil för användning med den anpassade SQL Server-IFilter. Mer information finns i [detta](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogg.
 
-### <a name="keywords"></a>Nyckelord
+### <a name="keywords"></a>nyckelord
 Välj det här alternativet om du vill generera en XML-fil med nyckelord. Den här filen med nyckelord extraheras från talinnehållet med frekvens och förskjutning information.
 
 ### <a name="job-name"></a>Jobbnamn

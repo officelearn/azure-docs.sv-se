@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083791"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
 
@@ -274,21 +274,21 @@ Läsa alla konfigurationen | Global administratör |
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera MFA betrodda IP-adresser | Administratör för villkorsstyrd åtkomst | 
-Skapa anpassade kontroller | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Skapa namngivna platser | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Skapa principer | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Skapa användningsvillkor | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Skapa certifikat för VPN-anslutning | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Ta bort den klassiska principen | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Ta bort användningsvillkor | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Ta bort certifikat för VPN-anslutning | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Inaktivera den klassiska principen | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Hantera anpassade kontroller | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Hantera namngivna platser | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
-Hantera användningsvillkor | Administratör för villkorsstyrd åtkomst | Säkerhetsadministratör
+Konfigurera MFA betrodda IP-adresser | Administratör för villkorlig åtkomst | 
+Skapa anpassade kontroller | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Skapa namngivna platser | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Skapa principer | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Skapa användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Skapa certifikat för VPN-anslutning | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Ta bort den klassiska principen | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Ta bort användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Ta bort certifikat för VPN-anslutning | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Inaktivera den klassiska principen | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Hantera anpassade kontroller | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Hantera namngivna platser | Administratör för villkorlig åtkomst | Säkerhetsadministratör
+Hantera användningsvillkor | Administratör för villkorlig åtkomst | Säkerhetsadministratör
 Läsa alla konfigurationen | Säkerhetsläsare | Säkerhetsadministratör
-Läs namngivna platser | Säkerhetsläsare | Villkorlig åtkomst administratör, säkerhetsadministratör
+Läs namngivna platser | Säkerhetsläsare | Villkorlig åtkomst-administratör, säkerhetsadministratör
 
 ## <a name="security---identity-security-score"></a>Säkerhet – identitet säkerhetspoäng
 

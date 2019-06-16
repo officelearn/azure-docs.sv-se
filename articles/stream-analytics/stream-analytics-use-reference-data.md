@@ -4,19 +4,19 @@ description: Den här artikeln beskriver hur du använder referensdata för att 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066772"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
+
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
 
 Stream Analytics stöder Azure Blob storage och Azure SQL Database som storage-skiktet för referensdata. Du kan också transformera och/eller kopiera referensdata till Blob storage från Azure Data Factory för att använda [alla många molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md).
@@ -43,7 +43,7 @@ Om du vill konfigurera din referensdata, måste du först skapa en som är av ty
 
 ### <a name="static-reference-data"></a>Statiska referensdata
 
-Om din referensdata inte förväntas ändras, sedan stöd för statisk referens för data är aktiverat genom att ange en statisk sökväg i konfigurationen av indata. Azure Stream Analytics hämtar blob från den angivna sökvägen. {date} och {time} ersättningen token inte behövs. Referensdata kan inte ändras i Stream Analytics. Därför kan rekommenderas skriva över en statisk referensdatablob inte.
+Om din referensdata inte förväntas ändras, sedan stöd för statisk referens för data är aktiverat genom att ange en statisk sökväg i konfigurationen av indata. Azure Stream Analytics hämtar blob från den angivna sökvägen. {date} och {time} ersättningen token inte behövs. Du rekommenderas att inte skriva över en statisk referensdatablob eftersom referensdata inte kan ändras i Stream Analytics.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generera referensdata enligt ett schema
 
@@ -54,7 +54,7 @@ Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar me
 > [!NOTE]
 > För närvarande leta Stream Analytics-jobb efter den blob-uppdateringen bara när datortiden nyheterna till den tidpunkt som kodats i blobnamnet. Till exempel jobbet söker efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt men inte tidigare än 17:30:00 den 16 April 2015 UTC tidszonen. Kommer det att *aldrig* leta efter en blob med en kodad tid tidigare än det senaste som har identifierats.
 > 
-> T.ex. när jobbet hittar blob `sample/2015-04-16/17-30/products.csv` kommer att ignorera filer med en kodad datum tidigare än 17:30:00 den 16 April 2015 så om en sent inkommer `sample/2015-04-16/17-25/products.csv` blob skapas i samma behållare jobbet kommer inte att användas.
+> Till exempel när jobbet hittar blob `sample/2015-04-16/17-30/products.csv` kommer att ignorera filer med en kodad datum tidigare än 17:30:00 den 16 April 2015 så om en sent inkommer `sample/2015-04-16/17-25/products.csv` blob skapas i samma behållare jobbet kommer inte att användas.
 > 
 > På samma sätt om `sample/2015-04-16/17-30/products.csv` produceras bara klockan 10:03 16 April 2015, men inga blob med ett tidigare datum finns i behållaren, jobbet ska använda den här filen startar klockan 10:03 16 April 2015 och använda tidigare referensdata fram till dess.
 > 

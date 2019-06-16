@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124041"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av portalen
@@ -76,7 +76,7 @@ För den här konfigurationen måste skapa du en VPN-gateway-anslutning via en I
 
 I följande tabell visas ett exempel på hur exempel virtuella nätverk och lokala platser definieras:
 
-| Virtual Network | Adressutrymme | Region | Ansluter till lokal nätverksplats |
+| Virtuellt nätverk | Adressutrymme | Region | Ansluter till lokal nätverksplats |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Västra USA | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Östra USA |ClassicVNetLocal (10.0.0.0/24) |
@@ -175,7 +175,7 @@ Innan du skapar en virtuell nätverksgateway måste du först skapa gateway-unde
 
 **Exempelvärden:** Lokal nätverksgateway = ClassicVNetLocal
 
-| Virtual Network | Adressutrymme | Region | Ansluter till lokal nätverksplats |Gatewayens offentliga IP-adress|
+| Virtuellt nätverk | Adressutrymme | Region | Ansluter till lokal nätverksplats |Gatewayens offentliga IP-adress|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Västra USA | RMVNetLocal (192.168.0.0/16) |Offentliga IP-adressen som tilldelas till ClassicVNet-gateway|
 | RMVNet | (192.168.0.0/16) |Östra USA |ClassicVNetLocal (10.0.0.0/24) |Offentliga IP-adressen som tilldelas RMVNet gatewayen.|

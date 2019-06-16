@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062109"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Aktuell version](transform-data-using-dotnet-custom-activity.md)
 
@@ -67,7 +67,7 @@ Följande JSON definierar ett exempel på Azure Batch-länkad tjänst. Mer infor
 
  Läs mer om Azure Batch-länkade tjänsten i [länkade tjänster för Compute](compute-linked-services.md) artikeln.
 
-## <a name="custom-activity"></a>Egen aktivitet
+## <a name="custom-activity"></a>Anpassad aktivitet
 
 Följande JSON-kodfragmentet definierar en pipeline med en enkel anpassad aktivitet. Aktivitetsdefinitionen innehåller en referens till tjänsten Azure Batch länkad.
 
@@ -100,11 +100,11 @@ I det här exemplet är helloworld.exe ett anpassat program som lagras i mappen 
 
 I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten.
 
-| Egenskap               | Beskrivning                              | Krävs |
+| Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
-| namn                  | Namnet på aktiviteten i pipelinen     | Ja      |
+| name                  | Namnet på aktiviteten i pipelinen     | Ja      |
 | description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
-| typ                  | Anpassad aktivitet aktivitetstyp av är **anpassad**. | Ja      |
+| type                  | Anpassad aktivitet aktivitetstyp av är **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.  | Ja      |
 | Kommandot               | Kommandot i anpassade program som ska köras. Om programmet redan är tillgängliga på Azure Batch Pool Node, kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av Batch-Pool för Windows-nod. | Ja      |
 | resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej&#42;       |
@@ -301,7 +301,7 @@ Activity Error section:
 Om du vill använda innehåll för stdout.txt i underordnade aktiviteter kan du hämta sökvägen till filen stdout.txt i uttrycket ”\@activity('MyCustomActivity').output.outputs [0]”.
 
 > [!IMPORTANT]
-> - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat.
+> - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` sökväg. Om det behövs kan behöva du rensa dem separat.
 > - För länkade tjänster som använder den lokala Integration Runtime definierats känslig information som nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna är kvar i kundens privata nätverk. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs.
 
 ## <a name="pass-outputs-to-another-activity"></a>Pass utdata till en annan aktivitet
@@ -342,7 +342,7 @@ I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivit
 |Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .NET-DLL      |
 |Körningsmiljö för den anpassade logiken      |Windows- eller Linux      |Windows (.NET Framework 4.5.2)      |
 |Kör skript      |Har stöd för körning av skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .NET-DLL      |
-|Datauppsättning som krävs      |Valfritt      |Krävs för att länka aktiviteter och skickar information      |
+|Datauppsättning som krävs      |Valfri      |Krävs för att länka aktiviteter och skickar information      |
 |Skicka information från aktiviteten till anpassad logik      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata datauppsättningar      |
 |Hämta information i anpassad logik      |Parsar activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .NET SDK (.NET bildruta 4.5.2)      |
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .NET-DLL      |

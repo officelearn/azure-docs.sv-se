@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372020"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal
@@ -59,7 +59,7 @@ Lägg till användare som skapare av Azure-prenumeration på en faktura avsnitt 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 
    ![Skärmbild som visar search i portalen för prenumerationer](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 

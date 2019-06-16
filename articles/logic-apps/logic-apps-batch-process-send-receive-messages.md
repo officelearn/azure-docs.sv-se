@@ -10,10 +10,10 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683776"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och bearbetar meddelanden i Azure Logic Apps för batch
@@ -56,7 +56,7 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
 
 3. Ange dessa egenskaper för batch-mottagare: 
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------|
    | **Batch-läge** | - **Infogad**: För att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: För att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
    | **Batch-namn** | Namn för ditt batch, som är ”TestBatch” i det här exemplet och gäller endast **infogade** batch-läge |  
@@ -169,7 +169,7 @@ Nu ska du skapa en eller flera batch avsändaren logikappar som skickar meddelan
 
 3. Ställ in batchen avsändarens egenskaper:
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------| 
    | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: Batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
    | **Meddelandeinnehåll** | Innehållet för det meddelande du vill skicka | 
@@ -187,7 +187,7 @@ Nu ska du skapa en eller flera batch avsändaren logikappar som skickar meddelan
 
 4. Konfigurera nu en partition för batch. I ”BatchReceiver”-åtgärd väljer **visa avancerade alternativ** och ange dessa egenskaper:
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------| 
    | **Partitionsnamn** | En valfri unik partitionsnyckel ska användas för att dela upp batch mål i logiska delmängder och samla in meddelanden baserat på nyckeln | 
    | **Meddelande-Id** | Ett valfritt meddelande-ID som är en genererad globalt unik identifierare (GUID) när den är tom | 

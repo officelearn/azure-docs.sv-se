@@ -3,17 +3,17 @@ title: Analysera din enhetsdata i ditt program med Azure IoT Central | Microsoft
 description: Analysera din enhetsdata i Azure IoT Central programmet.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffe8b350c1b5cea23aeb65092c7912c6d6c1ed89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052950"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Hur du använder analytics för att analysera dina enhetsdata
 

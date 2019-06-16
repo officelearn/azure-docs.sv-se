@@ -1,28 +1,28 @@
 ---
 title: Skapa en privat Azure DNS-zon med Azure CLI
-description: I den här självstudien skapar och testar du en privat DNS-zon och post i Azure DNS. Det här är en stegvis guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med hjälp av Azure CLI.
+description: I den här proceduren ska du skapa och testa en privat DNS-zon och DNS-post i Azure DNS. Det här är en stegvis guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med hjälp av Azure CLI.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: tutorial
-ms.date: 3/11/2019
+ms.topic: article
+ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d882a9c40efc5e9bcb1a5e1c02f1ac73970d57db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65916055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076416"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Skapa en privat Azure DNS-zon med Azure CLI
 
-Den här självstudien visar hur du skapar din första privata DNS-zon och DNS-post med Azure CLI.
-
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  De här kallas *virtuella lösningsnätverk*. Du kan även ange ett virtuellt nätverk där Azure DNS ska bibehålla värddatorposter varje gång en virtuell dator skapas, ändrar IP-adress eller tas bort.  Det här kallas *virtuellt registreringsnätverk*.
+Den här proceduren vägleder dig genom stegen för att skapa din första privata DNS-zon och DNS-post med hjälp av Azure CLI.
 
-I den här guiden får du lära dig att:
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering aktiveras, Azure DNS även uppdaterar zonposter när en virtuell dator skapas, ändringar dess ”IP-adress eller tas bort.
+
+I den här proceduren ska du lära dig hur du:
 
 > [!div class="checklist"]
 > * Skapa en privat DNS-zon
@@ -32,8 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill kan du utföra den här självstudien med [Azure PowerShell](private-dns-getstarted-powershell.md).
-
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,9 +46,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>Skapa en privat DNS-zon
 
-Du skapar en DNS-zon med hjälp av kommandot `az network dns zone create` med värdet *Private* för parametern **ZoneType**. I följande exempel skapas en DNS-zon med namnet **private.contoso.com** i resursgruppen med namnet **MyAzureResourceGroup** och gör DNS-zon som är tillgängliga för det virtuella nätverk som kallas  **MyAzureVnet**.
-
-Om parametern **ZoneType** utelämnas skapas zonen som en offentlig zon. Med andra ord krävs den om du vill skapa en privat zon.
+I följande exempel skapas ett virtuellt nätverk med namnet **myAzureVNet**. Innan skriptet skapar en DNS-zon med namnet **private.contoso.com** i den **MyAzureResourceGroup** resursgruppen, länkar DNS-zonen till den **MyAzureVnet** virtuellt nätverk och aktiverar automatisk registrering.
 
 ```azurecli
 az network vnet create \
@@ -60,32 +57,30 @@ az network vnet create \
   --subnet-name backendSubnet \
   --subnet-prefixes 10.2.0.0/24
 
-az network dns zone create -g MyAzureResourceGroup \
-   -n private.contoso.com \
-  --zone-type Private \
-  --registration-vnets myAzureVNet
+az network private-dns zone create -g MyAzureResourceGroup \
+   -n private.contoso.com
+
+az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
+   -z private.contoso.com -v myAzureVNet -e true
 ```
 
-Om du vill skapa en zon bara för namnmatchning (ingen automatisk generering av värddatornamn) använder du parametern *resolution-vnets* i stället för parametern *registration-vnets*.
-
-> [!NOTE]
-> Du kommer inte att kunna se de automatiskt skapade posterna för värddatornamn. Senare kommer du dock att testa för att säkerställa att de finns.
+Om du vill skapa en zon för namnmatchning (ingen automatisk värdnamn registrering) kan du använda den `-e false` parametern.
 
 ### <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
 
-Använd `az network dns zone list` om du vill räkna upp DNS-zoner. Om du vill ha hjälp, så gå till `az network dns zone list --help`.
+Använd `az network private-dns zone list` om du vill räkna upp DNS-zoner. Om du vill ha hjälp, så gå till `az network dns zone list --help`.
 
 När du anger resursgrupp så listas bara zonerna i resursgruppen:
 
 ```azurecli
-az network dns zone list \
-  --resource-group MyAzureResourceGroup
+az network private-dns zone list \
+  -g MyAzureResourceGroup
 ```
 
 Om du utesluter resursgruppen listas alla zoner i prenumerationen:
 
 ```azurecli
-az network dns zone list 
+az network private-dns zone list 
 ```
 
 ## <a name="create-the-test-virtual-machines"></a>Skapa de virtuella testdatorerna
@@ -95,20 +90,24 @@ Nu skapar du två virtuella datorer så att du kan testa din privata DNS-zon:
 ```azurecli
 az vm create \
  -n myVM01 \
- --admin-username test-user \
+ --admin-username AzureAdmin \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
  --vnet-name myAzureVnet \
+ --nsg NSG01 \
+ --nsg-rule RDP \
  --image win2016datacenter
 
 az vm create \
  -n myVM02 \
- --admin-username test-user \
+ --admin-username AzureAdmin \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
  --vnet-name myAzureVnet \
+ --nsg NSG01 \
+ --nsg-rule RDP \
  --image win2016datacenter
 ```
 
@@ -116,12 +115,12 @@ Det här kan ta några minuter.
 
 ## <a name="create-an-additional-dns-record"></a>Skapa en ytterligare DNS-post
 
-Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Mer information att till exempel lägga till A-poster finns i `azure network dns record-set A add-record --help`.
+Skapa en DNS-post genom att använda kommandot `az network private-dns record-set [record type] add-record`. Mer information att till exempel lägga till A-poster finns i `az network private-dns record-set A add-record --help`.
 
  I följande exempel skapas en post med det relativa namnet **db** i DNS-zonen **private.contoso.com**, i resursgruppen **MyAzureResourceGroup**. Det fullständigt kvalificerade namnet på postuppsättningen är **db.private.contoso.com**. Posttypen är ”A” med IP-adressen ”10.2.0.4”.
 
 ```azurecli
-az network dns record-set a add-record \
+az network private-dns record-set a add-record \
   -g MyAzureResourceGroup \
   -z private.contoso.com \
   -n db \
@@ -133,11 +132,10 @@ az network dns record-set a add-record \
 Om du vill visa en lista med DNS-poster i din zon kör du:
 
 ```azurecli
-az network dns record-set list \
+az network private-dns record-set list \
   -g MyAzureResourceGroup \
   -z private.contoso.com
 ```
-Kom ihåg att du inte automatiskt kommer att se den skapade A-posten för dina två virtuella testdatorer.
 
 ## <a name="test-the-private-zone"></a>Testa den privata zonen
 
@@ -159,10 +157,13 @@ Upprepa för myVM02.
 ### <a name="ping-the-vms-by-name"></a>Pinga de virtuella datorerna efter namn
 
 1. Från Windows PowerShell-kommandotolken för myVM02 pingar du myVM01 med hjälp av det automatiskt registrerade värddatornamnet:
+
    ```
    ping myVM01.private.contoso.com
    ```
+
    Du bör se utdata som liknar följande:
+
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -178,11 +179,15 @@ Upprepa för myVM02.
        Minimum = 0ms, Maximum = 1ms, Average = 0ms
    PS C:\>
    ```
+
 2. Nu pingar du det **db**-namn som du skapade tidigare:
+
    ```
    ping db.private.contoso.com
    ```
+
    Du bör se utdata som liknar följande:
+
    ```
    PS C:\> ping db.private.contoso.com
 
@@ -201,7 +206,7 @@ Upprepa för myVM02.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 
-När resursgruppen **MyAzureResourceGroup** inte längre behövs kan du ta bort den för att ta bort de resurser som skapades i den här självstudien.
+När den inte längre behövs kan du ta bort den **MyAzureResourceGroup** resursgrupp för att ta bort de resurser som skapades i den här proceduren.
 
 ```azurecli
 az group delete --name MyAzureResourceGroup
@@ -209,7 +214,7 @@ az group delete --name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien distribuerade du en privat DNS-zon, skapade en DNS-post och testade zonen.
+I den här proceduren du distribuerat en privat DNS-zon skapas en DNS-post och testas i zonen.
 Härnäst kan du läsa mer om privata DNS-zoner.
 
 > [!div class="nextstepaction"]

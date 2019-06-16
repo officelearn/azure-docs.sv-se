@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603085"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147511"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
 
@@ -84,7 +84,7 @@ Gör följande om enheten och returnerar Europa.
     
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-      ![Schemalägg hämtning](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
+      ![Boka upphämtning](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Hämta i Asien / Stillahavsområdet
 
@@ -97,7 +97,7 @@ Azure-datacenter i Australien har ett meddelande om ytterligare säkerhet. Alla 
 1. E-post `adbops@microsoft.com` till begäran leverans etikett med unikt ID för inkommande eller TAU-kod. Placera minst 3 dagar före det planerade leverera datumet att hämta etiketten i tid för begäran.
 2. E-postämnet ska vara - *förfrågan om omvänd adressetikett med TAU kod*. Se till att inkludera följande information i e-postmeddelandet: 
 
-    - Beställningens namn
+    - Namn på beställning
     - Adress
     - Kontaktnamn
 
@@ -157,7 +157,9 @@ När kopieringen är slutförd uppdateras statusen till **slutförd**.
 
 ![Datakopiering slutförd](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Kontrollera att dina data finns på lagringskontot innan du tar bort dem från källan. Dina data kan ha:
+Om kopieringen har slutförts med fel [felsöka uppladdningsfel](data-box-disk-troubleshoot-upload.md).
+
+Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan. Dina data kan ha:
 
 - Dina Azure Storage-konton. När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
 

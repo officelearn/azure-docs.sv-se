@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881496"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en tjänst för Service Fabric-behållare
@@ -29,7 +29,7 @@ Behållarloggar kan användas med [Service Fabric Explorer](service-fabric-visua
 
 Behållarloggar finns på klusternoden som tjänstinstansen behållare körs på. Till exempel hämta loggarna för webb-behållaren på klientsidan för den [Linux rösta exempelprogrammet](service-fabric-quickstart-containers-linux.md). I trädvyn expanderar **kluster**>**program**>**VotingType**>**fabric: / Voting / azurevotefront**.  Sedan expandera partition (d1aa737e-f22a-e347-be16-eec90be24bc1, i det här exemplet) och se att behållaren körs på noden i klustret *_lnxvm_0*.
 
-Hitta kodpaketet i trädvyn på den *_lnxvm_0* noden genom att expandera **noder**>**_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**Kodpaket**>**kod**.  Välj sedan den **Behållarloggarna** alternativet för att visa behållarloggarna.
+Hitta kodpaketet i trädvyn på den *_lnxvm_0* noden genom att expandera **noder**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**Kodpaket**>**kod**.  Välj sedan den **Behållarloggarna** alternativet för att visa behållarloggarna.
 
 ![Service Fabric-plattform][Image1]
 

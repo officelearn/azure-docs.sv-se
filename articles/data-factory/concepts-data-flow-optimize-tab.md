@@ -1,20 +1,19 @@
 ---
 title: Dataflöde för Azure Data Factory mappning optimera fliken
-description: Optimera Azure Data Factory mappning dataflöden med optimera fliken partitionsinställningar
+description: Optimera Azure Data Factory mappning Data flödar med hjälp av fliken optimera med partitionsinställningar
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075088"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mappningen Dataomvandling Flow optimera fliken
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mappa data flow omvandling optimera fliken
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ Du måste skapa ett uttryck som ger ett fast intervall för värden i dina parti
 ### <a name="key"></a>Nyckel
 
 Om du har en god förståelse av dina data kardinalitet kan viktiga partitionering vara en bra partition-strategi. Viktiga partitionering skapar partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Mappning av dataflöde prestandaguide](concepts-data-flow-performance.md)
+[dataflöde övervakning](concepts-data-flow-monitoring.md)

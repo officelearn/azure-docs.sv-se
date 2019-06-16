@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudier: Azure Active Directory-integrering med Pingboard
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av Pingboard i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Pingboard från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -224,7 +224,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     a. I den **fullständigt namn** textrutan typ det fullständiga namnet för användaren som **Britta Simon**.
 
-    b. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon@contoso.com**.
+    b. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon@contoso.com** .
 
     c. I den **befattning** textrutan skriver Britta Simon befattning.
 
@@ -251,6 +251,6 @@ När du klickar på panelen Pingboard i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)

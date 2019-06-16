@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066904"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -62,7 +62,7 @@ Som standard skapas kluster på noder för premium tillgänglighet modellen i sa
 Eftersom zonen redundant databaserna har repliker i olika datacenter med vissa avståndet mellan dem, kan ökad Nätverksfördröjningen öka tid som commit och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till den enskilda zon konfigurationen genom att inaktivera inställningen zon redundans. Den här processen är en liknande nivå för regelbundna tjänsteuppgraderingen Onlineåtgärden. I slutet av processen har databas eller pool migrerats från en zonen redundant ring en enskild zon ringer eller vice versa.
 
 > [!IMPORTANT]
-> Zonen redundant databaser och elastiska pooler finns för närvarande stöds endast på tjänstnivåerna Premium och affärskritisk. Som standard, säkerhetskopior och granska poster lagras i RA-GRS-lagring och därför inte automatiskt tillgängliga i händelse av ett avbrott på hela zonen. 
+> Zonen redundant databaser och elastiska pooler finns för närvarande stöds endast på tjänstnivåerna Premium och affärskritisk i utvalda regioner. När du använder nivån affärskritisk, finns bara zonen redundant konfiguration när Gen5 beräkning maskinvara har valts. Uppdaterad information om de regioner som har stöd för zonen redundant databaser finns i [tjänster stöder per region](../availability-zones/az-overview.md#services-support-by-region).  
 
 Zonen redundant versionen av arkitektur med hög tillgänglighet är illustreras med följande diagram:
 

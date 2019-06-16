@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
 ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001744"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
@@ -197,10 +197,10 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Krävs |
+| Parameternamn | Parametertyp | Anteckningar | Obligatoriskt |
 |----------------|----------------|-------|----------|
 | `name`         | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
-| `enabled`      | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | Falskt | 
+| `enabled`      | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
 | `type`         | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | True |
 | `definition`   | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | True |
 
@@ -251,7 +251,7 @@ Filter begränsar regelåtgärder till en delmängd av blobbar i lagringskontot.
 
 Filtren är:
 
-| Filternamn | Filtertyp | Anteckningar | Obligatorisk |
+| Filternamn | Filtertyp | Anteckningar | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade enum-värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
 | prefixMatch | En matris med strängar för prefix som ska matcha. Varje regel kan definiera upp till 10 prefix. En sträng med prefixet måste börja med ett behållarnamn. Exempel: Om du vill matcha alla blobar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel i prefixMatch är `container1/foo`. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagringskontot.  | Nej |
@@ -264,9 +264,9 @@ Livscykelhantering stöder blobnivåindelning och borttagning av blobar och bort
 
 | Åtgärd        | Grundläggande Blob                                   | Ögonblicksbild      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds ej |
-| tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds ej |
-| radera        | Stöds                                   | Stöds     |
+| tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds inte |
+| tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds inte |
+| delete        | Stöds                                   | Stöds     |
 
 >[!NOTE]
 >Om du definierar mer än en åtgärd på samma blob gäller livscykelhantering den billigaste åtgärden blob. Till exempel åtgärden `delete` är billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
@@ -391,7 +391,7 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
 }
 ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Jag har skapat en ny princip, varför åtgärderna som inte kör direkt?**  
 Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du konfigurerar en princip, kan det ta upp till 24 timmar för vissa åtgärder körs för första gången.  

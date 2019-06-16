@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826462"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
@@ -31,7 +31,7 @@ Azure NetApp filer volymer är utformade för att ingå i ett särskilt ändamå
 
 När du planerar för Azure NetApp filer, nätverk, bör du förstå några saker.
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 Nedanstående funktioner finns för närvarande inte stöd för Azure NetApp-filer: 
 
@@ -95,7 +95,7 @@ Följande diagram illustrerar en Azure-intern-miljö:
 
 Ett enkelt scenario är att skapa eller Anslut till en Azure NetApp Files-volym från en virtuell dator (VM) i samma virtuella nätverk. För virtuellt nätverk 2 i diagrammet ovan, volym 1 skapas i en delegerad undernät och kan monteras i VM 1 i standardundernät.
 
-### <a name="vnet-peering"></a>VNet-peering
+### <a name="vnet-peering"></a>VNET-peering
 
 Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst till varandras resurser kan de virtuella nätverken kan anslutas med hjälp av [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) för säkra anslutningar via Azure-infrastrukturen. 
 

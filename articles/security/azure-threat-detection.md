@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127170"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
@@ -37,7 +37,7 @@ Identity Protection använder anpassningsbara maskininlärningsalgoritmer och he
 
 Azure Active Directory Identity Protection är mer än en övervakning och rapportering verktyget. Baserat på riskhändelser, beräknar identitetsskydd en risknivån för varje användare, så att du kan konfigurera riskbaserade principer för att automatiskt skydda identiteter för din organisation.
 
-Dessa riskbaserade principer, utöver övriga [villkorlig åtkomstkontroller](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) som tillhandahålls av Azure Active Directory och [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kan automatiskt blockera eller erbjuder anpassningsbara åtgärder som Inkludera lösenordsåterställning och multifaktorautentisering tillämpning.
+Dessa riskbaserade principer, utöver övriga [villkorlig åtkomstkontroll](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) som tillhandahålls av Azure Active Directory och [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kan automatiskt blockera eller erbjuder anpassningsbara åtgärder som Inkludera lösenordsåterställning och multifaktorautentisering tillämpning.
 
 ### <a name="identity-protection-capabilities"></a>Identity Protection-funktioner
 
@@ -95,7 +95,7 @@ Log Analytics säkerhet och granskning instrumentpanelen är uppdelad i fyra huv
 
 -   **Anmärkningsvärda problem**: Kan du snabbt identifiera antalet aktiva problem och allvarlighetsgraden på problemen.
 
--   **Identifieringar (förhandsversion)**: Kan du identifiera angreppsmönster genom att visa säkerhetsaviseringar när de inträffar mot dina resurser.
+-   **Identifieringar (förhandsversion)** : Kan du identifiera angreppsmönster genom att visa säkerhetsaviseringar när de inträffar mot dina resurser.
 
 -   **Hotinformation**: Kan du identifiera angreppsmönster genom att visa det totala antalet servrar med utgående skadlig IP-trafik, typen av hot och en karta över platser för IP-adresser.
 
@@ -344,7 +344,7 @@ Med verktyg för att upptäcka Shadow IT, utvärdera risker, genomdriva principe
 | Utforska | Upptäck shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
 |Undersök | Undersök dina molnappar med hjälp av datautredningsverktyg djupdykning riskfyllda appar, specifika användare och filer i nätverket. Hitta mönster i data som samlas in från molnet. Generera rapporter för molnövervakning. |
 | Kontroll | Minska riskerna genom att ange principer och varningar för att uppnå full kontroll över molntrafiken i nätverket. Använda Cloud App Security för att migrera användarna till säkra sanktionerade molnappar app alternativ. |
-| Skydda | Använd Cloud App Security att sanktionera eller förbjuda program, tillämpa skydd mot dataförlust, kontrollera behörigheter och delning och skapa anpassade rapporter och aviseringar. |
+| skydda | Använd Cloud App Security att sanktionera eller förbjuda program, tillämpa skydd mot dataförlust, kontrollera behörigheter och delning och skapa anpassade rapporter och aviseringar. |
 | Kontroll | Minska riskerna genom att ange principer och varningar för att uppnå full kontroll över molntrafiken i nätverket. Använda Cloud App Security för att migrera användarna till säkra sanktionerade molnappar app alternativ. |
 | | |
 

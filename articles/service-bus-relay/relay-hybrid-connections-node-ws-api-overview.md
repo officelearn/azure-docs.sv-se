@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699380"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relä Hybrid anslutningar noden API-översikt
 
@@ -131,7 +131,7 @@ Konstruktorn argument:
 - `server` (krävs) – konstruerats den fullständigt kvalificerade URI för en Hybridanslutning som ska övervakas, vanligtvis med hjälpmetoden WebSocket.createRelayListenUri().
 - `token` Det här argumentet innehåller (krävs) – en tidigare utfärdade token sträng eller en återanropningsfunktion som kan användas för att hämta en token sträng. Alternativet är att föredra, eftersom det ger token förnyelse.
 
-#### <a name="events"></a>Händelser
+#### <a name="events"></a>Events
 
 `RelayedServer` instanser generera tre händelser som hjälper dig att hantera inkommande begäranden, upprätta anslutningar och identifiera felvillkor. Du måste prenumerera på den `connect` händelse kan hantera meddelanden. 
 
@@ -152,7 +152,7 @@ function(socket)
 Genereras när en ny WebSocket-anslutning accepteras. Objektet är av typen `ws.WebSocket`, samma som med grundläggande paketet.
 
 
-##### <a name="error"></a>fel
+##### <a name="error"></a>error
 
 ```JavaScript
 function(error)

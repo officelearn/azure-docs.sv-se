@@ -8,149 +8,159 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 39c016e7b4b70368eb1ca2bd517ed7f48d223e24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c664e73b39ad48a860661cfd9141ee74df203f3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116659"
 ---
-## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för begäran om certifikatsignering
+## <a name="generate-the-certificate-signing-request-file"></a>Generera filen signering av certifikat
 
-APNS (Apple Push Notification Service) använder sig av certifikat för att autentisera dina push-meddelanden. Följ de här instruktionerna för att skapa nödvändiga push-certifikat för att skicka och ta emot meddelanden. Mer information om de här koncepten finns i den officiella [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)-dokumentationen.
+Apple Push Notification Service (APNs) använder certifikat för att autentisera dina push-meddelanden. Följ de här instruktionerna för att skapa nödvändiga push-certifikat för att skicka och ta emot meddelanden. Mer information om de här koncepten finns i den officiella [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)-dokumentationen.
 
-Generera filen för begäran om certifikatsignering (CSR), som används av Apple för att generera ett signerat push-certifikat.
+Generera filen för begäran om certifikatsignering (CSR), som Apple använder för att generera ett signerat push-certifikat.
 
-1. Kör **Nyckelhanteraren** på din Mac. Den kan öppnas från mappen **Verktyg** eller mappen **Annat** i startmenyn.
-2. Klicka på **Nyckelhanteraren**, expandera **Certifikatassistenten** och klicka sedan på **Begär ett certifikat från en certifikatutfärdare...**.
+1. Kör Nyckelhanteraren på din Mac. Den kan öppnas från den **verktyg** mapp eller **andra** mapp på Launchpad.
+
+1. Välj **Nyckelhanterare**, expandera **Certifikatassistenten**, och välj sedan **begära ett certifikat från en certifikatutfärdare**.
 
     ![Använd nyckelhanterare för att begära ett nytt certifikat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Ange en **e-postadress för användaren** och ett **Vanligt namn**, se till att **Sparas till disk** är markerat och klicka sedan på **Fortsätt**. Lämna den **CA e-postadress** fältet tomt eftersom det inte krävs.
+
+1. Välj din **användares e-postadress**, ange din **nätverksnamn** värde, se till att du anger **sparas till disk**, och välj sedan **Fortsätt**. Lämna **CA e-postadress** tom eftersom det inte krävs.
 
     ![Nödvändig certifikatsinformation](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
-4. Ange ett namn för filen för begäran om certifikatsignering (CSR) i **Spara som**, ange en plats i **Var** och klicka sedan på **Spara**.
+1. Ange ett namn för CSR-filen i **Spara som**, ange en plats i **där**, och välj sedan **spara**.
 
-    ![Välj filnamn för certifikatet](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
+    ![Välj ett filnamn för certifikatet](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
 
-    CSR-filen sparas på den valda platsen. Standardplatsen är skrivbordet. Kom ihåg den plats du valde för filen.
+    Den här åtgärden sparar CSR-filen i den valda platsen. Standardplatsen är **Desktop**. Kom ihåg den plats du valde för filen.
 
-Därefter registrerar du din app med Apple, aktivera push-meddelanden och laddar upp den exporterade CSR-filen för att skapa ett push-certifikat.
+Registrera din app med Apple, aktivera push-meddelanden och ladda upp den exporterade CSR-filen för att skapa ett push-certifikat.
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrera din app för push-meddelanden
 
 För att push-meddelanden till en iOS-app, registrera ditt program med Apple och registrera dig för push-meddelanden.  
 
-1. Om du inte redan har registrerat appen navigerar du till den [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) i Apple Developer Center, logga in med ditt Apple-ID, klickar du på **identifierare**, klicka sedan på **App-ID: N** , och klicka sedan på den **+** logga för att registrera en ny app.
+1. Om du inte redan har registrerat din app, bläddra till den [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) på Apple Developer Center. Efter det kan du logga in med ditt Apple-ID, Välj **identifierare**väljer **App-ID: N**, och välj slutligen **+** att registrera en ny app.
 
     ![Sidan för App-ID:n i etableringsportalen för iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
-2. Uppdatera följande tre fält för din nya app och klicka sedan på **Fortsätt**:
+1. Uppdatera följande tre värden för din nya app och välj sedan **Fortsätt**:
 
-   * **Namn på**: Ange ett beskrivande namn för din app i den **namn** i den **ID Appbeskrivning** avsnittet.
-   * **Paketidentifierare**: Under den **Explicit App-ID** anger en **paketidentifieraren** i formuläret `<Organization Identifier>.<Product Name>` som anges i den [Appdistributionsguiden](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Den *organisationsidentifierare* och det *produktnamn* som du använder måste matcha organisationsidentifieraren och produktnamnet du använder när du skapar ditt XCode-projekt. I följande skärmbild *NotificationHubs* värdet används som en organisations-ID och *GetStarted* används som produktnamnet. Kontrollera att detta värde matchar de värden som du använder i ditt XCode-projekt, eftersom du då kan använda rätt publiceringsprofil med XCode.
+   * **Namn på**: Ange ett beskrivande namn för din app i den **namn** rutan den **ID Appbeskrivning** avsnittet.
+
+   * **Paketidentifierare**: I den **Explicit App-ID** anger en **paketidentifieraren** formulärets `<Organization Identifier>.<Product Name>` som anges i den [Appdistributionsguiden](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Den *Organisationsidentifierare* och *produktnamn* värdena måste matcha organisationsidentifieraren och produktnamnet organisationsnamnet du använder när du skapar ditt Xcode-projekt. I följande skärmbild, den *NotificationHubs* värdet används som en organisations-ID och *GetStarted* värdet används som produktnamnet. Kontrollera att den **paket-ID** värdet matchar värdet i Xcode-projektet så att du kommer att använda rätt publiceringsprofil med Xcode.
+
    * **Push-meddelanden**: Kontrollera den **Push-meddelanden** alternativet i den **Apptjänster** avsnittet.
 
      ![Formulär för att registrera ett nytt App-ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-     Denna åtgärd genererar ditt app-ID och ber dig att bekräfta informationen. Klicka på **Registrera** för att bekräfta det nya app-ID:et.
+     Den här åtgärden genererar ditt App-ID och begäranden som du bekräfta informationen. Välj **registrera** att bekräfta den nya App-ID.
 
-     När du klickar på **Registrera** visas skärmen **Registreringen har slutförts** såsom på följande bild. Klicka på **Klar**.
+     När du har valt **registrera**, visas den **registreringen har slutförts** skärmen som visas i följande bild. Välj **Done** (Klar).
 
      ![Registreringen av App-ID:et har slutförts och visar berättigande](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
-3. Under App-ID:n i Developer Center letar du upp den App-ID som du skapade och klickar på dess rad.
+1. I Developer Center under **App-ID: N**letar du upp app-ID som du skapade och välj en rad.
 
     ![Lista över App-ID:n](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
 
-    Om du klickar på App-ID:n så visas appens information. Klicka på **Redigera**-knappen längst ned.
+    Välj det app-ID för att visa information om appar och välj sedan den **redigera** längst ned.
 
     ![Redigera sidan för App-ID:n](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-4. Bläddra till längst ned på skärmen och klicka på knappen **Skapa certifikat...** i avsnittet **Development Push SSL-certifikat**.
+1. Bläddra till längst ned på skärmen och välj den **skapa certifikat** knappen den **Development Push SSL-certifikat** avsnittet.
 
     ![Skapa certifikat för knappen för App-ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-    Assistenten **Lägg till iOS-certifikat** visas.
+    Du kommer nu se den **Lägg till iOS-certifikat** Installationsassistenten.
 
     > [!NOTE]
     > Den här guiden använder ett utvecklarcertifikat. Du använder samma process när du registrerar ett driftscertifikat. Se bara till att du använder samma certifikattyp när du skickar meddelanden.
 
-5. Klicka på **Välj fil**, bläddra till platsen där du sparade CSR-filen som du skapade i den första uppgiften och klicka sedan på **Generera**.
+1. Välj **Välj fil**, bläddra till den plats där du sparade CSR-filen från den första aktiviteten och välj sedan **generera**.
 
     ![Uppladdningssidan för genererade certifikat i CSR-format](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
 
-6. När certifikatet har skapats av portalen klickar du på **Hämta**-knappen och klickar sedan på **Klar**.
+1. När certifikatet skapar portalen, väljer du den **hämta** knappen och välj sedan **klar**.
 
     ![Nedladdningssidan för genererade certifikat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
-    Certifikatet laddas ned och sparas på datorn i mappen **Hämtade filer**.
+    Certifikatet hämtas och sparas på din dator i din **hämtar** mapp.
 
     ![Hitta certifikatfilen i mappen Hämtade filer](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
     > [!NOTE]
-    > Som standard kallas den hämtade filen, ett utvecklingscertifikat, **aps_development.cer**.
+    > Som standard heter den hämtade utvecklingscertifikat **aps_development.cer**.
 
-7. Dubbelklicka på det hämtade push-certifikatet **aps_development.cer**.
+1. Välj det hämta push-certifikatet **aps_development.cer**.
 
     Den här åtgärden installerar det nya certifikatet i nyckelringen enligt följande bild:
 
     ![Nya certifikat visas i listan med certifikat för nyckelhanteraren](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
     > [!NOTE]
-    > Certifikatnamnet kan skilja sig, men prefixet kommer att vara **Apple Development iOS Push Services:**.
+    > Även om namnet i certifikatet kan vara olika, namnet inleds med **Apple Development iOS Push Services**.
 
-8. I nyckelhanteraren högerklickar du på det nya push-certifikatet som du skapade i **Certifikat**-kategorin. Klicka på **Exportera**, namnge filen, välj **.p12**-formatet och klicka sedan på **Spara**.
+1. I nyckelhanteraren högerklickar du på det nya push-certifikatet som du skapade i **Certifikat**-kategorin. Välj **exportera**, namnge filen, Välj den **.p12** formatera och välj sedan **spara**.
 
     ![Exportera certifikatet i p12-format](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Anteckna filnamnet och platsen dit .p12-certifikatet exporterats. Den används för att aktivera autentisering med APNS.
+    Anteckna filnamnet och platsen dit .p12-certifikatet exporterats. De används för att aktivera autentisering med APNs.
 
     > [!NOTE]
-    > Den här guiden skapar en QuickStart.p12-fil. Filnamnet och sökvägen kan vara olika för dig.
+    > Den här självstudiekursen skapar en fil med namnet **QuickStart.p12**. Filnamnet och sökvägen kan vara olika för dig.
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Skapa en etableringsprofil för appen
 
-1. I [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) väljer du **Etableringsprofiler**, markerar **Alla** och klickar sedan på **+**-knappen (plusknappen) för att skapa en ny profil. Du ser guiden **Lägg till iOS-etableringsprofil**:
+1. I den [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)väljer **Etableringsprofiler**väljer **alla**, och välj sedan **+** att skapa en ny profil. Du ser den **Lägg till iOS-profil för etablering** guiden.
 
     ![Lista med etableringsprofiler](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. Välj **iOS App Development** under **Utveckling** som etableringsprofiltyp och klicka på **Fortsätt**.
+1. Välj **iOS App Development** under **utveckling** profiltyp som etablering och välj **Fortsätt**.
 
-3. Därefter väljer du det App-ID som du skapat från listrutan **App-ID** och klickar på **Fortsätt**
+1. Välj det app-ID som du skapade från den **App-ID** listrutan och välj **Fortsätt**.
 
     ![Välj App-ID:et](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
-4. På skärmen **Välj certifikat**, väljer du ditt vanliga utvecklingscertifikat som används för kodsignering och klickar på **Fortsätt**. Det här certifikatet är inte push-certifikatet som du skapade.
+1. I den **väljer certifikat** fönstret, Välj ditt vanliga utvecklingscertifikat som du använde för kodsignering och välj **Fortsätt**. Det här certifikatet är inte push-certifikatet som du skapade.
 
     ![Välj certifikatet](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
-5. Därefter väljer du de **enheter** som ska användas för testning och klickar på **Fortsätt**
+1. Sedan markera enheterna som ska användas för testning och välj **Fortsätt**.
 
     ![Välj enheterna](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
-6. Slutligen väljer du ett namn för profilen i **Profilnamn** och klickar på **Generera**.
+1. Slutligen väljer du ett namn för profilen i **profilnamn**, och välj **generera**.
 
     ![Välj namn på etableringsprofilen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-7. När den nya etableringsprofilen har skapats klickar du och hämtar den och installerar den på din XCode-utvecklingsdator. Klicka sedan på **Klar**.
+1. När den nya etableringsprofilen har skapats kan du välja att hämta och installera det på din Xcode-utvecklingsdator. Välj sedan **Done** (Klar).
 
     ![Ladda ned etableringsprofilen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
 ## <a name="create-a-notification-hub"></a>Skapa en meddelandehubb
-I det här avsnittet skapar du en ny meddelandehubb och konfigurerar autentisering med APNS med hjälp av push-certifikatet **.p12** som du har skapat tidigare. Om du vill använda en meddelandehubb som du redan har skapat går du vidare till steg 5.
+
+I det här avsnittet ska du skapa en meddelandehubb och konfigurera autentisering med APNs med hjälp av .p12 push-certifikatet som du skapade tidigare. Om du vill använda en meddelandehubb som du redan har skapat kan du gå vidare till steg 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
 
-## <a name="configure-your-notification-hub-with-apns-information"></a>Skapa din meddelandehubb med APNS-information
+## <a name="configure-your-notification-hub-with-apns-information"></a>Konfigurera din meddelandehubb med APNs-information
 
 1. Välj **Apple (APNS)** under **Notification Services**.
-2. Välj **Certifikat**.
-3. Välj **filikonen**.
-4. Välj **.p12**-filen som du exporterade tidigare.
-5. Ange rätt **lösenord**.
-6. Välj **Sandbox**-läge. Använd läget **Produktion** enbart om du vill skicka push-meddelanden till användare som har köpt din app i butiken.
 
-    ! [Konfigurera APNS-certifikat i Azure portal] [7]
+1. Välj **Certifikat**.
 
-Du har nu konfigurerat meddelandehubben ed APNS och du har anslutningssträngar för att registrera din app och skicka push-meddelanden.
+1. Välj filen.
+
+1. Välj .p12-filen som du exporterade tidigare.
+
+1. Ange rätt lösenord.
+
+1. Välj **Sandbox**-läge. Använd läget **Produktion** enbart om du vill skicka push-meddelanden till användare som har köpt din app i butiken.
+
+    ![Konfigurera APNs-certifikat i Azure-portalen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-apple-config-cert.png)
+
+Du har nu konfigurerat din meddelandehubb med APNs. Du kan också ha anslutningssträngar för att registrera din app och skicka push-meddelanden.

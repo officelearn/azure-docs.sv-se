@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – blockera åtkomst när en session risk identifieras med Azure Active Directory Identity Protection | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du kan konfigurera en Azure Active Directory (Azure AD) Identity Protection inloggningsrisk villkorlig åtkomst för att blockera inloggningar baserat på sessionen risker.
+description: I den här snabbstarten får du lära dig hur du kan konfigurera en Azure Active Directory (Azure AD) Identity Protection inloggningsrisk princip för villkorlig åtkomst att blockera inloggningar baserat på sessionen risker.
 services: active-directory
 keywords: identitetsskydd, villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381822"
+ms.locfileid: "67108805"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snabbstart: Blockera åtkomst när en session risk identifieras med Azure Active Directory Identity Protection  
 
-Du kanske vill blockera misstänkta användare från att logga in för att hålla din miljö skyddad. Azure Active Directory (Azure AD) Identity Protection analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet risknivå för inloggning. Du kan konfigurera principer för villkorlig åtkomst inloggningsrisk för att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk. 
+Du kanske vill blockera misstänkta användare från att logga in för att hålla din miljö skyddad. Azure Active Directory (Azure AD) Identity Protection analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet risknivå för inloggning. Du kan konfigurera en inloggningsrisk princip för villkorlig åtkomst att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk. 
 
-Den här snabbstarten visar hur du konfigurerar en villkorlig åtkomstprincip som blockerar för inloggningsrisk loggar in när ett medium och ovan inloggningsrisk nivå har identifierats. 
+Den här snabbstarten visar hur du konfigurerar en inloggningsrisk villkorlig åtkomstprincip som blockerar en inloggning när ett medium och ovan inloggningsrisk nivå har identifierats. 
 
 ![Skapa princip](./media/quickstart-sign-in-risk-policy/1004.png)
 
@@ -65,7 +65,7 @@ Målet med det här steget är att se till att ditt testkonto har åtkomst till 
 
 Scenariot i den här snabbstarten använder en inloggning från en Tor Browser för att generera en identifierad **inloggningar från anonyma IP-adresser** riskhändelsen. Risknivån för den här riskhändelsen är medium. Om du vill svara på den här riskhändelsen kan ange du inloggningsrisk villkoret medium. 
 
-Det här avsnittet visar hur du skapar principen för villkorlig åtkomst krävs inloggningsrisk. Ange i din princip:
+Det här avsnittet visar hur du skapar den nödvändiga inloggningsrisk princip för villkorlig åtkomst. Ange i din princip:
 
 |Inställning |Värde|
 |---     | --- |
@@ -110,7 +110,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst krävs
 14. På policysidan **spara**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) som **Alan Charon** med Tor Browser. Dina inloggningsförsök ska blockeras av din princip för villkorlig åtkomst.
 
@@ -119,7 +119,7 @@ Om du vill testa din princip, försöker logga in på din [Azure-portalen](https
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort testanvändare Tor Browser och inaktivera den villkorliga åtkomstprincipen för inloggningsrisk:
+När den inte längre behövs kan du ta bort testanvändare Tor Browser och inaktivera inloggningsrisk princip för villkorlig åtkomst:
 
 - Om du inte vet hur du tar bort en Azure AD-användare kan se [lägga till eller ta bort användare](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 

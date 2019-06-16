@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787311"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatisk skalning åtgärder för att skicka e-post och webhook-aviseringar i Azure Monitor
@@ -62,7 +62,7 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
 
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
-| åtgärd |ja |Värdet måste vara ”skala” |
+| Åtgärden |ja |Värdet måste vara ”skala” |
 | sendToSubscriptionAdministrator |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | sendToSubscriptionCoAdministrators |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | customEmails |ja |Värdet kan vara null [] eller Strängmatrisen av e-postmeddelanden |
@@ -106,11 +106,11 @@ När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttola
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
 | status |ja |Den status som indikerar att en åtgärd för automatisk skalning genererades |
-| åtgärd |ja |För en ökning av instanser blir ”skala ut” och för en minskning i instanser, det är ”skala In” |
+| Åtgärden |ja |För en ökning av instanser blir ”skala ut” och för en minskning i instanser, det är ”skala In” |
 | Kontext |ja |Åtgärd-kontexten automatisk skalning |
-| tidsstämpel |ja |Tidsstämpel när autoskalning utlöstes |
+| timestamp |ja |Tidsstämpel när autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för autoskalningsinställningen |
-| namn |Ja |Namnet på autoskalningsinställningen |
+| name |Ja |Namnet på autoskalningsinställningen |
 | detaljer |Ja |Förklaring av åtgärden tog för tjänsten för automatisk skalning och förändringen i instansantalet |
 | subscriptionId |Ja |Prenumerations-ID för målresursen som skalas |
 | resourceGroupName |Ja |Resursgruppsnamnet för målresursen som skalas |

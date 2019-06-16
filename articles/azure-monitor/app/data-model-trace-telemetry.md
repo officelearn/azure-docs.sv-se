@@ -13,17 +13,17 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899305"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Spårningstelemetri: Application Insights-datamodell
 
 Spåra telemetri (i [Programinsikter](../../azure-monitor/app/app-insights-overview.md)) representerar `printf` stil spårningsinstruktioner som är text-söks igenom. `Log4Net`, `NLog`, och andra textbaserade loggfilsposter översätts till instanser av den här typen. Spårningen har inte mätning av faktisk användning som en utökningsbarhet.
 
-## <a name="message"></a>Meddelande
+## <a name="message"></a>Message
 
 Spårningsmeddelande.
 

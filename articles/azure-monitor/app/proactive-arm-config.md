@@ -14,10 +14,10 @@ ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461569"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera regler för smart identifiering för Application Insights med hjälp av Azure Resource Manager-mallar
@@ -39,7 +39,7 @@ Varje regel för smart identifiering kan konfigureras med unika meddelandeinstä
 ## <a name="examples"></a>Exempel
 
 Nedan visas några exempel som visar hur du konfigurerar inställningarna för regler för smart identifiering med hjälp av Azure Resource Manager-mallar.
-Alla exempel referera till en Application Insights-resurs med namnet _”myApplication”_, och för ”långa beroende varaktighet smart identifiering regeln”, internt namngiven _”longdependencyduration”_.
+Alla exempel referera till en Application Insights-resurs med namnet _”myApplication”_ , och för ”långa beroende varaktighet smart identifiering regeln”, internt namngiven _”longdependencyduration”_ .
 Se till att ersätta resursnamnet för Application Insights och för att ange det interna namnet för relevanta smart identifiering-regel. Kontrollera i tabellen nedan för en lista över de motsvarande interna Azure Resource Manager-namnen för varje regel för smart identifiering.
 
 ### <a name="disable-a-smart-detection-rule"></a>Inaktivera en regel för smart identifiering
@@ -148,8 +148,8 @@ Nedan visas en tabell med smart identifiering namn som de visas i portalen, till
 | Lång sidinläsningstid | slowpageloadtime |
 | Lång serversvarstid | slowserverresponsetime |
 | Lång beroendevaraktighet | longdependencyduration |
-| Försämrad serversvarstid | degradationinserverresponsetime |
-| Degradering av beroendets varaktighet | degradationindependencyduration |
+| Försämring i svarstid för servern | degradationinserverresponsetime |
+| Beroendets varaktighet | degradationindependencyduration |
 | Försämring i spårningen allvarlighetsgrad-förhållande (förhandsversion) | extension_traceseveritydetector |
 | Onormal uppgång av undantagsvolym (förhandsversion) | extension_exceptionchangeextension |
 | Potentiell minnesläcka har identifierats (förhandsversion) | extension_memoryleakextension |

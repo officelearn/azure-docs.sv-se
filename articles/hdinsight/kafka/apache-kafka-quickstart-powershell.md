@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/02/2019
-ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/12/2019
+ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120801"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabbstart: Skapa Apache Kafka-kluster i Azure HDInsight med hjälp av PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -23,14 +23,11 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket.
->
-> Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
+Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket. Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * PowerShell [Az modulen](https://docs.microsoft.com/powershell/azure/overview) installerad.
 
@@ -132,19 +129,13 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]  
-> Det kan ta upp till 20 minuter att skapa HDInsight-klustret.
+Det kan ta upp till 20 minuter att skapa HDInsight-klustret.
 
-> [!TIP]  
-> Parametern `-DisksPerWorkerNode` konfigurerar Kafkas skalbarhet på HDInsight. Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod. 
->
-> Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetarnoderna (Kafka-mäklarna) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard. Du kan ange typ av virtuell dator med `-WorkerNodeSize`-parametern. Mer information om parametrar finns i den [New AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) dokumentation.
+Parametern `-DisksPerWorkerNode` konfigurerar Kafkas skalbarhet på HDInsight. Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod.
 
+Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetarnoderna (Kafka-mäklarna) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard. Du kan ange typ av virtuell dator med `-WorkerNodeSize`-parametern. Mer information om parametrar finns i den [New AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) dokumentation.
 
-> [!IMPORTANT]  
-> Om du planerar att använda mer än 32 arbetarnoder (antingen när klustret skapas eller genom att skala klustret när det har skapats) måste du använda `-HeadNodeSize`-parametern för att ange en VM-storlek med minst 8 kärnor och 14 GB RAM-minne.
->
-> Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
+Om du planerar att använda mer än 32 arbetarnoder (antingen när klustret skapas eller genom att skala klustret när det har skapats) måste du använda `-HeadNodeSize`-parametern för att ange en VM-storlek med minst 8 kärnor och 14 GB RAM-minne. Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
@@ -202,16 +193,13 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
 
     Ange Kafka-klustrets namn när du uppmanas till detta.
 
-3. Använd följande kommando om du vill ange en miljövariabel med Zookeeper-värdens information:
+3. Använd kommandot nedan för att ange en miljövariabel med Zookeeper-värdens information. Kommandot hämtar alla Zookeeper-värdar och returnerar bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Ange klusterinloggningskontots lösenord när du uppmanas till detta (inte SSH-kontot).
-
-    > [!NOTE]  
-    > Detta kommando hämtar alla Zookeeper-värdar och returnerar bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
 4. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
 
@@ -257,15 +245,13 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
 
     * Varje partition replikeras mellan tre arbetarnoder i klustret.
 
-        > [!IMPORTANT]  
-        > Om du har skapat klustret i en Azure-region som tillhandahåller tre feldomäner så använd replikeringsfaktorn 3. I annat fall använder du replikeringsfaktorn 4.
+        Om du har skapat klustret i en Azure-region som tillhandahåller tre feldomäner så använd replikeringsfaktorn 3. I annat fall använder du replikeringsfaktorn 4.
         
         I områden med tre feldomäner kan replikeringsfaktorn 3 tillåta att repliker sprids till feldomänerna. I områden med två feldomäner kan replikeringsfaktorn 4 tillåta att repliker sprids jämnt över domänerna.
         
         Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-        > [!IMPORTANT]   
-        > Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
+        Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
 
         Garantera hög tillgänglighet med hjälp av [verktyget för partitionsombalansering för Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Kafka-klusters huvudnod.
 
@@ -324,8 +310,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
    
     Med det här kommandot hämtar du posterna från ämnet och visar dem. Med hjälp av `--from-beginning` anges att konsumenten ska starta från början av direktuppspelningen så att alla poster hämtas.
 
-    > [!NOTE]  
-    > Om du använder en äldre version av Kafka ersätter du `--bootstrap-server $KAFKABROKERS` med `--zookeeper $KAFKAZKHOSTS`.
+    Om du använder en äldre version av Kafka ersätter du `--bootstrap-server $KAFKABROKERS` med `--zookeeper $KAFKAZKHOSTS`.
 
 4. Använd __Ctrl + C__ om du vill stoppa konsumenten.
 

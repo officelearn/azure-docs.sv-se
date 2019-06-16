@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d60ecfff4e634d6a92eaf1022761c2f23167918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68fa570ecfbafe2000bfa6eb9fa159dff48219a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Självstudier: Azure Active Directory-integrering med Andromeda
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av Andromeda i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Andromeda från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -131,8 +131,8 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Androme
 
     | Namn | Källattribut|
     | ------ | -----------|
-    | roll        | Ansvarar för att appen |
-    | typ        | Apptyp |
+    | role        | Ansvarar för att appen |
+    | type        | Typ av App |
     | Företagets       | CompanyName |
 
     > [!NOTE]
@@ -272,4 +272,4 @@ När du klickar på panelen Andromeda i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

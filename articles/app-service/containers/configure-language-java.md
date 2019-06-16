@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254470"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063857"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -480,9 +480,7 @@ App Service för Linux stöder två körningar för hanterade användning av Jav
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK-versioner och underhåll
 
-Azures stöds Java Development Kit (JDK) är [Zulu](https://www.azul.com/downloads/azure-only/zulu/) via [Azul Systems](https://www.azul.com/).
-
-Stora versionsuppdateringar tillhandahålls via nya körningsalternativ i Azure App Service för Linux. Kunder uppdateras till dessa senare versioner av Java genom att konfigurera deras App Service-distribution och ansvarar för att testa och att se till att viktig uppdatering uppfyller deras behov.
+Azul Zulu Enterprise-versioner av OpenJDK är en kostnadsfri och vara färdigt för produktionsanvändning fördelning av OpenJDK för Azure och Azure Stack med Microsoft och Azul Systems. De innehåller alla komponenter för att skapa och köra program med Java SE. Du kan installera JDK från [Java JDK Installation](https://aka.ms/azure-jdks).
 
 Stöds JDKs korrigerade automatiskt kvartalsvis i januari, April, juli och oktober varje år.
 
@@ -493,18 +491,6 @@ Uppdateringar och korrigeringar för större säkerhetsproblem släpps när de b
 ### <a name="deprecation-and-retirement"></a>Utfasningen och tillbakadragande
 
 Om en stöds Java runtime kommer att dras tillbaka, får Azure-utvecklare som använder den berörda runtime ett utfasningsmeddelande om minst sex månader innan körningen har dragits tillbaka.
-
-### <a name="local-development"></a>Lokal utveckling
-
-Utvecklare kan ladda ned produktion Edition av Azul Zulu Enterprise JDK-Paketet för lokal utveckling från [Azuls hämtningsplats](https://www.azul.com/downloads/azure-only/zulu/).
-
-### <a name="development-support"></a>Stöd för programutveckling
-
-Produktsupport för den [Azure stöder Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) är tillgänglig via när du utvecklar för Azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med en [kvalificerade Azure-supportplan](https://azure.microsoft.com/support/plans/).
-
-### <a name="runtime-support"></a>Runtime-stöd
-
-Utvecklare kan [öppna ett ärende](/azure/azure-supportability/how-to-create-azure-support-request) med Azul Zulu JDKs via supporten för Azure om de har en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Nästa steg
 

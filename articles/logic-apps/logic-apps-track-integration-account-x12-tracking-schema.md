@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845774"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Skapa scheman för att spåra X12 meddelanden i integrationskonton för Azure Logic Apps
@@ -57,7 +57,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
@@ -113,7 +113,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
@@ -171,7 +171,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
@@ -222,7 +222,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
@@ -275,7 +275,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
@@ -331,7 +331,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 }
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
 | receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |

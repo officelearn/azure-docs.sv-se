@@ -1,23 +1,24 @@
 ---
-title: Konfigurera Azure service health-aviseringar med ServiceNow | Microsoft Docs
+title: Skicka Azure service health-aviseringar med ServiceNow med webhooks
 description: Få personligt anpassade meddelanden om service health-händelser till din ServiceNow-instans.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067110"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera service health-aviseringar med ServiceNow
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Skicka Azure service health-aviseringar med ServiceNow med webhooks
 
 Den här artikeln visar hur du integrerar Azure service health-aviseringar med ServiceNow med en webhook. När du skapat webhook-integrering med din ServiceNow-instans kan få du aviseringar via din befintliga infrastruktur för meddelanden när problem med Azure-tjänsten påverkar dig. Varje gång en Azure Service Health-avisering utlöses, anropar en webhook via Servicenows skriptade REST-API.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Skapa ett skriptbaserade REST-API i ServiceNow
+
 1.  Kontrollera att du har registrerat dig för och är inloggad på ditt [ServiceNow](https://www.servicenow.com/) konto.
 
 1.  Navigera till den **System webbtjänster** i avsnittet ServiceNow och välj **skriptade REST API: er**.
@@ -30,7 +31,7 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 
 1.  Lägg till en **namn** för REST API och ange den **API-ID** till `azureservicehealth`.
 
-1.  Välj **Skicka**.
+1.  Välj **skicka**.
 
     ![De ”REST API Settings” i ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 

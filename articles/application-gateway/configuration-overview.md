@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431301"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073967"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -71,7 +71,10 @@ Använd NSG: er på Application Gateway-undernät i det här scenariot. Placera 
 
 V1-SKU stöds användardefinierade vägar (Udr) för i Application Gateway-undernät, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation. Du kan till exempel skapa en UDR i Application Gateway-undernät för att peka mot en brandväggsinstallation för paketinspektion. Men du måste kontrollera att paketet kan nå sin destination efter granskning. I annat fall kan leda till felaktig hälsoavsökning eller beteende för routning av nätverkstrafik. Detta inkluderar inlärda eller standardvägar för 0.0.0.0/0 som sprids via Azure ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
-Udr: er stöds inte på Application Gateway-undernät för v2-SKU. Mer information finns i [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+För v2-SKU stöds udr: er inte i Application Gateway-undernät. Mer information finns i [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+
+> [!NOTE]
+> Udr: er stöds inte för v2-SKU.  Om du behöver udr: er bör du fortsätta att distribuera v1-SKU.
 
 > [!NOTE]
 > Udr: er i Application Gateway-undernät orsakar hälsostatus i den [backend-hälsotillstånd visa](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) ska visas som ”okänt”. Det gör även generation av Application Gateway-loggar och mått misslyckas. Vi rekommenderar att du inte använder udr: er på Application Gateway-undernät så att du kan visa backend-hälsotillstånd, loggar och mått.
@@ -84,7 +87,7 @@ En offentlig IP-adress krävs inte för en intern slutpunkt som inte exponeras t
 
 Endast 1 offentlig IP-adress eller 1 privat IP-adress stöds. Du kan välja frontend IP-Adressen när du skapar programgatewayen.
 
-- Du kan skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP på samma plats som application gateway för en offentlig IP-adress. Om du skapar en ny offentlig IP-adress i IP-adresstyp som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [Statiska eller dynamiska offentliga IP-adressen](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Du kan skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP på samma plats som application gateway för en offentlig IP-adress. Om du skapar en ny offentlig IP-adress i IP-adresstyp som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [Statiska eller dynamiska offentliga IP-adressen](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
 - Du kan ange en privat IP-adress från det undernät där programgatewayen skapas för en privat IP-adress. Om du inte anger något, väljs en skadlig IP-adress automatiskt från undernätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -124,7 +127,7 @@ Välj HTTP eller HTTPS:
 
 - Om du väljer HTTP är trafiken mellan klienten och application gateway okrypterad.
 
-- Välj HTTPS om du vill [SSL-avslutning](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) eller [slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafik mellan klienten och application gateway är krypterad. Och SSL-anslutningen avslutas vid application gateway. Om du vill slutpunkt till slutpunkt SSL-kryptering, du måste välja HTTPS och konfigurera den **backend-HTTP** inställningen. Detta säkerställer att trafik krypteras igen när de överförs från programgatewayen till backend-server.
+- Välj HTTPS om du vill [SSL-avslutning](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) eller [slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafik mellan klienten och application gateway är krypterad. Och SSL-anslutningen avslutas vid application gateway. Om du vill slutpunkt till slutpunkt SSL-kryptering, du måste välja HTTPS och konfigurera den **backend-HTTP** inställningen. Detta säkerställer att trafik krypteras igen när de överförs från programgatewayen till backend-server.
 
 Om du vill konfigurera SSL-avslutning och slutpunkt till slutpunkt SSL-kryptering, måste du lägga till ett certifikat i lyssnaren för att aktivera application gateway att härleda en symmetrisk nyckel. Detta styrs av specifikationen för SSL-protokollet. Den symmetriska nyckeln som används för att kryptera och dekryptera den trafik som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här formatet kan du exportera den privata nyckeln som används av gatewayen för att kryptera och dekryptera trafiken.
 
@@ -172,7 +175,7 @@ När du skapar en Programgateway med hjälp av Azure portal kan du skapa en stan
 
 ### <a name="rule-type"></a>Regeltyp
 
-När du skapar en regel kan du välja mellan [ *grundläggande* och *sökvägsbaserad*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
+När du skapar en regel kan du välja mellan [ *grundläggande* och *sökvägsbaserad*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
 - Välj basic om du vill vidarebefordra alla begäranden på den associerade lyssnaren (till exempel *blogg<i></i>.contoso.com/\*)* till en enda backend-pool.
 - Välj sökvägsbaserad om du vill dirigera förfrågningar från specifika URL-sökvägar till specifika serverdelspooler. Sökvägsmönster tillämpas endast på sökvägen till URL-Adressen, inte till dess Frågeparametrar.
@@ -245,7 +248,7 @@ Mer information om omdirigering finns:
 Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och backend-adresspooler. Du kan bara konfigurera den här funktionen via PowerShell. Azure portal och CLI-stöd är inte ännu tillgängliga. Mer information finns i:
 
  - [Skriv om HTTP-huvuden översikt](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Konfigurera HTTP-huvud-omskrivning](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [Konfigurera HTTP-huvud-omskrivning](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP-inställningar
 

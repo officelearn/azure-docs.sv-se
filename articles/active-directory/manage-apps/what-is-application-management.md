@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108158"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
 
@@ -40,8 +40,8 @@ Det finns fyra huvudsakliga typer av program som du kan lägga till din **föret
 
 -   **Icke-galleriprogram** – Använd dina egna program! Stöd för enkel inloggning för andra appar genom att lägga till dem till Azure AD. Du kan integrera alla webblänk som du vill eller alla program som återger ett fält för användarnamn och lösenord, har stöd för SAML- eller OpenID Connect-protokoll eller stöder SCIM. Mer information finns i [Konfigurera enkel inloggning för appar som inte är ett galleriprogram](configure-single-sign-on-non-gallery-applications.md).
 
-## <a name="manage-risk-with-conditional-access-policies"></a>Hantera risker med principer för villkorsstyrd åtkomst
-Koppling Azure AD enkel inloggning (SSO) med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) ger hög säkerhet för åtkomst till program. Säkerhetsfunktionerna omfattar identitetsskydd i molnskala, riskbaserad åtkomstkontroll, inbyggd multifaktorautentisering och principer för villkorsstyrd åtkomst. De här funktionerna möjliggör detaljerade kontrollprinciper baserade på program eller på grupper som behöver högre säkerhet.
+## <a name="manage-risk-with-conditional-access-policies"></a>Hantera risker med principer för villkorlig åtkomst
+Koppling Azure AD enkel inloggning (SSO) med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) ger hög säkerhet för åtkomst till program. Säkerhetsfunktioner molnskala identitetsskydd, riskbaserad åtkomstkontroll, interna multifaktorautentisering och principer för villkorlig åtkomst. De här funktionerna möjliggör detaljerade kontrollprinciper baserade på program eller på grupper som behöver högre säkerhet.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Förbättra produktiviteten med enkel inloggning
 Aktivera enkel inloggning (SSO) för alla program och för Office 365 för bästa möjliga inloggning för befintliga användare genom färre eller inga inloggningsuppmaningar. Användarnas miljöer känns mer sammanhängande och mindre störande med färre uppmaningar och utan behov för flera lösenord. Affärsgruppen kan hantera och godkänna åtkomst via självbetjäning och dynamiska medlemskap. Då rätt personer i företaget hanterar åtkomst till program förbättras även säkerheten för ID-system.

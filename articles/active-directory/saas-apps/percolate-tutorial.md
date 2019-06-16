@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Självstudier: Azure Active Directory-integrering med Percolate
 
@@ -105,7 +105,7 @@ Konfigurera Azure AD enkel inloggning med Percolate genom att göra följande:
 
     ![Percolate domän och URL: er enkel inloggning för information](common/preintegrated.png)
 
-5. Om du vill konfigurera programmet i SP-initierat läge väljer **ange ytterligare webbadresser** och i den **inloggnings-URL** anger **https://percolate.com/app/login**:
+5. Om du vill konfigurera programmet i SP-initierat läge väljer **ange ytterligare webbadresser** och i den **inloggnings-URL** anger **https://percolate.com/app/login** :
 
    ![Percolate domän och URL: er enkel inloggning för information](common/metadata-upload-additional-signon.png)
 6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **kopia** ikon för att kopiera den **Appfederationsmetadata** . Spara den här URL: en.
@@ -168,7 +168,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-por
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >**. (Till exempel BrittaSimon@contoso.com.)
+    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
 
     1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
 
@@ -234,4 +234,4 @@ När du väljer panelen Percolate i åtkomstpanelen, bör det vara loggas in aut
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

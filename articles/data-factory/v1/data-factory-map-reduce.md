@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824226"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce-program från Data Factory
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Transformeringsaktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md) 
 > * [Piggningsåtgärd](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
@@ -182,7 +182,7 @@ Pipelinen i det här exemplet tar inte alla indata. Du anger en datauppsättning
 ### <a name="pipeline"></a>Pipeline
 Pipelinen i det här exemplet har en aktivitet som är av typen: HDInsightMapReduce. Några viktiga egenskaper i JSON är: 
 
-| Egenskap  | Anteckningar |
+| Egenskap | Anteckningar |
 |:--- |:--- |
 | type |Typen måste vara inställt på **HDInsightMapReduce**. |
 | className |Namnet på klassen är: **wordcount** |

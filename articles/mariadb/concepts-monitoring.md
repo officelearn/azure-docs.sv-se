@@ -1,17 +1,17 @@
 ---
 title: Övervakning i Azure-databas för MariaDB
 description: Den här artikeln beskriver mått för övervakning och avisering för Azure Database for MariaDB, inklusive statistik för CPU-, lagrings- och anslutning.
-author: rachel-msft
-ms.author: raagyema
+author: andrela
+ms.author: ajlam
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/12/2019
+ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "64925929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065731"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -41,8 +41,22 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 
 ## <a name="server-logs"></a>Serverloggar
+
 Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor-loggar, Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
 
+## <a name="query-store"></a>Query Store
+
+[Query Store](concepts-query-store.md) är en funktion i offentlig förhandsversion som håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i den **mysql** schema. Du kan styra insamling och lagring av data via olika configuration rattar.
+
+## <a name="query-performance-insight"></a>Query Performance Insight
+
+[Query Performance Insight](concepts-query-performance-insight.md) fungerar tillsammans med Query Store att tillhandahålla visualiseringar som är tillgängliga från Azure-portalen. Dessa diagram kan du identifiera viktiga frågor som påverkas prestanda. Query Performance Insight är allmänt tillgänglig förhandsversion och är tillgänglig i den **Intelligent prestanda** delen av din Azure Database for MariaDB server portalsidan.
+
+## <a name="performance-recommendations"></a>Prestandarekommendationer
+
+Den [Prestandarekommendationer](concepts-performance-recommendations.md) funktionen identifierar möjligheter att förbättra prestanda för arbetsbelastningen. Den offentliga förhandsversionen av Prestandarekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbetsbelastningar. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna.
+
 ## <a name="next-steps"></a>Nästa steg
+
 - Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
   - Se [hur du konfigurerar aviseringar](howto-alert-metric.md) anvisningar om hur du skapar en avisering på ett mått.

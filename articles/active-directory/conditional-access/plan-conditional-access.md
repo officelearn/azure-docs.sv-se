@@ -13,16 +13,16 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 44a64611d4e31767b4705f41e47234af7b0848c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112231"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instruktioner: Planera distributionen av villkorlig åtkomst i Azure Active Directory
 
-Planera distributionen av villkorlig åtkomst är viktigt att se till att du få strategin kräver åtkomst för appar och resurser i din organisation. Du bör spenderar det mesta av din tid under planeringsfasen i distributionen för att utforma olika principer som du behöver för att bevilja eller neka åtkomst till dina användare på de villkor som du väljer. Det här dokumentet beskrivs de steg som du bör vidta för att implementera säkra och effektiva villkorliga åtkomstprinciper. Innan du börjar måste du kontrollera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda.
+Planera distributionen av villkorlig åtkomst är viktigt att se till att du få strategin kräver åtkomst för appar och resurser i din organisation. Du bör spenderar det mesta av din tid under planeringsfasen i distributionen för att utforma olika principer som du behöver för att bevilja eller neka åtkomst till dina användare på de villkor som du väljer. Det här dokumentet beskrivs de steg som du bör vidta för att implementera säkra och effektiva principer för villkorlig åtkomst. Innan du börjar måste du kontrollera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda.
 
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
@@ -31,23 +31,23 @@ Tänk på villkorlig åtkomst som ett ramverk som gör att du kan styra åtkomst
 
 Om ytterligare funktioner krävs, kan du också behöva hämta relaterade licenser. Villkorlig åtkomst är Azure AD Premium P1-funktionen, kräver identitetsskydd en Azure AD Premium P2-licens.
 
-Det finns två typer av principer för villkorlig åtkomst: grundläggande och standard. En [baslinjeprincip](baseline-protection.md) är en fördefinierad villkorlig åtkomstprincip. Målet med dessa principer är att se till att du har minst baslinje-säkerhetsnivå aktiverat. Grundläggande principer. Grundläggande principer är tillgängliga i alla utgåvor av Azure AD och ger endast begränsade anpassningsalternativ. Om ett scenario kräver mer flexibilitet, inaktivera baslinje-principen och implementera dina krav i en anpassad princip för standard.
+Det finns två typer av principer för villkorlig åtkomst: grundläggande och standard. En [baslinjeprincip](baseline-protection.md) är en fördefinierad princip för villkorlig åtkomst. Målet med dessa principer är att se till att du har minst baslinje-säkerhetsnivå aktiverat. Grundläggande principer. Grundläggande principer är tillgängliga i alla utgåvor av Azure AD och ger endast begränsade anpassningsalternativ. Om ett scenario kräver mer flexibilitet, inaktivera baslinje-principen och implementera dina krav i en anpassad princip för standard.
 
-Du kan anpassa alla inställningar om du vill ändra principen för ditt företags behov i en princip för villkorlig åtkomst som standard. Standard principer kräver en Azure AD Premium P1-licens.
+Du kan anpassa alla inställningar om du vill ändra principen för ditt företags behov i en standard princip för villkorlig åtkomst. Standard principer kräver en Azure AD Premium P1-licens.
 
 
 
 
 ## <a name="draft-policies"></a>Draft principer
 
-Villkorlig åtkomst i Azure Active Directory kan du överföra skydd av dina appar i molnet till en ny nivå. I den här nya nivån baseras hur du kan komma åt en molnapp på en dynamisk principutvärdering i stället för en statisk konfiguration. Med en princip för villkorlig åtkomst definierar du ett svar (**då**) till ett villkor för åtkomst (**om det här händer**).
+Azure Active Directory-villkorlig åtkomst kan du överföra skydd av dina appar i molnet till en ny nivå. I den här nya nivån baseras hur du kan komma åt en molnapp på en dynamisk principutvärdering i stället för en statisk konfiguration. Med en princip för villkorlig åtkomst definierar du ett svar (**då**) till ett villkor för åtkomst (**om det här händer**).
 
 ![Orsak och svar](./media/plan-conditional-access/10.png)
 
 Definiera varje princip för villkorlig åtkomst som du vill implementera med hjälp av den här planeringen modellen. Planering Övning:
 
 - Hjälper dig att visas svar och villkor för varje princip.
-- Resultat i en katalog med väl dokumenterade villkorlig åtkomst princip för din organisation. 
+- Resultat i en väldokumenterad princip-katalog för villkorlig åtkomst för din organisation. 
 
 Du kan använda din katalog för att utvärdera om din implementering av principer återspeglar organisationens affärsbehov. 
 
@@ -55,16 +55,16 @@ Använd följande exempelmall för att skapa principer för villkorlig åtkomst 
 
 |När *detta* händer:|Gör sedan *detta*:|
 |-|-|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Blockera åtkomst till programmet|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (AND):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (eller):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp *<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Blockera åtkomst till programmet|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp *<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (AND):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp *<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (eller):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
 
 Minst **om det här händer** definierar huvudkontot (**som**) som försöker få åtkomst till en molnapp (**vad**). Om nödvändigt, kan du även inkludera **hur** ett åtkomstförsök utförs. Villkorlig åtkomst elementen som definierar vem, vad och hur kallas villkor. Mer information finns i [vad är villkor i Azure Active Directory villkorlig åtkomst?](conditions.md) 
 
 Med **gör detta**, du definiera svaret på din princip till ett villkor för åtkomst. I ditt svar du antingen blockera eller bevilja åtkomst med ytterligare krav, till exempel multifaktorautentisering (MFA). En fullständig översikt finns i [vad är access styr i Azure Active Directory villkorlig åtkomst?](controls.md)  
  
 
-Kombinationen av villkor med dina åtkomstkontroller representerar en princip för villkorsstyrd åtkomst.
+Kombinationen av villkor med din åtkomstkontroller representerar en princip för villkorlig åtkomst.
 
 ![Orsak och svar](./media/plan-conditional-access/51.png)
 
@@ -211,18 +211,18 @@ Hantera principer för villkorlig åtkomst är en manuell aktivitet. Du kan hant
 ![Villkorlig åtkomst](media/plan-conditional-access/03.png)
 
 
-Om du vill veta mer om hur du skapar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md). Den här snabbstarten hjälper dig att:
+Om du vill veta mer om hur du skapar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md). Den här snabbstarten hjälper dig att:
 
 - Bekanta dig med användargränssnittet.
-- Få ett första intryck av hur villkorlig åtkomst fungerar. 
+- Få ett första intryck hur villkorlig åtkomst fungerar. 
 
 
 ### <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg [vad händer om principen verktyget](what-if-tool.md) att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.
+Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg [vad händer om principen verktyget](what-if-tool.md) att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.
 
 >[!NOTE]
-> Körningen av en simulerad ger intryck inverkan principer för villkorlig åtkomst har, ersätter inte en faktisk testkörningen.
+> Körningen av en simulerad ger intryck på den inverkan som har en princip för villkorlig åtkomst, ersätter inte en faktisk testkörningen.
 
 
 ### <a name="test-your-policy"></a>Testa din princip
@@ -273,7 +273,7 @@ Om du vill återställa din nyligen implementerade principer kan du använda en 
 
 1. **Inaktivera principen** – inaktiverar en princip gör att det inte gäller när en användare försöker logga in. Du kan alltid gå tillbaka och aktivera principen när du vill använda den.
 
-    ![Inaktivera principen](media/plan-conditional-access/07.png)
+    ![Inaktivera princip](media/plan-conditional-access/07.png)
 
 2. **Undanta en användare / grupp från en princip** – om en användare kan inte få åtkomst till appen, du kan välja att exkludera användaren från principen
 

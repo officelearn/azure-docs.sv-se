@@ -12,10 +12,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419620"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad säkerhet för Azure SQL Database
@@ -58,7 +58,7 @@ Klicka på den **Dataidentifiering och klassificering** kort för att visa rekom
 
 Om du vill visa och hantera inställningar för ANNONSER, gå till **avancerad säkerhet för Data** under den **Security** för din SQL Database-server eller hanterad instans. På den här sidan kan du aktivera eller inaktivera ANNONSER och ändra vulnerability assessment och inställningarna för avancerat skydd för hela SQL Database-server eller hanterad instans.
 
-![Serverinställningar](./media/sql-advanced-protection/server_settings.png) 
+![serverinställningar](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Hantera ANNONSER inställningar för en SQL-databas
 

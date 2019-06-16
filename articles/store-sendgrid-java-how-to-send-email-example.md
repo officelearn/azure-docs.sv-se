@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 79cb9bb82862f5720d5ec2262ba30dbbcf3e3f66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60930171"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hur du skickar e-post med SendGrid från Java i en Azure-distribution
@@ -28,7 +28,7 @@ I följande exempel visas hur du kan använda SendGrid för att skicka e-post fr
 
 Resulterande e-postmeddelandet ser ut ungefär som följande skärmbild.
 
-![E-postmeddelande][emailsent]
+![e-postmeddelande][emailsent]
 
 Du behöver göra följande för att använda koden i det här avsnittet:
 

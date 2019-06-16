@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 70f4b900a1ccc2769e397c32b452ef939da00099
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899980"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Självstudier: Azure Active Directory-integrering med Cloud Security Fabric
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Molninfrastruktur för säkerhet i Azure AD,
 
 **Utför följande steg för att lägga till Cloud Security Fabric från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -207,5 +207,5 @@ När du klickar på panelen Molninfrastruktur för säkerhet i åtkomstpanelen, 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

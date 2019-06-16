@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595773"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
@@ -70,7 +70,7 @@ I följande tabell beskrivs attributen för en parameter.
 
 | Attribut | Beskrivning |
 |:--- |:--- |
-| typ |Datatypen för parametern. Den indatakontroll som visas för användaren är beroende av datatypen.<br><br>bool - listrutan<br>sträng - textrutan<br>int - textrutan<br>SecureString - lösenordsfältet<br> |
+| type |Datatypen för parametern. Den indatakontroll som visas för användaren är beroende av datatypen.<br><br>bool - listrutan<br>sträng - textrutan<br>int - textrutan<br>SecureString - lösenordsfältet<br> |
 | category |Valfri kategori för parametern.  Parametrarna i samma kategori grupperas tillsammans. |
 | Kontroll |Ytterligare funktioner för strängparametrar.<br><br>datetime - Datetime kontroll visas.<br>GUID – Guid-värde genereras automatiskt och parametern visas inte. |
 | description |Valfri beskrivning för parametern.  Visas i en information pratbubblor bredvid parametern. |
@@ -129,7 +129,7 @@ Nedan följer strukturen för standardparametrar som du kan kopiera och klistra 
     }
 
 
-Du refererar till parametervärden i andra element i lösningen med syntaxen **parametrar (parametern name)**.  Till exempel för att komma åt arbetsytans namn om du använder **parameters('workspaceName')**
+Du refererar till parametervärden i andra element i lösningen med syntaxen **parametrar (parametern name)** .  Till exempel för att komma åt arbetsytans namn om du använder **parameters('workspaceName')**
 
 ## <a name="variables"></a>Variabler
 [Variabler](../../azure-resource-manager/resource-group-authoring-templates.md#variables) är värden som du ska använda i resten av hanteringslösningen.  Dessa värden exponeras inte för den användare som installerar lösningen.  De är avsedda att ge författaren med en enda plats där de kan hantera värden som kan användas flera gånger i hela lösningen. Du bör placera värden specifika i din lösning i variabler istället för hårdkoda dem i den **resurser** element.  Detta gör koden lättare att läsa och gör att du kan enkelt ändra dessa värden i senare versioner.
@@ -144,7 +144,7 @@ Följande är ett exempel på en **variabler** element med vanliga parametrar so
         "AutomationApiVersion": "2015-10-31"
     },
 
-Du refererar till variabelvärden genom lösningen med syntaxen **variabler (variabeln namn)**.  Till exempel för att komma åt SolutionName variabeln, använder du **variables('SolutionName')**.
+Du refererar till variabelvärden genom lösningen med syntaxen **variabler (variabeln namn)** .  Till exempel för att komma åt SolutionName variabeln, använder du **variables('SolutionName')** .
 
 Du kan också definiera komplex variabler som flera uppsättningar med värden.  Det här är särskilt användbart i lösningar för hantering av där du definierar flera egenskaper för olika typer av resurser.  Du kan till exempel omstrukturera lösningen variablerna som visas ovan för att följande.
 
@@ -211,9 +211,9 @@ Lösningen resursen måste ha en [beroende](../../azure-resource-manager/resourc
 ### <a name="properties"></a>Egenskaper
 Lösningen-resursen har egenskaperna i följande tabell.  Detta omfattar de resurser som refererar till och ingår i lösningen som definierar hur resursen hanteras när lösningen har installerats.  Varje resurs i lösningen bör visas i antingen den **referencedResources** eller **containedResources** egenskapen.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| workspaceResourceId |ID för Log Analytics-arbetsytan i formuläret  *\<resursgrupps-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Arbetsytenamn\>*. |
+| workspaceResourceId |ID för Log Analytics-arbetsytan i formuläret  *\<resursgrupps-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Arbetsytenamn\>* . |
 | referencedResources |Listan över resurser i den lösning som inte ska tas bort när lösningen har tagits bort. |
 | containedResources |Lista över resurser i lösningen som ska tas bort när lösningen har tagits bort. |
 
@@ -222,12 +222,12 @@ I exemplet ovan är för en lösning med en runbook, ett schema och visa.  Schem
 ### <a name="plan"></a>Planera
 Den **plan** entitet av lösningen resursen har egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| namn |Namnet på lösningen. |
+| name |Namnet på lösningen. |
 | version |Version av lösningen systemets författaren. |
-| produkt |Unik sträng att identifiera lösningen. |
-| utgivare |Utgivare av lösningen. |
+| Produkten |Unik sträng att identifiera lösningen. |
+| publisher |Utgivare av lösningen. |
 
 
 

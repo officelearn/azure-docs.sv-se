@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 808564f291328450b17db8eb7ea299c194c66400
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65861937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Självstudier: Azure Active Directory-integrering med Egnyte
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Egnyte i Azure AD behöver du lägga till Eg
 
 **Utför följande steg för att lägga till Egnyte från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -219,7 +219,7 @@ För att Azure AD-användare ska kunna logga in i Egnyte måste de vara etablera
 
 1. Logga in som administratör på din **Egnyte**-företagswebbplats.
 
-2. Gå till **Settings (Inställningar) \> Users & Groups (Användare och grupper)**.
+2. Gå till **Settings (Inställningar) \> Users & Groups (Användare och grupper)** .
 
 3. Klicka på **Add New User** (Lägg till ny användare) och välj sedan vilken typ av användare som du vill lägga till.
    
@@ -257,5 +257,5 @@ När du klickar på Egnyte-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

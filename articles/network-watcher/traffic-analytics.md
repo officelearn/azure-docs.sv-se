@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051660"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -42,8 +42,8 @@ Azure-nätverk har NSG-flödesloggar som ger dig information om inkommande och u
 
 ## <a name="key-components"></a>Nyckelkomponenter
 
-- **Nätverkssäkerhetsgrupp (NSG)**: Innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till en Azure-nätverk. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [översikt över Network security group](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network flödesloggar för nätverkssäkerhetsgruppen (NSG)**: Kan du visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flow loggarna skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, NIC flödet som gäller för fem-tuppel information om flödet (källa/mål-IP-adress, källa/mål port och protokoll) och om trafiken tilläts eller inte. Läs mer om NSG-flödesloggar [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md).
+- **Nätverkssäkerhetsgrupp (NSG)** : Innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till en Azure-nätverk. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [översikt över Network security group](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network flödesloggar för nätverkssäkerhetsgruppen (NSG)** : Kan du visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flow loggarna skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, NIC flödet som gäller för fem-tuppel information om flödet (källa/mål-IP-adress, källa/mål port och protokoll) och om trafiken tilläts eller inte. Läs mer om NSG-flödesloggar [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: En Azure-tjänst som samlar in övervakningsdata och lagrar data i ett centrallager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API i Azure. När data har samlats in är de tillgängliga för avisering, analys och export. Övervaka som network monitor och trafik prestandaanalys skapas med hjälp av Azure Monitor-loggar som grund. Mer information finns i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log Analytics-arbetsyta**: En instans av Azure Monitor-loggar, där de data som hör till ett Azure-konto lagras. Läs mer om Log Analytics-arbetsytor, [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: En regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå i Azure. Du kan stänga NSG-flödesloggar och inaktivera med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
@@ -87,12 +87,19 @@ Du kan använda trafikanalys för NSG: er i någon av de följande regionerna so
 Log Analytics-arbetsytan måste finnas i följande regioner:
 * Centrala Kanada
 * Västra centrala USA
-* Västra USA 2
 * Östra USA
+* USA, östra 2
+* Södra centrala USA
+* Västra USA
+* Västra USA 2
+* Centrala USA
 * Frankrike, centrala
+* Norra Europa
 * Västra Europa
 * Storbritannien, södra
+* Östra Australien
 * Sydöstra Australien
+* Östasien
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala

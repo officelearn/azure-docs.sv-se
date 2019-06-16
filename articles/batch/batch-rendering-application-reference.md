@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775397"
 ---
 # <a name="rendering-applications"></a>Renderingsprogram
@@ -39,7 +39,7 @@ Exempel:
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
 ```
 
-Information:
+Obs!
 
 * Försiktighet måste vidtas för att kontrollera resursfiler hittas.  Se till att sökvägarna är korrekt och relativa med hjälp av den **tillgången spåra** fönster eller Använd den `-bitmapPath` parametern på kommandoraden.
 * Om det finns problem med rendering, till exempel inte går att hitta tillgångar, genom att markera den `stdout.txt` filen som skrivits av 3ds Max när aktiviteten körs.

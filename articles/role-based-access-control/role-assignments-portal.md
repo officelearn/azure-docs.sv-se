@@ -15,10 +15,10 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533008"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure portal
@@ -69,7 +69,7 @@ Det första du måste bestämma är var du vill öppna åtkomstkontroll (IAM)-bl
 
 1. Klicka på den specifika resursen.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 
     Nedan visas ett exempel på åtkomstkontroll (IAM)-bladet för en prenumeration. Om du gör några ändringar åtkomstkontroll här, skulle de gäller för hela prenumerationen.
 
@@ -161,7 +161,7 @@ Om du vill göra en administratör för en Azure-prenumeration för en användar
 
 1. Klicka på den prenumeration där du vill bevilja åtkomst.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar för den här prenumerationen.
 
@@ -208,4 +208,4 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 * [Självstudie: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
 * [Självstudie: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Felsöka RBAC för Azure-resurser](troubleshooting.md)
-* [Ordna resurser med hanteringsgrupper i Azure](../governance/management-groups/index.md)
+* [Organisera dina resurser med Azure-hanteringsgrupper](../governance/management-groups/index.md)

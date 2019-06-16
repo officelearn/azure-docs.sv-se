@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061324"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metodtips för Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2 erbjuder POSIX åtkomstkontroller för användare, 
 
 ### <a name="use-security-groups-versus-individual-users"></a>Använda säkerhetsgrupper jämfört med enskilda användare
 
-WWhen arbeta med stordata i Data Lake Storage Gen2, är det troligt att ett huvudnamn för tjänsten används för att ge tjänster, till exempel Azure HDInsight för att arbeta med data. Det kan dock finnas fall där enskilda användare behöver åtkomst till data samt. I samtliga fall starkt överväga att använda Azure Active Directory [säkerhetsgrupper](../common/storage-auth-aad.md) i stället för att tilldela enskilda användare till kataloger och filer.
+När du arbetar med stordata i Data Lake Storage Gen2, är det troligt att ett huvudnamn för tjänsten används för att ge tjänster, till exempel Azure HDInsight för att arbeta med data. Det kan dock finnas fall där enskilda användare behöver åtkomst till data samt. I samtliga fall starkt överväga att använda Azure Active Directory [säkerhetsgrupper](../common/storage-auth-aad.md) i stället för att tilldela enskilda användare till kataloger och filer.
 
 När en säkerhetsgrupp tilldelas behörigheter att lägga till eller ta bort användare i gruppen kräver inte några uppdateringar till Data Lake Storage Gen2. Detta kan också se till att du inte överskrider det maximala antalet åtkomstkontrollposter per åtkomstkontrollistan (ACL). Det numret är för närvarande 32, (inklusive fyra POSIX-typ ACL: er som alltid är associerade med alla filer och kataloger): den ägande användaren, ägande grupp, masken och andra. Varje katalog kan ha två typer av ACL, access ACL och standard ACL för totalt 64 åtkomstkontrollposter. Mer information om dessa ACL: er finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -40,7 +40,7 @@ Azure Active Directory-tjänstobjekt som vanligtvis används av tjänster som Az
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen2-brandväggen med Azure-tjänståtkomst
 
-Data Lake Storage Gen2 har stöd för aktivering av en brandvägg och begränsa åtkomst till Azure-tjänster, vilket rekommenderas för att begränsa vektor av externa attacker. Brandväggen kan vara aktiverad på ett lagringskonto i Azure-portalen via den **brandväggen** > **aktivera brandvägg (på)** > **Tillåt åtkomst till Azure-tjänster** alternativ.
+Data Lake Storage Gen2 har stöd för aktivering av en brandvägg och begränsa åtkomst till Azure-tjänster, vilket rekommenderas för att begränsa vektor av externa attacker. Brandväggen kan vara aktiverad på ett lagringskonto i Azure-portalen via den **brandväggen** > **aktivera brandvägg (på)**  > **Tillåt åtkomst till Azure-tjänster** alternativ.
 
 Lägga till Azure Databricks-kluster till ett virtuellt nätverk som kan beviljas åtkomst till via brandväggen lagring kräver användning av en funktion i förhandsversionen av Databricks. Om du vill aktivera den här funktionen, placerar du en supportförfrågan.
 

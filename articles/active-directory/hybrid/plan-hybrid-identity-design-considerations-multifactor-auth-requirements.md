@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dabb381c16aa107e41c1d556e61e020b8c6a6c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455745"
+ms.locfileid: "67109300"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för multifaktorautentisering för dina hybrididentitetslösning
 I den här världen för mobilitet med användare som kommer åt data och program i molnet och på valfri enhet, har det blivit avgörande att skydda den här informationen.  Varje dag är det en ny rubrik om en säkerhetsöverträdelse.  Även om det finns ingen garanti mot överträdelser, ger multifaktorautentisering, ett extra lager av säkerhet för att förhindra dessa överträdelser.

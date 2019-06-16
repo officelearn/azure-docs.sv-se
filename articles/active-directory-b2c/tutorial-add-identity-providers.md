@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055095"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till Identitetsproviders i dina program i Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Om du vill aktivera inloggning för användare från Azure AD, som du behöver r
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller Azure AD-klienten genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD-klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar (äldre)** .
 4. Välj **Ny programregistrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
 6. För den **programtyp**väljer `Web app / API`.
@@ -106,7 +106,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
     Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. För **klient-ID**, ange program-ID som du sparade tidigare och för **klienthemlighet**, Ange nyckelvärdet som du antecknade tidigare.
-9. Alternativt kan du ange ett värde för **Domain_hint**. Till exempel `ContosoAD`. 
+9. Alternativt kan du ange ett värde för **Domain_hint**. Till exempel `ContosoAD`. Tips för domänen (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till sina federerad IdP-inloggningssida. Eller de kan användas av ett program för flera innehavare för att påskynda användaren direkt till den anpassade Azure AD-inloggningssida för klienten.
 10. Klicka på **OK**.
 11. Välj **mappa den här identitetsproviderns anspråk** och ange följande anspråk:
     

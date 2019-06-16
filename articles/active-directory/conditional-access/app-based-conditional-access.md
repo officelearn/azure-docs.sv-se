@@ -2,7 +2,7 @@
 title: Så här kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
 description: Lär dig hur du kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: fdd3b49dfbba29da084aec777ce022d003a8de86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60356648"
+ms.locfileid: "67112726"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv godkända klientappar för cloud app-åtkomst med villkorlig åtkomst 
 
@@ -33,7 +33,7 @@ Det här avsnittet förklarar hur du konfigurerar villkor åtkomstprinciper som 
 
 ## <a name="overview"></a>Översikt
 
-Med [Azure AD villkorsstyrd åtkomst](overview.md), du kan finjustera hur behöriga användare kan komma åt dina resurser. Du kan exempelvis begränsa åtkomsten till dina molnappar till betrodda enheter.
+Med [Azure AD villkorlig åtkomst](overview.md), du kan finjustera hur behöriga användare kan komma åt dina resurser. Du kan exempelvis begränsa åtkomsten till dina molnappar till betrodda enheter.
 
 Du kan använda [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data. Intunes appskyddsprinciper behöver inte lösning för hantering av mobila enheter (MDM), där du kan skydda företagets data eller inte registrerar enheter i en enhetshanteringslösning.
 
@@ -48,7 +48,7 @@ Med villkorlig åtkomst-terminologin dessa klientappar kallas **godkända klient
 En lista över godkända klientappar finns i [godkända kravet på klienten app](technical-reference.md#approved-client-app-requirement).
 
 
-Du kan kombinera principer för appbaserad villkorlig åtkomst med andra principer som [principer för enhetsbaserad villkorlig åtkomst](require-managed-devices.md) att skapa flexibilitet i hur du skyddar data för både personliga och företagsägda enheter.
+Du kan kombinera appbaserade principer för villkorlig åtkomst med andra principer som [enhetsbaserade principer för villkorlig åtkomst](require-managed-devices.md) att skapa flexibilitet i hur du skyddar data för både personliga och företagsägda enheter.
 
  
 
@@ -69,12 +69,12 @@ Det här avsnittet förutsätter att du är bekant med:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill skapa en princip för appbaserad villkorlig åtkomst måste du ha en Enterprise Mobility + Security eller Azure Active Directory premium-prenumeration och användarna måste ha licens för EMS eller Azure AD. 
+Om du vill skapa en appbaserad princip för villkorlig åtkomst måste du ha en Enterprise Mobility + Security eller Azure Active Directory premium-prenumeration och användarna måste ha licens för EMS eller Azure AD. 
 
 
 ## <a name="exchange-online-policy"></a>Exchange Online-princip 
 
-Det här scenariot består av en princip för appbaserad villkorlig åtkomst för åtkomst till Exchange Online.
+Det här scenariot består av en appbaserad princip för villkorlig åtkomst för åtkomst till Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
@@ -101,7 +101,7 @@ Alla Intune-appskyddsprinciper är aktiverad när den åtkomst till företagets 
 
 ### <a name="configuration"></a>Konfiguration 
 
-**Steg 1 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online**
+**Steg 1 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -130,7 +130,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
  
 
-**Steg 2 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
+**Steg 2 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -181,7 +181,7 @@ Det här scenariot förutsätter att en användare:
 
 ### <a name="configuration"></a>Konfiguration
 
-**Steg 1 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online och SharePoint Online**
+**Steg 1 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online och SharePoint Online**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -213,7 +213,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 
 
-**Steg 2 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
+**Steg 2 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -250,7 +250,7 @@ Se [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intun
 
 ## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-baserade eller kompatibla enhetsprincip för Exchange Online och SharePoint Online
 
-Det här scenariot består av en princip för villkorlig åtkomst för app-baserade eller kompatibla enheter för åtkomst till Exchange Online.
+Det här scenariot består av en app-baserade eller kompatibel enhet princip för villkorlig åtkomst för åtkomst till Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
@@ -266,7 +266,7 @@ Det här scenariot förutsätter att:
 
 ### <a name="configuration"></a>Konfiguration
 
-**Steg 1 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online och SharePoint Online**
+**Steg 1 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online och SharePoint Online**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -302,7 +302,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 
 
-**Steg 2 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
+**Steg 2 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -342,7 +342,7 @@ Se [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intun
 
 ## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>App-baserade och kompatibel enhetsprincip för Exchange Online och SharePoint Online
 
-Det här scenariot består av en princip för villkorlig åtkomst för app-baserade och kompatibla enheter för åtkomst till Exchange Online.
+Det här scenariot består av en app-baserade och kompatibel enhet princip för villkorlig åtkomst för åtkomst till Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
@@ -362,7 +362,7 @@ Alla Intunes appskyddsprinciper aktiveras vid tidpunkten för åtkomst till för
 
 ### <a name="configuration"></a>Konfiguration
 
-**Steg 1 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online och SharePoint Online**
+**Steg 1 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online och SharePoint Online**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -398,7 +398,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 
 
-**Steg 2 – konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
+**Steg 2 – konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med Active Sync (EAS)**
 
 För principen för villkorlig åtkomst i det här steget måste du konfigurera följande komponenter:
 
@@ -445,6 +445,6 @@ Se [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intun
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 
-Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 
+Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

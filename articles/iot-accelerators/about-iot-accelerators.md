@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451873"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080520"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
@@ -42,7 +42,7 @@ Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetr
 
 ### <a name="connected-factory"></a>Ansluten fabrik
 
-Använd den [Fabriksanslutna lösningsacceleratorn](iot-accelerators-connected-factory-sample-walkthrough.md) för att samla in telemetri från industriella tillgångar med ett [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-gränssnitt och kontrollera dem. Industriella tillgångar kan omfatta sammansättnings- och teststationer vid monteringsbandet på en fabrik.
+Använd den [Fabriksanslutna lösningsacceleratorn](iot-accelerators-connected-factory-features.md) för att samla in telemetri från industriella tillgångar med ett [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-gränssnitt och kontrollera dem. Industriella tillgångar kan omfatta sammansättnings- och teststationer vid monteringsbandet på en fabrik.
 
 Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och hantera dina industrienheter:
 

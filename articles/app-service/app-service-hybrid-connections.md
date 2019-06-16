@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069498"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridanslutningar #
 
@@ -41,7 +41,6 @@ När din app skickar en DNS-begäran som matchar en konfigurerad Hybridanslutnin
 > [!NOTE]
 > Det innebär att du ska försöker alltid använda ett DNS-namn för din Hybridanslutning. Vissa klientprogrammet gör inte en DNS-sökning om slutpunkten använder en IP-adress i stället.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>App Service-Hybridanslutning fördelar ###
 
@@ -140,7 +139,7 @@ Att lägga till en eller flera Hybridanslutningar i din HCM:
 2. Välj **konfigurera en annan Hybridanslutning**.
 ![Skärmbild av konfigurera nya Hybridanslutningar][8]
 
-1. Logga in med ditt Azure-konto.
+1. Logga in med ditt Azure-konto för att hämta din Hybrid-anslutningar som är tillgängliga med dina prenumerationer. HCM fortsätter inte att använda dina Azure-konto utöver det. 
 1. Välj en prenumeration.
 1. Välj Hybridanslutningar som du vill HCM vidarebefordra.
 ![Skärmbild av Hybridanslutningar][9]
@@ -226,7 +225,9 @@ Status för ”ansluten” innebär att minst ett HCM-system har konfigurerats m
 
 Den främsta orsaken som klienter inte kan ansluta till sina slutpunkt beror på slutpunkten som angavs med en IP-adress i stället för ett DNS-namn. Om din app inte går att nå den önskade slutpunkten och du använde en IP-adress, växla till ett DNS-namn som är giltig på värden där HCM körs. Kontrollera också att DNS-namnet matchas korrekt på den värd där HCM körs. Bekräfta att det finns en anslutning från den värd där HCM körs till Hybrid Anslutningens slutpunkt.  
 
-I App Service, kan verktyget tcpping anropas från konsolen avancerade verktyg (Kudu). Det här verktyget kan berätta om du har åtkomst till en TCP-slutpunkt, men den inte den information om du har åtkomst till en Hybridanslutning slutpunkt. När du använder verktyget i konsolen mot en Hybridanslutning slutpunkt, bekräftar du endast som används för en värd: port-kombination.  
+I App Service, den **tcpping** kommandoradsverktyg som kan anropas från konsolen avancerade verktyg (Kudu). Det här verktyget kan berätta om du har åtkomst till en TCP-slutpunkt, men den inte den information om du har åtkomst till en Hybridanslutning slutpunkt. När du använder verktyget i konsolen mot en Hybridanslutning slutpunkt, bekräftar du endast som används för en värd: port-kombination.  
+
+Om du har en kommandorad-klient för din slutpunkt kan testa du anslutningen från app-konsolen. Exempelvis kan testa du åtkomst till web server-slutpunkter med hjälp av curl.
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalks hybridanslutningar ##
 

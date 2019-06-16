@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14dcb5f5af971b10c83ea7fd9064a08cde3ab35
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1858b3e8d659d8810c54cab96566d03c24c92adf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111284"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Kodexempel för Azure Active Directory (v1.0 slutpunkt)
 
@@ -88,7 +88,7 @@ Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android
 Mobile (iOS)           | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 Fjärrskrivbord (konsol)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Användarnamn / lösenord </p>  Integrerad Windows-autentisering | | [DotNet-intern-fjärradministrerad](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Fjärrskrivbord (konsol)          | ![Java-konsolen](media/sample-v2-code/logo_Java.png) | Användarnamn / lösenord | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Fjärrskrivbord (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Enhetskodflöde | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Fjärrskrivbord (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Kodflöde för enhet | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-program (åtkomst till webb-API: er med programmets identitet)
 

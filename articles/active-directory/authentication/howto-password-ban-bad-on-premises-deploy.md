@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057282"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -36,6 +36,7 @@ När funktionen har körts i granskningsläge i rimlig tid, kan du byta konfigur
 
 ## <a name="deployment-requirements"></a>Krav för distribution
 
+* Licensieringskrav för Azure AD-lösenordsskydd finns i artikeln [eliminera felaktiga lösenord i din organisation](concept-password-ban-bad.md#license-requirements).
 * Alla domänkontrollanter som ta DC tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 eller senare. Det här kravet innebär inte att Active Directory-domän eller skog måste också vara på Windows Server 2012 domänens eller skogens funktionsnivå. Som vi nämnde i [designprinciper](concept-password-ban-bad-on-premises.md#design-principles), det finns ingen minsta DFL eller FFL som krävs för antingen DC-agenten eller proxy programvaran ska köras.
 * Alla datorer som får DC-agent-tjänsten installerad måste ha .NET 4.5 installerat.
 * Alla datorer som får proxyn tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 R2 eller senare.

@@ -1,6 +1,6 @@
 ---
-title: Migrera SQL Server-instans till Azure SQL Database managed instance | Microsoft Docs
-description: Lär dig mer om att migrera en SQL Server-instans till Azure SQL Database managed instance.
+title: Migrera databas från SQL Server-instans till Azure SQL Database - hanterad instans | Microsoft Docs
+description: Lär dig hur du migrerar en databas från SQL Server-instans till Azure SQL Database - hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070413"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database-hanterad instans
 
@@ -46,12 +46,35 @@ Om det finns några rapporterade blockeringsproblem som inte tas bort med altern
 
 - Om du kräver direkt åtkomst till operativsystemet eller filsystem, till exempel att installera från tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikta beroende på funktioner som fortfarande inte stöds, till exempel FileStream / filetable-objekt, PolyBase och transaktioner över flera instanser.
-- Om absolut måste du hålla sig i en specifik version av SQL Server (2012, till exempel).
+- Om absolut behöver att hålla sig i en specifik version av SQL Server (2012, till exempel).
 - Om dina beräkningskrav är mycket lägre kan den hantera instansen (1 vCore, till exempel) och konsolidering av databasen inte är acceptabel.
+
+Om du har löst alla identifierade migreringsblockerare och du fortsätter migreringen till hanterad instans, Observera att vissa ändringar kan påverka prestanda för din arbetsbelastning:
+- Obligatorisk fullständiga återställningsmodellen och regelbundna schema för automatisk säkerhetskopiering kan påverka prestandan för din arbetsbelastning eller underhåll/ETL-åtgärder om du har med jämna mellanrum används för enkel-/ massloggade modellen eller stoppats säkerhetskopieringar på begäran.
+- Annan server eller databas på konfigurationer, till exempel spårningsflaggor eller kompatibilitetsnivå
+- Nya funktioner som du använder till exempel Transparent databasen datakryptering (TDE) eller automatisk redundans grupper kan påverka processor-och IO.
+
+Hanterade instans vi garanterar 99,99% tillgänglighet även i de viktiga scenarierna, så overhead på grund av dessa funktioner inte kan inaktiveras. Mer information finns i [rotorsaker som kan orsaka olika prestanda på SQL Server och Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+### <a name="create-performance-baseline"></a>Skapa baslinje för prestanda
+
+Om du vill jämföra prestanda för din arbetsbelastning på hanterad instans med din ursprungliga arbetsbelastningar som körs på SQL Server skulle du behöva skapa en baslinje för prestanda som ska användas för jämförelse. Några av de parametrar som du kommer att mäta på SQL Server-instansen är: 
+- [Övervaka CPU-användningen på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och registrera genomsnittliga och högsta CPU-användning.
+- [Övervaka minnesanvändning på SQL Server-instansen](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) och avgör hur mycket minne som används av olika komponenter, till exempel buffertpoolen, planera cache, columnstore poolen, [minnesintern OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)osv. Dessutom bör du hitta genomsnittliga och högsta värden för varaktighet för sida prestandaräknaren för minne.
+- Övervaka disk-i/o-användning på källan SQL Server instans med [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) vy eller [prestandaräknare](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Övervaka arbetsbelastning och frågeprestanda eller SQL Server-instansen genom att undersöka Dynamic Management Views eller Query Store om du migrerar från SQL Server 2016 + version. Identifiera Genomsnittlig varaktighet och CPU-användningen för de viktigaste frågorna i arbetsbelastningen och jämföra dem med de frågor som körs på den hanterade instansen.
+
+> [!Note]
+> Om du upptäcker några problem med din arbetsbelastning på SQL Server som hög CPU-användning, konstant minnesbelastning, tempdb-eller parametrization bör du försöka att lösa dem på din SQL Server-instans innan du tar baslinje- och migrering. Migrera vet att alla nya system migh orsaka oväntade resultat och ogiltigförklaras alla prestanda jämförelse.
+
+Som ett resultat av den här aktiviteten bör du ha dokumenterade medelvärde och högsta värden för processor, minne och i/o-användning på ditt källsystem samt genomsnittlig och max varaktighet och CPU-användningen för den dominerande ställning och de viktigaste frågorna i din arbetsbelastning. Du bör använda dessa värden senare för att jämföra prestanda för din arbetsbelastning på hanterad instans med baslinjeprestanda för arbetsbelastningen för SQL Server-källans.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Distribuera till en optimal storlek hanterad instans
 
-Hanterad instans skräddarsys för lokala arbetsbelastningar som planerar att flytta till molnet. Det inför en [nya inköpsmodell](sql-database-service-tiers-vcore.md) som ger större flexibilitet att välja rätt nivå av resurser för dina arbetsbelastningar. I den lokala miljön är du antagligen van vid att ändra storlek på dessa arbetsbelastningar med hjälp av fysiska kärnor och i/o-bandbredd. Inköpsmodellen för den hanterade instansen baseras på virtuella kärnor, eller ”vCores”, med ytterligare lagringsutrymme och I/O som är tillgängliga separat. VCore-modellen är ett enklare sätt att förstå dina beräkningskrav i molnet eller det du använder en lokal idag. Den nya modellen kan du justera storleken din mål-miljö i molnet.
+Hanterad instans skräddarsys för lokala arbetsbelastningar som planerar att flytta till molnet. Det inför en [nya inköpsmodell](sql-database-service-tiers-vcore.md) som ger större flexibilitet att välja rätt nivå av resurser för dina arbetsbelastningar. I den lokala miljön är du antagligen van vid att ändra storlek på dessa arbetsbelastningar med hjälp av fysiska kärnor och i/o-bandbredd. Inköpsmodellen för den hanterade instansen baseras på virtuella kärnor, eller ”vCores”, med ytterligare lagringsutrymme och I/O som är tillgängliga separat. VCore-modellen är ett enklare sätt att förstå dina beräkningskrav i molnet eller det du använder en lokal idag. Den nya modellen kan du justera storleken din mål-miljö i molnet. Här beskrivs några allmänna riktlinjer som kan hjälpa dig att välja rätt tjänstnivå och egenskaper:
+- [Övervaka CPU-användningen på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och kontrollera hur mycket datorkraft du för närvarande använder (med Dynamic Management Views, SQL Server Management Studio eller andra övervakningsverktyg). Du kan etablera en hanterad instans som matchar antalet kärnor som du använder på SQL-servern att ha i åtanke processoregenskaper kan behöva skalas för att matcha [Virtuella datoregenskaper där Managed Instance är installerad](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
+- Mängden tillgängligt minne på SQL Server-instansen och välj [tjänstnivån med matchande minne](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Det kan vara användbart att mäta sidan vida på SQL Server-instansen att fastställa [behöver du ytterligare minne](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Mäta svarstiden för i/o för undersystemet fil för att välja mellan tjänstnivåerna generell användning och affärskritisk.
 
 Du kan välja beräknings- och lagringsresurser vid distributionen tid och ändra den senare utan att driftstopp för dina program med hjälp av den [Azure-portalen](sql-database-scale-resources.md):
 
@@ -111,18 +134,52 @@ En Snabbstart som visar hur du återställer en säkerhetskopia av databasen til
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
+
 ## <a name="monitor-applications"></a>Övervakning av program
 
-Spåra programmets beteende och prestanda efter migreringen. I hanterade instansen vissa ändringar är endast aktiverat när den [kompatibilitetsnivån för databas har ändrats](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Databasmigrering till Azure SQL Database behåller dess ursprungliga kompatibilitetsnivå i de flesta fall. Om en användardatabas kompatibilitetsnivå 100 eller högre före migreringen, förblir densamma efter migreringen. Om en användardatabas kompatibilitetsnivå 90 före migreringen i den uppgraderade databasen anges kompatibilitetsnivå till 100, vilket är lägsta stöds kompatibilitetsnivån i hanterad instans. Kompatibilitetsnivån för systemdatabaser är 140.
+När du har slutfört migreringen till Managed Instance kan spåra du programmets beteende och prestanda för din arbetsbelastning. Den här processen omfattar följande aktiviteter:
+- [Jämför resultat av arbetsbelastning som körs på den hanterade instansen](#compare-performance-with-the-baseline) med den [baslinje för prestanda som du skapade på SQL Server-källans](#create-performance-baseline).
+- Kontinuerligt [övervaka prestandan för din arbetsbelastning](#monitor-performance) att identifiera potentiella problem och förbättring.
 
-Ändra kompatibilitetsnivån för databas för att minska migreringsrisker förrän prestandaövervakning. Använd Query Store som optimala verktyg för att hämta information om arbetsbelastningens prestanda före och efter databas nivåändring för kompatibilitet, enligt beskrivningen i [hålla prestanda stabilitet under uppgraderingen till nyare version av SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+### <a name="compare-performance-with-the-baseline"></a>Jämföra prestanda med baslinjen
 
-När du är på en helt hanterad plattform ta fördelar som tillhandahålls automatiskt som en del av tjänsten SQL Database. Exempelvis kan du behöver inte skapa säkerhetskopior på hanterad instans - tjänsten utför säkerhetskopieringar åt dig automatiskt. Du måste inte längre tänka på schemaläggning, tar och hantera säkerhetskopior. Hanterad instans ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Dessutom kan du inte behöver bekymra dig om hur du konfigurerar hög tillgänglighet som [hög tillgänglighet](sql-database-high-availability.md) är inbyggd i.
+Den första aktiviteten som du skulle behöva vidta omedelbart efter att migreringen är att jämföra prestanda för arbetsbelastningen med standardprestanda för arbetsbelastning. Målet med den här aktiviteten är att bekräfta att arbetsbelastningsprestandan på din hanterade instans uppfyller dina behov. 
 
-Överväg att använda några av de funktioner som är tillgängliga för att stärka säkerheten:
+Databasmigrering till Managed Instance ser för databasen och dess ursprungliga kompatibilitetsnivå i de flesta fall. De ursprungliga inställningarna bevaras när det är möjligt för att minska risken för vissa prestandaförsämringar jämfört med källan SQL Server. Om en användardatabas kompatibilitetsnivå 100 eller högre före migreringen, förblir densamma efter migreringen. Om en användardatabas kompatibilitetsnivå 90 före migreringen i den uppgraderade databasen anges kompatibilitetsnivå till 100, vilket är lägsta stöds kompatibilitetsnivån i hanterad instans. Kompatibilitetsnivån för systemdatabaser är 140. Eftersom migrering till Managed Instance faktiskt migrerar till den senaste versionen av SQL Server Database Engine, bör du vara medveten om att du behöver testa prestanda så att vissa överraskande prestandaproblem undviks.
 
-- Azure Active Directory-autentisering på databasnivå
-- Använd [avancerade säkerhetsfunktioner](sql-database-security-overview.md) som [granskning](sql-database-managed-instance-auditing.md), [hotidentifiering](sql-database-advanced-data-security.md), [säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), och [dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) att skydda din instans.
+En förutsättning är att se till att du har slutfört följande aktiviteter:
+- Justera dina inställningar på hanterad instans med inställningarna från SQL Server-källinstansen genom att undersöka olika instans, databas, temdb inställningar och konfigurationer. Kontrollera att du inte har ändrat inställningarna som kompatibilitetsnivå eller kryptering innan du kör den första prestanda jämförelsen eller godta risken att några av de nya funktionerna som du har aktiverat kan påverka vissa frågor. Ändra kompatibilitetsnivån för databas för att minska migreringsrisker förrän prestandaövervakning.
+- Implementera [riktlinjer för lagring för bästa praxis för generell användning](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525) , till exempel förväg allokera storleken på filerna som ska få bättre prestanda.
+- Lär dig mer om den [viktiga skillnader i miljön som kan orsaka skillnader i prestanda mellan Managed Instance och SQL Server]( https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) och identifiera risker som kan påverka prestanda.
+- Se till att du behåller den aktiverad Query Store och automatisk justering på din hanterade instans. Dessa funktioner kan du mäta arbetsbelastningen prestanda och automatiskt åtgärda potentiella prestandaproblem. Lär dig att använda Query Store som en optimal verktyg för att hämta information om arbetsbelastningens prestanda före och efter databas nivåändring för kompatibilitet, enligt beskrivningen i [hålla prestanda stabilitet under uppgraderingen till nyare version av SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+När du har förberett den miljö som är jämförbar så mycket som möjligt med din lokala miljö, du kan börja köra din arbetsbelastning och mäta prestanda. Processen för mätning bör innehålla samma parametrar som du mäts [medan du skapar baslinjeprestanda för din arbetsbelastning mått på SQL Server-källans](#create-performance-baseline).
+Därför bör du jämför prestandaparametrar med baslinjen och identifiera viktiga skillnader.
+
+> [!NOTE]
+> I många fall skulle du inte att kunna få exakt matchande prestanda på hanterad instans och SQL Server. Hanterad instans är en SQL Server-databasmotorn men infrastruktur och konfiguration med hög tillgänglighet på hanterad instans kan införa vissa skillnaden. Du kan förvänta dig att vissa frågor skulle vara snabbare medan andra kan vara långsammare. Målet med jämförelse är att verifiera att arbetsbelastningens prestanda i hanterade instanser matchar prestanda på SQL Server (i genomsnitt) och identifiera finns det några viktiga frågor med prestanda som inte matchar din ursprungliga prestanda.
+
+Resultatet av jämförelsen prestanda kan vara:
+- Högsta prestanda på hanterad instans har justerats eller bättre som arbetsbelastningsprestandan på SQL Server. I det här fallet har du har bekräftat att migreringen har lyckats.
+- Merparten av prestandaparametrar och frågorna i arbetsbelastningen arbetet själv, med vissa undantag med försämrad prestanda. I det här fallet skulle du behöva identifiera skillnaderna och deras prioritet. Om det finns några viktiga frågor med försämrad prestanda, bör du undersöka de underliggande SQL-planerna ändras eller frågorna stöter på några resursbegränsningar. Minskning kan i det här fallet vara att använda några tips på viktiga frågor (till exempel ändrade kompatibilitetsnivå kan äldre kardinalitetsberäkningen) antingen direkt eller med hjälp av planguider, återskapa eller skapa statistik och index som kan påverka prenumerationerna. 
+- De flesta av frågorna som är långsammare på hanterad instans jämfört med källan SQL Server. I det här fallet försöker identifiera rotorsaken till skillnaden som [når vissa resursgräns]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) som i/o-gränser, minnesgräns, instans log hastighetsbegränsning osv. Om det finns ingen gräns för resursen som kan orsaka skillnaden, försöker ändra kompatibilitetsnivån för databasen eller ändra inställningar för databasen som äldre kardinalitetsberäknare och starta testet. Granska rekommendationerna tillhandahålls av Managed Instance eller Query Store vyer för att identifiera de frågor som försämrat prestanda.
+
+> [!IMPORTANT]
+> Hanterad instans har inbyggda plan för automatisk korrigering funktion som är aktiverad som standard. Den här funktionen ser till att frågor som fungerade bra i Klistra in inte skulle försämras i framtiden. Se till att den här funktionen är aktiverad och att du har genomfört arbetsbelastning tillräckligt länge med de gamla inställningarna innan du ändrar nya inställningar för att aktivera hanterad instans för mer information om baslinjeprestanda och planer.
+
+Gör ändringar av parametrar eller uppgradera tjänstnivåer att Konvergera till den bästa konfigurationen tills du kommer arbetsbelastningsprestandan som passar dina behov.
+
+### <a name="monitor-performance"></a>Övervaka prestanda
+
+När du är på en helt hanterad plattform och du har kontrollerat att arbetsbelastningen prestanda kommer att matcha du prestanda för SQL Server-arbetsbelastning kan du ta fördelar som tillhandahålls automatiskt som en del av tjänsten SQL Database. 
+
+Även om du inte göra några ändringar i hanterade instansen under migreringen, är det hög risken som du vill aktivera på några av de nya funktionerna när klustret fungerar din instans om du vill utnyttja de senaste förbättringarna i database engine. Vissa ändringar är endast aktiverad när den [kompatibilitetsnivån för databas har ändrats](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+
+
+Exempelvis kan du behöver inte skapa säkerhetskopior på hanterad instans - tjänsten utför säkerhetskopieringar åt dig automatiskt. Du måste inte längre tänka på schemaläggning, tar och hantera säkerhetskopior. Hanterad instans ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Dessutom kan du inte behöver bekymra dig om hur du konfigurerar hög tillgänglighet som [hög tillgänglighet](sql-database-high-availability.md) är inbyggd i.
+
+Överväg att använda för att stärka säkerheten, [Azure Active Directory Authentication](sql-database-security-overview.md), [granskning](sql-database-managed-instance-auditing.md), [hotidentifiering](sql-database-advanced-data-security.md), [försäkerhetpåradnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), och [dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ).
+
+Förutom avancerade hanterings- och säkerhetsfunktioner Managed Instance tillhandahåller en uppsättning avancerade verktyg som kan hjälpa dig att [övervaka och finjustera din arbetsbelastning](sql-database-monitor-tune-overview.md). [Azure SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) kan du övervaka ett stort antal instanser som hanteras och centralisera övervakning av ett stort antal instanser och databaser. [Automatisk justering](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) i Managed Instance kontinuerligt övervaka prestanda SQL planen körning statistik och automatiskt åtgärda identifierade prestandaproblem.
 
 ## <a name="next-steps"></a>Nästa steg
 

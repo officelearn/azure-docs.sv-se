@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108486"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD Application Proxy
 
@@ -64,7 +64,7 @@ Följande grundläggande krav måste uppfyllas för att konfigurera och implemen
 
 *  **Azure onboarding**: Innan du distribuerar programproxy användaridentiteter synkroniseras från en lokal katalog eller skapat direkt i din Azure AD-klienter. Identitetssynkronisering kan Azure AD att autentisera användare förväg innan bevilja dem åtkomst till App Proxy publicerade program och ha nödvändiga användarinformationen identifierare för enkel inloggning (SSO).
 
-* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att använda programproxy för intranätåtkomst eftersom detta lägger till svarstid som påverkar användarna. Vi rekommenderar att du använder Application Proxy med principer för förautentisering och villkorlig åtkomst för fjärråtkomst från internet.  En metod för att ge villkorlig åtkomst för intranät är att modernisera program så att de kan diretly autentisera med AAD. Referera till [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) för mer information. 
+* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att använda programproxy för intranätåtkomst eftersom detta lägger till svarstid som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från internet.  En metod för att ge villkorlig åtkomst för intranät är att modernisera program så att de kan diretly autentisera med AAD. Referera till [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) för mer information. 
 
 * **Tjänstbegränsningar**: För att skydda mot finns överförbrukning av resurser efter det enskilda klienter begränsningar gränser ange per program- och klienttrafik. Se dessa gränser som avser [Azure AD-tjänsten begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa nätverksbegränsningar baseras på en benchmark långt över vanliga användningsvolym och ger gott om buffert för en majoritet av distributioner.
 

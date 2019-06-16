@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095413"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services, Definition WorkerRole-Schema
@@ -151,7 +151,7 @@ I följande tabell beskrivs attributen för den `WorkerRole` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Namn för arbetsrollen. Rollens namn måste vara unikt.|
+|name|string|Krävs. Namn för arbetsrollen. Rollens namn måste vara unikt.|
 |enableNativeCodeExecution|boolesk|Valfri. Standardvärdet är `true`; native fjärrkörning av kod och fullständigt förtroende är aktiverade som standard. Anger du attributet till `false` att inaktivera interna kodkörning för worker-roll och Använd Azure partiellt förtroende i stället.|
 |vmsize|string|Valfri. Ange ett värde att ändra storleken på den virtuella dator som tilldelas till den här rollen. Standardvärdet är `Small`. En lista över möjliga VM-storlekar och deras attribut finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|
 
@@ -165,7 +165,7 @@ I följande tabell beskrivs attributen för den `Setting` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett unikt namn för konfigurationsinställningen.|
+|name|string|Krävs. Ett unikt namn för konfigurationsinställningen.|
 
 Konfigurationsinställningarna för en roll är namn och värdepar som är deklarerad i tjänstdefinitionsfilen och ange i tjänstekonfigurationsfilen.
 
@@ -182,7 +182,7 @@ I följande tabell beskrivs attributen för den `LocalStorage` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett unikt namn för det lokala arkivet.|
+|name|string|Krävs. Ett unikt namn för det lokala arkivet.|
 |cleanOnRoleRecycle|boolesk|Valfri. Anger om det lokala arkivet ska rensas när rollen startas om. Standardvärdet är `true`.|
 |sizeInMb|int|Valfri. Önskade mängden lagringsutrymme för att allokera för det lokala arkivet, i MB. Om inte anges är tilldelat lagringsutrymme standard 100 MB. Den minsta mängden lagringsutrymme som kan allokeras är 1 MB.<br /><br /> Den maximala storleken för de lokala resurserna beror på storleken på virtuella datorn. Mer information finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|
 
@@ -205,12 +205,12 @@ I följande tabell beskrivs attributen för den `InputEndpoint` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett unikt namn för den externa slutpunkten.|
-|protokoll|string|Krävs. Transportprotokoll för den externa slutpunkten. För en arbetsroll, möjliga värden är `HTTP`, `HTTPS`, `UDP`, eller `TCP`.|
+|name|string|Krävs. Ett unikt namn för den externa slutpunkten.|
+|protocol|string|Krävs. Transportprotokoll för den externa slutpunkten. För en arbetsroll, möjliga värden är `HTTP`, `HTTPS`, `UDP`, eller `TCP`.|
 |port|int|Krävs. Porten för den externa slutpunkten. Du kan ange ett portnummer som du väljer, men de portnummer som anges för varje roll i tjänsten måste vara unikt.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|
 |certifikat|string|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat som definieras av en `Certificate` element.|
 |localPort|int|Valfri. Anger en port som används för interna anslutningar på slutpunkten. Den `localPort` attribut mappar den externa porten på slutpunkten till en intern port för en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en port att skiljer sig från det som är tillgänglig externt.<br /><br /> Om inte anges värdet för `localPort` är samma som den `port` attribut. Ange värdet för `localPort` till ”*” att automatiskt tilldela en oallokerad port som är synliga med runtime API.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `localPort` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|
-|ignoreRoleInstanceStatus|boolesk|Valfri. När värdet för det här attributet anges till `true`, status för en tjänst ignoreras och slutpunkten tas inte bort av belastningsutjämnaren. Värdet `true` användbart för felsökning av upptagen instanser av en tjänst. Standardvärdet är `false`. **Obs!** En slutpunkt kan fortfarande ta emot trafik även om rollen inte är i tillståndet redo.|
+|ignoreRoleInstanceStatus|boolesk|Valfri. När värdet för det här attributet anges till `true`, status för en tjänst ignoreras och slutpunkten tas inte bort av belastningsutjämnaren. Värdet `true` användbart för felsökning av upptagen instanser av en tjänst. Standardvärdet är `false`. **Obs:** En slutpunkt kan fortfarande ta emot trafik även om rollen inte är i tillståndet redo.|
 |loadBalancerProbe|string|Valfri. Namnet på belastningsutjämnaravsökningen som är associerade med slutpunkten för indata. Mer information finns i [LoadBalancerProbe-Schema](schema-csdef-loadbalancerprobe.md).|
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint
@@ -220,8 +220,8 @@ I följande tabell beskrivs attributen för den `InternalEndpoint` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett unikt namn för den interna slutpunkten.|
-|protokoll|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `HTTP`, `TCP`, `UDP`, eller `ANY`.<br /><br /> Värdet `ANY` anger att alla protokoll, alla portar tillåts.|
+|name|string|Krävs. Ett unikt namn för den interna slutpunkten.|
+|protocol|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `HTTP`, `TCP`, `UDP`, eller `ANY`.<br /><br /> Värdet `ANY` anger att alla protokoll, alla portar tillåts.|
 |port|int|Valfri. Den port som används för interna belastningsutjämnade anslutningar på slutpunkten. En belastningsutjämnade slutpunkten använder två portar. Den port som används för den offentliga IP-adressen och porten som används på privata IP-adress. Vanligtvis är dessa sätts de till samma, men du kan välja att använda olika portar.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `Port` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
@@ -233,9 +233,9 @@ I följande tabell beskrivs attributen för den `InstanceInputEndpoint` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett unikt namn för slutpunkten.|
+|name|string|Krävs. Ett unikt namn för slutpunkten.|
 |localPort|int|Krävs. Anger den interna porten som alla rollinstanser ska lyssna på för att kunna ta emot inkommande trafik vidarebefordras från belastningsutjämnaren. Möjliga värden intervallet mellan 1 och 65535, inklusive.|
-|protokoll|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Använd `tcp` för http/https-baserad trafik.|
+|protocol|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Använd `tcp` för http/https-baserad trafik.|
 
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
 Den `AllocatePublicPortFrom` element beskriver offentliga portintervallet som kan användas av externa kunder att få åtkomst till en slutpunkt för indata på varje instans. Det offentliga portnumret (VIP) är allokerade från det här intervallet och tilldelas varje enskild roll instans slutpunkt under distribution för klienter och uppdatera. Det här elementet har överordnat den `FixedPortRange` element.
@@ -278,7 +278,7 @@ I följande tabell beskrivs attributen för den `Certificate` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Ett namn för det här certifikatet som används för att se den när den är associerad med en HTTPS `InputEndpoint` element.|
+|name|string|Krävs. Ett namn för det här certifikatet som används för att se den när den är associerad med en HTTPS `InputEndpoint` element.|
 |storeLocation|string|Krävs. Platsen för arkivet där det här certifikatet kan hittas på den lokala datorn. Möjliga värden är `CurrentUser` och `LocalMachine`.|
 |storeName|string|Krävs. Namnet på arkivet där det här certifikatet finns på den lokala datorn. Några möjliga värden är de inbyggda arkivnamn `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, eller ett eget Arkiv-namn. Om ett eget Arkiv-namn har angetts, skapas automatiskt i store.|
 |permissionLevel|string|Valfri. Anger de åtkomstbehörigheter som ges till processerna som rollen. Om du vill att endast utökade processer för att kunna komma åt den privata nyckeln och sedan ange `elevated` behörighet. `limitedOrElevated` tillåter alla rollen processer att få åtkomst till den privata nyckeln. Möjliga värden är `limitedOrElevated` eller `elevated`. Standardvärdet är `limitedOrElevated`.|
@@ -322,7 +322,7 @@ I följande tabell beskrivs attributen för den `Variable` element:
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|string|Krävs. Namnet på miljövariabeln för att ställa in.|
+|name|string|Krävs. Namnet på miljövariabeln för att ställa in.|
 |value|string|Valfri. Värdet som angetts för miljövariabeln. Du måste inkludera värdeattributet eller en `RoleInstanceValue` element.|
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue
@@ -401,7 +401,7 @@ I följande tabell beskrivs attributen för den `Content` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|mål|string|Krävs. Plats på virtuella Azure-datorer som innehållet ska placeras. Den här platsen är i förhållande till mappen **%ROLEROOT%\Approot**.|
+|destination|string|Krävs. Plats på virtuella Azure-datorer som innehållet ska placeras. Den här platsen är i förhållande till mappen **%ROLEROOT%\Approot**.|
 
 Det här elementet har det överordnade elementet i den `SourceDirectory` element.
 
@@ -414,7 +414,7 @@ I följande tabell beskrivs attributen för den `SourceDirectory` element.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|path|string|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|
+|sökväg|string|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|
 
 ## <a name="see-also"></a>Se även
 [Molnet (klassisk) Tjänstdefinitionsschemat](schema-csdef-file.md)

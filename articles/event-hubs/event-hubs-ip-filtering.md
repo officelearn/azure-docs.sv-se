@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821665"
 ---
 # <a name="use-firewall-rules"></a>Använd brandväggsregler
@@ -72,7 +72,7 @@ Mallparametrar:
 > Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
 > När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
 > 
-> från
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

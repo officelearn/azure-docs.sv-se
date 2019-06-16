@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508963"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Enkelsidigt loggar in med det implicita flödet för OAuth 2.0 i Azure Active Directory B2C
@@ -86,7 +86,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Nej | Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodade. |
 | response_mode | Nej | Anger metoden du använder för att skicka den resulterande token tillbaka till din app.  Implicit flöden, använda `fragment`. |
 | scope | Ja | En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure AD båda av de behörigheter som tas emot. Den `openid` omfång anger en behörighet att logga in användaren och hämta data om användaren i form av ID-token. Den `offline_access` omfånget är valfritt för web apps. Det innebär att din app måste en uppdateringstoken för långlivade åtkomst till resurser. |
-| tillstånd | Nej | Ett värde i begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran. Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade som de var på sidan. |
+| state | Nej | Ett värde i begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran. Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade som de var på sidan. |
 | nonce | Ja | Ett värde i begäran (genereras av appen) som ingår i den resulterande ID-token som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |
 | p | Ja | Principen för att köra. Det är namnet på en princip (användarflödet) som skapas i din Azure AD B2C-klient. Namnet principvärdet måste inledas med **b2c\_1\_** . |
 | fråga | Nej | Typ av interaktion från användaren som krävs. Det enda giltiga värdet är för närvarande `login`. Den här parametern Tvingar användaren att ange sina autentiseringsuppgifter i begäran. Enkel inloggning ska börja gälla. |
@@ -115,7 +115,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | Hur lång tid som den åtkomst-token är giltig (i sekunder). |
 | scope | Scope som token är giltig för. Du kan också använda omfång cache-tokens för senare användning. |
 | id_token | ID-token som appen har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). |
-| tillstånd | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 ### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till omdirigeringen-URI så att appen kan hantera dem på rätt sätt:
@@ -131,7 +131,7 @@ error=access_denied
 | --------- | ----------- |
 | error | En kod som används för att klassificera typer av fel som uppstår. |
 | error_description | Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
-| tillstånd | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska.|
+| state | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska.|
 
 ## <a name="validate-the-id-token"></a>Verifiera ID-token
 
@@ -198,7 +198,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodade. |
 | scope |Obligatoriskt |En blankstegsavgränsad lista med omfattningar.  Inkludera alla omfång som du behöver för den avsedda resursen för att hämta token. |
 | response_mode |Rekommenderas |Anger den metod som används för att skicka den resulterande token tillbaka till din app.  Kan vara `query`, `form_post`, eller `fragment`. |
-| tillstånd |Rekommenderas |Ett värde i begäran som returneras i token-svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran.  Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Till exempel sidan eller vyn kunde användaren på. |
+| state |Rekommenderas |Ett värde i begäran som returneras i token-svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran.  Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Till exempel sidan eller vyn kunde användaren på. |
 | nonce |Obligatoriskt |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
 | fråga |Obligatoriskt |Om du vill uppdatera och hämta token i en dold iframe måste använda `prompt=none` så att iframe inte fastnar på sidan logga in och returnerar omedelbart. |
 | login_hint |Obligatoriskt |Om du vill uppdatera och hämta token i en dold iframe måste innehålla användarnamnet för användaren i den här tipset att skilja mellan olika sessioner som användaren kan ha vid en given tidpunkt. Du kan extrahera användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
@@ -222,7 +222,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |Den token som appen har begärt. |
 | token_type |Vydat typ kommer alltid att ägar. |
-| tillstånd |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | scope |Scope som den åtkomst-token är giltig för. |
 

@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65535862"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67119128"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
@@ -123,7 +123,7 @@ Dina val för hög tillgänglighet, säkerhetskopiering och Katastrofåterställ
 
 | Nivå |   Hög tillgänglighet   | Säkerhetskopiering eller DR |
 | --- | --- | --- |
-| Tillämpningsprogram | SQL Server AlwaysOn | Azure Backup |
+| Program | SQL Server AlwaysOn | Azure Backup |
 | Infrastruktur    | Tillgänglighetsuppsättning  | GEO-redundant lagring med programkonsekventa ögonblicksbilder |
 
 ### <a name="using-azure-backup"></a>Med hjälp av Azure Backup 

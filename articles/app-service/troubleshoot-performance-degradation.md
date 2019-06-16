@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128457"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsamma app prestanda i Azure App Service
@@ -136,7 +136,7 @@ Om du vill få åtkomst till App Service-diagnostik, navigera till din App Servi
 #### <a name="use-the-kudu-debug-console"></a>Använda Kudu-Felsökningskonsolen
 App Service levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Den här konsolen kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din app.
 
-Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/**.
+Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/** .
 
 Några av de saker som Kudu tillhandahåller är:
 

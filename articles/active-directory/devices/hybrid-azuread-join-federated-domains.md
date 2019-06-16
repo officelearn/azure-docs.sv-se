@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600d6b9f1eb8d8073e1658dd5b8196a3d8137e42
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: ea834a0fc1d92cc8d2326bd94dde2e0a983c90a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110749"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutningar för federerade domäner
 
@@ -26,7 +26,7 @@ På liknande sätt till en användare är en enhet en annan core identitet som d
 - Hybrid Azure Active Directory-anslutning
 - Azure Active Directory-registrering
 
-När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. Samtidigt kan du skydda tillgången till dina resurser i molnet och lokalt med [villkorad åtkomst](../active-directory-conditional-access-azure-portal.md).
+När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång, kan du skydda åtkomst till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
 
 Lär dig hur du konfigurerar hybrid Azure AD-anslutning för AD-enheter för domänanslutna datorer i en federerad miljö använder AD FS i de här självstudierna.
 
@@ -167,7 +167,7 @@ Följande gäller när du använder cmdlet:en **Get-MSolDevice** för att kontro
 
 - Ett objekt med den **enhets-ID** som matchar ID på Windows klient måste finnas.
 - Värdet för **DeviceTrustType** måste vara **Domänansluten**. Detta motsvarar statusen **Hybrid Azure AD-ansluten** på enhetssidan i Azure AD-portalen.
-- Värdet för **Aktiverad** måste vara **True** och **DeviceTrustLevel** måste vara **Hanteras** för enheter som används i villkorsstyrd åtkomst.
+- Värdet för **aktiverad** måste vara **SANT** och **DeviceTrustLevel** måste vara **hanterade** för enheter som används i villkorlig åtkomst.
 
 **Så här kontrollerar du tjänstinformationen:**
 

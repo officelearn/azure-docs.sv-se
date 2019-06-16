@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107987"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Konfigurera privata IP-adresser för en virtuell dator (klassisk) med den klassiska Azure CLI
@@ -64,10 +64,10 @@ Skapa en ny virtuell dator med namnet *DNS01* i en ny molntjänst med namnet *Te
         info:    OK
         info:    vm create command OK
    
-   * **-l (eller --location)**. Azure-region där den virtuella datorn kommer att skapas. I vårt scenario, *centralus*.
-   * **-n (eller--vm-name)**. Namnet på den virtuella datorn skapas.
-   * **-w (eller--virtual-network-name)**. Namnet på det virtuella nätverket där den virtuella datorn kommer att skapas. 
-   * **-S (eller--statisk ip)**. Statiska privata IP-adress för den virtuella datorn.
+   * **-l (eller --location)** . Azure-region där den virtuella datorn kommer att skapas. I vårt scenario, *centralus*.
+   * **-n (eller--vm-name)** . Namnet på den virtuella datorn skapas.
+   * **-w (eller--virtual-network-name)** . Namnet på det virtuella nätverket där den virtuella datorn kommer att skapas. 
+   * **-S (eller--statisk ip)** . Statiska privata IP-adress för den virtuella datorn.
    * **TestService**. Namnet på Molntjänsten där den virtuella datorn kommer att skapas.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012 R2-x64-v14.2**. Bild som används för att skapa den virtuella datorn.
    * **adminuser**. Lokal administratör för den virtuella Windows-datorn.

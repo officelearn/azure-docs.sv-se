@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080419"
 ---
 # <a name="upload-files-with-iot-hub"></a>Ladda upp filer med IoT Hub
 
-Enligt beskrivningen i den [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) artikel, en enhet kan starta en uppladdning genom att skicka ett meddelande via en enhet-riktade slutpunkt (**/devices/ {deviceId} / filer**). När en enhet meddelas IoT Hub att ladda upp är klar, IoT Hub skickar ett filuppladdningsmeddelande för överföring via den **/messages/servicebound/filenotifications** service-slutpunkter.
+Enligt beskrivningen i den [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) artikel, en enhet kan starta en uppladdning genom att skicka ett meddelande via en enhet-riktade slutpunkt ( **/devices/ {deviceId} / filer**). När en enhet meddelas IoT Hub att ladda upp är klar, IoT Hub skickar ett filuppladdningsmeddelande för överföring via den **/messages/servicebound/filenotifications** service-slutpunkter.
 
 I stället för förtroendeförmedling meddelanden via IoT Hub själva fungerar IoT Hub i stället som en dispatcher till ett associerat Azure Storage-konto. En enhet begär en token för storage från IoT Hub som är specifik för enheten vill ladda upp filen. Enheten använder SAS-URI för att överföra filen till lagring och när överföringen är klar enheten skickar ett meddelande om slutförande till IoT Hub. IoT Hub kontrollerar filöverföringen är klar och lägger sedan till ett filuppladdningsmeddelande för uppladdning till aviseringsslutpunkten tjänst för webbservergrupper på filen.
 
@@ -95,9 +95,9 @@ Följande referens ger dig mer information om hur du överför filer från en en
 
 När en enhet meddelas IoT Hub att ladda upp är klar, genererar du kan också ett meddelande i IoT Hub. Det här meddelandet innehåller och platsen för filen.
 
-Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb levererar filen ladda upp meddelanden via en tjänst-riktade slutpunkt (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Ta emot-semantik för filmeddelanden för uppladdning är desamma som för meddelanden från moln till enhet och har samma [meddelande livscykel](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Varje meddelande som hämtas från filen uppladdning aviseringsslutpunkten är en JSON-post med följande egenskaper:
+Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb levererar filen ladda upp meddelanden via en tjänst-riktade slutpunkt ( **/messages/servicebound/fileuploadnotifications**) som meddelanden. Ta emot-semantik för filmeddelanden för uppladdning är desamma som för meddelanden från moln till enhet och har samma [meddelande livscykel](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Varje meddelande som hämtas från filen uppladdning aviseringsslutpunkten är en JSON-post med följande egenskaper:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | EnqueuedTimeUtc |Tidsstämpel som visar när meddelandet skapades. |
 | DeviceId |**DeviceId** på den enhet som du laddade upp filen. |
@@ -123,12 +123,12 @@ Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb le
 
 Varje IoT-hubb har följande konfigurationsalternativ för filen överföra meddelanden:
 
-| Egenskap  | Beskrivning | Intervall- och standard |
+| Egenskap | Beskrivning | Intervall- och standard |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Styr om meddelanden för uppladdning av filen skrivs till slutpunkten för fil-meddelanden. |Bool. Standard: SANT. |
-| **fileNotifications.ttlAsIso8601** |Standard-TTL för filen ladda upp meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). Standard: 1 timme. |
-| **fileNotifications.lockDuration** |Varaktighet för lås för filen ladda upp meddelanden kön. |5 och 300 sekunder (minst 5 sekunder). Standard: 60 sekunder. |
-| **fileNotifications.maxDeliveryCount** |Maximalt antal leveranser för filen överför meddelandekö. |1 och 100. Standard: 100. |
+| **enableFileUploadNotifications** |Styr om meddelanden för uppladdning av filen skrivs till slutpunkten för fil-meddelanden. |Bool. standard: SANT. |
+| **fileNotifications.ttlAsIso8601** |Standard-TTL för filen ladda upp meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). standard: 1 timme. |
+| **fileNotifications.lockDuration** |Varaktighet för lås för filen ladda upp meddelanden kön. |5 och 300 sekunder (minst 5 sekunder). standard: 60 sekunder. |
+| **fileNotifications.maxDeliveryCount** |Maximalt antal leveranser för filen överför meddelandekö. |1 och 100. standard: 100. |
 
 ## <a name="additional-reference-material"></a>Ytterligare referensmaterial
 

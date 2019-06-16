@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861122"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrera analytics från Excel till Azure Machine Learning Studio
@@ -72,8 +72,8 @@ När vi tillämpade rekommendationerna uppnått vi samma baslinje-prestanda i St
 |  | Excel | Studio (första) | Studio med minsta kvadrat |
 | --- |:---:|:---:|:---:|
 | Taggade värde |Faktiska (numeriska) |Samma |Samma |
-| Learner |Excel -> Data Analysis -> Regression |Linjär Regression. |Linjär Regression |
-| Learner alternativ |Gäller inte |Standardvärden |vanlig minsta kvadrat<br />L2 = 0,005 |
+| Learner |Excel -> Data Analysis -> Regression |Linjär Regression. |Linjär regression |
+| Learner alternativ |Gäller inte |Som standard |vanlig minsta kvadrat<br />L2 = 0,005 |
 | Datauppsättning |26 raderna, 3 funktioner, 1 etikett. Alla numeriska. |Samma |Samma |
 | Dela: Träna |Excel tränats på först 18 rader, testas och de senaste 8 raderna. |Samma |Samma |
 | Dela: Testa |Excel-regressionsformeln som tillämpas på de senaste 8 raderna |Samma |Samma |
@@ -119,7 +119,7 @@ Om du vill experimentera med regression är en bra datauppsättning för att tes
 | --- | --- | --- | --- | --- | --- |
 | Beslutsträd |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Linjär Regression (brantaste Lutningsmetoden) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
-| Neuralt nätverk Regression |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
+| Regression för Neural Network |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
 | Linjär Regression (vanlig minsta kvadrat) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Viktiga Takeaways

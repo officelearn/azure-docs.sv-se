@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468611"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Returnera din Azure Data Box Edge-enhet
@@ -38,7 +38,7 @@ Gör följande om du vill återställa enheten med det lokala webbgränssnittet.
 1. I det lokala webbgränssnittet går du till **Underhåll > enheten återställa**.
 2. Välj **Återställ enhet**.
 
-    ![Återställ enhet](media/data-box-edge-return-device/device-reset-1.png)
+    ![Återställa enhet](media/data-box-edge-return-device/device-reset-1.png)
 
 3. När du uppmanas att bekräfta granska varningen och välj **Ja** att fortsätta.
 

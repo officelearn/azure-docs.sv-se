@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111084"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -178,7 +178,7 @@ Du kan registrera programmet i något av två sätt, enligt beskrivningen i föl
 
 ### <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet
 
-1. I Android Studio väljer **Gradle-skripten** > **build.gradle (modul: app)**.
+1. I Android Studio väljer **Gradle-skripten** > **build.gradle (modul: app)** .
 2. Under **beroenden**, klistra in följande kod:
 
     ```gradle  
@@ -542,6 +542,6 @@ Passa på att öppna ett ärende i det här dokumentet eller i biblioteket MSAL 
 
 Första gången en användare loggar in på din app, uppmanas de av Microsoft identity samtycker till att de behörigheter som begärdes.  De flesta användare är kapabel att samtycka, har vissa Azure AD-klienter inaktiverat användargodkännande - att kräva att administratörer kan ge samtycke åt alla användare.  För att stödja det här scenariot måste du registrera din app omfång i Azure-portalen.
 
-## <a name="help-and-support"></a>Hjälp och support
+## <a name="help-and-support"></a>Hjälp och Support
 
 Hade problem med den här självstudien eller med Microsoft identity-plattformen? Se [hjälp och support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)

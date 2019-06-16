@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080490"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa visningen av data från dina OPC UA-servrar i lösningen för ansluten fabrik
 
@@ -39,7 +39,7 @@ Den här artikeln beskrivs:
 
 ## <a name="data-sources"></a>Datakällor
 
-Lösningen för ansluten fabrik visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen omfattar flera OPC UA-servrar som kör en factory simulering. Du kan lägga till dina egna OPC UA-servrar som [ansluta via en gateway] [ lnk-connect-cf] i lösningen.
+Lösningen för ansluten fabrik visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen omfattar flera OPC UA-servrar som kör en factory simulering. Du kan lägga till dina egna OPC UA-servrar som [ansluta via en gateway] [lnk-connect-cf] i lösningen.
 
 Du kan bläddra bland de dataobjekt som en ansluten OPC UA-servern kan skicka till din lösning på instrumentpanelen:
 
@@ -79,8 +79,6 @@ Den **azure-iot-connected-factory** databasen innehåller en **build.ps1** Power
 
 Läs mer om ansluten fabrik lösningsaccelerator genom att läsa följande artiklar:
 
-* [Genomgång av lösningsacceleratorn Ansluten fabrik][lnk-rm-walkthrough]
-* [Distribuera en gateway för ansluten fabrik][lnk-connect-cf]
 * [Behörigheter på webbplatsen azureiotsolutions.com][lnk-permissions]
 * [Vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md)
 * [VANLIGA FRÅGOR OCH SVAR][lnk-faq]
@@ -93,7 +91,5 @@ Läs mer om ansluten fabrik lösningsaccelerator genom att läsa följande artik
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

@@ -13,10 +13,10 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60901033"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Beroendetelemetri: Application Insights-datamodell
@@ -43,7 +43,7 @@ Namn på beroende. Kardinalitet för lågt värde för logisk gruppering av bero
 
 Målplatsen för ett beroende anrop. Exempel är servernamnet, värdadress. Mer information finns i [korrelation](../../azure-monitor/app/correlation.md) sidan.
 
-## <a name="duration"></a>Varaktighet
+## <a name="duration"></a>Duration
 
 Varaktighet i format för begäran: `DD.HH:MM:SS.MMMMMM`. Måste vara mindre än `1000` dagar.
 
@@ -51,7 +51,7 @@ Varaktighet i format för begäran: `DD.HH:MM:SS.MMMMMM`. Måste vara mindre än
 
 Resultatkod för en beroendeanropet. Exempel är SQL-felkod och HTTP-statuskod.
 
-## <a name="success"></a>Lyckades
+## <a name="success"></a>Klart
 
 Uppgift om lyckade och misslyckade anrop.
 

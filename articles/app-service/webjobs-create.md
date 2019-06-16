@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833580"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsuppgifter med WebJobs i Azure App Service
@@ -41,7 +41,7 @@ Azure Functions erbjuder ett annat sätt att köra program och skript. En jämf�
 I följande tabell beskrivs skillnaderna mellan *kontinuerlig* och *utlöses* WebJobs.
 
 
-|Kontinuerlig igenkänning  |Utlöst  |
+|Kontinuerlig igenkänning  |Utlöses  |
 |---------|---------|
 | Startar omedelbart när Webbjobbet har skapats. Om du vill behålla jobbet från slut, fungerar programmet eller skriptet vanligtvis på sitt arbete i en oändlig loop. Om jobbet slutar, kan du starta om den. | Startar endast när det utlöses manuellt eller enligt ett schema. |
 | Körs på alla instanser som webbappen körs på. Du kan också begränsa Webbjobbet till en enda instans. |Körs på en enda instans väljer Azure för belastningsutjämning.|
@@ -124,7 +124,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Namn** | myTriggeredWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”.|
    | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **typ** | Utlöses | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **utlösare** | Manuellt | |
 
 4. Klicka på **OK**.
@@ -135,7 +135,7 @@ when making changes in one don't forget the other two.
 
 7. För att köra Webbjobbet, högerklickar du på namnet i listan och klicka på **kör**.
    
-    ![Kör webbjobb](./media/web-sites-create-web-jobs/runondemand.png)
+    ![Köra Webbjobbet](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a> Skapa ett schemalagt Webbjobb
 
@@ -162,7 +162,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Namn** | myScheduledWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
    | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **typ** | Utlöses | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **utlösare** | Schemalagd | Aktivera funktionen alltid på för att schemalägga att arbeta på ett tillförlitligt sätt. Always On finns bara i den Basic, Standard och Premium-prisnivåerna.|
    | **CRON-uttryck** | 0 0/20 * * * * | [CRON-uttryck](#cron-expressions) beskrivs i följande avsnitt. |
 

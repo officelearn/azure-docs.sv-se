@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515327"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protokoll
@@ -98,10 +98,10 @@ Klienter *måste* stöd för omdirigering av standard-mekanismer som anges av de
 
 Klienter *måste* använda en lämplig Speech Service-slutpunkt. Slutpunkten är baserad på erkännande läge och språk. Tabellen visar några exempel.
 
-| Läge | Sökväg | Tjänstens URI |
+| Läge | `Path` | Tjänstens URI |
 | -----|-----|-----|
 | Interaktiv | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Konversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| konversationen | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | diktering | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Mer information finns i den [Service URI](../GetStarted/GetStartedREST.md#service-uri) sidan.
@@ -152,7 +152,7 @@ Följande huvuden krävs för alla klient-genererade meddelanden.
 
 | Huvud | Värde |
 |----|----|
-| Sökväg | Meddelande-sökvägen som anges i det här dokumentet |
+| `Path` | Meddelande-sökvägen som anges i det här dokumentet |
 | X-RequestId | UUID i ”no-dash”-format |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
 
@@ -181,7 +181,7 @@ Klienter *måste* skicka en `speech.config` meddelandet omedelbart efter att de 
 
 | Huvudnamn | Värde |
 |----|----|
-| Sökväg | `speech.config` |
+| `Path` | `speech.config` |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -252,7 +252,7 @@ Följande huvuden krävs för alla `audio` meddelanden.
 
 | Huvud         |  Värde     |
 | ------------- | ---------------- |
-| Sökväg | `audio` |
+| `Path` | `audio` |
 | X-RequestId | UUID i ”no-dash”-format |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
 | Content-Type | Ljud innehållstyp. Typen måste vara antingen *wav-ljud/x* (PCM) eller *ljud/silke* (silke). |
@@ -308,7 +308,7 @@ Klienter måste godkänna en aktivera är slut genom att skicka en `telemetry` m
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `telemetry` |
+| `Path` | `telemetry` |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
 | Content-Type | `application/json` |
 | Innehåll | En JSON-struktur som innehåller klientens information om i sin tur |
@@ -330,7 +330,7 @@ Den `speech.startDetected` meddelandet anger att Speech Service påträffas tal 
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `speech.startDetected` |
+| `Path` | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Innehåll | JSON-strukturen som innehåller information om villkor när början av tal har identifierats. Den *Offset* fält i den här strukturen anger förskjutningen (i 100 nanosekunder enheter) när tal har upptäckts i ljudström, i förhållande till början av strömmen. |
 
@@ -355,7 +355,7 @@ Taligenkänning genererar Speech Service regelbundet hypoteser om orden tjänste
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `speech.hypothesis` |
+| `Path` | `speech.hypothesis` |
 | X-RequestId | UUID i ”no-dash”-format |
 | Content-Type | application/json |
 | Innehåll | Tal hypotesen JSON-struktur |
@@ -387,7 +387,7 @@ När Speech Service anger att det finns tillräckligt med information för att p
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `speech.phrase` |
+| `Path` | `speech.phrase` |
 | Content-Type | application/json |
 | Innehåll | Tal frasen JSON-struktur |
 
@@ -415,7 +415,7 @@ Den `speech.endDetected` meddelandet anger att klientprogrammet ska avbrytas str
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `speech.endDetected` |
+| `Path` | `speech.endDetected` |
 | Innehåll | JSON-strukturen som innehåller förskjutningen när slutet av tal har identifierats. Förskjutningen representeras i enheter om 100 nanosekunder förskjutning från början av ljud som används för taligenkänning. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ Den `turn.start` följs av en aktivera perspektiv av tjänsten. Den `turn.start`
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `turn.start` |
+| `Path` | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Innehåll | JSON-struktur |
 
@@ -467,7 +467,7 @@ Den `turn.end` signalerar till slutet av ett varv perspektiv av tjänsten. Den `
 | Fält | Beskrivning |
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
-| Sökväg | `turn.end` |
+| `Path` | `turn.end` |
 | Innehåll | Ingen |
 
 #### <a name="sample-message"></a>Exempelmeddelande
@@ -511,7 +511,7 @@ Den `Connection` mått anger information om anslutningsförsök av klienten. Må
 | Namn | `Connection` | Obligatoriskt |
 | Id | Anslutningen ID-värde som användes i den *X ConnectionId* rubriken för den här begäran om anslutning | Obligatoriskt |
 | Start | Tiden när klienten har skickat anslutningsbegäran | Obligatoriskt |
-| Slut | Tiden när klienten tog emot meddelande att anslutningen har upprättats har eller, i fall av Schemaläggningsfel, avvisat nekade eller misslyckades | Obligatoriskt |
+| slutpunkt | Tiden när klienten tog emot meddelande att anslutningen har upprättats har eller, i fall av Schemaläggningsfel, avvisat nekade eller misslyckades | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om en anslutning har upprättats, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 Felbeskrivningen ska vara högst 50 tecken och vi är en av de värden som anges i följande tabell. Om felet inte matchar någon av dessa värden, klienter kan använda en kortfattad beskrivning av felet med hjälp av [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) utan blanksteg. Möjligheten att skicka en *telemetri* meddelande kräver en anslutning till tjänsten, så bara tillfälligt eller tillfälliga fel kan rapporteras i den *telemetri* meddelande. Fel villkor som *permanent* blockera en klient från att upprätta en anslutning till tjänsten hindra klienten från att skicka något meddelande till tjänsten, inklusive *telemetri* meddelanden.
@@ -550,7 +550,7 @@ Den *slutet* tid värde för den `Microphone` mått registrerar tiden när klien
 | ----- | ----------- | ----- |
 | Namn | Mikrofon | Obligatoriskt |
 | Start | Tiden när klienten komma igång med in ljud från mikrofonen eller andra ljudström eller tog emot en utlösare från nyckelordet spotter | Obligatoriskt |
-| Slut | Tiden när klienten helt slutat använda dataströmmen mikrofon eller ljud | Obligatoriskt |
+| slutpunkt | Tiden när klienten helt slutat använda dataströmmen mikrofon eller ljud | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om mikrofon åtgärderna hade önskat resultat, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 ### <a name="metric-listeningtrigger"></a>Mått `ListeningTrigger`
@@ -570,7 +570,7 @@ Använd följande exempel som riktlinjer för inspelning *starta* och *slutet* t
 | ----- | ----------- | ----- |
 | Namn | ListeningTrigger | Valfri |
 | Start | Tidpunkten då klienten lyssnande utlösaren startades | Obligatoriskt |
-| Slut | Tidpunkten då klienten lyssnande utlösaren avslutades | Obligatoriskt |
+| slutpunkt | Tidpunkten då klienten lyssnande utlösaren avslutades | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om utlösaråtgärden lyckades utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 #### <a name="sample-message"></a>Exempelmeddelande

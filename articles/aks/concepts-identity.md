@@ -2,17 +2,16 @@
 title: Begrepp - åtkomst och identitet i Azure Kubernetes Services (AKS)
 description: Läs mer om åtkomst och identitet i Azure Kubernetes Service (AKS), inklusive Azure Active Directory-integrering, Kubernetes rollbaserad åtkomstkontroll (RBAC), och roller och -bindningar.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 02/28/2019
+ms.author: iainfou
 ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467057"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Alternativ för åtkomst och identitet för Azure Kubernetes Service (AKS)
@@ -93,9 +92,9 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

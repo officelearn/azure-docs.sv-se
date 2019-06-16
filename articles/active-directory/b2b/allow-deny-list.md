@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b302ec0265473e09b3960660b10661faa1960442
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113226"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer
 
@@ -64,7 +64,7 @@ Lägga till en lista över tillåtna:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **användare** > **användarinställningar**.
 3. Under **externa användare**väljer **hantera inställningar för externt samarbete**.
-4. Under **samarbetesbegränsningar**väljer **Tillåt enbart inbjudningar till de angivna domänerna (mest begränsande)**.
+4. Under **samarbetesbegränsningar**väljer **Tillåt enbart inbjudningar till de angivna domänerna (mest begränsande)** .
 5. Under **MÅLDOMÄNER**, anger du namnet på en av de domäner som du vill tillåta. Ange varje domän för flera domäner på en ny rad. Exempel:
 
    ![Visar alternativet Tillåt med tillagda domäner](./media/allow-deny-list/AllowListSettings.png)
@@ -79,7 +79,7 @@ Om du växlar från en princip till en annan ignorerar detta i befintliga konfig
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Ange listan Tillåt eller neka lista princip med hjälp av PowerShell
 
-### <a name="prerequisite"></a>Förutsättning
+### <a name="prerequisite"></a>Krav
 
 För att välja listan Tillåt eller neka listan med hjälp av PowerShell, måste du installera förhandsversionen av Azure Active Directory-modulen för Windows PowerShell. Mer specifikt installera AzureADPreview Modulversion 2.0.0.98 eller senare.
 

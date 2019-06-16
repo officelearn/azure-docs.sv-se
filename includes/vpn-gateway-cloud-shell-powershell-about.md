@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6af5e5e42a16548b1997845ea5076ddd4dd3be5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 01358d13d30358a9950cbe35622df065fc5a6de5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133660"
 ---
 Den här artikeln används PowerShell-cmdletar. Om du vill köra cmdlets, kan du använda Azure Cloud Shell, ett interaktivt gränssnitt-miljö i Azure och används via webbläsaren. Azure Cloud Shell levereras med Azure PowerShell-cmdlets som redan är installerat.
 
@@ -29,4 +29,4 @@ Du kan starta Azure Cloud Shell med:
 
 **Kör PowerShell lokalt**
 
-Du kan även installera och köra Azure PowerShell-cmdlets lokalt på datorn. PowerShell-cmdlets uppdateras ofta. Om du inte kör den senaste versionen, misslyckas värdena som anges i instruktionerna. Använd för att hitta versionen av PowerShell som du kör lokalt, den `Get-Module -ListAvailable Az` cmdlet. Om du vill installera eller uppdatera kan se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+Du kan även installera och köra Azure PowerShell-cmdlets lokalt på datorn. PowerShell-cmdlets uppdateras ofta. Om du inte kör den senaste versionen, misslyckas värdena som anges i instruktionerna. Använd för att hitta versionerna av Azure PowerShell installerad på datorn, den `Get-Module -ListAvailable Az` cmdlet. Om du vill installera eller uppdatera kan se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).

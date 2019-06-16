@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306665"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
@@ -65,7 +65,7 @@ Låt oss titta på sidan i REST API-referens för den [ListContainers](/rest/api
 
 **Begärandemetod**: HÄMTA. Den här verbet är HTTP-metod som du anger som en egenskap för Begäranobjektet. Andra värden för den här verb är HEAD, PUT och DELETE, beroende på du anropar API: et.
 
-**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list  Det här skapas från blob storage-konto-slutpunkten `http://myaccount.blob.core.windows.net` och resurssträngen `/?comp=list`.
+**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list   Det här skapas från blob storage-konto-slutpunkten `http://myaccount.blob.core.windows.net` och resurssträngen `/?comp=list`.
 
 [URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): Det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Några av parametrarna är *timeout* för anrop (i sekunder) och *prefix*, som används för filtrering.
 

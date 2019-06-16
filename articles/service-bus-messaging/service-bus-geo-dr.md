@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058168"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-haveriberedskap
 
@@ -120,7 +120,7 @@ Observera följande överväganden att tänka på med den här versionen:
 
 2. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, nya schemalagda meddelanden och nya dubbletter ska fungera. 
 
-3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång.
+3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) minst en gång.
 
 4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter.
 

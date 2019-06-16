@@ -6,15 +6,15 @@ keywords: kodning; kodare; media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055275"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade livekodare för direktuppspelning
 
@@ -24,7 +24,7 @@ I Azure Media Services, en [direktsänd händelse](https://docs.microsoft.com/re
 
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning.
-
+ 
 * En lokal livekodare skickar en dataström med enkel bithastighet Live-händelsen som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Live-händelsen utför sedan live encoding av den inkommande dataströmmen med enkel bithastighet till en med flera bithastigheter (anpassningsbar) videoström.
 
 Detaljerad information om live encoding med Media Services finns i [direktsänd strömning med Media Services v3](live-streaming-overview.md).
@@ -127,7 +127,7 @@ Följ samma steg som i [direkt direktsänd händelse verifiering](#pass-through-
 
 ### <a name="email-your-recorded-settings"></a>E-inställningarna inspelade
 
-Slutligen e-inställningarna inspelade och live-arkivet parametrar till Azure Media Services på amsstreaming@microsoft.com som ett meddelande om att alla självhantering verifieringskontroller är uppfyllda. Dessutom innehåller din kontaktinformation för alla uppföljningar. Du kan kontakta Azure Media Services-teamet om du har frågor om den här processen.
+Slutligen e-inställningarna inspelade och live-arkivet parametrar till Azure Media Services på amslived@microsoft.com som ett meddelande om att alla självhantering verifieringskontroller är uppfyllda. Dessutom innehåller din kontaktinformation för alla uppföljningar. Du kan kontakta Azure Media Services-teamet om du har frågor om den här processen.
 
 ## <a name="next-steps"></a>Nästa steg
 

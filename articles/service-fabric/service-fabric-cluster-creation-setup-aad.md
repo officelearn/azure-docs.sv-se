@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
 ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125144"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
@@ -85,7 +85,7 @@ När du har loggat in har till Azure AD i Service Fabric Explorer returneras fr�
 
 ![Dialogrutan för SFX-certifikat][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Orsak
+#### <a name="reason"></a>Reason
 Användaren är inte tilldelad en roll i Azure AD-programmet för klustret. Azure AD-autentisering går därför inte i Service Fabric-kluster. Service Fabric Explorer faller tillbaka till autentisering med datorcertifikat.
 
 #### <a name="solution"></a>Lösning
@@ -104,7 +104,7 @@ När du försöker logga in på Azure AD i Service Fabric Explorer returnerar si
 
 ![SFX svarsadressen matchar inte][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Orsak
+#### <a name="reason"></a>Reason
 Klustret (webb)-program som motsvarar Service Fabric Explorer försöker autentisera mot Azure AD och som en del av begäran ger den returnera omdirigerings-URL. Men URL: en har inte listats i Azure AD-programmet **SVARS-URL** lista.
 
 #### <a name="solution"></a>Lösning

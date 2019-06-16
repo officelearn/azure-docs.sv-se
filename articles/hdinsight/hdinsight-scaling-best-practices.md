@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077212"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -21,6 +21,9 @@ HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skal
 Om du har periodiska batchbearbetning kan HDInsight-kluster skalas upp ett par minuter innan åtgärden, så att klustret har tillräckligt med minne och processorer.  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
 Du kan skala ett kluster manuellt med hjälp av någon av metoderna som beskrivs nedan eller använda [Autoskala](hdinsight-autoscale-clusters.md) alternativ för att låta systemet automatiskt skalar upp och ned som svar på processor, minne och andra mått.
+
+> [!NOTE]  
+> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.
 
 ## <a name="utilities-to-scale-clusters"></a>Verktyg för att skala kluster
 
@@ -47,6 +50,50 @@ Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster upp el
 När du **lägga till** noder till ditt körs HDInsight-kluster (skala upp), alla väntande eller pågående jobb påverkas inte. Nya jobb kan skickas på ett säkert sätt när skalning processen körs. Om skalning åtgärden misslyckas av någon anledning, hanteras felet om du vill lämna ditt kluster i ett fungerande tillstånd.
 
 Om du **ta bort** noder (skala ned), kommer alla väntande eller pågående jobb misslyckas när skalning åtgärden har slutförts. Det här felet beror på de tjänster som startas om under skalning. Det finns också en risk att klustret kan få har fastnat i felsäkert läge under en manuell skalning igen.
+
+Effekten av att ändra antalet datanoder varierar för varje typ av kluster som stöds av HDInsight:
+
+* Apache Hadoop
+
+    Du kan smidigt öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller pågående jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras ett smidigt sätt så att klustret finns alltid kvar i funktionsdugligt tillstånd.
+
+    När ett Hadoop-kluster skalas genom att minska antalet datanoder några tjänster i klustret startas om. Detta medför allt körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
+
+* Apache HBase
+
+    Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan också manuellt balansera regionservrar genom att logga in till huvudnod i klustret och köra följande kommandon från en kommandotolk:
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    Mer information om hur du använder HBase-gränssnittet finns i [Kom igång med Apache HBase-exempel i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+
+* Apache Storm
+
+    Du kan smidigt lägga till eller ta bort datanoder till ditt Storm-kluster medan den körs. Efter slutförande av skalning åtgärden kommer du dock behöva balansera om topologin.
+
+    Ombalansering kan utföras på två sätt:
+
+  * Storm-Webbgränssnittet
+  * Verktyget kommandoradsgränssnittet (CLI)
+
+    Referera till den [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
+
+    Storm-webbgränssnittet finns på HDInsight-klustret:
+
+    ![HDInsight Storm skala ombalansering](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    Här är ett exempel CLI-kommando för att balansera om Storm-topologi:
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Hur du på ett säkert sätt skala ned ett kluster
 
@@ -140,13 +187,13 @@ Om Hive har lämnat bakom temporära filer, och sedan du manuellt Rensa upp dess
 1. Stoppa Hive-tjänster och se till att alla frågor och jobb har slutförts.
 2. Visa innehållet i den tillfälliga katalogen hittas ovan, `hdfs://mycluster/tmp/hive/` att se om det innehåller alla filer:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     Här är ett exempel på utdata när filer finns:
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ Om Hive har lämnat bakom temporära filer, och sedan du manuellt Rensa upp dess
 
     Exempel kommandoraden för att ta bort filer från HDFS:
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ Behålla tre arbetsnoder är dyrare än att skala ned till endast en underordnad
 #### <a name="run-the-command-to-leave-safe-mode"></a>Kör kommando för att lämna felsäkert läge
 
 Det sista alternativet är att köra kommandot lämna felsäkert läge. Om du vet att orsaken till HDFS att ange felsäkert läge är på grund av Hive-filen under replikering kan köra du följande kommando för att lämna felsäkert läge:
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ Regionservrar balanseras automatiskt inom några minuter när du har slutfört e
 
 * [Skala automatiskt Azure HDInsight-kluster](hdinsight-autoscale-clusters.md)
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)
-* [Skala kluster](hdinsight-administer-use-portal-linux.md#scale-clusters)

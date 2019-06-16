@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333654"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Automatisk IoT-enhetshantering i stor skala med Azure portal
@@ -62,7 +62,7 @@ Det finns fem steg för att skapa en konfiguration. I följande avsnitt beskrive
 
 1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 
-2. Lägga till etiketter för att spåra dina konfigurationer. Etiketter är **namn**, **värdet** par som beskriver din konfiguration. Exempel: `HostPlatform, Linux` eller `Version, 3.0.1`.
+2. Lägga till etiketter för att spåra dina konfigurationer. Etiketter är **namn**, **värdet** par som beskriver din konfiguration. Till exempel `HostPlatform, Linux` eller `Version, 3.0.1`.
 
 3. Välj **nästa** att flytta till nästa steg. 
 
@@ -111,11 +111,11 @@ Eftersom flera konfigurationer kan samma enhet som mål, bör du ge varje konfig
 
 1. Ange ett positivt heltal för konfigurationen **prioritet**. Det högsta numeriska värdet anses vara högst prioritet. Om två konfigurationer har samma prioritetsnummer, det som har skapats i de flesta WINS-nyligen. 
 
-2. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här konfigurationen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Exempel: `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. Du kan ange `*` att fokusera på alla enheter.
+2. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här konfigurationen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.chillerProperties.model='4000x'`. Du kan ange `*` att fokusera på alla enheter.
 
 3. Välj **nästa** att gå vidare till det sista steget.
 
-### <a name="review-configuration"></a>Granska konfiguration
+### <a name="review-configuration"></a>Granska konfigurationen
 
 Granska dina konfigurationsinformation och välj sedan **skicka**.
 

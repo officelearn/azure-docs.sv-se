@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153466"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om Villkorsaktivitet i Azure Data Factory
@@ -64,10 +64,10 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-namn | Namnet på if-villkoret. | String | Ja
-typ | Måste vara inställt på **IfCondition** | String | Ja
+name | Namnet på if-villkoret. | String | Ja
+type | Måste vara inställt på **IfCondition** | String | Ja
 uttryck | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
 ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Matris | Ja
 ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Matris | Ja

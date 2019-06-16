@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171132"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installera uppdateringar av underhållsläge via Windows PowerShell för StorSimple
@@ -27,13 +27,13 @@ När du använder uppdateringar av Underhållsläge för StorSimple-enhet, har a
 
     Båda styrenheterna startas om i underhållsläge.
 
-3. Installera uppdateringar av din underhållsläge. Typ:
+3. Installera uppdateringar av din underhållsläge. Ange:
 
     `Start-HcsUpdate`
 
     Du uppmanas att bekräfta. När du har bekräftat uppdateringarna är installerade på den styrenhet som du använder för närvarande. När uppdateringarna har installerats startar om kontrollanten.
 
-4. Övervaka statusen för uppdateringar. Logga in till peer-styrenhet eftersom den aktuella kontrollanten uppdaterar och går inte att bearbeta andra kommandon. Typ:
+4. Övervaka statusen för uppdateringar. Logga in till peer-styrenhet eftersom den aktuella kontrollanten uppdaterar och går inte att bearbeta andra kommandon. Ange:
 
     `Get-HcsUpdateStatus`
 

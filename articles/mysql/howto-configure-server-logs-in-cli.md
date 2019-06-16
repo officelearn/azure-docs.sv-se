@@ -1,33 +1,33 @@
 ---
-title: Öppna serverloggar i Azure Database för MySQL med hjälp av Azure CLI
-description: Den här artikeln beskriver hur du kommer åt serverloggar i Azure Database för MySQL med hjälp av verktyget Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+title: Åtkomst långsam fråga loggar i Azure Database för MySQL med hjälp av Azure CLI
+description: Den här artikeln beskriver hur du kommer åt de långsamma frågeloggarna i Azure Database för MySQL med hjälp av Azure CLI.
+author: andrela
+ms.author: ajlam
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/12/219
+ms.openlocfilehash: 740dbce579fba6347b1a7f2cfc6bcae40d3503ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052703"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och öppna serverloggar med hjälp av Azure CLI
-Du kan hämta Azure Database for MySQL server-loggar med hjälp av Azure CLI, Azure kommandoradsverktyget.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma frågeloggar med Azure CLI
+Du kan hämta Azure Database for MySQL långsamma frågeloggar med hjälp av Azure CLI, Azure kommandoradsverktyget.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom den här guiden, måste du:
 - [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Den [Azure CLI](/cli/azure/install-azure-cli) eller Azure Cloud Shell i webbläsaren
 
-## <a name="configure-logging-for-azure-database-for-mysql"></a>Konfigurera loggning för Azure Database for MySQL
+## <a name="configure-logging"></a>Konfigurera loggning
 Du kan konfigurera servern för att komma åt den långsam frågeloggen för MySQL genom att utföra följande steg:
-1. Aktivera loggning genom att ange den **långsam\_fråga\_log** parametern on.
+1. Aktivera loggning av långsamma frågor genom att ange den **långsam\_fråga\_log** parametern on.
 2. Justera andra parametrar som **lång\_fråga\_tid** och **log\_långsam\_admin\_instruktioner**.
 
-Läs hur du ställer in värdet för dessa parametrar via Azure CLI i [hur du konfigurerar serverparametrar](howto-configure-server-parameters-using-cli.md). 
+Läs hur du ställer in värdet för dessa parametrar via Azure CLI i [hur du konfigurerar serverparametrar](howto-configure-server-parameters-using-cli.md).
 
 Till exempel följande CLI-kommando aktiverar långsam frågelogg anger lång Frågetid till 10 sekunder och sedan inaktiverar loggning för långsam admin-instruktionen. Dessutom visas en lista med konfigurationsalternativ för granskning.
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Lista loggar för Azure Database for MySQL-server
-Om du vill visa tillgängliga loggfilerna för din server kör den [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) kommando.
+Om du vill visa tillgängliga långsam fråga loggfilerna för din server kör den [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) kommando.
 
 Du kan visa loggfilerna för server **mydemoserver.mysql.database.azure.com** under resursgrupp **myresourcegroup**. Dirigera listan över loggfiler till en textfil med namnet **log\_filer\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [serverloggar i Azure Database for MySQL](concepts-server-logs.md).
+- Lär dig mer om [långsam fråga loggar i Azure Database för MySQL](concepts-server-logs.md).

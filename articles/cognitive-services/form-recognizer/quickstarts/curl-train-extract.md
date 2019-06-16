@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: aed18cd33078d6af65e749cf9dd4950087b6b72c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063897"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -52,7 +52,7 @@ Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bö
 För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata.  
+1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata. (Hämta din SAS-URL genom att klicka på ”signatur för delad åtkomst” under inställningsmenyn i storage-konto och 'generera SAS och anslutningssträng'. Det här alternativet visas Blob service SAS-URL. Justera URL: en genom att lägga till containername efter .net / och innan? SA = i URL: en, t.ex.:.blob.core.windows.net/ < name_of_your_container > /? SA =... Det här är SAS-URL som ska användas.)
 1. Ersätt `<subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
 
 ```bash
@@ -108,7 +108,7 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
 1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
-1. Ersätt `<path to your form>` med sökväg av formuläret. Till exempel c:\temp\file.pdf. 
+1. Ersätt `<path to your form>` med sökvägen till ditt formulär (exempelvis C:\temp\file.pdf).
 1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 

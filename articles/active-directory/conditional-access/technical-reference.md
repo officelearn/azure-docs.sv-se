@@ -1,6 +1,6 @@
 ---
-title: Inställningsreferens för villkorlig åtkomst till Azure Active Directory | Microsoft Docs
-description: Få en översikt över inställningar som stöds i en villkorlig åtkomstprincip i Azure Active Directory.
+title: Referens för Azure Active Directory villkorlig åtkomst | Microsoft Docs
+description: Få en översikt över inställningar som stöds i en Azure Active Directory villkorlig åtkomstprincip.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112111"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referens för Azure Active Directory villkorsstyrd åtkomst
 
 Du kan använda [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) att styra hur behöriga användare kan komma åt dina resurser.
 
@@ -142,7 +142,7 @@ För att automatiskt distribuera det här tillägget till Chrome webbläsare, sk
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Namn | 1 |
-| Type | REG_SZ (String) |
+| Typ | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
@@ -151,7 +151,7 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Namn | 1 |
-| Type | REG_SZ (String) |
+| Typ | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Dessa webbläsare har stöd för autentisering, vilket gör att enheten har identifierats och verifieras mot en princip. Enhet-kontrollen misslyckas om webbläsaren körs i privat läge.

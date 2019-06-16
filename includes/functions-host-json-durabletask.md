@@ -10,10 +10,10 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131690"
 ---
 Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-functions/durable-functions-overview.md).
@@ -45,13 +45,13 @@ Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-funct
 
 Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inte anges är standardnamnet på uppgiften hub för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubs](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
+|hubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
 |controlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
 |partitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
-|controlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
-|workItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
+|controlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
+|workItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
 |maxConcurrentActivityFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
 |maxConcurrentOrchestratorFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet orchestrator-funktioner som kan bearbetas samtidigt på en enda värd-instans.|
 |maxQueuePollingInterval|30 sekunder|Kontroll och arbetsobjektet kö avsökningsintervall i den *: mm: ss* format. Högre värden kan resultera i högre svarstider för meddelandebehandling. Lägre värden kan resultera i högre kostnader för lagring på grund av ökad lagringstransaktioner.|
@@ -63,7 +63,7 @@ Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäve
 |eventGridTopicEndpoint ||URL till en slutpunkt för Azure Event Grid-anpassat ämne. När den här egenskapen anges publiceras orchestration livscykeln meddelandehändelser till den här slutpunkten. Den här egenskapen stöder Appinställningar skärmupplösning.|
 |eventGridKeySettingName ||Namnet på den appinställning som innehåller den nyckel som används för att autentisera med det anpassade ämnet Azure Event Grid på `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|Det går inte att antalet gånger att försöka igen om publicering till Event Grid-ämne.|
-|eventGridPublishRetryInterval|5 minuter|Event Grid publicerar återförsöksintervallet i den *: mm: ss* format.|
+|eventGridPublishRetryInterval|5 minuter|Event Grid publicerar återförsöksintervallet i den *: mm: ss* format.|
 |eventGridPublishEventTypes||En lista över typer av att publicera till Event Grid. Om inte anges kommer att publiceras alla händelsetyper. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
 
 Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

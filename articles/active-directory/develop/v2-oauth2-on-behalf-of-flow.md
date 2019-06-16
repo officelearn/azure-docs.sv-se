@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110852"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
 
@@ -69,11 +69,11 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `grant_type` | Krävs | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Krävs | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_secret` | Krävs | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
+| `grant_type` | Obligatoriskt | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obligatoriskt | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
+| `client_secret` | Obligatoriskt | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
 | `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
-| `scope` | Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
+| `scope` | Obligatoriskt | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
 
 #### <a name="example"></a>Exempel
@@ -103,9 +103,9 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 | --- | --- | --- |
 | `grant_type` | Obligatoriskt | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatoriskt |  Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Krävs | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
-| `assertion` | Krävs | Värdet för den token som används i begäran. |
+| `client_assertion_type` | Obligatoriskt | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obligatoriskt | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
+| `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
 | `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
 | `scope` | Obligatoriskt | En blankstegsavgränsad lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md).|
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497311"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
@@ -70,7 +70,7 @@ Använda bilder med visual rad för att träna din modell effektivt. Välj avbil
 * Bakgrund
 * visualiseringsformat
 * person/grupperade subject(s)
-* Storlek
+* size
 * type
 
 Kontrollera dessutom alla dina inlärningsbilder uppfylla följande kriterier:

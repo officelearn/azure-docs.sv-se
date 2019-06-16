@@ -1,5 +1,5 @@
 ---
-title: Baslinjen protection principer för villkorlig åtkomst – Azure Active Directory
+title: Principer för villkorlig åtkomst-skydd för baslinje - Azure Active Directory
 description: Baslinjen villkorliga åtkomstprinciper för att skydda organisationer mot vanliga attacker
 services: active-directory
 ms.service: active-directory
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112593"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är principer för baslinjen?
 
 Grundläggande principer är en uppsättning fördefinierade principer som skyddar organisationer mot många vanliga attacker. Dessa vanliga attacker kan inbegripa lösenord besprutningsmedel repetitionsattacker och nätfiske. Grundläggande principer är tillgängliga i alla utgåvor av Azure AD. Microsoft gör dessa principer för skydd av baslinjen tillgängliga för alla eftersom identitetsbaserade attacker har gått ökar under de senaste åren. Målet med dessa fyra principer är att säkerställa att alla organisationer har en baslinje säkerhetsnivå aktiverat utan extra kostnad.  
 
-Hantera anpassade villkorliga åtkomstprinciper kräver en Azure AD Premium-licens.
+Hantera anpassade principer för villkorlig åtkomst kräver en Azure AD Premium-licens.
 
 ## <a name="baseline-policies"></a>Baslinjeprinciper
 
-![Baslinje-principer för villkorlig åtkomst i Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Grundläggande principer för villkorlig åtkomst i Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Det finns fyra grundläggande principer som organisationer kan aktivera:
 
@@ -46,7 +46,7 @@ På grund av den kraft och åtkomst-administratörskonton har, bör du hantera d
 * Global administratör
 * SharePoint-administratör
 * Exchange-administratör
-* Administratör för villkorsstyrd åtkomst
+* Administratör för villkorlig åtkomst
 * Säkerhetsadministratör
 * Supportavdelningsadministratören / lösenordsadministratör
 * Faktureringsadministratör
@@ -95,7 +95,7 @@ För att aktivera en baslinjeprincip:
 Mer information finns i:
 
 * [Fem steg för att skydda din infrastruktur för Identitetshantering](../../security/azure-ad-secure-steps.md)
-* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](overview.md)
+* [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)
 * [Kräva MFA för administratörer](howto-baseline-protect-administrators.md)
 * [Slutanvändaren protection (förhandsgranskningsversion)](howto-baseline-protect-end-users.md)
 * [Blockera äldre authentication (förhandsversion)](howto-baseline-protect-legacy-auth.md)

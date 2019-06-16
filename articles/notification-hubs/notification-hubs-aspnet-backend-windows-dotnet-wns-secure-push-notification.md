@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459254"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Push-meddelanden på ett säkert sätt från Azure Notification Hubs
@@ -90,7 +90,7 @@ Den här säker Push-självstudien visar hur du skickar push-meddelanden på ett
 Nästa steg är att skapa komponenten push bakgrund.
 
 1. Högerklicka på den översta noden i lösningen i Solution Explorer (**lösning SecurePush** i det här fallet), klicka sedan på **Lägg till**, klicka sedan på **nytt projekt**.
-2. Expandera **Store-appar**, klicka sedan på **Windows Phone appar**, klicka sedan på **Windows Runtime-komponent (Windows Phone)**. Ge projektet namnet **PushBackgroundComponent**, och klicka sedan på **OK** att skapa projektet.
+2. Expandera **Store-appar**, klicka sedan på **Windows Phone appar**, klicka sedan på **Windows Runtime-komponent (Windows Phone)** . Ge projektet namnet **PushBackgroundComponent**, och klicka sedan på **OK** att skapa projektet.
 
     ![][12]
 3. I Solution Explorer högerklickar du på den **PushBackgroundComponent (Windows Phone 8.1)** projektet och klicka sedan på **Lägg till**, klicka sedan på **klass**. Ge den nya klassen namnet `PushBackgroundTask.cs`. Klicka på **Lägg till** att generera klassen.

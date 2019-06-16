@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925153"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147518"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudier: Kopiera data till Azure Data Box Disk och verifiera
 
@@ -58,9 +58,9 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
 
     |Valda lagringsplats  |Storage Account-typ|Lagringskontotypen för mellanlagring |Mappar och undermappar  |
     |---------|---------|---------|------------------|
-    |Lagringskonto     |GPv1- eller GPv2                 | Ej tillämpligt | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Lagringskonto     |BLOB storage-konto         | Ej tillämpligt | BlockBlob        |
-    |Hanterade diskar     |Ej tillämpligt | GPv1- eller GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Lagringskonto     |GPv1- eller GPv2                 | Saknas | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Lagringskonto     |BLOB storage-konto         | Saknas | BlockBlob        |
+    |Hanterade diskar     |Saknas | GPv1- eller GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
     |Lagringskonto <br> Hanterade diskar     |GPv1- eller GPv2 | GPv1- eller GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
     |Lagringskonto <br> Hanterade diskar    |BLOB storage-konto | GPv1- eller GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
@@ -88,7 +88,7 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     
     |Parametrar/alternativ  |Beskrivning |
     |--------------------|------------|
-    |Källa            | Anger sökvägen till källkatalogen.        |
+    |source            | Anger sökvägen till källkatalogen.        |
     |Mål       | Anger sökvägen till målkatalogen.        |
     |/E                  | Kopierar underkataloger, inklusive tomma kataloger. |
     |/MT[:N]             | Skapar flertrådiga kopior med N trådar, där N är ett heltal mellan 1 och 128. <br>Standardvärdet för N är 8.        |
@@ -250,6 +250,8 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Om du får felmeddelanden med hjälp av verktyget Dela Copy, går du till hur du [dela Kopiera verktyget felsöka](data-box-disk-troubleshoot-data-copy.md).
+
 När datakopieringen är klar kan du fortsätta att verifiera dina data. Om du använde Split Copy-verktyget hoppar du över verifieringen (det här verktyget utför även en verifiering) och går vidare till nästa självstudie.
 
 
@@ -270,6 +272,8 @@ Om du inte använde Split Copy-verktyget för att kopiera data måste du verifie
     > - Använd alternativ 1 om du hanterar stora datamängder som innehåller små filer (~ kB). Det här alternativet validerar bara filerna eftersom genereringen av kontrollsummor kan ta mycket lång tid och prestanda kan vara mycket långsamma.
 
 3. Om du använder flera diskar kör du kommandot för varje disk.
+
+Om du får felmeddelanden vid verifiering av [felsöka verifieringsfel](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116874"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera resurser på StorSimple Virtual Array
@@ -40,7 +40,7 @@ StorSimple-resurser kan vara:
 
 Se tabellen nedan för högsta etablerade kapaciteten för varje resurstyp av.
 
-| **Gräns för identifierare** | **Gräns** |
+| **Gräns för identifierare** | **Gränsen** |
 | --- | --- |
 | Minsta storlek på en nivåindelad resurs |500 GB |
 | Maximal storlek för en nivåindelad resurs |20 TB |
@@ -138,7 +138,7 @@ Utför följande steg för att ta bort en resurs.
 1. Från den **resurser** inställningen på sammanfattningsbladet för StorSimple-tjänsten, Välj den virtuella matrisen som du vill ta bort resursen finns.
 2. **Välj** till resursen och klicka på **...**  (alternativt Högerklicka i den här raden) och på snabbmenyn väljer **ta bort**.
    
-    ![Ta bort resurs](./media/storsimple-virtual-array-manage-shares/share-delete.png)
+    ![Ta bort resursen](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. Kontrollera status för den resurs som du vill ta bort. Om du vill ta bort resursen inte är offline, koppla från den först. Följ stegen i [koppla från en resurs](#take-a-share-offline).
 4. När du uppmanas att bekräfta i den **ta bort** bladet Godkänn bekräftelsen och klicka på **ta bort**. Resursen tas bort och **resurser** bladet visar den uppdaterade listan med resurser i den virtuella matrisen.
 

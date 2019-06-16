@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057467"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -36,7 +36,7 @@ Se [standard noden konfiguration och VM-storlekar för kluster](../hdinsight-com
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>Kontrollera tillgängligheten för Hadoop-komponenter i HDInsight
 
-Varje HDInsight-version är en molndistribution av en version av Hortonworks Data Platform (HDP) och består av en uppsättning komponenter för Hadoop-ekosystemet. Se [versionshantering för HDInsight](../hdinsight-component-versioning.md) mer information om alla komponenter i HDInsight och deras aktuella versioner.
+Varje HDInsight-version är en molndistribution av en uppsättning komponenter för Hadoop-ekosystemet. Se [versionshantering för HDInsight](../hdinsight-component-versioning.md) mer information om alla komponenter i HDInsight och deras aktuella versioner.
 
 Du kan också använda Apache Ambari-Gränssnittet eller Ambari REST API för att kontrollera Hadoop-komponenter och versioner i HDInsight.
 

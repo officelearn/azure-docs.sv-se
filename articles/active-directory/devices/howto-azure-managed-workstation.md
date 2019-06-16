@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110687"
 ---
 # <a name="deploy-a-secure-workstation"></a>Distribuera en säker arbetsstation
 
@@ -102,7 +102,7 @@ För att ytterligare förbättra processen med att ansluta enheter till Azure AD
 
 Från Azure-portalen bläddrar du till **Azure Active Directory** > **Mobility (MDM och MAM)**  > **Microsoft Intune**. Ändra inställningen **MDM-användaromfattning** till **alla** och välj **spara** som tillåter vi alla enheter som ska hanteras av Intune i det här scenariot. Mer information finns i artikeln [Intune Quickstart: Konfigurera automatisk registrering för Windows 10-enheter](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). Vi skapar Intune-principer för konfiguration och efterlevnad i ett kommande steg.
 
-#### <a name="azure-ad-conditional-access"></a>Azure AD villkorlig åtkomst
+#### <a name="azure-ad-conditional-access"></a>Azure AD Conditional Access
 
 Azure AD villkorlig åtkomst kan du skydda dessa Privilegierade administrativa uppgifter på kompatibla enheter. Användare som vi har definierat som medlemmar i den **säker arbetsstationsanvändare** gruppen kommer att behöva utföra multifaktorautentisering vid inloggning till program i molnet. Vi följer bästa praxis riktlinjer och undanta vår konton för åtkomst vid akutfall från principen. Mer information finns i artikeln [hantera åtkomst vid akutfall i Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
@@ -122,7 +122,7 @@ För att konfigurera villkorlig åtkomst i Azure Portal, bläddra till **Azure A
       * För flera kontroller - **kräver de valda kontrollerna**
 * Aktivera princip – **på**
 
-Organisationer kan du skapa principer för att blockera länder/regioner där användare inte kan komma åt företagets resurser. Mer information om principer för IP-plats-baserad villkorlig åtkomst finns i artikeln [vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+Organisationer kan du skapa principer för att blockera länder/regioner där användare inte kan komma åt företagets resurser. Mer information om principer för IP-plats-baserad villkorlig åtkomst finns i artikeln [vad är platsvillkoret i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Intune-konfiguration
 

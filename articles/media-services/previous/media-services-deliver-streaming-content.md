@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 49e9fbc3f8d10dd1e272f5f9bc5a542328a3ddb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61224250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051759"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicera Media Services-innehåll med hjälp av .NET  
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Skapa strömmande URL: er
 
         // Get a reference to the streaming manifest file from the  
         // collection of files in the asset. 
-        var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+        var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                                     EndsWith(".ism")).
                                     FirstOrDefault();
 

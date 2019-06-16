@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831724"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Skapa certifikat för lista över tillåtna serverdelen med Azure Application Gateway
 
-Om du vill utföra slutpunkt till slutpunkt SSL krävs serverdelsinstanser tillåtas genom att ladda upp autentisering/betrodda rotcertifikat. När det gäller v1-SKU, certifikat för klientautentisering krävs medan vid v2-SKU, betrodda rotcertifikat som krävs för att godkänna certifikaten
+Om du vill utföra slutpunkt till slutpunkt SSL krävs serverdelsinstanser tillåtas genom att ladda upp autentisering/betrodda rotcertifikat. När det gäller v1-SKU krävs autentiseringscertifikat, men för v2-SKU krävs betrodda rotcertifikat för att certifikaten ska godkännas
 
 I den här artikeln kan du se hur du:
 
@@ -61,11 +61,11 @@ Exportera den offentliga nyckeln .cer-fil (inte den privata nyckeln) från ditt 
 
 7. Ditt certifikat har exporterats.
 
-   ![Lyckades](./media/certificates-for-backend-authentication/success.png)
+   ![Klart](./media/certificates-for-backend-authentication/success.png)
 
    Det exporterade certifikatet ser ut ungefär så här:
 
-   ![Exporterat](./media/certificates-for-backend-authentication/exported.png)
+   ![Exporteras](./media/certificates-for-backend-authentication/exported.png)
 
 8. Om du öppnar det exporterade certifikatet med hjälp av anteckningar, visas något som liknar det här exemplet. I avsnittet i blått innehåller den information som överförs till application gateway. Om du vill öppna certifikatet med anteckningar och ser inte ut ungefär så här, vanligtvis det innebär att du inte exportera det med Base64-kodad X.509 (. CER)-format. Om du vill använda en annan textredigerare kan du också känna att vissa redigerare kan leda till oönskade formatering i bakgrunden. Detta kan skapa problem när laddat upp text från det här certifikatet till Azure.
 

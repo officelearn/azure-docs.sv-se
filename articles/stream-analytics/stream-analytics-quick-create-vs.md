@@ -4,16 +4,15 @@ description: Den här snabbstarten visar hur du kommer igång genom att skapa et
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076206"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktygen för Visual Studio
 
@@ -113,7 +112,7 @@ Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
    |---------|---------|---------|
    |Indataalias  |  Indata   |  Ange ett namn som identifierar jobbets indata.   |
    |Källtyp   |  Dataström |  Välj lämplig indatakälla: Dataström eller referensdata.   |
-   |Source  |  IoT Hub |  Välj lämplig indatakälla.   |
+   |source  |  IoT Hub |  Välj lämplig indatakälla.   |
    |Resource  | Välj datakälla från det aktuella kontot | Välj att ange data manuellt eller välj ett befintligt konto.   |
    |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration som innehåller den IoT-hubb du skapade.   |
    |IoT Hub  |  MyASAIoTHub   |  Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.   |

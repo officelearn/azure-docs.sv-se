@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577052"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple privat moln-översikt
@@ -26,7 +26,7 @@ CloudSimple transformerar och utökar VMware-arbetsbelastningar till offentliga 
 * Med CloudSimple dra nytta av en cloud-förbrukningsmodell som sänker den totala ägandekostnaden. Den erbjuder också på begäran etablering, betala som du-växer och optimering av kapacitet.
 * CloudSimple är helt kompatibel med:
   * Befintliga verktyg
-  * Färdigheter
+  * Kunskaper
   * Processer
 * Denna kompatibilitet gör det möjligt för dina team att hantera arbetsbelastningar på Azure-molnet, utan att störa dina principer:
   * Nätverk
@@ -119,7 +119,7 @@ Privat moln-miljön har utformats för att undvika att ha en enskild felpunkt:
 
 Tabellen nedan visar noden gränserna på resurser för ett privat moln.
 
-| Resurs | Gräns |
+| Resource | Gräns |
 |----------|-------|
 | Minsta antalet noder för att skapa ett privat moln | 3 |
 | Högsta antalet noder i ett kluster på ett privat moln | 16 |

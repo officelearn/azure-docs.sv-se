@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430808"
 ---
 # <a name="application-configuration-options"></a>Programmets konfigurationsalternativ
@@ -38,7 +38,7 @@ I koden du initiera en ny offentlig eller konfidentiell klient (eller användar-
 ## <a name="authority"></a>Myndighet
 Behörigheten är en URL som anger en katalog som MSAL kan begära token från. Vanliga myndigheter är:
 
-- https://login.microsoftonline.com/&lt; klient&gt;/ där &lt;klient&gt; är klient-ID för Azure Active Directory (Azure AD)-klient eller en domän som är associerade med den här Azure AD-klient. Används endast för att logga in användare av en viss organisation.
+- https://login.microsoftonline.com/&lt ; klient&gt; / där &lt; klient&gt; är klient-ID för Azure Active Directory (Azure AD)-klient eller en domän som är associerade med den här Azure AD-klient. Används endast för att logga in användare av en viss organisation.
 - https://login.microsoftonline.com/common/. Används för att logga in användare med arbets- och skolkonton eller personliga Microsoft-konton.
 - https://login.microsoftonline.com/organizations/. Används för att logga in användare med arbets-och skolkonton.
 - https://login.microsoftonline.com/consumers/. Används för att logga in användare med endast personliga Microsoft-konton (kallades tidigare Windows Live ID-konton).

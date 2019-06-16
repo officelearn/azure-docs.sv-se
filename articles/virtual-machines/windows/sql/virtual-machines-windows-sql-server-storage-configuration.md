@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076823"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server-datorer
 
@@ -55,7 +55,7 @@ Azure utför baserat på dina val, följande konfigurationsuppgifterna för lagr
 * Kopplar lagringspoolen till en ny enhet på den virtuella datorn.
 * Optimerar den här nya enheten baserat på ditt angivna Arbetsbelastningstyp (datalagring, överföringsprocesser eller Allmänt).
 
-Mer information om hur konfigurerar Azure storage-inställningar finns i den [Storage konfigurationsavsnittet](#storage-configuration). En genomgång av hur du skapar en SQL Server VM i Azure Portal, se [självstudiekursen om etablering](virtual-machines-windows-portal-sql-server-provision.md).
+Mer information om hur konfigurerar Azure storage-inställningar finns i den [Storage konfigurationsavsnittet](#storage-configuration). En genomgång av hur du skapar en SQL Server VM i Azure-portalen, se [självstudiekursen om etablering](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Hantera resursmallar
 
@@ -67,24 +67,24 @@ Om du använder följande Resource Manager-mallar, kopplas två diskar för prem
 
 ## <a name="existing-vms"></a>Befintliga virtuella datorer
 
-För befintliga SQL Server-datorer, kan du ändra vissa Lagringsinställningar i Azure-portalen. Välj den virtuella datorn, gå till området Inställningar och välj sedan SQL Server-konfiguration. Konfiguration av SQL Server-bladet visar aktuella lagringsanvändningen för den virtuella datorn. Alla enheter som finns på den virtuella datorn visas i det här diagrammet. För varje enhet visar lagringsutrymmet i fyra delar:
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+För befintliga SQL Server-datorer, kan du ändra vissa Lagringsinställningar i Azure-portalen. Öppna din [SQL VM-resurs](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource), och välj **översikt**. Översikt över SQL Server-sidan visar aktuella lagringsanvändningen för den virtuella datorn. Alla enheter som finns på den virtuella datorn visas i det här diagrammet. För varje enhet visar lagringsutrymmet i fyra delar:
 
 * SQL-data
 * SQL-logg
 * Andra (icke-SQL-lagring)
 * Tillgängligt
 
-![Konfigurera lagring för befintliga SQLServer-dator](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+Om du vill ändra lagringsinställningarna för, Välj **konfigurera** under **inställningar**. 
 
-Om du vill konfigurera lagring för att lägga till en ny enhet eller utöka en befintlig enhet, klickar du på länken Redigera ovanför diagrammet.
+![Konfigurera lagring för befintliga SQLServer-dator](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
 De konfigurationsalternativ som du ser varierar beroende på om du har använt den här funktionen innan. När du använder för första gången måste ange du din lagringskraven för en ny enhet. Om du tidigare har använt den här funktionen för att skapa en enhet kan du utöka lagring för den enheten.
 
 ### <a name="use-for-the-first-time"></a>Använd för första gången
 
 Om det är första gången du använder den här funktionen kan du ange lagringsgränserna för storlek och prestanda för en ny enhet. Detta liknar vad som skulle visas på etableringstid. Den största skillnaden är att du inte har behörighet att ange vilken Arbetsbelastningstyp. Den här begränsningen förhindrar att störa eventuella befintliga SQL Server-konfigurationer på den virtuella datorn.
-
-![Konfigurera SQL Server Storage skjutreglage](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
 Azure skapar en ny enhet baserat på dina specifikationer. Azure utför följande konfigurationsuppgifterna för lagring i det här scenariot:
 
@@ -99,19 +99,17 @@ Mer information om hur konfigurerar Azure storage-inställningar finns i den [St
 
 Om du redan har konfigurerat lagring på SQL Server-dator, öppnar Expandera lagring två nya alternativ. Det första alternativet är att lägga till en ny enhet, vilket kan öka prestandanivå för den virtuella datorn.
 
-![Lägg till en ny enhet till en SQL-VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
-
 När du lägger till enheten måste du utföra några extra manuell konfiguration för att uppnå ökade prestanda.
 
 ### <a name="extend-the-drive"></a>Utöka enheten
 
-Ett annat alternativ för att expandera lagring är att utöka den befintliga enheten. Det här alternativet ökar tillgängligt lagringsutrymme för enheten, men det ökar inte prestanda. Du kan inte ändra antalet kolumner när lagringspoolen har skapats med lagringspooler. Antalet kolumner som anger antalet parallella skrivningar, som kan vara stripe över datadiskar. Därför kan inte eventuella datadiskar som har lagts till öka prestanda. Användaren kan bara ange mer lagringsutrymme för data som skrivs. Den här begränsningen innebär också att antalet kolumner när du utökar enheten, anger det minsta antalet datadiskar som du kan lägga till. Så om du skapar en lagringspool med fyra datadiskar, är antalet kolumner också fyra. Vill du utöka lagring, måste du lägga till minst fyra datadiskar.
+Ett annat alternativ för att expandera lagring är att utöka den befintliga enheten. Det här alternativet ökar tillgängligt lagringsutrymme för enheten, men det ökar inte prestanda. Du kan inte ändra antalet kolumner när lagringspoolen har skapats med lagringspooler. Antalet kolumner som anger antalet parallella skrivningar, som kan vara stripe över datadiskar. Därför kan inte eventuella datadiskar som har lagts till öka prestanda. Användaren kan bara ange mer lagringsutrymme för data som skrivs. Den här begränsningen innebär också att antalet kolumner när du utökar enheten, anger det minsta antalet datadiskar som du kan lägga till. Så om du skapar en lagringspool med fyra datadiskar, är antalet kolumner också fyra. Varje gång du utöka lagring måste du lägga till minst fyra datadiskar.
 
 ![Utöka en enhet för en SQL-VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
 
-Det här avsnittet innehåller en referens för att konfigurationsändringarna för lagring som Azure utför automatiskt när SQL VM-etableringstillstånd eller konfigureras i Azure Portal.
+Det här avsnittet innehåller en referens för att konfigurationsändringarna för lagring som Azure utför automatiskt när SQL VM-etableringstillstånd eller konfigureras i Azure-portalen.
 
 * Om du har valt färre än två TB lagring för den virtuella datorn, Azure inte att skapa en lagringspool.
 * Om du har valt minst två TB lagring för den virtuella datorn, konfigurerar en lagringspool i Azure. Nästa avsnitt i det här avsnittet innehåller information om konfigurationen för lagringspooler.
@@ -132,7 +130,7 @@ Azure använder du följande inställningar för att skapa lagringspoolen på SQ
 | Initieringen av omedelbar fil |Enabled |
 | Låsa sidor i minnet |Enabled |
 | Återställning |Enkel återställning (ingen återhämtning) |
-| Antal kolumner |Antal datadiskar<sup>1</sup> |
+| Antalet kolumner |Antal datadiskar<sup>1</sup> |
 | TempDB-plats |Lagras på datadiskar<sup>2</sup> |
 
 <sup>1</sup> när lagringspoolen har skapats kan du kan inte ändra antalet kolumner i lagringspoolen.
@@ -143,7 +141,7 @@ Azure använder du följande inställningar för att skapa lagringspoolen på SQ
 
 I följande tabell beskrivs de tre arbetsbelastning typ tillgängliga alternativen och deras motsvarande optimeringar:
 
-| Typ av arbetsbelastning | Beskrivning | Optimeringar |
+| Typer av arbetsbelastningar | Beskrivning | Optimeringar |
 | --- | --- | --- |
 | **Allmänt** |Standardinställningen som har stöd för de flesta arbetsbelastningar |Ingen |
 | **Transaktionsbearbetning** |Optimerar lagringen för traditionella OLTP databasarbetsbelastningar |Spårningsflaggan 1117<br/>Spårningsflaggan 1118 |

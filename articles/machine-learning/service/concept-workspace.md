@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059259"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en arbetsyta för Azure Machine Learning-tjänsten?
 
@@ -32,16 +32,16 @@ Diagrammet visar följande komponenter i en arbetsyta:
 
 + En arbetsyta kan innehålla [Notebook VMs](quickstart-run-cloud-notebook.md), molnresurser som konfigurerats med Python-miljön krävs för att köra Azure Machine Learning.
 + [Användarroller](how-to-assign-roles.md) kan du dela din arbetsyta med andra användare, grupper eller projekt.
-+ [Beräkningsmål](concept-azure-machine-learning-architecture.md#compute-target) används för att köra dina experiment.
++ [Beräkningsmål](concept-azure-machine-learning-architecture.md#compute-targets) används för att köra dina experiment.
 + När du skapar arbetsytan [associerade resurser](#resources) skapas också.
-+ [Experiment](concept-azure-machine-learning-architecture.md#experiment) är träningskörningar som du använder för att skapa dina modeller.  Du kan skapa och köra experiment med
++ [Experiment](concept-azure-machine-learning-architecture.md#experiments) är träningskörningar som du använder för att skapa dina modeller.  Du kan skapa och köra experiment med
     + Den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + Den [automatiserad machine learning-experiment (förhandsversion)](how-to-create-portal-experiments.md) avsnitt i Azure-portalen.
     + Den [visuella gränssnittet (förhandsversion)](ui-concept-visual-interface.md).
-+ [Pipelines](concept-azure-machine-learning-architecture.md#pipeline) är återanvändbara arbetsflöden för träning och träna din modell.
-+ [Datauppsättningar](concept-azure-machine-learning-architecture.md#dataset) stöd i hantering av data som används för att skapa en modell utbildnings- och pipeline.
-+ När du har en modell som du vill distribuera kan du skapa en [registrerade modellen](concept-azure-machine-learning-architecture.md#model-registry).
-+ Använd den registrerade modellen och ett bedömningsskript för att skapa en [distribution](concept-azure-machine-learning-architecture.md#image-registry).
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) är återanvändbara arbetsflöden för träning och träna din modell.
++ [Datauppsättningar](concept-azure-machine-learning-architecture.md#datasets-and-datastores) stöd i hantering av data som används för att skapa en modell utbildnings- och pipeline.
++ När du har en modell som du vill distribuera kan skapa du en registrerade modellen.
++ Använd den registrerade modellen och ett bedömningsskript för att skapa en [distribution](concept-azure-machine-learning-architecture.md#deployment).
 
 ## <a name="tools-for-workspace-interaction"></a>Verktyg för arbetsytan interaktion
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623960"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Använda Twilio för röst- och SMS-funktioner i Java
@@ -42,17 +42,17 @@ API: et gör använda Twilio verb; till exempel den **&lt;Say&gt;** verb instrue
 
 Här följer en lista över Twilio-verb.
 
-* **&lt;Dial&gt;**: Ansluter anroparen till en annan telefon.
-* **&lt;Gather&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
-* **&lt;Hangup&gt;**: Slutar ett anrop.
-* **&lt;Play&gt;**: Spelar upp en ljudfil.
-* **&lt;Kön&gt;**: Lägg till den till en kö med anropare.
-* **&lt;Pause&gt;**: Väntar tyst under ett angivet antal sekunder.
-* **&lt;Post&gt;**: Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* **&lt;Redirect&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Reject&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du.
-* **&lt;Say&gt;**: Konverterar text till tal som görs på ett anrop.
-* **&lt;Sms&gt;**: Skickar ett SMS-meddelande.
+* **&lt;Dial&gt;** : Ansluter anroparen till en annan telefon.
+* **&lt;Gather&gt;** : Samlar in siffror som anges på telefon-tangentbordet.
+* **&lt;Hangup&gt;** : Slutar ett anrop.
+* **&lt;Play&gt;** : Spelar upp en ljudfil.
+* **&lt;Kön&gt;** : Lägg till den till en kö med anropare.
+* **&lt;Pause&gt;** : Väntar tyst under ett angivet antal sekunder.
+* **&lt;Post&gt;** : Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt;Redirect&gt;** : Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
+* **&lt;Reject&gt;** : Avvisar inkommande samtal till din Twilio-nummer utan fakturering du.
+* **&lt;Say&gt;** : Konverterar text till tal som görs på ett anrop.
+* **&lt;Sms&gt;** : Skickar ett SMS-meddelande.
 
 ### <a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktionerna baserat på de Twilio-verb som meddelar Twilio av behandla ett samtal eller SMS.
@@ -158,7 +158,7 @@ Följande visar hur du skicka ett SMS-meddelande med den **meddelande** klass. D
 Mer information om de parametrar som skickas till den **Message.creator** metod, se [ https://www.twilio.com/docs/api/rest/sending-sms ] [ twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>Hur: Ange TwiML svar från din egen webbplats
-När programmet startar ett anrop till Twilio-API, till exempel den **CallCreator.create** metoden Twilio skicka din begäran till en URL som kan förväntas returnera ett TwiML svar. I exemplet ovan används URL: en med Twilio-angivna [ https://twimlets.com/message ] [ twimlet_message_url]. (Medan TwiML är avsedd för användning av webbtjänster, du kan visa TwiML i din webbläsare. Klicka till exempel [ https://twimlets.com/message ] [ twimlet_message_url] att se en tom **&lt;svar&gt;** elementet; Klicka på ett annat exempel är [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] att se en **&lt;svar&gt;** element som innehåller en **&lt;Say&gt;** element.)
+När programmet startar ett anrop till Twilio-API, till exempel den **CallCreator.create** metoden Twilio skicka din begäran till en URL som kan förväntas returnera ett TwiML svar. I exemplet ovan används URL: en med Twilio-angivna [ https://twimlets.com/message ] [ twimlet_message_url]. (Medan TwiML är avsedd för användning av webbtjänster, du kan visa TwiML i din webbläsare. Klicka till exempel [ https://twimlets.com/message ] [ twimlet_message_url] att se en tom **&lt; svar&gt;** elementet; Klicka på ett annat exempel är [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] att se en **&lt; svar&gt;** element som innehåller en **&lt; Say&gt;** element.)
 
 I stället för en Twilio-angivna URL: en, kan du skapa en egen URL-plats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar HTTP-svar; Det här avsnittet förutsätter att du ska värd för URL: en i en JSP-sida.
 

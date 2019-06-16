@@ -19,12 +19,12 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353184"
+ms.locfileid: "67110667"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -85,7 +85,7 @@ Enterprise State Roaming kan misslyckas under vissa förhållanden synkroniserar
 
 **Potentiella problem**: Om enheten är konfigurerad för att kräva Multifaktorautentisering på Azure Active Directory-portalen, kan du inte synkronisera inställningar när du loggar in på en Windows 10-enheten med ett lösenord. Den här typen av Multi-Factor Authentication-konfigurationen är avsedd att skydda en Azure-administratörskonto. Administrativa användare kan fortfarande att kunna synkronisera genom att logga in på sina Windows 10-enheter med sina Microsoft Passport för arbete PIN-kod eller genom att fylla i Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Office 365.
 
-**Potentiella problem**: Synkroniseringen kan misslyckas om en administratör konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multi-Factor-autentisering och åtkomst-token på enheten går ut. Se till att du loggar in och logga ut med hjälp av Microsoft Passport för arbete PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
+**Potentiella problem**: Synkroniseringen kan misslyckas om en administratör konfigurerar principen för Active Directory Federation Services Multi-Factor Authentication villkorlig åtkomst och åtkomst-token på enheten går ut. Se till att du loggar in och logga ut med hjälp av Microsoft Passport för arbete PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
 
 ### <a name="event-viewer"></a>Loggboken
 

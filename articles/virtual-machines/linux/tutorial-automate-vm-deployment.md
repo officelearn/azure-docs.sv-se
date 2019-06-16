@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114260"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
@@ -110,7 +110,7 @@ Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group crea
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. Det här exemplet skapar en virtuell dator med namnet *minAutomatiseradeVM*:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -183,7 +183,7 @@ vm_secret=$(az vm secret format --secret "$secret")
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
-När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/*. Om du vill automatisera inmatningen av certifikatet i den virtuella datorn och konfigurera NGINX kan du använda en uppdaterad cloud-init-konfigurationsfil från föregående exempel.
+När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/* . Om du vill automatisera inmatningen av certifikatet i den virtuella datorn och konfigurera NGINX kan du använda en uppdaterad cloud-init-konfigurationsfil från föregående exempel.
 
 Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Kom ihåg att om du använder Cloud Shell så ska du skapa cloud-init-konfigurationsfilen där och inte på den lokala maskinen. Använd `sensible-editor cloud-init-secured.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 

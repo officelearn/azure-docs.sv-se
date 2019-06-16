@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787503"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
@@ -92,26 +92,26 @@ För att visa automatisk skalning inställningen schemat kan används följande 
 | Section | Elementnamn | Beskrivning |
 | --- | --- | --- |
 | Inställning | ID | Den autoskalningsinställning resurs-ID. Inställningarna för automatisk skalning är en Azure Resource Manager-resurs. |
-| Inställning | namn | Autoskalningsinställningens namn. |
+| Inställning | name | Autoskalningsinställningens namn. |
 | Inställning | location | Platsen för autoskalningsinställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
 | properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en autoskalningsinställning per resurs. |
 | properties | Profiler | En autoskalningsinställning består av en eller flera profiler. Varje gång automatisk skalning motorn körs, kör en profil. |
-| profil | namn | Namnet på profilen. Du kan välja vilket namn som hjälper dig att identifiera profilen. |
-| profil | Capacity.maximum | Den maximala kapaciteten som tillåts. Det innebär att automatisk skalning, när du kör den här profilen inte skala din resurs ovanför det här talet. |
-| profil | Capacity.minimum | Den minsta kapaciteten som tillåts. Det innebär att automatisk skalning, när du kör den här profilen inte skala din resurs under det här värdet. |
-| profil | Capacity.default | Om det inte går att läsa Resursmått (i det här fallet CPU av ”vmss1”) och den aktuella kapaciteten är under standard, skalas automatisk skalning ut till standardinställningen. Detta är att säkerställa tillgängligheten för resursen. Om den aktuella kapaciteten är högre än standardkapaciteten, skala inte automatisk skalning i. |
-| profil | regler | Automatisk skalning skalar automatiskt mellan de högsta och lägsta kapaciteterna, med hjälp av regler i profilen. Du kan ha flera regler i en profil. Det finns vanligtvis två regler: en för att avgöra om att skala ut och den andra sätt att avgöra om att skala i. |
-| regel | metricTrigger | Definierar måttvillkor för regeln. |
+| Profil | name | Namnet på profilen. Du kan välja vilket namn som hjälper dig att identifiera profilen. |
+| Profil | Capacity.maximum | Den maximala kapaciteten som tillåts. Det innebär att automatisk skalning, när du kör den här profilen inte skala din resurs ovanför det här talet. |
+| Profil | Capacity.minimum | Den minsta kapaciteten som tillåts. Det innebär att automatisk skalning, när du kör den här profilen inte skala din resurs under det här värdet. |
+| Profil | Capacity.default | Om det inte går att läsa Resursmått (i det här fallet CPU av ”vmss1”) och den aktuella kapaciteten är under standard, skalas automatisk skalning ut till standardinställningen. Detta är att säkerställa tillgängligheten för resursen. Om den aktuella kapaciteten är högre än standardkapaciteten, skala inte automatisk skalning i. |
+| Profil | regler | Automatisk skalning skalar automatiskt mellan de högsta och lägsta kapaciteterna, med hjälp av regler i profilen. Du kan ha flera regler i en profil. Det finns vanligtvis två regler: en för att avgöra om att skala ut och den andra sätt att avgöra om att skala i. |
+| Regeln | metricTrigger | Definierar måttvillkor för regeln. |
 | metricTrigger | MetricName | Namnet på måttet. |
 | metricTrigger |  metricResourceUri | Resurs-ID för den resurs som genererar måttet. I de flesta fall är det samma som den resurs som skalas. I vissa fall kan det vara olika. Du kan exempelvis skala en skalningsuppsättning för virtuell dator baserat på antalet meddelanden i en lagringskö. |
 | metricTrigger | timeGrain | Metrisk sampling varaktighet. Till exempel **TimeGrain = ”PT1M”** innebär att mått som ska aggregeras varje minut med hjälp av sammansättningsmetoden som anges i elementet statistik. |
 | metricTrigger | statistik | Sammansättningsmetoden inom timeGrain-perioden. Till exempel **statistik = ”Average”** och **timeGrain = ”PT1M”** innebär att mått som ska aggregeras varje minut genom att ta medelvärdet. Den här egenskapen avgör hur måttet samplas. |
 | metricTrigger | timeWindow | Hur lång tid att gå tillbaka för mått. Till exempel **timeWindow = ”PT10M”** innebär att varje gång automatisk skalning körs, frågar mått för de senaste 10 minuterna. Tidsperioden att låta måtten normaliseras, och undvika reaktioner med övergående spikar. |
 | metricTrigger | timeAggregation | Sammansättningsmetoden som används för att sammansätta de samplade måtten. Till exempel **TimeAggregation = ”Average”** bör sammasätta de samplade måtten genom att ta medelvärdet. I föregående fall tar tio 1 minut exemplen och genomsnittlig dem. |
-| regel | scaleAction | Åtgärd att vidta när metricTrigger regelns utlöses. |
-| scaleAction | riktning | ”Öka” för att skala ut eller ”minska” att skala in.|
+| Regeln | scaleAction | Åtgärd att vidta när metricTrigger regelns utlöses. |
+| scaleAction | direction | ”Öka” för att skala ut eller ”minska” att skala in.|
 | scaleAction | value | Hur mycket att öka eller minska kapaciteten för resursen. |
-| scaleAction | nedkylningstiden | Hur lång tid att vänta efter en skalningsåtgärd innan du skalar igen. Till exempel om **nedkylningstiden = ”PT10M”**, automatisk skalning inte försöker skala igen för en annan 10 minuter. Nedkylningstiden är att låta måtten stabiliseras efter tillägg och borttagning av instanser. |
+| scaleAction | nedkylningstiden | Hur lång tid att vänta efter en skalningsåtgärd innan du skalar igen. Till exempel om **nedkylningstiden = ”PT10M”** , automatisk skalning inte försöker skala igen för en annan 10 minuter. Nedkylningstiden är att låta måtten stabiliseras efter tillägg och borttagning av instanser. |
 
 ## <a name="autoscale-profiles"></a>Profiler för automatisk skalning
 
@@ -290,13 +290,13 @@ Automatisk skalning använder följande sekvens för att välja profilen:
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Hur utvärdera flera regler av automatisk skalning?
 
-När autoskalning avgör vilken profil som ska köras, det utvärderar alla skalbar regler i profilen (detta är regler med **riktning = ”öka”**).
+När autoskalning avgör vilken profil som ska köras, det utvärderar alla skalbar regler i profilen (detta är regler med **riktning = ”öka”** ).
 
 Om en eller flera regler för skalbar utlöses Autoskala beräknar den nya kapacitet som bestäms av den **scaleAction** för var och en av dessa regler. Sedan skalas den upp till maxvärdet för de kapaciteterna för att garantera tjänstens tillgänglighet.
 
 Exempelvis kan vi antar att det är en VM-skalningsuppsättningen med en aktuell kapacitet på 10. Det finns två skalbara regler: en som ökar kapaciteten med 10 procent och en som ökar kapaciteten med 3 antal. Den första regeln skulle resultera i en ny kapacitet på 11 och den andra regeln skulle resultera i en kapacitet på 13. Om du vill för att garantera tjänstens tillgänglighet, väljer automatisk skalning åtgärden resulterar i maximal kapacitet, så den andra regeln väljs.
 
-Om inga regler för skalbar utlöses Autoskala utvärderar alla skala in regler (regler med **riktning = ”minska”**). Automatisk skalning tar bara en inskalningsåtgärd om alla regler skala in utlöses.
+Om inga regler för skalbar utlöses Autoskala utvärderar alla skala in regler (regler med **riktning = ”minska”** ). Automatisk skalning tar bara en inskalningsåtgärd om alla regler skala in utlöses.
 
 Automatisk skalning beräknar den nya kapacitet som bestäms av den **scaleAction** för var och en av dessa regler. Sedan väljer den skalningsåtgärd som resulterar i det maximala antalet på de kapaciteterna för att garantera tjänstens tillgänglighet.
 
@@ -310,3 +310,4 @@ Läs mer om automatisk skalning genom att referera till följande:
 * [Metodtips för automatisk skalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
+

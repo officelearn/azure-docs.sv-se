@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740817"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
@@ -119,11 +119,11 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 | Certifikattillgång |Välj ett Automation-certifikat som indata. |
 | Anslutningstillgång |Välj ett Automation-anslutningens som indata. |
 | PowerShell-uttryck |Ange enkla [PowerShell-uttryck](#powershell-expressions). Uttrycket utvärderas innan aktiviteten och resultatet som används för parametervärdet. Du kan använda variabler för att referera till utdata för en aktivitet eller en indataparameter för runbook. |
-| Ej konfigurerad |Tar bort ett värde som konfigurerats tidigare. |
+| Inte konfigurerat |Tar bort ett värde som konfigurerats tidigare. |
 
 #### <a name="optional-additional-parameters"></a>Valfria ytterligare parametrar
 
-Alla cmdletar har möjlighet att ange ytterligare parametrar. Det här är parametrarna för PowerShell eller andra anpassade parametrar. Visas en textruta där du kan ange parametrar med PowerShell-syntax. Till exempel vill använda den **utförlig** gemensamma parametern om du anger **”-utförlig: $True”**.
+Alla cmdletar har möjlighet att ange ytterligare parametrar. Det här är parametrarna för PowerShell eller andra anpassade parametrar. Visas en textruta där du kan ange parametrar med PowerShell-syntax. Till exempel vill använda den **utförlig** gemensamma parametern om du anger **”-utförlig: $True”** .
 
 ### <a name="retry-activity"></a>Gör om aktivitet
 
@@ -139,7 +139,7 @@ Villkor för återförsök är ett PowerShell-uttryck som utvärderas efter varj
 
 Villkor för återförsök kan använda en variabel med namnet $RetryData som ger åtkomst till information om återförsök för aktiviteten. Den här variabeln har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | NumberOfAttempts |Antal gånger som aktiviteten har körts. |
 | Resultat |Utdata från den senaste körningen av aktiviteten. |
@@ -249,7 +249,7 @@ Exemplet nedan är en del av en runbook som startar en uppsättning virtuella da
 
 En cykel är när en mål-aktivitet länkar tillbaka till dess källaktiviteten eller till en annan aktivitet som så småningom länkar tillbaka till källan. Cykler är inte tillåtna i grafisk redigering. Om din runbook har en cykel, sparar korrekt, men får ett fel när den körs.
 
-![Cykler](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Cykel](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Dela data mellan aktiviteter
 
@@ -322,7 +322,7 @@ Då öppnas det **indata och utdata** kontroll där du kan redigera en befintlig
 
 Varje indataparameter definieras av egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Namn |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
 | Beskrivning |En valfri beskrivning av Indataparametern. |

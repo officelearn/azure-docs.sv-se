@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: 9ca9506ad9ca826349b2815e504e9ba8bf976faa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702087"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snabbstart: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från en lokal plats
@@ -71,7 +71,7 @@ Den här snabbstarten:
 2. Öppna resursgruppen där du skapade den virtuella nätverksgatewayen och öppna sedan den virtuella nätverksresursen på en gateway.
 3. Välj **punkt-till-plats-konfiguration** och välj sedan **hämta VPN-klient**.
 
-    ![Ladda ned VPN-klient](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
+    ![Ladda ned VPN-klienten](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
 4. Extrahera filerna från zip-filen och öppna sedan mappen med de extrahera filerna på din lokala dator.
 5. Öppna i ”**WindowsAmd64** mappen och öppna den **VpnClientSetupAmd64.exe** fil.
 6. Om du får en **Windows skyddade datorn** klickar du på **mer info** och klicka sedan på **kör ändå**.
@@ -109,5 +109,5 @@ När du ansluter kan kan du visa din system- och användardatabaserna i noden da
 ## <a name="next-steps"></a>Nästa steg
 
 - En Snabbstart som visar hur du ansluter från en Azure virtuell dator, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
-- En översikt över anslutningsalternativen för olika program finns i [Ansluta dina program till Managed Instance](sql-database-managed-instance-connect-app.md).
+- En översikt över anslutningsalternativen för program finns i [Ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
 - Om du vill återställa en befintlig SQL Server-databas från en lokal plats till en hanterad instans, kan du använda den [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) eller [T-SQL RESTORE-kommandot](sql-database-managed-instance-get-started-restore.md) att återställa från en säkerhetskopian av databasfilen.

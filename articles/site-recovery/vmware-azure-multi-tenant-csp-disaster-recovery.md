@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461027"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-haveriberedskap i en miljö med flera innehavare med programmet Cloud Solution Provider (CSP)
@@ -52,7 +52,7 @@ Du kan komma åt den innehavarens prenumeration via Microsoft Partner Center-ins
 
 1. På den **kunder** klickar du på namnet på klientkonto.
 2. I den **prenumerationer** sidan för klientkonto som du kan övervaka de befintliga prenumerationerna för kontot och lägga till flera prenumerationer, efter behov.
-3. För att hantera klientens disaster recovery-åtgärder, Välj **alla resurser (Azure portal)**. Detta ger dig åtkomst till klientens Azure-prenumerationer.
+3. För att hantera klientens disaster recovery-åtgärder, Välj **alla resurser (Azure portal)** . Detta ger dig åtkomst till klientens Azure-prenumerationer.
 
     ![Länken alla resurser](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
@@ -76,7 +76,7 @@ Du kan nu skapa och hantera alla Site Recovery-åtgärder för klienten i Azure-
     
     c) när du har skapat en ny användare, gå tillbaka till Azure-portalen. I den **prenumeration** väljer du prenumerationen som är relevanta.
 
-    d) Välj **åtkomstkontroll (IAM)**, och klicka sedan på **rolltilldelningar**.
+    d) Välj **åtkomstkontroll (IAM)** , och klicka sedan på **rolltilldelningar**.
 
     e) Klicka på **Lägg till rolltilldelning** lägga till en användare med den relevanta åtkomstnivån. Användare som har skapats via CSP-portalen visas på fliken tilldelningar för rollen.
 
@@ -89,11 +89,11 @@ Du kan nu skapa och hantera alla Site Recovery-åtgärder för klienten i Azure-
 
 Det finns tre större modeller för flera innehavare:
 
-* **Delade värdbaserade tjänster (HSP)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
+* **Delade värdbaserade tjänster (HSP)** : Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
 
 * **Särskilda tjänster värdleverantör**: Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
 
-* **Hanterad Services Provider (MSP)**: Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
+* **Hanterad Services Provider (MSP)** : Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
 
 Genom att konfigurera klient prenumerationer enligt beskrivningen i den här artikeln, kan du snabbt starta och kunderna i någon av de relevanta modellerna för flera innehavare. Du kan läsa mer om de olika modellerna för flera innehavare och aktivera lokalt åtkomstkontroller [här](vmware-azure-multi-tenant-overview.md).
 

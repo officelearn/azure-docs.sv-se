@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634634"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Använda StorSimple Device Manager-tjänsten för att övervaka din StorSimple-enhet
@@ -42,8 +42,8 @@ Etablerade och återstående kapacitet är ytterligare fördelat på nivåindela
 Som standard rapporteras användning senaste 24 timmarna. Du kan redigera diagrammet om du vill ändra den varaktighet som rapporteras användningen genom att välja från:
 * Senaste 24 timmarna
 * Senaste 7 dagarna
-* Senaste 30 dagarna
-* Senaste 90 dagarna
+* De senaste 30 dagarna
+* De senaste 90 dagarna
 * Senaste året
 
 Två viktiga metrices, tillväxt och intervallet rapporteras för diagram för användning. Intervallet avser det maximala värdet och lägsta värdena för användning som har rapporterat under den valda perioden (fo instans, senaste 7 dagarna).

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456859"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
@@ -203,7 +203,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Överföra filer](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
+        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter ( **...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Lägga till filer](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Menyn för mappöverföring](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
+        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter ( **...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         c. Du kan även ange en målmapp som den markerade mappens innehåll ska överföras till. Om målmappen inte finns skapas den.
 

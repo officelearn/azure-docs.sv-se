@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058593"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger loggar
 
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Avbilda ILogger loggar från Startup.cs och Program.cs i ASP.NET Core-appar
+
+> [!NOTE]
+> I ASP.NET Core 3.0 och senare, det går inte längre att mata in `ILogger` i Startup.cs och Program.cs. Se https://github.com/aspnet/Announcements/issues/353 för mer information.
 
 Den nya ApplicationInsightsLoggerProvider kan samla in loggar från tidigt i pipeline för start av program. Även om ApplicationInsightsLoggerProvider aktiveras automatiskt i Application Insights (från och med version 2.7.0-beta3), har den inte en instrumenteringsnyckel anges tills senare i pipelinen. Därför bara loggar från **Controller**/ andra klasser som ska hämtas. Att samla in varje logg som börjar med **Program.cs** och **Startup.cs** själva, du måste uttryckligen aktivera en instrumenteringsnyckel för ApplicationInsightsLoggerProvider. Dessutom *TelemetryConfiguration* är inte helt konfigurerade när du loggar från **Program.cs** eller **Startup.cs** själva. Så har dessa loggar en lägsta konfiguration som använder InMemoryChannel, inga sampling och utan standardmoduler initieringar eller processorer.
 
@@ -450,7 +453,7 @@ Om du vill skicka alltid TraceTelemetry kan använda det här kodfragmentet: ```
 
 Application Insights-tillägget i Azure Web Apps använder den gamla-providern. Du kan ändra filtreringsregler i den *appsettings.json* fil för ditt program. Om du vill dra nytta av den nya providern, Använd byggning instrumentation genom att utföra ett NuGet-beroende på SDK: N. Den här artikeln kommer att uppdateras när tillägget växlar till att använda den nya providern.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Jag är med hjälp av det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och aktivera Application Insights-providern genom att anropa **builder. AddApplicationInsights("ikey")**. Finns det ett alternativ för att få en instrumenteringsnyckel från konfigurationen?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Jag är med hjälp av det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och aktivera Application Insights-providern genom att anropa **builder. AddApplicationInsights("ikey")** . Finns det ett alternativ för att få en instrumenteringsnyckel från konfigurationen?
 
 
 Ändra Program.cs och appsettings.json på följande sätt:

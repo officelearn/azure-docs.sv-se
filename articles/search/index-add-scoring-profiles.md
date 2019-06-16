@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021628"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Lägg till bedömningsprofiler i en Azure Search-index
@@ -247,7 +247,7 @@ Sökpoängen beräknas utifrån statistiska egenskaper för data och frågan. Az
 |`magnitude` &#124; `boostingRangeEnd`|Anger slutvärdet för intervallet över vilket omfattning beräknas. Värdet måste vara ett heltal eller flyttal. Detta kan vara 4 för stjärnklassificering mellan 1 och 4.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Giltiga värden är SANT eller FALSKT (standard). Om värdet är sant, i hela förstärkningen ska tillämpas på dokument som har ett värde för målfältet som är högre än den övre delen av intervallet. Om värdet är FALSKT, tillämpas inte förstärkningen på på dokument med ett värde för målfältet som ligger utanför intervallet.|  
 |`freshness`|Färskhet bedömning funktion används för att ändra poängrangordning för objekt baserat på värdena i `DateTimeOffset` fält. Till exempel kan ett objekt med ett datum vara räknas högre än äldre objekt.<br /><br /> Det är också möjligt att rangordnas objekt och Kalender-händelser med framtida datum så att objekt närmare aktuella rangordnas högre än objekt ytterligare i framtiden.<br /><br /> I den aktuella versionen av tjänsten korrigeras ena änden av intervallet till den aktuella tiden. Den andra änden är taget tidigare baserat på den `boostingDuration`. För att höja flera gånger i framtiden, använder du en negativ `boostingDuration`.<br /><br /> Den hastighet som den boosting ändras från maximalt och minimalt intervall bestäms av interpolering tillämpas på bedömningsprofilen (se bilden nedan). Välj en boost faktor på mindre än 1 om du vill ändra felkällorna faktor som tillämpas.|  
-|`freshness` &#124; `boostingDuration`|Anger en utgångsperiod efter vilken förstärkning tar slut för ett visst dokument. Se [ange boostingDuration](#bkmk_boostdur) i följande avsnitt innehåller syntax och exempel.|  
+|`freshness` &#124; `boostingDuration`|Anger en förfalloperiod efter då detta stoppas för ett visst dokument. Se [ange boostingDuration](#bkmk_boostdur) i följande avsnitt innehåller syntax och exempel.|  
 |`distance`|Avståndet bedömningsfunktion används för att påverka poängsättningen för dokument baserat på hur Stäng eller långt ifrån de är i förhållande till en geografisk referensplats. Referensplatsen ges som en del av frågan i en parameter (med hjälp av den `scoringParameterquery` sträng alternativet) som en celligt lat argumentet.|  
 |`distance` &#124; `referencePointParameter`|En parameter som ska överföras i frågor som ska användas som referensplats. `scoringParameter` är en frågeparameter. Se [söka efter dokument &#40;Azure Search Service REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) beskrivningar av Frågeparametrar.|  
 |`distance` &#124; `boostingDistance`|Ett tal som anger avståndet i kilometer, från referensplatsen där förstärkningsintervallet slutar.|  
@@ -275,7 +275,7 @@ Sökpoängen beräknas utifrån statistiska egenskaper för data och frågan. Az
 
  Följande tabell innehåller flera exempel.  
 
-|Varaktighet|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 dag|"P1D"|  
 |2 dagar och 12 timmar|"P2DT12H"|  

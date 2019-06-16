@@ -8,35 +8,45 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 244a4ebe20863945bfc3b6236e70e786387c8909
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140558"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116694"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Alla tjänster** på den vänstra menyn och välj **Notification Hubs** i avsnittet **Mobil**. Välj stjärnan (`*`) intill namnet på tjänsten för att lägga till den i avsnittet **FAVORITER** på den vänstra menyn. När **Notification Hubs** har lagts till i **FAVORITER** väljer du det på den vänstra menyn. 
+
+1. Välj **Alla tjänster** på den vänstra menyn och välj **Notification Hubs** i avsnittet **Mobil**. Välj stjärnikonen bredvid namnet på tjänsten för att lägga till tjänsten för att den **Favoriter** avsnitt i den vänstra menyn. När du lägger till **Meddelandehubbar** till **Favoriter**, markerar den på den vänstra menyn.
 
       ![Azure-portalen – välj Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
-3. På sidan **Notification Hubs** väljer du **Lägg till** i verktygsfältet. 
+
+1. På sidan **Notification Hubs** väljer du **Lägg till** i verktygsfältet.
 
       ![Notification Hubs – Lägga till verktygsfältsknapp](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
-4. På sidan **Notification Hub** gör du följande: 
-    1. Ange ett **namn** för **meddelandehubben**.  
-    2. Ange ett **namn** för **namnrymden**. En namnrymd innehåller en eller flera hubbar. 
-    3. Välj en **plats** där du vill skapa meddelandehubben. 
-    4. Ange en befintlig resursgrupp eller ange ett namn för den nya **resursgruppen**.
-    5. Välj **Skapa**. 
+
+1. På sidan **Notification Hub** gör du följande:
+
+    1. Ange ett namn i **Notification Hub**.  
+
+    1. Ange ett namn i **skapa ett nytt namnområde**. En namnrymd innehåller en eller flera hubbar.
+
+    1. Välj ett värde från den **plats** nedrullningsbara listrutan. Det här värdet anger den plats där du vill skapa meddelandehubben.
+
+    1. Välj en befintlig resursgrupp i **resursgrupp**, eller skapa ett namn för en ny resursgrupp.
+
+    1. Välj **Skapa**.
 
         ![Azure Portal – ange egenskaper för meddelandehubben](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Välj **Meddelanden** (klockikon) och välj **Gå till resurser**. Du kan också uppdatera listan på sidan **Notification Hubs** och välja din meddelandehubb. 
+
+1. Välj **meddelanden** (klockikon) och välj **gå till resurs**. Du kan också uppdatera listan på den **Meddelandehubbar** och välj din meddelandehubb.
 
       ![Azure Portal – Meddelanden -> Gå till resurser](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
-5. Välj **Åtkomstprinciper** i listan. Anteckna de två anslutningssträngarna som är tillgängliga för dig. Du behöver dem för att hantera push-meddelanden senare.
+
+1. Välj **Åtkomstprinciper** i listan. Anteckna de två anslutningssträngarna som är tillgängliga för dig. Du behöver senare dem för att hantera push-meddelanden.
 
       >[!IMPORTANT]
-      >Använd **INTE** DefaultFullSharedAccessSignature i ditt program. Detta är endast avsett att användas i din serverdel.
+      >Gör *inte* använder den **DefaultFullSharedAccessSignature** principen i ditt program. Detta är avsett att användas i serverdelen endast.
       >
 
       ![Azure Portal – anslutningssträngar för meddelandehubb](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

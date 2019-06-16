@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 05/23/2019
 ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240342"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
@@ -268,7 +268,7 @@ Om alla virtuella kärnor för en elastisk pool är upptagen, får varje databas
 
 I följande tabell beskrivs egenskaperna för databaser i en pool.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Maximalt antal virtuella kärnor per databas |Det maximala antalet virtuella kärnor som en databas i poolen kan använda, om tillgängliga beroende på användningen av andra databaser i poolen. Maximalt antal virtuella kärnor per databas är inte resursgaranti för en databas. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Ställ in max virtuella kärnor per databas som är tillräckligt högt för att hantera toppar i databasanvändningen. En viss grad av över transaktionen är att förvänta eftersom poolen Allmänt förutsätter heta och kalla användningsmönster för databaser där alla databaser har aktivitetstoppar samtidigt.|
 | Min virtuella kärnor per databas |Det minsta antalet virtuella kärnor som en databas i poolen är garanterad. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Min virtuella kärnor per databas kan anges till 0 och även är standardvärdet. Den här egenskapen anges till var som helst mellan 0 och den genomsnittliga vCores användningen per databas. Produkten av antalet databaser i poolen och min virtuella kärnor per databas får inte överskrida virtuella kärnor per pool.|

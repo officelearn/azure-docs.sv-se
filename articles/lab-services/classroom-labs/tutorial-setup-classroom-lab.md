@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: bdcc4349f84a35b312ecb3ad6205273b62c2e989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123273"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -48,7 +48,7 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
-    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. För närvarande **små**, **medel**, **stora**, och **GPU** storlekar tillåts.
+    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. För närvarande **små**, **medel**, **medel (virtualisering)** , **stora**, och **GPU** storlekarna är tillåtna.
     3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. Om du väljer en Linux-avbildning, ser du ett alternativ för att aktivera anslutning till fjärrskrivbord för den. Mer information finns i [aktivera anslutning till fjärrskrivbord för Linux](how-to-enable-remote-desktop-linux.md).
     4. Välj **Nästa**.
 
@@ -69,9 +69,11 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
-    1. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en Linux VM-mallen kan välja du om du vill ansluta med SSH eller RDP (om RDP har aktiverats).
-    2. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
-    3. Ange en **beskrivning** för mallen
+    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en Linux VM-mallen kan välja du om du vill ansluta med SSH eller RDP (om RDP har aktiverats).
+    1. Välj **Återställ lösenord** att återställa lösenordet för den virtuella datorn. 
+    1. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
+    1. **Stoppa** den virtuella datorn.  
+    1. Ange en **beskrivning** för mallen
 9. Välj **Nästa** på mallsidan. 
 10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
     1. Om du vill publicera mallen omedelbart, Välj **publicera**.  
@@ -107,6 +109,40 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Ange kvoter för användare
+Du kan ange kvoter per användare med hjälp av följande steg: 
+
+1. Välj **användare** på menyn till vänster om sidan inte redan är aktiv. 
+2. Välj **kvot per användare:** i verktygsfältet. 
+3. På den **kvot per användare** anger antalet timmar som du vill ge varje användare (student): 
+    1. **0 timmar (schema)** . Användare kan använda sina virtuella datorer endast under den schemalagda tiden eller när du som labbägare till sätter på virtuella datorer för dessa.
+
+        ![Noll timmar – endast schema](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Totalt antal lab timmar per användare**. Användare kan använda sina virtuella datorer för ett angivet antal timmar (anges i det här fältet) **utöver den schemalagda tiden**. Om du väljer det här alternativet anger du den **antal timmar** i textrutan. 
+
+        ![Antal timmar per användare](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Välj **Spara**. 
+5. Du ser uppdaterade värden i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;** . 
+
+    ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Ett schema för labbet
+Om du har konfigurerat Kvotinställningen till **0 timmar (schema)** , måste du ställa in ett schema för övningen. I den här självstudien får ange du schemat som ska vara ett återkommande veckoschema.
+
+1. Växla till den **scheman** och välj **Lägg till schema** i verktygsfältet. 
+
+    ![Lägg till schemaknapp på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
+2. På den **Lägg till schema** växlar du till **veckovisa** högst upp. 
+3. För **schemalägga dagar (obligatoriskt)** , Välj de dagar som du vill att schemat ska börja gälla. I följande exempel, har måndag – fredag valts. 
+4. För den **från** fältet, anger du den **schemalägga startdatum** eller välj ett datum genom att välja den **kalender** knappen. Det här fältet är obligatoriskt. 
+5. För **det schemalagda slutdatumet**anger eller väljer ett slutdatum där de virtuella datorerna är stängs av. 
+6. För **starttid**, väljer du den tid då du vill att de virtuella datorerna startas. Starttiden är obligatorisk om sluttid har angetts. Välj **Remove Starthändelse** om du vill ange endast sluttid. Om den **starttid** är inaktiverat, Välj **Lägg till Starthändelse** bredvid listrutan så att den. 
+7. För **stopptid**, väljer du den tid då du vill att de virtuella datorerna ska stängas. Sluttid krävs om starttiden inte anges. Välj **händelsen för ta bort stoppa** om du vill ange endast starttid. Om den **stopptid** är inaktiverat, Välj **Lägg till Stoppa händelse** bredvid listrutan så att den.
+8. För **tidszon (krävs)** , Välj tidszon för start och stopptider som du har angett.  
+9. För **anteckningar**, ange en beskrivning av eller anteckningar för schemat. 
+10. Välj **Spara**. 
+
+    ![Schema för veckovis](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Skicka ett e-postmeddelande med en registreringslänk
 

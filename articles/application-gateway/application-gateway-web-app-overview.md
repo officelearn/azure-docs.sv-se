@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807176"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway stöd för flera klientorganisationer slutar som App service
 
 I flera innehavare arkitekturritningar för servrar körs flera webbplatser på samma web server-instansen. Värdnamn används för att skilja mellan olika program som finns. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det här fungerar bra för medlemmar i serverdelspoolen, t.ex nätverkskort VM skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser och FQDN eftersom dessa inte förlita dig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt. Men finns det många tjänster, till exempel Azure App service web apps och Azure API management som flera klientorganisationer och förlitar sig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt. Vanligtvis är skiljer DNS-namnet på programmet, vilket i sin tur är DNS-namnet som är associerade med application gateway, sig från domännamnet för backend-tjänsten. Därför är värdhuvudet i den ursprungliga begäran tas emot av application gateway inte samma som namnet på backend-tjänsten. På grund av detta, såvida inte värdhuvudet i begäran från programgatewayen till serverdelen ändras till värdnamnet för backend-tjänsten är serverdelar för flera innehavare inte kan matcha begäran till rätt slutpunkt. 
 
-Application gateway erbjuder en funktion där användarna kan åsidosätta HTTP-Värdrubriken i begäran baserat på namnet på serverdelen. Den här funktionen möjliggör stöd för serverdelar för flera innehavare, till exempel Azure App service-webbappar och API-hantering. Den här funktionen är tillgänglig för både v1 och v2 standard och WAF SKU: er. 
+Application Gateway erbjuder en funktion där användarna kan åsidosätta HTTP-värdrubriken i begäran baserat på namnet på serverdelen. Detta gör det möjligt att använda serverdelar med flera klientorganisationer som Azure App Service-webbappar och API-hantering. Den här funktionen är tillgänglig för både v1-, v2-, standard- och WAF-SKU:er. 
 
 ![Vara värd för åsidosättning](./media/application-gateway-web-app-overview/host-override.png)
 
@@ -31,7 +31,7 @@ Möjligheten att värdåsidosättningar definieras i den [HTTP-inställningar](h
 
 - Möjligheten att ange värdnamnet till ett fast värde som anges i HTTP-inställningarna. Den här funktionen ser till att värdhuvudet åsidosätts till det här värdet för all trafik till backend-poolen där de specifika HTTP-inställningarna används. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-poolen servergrupp förväntar sig en värdrubrik som skiljer sig från den inkommande klientvärdrubriken.
 
-- Möjligheten att härleda värdnamnet från IP-Adressen eller FQDN för backend-poolmedlemmar. HTTP-inställningarna innehåller också ett alternativ för att dynamiskt hämta värdnamnet från medlem backend-poolen FQDN om har konfigurerats med alternativet för att härleda värdnamnet från en medlem i den enskilda backend-poolen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en serverdelspool kan ha två eller flera flera innehavare PaaS-tjänster som Azure-webbappar och varje medlem i begäran värdhuvudet innehåller värdnamn som härletts från dess FQDN. För att genomföra det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamnet från serverdelsadressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) som åsidosätter dynamiskt värdhuvudet i den ursprungliga begäran till den som nämns i serverdelspoolen.  Till exempel om backend-pool FQDN innehåller ”contoso11.azurewebsites.net” och ”contoso22.azurewebsites.net”, kommer värdhuvud för den ursprungliga begäran som är contoso.com att åsidosättas contoso11.azurewebsites.net eller contoso22.azurewebsites.net När begäran skickas till lämplig backend-servern. 
+- Möjligheten att härleda värdnamnet från IP-Adressen eller FQDN för backend-poolmedlemmar. HTTP-inställningarna innehåller också ett alternativ för att dynamiskt hämta värdnamnet från medlem backend-poolen FQDN om har konfigurerats med alternativet för att härleda värdnamnet från en medlem i den enskilda backend-poolen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en serverdelspool kan ha två eller flera flera innehavare PaaS-tjänster som Azure-webbappar och varje medlem i begäran värdhuvudet innehåller värdnamn som härletts från dess FQDN. För att genomföra det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamnet från serverdelsadressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som åsidosätter dynamiskt värdhuvudet i den ursprungliga begäran till den som nämns i serverdelspoolen.  Till exempel om backend-pool FQDN innehåller ”contoso11.azurewebsites.net” och ”contoso22.azurewebsites.net”, kommer värdhuvud för den ursprungliga begäran som är contoso.com att åsidosättas contoso11.azurewebsites.net eller contoso22.azurewebsites.net När begäran skickas till lämplig backend-servern. 
 
   ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 

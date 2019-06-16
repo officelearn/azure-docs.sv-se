@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 18e1bb486c47baf7648a74e31451e2db73f72250
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063190"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Förbereda data för att skapa en anpassad röst
 
@@ -49,7 +49,7 @@ Du kan förbereda inspelningar av enskilda yttranden och matchande avskriften p�
 Skapa inspelningarna för att skapa en bra rösttyp i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga.
 
 > [!TIP]
-> Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal. Mer information finns i [så spela in röst-exempel för en anpassad röst](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal. Mer information finns i [så spela in röst-exempel för en anpassad röst](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Ljudfiler
 
@@ -57,7 +57,7 @@ Varje ljudfil ska innehålla en enda uttryck (en mening eller en enda aktivera f
 
 Följ dessa riktlinjer när du förbereder ljud.
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 | -------- | ----- |
 | Filformat | RIFF (.wav) som är grupperade i en .zip-fil |
 | Samplingsfrekvens | minst 16 000 Hz |
@@ -74,7 +74,7 @@ Följ dessa riktlinjer när du förbereder ljud.
 
 Transkription-filen är en oformaterad textfil. Använd dessa riktlinjer för att förbereda din avskrifter.
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 | -------- | ----- |
 | Filformat | Oformaterad text (.txt) |
 | Kodningsformatet | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE eller UTF-16-BE. ANSI/ASCII och UTF-8-kodning stöds inte för zh-CN. |
@@ -104,7 +104,7 @@ I vissa fall kanske du inte har segmenterade ljud som är tillgängliga. Vi till
 
 Följ dessa riktlinjer när du förbereder ljud för segmentering.
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 | -------- | ----- |
 | Filformat | RIFF (.wav) med en samplingsfrekvensen av minst 16 khz-16-bitars i PCM eller .mp3 med en bithastighet på minst 256 kbit/s, grupperade i en .zip-fil |
 | Filnamn | ASCII-tecken. Unicode-tecken i namnet misslyckas (till exempel kinesiska tecken, eller symboler som ””,). Inga Dubblettnamn tillåts. |
@@ -118,7 +118,7 @@ Alla ljudfiler ska grupperas i en zip-fil. Det är OK om du vill placera WAV-fil
 
 Avskrifter måste vara beredd att specifikationer i den här tabellen. Varje ljudfil måste matchas med en avskrift.
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 | -------- | ----- |
 | Filformat | Oformaterad text (.txt), som är grupperade i en .zip |
 | Filnamn | Använd samma namn som den matchande ljudfilen |
@@ -139,7 +139,7 @@ Följ dessa riktlinjer när du förbereder ljud.
 > [!NOTE]
 > Tjänsten långa ljud segmentering att utnyttja funktionen batch avskrift i tal till text, som stöder endast standard prenumerationsanvändare (S0).
 
-| Egenskap  | Värde |
+| Egenskap | Värde |
 | -------- | ----- |
 | Filformat | RIFF (.wav) med en samplingsfrekvensen av minst 16 khz-16-bitars i PCM eller .mp3 med en bithastighet på minst 256 kbit/s, grupperade i en .zip-fil |
 | Filnamn | ASCII-tecken. Unicode-tecken i namnet misslyckas (till exempel kinesiska tecken, eller symboler som ””,). Inga Dubblettnamn tillåts. |

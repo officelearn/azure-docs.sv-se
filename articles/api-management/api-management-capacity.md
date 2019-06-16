@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658330"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapaciteten för en Azure API Management-instans
@@ -69,7 +69,7 @@ Mer avancerade åtgärder i begäranden är, desto högre den **kapacitet** komm
 ![Kapacitetsmått](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navigera till APIM-instansen i den [Azure-portalen](https://portal.azure.com/).
-2. Välj **mått (förhandsgranskning)**.
+2. Välj **mått (förhandsgranskning)** .
 3. Välj avsnittet lila **kapacitet** mått från tillgängliga mått och lämna standardvärdet **genomsn** aggregering.
 
     > [!TIP]

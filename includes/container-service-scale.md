@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 2ed74a4ba19af3a441bcf26a48890f033e6c365f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814743"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
@@ -29,7 +29,7 @@ Du kan ändra antalet agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-klus
 
 ## <a name="scale-with-the-azure-cli"></a>Skala med Azure CLI
 
-Se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI och loggat in till ett Azure-konto (`az login`).
+[Installera Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med `az login`.
 
 ### <a name="see-the-current-agent-count"></a>Visa det aktuella antalet agenter
 För att se antalet agenter i klustret kör du kommandot `az acs show`. Detta visar klusterkonfigurationen. Följande kommando visar till exempel konfigurationen av containertjänsten som heter `containerservice-myACSName` i resursgruppen `myResourceGroup`:

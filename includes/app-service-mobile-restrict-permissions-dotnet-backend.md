@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139849"
 ---
 Som standard kan API: er i en Mobile Apps-serverdelen anropas anonymt. Därefter måste du begränsa åtkomsten till endast autentiserade klienter.  
@@ -16,7 +16,7 @@ Som standard kan API: er i en Mobile Apps-serverdelen anropas anonymt. Därefter
 * **Node.js tillbaka sluta (via Azure portal)** :  
 
     I inställningarna för Mobilappar klickar du på **enkla tabeller** och välj din tabell. Klicka på **ändra behörigheter**väljer **autentiserad åtkomst endast** alla behörigheter och klicka sedan på **spara**.
-* **.NET-serverdel (C#)**:  
+* **.NET-serverdel (C#)** :  
 
     I serverprojektet, går du till **domänkontrollanter** > **TodoItemController.cs**. Lägg till den `[Authorize]` attributet den **TodoItemController** klassen enligt följande. Om du vill begränsa åtkomst till specifika metoder, kan du också använda det här attributet till dessa metoder i stället för klassen. Publicera om serverprojektet.
 

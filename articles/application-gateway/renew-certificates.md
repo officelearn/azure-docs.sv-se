@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 03/12/2019
-ms.author: v-junlch
+ms.date: 8/15/2018
+ms.author: victorh
 ms.openlocfilehash: 90200f7be6c71346441922365fc4439111dd8701
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133705"
 ---
 # <a name="renew-application-gateway-certificates"></a>Förnya certifikat för Application Gateway
@@ -26,7 +25,7 @@ Du kan förnya ett certifikat som är associerade med en lyssnare med antingen A
 
 Om du vill förnya ett certifikat för lyssnare från portalen, navigera till din application gateway-lyssnare. Klicka på den lyssnare som har ett certifikat som krävs för att förnya och klicka sedan på **förnya eller Redigera valda certifikatet**.
 
-![Förnya certifikat](./media/renew-certificate/ssl-cert.png)
+![Förnya certifikat](media/renew-certificate/ssl-cert.png)
 
 Ladda upp nya PFX-certifikatet, ge den ett namn, skriver du lösenordet och klicka sedan på **spara**.
 
@@ -36,7 +35,7 @@ Ladda upp nya PFX-certifikatet, ge den ett namn, skriver du lösenordet och klic
 
 Om du vill förnya certifikatet med hjälp av Azure PowerShell, Använd följande skript:
 
-```azurepowershell
+```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
@@ -53,17 +52,15 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-az network application-gateway ssl-cert update `
-  -n "<CertName>" `
-  --gateway-name "<AppGatewayName>" `
-  -g "ResourceGroupName>" `
-  --cert-file <PathToCerFile> `
+```azurecli-interactive
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
   --cert-password "<password>"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs hur du konfigurerar SSL-avlastning med Azure Application Gateway i [Konfigurera SSL-avlastning](application-gateway-ssl-portal.md)
-
-<!-- Update_Description: code update -->

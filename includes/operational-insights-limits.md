@@ -5,37 +5,53 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133117"
 ---
-Följande begränsningar gäller för Azure Log Analytics-resurser per prenumeration.
+Följande begränsningar gäller för varje Log Analytics-arbetsyta i den aktuella förbrukningsbaserad prisnivån lanserades i April 2018:
 
-| Resource | Standardgräns | Kommentar
-| --- | --- | --- |
-| Antal lediga arbetsytor per prenumeration | 10 | Den här gränsen kan inte höjas. |
-| Antal betalda arbetsytor per prenumeration | Gäller inte | Du är begränsad av antalet resurser i en resursgrupp och antalet resursgrupper per prenumeration. | 
+|     | Per GB 2018 |
+| --- | --- | 
+| Datavolym som samlas in per dag | Ingen |
+| Datakvarhållningstid | 30 till 730 dagar<sup>1</sup> |
+
+Följande begränsningar gäller för varje Log Analytics-arbetsyta senaste äldre prisnivåer:
+
+|  | Lediga | Fristående (Per GB) | Per nod (OMS) |
+| --- | --- | --- | --- | --- | --- |--- |
+| Datavolym som samlas in per dag |500 MB<sup>2</sup> |Ingen |Ingen |
+| Datakvarhållningstid |7 dagar | 30 till 730 dagar<sup>1</sup> | 30 till 730 dagar<sup>1</sup> |
+
+Följande begränsningar gäller för varje Log Analytics-arbetsyta äldsta äldre prisnivåer:
+
+|  | Standard | Premium | 
+| --- | --- | --- | --- | --- | --- |--- |
+| Datavolym som samlas in per dag | Ingen | Ingen | 
+| Datakvarhållningstid |30 dagar | 365 dagar |
+
+<sup>1</sup>datakvarhållning efter 31 dagar är tillgänglig för extra avgifter. Läs mer om [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+<sup>2</sup>när din arbetsyta når den dagliga dataöverföringsgränsen i 500 MB, dataanalys stoppar och återupptas i början av nästa dag. En dag baseras på UTC.
 
 >[!NOTE]
->Från och med den 2 April 2018 nya arbetsytor i en ny prenumeration använder automatiskt den *Per GB* prisavtal. För befintliga prenumerationer som skapats före 2 April eller en prenumeration som är kopplad till en befintlig Enterprise Agreement-registrering, kan du fortsätta att välja mellan tre prisnivåer för nya arbetsytor. 
+>Beroende på hur länge du har använt Log Analytics, kanske du har åtkomst till äldre prisnivåer. Läs mer om [Log Analytics äldre prisnivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
 >
 
-Följande begränsningar gäller för varje Log Analytics-arbetsyta.
+Följande begränsningar gäller för Azure Log Analytics-resurser (arbetsytor) per prenumeration.
 
-|  | Lediga | Standard | Premium | Fristående | OMS | Per GB |
-| --- | --- | --- | --- | --- | --- |--- |
-| Datavolym som samlas in per dag |500 MB<sup>1</sup> |Ingen |Ingen | Ingen | Ingen | Ingen
-| Datakvarhållningstid |7 dagar |1 månad |12 månader | 1 månad <sup>2</sup> | 1 månad <sup>2</sup>| 1 månad <sup>2</sup>|
+| Prisnivå    | Antal arbetsytor per prenumeration | Kommentar
+| --- | --- | --- |
+| Gratis nivå  | 10 | Den här gränsen kan inte höjas. |
+| Alla nivåer än kostnadsfri | Gäller inte | Du är begränsad av antalet resurser i en resursgrupp och antalet resursgrupper per prenumeration. | 
 
-<sup>1</sup>när kunderna når sin dagliga dataöverföringsgränsen i 500 MB, dataanalys stoppar och återupptas i början av nästa dag. En dag baseras på UTC.
-
-<sup>2</sup>kan du öka kvarhållningsperioden för data för den fristående och OMS prissättningsplaner Per GB och 730 dagar.
+Följande begränsningar gäller för Log Analytics-API: er:
 
 | Category | Limits | Kommentar
 | --- | --- | --- |

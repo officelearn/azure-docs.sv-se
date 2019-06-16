@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779471"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
@@ -46,7 +46,7 @@ API | När du ska använda detta | Anteckningar
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver hur du skapar ett konsolprogram i Visual Studio 2017, men stegen är liknande i andra versioner av Visual Studio.
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**
-2. Välj **Installerat** > **Mallar** > **Visual C#** > **Windows Classic Desktop**
+2. Välj **Installerat** > **Mallar** > **Visual C#**  > **Windows Classic Desktop**
 3. Välj **Konsolprogram (.NET Framework)**
 4. Ange ett namn för ditt program i fältet **Namn**
 5. Välj **OK**

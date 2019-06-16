@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772169"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
@@ -64,7 +64,7 @@ Följande diagram hjälper dig att avgöra vilken strategi du ska använda för 
 ### <a name="site-recovery-support"></a>Site Recovery-stöd
 Eftersom Site Recovery-replikering är programoberoende förväntas dessa rekommendationer att gälla för följande scenarier.
 
-| Källa    |Till en sekundär plats    |Till Azure
+| source    |Till en sekundär plats    |Till Azure
 |---------|---------|---------|
 |Azure| -|Ja|
 |Hyper-V|   Ja |Ja

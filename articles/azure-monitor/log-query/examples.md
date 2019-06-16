@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759919"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-fråga-exempel
@@ -25,7 +25,7 @@ Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md)
 
 Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du inte har använt Azure Monitor.
 
-## <a name="events"></a>Händelser
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Sök på programnivå händelser som kallas ”kryptografiska”
 Det här exemplet söker igenom **tabellen över händelser** för poster där **Händelselogg** är _programmet_ och **utförd beskrivning** innehåller _kryptografi_. Poster från de senaste 24 timmarna ingår.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630146"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
@@ -44,7 +44,7 @@ Implementera följande metodtips när du etablerar den virtuella matrisen:
 | **Datatypen för disk** |Etablera som **dynamiskt expanderande**.<br></br> **Fast storlek** tar lång tid. <br></br> Använd inte den **differentierande** alternativet. |Använd den **tunn etablering** alternativet. |
 | **Data diskändring** |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |
 
-### <a name="sizing"></a>Storlekar
+### <a name="sizing"></a>Storleksändring
 När du ändrar storlek StorSimple Virtual Array, Tänk på följande faktorer:
 
 * Lokal reservation för volymer eller resurser. Cirka 12% av utrymmet har reserverats på den lokala nivån för varje etablerade nivåindelad volym eller resurs. 10% av utrymmet är ungefär också reserverad för en lokalt Fäst volym för filsystem.
@@ -107,7 +107,7 @@ Minsta lokala utrymmet som krävs för återställning är 330 GB.
 
 Du kan ta hänsyn till eventuella oväntade tillväxten, för att etablera en lokal disk 1.25 – 1,5 TB.
 
-### <a name="group-policy"></a>Grupprincip
+### <a name="group-policy"></a>En Grupprincip
 Grupprincip är en infrastruktur som gör det möjligt att implementera specifika konfigurationer för användare och datorer. Inställningar av grupprinciper finns i grupprincipobjekt (GPO), som är länkade till följande Active Directory Domain Services (AD DS)-behållare: platser, domäner eller organisationsenheter (OU). 
 
 Om din virtuella matris är ansluten till domänen, kan grupprincipobjekt tillämpas på den. Dessa grupprincipobjekt kan installera program, till exempel ett antivirusprogram som kan påverka driften av StorSimple Virtual Array negativt.
@@ -237,7 +237,7 @@ När du utför en växling vid fel över för din virtuella matris kan ha följa
   * Ett fel uppstod under riktig redundansväxling. I det här fallet markeras målenheten inte kan användas. Du måste etablera och konfigurera en annan virtuell matris för mål och använda det för redundans.
   * Redundansväxlingen slutfördes varefter källenheten har tagits bort men målenheten har problem och du åtkomst till inte några data. Data är fortfarande säkert i molnet och enkelt kan hämtas genom att skapa en annan virtuell matris och använda det som en målenhet för DR.
 
-### <a name="deactivate"></a>Inaktivera
+### <a name="deactivate"></a>inaktivera
 När du inaktiverar en StorSimple Virtual Array Server anslutningen mellan enheten och motsvarande StorSimple Manager-tjänsten. Inaktiveringen är en **permanent** åtgärden och kan inte ångras. En inaktiverad enhet kan inte registreras med StorSimple Manager-tjänsten igen. Mer information går du till [inaktivera och ta bort StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Tänk på följande metodtips när du inaktiverar den virtuella matrisen:

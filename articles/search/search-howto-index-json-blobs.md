@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523076"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
@@ -142,7 +142,7 @@ Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i
 
 + Azure Search-tjänstnamn
 + Azure Search-administratörsnyckel
-+ Azure Storage-kontonamn
++ Azure storage-kontonamn
 + Azure storage-kontonyckel
 
 Du hittar dessa värden i portalen:

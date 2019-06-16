@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831251"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 
-Application Gateway erbjuder inbyggt stöd för WebSocket över alla gateway-storlekar. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. 
+Application Gateway har inbyggt stöd för WebSocket i alla gatewaystorlekar. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. 
 
 WebSocket-protokoll är standardiserade i [RFC6455](https://tools.ietf.org/html/rfc6455) möjliggör en fullständig duplex kommunikation mellan en server och en klient via en tidskrävande TCP-anslutning. Den här funktionen möjliggör en mer interaktiv kommunikation mellan servern och klienten, vilket kan vara dubbelriktad utan att behöva avsökningen som krävs i HTTP-baserade implementeringar. WebSocket har låg overhead till skillnad från HTTP och kan återanvända samma TCP-anslutningen för flera begäran/svar vilket resulterar i en mer effektiv användning av resurser. WebSocket-protokoll är utformade att fungera över traditionella HTTP-portarna 80 och 443.
 

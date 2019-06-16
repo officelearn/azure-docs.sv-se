@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696131"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge
@@ -49,7 +49,7 @@ I det här avsnittet skapar du en Scala exempelprojektet med hjälp av IntelliJ 
 
 1. Öppna IntelliJ IDEA på datorn. I den **nytt projekt** dialogrutan Fyll de här stegen:
 
-   1. Välj **HDInsight** > **Spark i HDInsight (Scala)**.
+   1. Välj **HDInsight** > **Spark i HDInsight (Scala)** .
    2. I den **byggverktyg** listan, Välj något av följande, baserat på ditt scenario:
 
       * **Maven**: För Scala skapa projekt guiden support.
@@ -144,7 +144,7 @@ Att skicka ett projekt till en emulator:
     1. I den **Spark-kluster (endast Linux)** listrutan väljer du din lokala begränsat Hortonworks-läge.
     2. I den **Main klassnamn** markerar eller ange namnet main-klass. Den här självstudien namnet är **GroupByTest**.
 
-3. Välj **Skicka**. Jobbet skicka loggarna visas i fönstret Spark bidrag verktyget.
+3. Välj **skicka**. Jobbet skicka loggarna visas i fönstret Spark bidrag verktyget.
 
 ## <a name="next-steps"></a>Nästa steg
 

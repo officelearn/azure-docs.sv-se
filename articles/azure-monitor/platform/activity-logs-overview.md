@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071673"
 ---
 # <a name="overview-of-azure-activity-log"></a>Översikt över Azure-aktivitetsloggen
 
@@ -30,10 +30,10 @@ Det finns en enda aktivitetsloggen för varje Azure-prenumeration. Den innehåll
 
 
 > [!NOTE]
-> Azure-aktivitetsloggen är främst för aktiviteter som sker i Azure Resource Manager. Den spårar inte ugresources med hjälp av klassisk/RDFE-modellen. Vissa typer av klassiska resurser har en proxy-resursprovider i Azure Resource Manager (till exempel Microsoft.ClassicCompute). Om du interagerar med en klassisk resurstyp via Azure Resource Manager med hjälp av dessa proxy resursprovidrar visas åtgärderna i aktivitetsloggen. Om du interagerar med en klassisk resurstyp utanför Azure Resource Manager-proxyservrar, registreras endast dina åtgärder i loggen igen. Åtgärden loggen kan sökas i ett separat avsnitt i portalen.
+> Azure-aktivitetsloggen är främst för aktiviteter som sker i Azure Resource Manager. Den spårar inte resurser med hjälp av klassisk/RDFE-modellen. Vissa typer av klassiska resurser har en proxy-resursprovider i Azure Resource Manager (till exempel Microsoft.ClassicCompute). Om du interagerar med en klassisk resurstyp via Azure Resource Manager med hjälp av dessa proxy resursprovidrar visas åtgärderna i aktivitetsloggen. Om du interagerar med en klassisk resurstyp utanför Azure Resource Manager-proxyservrar, registreras endast dina åtgärder i loggen igen. Åtgärden loggen kan sökas i ett separat avsnitt i portalen.
 
 ## <a name="activity-log-retention"></a>Kvarhållning av logg för aktivitet
-Händelser i aktivitetsloggen lagras i 90 dagar. Att lagra dessa data under längre perioder [samla in den i Azure Monitor](activity-log-collect.md) eller [exportera den till lagring eller Event Hubs](activity-log-export.md).
+När du skapat är inte aktiviteten loggposter ändrats eller tagits bort av systemet. Du kan även ändra dem i gränssnittet eller programmässigt. Händelser i aktivitetsloggen lagras i 90 dagar. Att lagra dessa data under längre perioder [samla in den i Azure Monitor](activity-log-collect.md) eller [exportera den till lagring eller Event Hubs](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Visa aktivitetsloggen
 Se aktivitetsloggen för alla resurser från den **övervakaren** menyn i Azure-portalen. Se aktivitetsloggen för en viss resurs från den **aktivitetsloggen** alternativ i den resurs-menyn. Du kan också hämta aktivitetsloggen journaler med hjälp av PowerShell, CLI eller REST API.  Se [visa och hämta aktivitet för Azure logghändelser](activity-log-view.md).

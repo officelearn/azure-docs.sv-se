@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555952"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
@@ -22,7 +22,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+3. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på Min server (sync, cloud lagringsnivåer, etc.). Ta bort och återskapa min serverslutpunkt
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -95,7 +95,7 @@ Följande inbyggda roller har behörigheterna som krävs Microsoft Authorization
 
 Att fastställa om din användarroll konto har behörigheterna som krävs:  
 1. I Azure-portalen väljer du **resursgrupper**.
-2. Välj den resursgrupp där lagringskontot finns och välj sedan **åtkomstkontroll (IAM)**.
+2. Välj den resursgrupp där lagringskontot finns och välj sedan **åtkomstkontroll (IAM)** .
 3. Välj den **rolltilldelningar** fliken.
 4. Välj den **rollen** (till exempel ägare eller deltagare) för ditt konto.
 5. I den **Resursprovidern** väljer **Microsoft Authorization**. 
@@ -105,7 +105,7 @@ Att fastställa om din användarroll konto har behörigheterna som krävs:
 <a id="server-endpoint-createjobfailed"></a>**Serverslutpunkten misslyckas med felet: "MgmtServerJobFailed" (Error code: -2134375898)**  
 Det här problemet uppstår om sökvägen till serverns slutpunkt finns på systemvolymen och molnet lagringsnivåer är aktiverad. Molnet lagringsnivåer stöds inte på systemvolymen. Inaktivera molnlagringsnivåer när du skapar Serverslutpunkten för att skapa en serverslutpunkt på systemvolymen.
 
-<a id="server-endpoint-deletejobexpired"></a>**Borttagningen av Serverslutpunkten misslyckas med felet: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Borttagningen av Serverslutpunkten misslyckas med felet: "MgmtServerJobExpired"**                 
 Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern i portalen som tar bort server-slutpunkter. Om du vill ta bort serverslutpunkter, följer du stegen som beskrivs i [avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Det går inte att öppna egenskapssidan för server-slutpunkt eller uppdatera principer för lagringsnivåer för moln**  
@@ -153,7 +153,7 @@ En serverslutpunkt kan inte logga synkronisering av följande skäl:
 > [!Note]  
 > Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
 
-## <a name="sync"></a>Synkronisera
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -252,7 +252,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Filen kan inte synkroniseras eftersom Azure file share gränsen har nåtts. | För att lösa problemet, se [du nått lagringsgränsen för Azure file-resursen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) avsnittet i felsökningsguiden. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa av följande skäl: filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS), filen har ett väntetillstånd eller filen finns på en skrivskyddad replikering DFS-R-mapp | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. Om filen finns på en skrivskyddad replikering DFS-R-mapp, stöder inte serverslutpunkter för DFS-R skrivskyddad replikering mappar i Azure Files Sync. Se [Planeringsguiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) för mer information.
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den behöver för att synkronisera igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken
 Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkoder 0x7b och 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filnamnen. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning. Den [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) kan användas för att identifiera tecken som inte stöds.
@@ -475,7 +475,7 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
+Genom att ange det här registervärdet godtar Azure File Sync-agenten ett lokalt betrodda SSL-certifikat när data överförs mellan servern och Molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 
@@ -500,7 +500,7 @@ När det här registervärdet har angetts godkänner Azure File Sync-agenten all
 Det här felet kan orsakas av:
 
 - Servertid är felaktig
-- Borttagningen av serverslutpunkten misslyckades
+- Borttagningen av Serverslutpunkten misslyckades
 - Certifikatet som används för autentisering har upphört att gälla. 
     Utför följande steg för att kontrollera om certifikatet har upphört att gälla:  
     1. Öppna snapin-modulen MMC certifikat, Välj datorkontot och navigera till \Personal\Certificates certifikat (lokal dator).
@@ -577,7 +577,7 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 | **Felsträng** | ECS_E_SYNC_INVALID_PATH |
 | **Reparation krävs** | Ja |
 
-Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
+Se till att sökvägen finns, finns på en lokal NTFS-volym och är inte en referenspunkt eller en befintlig server-slutpunkt.
 
 <a id="-2134375817"></a>**Synkroniseringen misslyckades eftersom versionen av filter-drivrutinen inte är kompatibel med agentversionen**  
 

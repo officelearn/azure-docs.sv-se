@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466490"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
@@ -91,7 +91,7 @@ Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information 
 
 Exempel: du kan lägga till en ny **fläkt meddelar fel** händelse.
 
-| Visningsnamn        | Fältnamn    |  Standardvärde för allvarlighetsgrad |
+| Visningsnamn        | Fältnamn    |  Standard-allvarlighetsgrad |
 | --------------------| ------------- |-----------|
 | Fel på fläktmotor     | fanmotorerror |  Fel    |
 
@@ -114,7 +114,7 @@ Ange information för **visningsnamn**, **fältnamn**, och **värden** av tillst
 
 Exempel: du kan lägga till en ny **fläkt läge** tillstånd som har två möjliga värden som enheten kan skicka **Operating** och **stoppad**.
 
-| Visningsnamn | Fältnamn    |  Värde 1   | Visningsnamn | Värde 2    |Visningsnamn  | 
+| Visningsnamn | Fältnamn    |  Värdet 1   | Visningsnamn | Värdet 2    |Visningsnamn  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fläktläge     | fläktläge       |  1         | Drift    |     0      | Stoppad      |
 
@@ -160,7 +160,7 @@ Det finns två kategorier med egenskaper:
 
 Du kan till exempel lägga till datum för senaste underhållna för enheten som en ny **datum** egenskapen (en programegenskap) på den **egenskaper** fliken:
 
-| Visningsnamn  | Fältnamn | Startvärde   |
+| Visningsnamn  | Fältnamn | Initialt värde   |
 | --------------| -----------|-----------------|
 | Senaste service      | lastServiced        | 01/29/2019     |
 
@@ -189,7 +189,7 @@ Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i
 
 3. Konfigurera **visningsnamn**, **fältnamn**, och (frivilligt) **ursprungsvärdet** för platsen.
 
-    | Visningsnamn  | Fältnamn | Startvärde |
+    | Visningsnamn  | Fältnamn | Initialt värde |
     | --------------| -----------|---------| 
     | Installationen adress | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575351"
 ---
 # <a name="glossary"></a>Ordlista
@@ -37,11 +37,11 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="antimeridian"></a> **Antimeridian**: Även känt som 180<sup>th</sup> Kartmeridian är den punkt där-180 grader och 180 grader longitud uppfyller. Vilket är motsatt nollmeridianen i världen.
 
-<a name="application-programming-interface-api"></a> **Application Programming Interface (API)**: En specifikation som gör att utvecklare kan skapa program.
+<a name="application-programming-interface-api"></a> **Application Programming Interface (API)** : En specifikation som gör att utvecklare kan skapa program.
 
 <a name="api-key"></a> **API-nyckel**: Se Azure Maps-nyckel.
 
-<a name="area-of-interest-aoi"></a> **Intresseområde (AOI)**: Den utsträckning som används för att definiera en Fokusområde för produktion för en karta eller en databas.
+<a name="area-of-interest-aoi"></a> **Intresseområde (AOI)** : Den utsträckning som används för att definiera en Fokusområde för produktion för en karta eller en databas.
 
 <a name="asset-tracking"></a> **Spårning av tillgångar**: Processen med att spåra platsen för en tillgång som en person, fordon eller annat objekt.
 
@@ -51,7 +51,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="autosuggest"></a> **Automatiska förslag i**: En funktion i ett program i förutsäger logiska möjligheterna för vad användaren skriver.
 
-<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: Det tidigare namnet på Azure Maps när den fanns i förhandsversion.
+<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : Det tidigare namnet på Azure Maps när den fanns i förhandsversion.
 
 <a name="azure-maps-key"></a> **Azure Maps-nyckel**: Ett Azure Maps-nyckel är en unik sträng som används för att autentisera en användares Azure Maps-program eller tjänstbegäran. 
 
@@ -109,7 +109,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="dbf-file"></a> **DBF-filen**: Ett databas-filformat som används i kombination med formfiler (SHP).
 
-<a name="degree-minutes-seconds-dms"></a> **Grad minuter sekunder (DMS)**: Enheten för att beskriva latitud och longitud. En grad är 1/360<sup>th</sup> för en cirkel. En ytterligare indelade i 60 minuter och en minut är uppdelad i 60 sekunder.
+<a name="degree-minutes-seconds-dms"></a> **Grad minuter sekunder (DMS)** : Enheten för att beskriva latitud och longitud. En grad är 1/360<sup>th</sup> för en cirkel. En ytterligare indelade i 60 minuter och en minut är uppdelad i 60 sekunder.
 
 <a name="delaunay-triangulation"></a> **Delaunay triangulering**: En teknik för att skapa ett nät av sammanhängande, icke-överlappande trianglar från en datauppsättning punkter. Varje triangel circumscribing cirkel innehåller inga punkter i datauppsättningen i dess inre.
 
@@ -117,7 +117,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="destination"></a> **Mål**: En slutpunkt eller en plats där någon åker till.
 
-<a name="digital-elevation-model-dem"></a> **Digitala höjning modell (DEM)**: En datauppsättning för höjning värden rör en yta hämtats under ett område i regelbundna intervall med hjälp av en gemensam datum. DEMs används vanligtvis för att representera terräng befrielse.
+<a name="digital-elevation-model-dem"></a> **Digitala höjning modell (DEM)** : En datauppsättning för höjning värden rör en yta hämtats under ett område i regelbundna intervall med hjälp av en gemensam datum. DEMs används vanligtvis för att representera terräng befrielse.
 
 <a name="dijkstra's-algorithm"></a> **Dijkstras algoritmen**: En algoritm som undersöker anslutning av ett nätverk för att hitta den kortaste vägen mellan två punkter.
 
@@ -185,7 +185,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="great-circle-distance"></a> **Bra cirkel avståndet**: Kortast avstånd mellan två platser på ytan en sfär.
 
-<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)**: När nollmeridianen som körs via Royal observationsorganet i Greenwich, England.
+<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)** : När nollmeridianen som körs via Royal observationsorganet i Greenwich, England.
 
 <a name="guid"></a> **GUID**: En globalt unik identifierare. En sträng som används för att unikt identifiera ett gränssnitt, klass, typbiblioteket, Komponentkategori eller post.
 
@@ -273,7 +273,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="point"></a> **Punkt**: En geometri som representerar en enskild position på kartan. 
 
-<a name="points-of-interest-poi"></a> **Orienteringspunkter (POI)**: Ett företag, landmärken eller vanliga plats i närheten.
+<a name="points-of-interest-poi"></a> **Orienteringspunkter (POI)** : Ett företag, landmärken eller vanliga plats i närheten.
 
 <a name="polygon"></a> **Polygon**: En stabil geometri som representerar ett område på en karta. 
 
@@ -297,7 +297,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="quadtree"></a> **Quadtree**: En datastruktur som varje nod har exakt fyra underordnade. Sida vid sida-system som används i Azure Maps använder en quadtree struktur så att när en användare zoomar in en nivå, varje kartrutan delar i fyra underordnade paneler.  Mer information finns i [zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md) dokumentationen för mer information.
 
-<a name="queries-per-second-qps"></a> **Frågor Per sekund (QPS)**: Antal frågor eller begäranden som kan göras inom en sekund till en tjänst eller plattform. 
+<a name="queries-per-second-qps"></a> **Frågor Per sekund (QPS)** : Antal frågor eller begäranden som kan göras inom en sekund till en tjänst eller plattform. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="route"></a> **Väg**: En sökväg mellan två eller flera platser, vilket kan också innehålla ytterligare information, till exempel instruktioner för waypoints längs vägen.
 
-<a name="requests-per-second-rps"></a> **Begäranden Per sekund (RPS)**: Se [frågor Per sekund (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Begäranden Per sekund (RPS)** : Se [frågor Per sekund (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: Förkortning för verkligen enkelt syndikering, resurs beskrivning Framework (RDF) sammanfattning av webbplats eller sammanfattning av omfattande webbplats, beroende på källan. En enkel, strukturerade XML-format för att dela innehåll mellan olika webbplatser. RSS-dokument innehåller viktiga metadataelement som författare, datum, rubrik, en kort beskrivning och en hypertextlänk. Den här informationen hjälper dig att en användare (eller en RSS-utgivare-tjänsten) bestämmer vilka material som är värt att ytterligare undersökning.
 
@@ -329,9 +329,9 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="satellite-imagery"></a> **Satellit bilder**: Bilder som har tagits emot av plan och satelliter som pekar nedåt direkt.
 
-<a name="software-development-kit-sdk"></a> **Ett software development kit (SDK)**: En samling av dokumentation, exempelkod och exempelappar för att en utvecklare använder en API för att skapa appar.
+<a name="software-development-kit-sdk"></a> **Ett software development kit (SDK)** : En samling av dokumentation, exempelkod och exempelappar för att en utvecklare använder en API för att skapa appar.
 
-<a name="shapefile-shp"></a> **Formfil (SHP)**: Även känt som är en ESRI-Formfil ett data storage vektorformat för lagring av plats, form och attribut för geografisk funktioner. En formfil lagras i en uppsättning relaterade filer.
+<a name="shapefile-shp"></a> **Formfil (SHP)** : Även känt som är en ESRI-Formfil ett data storage vektorformat för lagring av plats, form och attribut för geografisk funktioner. En formfil lagras i en uppsättning relaterade filer.
 
 <a name="spherical-mercator-projection"></a> **Sfärisk Mercator-projektion**: Se [Web Mercator](#web-mercator). 
 
@@ -364,7 +364,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="transformation"></a> **Omvandling**: Att konvertera data mellan olika geografiska koordinatsystem. Du kan till exempel ha vissa data som har registrerats i Storbritannien och baserat på OSGB 1936 geografiska koordinatsystem. Azure Maps använder den [EPSG:3857](https://epsg.io/3857) koordinaten referens system variant av WGS84. Därför för att visa data korrekt, måste ha dess koordinater omvandlas från ett system till ett annat.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Traveling säljare Problem (Telefontjänstprovider)**:  Hamiltonian krets problem där en säljare måste få det mest effektiva sättet att besöka en rad steg, gå sedan tillbaka till startpositionen.  
+<a name="traveling-salesmen-problem-tsp"></a> **Traveling säljare Problem (Telefontjänstprovider)** :  Hamiltonian krets problem där en säljare måste få det mest effektiva sättet att besöka en rad steg, gå sedan tillbaka till startpositionen.  
 
 <a name="trilateration"></a> **Trilateration**: Process för att fastställa positionen för en punkt på jordytan med avseende på två andra punkter genom att mäta avståndet mellan alla tre punkter.
 
@@ -376,7 +376,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="vector-tile"></a> **Vektor panel**: En open data-specifikation för att lagra geospatiala vektordata med samma rutsystemet som kartkontrollen. Se även [bildrutsskikt](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Vehicle routningsproblem (VRP)**: En klass av problem i vilken en uppsättning sorterad vägar för en vagnpark med fordon beräknas med i beräkningen som uppsättning restriktioner. Dessa villkor kan innehålla sådant som leverans tidsfönster, flera vägen kapaciteter och reser varaktighet begränsningar.
+<a name="vehicle-routing-problem-vrp"></a> **Vehicle routningsproblem (VRP)** : En klass av problem i vilken en uppsättning sorterad vägar för en vagnpark med fordon beräknas med i beräkningen som uppsättning restriktioner. Dessa villkor kan innehålla sådant som leverans tidsfönster, flera vägen kapaciteter och reser varaktighet begränsningar.
 
 <a name="voronoi-diagram"></a> **Voronoi diagram**: En partition av utrymme i områden eller celler som omger en uppsättning geometriska objekt (vanligtvis punkt funktioner). Dessa celler eller polygoner, måste uppfylla villkoren för Delaunay trianglar. Alla platser inom ett område som är närmast objektet den omger än andra objekt i uppsättningen. Voronoi diagram används ofta för att avgränsa delar av inflytande runt geografiska funktioner. 
 
@@ -386,7 +386,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="waypoint-optimization"></a> **Waypoint optimering**: Processen för att ordna om en uppsättning waypoints att minimera resa tid eller distance krävs för att passera alla angivna waypoints. Kallas ofta den [Traveling säljare Problem](#traveling-salesmen-problem-tsp) eller [Vehicle routning problemet](#vehicle-routing-problem-vrp) beroende på komplexiteten för optimering.
 
-<a name="web-map-service-wms"></a> **Webbtjänsten karta (WMS)**: WMS är en öppen geografiska Consortium (OGC)-standard som definierar avbildningsbaserad kartan tjänster. WMS tjänster tillhandahåller kartbilder för specifika områden inom en karta på begäran. Bilder inkluderar förväg renderade symbolik och kan återges i någon av flera namngivna format som definieras av tjänsten.
+<a name="web-map-service-wms"></a> **Webbtjänsten karta (WMS)** : WMS är en öppen geografiska Consortium (OGC)-standard som definierar avbildningsbaserad kartan tjänster. WMS tjänster tillhandahåller kartbilder för specifika områden inom en karta på begäran. Bilder inkluderar förväg renderade symbolik och kan återges i någon av flera namngivna format som definieras av tjänsten.
 
 <a name="web-mercator"></a> **Web Mercator**: Även kallat är sfärisk Mercator-projektion en liten variant av Mercator-projektion som används främst i mappningen för webbaserade program. Den använder samma formler som standard Mercator-projektion som används för småskalig maps. Dock använda Web Mercator används sfärisk formler alls skalas medan storskaliga Mercator mappar vanligtvis elliptiska form av projektion. Skillnaden är syns i global skala, men gör mappningar av lokala områden att avvika något från SANT elliptiska Mercator mappar på samma skala.
 

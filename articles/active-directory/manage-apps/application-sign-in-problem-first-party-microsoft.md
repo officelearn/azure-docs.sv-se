@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108306"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -67,7 +67,7 @@ Nedan följer några vanliga problem som folk stöter på när deras användare 
 
   * Se till att **Multifaktorautentisering** inte blockerar åtkomst. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
 
-  * Se till att en **princip för villkorlig åtkomst** eller **Identity Protection** principen blockerar åtkomst. [Kontrollera principer för villkorlig åtkomst för specifika](#problems-with-conditional-access-policies) eller [Kontrollera princip för villkorlig åtkomst för ett visst program](#check-a-specific-applications-conditional-access-policy) eller [inaktivera en specifik villkorlig åtkomstprincip](#disable-a-specific-conditional-access-policy)
+  * Se till att en **princip för villkorlig åtkomst** eller **Identity Protection** principen blockerar åtkomst. [Kontrollera specifika principer för villkorlig åtkomst](#problems-with-conditional-access-policies) eller [Kontrollera princip för villkorlig åtkomst för ett visst program](#check-a-specific-applications-conditional-access-policy) eller [inaktivera specifika principer för villkorlig åtkomst](#disable-a-specific-conditional-access-policy)
 
   * Se till att en användares **autentiseringskontakt** är uppdaterad så att Multifaktorautentisering eller villkorlig åtkomst-principer ska framtvingas. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
 
@@ -419,9 +419,9 @@ Följ dessa steg om du vill tilldela en licens till en grupp:
 
 ## <a name="problems-with-conditional-access-policies"></a>Problem med principer för villkorlig åtkomst
 
-### <a name="check-a-specific-conditional-access-policy"></a>Kontrollera en viss villkorlig åtkomstprincip
+### <a name="check-a-specific-conditional-access-policy"></a>Kontrollera specifika principer för villkorlig åtkomst
 
-Att kontrollera eller validera en enda villkorlig åtkomstprincip:
+Att kontrollera eller validera en enda princip för villkorlig åtkomst:
 
 1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
@@ -474,9 +474,9 @@ Om du vill kontrollera eller verifiera ett enda program för tillfället konfigu
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Inaktivera en specifik villkorlig åtkomstprincip
+### <a name="disable-a-specific-conditional-access-policy"></a>Inaktivera en specifik princip för villkorlig åtkomst
 
-Att kontrollera eller validera en enda villkorlig åtkomstprincip:
+Att kontrollera eller validera en enda princip för villkorlig åtkomst:
 
 1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
@@ -512,7 +512,7 @@ Programåtkomst blockeras eftersom åtgärden behörighet medgivande ägt rum. F
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Utföra administratörsnivå medgivande åtgärden för alla program
 
--   För **endast program som utvecklats med V1-programmodell**, du kan tvinga fram den här nivån administratörens godkännande ska ske genom att lägga till ”**? uppmana = admin\_godkänna**” i slutet av en programmets tecken i URL: en.
+-   För **endast program som utvecklats med V1-programmodell**, du kan tvinga fram den här nivån administratörens godkännande ska ske genom att lägga till ” **? uppmana = admin\_godkänna**” i slutet av en programmets tecken i URL: en.
 
 -   För **alla program som utvecklats med V2-programmodell**, kan du tillämpa den här administratörsnivå medgivande till att inträffa genom att följa anvisningarna under den **begär behörigheter från en katalogadministratör** delen av [med medgivande adminslutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

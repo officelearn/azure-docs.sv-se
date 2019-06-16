@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628922"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestandaräknare för Linux-program i Azure Monitor 
@@ -48,11 +48,11 @@ Följande är formatet för filen MySQL OMI-autentisering
 
 Poster i autentiseringsfilen beskrivs i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 | Port | Representerar den aktuella porten MySQL-instans lyssnar på. Port 0 anger att egenskaperna efter används för standardinstansen. |
 | Bind-Address| Aktuella MySQL bind-adress. |
-| användarnamn| MySQL-användaren används för att använda för att övervaka MySQL-serverinstansen. |
+| username| MySQL-användaren används för att använda för att övervaka MySQL-serverinstansen. |
 | Base64-kodade lösenord| Lösenordet för MySQL övervakning användaren i Base64-kodad. |
 | AutoUpdate| Anger om att skanna efter ändringar i filen my.cnf och skriva över filen MySQL OMI autentisering när MySQL OMI providern uppgraderas. |
 
@@ -116,26 +116,26 @@ Dessa behörigheter kan beviljas genom att köra följande kommandon för bevilj
 
 När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objektnamn | Räknarnamn |
+| Objektnamn | Namn på räknare |
 |:--|:--|
 | MySQL-databas | Ledigt diskutrymme i byte |
 | MySQL-databas | Tabeller |
-| MySQL-server | Avbrutna anslutning Pct |
-| MySQL-server | Anslutningen används Pct |
-| MySQL-server | Användning av diskutrymme i byte |
-| MySQL-server | Fullständiga genomsökning Pct |
-| MySQL-server | InnoDB Buffertpoolen når Pct |
-| MySQL-server | InnoDB Pool Använd Buffertprocent |
-| MySQL-server | InnoDB Pool Använd Buffertprocent |
-| MySQL-server | Viktiga Cacheträff Pct |
-| MySQL-server | Viktiga Cache används Pct |
-| MySQL-server | Viktiga Cache skrivning Pct |
-| MySQL-server | Fråga Cache träffar Pct |
-| MySQL-server | Fråga Cache Prunes Pct |
-| MySQL-server | Fråga Cache används Pct |
-| MySQL-server | Tabellen Cacheträff Pct |
-| MySQL-server | Tabellen Cache används Pct |
-| MySQL-server | Tabellen Lås konkurrens Pct |
+| MySQL Server | Avbrutna anslutning Pct |
+| MySQL Server | Anslutningen används Pct |
+| MySQL Server | Användning av diskutrymme i byte |
+| MySQL Server | Fullständiga genomsökning Pct |
+| MySQL Server | InnoDB Buffertpoolen når Pct |
+| MySQL Server | InnoDB Pool Använd Buffertprocent |
+| MySQL Server | InnoDB Pool Använd Buffertprocent |
+| MySQL Server | Viktiga Cacheträff Pct |
+| MySQL Server | Viktiga Cache används Pct |
+| MySQL Server | Viktiga Cache skrivning Pct |
+| MySQL Server | Fråga Cache träffar Pct |
+| MySQL Server | Fråga Cache Prunes Pct |
+| MySQL Server | Fråga Cache används Pct |
+| MySQL Server | Tabellen Cacheträff Pct |
+| MySQL Server | Tabellen Cache används Pct |
+| MySQL Server | Tabellen Lås konkurrens Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Om Apache HTTP Server har upptäckts på datorn när omsagent paketet installeras, installeras en prestandaövervakning provider för Apache HTTP Server automatiskt. Den här providern är beroende av en Apache-modul som måste läsas in i Apache HTTP-Server för att komma åt prestandadata. Modulen kan läsas in med följande kommando:
@@ -152,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objektnamn | Räknarnamn |
+| Objektnamn | Namn på räknare |
 |:--|:--|
 | Apache HTTP Server | Upptagen arbetare |
 | Apache HTTP Server | Inaktiva arbetare |

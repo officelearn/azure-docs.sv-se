@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864140"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
@@ -70,7 +70,7 @@ Den sekundära databasen kan stängas för att bli primärt.
 2. På bladet SQL Database väljer **alla inställningar** > **geo-replikering**.
 3. I den **SEKUNDÄRSERVRAR** väljer du den databas du vill bli den nya primärt och på **redundans**.
 
-    ![redundans](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![Redundans](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Klicka på **Ja** starta redundansväxlingen.
 
 Kommandot växlar omedelbart sekundär databas till den primära rollen. Den här processen är normalt bör slutföras inom 30 sekunder eller mindre.

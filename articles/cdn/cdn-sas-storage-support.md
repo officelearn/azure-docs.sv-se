@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324172"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
@@ -136,7 +136,7 @@ Eftersom SAS-parametrar inte är synliga för Azure CDN kan kan inte Azure CDN �
 | SAS-parameternamn | Beskrivning |
 | --- | --- |
 | Start | Den tid som Azure CDN kan börja komma åt blob-fil. På grund av klockan förskjuta (när en signal klockan anländer vid olika tidpunkter för olika komponenter), Välj en tid 15 minuter tidigare om du vill att tillgången ska vara tillgängliga omedelbart. |
-| Slut | Den tid då Azure CDN inte längre har åtkomst till blobbfilen. Tidigare är cachelagrade filer på Azure CDN fortfarande tillgängliga. För att styra förfallotiden fil, ange rätt förfallotiden för Azure CDN-säkerhetstoken eller rensa tillgången. |
+| slutpunkt | Den tid då Azure CDN inte längre har åtkomst till blobbfilen. Tidigare är cachelagrade filer på Azure CDN fortfarande tillgängliga. För att styra förfallotiden fil, ange rätt förfallotiden för Azure CDN-säkerhetstoken eller rensa tillgången. |
 | Tillåtna IP-adresser | Valfri. Om du använder **Azure CDN från Verizon**, du kan ställa in den här parametern till de intervall som har definierats i [Azure CDN från Verizon Edge Server IP-intervall](/azure/cdn/cdn-pop-list-api). Om du använder **Azure CDN från Akamai**, du kan inte ange parametern IP-adressintervall eftersom de inte statisk IP-adresser.|
 | Tillåtna protokoll | De protokoll som tillåts för en förfrågan gjord med kontot med delad Åtkomstsignatur. HTTPS-inställningen rekommenderas.|
 

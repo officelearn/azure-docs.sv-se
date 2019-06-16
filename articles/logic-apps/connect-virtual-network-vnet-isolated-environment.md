@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65961450"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
@@ -112,7 +112,7 @@ I sökrutan anger du ”integreringstjänstmiljön” som filter.
 
    ![Ange information om miljön](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |
@@ -152,16 +152,16 @@ I sökrutan anger du ”integreringstjänstmiljön” som filter.
 
    1. Under den **undernät** väljer **hantera undernätskonfiguration**.
 
-      ![Hantera konfiguration av undernät](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Hantera undernätskonfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
    1. På den **undernät** fönstret Välj **undernät**.
 
-      ![Lägg till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. På den **Lägg till undernät** fönstret anger den här informationen.
 
       * **Namn på**: Namn för ditt undernät
-      * **Adressintervall (CIDR-block)**: Intervall för ditt undernät i det virtuella nätverket och i CIDR-format
+      * **Adressintervall (CIDR-block)** : Intervall för ditt undernät i det virtuella nätverket och i CIDR-format
 
       ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -183,7 +183,7 @@ I sökrutan anger du ”integreringstjänstmiljön” som filter.
 
    Om distributionen har slutförts visas det här meddelandet i Azure:
 
-   ![Distribueringen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    Annars Följ instruktioner för Azure portal för felsökning av distribution.
 

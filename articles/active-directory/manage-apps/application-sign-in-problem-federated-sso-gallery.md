@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825195"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
@@ -61,7 +61,7 @@ Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte de svarsadresser som har konfigurerats för programmet
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte svars-adresser som har konfigurerats för programmet
 
 *Fel AADSTS50011: Svarsadressen ' https:\//contoso.com' matchar inte svars-adresser som har konfigurerats för programmet*
 
@@ -145,7 +145,7 @@ De användare som du har valt kommer att kunna starta dessa program med hjälp a
 
 Azure AD stöder inte SAML-begäran som skickas av programmet för enkel inloggning. Några vanliga problem är:
 
--   Obligatoriska fält saknas i SAML-begäran
+-   Saknar obligatoriska fält i SAML-begäran
 -   SAML-begäranskodad metod
 
 **Lösning**
@@ -263,7 +263,7 @@ Ta bort oanvända svars-URL som konfigurerats för programmet.
 
 6.  Välj det program som du vill konfigurera för enkel inloggning.
 
-7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)**, ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)** , ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem när du anpassar SAML-anspråk som skickas till ett program
 

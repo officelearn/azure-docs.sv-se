@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116209"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
@@ -88,7 +88,7 @@ Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
 }
 ```
 
-Exempel 3: Enkel **fält/värde** parkopplas med en icke -**[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. När den icke -**[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
+Exempel 3: Enkel **fält/värde** parkopplas med en icke - **[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. När den icke - **[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
 
 ```json
 "then": {
@@ -118,7 +118,7 @@ Exempel 4: Enkel **fält/värde** parkopplas med en **[\*]** [alias](definition-
 }
 ```
 
-## <a name="deny"></a>Avvisa
+## <a name="deny"></a>Neka
 
 Neka används för att förhindra att en resursbegäran som matchar inte definierad standarder genom en principdefinition och misslyckas begäran.
 

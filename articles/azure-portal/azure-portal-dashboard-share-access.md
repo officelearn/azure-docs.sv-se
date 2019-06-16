@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552016"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
@@ -36,7 +36,7 @@ Med rollbaserad åtkomstkontroll (RBAC), kan du tilldela användare till roller 
 
 * prenumeration
 * Resursgrupp
-* resurs
+* resource
 
 De behörigheter som du tilldelar ärvs från prenumerationen till resursen. Publicerade instrumentpanelen är en resurs. Därför måste kanske du redan användare som tilldelas till roller för prenumerationen som också fungerar för publicerade instrumentpanelen. 
 

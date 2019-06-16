@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823396"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
@@ -37,7 +37,7 @@ Två gate-principen kräver två typer av autentiseringsdata, till exempel en **
   * Partnersupport, nivå 1
   * Partnersupport, nivå 2
   * Exchange-administratör
-  * Skype for Business-administratör
+  * Skype för företag-administratör
   * Användaradministratör
   * Katalogskrivare
   * Global administratör eller företagsadministratör
@@ -45,12 +45,12 @@ Två gate-principen kräver två typer av autentiseringsdata, till exempel en **
   * Efterlevnadsadministratör
   * Programadministratör
   * Säkerhetsadministratör
-  * Administratör för privilegierad roll
+  * Privilegierad rolladministratör
   * Intune-administratör
   * Administratör för tjänsten webbprogramproxy
   * Dynamics 365-administratör
   * Power BI-tjänstadministratör
-  * Autentiseringsadministratör
+  * Autentisering-administratör
   * Administratören för privilegierade Authentication
 
 * Om 30 dagar har i en utvärderingsprenumeration; eller
@@ -69,7 +69,7 @@ En princip för en gate kräver en typ av autentiseringsdata, till exempel en e-
 
 Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik användare huvudnamn (UPN) attribut-värde som är associerad med deras konto. I följande tabell visas de principer som gäller för både den lokala Active Directory-användarkonton som synkroniseras till molnet samt för endast molnbaserade användarkonton:
 
-| Egenskap  | UserPrincipalName-krav |
+| Egenskap | UserPrincipalName-krav |
 | --- | --- |
 | Tecken som tillåts |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Tecken som tillåts inte |<ul> <li>Alla ”\@ \" tecken som inte är att ange användarnamnet från domänen.</li> <li>Får inte innehålla en punkt ””. omedelbart före den ”\@ \" symbol</li></ul> |
@@ -79,7 +79,7 @@ Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik
 
 I följande tabell beskrivs de lösenordsprincip som tillämpas på konton som skapas och hanteras i Azure AD:
 
-| Egenskap  | Krav |
+| Egenskap | Krav |
 | --- | --- |
 | Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>tomt utrymme</li></ul> |
 | Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li> Får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen”.</li></ul> |

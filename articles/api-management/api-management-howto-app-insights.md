@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241851"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
@@ -78,7 +78,7 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
 | Mål                         | Azure Application Insights-logg | Anger Azure Application Insights loggaren som ska användas                                                                                                                                                                                                                                                                                           |
 | Sampling (%)                        | decimal                           | Värden mellan 0 och 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% sampling innebär noll förfrågningar loggas, medan sampling med 100% innebär att alla begäranden som loggats. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
 | Alltid logga fel                   | boolesk                           | Om den här inställningen väljs alla fel loggas till Azure Application Insights, oavsett den **Sampling** inställningen.                                                                                                                                                                                                                  |
-| Grundläggande alternativ: Rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
+| Grundläggande alternativ: Rubriker              | list                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
 | Grundläggande alternativ: Första byten i brödtexten  | heltal                           | Anger hur många första byten i texten som loggas i Azure Application Insights för begäranden och svar.  Standard: brödtext loggas inte.                                                                                                                                                                                              |
 | Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *klientdel begäranden* loggas till Azure Application Insights. *Frontend-begäran* är en begäran inkommande till Azure API Management-tjänsten.                                                                                                                                                                        |
 | Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klientdel svar* loggas till Azure Application Insights. *Frontend-svar* är utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |

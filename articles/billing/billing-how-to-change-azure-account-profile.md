@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850771"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Ändra profilinformationen för ditt Azure-konto
@@ -58,7 +58,7 @@ Vi kan inte ändra land/region för ett befintligt konto på grund av tekniska b
 Du uppmanas i den [Azure-portalen](https://portal.azure.com) att kontrollera eller uppdatera din e-postadress var 90: e dag. Microsoft skickar e-postmeddelanden till din e-postadress för profilen med Azure-konto-relaterad information för:
 
 - Tjänstmeddelanden
-- Säkerhetsvarningar
+- Säkerhetsaviseringar
 - Fakturering syften
 - Support
 - Marknadsföring kommunikation
@@ -76,7 +76,7 @@ Du kan ändra din e-postadress genom att använda någon av följande metoder:
 
 * Gå till den [kontaktinformation](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) område i Azure-portalen och ange en e-postadress. Adressen som du anger får-tjänsten och marknadsföringsmaterial. E-postadressen i Azure-konto Center profil uppdateras för att matcha automatiskt. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
 
-* I den [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)väljer du ikonen med dina initialer eller bild. Välj snabbmenyn (**...** ). Välj sedan **Min kontaktinformation** från menyn och ange en e-postadress. Adressen som du anger får-tjänsten och marknadsföringsmaterial. E-postadressen i din Azure-konto Center profil uppdateras för att matcha automatiskt. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
+* I den [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)väljer du ikonen med dina initialer eller bild. Välj snabbmenyn ( **...** ). Välj sedan **Min kontaktinformation** från menyn och ange en e-postadress. Adressen som du anger får-tjänsten och marknadsföringsmaterial. E-postadressen i din Azure-konto Center profil uppdateras för att matcha automatiskt. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
 
 ![Exempel för att uppdatera en e-postadress i Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 

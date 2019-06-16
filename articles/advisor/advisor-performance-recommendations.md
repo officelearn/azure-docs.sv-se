@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254654"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
@@ -106,7 +106,7 @@ Advisor identifierar Azure Cosmos DB-konton som har trafik från en region som i
 
 Azure Advisor identifierar Cosmos DB-behållare som använder standard indexeringspolicy men kan dra nytta av en anpassad indexeringsprincip baserat på mönster för arbetsbelastningen. Standard indexeringspolicy indexerar alla egenskaper, men med en anpassad indexeringsprincip med explicita inkluderade eller exkluderade sökvägar som används i frågefilter kan minska ru: er och lagringsutrymme för indexering. [Läs mer om hur du ändrar index principer](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Konfigurera ditt Azure Cosmos DB sidstorlek för fråga (MaxItemCount) till-1 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ställ in Azure Cosmos DB-frågesidstorleken (MaxItemCount) på -1 
 
 Azure Advisor identifierar Azure Cosmos DB-behållare som använder sidstorlek för fråga om 100 och rekommenderar att du använder en sidstorlek-1 för snabbare sökningar. [Mer information om antal för maximalt antal objekt](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

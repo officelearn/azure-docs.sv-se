@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597208"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa logic apps med fingerade data genom att ställa in statisk resultat
@@ -38,7 +38,7 @@ Till exempel om du ställer in statisk resultat för Outlook 365 skicka e-post-�
 
 1. På åtgärden där du vill ställa in statisk resultat, följer du dessa steg: 
 
-   1. I åtgärdens övre högra hörnet väljer du ellipserna (*...* ) och välj **statiska resultatet**, till exempel:
+   1. I åtgärdens övre högra hörnet väljer du ellipserna ( *...* ) och välj **statiska resultatet**, till exempel:
 
       ![Välj ”statiska resultat” > ”Aktivera statisk resultatet”](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -46,7 +46,7 @@ Till exempel om du ställer in statisk resultat för Outlook 365 skicka e-post-�
 
       Här är till exempel de nödvändiga egenskaperna för HTTP-åtgärd:
 
-      | Egenskap  | Beskrivning |
+      | Egenskap | Beskrivning |
       |----------|-------------|
       | **Status** | Åtgärdens status ska returneras |
       | **Statuskod** | Specifika statuskoden ska returneras |

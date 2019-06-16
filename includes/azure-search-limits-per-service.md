@@ -9,15 +9,15 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160517"
 ---
 Lagringen begränsas av diskutrymme eller av en hård gräns på den *maxantalet* index, dokument eller andra övergripande resurser, som inträffar först. I följande tabell beskrivs gränser. Övre gräns för det index, dokument och andra objekt, se [begränsningar av resursen](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Resource | Kostnadsfritt | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| Resource | Lediga | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Servicenivåavtal (SLA)<sup>3</sup>  |Nej |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
 | Lagringsutrymme per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

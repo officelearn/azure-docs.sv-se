@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129785"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
@@ -21,7 +21,7 @@ Klassiska måttaviseringar i Azure Monitor är ett sätt att få ett meddelande 
 
 1. I den [portal](https://portal.azure.com/), leta upp den resurs som du vill övervaka och välj den sedan.
 
-2. I den **övervakning** väljer **aviseringar (klassisk)**. Text och ikonen kan variera något mellan olika resurser. Om du inte hittar **aviseringar (klassisk)** här, det kan vara i **aviseringar** eller **Varningsregler**.
+2. I den **övervakning** väljer **aviseringar (klassisk)** . Text och ikonen kan variera något mellan olika resurser. Om du inte hittar **aviseringar (klassisk)** här, det kan vara i **aviseringar** eller **Varningsregler**.
 
     ![Övervakning](media/alerts-classic-portal/AlertRulesButton.png)
 

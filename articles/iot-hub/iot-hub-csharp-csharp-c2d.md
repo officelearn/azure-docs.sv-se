@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864451"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till enheten med IoT Hub (.NET)
@@ -113,7 +113,7 @@ Först hämta IoT Hub-anslutningssträng från portalen.
 
 Nu kan du skriva en .NET-konsolapp som skickar meddelanden från molnet till enheten till enhetsappen.
 
-1. Högerklicka på lösningen i den aktuella lösningen i Visual Studio och välj Lägg till > Nytt projekt. Välj **Windows Desktop** och sedan **konsolprogram (.NET Framework)**. Ge projektet namnet **SendCloudToDevice** och välj den senaste versionen av .NET Framework och välj sedan **OK** att skapa projektet.
+1. Högerklicka på lösningen i den aktuella lösningen i Visual Studio och välj Lägg till > Nytt projekt. Välj **Windows Desktop** och sedan **konsolprogram (.NET Framework)** . Ge projektet namnet **SendCloudToDevice** och välj den senaste versionen av .NET Framework och välj sedan **OK** att skapa projektet.
 
    ![Nytt projekt i Visual Studio](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 

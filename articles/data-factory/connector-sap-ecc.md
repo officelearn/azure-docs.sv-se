@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
 ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243925"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Kopiera data från SAP ECC med Azure Data Factory
@@ -54,7 +54,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för SAP ECC länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapEcc** | Ja |
 | url | Url till SAP ECC OData-tjänsten. | Ja |
@@ -91,7 +91,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Kopiera data från SAP ECC genom att ange typegenskapen på datauppsättningen till **SapEccResource**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | path | Sökväg för SAP ECC OData-entiteten. | Ja |
 
@@ -121,7 +121,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från SAP ECC, ange typ av datakälla i kopieringsaktiviteten till **SapEccSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SapEccSource** | Ja |
 | query | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (URL: en som anges i den länkade tjänsten) / (sökväg som anges i datauppsättningen)? (fråga som anges i kopieringskälla för aktiviteten). Referera till [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |

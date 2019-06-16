@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166332"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Säkerhetsarkitektur för Internet of Things (IoT)
@@ -171,20 +171,20 @@ Det här exemplet försöker åtgärda ett antal olika hot i olika faser data/in
 
 **(S)-förfalskning**: En angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
 
-**Denial of Service (D)**: En enhet kan sluta fungera eller kommunicera om radiofrekvenser manipuleras eller sladdar kapas. Till exempel kan en övervakningskamera vars strömförsörjning eller nätverksanslutning avsiktligen saboteras inte rapportera några data alls.
+**Denial of Service (D)** : En enhet kan sluta fungera eller kommunicera om radiofrekvenser manipuleras eller sladdar kapas. Till exempel kan en övervakningskamera vars strömförsörjning eller nätverksanslutning avsiktligen saboteras inte rapportera några data alls.
 
-**Manipulering (T)**: Angripare kan delvis eller helt byta ut programvara som körs på enheten, varvid den nya programvara potentiellt kan utnyttja enhetens riktiga identitet om viktigt material eller de kryptografiska funktioner som innehåller viktigt material görs tillgängliga för det främmande programmet. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
+**Manipulering (T)** : Angripare kan delvis eller helt byta ut programvara som körs på enheten, varvid den nya programvara potentiellt kan utnyttja enhetens riktiga identitet om viktigt material eller de kryptografiska funktioner som innehåller viktigt material görs tillgängliga för det främmande programmet. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
 
-**Avslöjande av information (I)**: Om enheten kör behandlas för programvara, kan programvaran behandlas potentiellt läcka data till obehöriga personer. En angripare kan till exempel använda extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
+**Avslöjande av information (I)** : Om enheten kör behandlas för programvara, kan programvaran behandlas potentiellt läcka data till obehöriga personer. En angripare kan till exempel använda extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
 
-**Rättighetsökning (E)**: En enhet som utför en specifik funktion kan tvingas utföra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
+**Rättighetsökning (E)** : En enhet som utför en specifik funktion kan tvingas utföra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
 
 | **Komponent** | **Hot** | **Problemlösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
-| Enhet |s |Tilldela identitet till enheten och autentisering av enheten |Ersätt enhet eller en del av enheten med en annan enhet. Hur vet du att du talar på rätt enhet? |Autentisering av enheten, använda Transport Layer Security (TLS) eller IPSec. Infrastruktur bör ha i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständiga asymmetrisk kryptering. Använda Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Enhet |S |Tilldela identitet till enheten och autentisering av enheten |Ersätt enhet eller en del av enheten med en annan enhet. Hur vet du att du talar på rätt enhet? |Autentisering av enheten, använda Transport Layer Security (TLS) eller IPSec. Infrastruktur bör ha i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständiga asymmetrisk kryptering. Använda Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Tillämpa tamperproof mekanismer för att enheten, till exempel genom att göra det svårt att omöjligt att extrahera nycklar och andra kryptografiskt material från enheten. |Risken är om någon är manipulation enheten (fysiska störningar). Hur är du säker på att, enheten har inte ändrats. |Den mest effektiva lösning är en betrodd platform module (TPM)-funktion som gör att lagra nycklar i särskilda-chip kretsar där nycklarna som går inte att läsa, men kan bara användas för kryptografiska åtgärder som använder nyckeln men lämnar aldrig ut nyckeln. Minne kryptering av enheten. Nyckelhantering för enheten. Inloggningskod. |
 || E |Med åtkomstkontroll över enheten. Auktoriseringsschema. |Om enheten tillåter enskilda åtgärder som ska utföras baserat på kommandon från en extern källa eller även komprometterade sensorer, kan angreppet att utföra åtgärder som annars inte tillgänglig. |Med auktoriseringsschema för enheten |
-| Field Gateway |s |Autentisera fält-gateway till Molngateway (t ex certifikat, PSK, eller anspråk baserade.) |Om någon kan imitera fält-Gateway, kan det ge själva som vilken enhet som helst. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Samma viktiga problem om lagring och attestering av enheter i allmänhet – bästa fall är Använd TPM. 6LowPAN tillägg för IPSec för trådlösa Sensor nätverk (WSN). |
+| Field Gateway |S |Autentisera fält-gateway till Molngateway (t ex certifikat, PSK, eller anspråk baserade.) |Om någon kan imitera fält-Gateway, kan det ge själva som vilken enhet som helst. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Samma viktiga problem om lagring och attestering av enheter i allmänhet – bästa fall är Använd TPM. 6LowPAN tillägg för IPSec för trådlösa Sensor nätverk (WSN). |
 || TRID |Skydda fält-Gateway mot manipulation (TPM)? |Bedrägeri som lura molnet gateway-tänka det pratar med fält-gateway kan resultera i avslöjande av information och data manipulation |Minne-kryptering, TPM'S, autentisering. |
 || E |Åtkomstkontroll för fält-Gateway | | |
 

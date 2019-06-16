@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833915"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använda Platform-as-a-Service (PaaS) tjänster i Azure DevTest Labs
@@ -57,7 +57,7 @@ DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-
 
 ## <a name="user-experience"></a>Användarupplevelse
 
-## <a name="developer"></a>Utvecklare
+## <a name="developer"></a>Developer
 Utvecklare använder samma arbetsflöde för att skapa en virtuell dator för att skapa en viss miljö. De väljer du miljön jämfört med avbildningen av datorn och ange nödvändig information som krävs av mallen. Varje utvecklare med en miljö kan distribution av ändringar och förbättrad inre slingan felsökning. Miljön kan skapas när som helst med hjälp av den senaste mallen.  Den här funktionen kan miljöer förstörs och återskapas för att minska avbrottstiden slipper manuellt skapa systemet eller återställa från fel testning.  
 
 ### <a name="testing"></a>Testning

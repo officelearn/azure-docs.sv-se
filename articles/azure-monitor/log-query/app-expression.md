@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
 ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589252"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>App() uttryck i Azure Monitor-fråga
@@ -35,7 +35,7 @@ Den `app` uttryck används i en Azure Monitor-fråga för att hämta data från 
 
 - *Identifieraren*: Identifierar appen med någon av format i tabellen nedan.
 
-| Identifierare | Beskrivning | Exempel
+| identifierare | Beskrivning | Exempel
 |:---|:---|:---|
 | Resursnamn | Mänskliga läsbara namnet på appen (AKA ”komponentnamn”) | app("fabrikamapp") |
 | Kvalificerat namn | Fullständigt namn för appen i formatet: ”subscriptionName/resourceGroup/componentName” | App('AI-prototype/Fabrikam/fabrikamapp') |

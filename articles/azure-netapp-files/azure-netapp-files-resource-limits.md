@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
 ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826380"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
@@ -43,7 +43,7 @@ I följande tabell beskrivs resursgränser för Azure NetApp-filer:
 |  Högsta tilldelade kvot på en enda volym *   |   92 TiB   |    Nej   |
 |  Maximal storlek på en enda volym *     |    100 TiB    |    Nej       |
 
-* En volym kan skapas manuellt eller ändra storlek till högst 92 TiB. Men kan en volym växa upp till 100 TiB i ett scenario för överförbrukning. Se [kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md) mer information om kapacitet överförbrukning. 
+\* En volym kan skapas manuellt eller ändra storlek till högst 92 TiB. Men kan en volym växa upp till 100 TiB i ett scenario för överförbrukning. Se [kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md) mer information om kapacitet överförbrukning. 
 
 ## <a name="request-limit-increase"></a>Gräns för begäran 
 
@@ -54,7 +54,7 @@ Från Azure portalnavigering plan:
 1. Klicka på **hjälp + support**.
 2. Klicka på **+ ny supportbegäran**.
 3. Ange följande information på fliken grunderna: 
-    1. Typ av problem: Välj **begränsningar för tjänsten och -prenumeration (kvoter)**.
+    1. Typ av problem: Välj **begränsningar för tjänsten och -prenumeration (kvoter)** .
     2. Prenumerationer: Välj prenumerationen för den resurs som du behöver kvoten.
     3. Typ av kvot: Välj **lagring: Azure NetApp filer begränsar**.
     4. Klicka på **Nästa: Lösningar**.

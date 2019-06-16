@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574173"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
@@ -57,7 +57,7 @@ Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk po
     |Region      |Azure-regionen som omfattas av SQL-databasen reserverad kapacitet reservation.|
     |Distributionstyp|Den SQL-resurstyp som du vill köpa reservationer för.|
     |Prestandanivå|Tjänstnivå för SQL Database-instanser.
-    |Period        |Ett eller tre år.|
+    |Term        |Ett eller tre år.|
     |Kvantitet    |Antalet instanser som köpts i SQL-databasen reserverad kapacitet reservation. Antalet är antalet körda SQL Database-instanser som kan få fakturering rabatt. Till exempel om du kör 10 SQL Database-instanser i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
     |||
 

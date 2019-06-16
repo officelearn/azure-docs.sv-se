@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606014"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributionshistoriken med Azure Resource Manager
@@ -20,7 +20,7 @@ Azure Resource Manager kan du visa distributionshistoriken och undersöka specif
 
 Om du vill ha hjälp med att lösa specifika distributionsfel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
 Få information om en distribution från distributionshistoriken.
 
@@ -48,7 +48,7 @@ Få information om en distribution från distributionshistoriken.
 
 1. Det detaljerade felmeddelandet visas.
 
-    ![Visa felinformationen](./media/resource-manager-deployment-operations/show-details.png)
+    ![Visa felinformation](./media/resource-manager-deployment-operations/show-details.png)
 
 1. Korrelations-ID används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
 

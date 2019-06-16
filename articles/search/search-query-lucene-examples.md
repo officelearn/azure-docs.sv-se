@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595912"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Fråga exempel med ”full” Lucene Söksyntaxen (avancerade frågor i Azure Search)
@@ -67,7 +67,7 @@ Klistra in URL: en i en REST-klient som ett steg för verifiering och för att v
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-Frågesträngen **`search=*`**, motsvarar en ospecificerad sökning null eller tom sökning. Det är den enklaste sökningen som du kan göra.
+Frågesträngen **`search=*`** , motsvarar en ospecificerad sökning null eller tom sökning. Det är den enklaste sökningen som du kan göra.
 
 Du kan också lägga till **`$count=true`** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (cirka 2800 när det gäller NYC Jobs) på en tom sökning-sträng.
 

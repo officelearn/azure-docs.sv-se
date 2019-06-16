@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075377"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
@@ -65,7 +65,7 @@ Med omfattningen som används för klientens autentiseringsuppgifter ska alltid 
 
 > [!IMPORTANT]
 > För MSAL (v2.0-slutpunkt) frågar en åtkomsttoken för en resurs som tar emot en token för åtkomst av v1.0, tolkar Azure AD målgrupp från det begärda omfånget genom att ta allt innan det senaste snedstrecket och använda det som resursidentifieraren.
-> Därför if, som Azure SQL (**https://database.windows.net**) resursen förväntar sig en målgrupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/`), måste du begära en omfattning `https://database.windows.net//.default` (Observera dubbla snedstreck). Se även MSAL.NET problemet [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-url avslutande snedstreck utelämnas som orsakade fel för sql-autentisering.
+> Därför if, som Azure SQL ( **https://database.windows.net** ) resursen förväntar sig en målgrupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/` ), måste du begära en omfattning `https://database.windows.net//.default` (Observera dubbla snedstreck). Se även MSAL.NET problemet [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-url avslutande snedstreck utelämnas som orsakade fel för sql-autentisering.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -128,7 +128,7 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protokoll
+### <a name="protocol"></a>Protocol
 
 Om du inte har ännu ett bibliotek för på valfritt språk du vill använda protokollet direkt:
 

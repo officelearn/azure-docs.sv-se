@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: f9cb18b66def144b84de708351743832d1831fbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967277"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimera utveckling och testning kostnaden i Azure Cosmos DB
@@ -25,7 +25,7 @@ Den här artikeln beskrivs olika alternativ för att använda Azure Cosmos DB f�
 
 [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) är en kostnadsfri kostnad upplevelse som gör det möjligt att skapa databasen och samlingar och experimentera med Azure Cosmos DB i molnet. Du inte behöver registrera dig för Azure eller betala någon kostnad. Prova Azure Cosmos DB-konton är tillgängliga under en begränsad tid, för närvarande 30 dagar. Du kan förnya dem när som helst. Prova Azure Cosmos DB konton gör det enkelt att prova Azure Cosmos DB, bygga och testa ett program med hjälp av Snabbstarter eller självstudier. Du kan skapa en demonstration eller utföra Enhetstestning utan utan kostnad. Prova Azure Cosmos DB med hjälp av för kostnadsfria konton, du kan utvärdera premiumfunktioner för Azure Cosmos DB utan kostnad, inklusive nyckelfärdig global distribution, serviceavtal och konsekvens modeller. Du kan skapa en databas med högst 25 Azure Cosmos-behållare och 10 000 RU/s genomströmning. Du kan köra exempelprogrammet utan att prenumerera på ett Azure-konto eller använda ditt kreditkort. Med prova Azure Cosmos DB du utan kostnad, skapa ett Azure Cosmos-konto för flera regioner och kör en app på den på bara några minuter. Kom igång genom att se [testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) sidan.
 
-## <a name="azure-free-account"></a>Azure-kostnadsfritt konto
+## <a name="azure-free-account"></a>Kostnadsfritt Azure-konto
 
 Azure Cosmos DB ingår i den [kostnadsfritt Azure-konto](https://azure.microsoft.com/free), som erbjuder Azure-kredit och resurser utan kostnad för en viss tidsperiod. Mer specifikt för Azure Cosmos DB erbjuder det här kostnadsfria kontot 5 GB lagringsutrymme och 400 ru: er för etablerat dataflöde för hela året. Detta gör det möjligt för utvecklare att enkelt testa funktionerna i Azure Cosmos DB eller integrera det med andra Azure-tjänster utan kostnad. Med kostnadsfria Azure-konto får du en kredit på 200 USD att spendera under de första 30 dagarna. Du debiteras inte, även om du börjar använda tjänsterna förrän du väljer att uppgradera. Kom igång genom att gå till [kostnadsfritt Azure-konto](https://azure.microsoft.com/free) sidan.
 

@@ -9,7 +9,7 @@ metadata:
   ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 06/13/2019
 abstract:
   description: 'Lär dig hur du använder Azure HDInsight för att analysera strömmande eller historiska data. Självstudier och annan dokumentation visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med de populäraste ramverken med öppen källkod, t.ex. Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm och Microsoft Machine Learning Server.<p>Azure HDInsight är en hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. HDInsight är en molnbaserad tjänst som gör det enkelt, snabbt och kostnadseffektivt att bearbeta stora mängder data. HDInsight stöder också en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL); informationslager; maskininlärning; och IoT.</p>'
   aside:

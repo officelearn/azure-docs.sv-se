@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43094cabab3cfc93e0dffa59a15867d01b036d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865642"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Självstudier: Azure Active Directory-integrering med Veritas Enterprise Vault.cloud SSO
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Veritas Enterprise Vault.cloud enkel inl
 
 **Utför följande steg för att lägga till Veritas Enterprise Vault.cloud SSO från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Veritas
 
     b. I den **identifierare** använder URL: en enligt datacentret:
 
-    | Datacenter| Webbadress |
+    | Datacenter| URL |
     |----------|----|
     | Nordamerika| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Veritas
 
     c. I den **svars-URL** text använder URL: en enligt datacentret:
 
-    | Datacenter| Webbadress |
+    | Datacenter| URL |
     |----------|----|
     | Nordamerika| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -210,5 +210,5 @@ När du klickar på panelen Veritas Enterprise Vault.cloud SSO i åtkomstpanelen
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

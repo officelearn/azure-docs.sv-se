@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Självstudier: Azure Active Directory-integrering med TalentLMS
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av TalentLMS i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till TalentLMS från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TalentL
 
     ![Konto & inställningar](./media/talentlms-tutorial/IC777296.png "konto och inställningar")
 
-1. Klicka på **enkel inloggning (SSO)**,
+1. Klicka på **enkel inloggning (SSO)** ,
 
 1. Gör följande i avsnittet Enkel inloggning:
 
@@ -254,5 +254,5 @@ När du klickar på panelen TalentLMS i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

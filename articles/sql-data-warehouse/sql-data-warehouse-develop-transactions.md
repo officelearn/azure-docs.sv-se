@@ -11,16 +11,16 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861752"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Använda transaktioner i SQL Data Warehouse
 Tips för att genomföra transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 
-## <a name="what-to-expect"></a>Vad händer nu
+## <a name="what-to-expect"></a>Vad du kan förvänta dig
 Som förväntat, stöder SQL Data Warehouse transaktioner som en del av arbetsbelastningen för informationslager. Men för att säkerställa att prestandan för SQL Data Warehouse underhålls i stor skala är vissa funktioner begränsade jämfört med SQL Server. Den här artikeln visar skillnaderna och visar en lista över de andra. 
 
 ## <a name="transaction-isolation-levels"></a>Transaktionsisoleringsnivåer

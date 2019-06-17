@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7f47fcbdf61caa95e49a34bcfd093d3370f769
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Självstudier: Azure Active Directory-integrering med ADP
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av ADP i Azure AD måste du lägga till ADP f
 
 **Utför följande steg för att lägga till ADP från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -121,7 +121,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med ADP:
 
 6. ADP-programmet förväntar sig att SAML-försäkran har ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**. Anspråkets namn kommer alltid att vara **”PersonImmutableID”** och värdet som mappas med **employeeid**. 
 
-    Användarmappningen från Azure AD till ADP görs baserat på **employeeid**, men du kan mappa detta till ett annat värde baserat på dina programinställningar. Kontakta [ADP-supportteamet](https://www.adp.com/contact-us/overview.aspx) först så att du är säker på att du använder rätt identifierare för en användare och mappa det värdet med **”PersonImmutableID”**-anspråket.
+    Användarmappningen från Azure AD till ADP görs baserat på **employeeid**, men du kan mappa detta till ett annat värde baserat på dina programinställningar. Kontakta [ADP-supportteamet](https://www.adp.com/contact-us/overview.aspx) först så att du är säker på att du använder rätt identifierare för en användare och mappa det värdet med **”PersonImmutableID”** -anspråket.
 
     ![image](common/edit-attribute.png)
 
@@ -169,7 +169,7 @@ För att konfigurera enkel inloggning på **ADP**-sidan måste du ladda upp den 
 > Anställda som behöver federerad åtkomst till dina ADP-tjänster måste tilldelas till ADP-tjänstappen, och därefter måste användarna tilldelas till den specifika ADP-tjänsten.
 När du har fått en bekräftelse av din ADP-representant konfigurerar du dina ADP-tjänster och tilldelar/hanterar användare för att styra användaråtkomsten till den specifika ADP-tjänsten.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -308,5 +308,5 @@ När du klickar på ADP-panelen på åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

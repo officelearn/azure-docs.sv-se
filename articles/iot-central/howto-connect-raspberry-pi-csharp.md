@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714429"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
@@ -35,7 +35,7 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 - Telemetri, vilket inkluderar följande mått som samlar in enheten:
   - Fuktighet
   - Temperatur
-  - Tryck
+  - Hög belastning
   - Magnetometer (X, Y, Z)
   - Accelerometer (X, Y, Z)
   - Gyroskop (X, Y, Z)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119086"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Hur du skapar och hanterar Azure Cache för Redis med hjälp av den klassiska Azure CLI
@@ -44,18 +44,18 @@ Du måste slutföra följande steg för att skapa och hantera Azure Cache för R
 ## <a name="azure-cache-for-redis-properties"></a>Egenskaper för Azure Cache for Redis
 Följande egenskaper som används när du skapar och uppdaterar Azure Cache för Redis-instanser.
 
-| Egenskap  | Växel | Beskrivning |
+| Egenskap | Växel | Beskrivning |
 | --- | --- | --- |
-| namn |-n, --name |Namnet på Azure Cache för Redis. |
+| name |-n, --name |Namnet på Azure Cache för Redis. |
 | Resursgrupp |-g, --resource-group |Namnet på resursgruppen. |
 | location |l-,--plats |Plats för att skapa cache. |
-| storlek |-z, --size |Storleken på cacheminnet för Azure Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| size |-z, --size |Storleken på cacheminnet för Azure Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU. Bör vara något av: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |EnableNonSslPort-egenskapen för Azure Cache för Redis. Lägg till den här flaggan om du vill aktivera icke-SSL-porten för din cachelagring |
 | Redis-konfiguration |-c, --redis-configuration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurationsnycklar och värden här. Format:"{"":"","":""}" |
 | Redis-konfiguration |-f, --redis-configuration-file |Redis-konfiguration. Ange sökvägen till en fil som innehåller konfigurationsnycklar och värden här. Format for the file entry: {"":"","":""} |
 | Shardantal |r-,--shardantal |Antal fragment för att skapa på Premium-kluster Cache med klustring. |
-| Virtual Network |-v, --virtual-network |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtuellt nätverk |-v, --virtual-network |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Nyckeltyp |-t,--key-typ |Typen av nyckel att förnya. Giltiga värden: [primär, sekundär] |
 | StaticIP |-p, – statisk ip \<statisk ip\> |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. |
 | Undernät |t,--undernät \<undernät\> |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. |
@@ -94,7 +94,7 @@ Om du vill se alla Azure-Cache för Redis-kommandon och deras parametrar, använ
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache for Redis
+## <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
 Om du vill skapa en Azure Cache för Redis, använder du följande kommando:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]

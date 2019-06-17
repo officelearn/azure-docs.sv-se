@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719745"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
@@ -28,7 +28,7 @@ Resurser som skapas av artefakter i en skisstilldelningen har fyra lägen: **Int
 
 |Läge|Artefakten resurstyp|Status|Beskrivning|
 |-|-|-|-|
-|Lås inte|*|Inte låst|Resurser som skyddas inte av skisser. Det här tillståndet används också för resurser som har lagts till i en **skrivskyddad** eller **ta inte bort** resource group artefakt från utanför en skisstilldelningen.|
+|Lås|*|Inte låst|Resurser som skyddas inte av skisser. Det här tillståndet används också för resurser som har lagts till i en **skrivskyddad** eller **ta inte bort** resource group artefakt från utanför en skisstilldelningen.|
 |Skrivskyddad|Resursgrupp|Det går inte att redigera / ta bort|Resursgruppen är skrivskyddad och går inte att ändra taggar på resursgruppen. **Inte låst** resurser kan vara har lagts till, flyttas, ändras eller tas bort från den här resursgruppen.|
 |Skrivskyddad|Icke-resursgrupp|Skrivskyddad|Resursen kan inte ändras på något sätt – inga ändringar och den kan inte tas bort.|
 |Ta inte bort|*|Det går inte att ta bort|Resurserna kan ändras, men kan inte tas bort. **Inte låst** resurser kan vara har lagts till, flyttas, ändras eller tas bort från den här resursgruppen.|

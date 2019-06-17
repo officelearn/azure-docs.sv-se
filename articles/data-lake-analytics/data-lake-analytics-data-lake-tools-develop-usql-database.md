@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628854"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd en U-SQL database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
@@ -101,7 +101,7 @@ Du kan distribuera en U-SQL-databas via ett projekt för U-SQL-databas eller en 
 Ett U-SQL-projekt kan referera till ett projekt för U-SQL-databas. Referensen påverkar två arbetsbelastningar:
 
 - *Projektet build*: Ställa in de refererade databasmiljöer innan du skapar U-SQL-skript. 
-- *Lokalt konto som kör mot (en lokal-projekt)*: De refererade databasmiljöer distribueras till (en lokal-projekt) konto innan U-SQL-skript kan köras. [Mer information om lokala körningar och skillnaden mellan (local-dator) och (en lokal-projekt) konto här](data-lake-analytics-data-lake-tools-local-run.md).
+- *Lokalt konto som kör mot (en lokal-projekt)* : De refererade databasmiljöer distribueras till (en lokal-projekt) konto innan U-SQL-skript kan köras. [Mer information om lokala körningar och skillnaden mellan (local-dator) och (en lokal-projekt) konto här](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Hur du lägger till en referens för U-SQL-databas
 

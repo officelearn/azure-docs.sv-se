@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122969"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift vanliga frågor och svar
 
@@ -49,9 +49,13 @@ Se [storlekar för virtuella datorer i Azure Red Hat OpenShift](supported-resour
 
 Som standard finns kryptering i vila. Plattformen Azure Storage krypterar automatiskt data före beständig lagring och dekrypterar data innan hämtning. Se [Azure Storage Service Encryption för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) mer information.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Kan jag använda Prometheus/Grafana för att övervaka behållare och hantera kapacitet?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Kan jag använda Prometheus/Grafana för att övervaka Mina program?
 
-Nej, inte på den aktuella tiden.
+Ja, du kan distribuera Prometheus i namnområdet och övervaka program i namnområdet.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Kan jag använda Prometheus/Grafana för att övervaka prestandamått klusterhälsa och kapacitet?
+
+Nej, inte på aktuell tid.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Är Docker-registret externt så att jag kan använda verktyg som Jenkins?
 
@@ -80,3 +84,7 @@ Nej. Alla resurser, inklusive kluster-huvudservern kör i en kundprenumeration. 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>Är Open Service Broker for Azure (OSBA) stöds?
 
 Ja. Du kan använda OSBA med Azure Red Hat OpenShift. Se [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) för mer information.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag är försöker peer-kopplas till ett virtuellt nätverk i en annan prenumeration men komma `Failed to get vnet CIDR` fel.
+
+I den prenumeration som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` provider med `az provider register -n Microsoft.ContainerService --wait` 

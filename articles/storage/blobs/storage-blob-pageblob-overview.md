@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.openlocfilehash: 88bf81852a4501f4fc5807d865214d57dbc0aab3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794502"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure-sidblobar
@@ -36,7 +36,7 @@ Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, samt m�
 
 ## <a name="page-blob-features"></a>Funktioner för sidblob
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Se följande dokument från att komma igång med [utveckla med hjälp av sidblobar](storage-dotnet-how-to-use-blobs.md). Exempelvis titta på hur du kommer åt sidan blobar med Storage-klientbiblioteket för .NET. 
 

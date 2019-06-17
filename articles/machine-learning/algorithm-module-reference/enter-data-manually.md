@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ee15b6fb7160ece907d55e790b0ae38ee458ab96
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028612"
 ---
 # <a name="enter-data-manually-module"></a>Ange Data manuellt modul
@@ -31,7 +31,7 @@ Den här modulen kan vara användbart i scenarier som följande:
   
 - Att skriva en lista med kolumnnamn för att infoga i en datauppsättning
 
-## <a name="enter-data-manually"></a>Ange Data manuellt 
+## <a name="enter-data-manually"></a>Ange data manuellt 
   
 1.  Lägg till den [ange Data manuellt](./enter-data-manually.md) modulen i experimentet. Du hittar den här modulen i den **Data indata och utdata** kategori i Azure Machine Learning. 
   

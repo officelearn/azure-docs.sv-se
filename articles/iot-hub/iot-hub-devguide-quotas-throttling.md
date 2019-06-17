@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.openlocfilehash: ea9bea8b314d00db87ad7addacc49a976e0da08e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550475"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
@@ -38,7 +38,7 @@ I följande tabell visas de tvingande begränsningar. Värden finns i en enskild
 | Sändningar enhet-till-moln | Högre av 100 per sekund eller 12 per sekund och enhet <br/> Till exempel två S1-enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1-enheter har du 108/sek (9\*12) mellan dina enheter. | 120 per sekund och enhet | 6 000 per sekund och enhet |
 | Moln-till-enhet skickar<sup>1</sup> | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5 000 per minut per enhet) |
 | Moln-till-enhet tar emot<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16.67/sec/Unit (1 000 per minut per enhet) | 16.67/sec/Unit (1 000 per minut per enhet) | 833.33/sec/Unit (50 000 per minut per enhet) |
-| Filuppladdning | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 83.33 filen ladda upp meddelanden per sekund och enhet (5 000 per minut per enhet) |
+| Ladda upp filen | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 83.33 filen ladda upp meddelanden per sekund och enhet (5 000 per minut per enhet) |
 | Direkta metoder<sup>1</sup> | 160KB per sekund och enhet<sup>2</sup> | 480KB per sekund och enhet<sup>2</sup> | 24MB per sekund och enhet<sup>2</sup> | 
 | Frågor | 20 per minut per enhet | 20 per minut per enhet | 1 000 per minut per enhet |
 | Twin (enhets- och modulen) läsningar<sup>1</sup> | 100 per sekund | Högre av 100 per sekund eller 10 per sekund och enhet | 500 per sekund och enhet |
@@ -73,7 +73,7 @@ Till exempel om du köper en enkel S1-enhet kan få du en begränsning av 100 an
 
 IoT Hub tillämpar andra begränsningar:
 
-| Operation | Begränsning |
+| Åtgärd | Gräns |
 | --------- | ----- |
 | Enheter | Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är 1 000 000. Det enda sättet att fler IP-adresser är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).| 
 | Ladda upp filen URI: er | 10 000 SAS URI: er kan vara ute för ett lagringskonto i taget. <br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |

@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
 ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153767"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
@@ -180,11 +180,11 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
 
     Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
 
-   * **/ Källa:  *&lt;källa&gt;:*** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
-   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:*** Lagringskontonyckel för källagringskontot.
-   * **/ Dest:  *&lt;mål&gt;:*** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Lagringskontonyckel för mållagringskontot.
-   * **/ Mönster:  *&lt;filnamn&gt;:*** Ange namnet på den virtuella Hårddisken för att kopiera.
+   * **/ Källa:  *&lt;källa&gt;:* ** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
+   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:* ** Lagringskontonyckel för källagringskontot.
+   * **/ Dest:  *&lt;mål&gt;:* ** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Lagringskontonyckel för mållagringskontot.
+   * **/ Mönster:  *&lt;filnamn&gt;:* ** Ange namnet på den virtuella Hårddisken för att kopiera.
 
 Mer information om hur du använder AzCopy-verktyget, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
 
@@ -277,12 +277,12 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
 
     Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
 
-   * **/ Källa:  *&lt;källa&gt;:*** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
-   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:*** Lagringskontonyckel för källagringskontot.
-   * **/ Dest:  *&lt;mål&gt;:*** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Lagringskontonyckel för mållagringskontot.
+   * **/ Källa:  *&lt;källa&gt;:* ** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
+   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:* ** Lagringskontonyckel för källagringskontot.
+   * **/ Dest:  *&lt;mål&gt;:* ** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Lagringskontonyckel för mållagringskontot.
    * **/ BlobType: sidan:** Anger att målet är en sidblob.
-   * **/ Mönster:  *&lt;filnamn&gt;:*** Ange namnet på den virtuella Hårddisken för att kopiera.
+   * **/ Mönster:  *&lt;filnamn&gt;:* ** Ange namnet på den virtuella Hårddisken för att kopiera.
 
 Mer information om hur du använder AzCopy-verktyget, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
 

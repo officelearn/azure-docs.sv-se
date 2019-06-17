@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075832"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatiserad säkerhetskopiering för SQL Server 2014-datorer (Resource Manager)
 
@@ -77,21 +77,19 @@ Du kan använda Azure-portalen för att konfigurera automatisk säkerhetskopieri
 
 Använd Azure-portalen för att konfigurera automatisk säkerhetskopiering när du skapar en ny SQL Server 2014-dator i distributionsmodellen för Resource Manager.
 
-I den **SQL Server-inställningar** väljer **automatisk säkerhetskopiering**. I följande Skärmbild av Azure portal visas den **SQL automatisk säkerhetskopiering** inställningar.
+I den **SQL Server-inställningar** fliken, rulla ned till **automatisk säkerhetskopiering** och välj **aktivera**. Du kan också ange den kvarhållningsperioden, och storage-konto, samt hur du aktiverar kryptering, säkerhetskopiera systemdatabaser och konfigurera ett schema för säkerhetskopiering.  I följande Skärmbild av Azure portal visas den **SQL automatisk säkerhetskopiering** inställningar.
 
 ![Automatisk säkerhetskopiering för SQL-konfiguration i Azure-portalen](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Konfigurera befintliga virtuella datorer
 
-För befintliga SQL Server-datorer, väljer du din SQL Server-dator. Välj sedan den **konfiguration av SQL Server** delen av den virtuella datorn **inställningar**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+För befintliga SQL Server-datorer går du till den [SQL VM-resurs](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) och välj sedan **säkerhetskopior**. 
 
 ![SQL automatisk säkerhetskopiering för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-I den **konfiguration av SQL Server** fönstret klickar du på den **redigera** i avsnittet automatisk säkerhetskopiering.
-
-![Konfigurera automatisk säkerhetskopiering för SQL för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-När du är klar klickar du på den **OK** knappen längst ned på den **konfiguration av SQL Server** inställningar för att spara dina ändringar.
+När du är klar, Välj den **tillämpa** knappen längst ned på den **säkerhetskopior** sidan för att spara dina ändringar.
 
 Om du aktiverar automatisk säkerhetskopiering för första gången, konfigurerar SQL Server IaaS Agent i bakgrunden i Azure. Under denna tid kanske Azure-portalen inte visar att automatisk säkerhetskopiering är konfigurerad. Vänta några minuter för att agenten ska installeras, konfigureras. Efter det Azure-portalen visar de nya inställningarna.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 Om SQL Server IaaS Agent-tillägget har installerats, bör du se att det visas som ”SqlIaaSAgent” eller ”SQLIaaSExtension”. **ProvisioningState** för tillägget bör också visa ”Succeeded”.
 
-Om den inte är installerad eller kunde inte etableras, kan du installera det med följande kommando. Utöver VM namn och resursgrupp gruppen, måste du även ange regionen (**$region**) som den virtuella datorn finns i.
+Om den inte är installerad eller kunde inte etableras, kan du installera det med följande kommando. Utöver VM namn och resursgrupp gruppen, måste du även ange regionen ( **$region**) som den virtuella datorn finns i.
 
 ```powershell
 $region = "EASTUS2"

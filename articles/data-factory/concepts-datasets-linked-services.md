@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866455"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Aktuell version](concepts-datasets-linked-services.md)
 
@@ -67,11 +67,11 @@ En datauppsättning i Data Factory har definierats i följande JSON-format:
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap  | Beskrivning | Krävs |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-namn | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
-typ | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstyperna](#dataset-type). | Ja |
-struktur | Schemat för datauppsättningen. Mer information finns i [datauppsättningsschema](#dataset-structure-or-schema). | Nej |
+name | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
+type | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstyperna](#dataset-type). | Ja |
+structure | Schemat för datauppsättningen. Mer information finns i [datauppsättningsschema](#dataset-structure-or-schema). | Nej |
 typeProperties | Typegenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#dataset-type). | Ja |
 
 ### <a name="data-flow-compatible-dataset"></a>Data flow kompatibla datauppsättning
@@ -112,11 +112,11 @@ När du importerar schemat för en datauppsättning som dataflöde, Välj den **
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap  | Beskrivning | Krävs |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-namn | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
-typ | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstyperna](#dataset-type). | Ja |
-schemat | Schemat för datauppsättningen. Mer information finns i [dataflöde kompatibla datauppsättningar](#dataset-type). | Nej |
+name | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
+type | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstyperna](#dataset-type). | Ja |
+schema | Schemat för datauppsättningen. Mer information finns i [dataflöde kompatibla datauppsättningar](#dataset-type). | Nej |
 typeProperties | Typegenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#dataset-type). | Ja |
 
 
@@ -180,12 +180,12 @@ Den **struktur** avsnittet eller **schemat** (dataflöde kompatibla) avsnittet d
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-Egenskap  | Beskrivning | Krävs
+Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på kolumnen. | Ja
-typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan** | Nej
-kultur | . NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-Format | Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej
+type | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan** | Nej
+culture | . NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
+format | Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej
 
 ### <a name="example"></a>Exempel
 Anta att källan Blob-data i CSV-format och innehåller tre kolumner i följande exempel: användar-ID, namn och lastlogindate. De är av typen Int64, sträng- och Datetime med en anpassad datetime-format med hjälp av förkortade franska namnen för dag i veckan.

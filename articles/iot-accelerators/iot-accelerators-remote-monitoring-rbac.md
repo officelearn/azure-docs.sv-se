@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443132"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
@@ -25,7 +25,7 @@ Första gången du distribuerar lösningen för fjärrövervakning, finns det tv
 
 Alla användare i den **Admin** rollen har fullständig åtkomst till lösning, inklusive följande behörigheter nedan. En användare i den **skrivskyddad** rollen har endast åtkomst till visa lösningen.
 
-| Behörighet            | Administratör | Skrivskyddad |
+| Behörighet            | Admin | Skrivskyddad |
 |----------------       |-------|-----------|
 | Visa lösningen         | Ja   | Ja       |
 | Uppdatera larm         | Ja   | Nej        |

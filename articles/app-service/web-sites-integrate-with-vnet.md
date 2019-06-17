@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb128d8793e3438d87e728bde069d07c72cf97b
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493104"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067716"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver integreringsfunktionen för Azure App Service-virtuellt nätverk och hur du konfigurerar den med appar i den [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk.  
@@ -33,8 +33,8 @@ Det här dokumentet går igenom de två VNet-integrering-funktionerna, vilket ä
 
 Det finns två sätt att funktionen VNet-integrering
 
-1. En version möjliggör integrering med virtuella nätverk i samma region. Den här typen av funktionen kräver ett undernät i ett virtuellt nätverk i samma region
-2. Den andra versionen kan du integrera med virtuella nätverk i andra regioner eller klassiska virtuella nätverk. Den här versionen av funktionen kräver distribution av en virtuell nätverksgateway i ditt virtuella nätverk.
+1. En version möjliggör integrering med virtuella nätverk i samma region. Den här typen av funktionen kräver ett undernät i ett virtuellt nätverk i samma region. Den här funktionen är fortfarande i förhandsversion, men stöds för produktionsarbetsbelastningar för Windows-app med vissa varningar anges nedan.
+2. Den andra versionen kan du integrera med virtuella nätverk i andra regioner eller klassiska virtuella nätverk. Den här versionen av funktionen kräver distribution av en virtuell nätverksgateway i ditt virtuella nätverk. Detta är punkt-till-plats VPN-baserad funktion.
 
 En app kan bara använda en form av funktionen för VNet-integrering i taget. Frågan sedan är vilken funktion du ska du använda. Du kan använda antingen för många saker. Rensa skillnaderna är dock:
 
@@ -72,7 +72,7 @@ När VNet-integrering används med virtuella nätverk i samma region som din app
 * komma åt resurser i det virtuella nätverket som du är ansluten till
 * komma åt resurser i peer-kopplade anslutningar, inklusive ExpressRoute-anslutningar
 
-Den här funktionen är i förhandsversion, men det finns stöd för produktionsarbetsbelastningar med följande begränsningar:
+Den här funktionen är i förhandsversion, men det finns stöd för Windows app produktionsarbetsbelastningar med följande begränsningar:
 
 * Du kan endast nå adresser som finns i RFC 1918 intervallet. De är adresser i 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16-Adressblock.
 * Du kan inte nå resurser över global peering-anslutningar
@@ -83,8 +83,9 @@ Den här funktionen är i förhandsversion, men det finns stöd för produktions
 * Appen och det virtuella nätverket måste finnas i samma region
 * En adress används för varje instans för App Service-plan. Eftersom undernätets storlek inte kan ändras efter tilldelning, Använd ett undernät som kan mer än att täcka storleken på din maximal skala. En/27 med 32 adresser är den rekommenderade storleken som som vill hantera en App Service-plan som skalas till 20 instanser.
 * Du kan inte ta bort ett virtuellt nätverk med en integrerad app. Du måste ta bort integrationen först 
+* Du kan ha endast en regional VNet-integrering för per App Service-plan. Flera appar i samma App Service-planen kan använda samma virtuella nätverk. 
 
-Använda funktionen för VNet-integrering med en Resource Manager-VNet i samma region:
+Funktionen är i förhandsversion för Linux. Använda funktionen för VNet-integrering med en Resource Manager-VNet i samma region:
 
 1. Gå till nätverk Användargränssnittet i portal. Om din app kan använda den nya funktionen, ser du ett alternativ för att lägga till VNet (förhandsversion).  
 
@@ -110,7 +111,7 @@ Appar i App Service finns på worker-roller. Grundläggande och högre prissätt
 
 När VNet-integrering är aktiverad blir fortfarande utgående samtal till internet via samma kanaler som vanligt i din app. Utgående adresser som anges i portalen för app-egenskaper är fortfarande de adresser som används av din app. Vilka ändringar för din app är att anrop till tjänsteslutpunkt skyddade tjänster eller RFC 1918 adresser hamnar i ditt virtuella nätverk. 
 
-Funktionen stöder bara ett virtuellt gränssnitt per person.  Ett virtuellt gränssnitt per worker innebär ett virtuellt gränssnitt för per App Service-plan. Alla appar i samma App Service-planen kan använda samma VNet-integrering, men om du vill ansluta till en ytterligare virtuella nätverk du behöver du skapa en annan App Service-plan. Det virtuella gränssnitt som används är inte en resurs som kunder har direkt åtkomst till.
+Funktionen stöder bara ett virtuellt gränssnitt per person.  Ett virtuellt gränssnitt per worker innebär en regional VNet-integrering för per App Service-plan. Alla appar i samma App Service-planen kan använda samma VNet-integrering, men om du behöver en app för att ansluta till en ytterligare VNet kan du behöver du skapa en annan App Service-plan. Det virtuella gränssnitt som används är inte en resurs som kunder har direkt åtkomst till.
 
 På grund av hur den här tekniken fungerar, visar den trafik som används med VNet-integrering inte i Network Watcher eller NSG-flödesloggar.  
 
@@ -123,12 +124,13 @@ Gatewayen krävs VNet-integrationsfunktionen:
 * gör att upp till fem virtuella nätverk kan integreras med i en App Service Plan 
 * tillåter samma virtuella nätverk som ska användas av flera appar i en App Service-Plan utan att påverka hur många som kan användas av en App Service plan.  Om du har en 6-appar med hjälp av samma virtuella nätverk i samma App Service-planen som räknas som 1 virtuellt nätverk som används. 
 * kräver en virtuell nätverksgateway som är konfigurerad med punkt till plats-VPN
-* har stöd för ett serviceavtal på 99,9% på grund av serviceavtalet på gatewayen
+* Stöds inte för användning med Linux-appar
+* Har stöd för ett serviceavtal på 99,9% på grund av serviceavtalet på gatewayen
 
 Den här funktionen stöder inte:
 
-* åtkomst till resurser över ExpressRoute 
-* åtkomst till resurser över tjänstslutpunkter 
+* Åtkomst till resurser via ExpressRoute 
+* Åtkomst till resurser via tjänstslutpunkter 
 
 ### <a name="getting-started"></a>Komma igång
 
@@ -200,7 +202,7 @@ ASP VNet-integrering Användargränssnittet visas alla de virtuella nätverken s
 * **Synkronisera nätverk**. Synkroniseringsåtgärden för nätverk är endast för funktionen gateway beroende VNet-integrering. Utför en synkronisering nätverk ser du till att ditt certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändra DNS för ditt VNet, måste du utföra en **synkronisera nätverk** igen. Den här åtgärden startar om alla appar som använder det här virtuella nätverket.
 * **Lägga till vägar** lägga till vägar kommer att öka utgående trafik i ditt virtuella nätverk.
 
-**Routning** vägarna som definieras i ditt virtuella nätverk som används för att dirigera trafik till ditt virtuella nätverk från din app. Om du vill skicka ytterligare utgående trafik till det virtuella nätverket kan du lägga till dessa Adressblock. Den här capabilty endast fungerar med gateway krävs för VNet-integrering.
+**Routning** vägarna som definieras i ditt virtuella nätverk som används för att dirigera trafik till ditt virtuella nätverk från din app. Om du vill skicka ytterligare utgående trafik till det virtuella nätverket kan du lägga till dessa Adressblock. Den här funktionen endast fungerar med gateway krävs för VNet-integrering.
 
 **Certifikat** när gatewayen krävs VNet-integrering aktiverat, det är ett obligatoriskt utbyte av certifikat för att säkerställa säkerheten för anslutningen. Tillsammans med certifikat som är DNS-konfigurationen, vägar och andra liknande element som beskrivs i nätverket.
 Om certifikat eller information om nätverk ändras måste du klicka på ”Synkronisera nätverk”. När du klickar på ”Synkronisera nätverk” orsaka ett kort avbrott i anslutningen mellan din app och ditt virtuella nätverk. När din app inte startas om, leda förlust av anslutning till din webbplats inte fungerar korrekt. 

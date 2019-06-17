@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530999"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Uppdatera 1,2 viktig information för din enhet i StorSimple 8000-serien
@@ -34,7 +34,7 @@ I följande tabell visas enheten programvaruversioner som motsvarar uppdateringa
 | Om du kör uppdatering... | Det här är enhetens programvaruversion. |
 | --- | --- |
 | Uppdatering 1.2 |6.3.9600.17584 |
-| Uppdatera 1.1 |6.3.9600.17521 |
+| Uppdatering 1.1 |6.3.9600.17521 |
 | Version 1.0 |6.3.9600.17491 |
 
 Granska informationen i den viktiga informationen innan du distribuerar uppdateringen i din StorSimple-lösning. Läs mer om hur du [installera uppdatering 1.2 på StorSimple-enheten](storsimple-install-update-1.md). 
@@ -67,7 +67,7 @@ Följande tabell innehåller en översikt över problem som har korrigerats i up
 | Nej. | Funktion | Problem | Korrigeras i uppdateringen | Gäller för fysisk enhet | Gäller för virtuella enheten |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell för StorSimple |När en användare få fjärråtkomst till StorSimple-enheten med hjälp av Windows PowerShell för StorSimple och sedan startas installationsguiden, inträffade en krasch så snart som Data 0 IP har indata. Den här buggen löses nu i uppdatering 1. |Uppdatering 1 |Ja |Ja |
-| 2 |Fabriksåterställning |I vissa fall, när du har utfört en fabriksåterställning StorSimple-enheten blev fastnat och visas det här meddelandet: **Återställ till factory pågår (fas 8)**. Det har inträffat om du har tryckt CTRL + C när cmdleten pågick. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
+| 2 |Fabriksåterställning |I vissa fall, när du har utfört en fabriksåterställning StorSimple-enheten blev fastnat och visas det här meddelandet: **Återställ till factory pågår (fas 8)** . Det har inträffat om du har tryckt CTRL + C när cmdleten pågick. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
 | 3 |Fabriksåterställning |När en felaktig dubbel styrenhet fabriksåterställning, tilläts att fortsätta med enhetsregistrering. Detta resulterade i en konfiguration som inte stöds. Ett felmeddelande visas i uppdatering 1 och registreringen är blockerad på en enhet som har en misslyckad fabriksåterställning. |Uppdatering 1 |Ja |Nej |
 | 4 |Fabriksåterställning |I vissa fall kan skapats falskt positivt matchningsfel aviseringar. Felaktig matchning av datatyp aviseringar genereras inte längre på enheter som kör uppdatering 1. |Uppdatering 1 |Ja |Nej |
 | 5 |Fabriksåterställning |Om en fabriksåterställning avbröts innan den är slutförd, enheten i återställningsläge och tillåter inte dig att komma åt Windows PowerShell för StorSimple. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
@@ -75,7 +75,7 @@ Följande tabell innehåller en översikt över problem som har korrigerats i up
 | 7 |Övervaka led: ar |I vissa fall övervakning led: ar på baksidan installationen inte visa rätt status. Blå LED har inaktiverats. DATA 0 och DATA 1 led: ar blinkande även när dessa gränssnitt har inte konfigurerats. Problemet har åtgärdats och övervaknings-led: ar indikerar nu rätt status. |Uppdatering 1 |Ja |Nej |
 | 8 |Övervaka led: ar |I vissa fall, efter att ha tillämpat uppdatering 1 blå ljus på den aktiva kontrollenheten avstängd därmed blir det svårt att identifiera den aktiva kontrollenheten. Det här problemet har åtgärdats i den här patch-versionen. |Uppdatering 1.2 |Ja |Nej |
 | 9 |Nätverksgränssnitt |I tidigare versioner av går en StorSimple-enhet som har konfigurerats med en icke-dirigerbara gateway offline. I den här versionen routning mått för Data 0 har gjort den lägsta; därför även om andra nätverksgränssnitt är moln-aktiverat kan kommer alla molntrafiken från enheten att dirigeras via Data 0. |Uppdatering 1 |Ja |Ja |
-| 10 |Säkerhetskopior |En bugg i uppdatering 1 som gjorde att säkerhetskopieringen ska utföras efter 24 dagar har åtgärdats i patch-version 1.1 för uppdatering. |Uppdatera 1.1 |Ja |Ja |
+| 10 |Säkerhetskopior |En bugg i uppdatering 1 som gjorde att säkerhetskopieringen ska utföras efter 24 dagar har åtgärdats i patch-version 1.1 för uppdatering. |Uppdatering 1.1 |Ja |Ja |
 | 11 |Säkerhetskopior |Ett fel i tidigare versioner resulterade i sämre prestanda för ögonblicksbilder av molnet med lite ändringar. Det här felet har åtgärdats i den här patch-versionen. |Uppdatering 1.2 |Ja |Ja |
 | 12 |Uppdateringar |En bugg i uppdatering 1 som rapporterats av en misslyckad uppgradering och orsakade styrenheterna i återställningsläge, har åtgärdats i den här patch-versionen. |Uppdatering 1.2 |Ja |Ja |
 

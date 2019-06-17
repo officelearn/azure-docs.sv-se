@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304300"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid-ämnen
@@ -101,7 +101,7 @@ Här följer de begränsningar och kvoter som rör händelse domäner:
 
 - 100 000 ämnen per event domän 
 - 100 händelse domäner per Azure-prenumeration 
-- 500 händelseprenumerationer per avsnitt i en händelsedomän
+- 500 händelseprenumerationer per ämne i en händelsedomän
 - 50 domän omfång prenumerationer 
 - 5 000 händelser per andra inmatning frekvens (i en domän)
 

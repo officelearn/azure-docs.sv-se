@@ -1,25 +1,25 @@
 ---
 title: Serverloggar för Azure Database for MySQL
-description: Beskriver loggarna som är tillgängliga i Azure Database för MySQL och tillgängliga parametrar för att aktivera olika loggningsnivåer.
+description: Beskriver de långsamma frågeloggarna som är tillgängliga i Azure Database för MySQL och tillgängliga parametrar för att aktivera olika loggningsnivåer.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062396"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Serverloggar i Azure Database for MySQL
-Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsam fråga loggar i Azure Database for MySQL
+Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning.
 
 Mer information om den långsam frågeloggen för MySQL finns i referenshandboken för MySQL [långsam logg frågeavsnitt](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## <a name="access-server-logs"></a>Åtkomst till serverloggar
-Du kan visa och ladda ned Azure Database för MySQL server-loggar med hjälp av Azure-portalen och Azure CLI.
+## <a name="access-slow-query-logs"></a>Långsamma frågeloggar för åtkomst
+Du kan visa och ladda ned Azure Database för MySQL långsamma frågeloggar med hjälp av Azure-portalen och Azure CLI.
 
 Välj din Azure Database for MySQL-server i Azure-portalen. Under den **övervakning** väljer du den **serverloggar** sidan.
 
@@ -30,8 +30,7 @@ Loggarna är tillgängliga i upp till sju dagar från de har skapats. Om den tot
 
 Loggar roteras var 24 timmar eller 7 GB, beroende på vilket som kommer först.
 
-
-## <a name="configure-logging"></a>Konfigurera loggning 
+## <a name="configure-slow-query-logging"></a>Konfigurera långsam frågelogg 
 Långsam frågelogg är inaktiverad som standard. Aktivera det genom att ange slow_query_log on.
 
 Andra parametrar som du kan justera är:
@@ -73,10 +72,10 @@ I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och 
 | `rows_sent_s` | Antalet rader som har skickats |
 | `rows_examined_s` | Antalet rader som undersöks |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Infoga id |
+| `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
-| `server_id_s` | Serverns id |
-| `thread_id_s` | Tråd-id |
+| `server_id_s` | Serverns ID |
+| `thread_id_s` | Tråd-ID |
 | `\_ResourceId` | Resurs-URI |
 
 ## <a name="next-steps"></a>Nästa steg

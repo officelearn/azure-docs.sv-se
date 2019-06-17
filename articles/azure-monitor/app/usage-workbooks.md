@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569613"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
@@ -166,7 +166,7 @@ Det finns fyra olika typer av parametrar som stöds för närvarande:
 
 ### <a name="using-a-text-parameter"></a>Med hjälp av en textparameter
 
-Det värde som en användare skriver i textrutan ersätts direkt i frågan, utan undantagstecken eller citera. Om värdet som du behöver är en sträng är frågan bör ha citattecken runt parametern (t.ex. **'{parameter}'**).
+Det värde som en användare skriver i textrutan ersätts direkt i frågan, utan undantagstecken eller citera. Om värdet som du behöver är en sträng är frågan bör ha citattecken runt parametern (t.ex. **'{parameter}'** ).
 
 Detta gör att värdet i en textruta som ska användas var som helst. Det kan vara ett tabellnamn, kolumnnamn, funktionsnamn, operatorn osv.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922968"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
@@ -97,7 +97,7 @@ Information om hur du använder Application Insights finns i den [dokumentation 
 
 Följande områden i Application Insights kan vara användbart när du utvärderar beteende, prestanda och fel i dina funktioner:
 
-| Tab | Beskrivning |
+| fliken | Beskrivning |
 | ---- | ----------- |
 | **[fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar som baseras på funktionen fel och undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden. |
 | **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera problem med prestanda. |
@@ -163,11 +163,11 @@ Azure Functions-loggaren innehåller också en *certifikatutfärdarnivå* med va
 |LogLevel    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsökning       | 1 |
+|Felsöka       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritisk    | 5 |
+|Kritiskt    | 5 |
 |Ingen        | 6 |
 
 Certifikatutfärdarnivå `None` förklaras i nästa avsnitt. 

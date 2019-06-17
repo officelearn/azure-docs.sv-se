@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059241"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -53,7 +53,7 @@ Skapa de resurser som krävs för att köra en pipeline:
 
 * Konfigurera en `DataReference` objekt för att peka mot data som finns i eller är tillgänglig i ett datalager.
 
-* Konfigurera den [beräkningsmål](concept-azure-machine-learning-architecture.md#compute-target) som din pipeline-stegen körs.
+* Konfigurera den [beräkningsmål](concept-azure-machine-learning-architecture.md#compute-targets) som din pipeline-stegen körs.
 
 ### <a name="set-up-a-datastore"></a>Konfigurera ett datalager
 Ett datalager lagrar data för att få åtkomst till pipelinen. Varje arbetsyta har ett standard-datalager. Du kan registrera ytterligare datalager. 
@@ -296,7 +296,7 @@ När du skickar pipelinen, Azure Machine Learning-tjänsten kontrollerar beroend
 > [!IMPORTANT]
 > Om du vill förhindra att filer som ingår i ögonblicksbilden, skapa en [.gitignore](https://git-scm.com/docs/gitignore) eller `.amlignore` filen i katalogen och Lägg till filer till den. Den `.amlignore` filen använder samma syntax och mönster som den [.gitignore](https://git-scm.com/docs/gitignore) fil. Om båda filerna finns i `.amlignore` filen företräde.
 >
-> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
+> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run

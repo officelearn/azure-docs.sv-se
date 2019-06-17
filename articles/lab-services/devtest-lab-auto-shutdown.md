@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873997"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera autoshutdown principer för ett labb i Azure DevTest Labs
@@ -69,7 +69,7 @@ Om du anger ditt labb till den här principen kan inte labbanvändare åsidosät
 
 ![Automatisk stänga principalternativ - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>Aviseringar
+## <a name="notifications"></a>Meddelanden
 När autoshutdown som konfigurerats av labbägare meddelanden ska skickas till användarna lab 15 minuter innan autoshutdown utlöses om något av de virtuella datorerna kommer att påverkas. Det här alternativet ger labbanvändare en chans att spara arbetet innan avstängningen. Meddelandet innehåller även länkar för varje virtuell dator för följande åtgärder:
 
 - Hoppa över autoshutdown för den här gången
@@ -166,7 +166,7 @@ Kom igång genom att skapa en logikapp i Azure-prenumerationen med hjälp av fö
     }
     ```
     
-    ![Begär JSON-brödtextsschema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Begär JSON-Brödtextsschema](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Välj **+ nytt steg** i designer och gör följande:
     1. Sök efter **Office 365 Outlook – skicka ett e-postmeddelande**. 
     2. Välj **skicka ett e-postmeddelande** från **åtgärder**. 
@@ -177,7 +177,7 @@ Kom igång genom att skapa en logikapp i Azure-prenumerationen med hjälp av fö
     5. Välj **ämne**, och ange ett ämne för e-postmeddelandet. Exempel: ”Stänga av datorn vmName för Labb: labName”.
     6. Välj **BRÖDTEXT**, och definiera brödtext i e-postmeddelande. Till exempel: ”vmName är schemalagd att stängas av om 15 minuter. Hoppa över denna avstängning genom att klicka på: URL: EN. Fördröjning avstängning i en timme: delayUrl60. Fördröjning avstängning i 2 timmar: delayUrl120 ”.
 
-        ![Begär JSON-brödtextsschema](./media/devtest-lab-auto-shutdown/email-options.png)
+        ![Begär JSON-Brödtextsschema](./media/devtest-lab-auto-shutdown/email-options.png)
 1. Välj **Spara** i verktygsfältet. Nu kan du kopiera den **HTTP post-URL**. Välj kopieringsknappen för att kopiera Webbadressen till Urklipp. 
 
     ![WebHook-URL](./media/devtest-lab-auto-shutdown/webhook-url.png)

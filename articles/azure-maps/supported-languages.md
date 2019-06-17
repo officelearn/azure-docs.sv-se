@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686789"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliseringsstöd i Azure Maps
@@ -85,7 +85,7 @@ Azure Maps har lokaliserats i olika språk tjänster. Följande tabell innehåll
 
 ## <a name="azure-maps-supported-views"></a>Azure Maps stöds vyer
 
-Azure Maps visa parametern (kallas även ”användaren region parametern”) är en 2-bokstav ISO 3166 landskod som visar rätt maps för det land/region som anger vilken uppsättning geopolitiskt omtvistad kantlinjer och etiketter visas på kartan.  Som standard visa parametern anges till **”Unified”**.  Länder/regioner som inte finns på listan som standard till vyn ”enhetliga”. Det är ditt ansvar att avgöra var dina användare och sedan ange parametern Visa korrekt för den platsen. Parametern vyn i Azure Maps måste användas i enlighet med tillämpliga lagar, inklusive de som angående mappningen av det land där kartor, bilder och andra data och tredje parts innehåll som du har behörighet att komma åt via Azure Maps är tillgänglig.
+Azure Maps visa parametern (kallas även ”användaren region parametern”) är en 2-bokstav ISO 3166 landskod som visar rätt maps för det land/region som anger vilken uppsättning geopolitiskt omtvistad kantlinjer och etiketter visas på kartan.  Som standard visa parametern anges till **”Unified”** .  Länder/regioner som inte finns på listan som standard till vyn ”enhetliga”. Det är ditt ansvar att avgöra var dina användare och sedan ange parametern Visa korrekt för den platsen. Parametern vyn i Azure Maps måste användas i enlighet med tillämpliga lagar, inklusive de som angående mappningen av det land där kartor, bilder och andra data och tredje parts innehåll som du har behörighet att komma åt via Azure Maps är tillgänglig.
 
 Följande tabell innehåller vyerna som stöds.
 
@@ -107,4 +107,4 @@ Följande tabell innehåller vyerna som stöds.
 | SA           | Saudiarabien (arabiska View)            |   ✓   |        |     ✓          |
 | SY           | Syrien (arabiska View)                   |   ✓   |        |     ✓          |
 | ALL           | Jemen (arabiska View)                   |   ✓   |        |     ✓          |
-| Enhetlig      | Enhetlig vy (alternativ)                  |   ✓   |   ✓     |     ✓          |
+| Enhetligt      | Enhetlig vy (alternativ)                  |   ✓   |   ✓     |     ✓          |

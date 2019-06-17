@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235594"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113517"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -49,10 +49,10 @@ Kombineras registrering har stöd för följande autentiseringsmetoder och åtg�
 | Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
 | Andra authenticator-appen | Ja (högst 5) | Nej | Ja |
 | Maskinvarutoken | Nej | Nej | Ja |
-| Phone | Ja | Ja | Ja |
+| Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
 | Arbetstelefon | Nej | Nej | Nej |
-| Email | Ja | Ja | Ja |
+| E-post | Ja | Ja | Ja |
 | Säkerhetsfrågor | Ja | Nej | Ja |
 | Applösenord | Ja | Nej | Ja |
 

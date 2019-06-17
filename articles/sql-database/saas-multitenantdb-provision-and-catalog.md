@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61486006"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med hjälp av ett delat Azure SQL-databas för flera innehavare
@@ -161,7 +161,7 @@ För att förstå hur Wingtip-programmet implementerar etableringen i en delad d
    - **$VenueType** = **blues**, en av de fördefinierade platstyperna: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (gemener, utan blanksteg).
    - **$DemoScenario** = **1**, för att etablera en klient i en delad databas med andra klienter.
 
-2. Lägg till en brytpunkt genom att placera markören var som helst på rad 38, raden: *Ny klient ”*, och tryck sedan på **F9**.
+2. Lägg till en brytpunkt genom att placera markören var som helst på rad 38, raden: *Ny klient ”* , och tryck sedan på **F9**.
 
    ![brytpunkt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -169,7 +169,7 @@ För att förstå hur Wingtip-programmet implementerar etableringen i en delad d
 
 4. När skriptkörningen stannar vid brytpunkten, trycker du **F11** till steg i koden.
 
-   ![felsök](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Felsöka](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Spåra de skriptkörningen med hjälp av den **felsöka** menyalternativen **F10** och **F11**, för att stega över eller in anropade funktionerna.
 
@@ -201,7 +201,7 @@ Gå igenom skriptprocessen när du skapar en klient i en egen databas:
    - **$VenueType** = **fotboll**, en av de fördefinierade platstyperna: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (gemener, utan blanksteg).
    - **$DemoScenario** = **2**, för att etablera en klient i en egen databas.
 
-2. Lägg till en ny brytpunkt genom att placera markören var som helst på rad 57, raden:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*, och tryck på **F9**.
+2. Lägg till en ny brytpunkt genom att placera markören var som helst på rad 57, raden:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '* , och tryck på **F9**.
 
    ![brytpunkt](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 

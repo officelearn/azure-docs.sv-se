@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129866"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
@@ -90,7 +90,7 @@ Senare, i ett separat hemtransport steg växlar över katalog- och klienttrafik 
 ## <a name="review-the-healthy-state-of-the-application"></a>Granska felfri statusen för programmet
 
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
-1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net - Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
+1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt ; användare&gt;. trafficmanager.net - Ersätt &lt; användaren&gt; med värdet för användarnamn för din distribution).
     * Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.
     *TIPS: Hovra med musen över platsen som förstora visningen. * 
      ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -207,7 +207,7 @@ Programslutpunkten är inaktiverad i Traffic Manager, är programmet inte tillg�
  
      ![Evenemangshubben offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Om du öppnar sidan för evenemang i en offline-klient direkt, visas ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Om du öppnar sidan för evenemang i en offline-klient direkt, visas ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt ; användare&gt;.trafficmanager.net/contosoconcerthall ![ Contoso Offline sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställningsregionen
 Du kan etablera nya klienter i återställningsregionen även innan alla befintliga klientdatabaser har redundansväxlats.  
@@ -256,7 +256,7 @@ I den här uppgiften ska uppdatera du en av klientdatabaser.
 2. I den *PowerShell ISE*, ange följande värde i ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skript:
     * **$DemoScenario = 5** ta bort en händelse från en klient i återställningsregionen
 3. Tryck på **F5** att köra skriptet
-4. Uppdatera sidan Contosos Konserthall händelser (http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall - ersätta &lt;användaren&gt; med värdet för användarnamn för din distribution) och Lägg märke till att den senaste händelsen har tagits bort.
+4. Uppdatera sidan Contosos Konserthall händelser (http://events.wingtip-dpt.&lt ; användare&gt;.trafficmanager.net/contosoconcerthall - ersätta &lt; användaren&gt; med värdet för användarnamn för din distribution) och Lägg märke till att den senaste händelsen har tagits bort.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Hem programmet till dess ursprungliga produktionsregion
 
@@ -289,7 +289,7 @@ Nu ska vi imagine avbrottet åtgärdats och kör skriptet hemtransport.
     * Tryck på **F5** att köra skriptet för återställning i ett nytt PowerShell-fönster.  Hemtransport tar några minuter och kan övervakas i PowerShell-fönstret.
     ![Hemtransport process](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. När skriptet körs, uppdatera sidan Evenemangshubben (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net)
+4. När skriptet körs, uppdatera sidan Evenemangshubben (http://events.wingtip-dpt.&lt ; användare&gt;. trafficmanager.net)
     * Observera att alla klienter är online och tillgängliga under hela processen.
 
 5. När hemtransport är klar kan du uppdatera evenemangshubben och öppna sidan händelser för Hawthorn Hall. Observera att den här databasen har tagits återföras till den ursprungliga regionen.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506696"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Device Manager-tjänsten för enheter i StorSimple 8000-serien
@@ -77,7 +77,7 @@ Utför följande steg för att ta bort en tjänst.
 
 2. Då kommer du till bladet för StorSimple Device Manager-tjänsten. Klicka på **Ta bort**.
 
-    ![Ta bort tjänst](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Ta bort tjänsten](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
 3. Klicka på **Ja** i meddelande om bekräftelse. Det kan ta några minuter för tjänsten som ska tas bort.
 

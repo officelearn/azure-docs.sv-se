@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978707"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Anslut en MongoDB-program till Azure Cosmos DB
@@ -32,7 +32,7 @@ Den här självstudien ger dig två sätt att hämta information om anslutningss
 1. I en webbläsare, loggar du in den [Azure-portalen](https://portal.azure.com).
 2. I den **Azure Cosmos DB** bladet välj API: et. 
 3. I rutan till vänster på kontobladet klickar du på **Snabbstart**. 
-4. Välj din plattform (**.NET**, **Node.js**, **MongoDB-gränssnittet**, **Java**, **Python**). Om du inte ser din drivrutin eller verktyg i listan, oroa inte dig – dokumenterar vi kontinuerligt fler kodfragment. Kommentera nedan på vad du vill se. Om du vill lära dig mer om att skapa din egen anslutning, läsa [hämta information om kontots anslutningssträng](#GetCustomConnection).
+4. Välj din plattform ( **.NET**, **Node.js**, **MongoDB-gränssnittet**, **Java**, **Python**). Om du inte ser din drivrutin eller verktyg i listan, oroa inte dig – dokumenterar vi kontinuerligt fler kodfragment. Kommentera nedan på vad du vill se. Om du vill lära dig mer om att skapa din egen anslutning, läsa [hämta information om kontots anslutningssträng](#GetCustomConnection).
 5. Kopiera och klistra in kodfragmentet i MongoDB-app.
 
     ![Snabbstart-bladet](./media/connect-mongodb-account/QuickStartBlade.png)

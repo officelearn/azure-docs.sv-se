@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061398"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en enskild databas i Azure SQL-databas och skapa en rapport
 
@@ -37,9 +37,9 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
    ![Välj datakälla: Ansluta Excel till SQL database.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Dataanslutningsguiden öppnas.
-3. I dialogrutan **Anslut till databasserver**, skriver du **Servernamnet** för den SQL Database du vill ansluta till i formatet <*servernamn*>**. database.windows.net**. Till exempel **msftestserver.database.windows.net**. Alternativt kan du ange namnet på din databas. Välj **OK** att öppna fönstret autentiseringsuppgifter. 
+3. I dialogrutan **Anslut till databasserver**, skriver du **Servernamnet** för den SQL Database du vill ansluta till i formatet <*servernamn*> **. database.windows.net**. Till exempel **msftestserver.database.windows.net**. Alternativt kan du ange namnet på din databas. Välj **OK** att öppna fönstret autentiseringsuppgifter. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Ansluta till databasen Server dialogrutan](media/sql-database-connect-excel/server-name.png)
 
 4. I den **SQL Server-databas** dialogrutan **databasen** till vänster sida och sedan ange i din **användarnamn** och **lösenord** för den SQL Database-server som du vill ansluta till. Välj **Connect** att öppna den **Navigator**. 
 
@@ -68,7 +68,7 @@ Nu när du har skapat anslutningen, har du flera olika alternativ för hur du l�
 
 > [!TIP]
 > Om du vill ansluta andra Excel-arbetsböcker och kalkylblad till databasen, väljer du den **Data** och sedan **senast använda källor** att starta den **senast använda källor** dialogrutan. Därifrån väljer du den anslutning du skapade i listan och klicka sedan på **öppna**.
-> ![Senaste anslutningar](media/sql-database-connect-excel/recent-connections.png)
+> ![Dialogrutan för senaste källor](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Skapa en permanent anslutning med ODC-fil
 
@@ -78,7 +78,7 @@ Om du vill spara anslutningsinformationen permanent kan du skapa en ODC-fil och 
    1. Välj **äddra** att öppna den **Välj datakälla** dialogrutan.   
    2. Välj den **+NewSqlServerConnection.odc** filen och välj sedan **öppna** att öppna den **Dataanslutningsguiden**.
 
-      ![Ny anslutning](media/sql-database-connect-excel/new-connection.png)
+      ![Dialogrutan Ny anslutning](media/sql-database-connect-excel/new-connection.png)
 
 2. I den **Dataanslutningsguiden**, anger du namnet på servern och dina autentiseringsuppgifter för SQL-databas. Välj **Nästa**. 
    1. Välj den databas som innehåller dina data från listrutan. 

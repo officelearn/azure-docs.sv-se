@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926234"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassisk lagring resurs
@@ -99,7 +99,7 @@ På portalen kan det finnas två upplevelser beroende på listan över blobar so
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Om användaren väljer att ta bort med hjälp av PowerShell, resulterar det i följande fel. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : Fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran... HTTP-statuskod: 412 - HTTP-felmeddelande: Det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.</span>
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511825"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -211,9 +211,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en autentiseringstoken indatabindning från kod](#token-input-code).|
-|**typ**||Krävs – måste vara inställd på `token`.|
-|**riktning**||Krävs – måste vara inställd på `in`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en autentiseringstoken indatabindning från kod](#token-input-code).|
+|**type**||Krävs – måste vara inställd på `token`.|
+|**direction**||Krävs – måste vara inställd på `in`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
@@ -346,22 +346,22 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för Excel-tabellen. Se [med hjälp av en Excel-tabell indatabindning från kod](#excel-input-code).|
-|**typ**||Krävs – måste vara inställd på `excel`.|
-|**riktning**||Krävs – måste vara inställd på `in`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för Excel-tabellen. Se [med hjälp av en Excel-tabell indatabindning från kod](#excel-input-code).|
+|**type**||Krävs – måste vara inställd på `excel`.|
+|**direction**||Krävs – måste vara inställd på `in`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
-|**tableName**|**TableName**|Tabellens namn. Om den inte anges används innehållet i kalkylbladet.|
+|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel indata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
 
-|Resurs|Behörighet|
+|Resource|Behörighet|
 |--------|--------|
 |Microsoft Graph|Läs användarfiler|
 
@@ -508,15 +508,15 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en Excel-tabell utdatabindning från kod](#excel-output-code).|
-|**typ**||Krävs – måste vara inställd på `excel`.|
-|**riktning**||Krävs – måste vara inställd på `out`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en Excel-tabell utdatabindning från kod](#excel-output-code).|
+|**type**||Krävs – måste vara inställd på `excel`.|
+|**direction**||Krävs – måste vara inställd på `out`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID** |**Användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
-|**tableName**|**TableName**|Tabellens namn. Om den inte anges används innehållet i kalkylbladet.|
+|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
 |**updateType**|**Uppdateringstyp**|Krävs – typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> -Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> -Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
 
 <a name="excel-output-code"></a>
@@ -524,7 +524,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 Den här bindningen kräver följande Azure AD-behörigheter:
 
-|Resurs|Behörighet|
+|Resource|Behörighet|
 |--------|--------|
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
 
@@ -654,26 +654,26 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för filen. Se [med hjälp av en fil i OneDrive indatabindning från kod](#onedrive-input-code).|
-|**typ**||Krävs – måste vara inställd på `onedrive`.|
-|**riktning**||Krävs – måste vara inställd på `in`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för filen. Se [med hjälp av en fil i OneDrive indatabindning från kod](#onedrive-input-code).|
+|**type**||Krävs – måste vara inställd på `onedrive`.|
+|**direction**||Krävs – måste vara inställd på `in`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
+|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Filen indata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
 
-|Resurs|Behörighet|
+|Resource|Behörighet|
 |--------|--------|
 |Microsoft Graph|Läs användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte
-- Strömma
+- Stream
 - string
 - Microsoft.Graph.DriveItem
 
@@ -802,26 +802,26 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för filen. Se [med hjälp av en fil i OneDrive-utdatabindning från kod](#onedrive-output-code).|
-|**typ**||Krävs – måste vara inställd på `onedrive`.|
-|**riktning**||Krävs – måste vara inställd på `out`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för filen. Se [med hjälp av en fil i OneDrive-utdatabindning från kod](#onedrive-output-code).|
+|**type**||Krävs – måste vara inställd på `onedrive`.|
+|**direction**||Krävs – måste vara inställd på `out`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID** |**Användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
+|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Filen utdata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
 
-|Resurs|Behörighet|
+|Resource|Behörighet|
 |--------|--------|
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte
-- Strömma
+- Stream
 - string
 - Microsoft.Graph.DriveItem
 
@@ -953,9 +953,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**||Krävs – måste vara inställd på `outlook`.|
-|**riktning**||Krävs – måste vara inställd på `out`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**type**||Krävs – måste vara inställd på `outlook`.|
+|**direction**||Krävs – måste vara inställd på `out`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
@@ -965,7 +965,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 Den här bindningen kräver följande Azure AD-behörigheter:
 
-|Resurs|Behörighet|
+|Resource|Behörighet|
 |--------|--------|
 |Microsoft Graph|Skicka e-post som användare|
 
@@ -1096,9 +1096,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**||Krävs – måste vara inställd på `graphWebhook`.|
-|**riktning**||Krävs – måste vara inställd på `trigger`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**type**||Krävs – måste vara inställd på `graphWebhook`.|
+|**direction**||Krävs – måste vara inställd på `trigger`.|
 |**ResourceType**|**ResourceType**|Krävs – graphresursen för vilken den här funktionen ska svara på webhookar. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code> -ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code> -ändrade objekt för OneDrive-rot.</li><li><code>#Microsoft.Graph.Contact</code> -ändringar som gjorts i personliga kontakter i Outlook.</li><li><code>#Microsoft.Graph.Event</code> -ändringar som gjorts i kalenderobjekt i Outlook.</li></ul>|
 
 > [!Note]
@@ -1248,9 +1248,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
-|**riktning**||Krävs – måste vara inställd på `in`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**type**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
+|**direction**||Krävs – måste vara inställd på `in`.|
 |**filter**|**Filter**| Om inställd `userFromRequest`, och sedan bindningen kommer bara att hämta prenumerationer som ägs av den anropande användaren (gäller endast med [HTTP-utlösare]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook indata - användning
@@ -1389,9 +1389,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
-|**riktning**||Krävs – måste vara inställd på `out`.|
+|**name**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**type**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
+|**direction**||Krävs – måste vara inställd på `out`.|
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |

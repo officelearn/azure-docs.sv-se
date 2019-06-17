@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 63905a1130ffb972ff71ebcce232cd242961dcad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 345c9fc89882597f23958a620453008eeb5bfb86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Självstudier: Azure Active Directory-integrering med ThirdPartyTrust
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av ThirdPartyTrust i Azure AD, som du behöver 
 
 **Utför följande steg för att lägga till ThirdPartyTrust från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,5 +197,5 @@ När du klickar på panelen ThirdPartyTrust i åtkomstpanelen, bör det vara log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

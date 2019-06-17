@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768668"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-aktiviteten i Azure Data Factory
@@ -57,7 +57,7 @@ Följande datakällor stöds för Lookup-aktiviteten. Det största antalet rader
 Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
 dataset | Innehåller datauppsättningen-referens för sökningen. Få information från den **egenskaper för datamängd** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
-källa | Innehåller egenskaper för datauppsättningen-specifika datakälla, samma som Kopieringsaktivitet källa. Få information från den **Kopieringsaktiviteten egenskaper** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
+source | Innehåller egenskaper för datauppsättningen-specifika datakälla, samma som Kopieringsaktivitet källa. Få information från den **Kopieringsaktiviteten egenskaper** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
 firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolean | Nej. Standardvärdet är `true`.
 
 > [!NOTE]
@@ -70,7 +70,7 @@ firstRowOnly | Anger om du vill returnera endast den första raden eller alla ra
 
 Lookup resultatet returneras i de `output` delen av den aktiviteten.
 
-* **När `firstRowOnly` är inställd på `true` (standard)**, utdataformat är enligt följande kod. Lookup-resultatet är under en fast `firstRow` nyckel. Om du vill använda resultatet i efterföljande aktivitet använder du mönstret för `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **När `firstRowOnly` är inställd på `true` (standard)** , utdataformat är enligt följande kod. Lookup-resultatet är under en fast `firstRow` nyckel. Om du vill använda resultatet i efterföljande aktivitet använder du mönstret för `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -302,7 +302,7 @@ Den här Azure SQL Database-instansen innehåller data som ska kopieras till Blo
 
 Här följer några begränsningar hos Lookup-aktiviteten och föreslagna lösningar.
 
-| Begränsning | Lösning |
+| Begränsning | Lösning: |
 |---|---|
 | Lookup-aktiviteten har högst 5 000 rader och en maximal storlek på 2 MB. | Utforma en pipeline för två nivåer där yttre pipelinen itererar över en inre pipeline, som hämtar data som inte överstiger maximalt antal rader eller storlek. |
 | | |

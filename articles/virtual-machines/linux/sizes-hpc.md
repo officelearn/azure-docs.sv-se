@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070002"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -72,7 +72,7 @@ Azure Marketplace har många Linux-distributioner som stöder RDMA-anslutning:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  Mer information om hur du aktiverar InfiniBand, hur du konfigurerar MPI, finns i [aktivera InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  Mer information om hur du aktiverar InfiniBand, hur du konfigurerar MPI, finns i [aktivera InfiniBand](../workloads/hpc/enable-infiniband.md).
 
 
 ### <a name="cluster-configuration-options"></a>Konfigurationsalternativ för kluster
@@ -107,5 +107,5 @@ Azure tillhandahåller flera alternativ för att skapa kluster av virtuella Linu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du konfigurerar, optimera och skala [HPC-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) på Azure.
+- Mer information om hur du konfigurerar, optimera och skala [HPC-arbetsbelastningar](../workloads/hpc/configure.md) på Azure.
 - Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.

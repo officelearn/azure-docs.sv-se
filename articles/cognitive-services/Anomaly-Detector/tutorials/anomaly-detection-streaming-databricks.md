@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080795"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
 
@@ -670,22 +670,22 @@ Resultat enligt nedan:
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
+```
 
+Klart! Med Azure Databricks har du nu strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsprogrammet och sedan köra avvikelseidentifiering på strömmande data nästan i realtid.
+Även om i de här självstudierna precisionen är per timme, du kan alltid ändra Granulariteten för att uppfylla dina behov. 
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
-Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
+## <a name="clean-up-resources"></a>Rensa resurser
 
-## Clean up resources
+När du är klar med självstudien kan du avsluta klustret. Om du vill göra detta i Azure Databricks-arbetsytan, Välj **kluster** i den vänstra rutan. För det kluster som du vill avsluta för du markören över de tre punkterna under **åtgärder** kolumnen och välj den **avsluta** ikonen och välj sedan **Bekräfta**.
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
+![Stoppa ett Databricks-kluster](../media/tutorials/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
+Om du inte manuellt avslutar klustret slutar den att automatiskt, som du har valt den **Avsluta efter \_ \_ minuter av inaktivitet** kryssrutan när du skapade klustret. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
-If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+## <a name="next-steps"></a>Nästa steg
 
-## Next steps
-
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
+I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudie och lär dig hur du anropar API: T för Avvikelseidentifiering detektor och visualisera avvikelser med Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Batch-avvikelseidentifiering med Power BI desktop](batch-anomaly-detection-powerbi.md)

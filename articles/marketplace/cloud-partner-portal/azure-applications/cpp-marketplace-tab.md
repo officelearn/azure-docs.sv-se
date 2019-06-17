@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942976"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure Marketplace programfliken
@@ -53,7 +53,7 @@ I följande tabell beskrivs marknadsföring artefakter.
 | **Medel\***       | Medelhög logotyp: 90 x 90 bildpunkter i PNG-format    |
 | **Stora\***        | Stor logotyp: 115 x 115 bildpunkter i PNG-format   |
 | **Wide\***         | Brett logotyp: 255 x 115 bildpunkter i PNG-format    |
-| **Hero**           | Valfritt hero logotyp: 815 x 290 bildpunkter i PNG-format. **Obs!** Ikonen hero-komponenten kan inte tas bort när paketet har överförts. |
+| **Hero**           | Valfritt hero logotyp: 815 x 290 bildpunkter i PNG-format. **Obs:** Ikonen hero-komponenten kan inte tas bort när paketet har överförts. |
 | **Skärmbilder (Max 5)** |        Skärmbilder visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad appen gör och hur det fungerar. Du kan till exempel visa Arkitekturdiagram eller använda fallet illustrationer. Skärmbilderna är valfria, och du begränsad till 5 per SKU. Lägga till en skärmbild:<ul><li>Välj **+ Lägg till skärmbild** att öppna fönstret skärmbild</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Ladda upp** – ladda upp avbildningen. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>           |
 | **Lägg till video**      | Valfritt, videor visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad ditt program gör och hur det fungerar. Lägga till en video: <ul><li>Välj **+ Lägg till video** att öppna fönstret Video</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Länken** – ange Webbadressen för den plats som är värd för video (YouTube eller Vimeo)</li><li>**Miniatyr** – ladda upp en miniatyrbild. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>          |
 |  |  |

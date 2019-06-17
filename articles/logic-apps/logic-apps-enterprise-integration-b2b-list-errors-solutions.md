@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998838"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fel och lösningar för Azure Logic Apps
@@ -52,7 +52,7 @@ Den här artikeln hjälper dig att felsöka fel som kan inträffa i Logic Apps B
 
 |   |   |  
 |---|---|
-| Felbeskrivning | Innehållet i förfrågan är null eller tomt. | 
+| Felbeskrivning | Innehållet i begäran är null eller tomt. | 
 | Användaråtgärd | Ett AS2-meddelande togs emot, vilket inte innehöll meddelandetexten. |
 |  |  | 
 
@@ -135,7 +135,7 @@ Exempel:
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Meddelandet har en okänd dokumenttyp och matchade inte något av de befintliga scheman som konfigurerats i avtalet. |
+| Felbeskrivning | Meddelandet har en okänd dokumenttyp och matchade inte till någon av de befintliga scheman som konfigurerats i avtalet. |
 | Användaråtgärd | Konfigurera rätt schema i inställningarna för avtalet. |
 |   |   |
 

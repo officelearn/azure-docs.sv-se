@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781047"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Hur länge lagra rapportering av data i Azure AD?
@@ -66,7 +66,7 @@ För säkerhets-signaler, samling processen startar när du anmäla sig till anv
 
 **Aktivitetsrapporter**    
 
-| Rapportera                 | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| Rapport                 | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Granskningsloggar             | 7 dagar        |  7 dagar        | 30 dagar             | 30 dagar             |
 | Inloggningar               | Gäller inte           |  Gäller inte           | 30 dagar             | 30 dagar             |
@@ -76,9 +76,9 @@ Du kan behålla aktivitetsdata gransknings- och logga in under längre tid än l
 
 **Security signaler**
 
-| Rapportera         | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| Rapport         | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
-| Användare i farozonen  | 7 dagar        | 7 dagar         | 30 dagar             | 90 dagar             |
-| Riskfyllda inloggningar | 7 dagar        | 7 dagar         |  30 dagar            | 90 dagar             |
+| Användare i riskzonen  | 7 dagar        | 7 dagar         | 30 dagar             | 90 dagar             |
+| Riskfyllda inloggningar | 7 dagar        | 7 dagar         |  30 dagar            | 90 dagar             |
 
 ---

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 47f6678f8d18d734176d964f18a6febecea957ab
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c2b99525e3d0a61c02dc502fcd0927ea65993e5b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108492"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD Application Proxy
 
@@ -36,7 +36,7 @@ Följande diagram visar hur du kan använda Azure AD-programproxy för att säke
 
 Azure AD-programproxyn utgör ryggraden för lösningen, som fungerar som en offentlig slutpunkt för API-åtkomst och att tillhandahålla autentisering och auktorisering. Du kan komma åt dina API: er från ett brett utbud av plattformar med hjälp av den [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) bibliotek. 
 
-Eftersom Azure AD Application Proxy-autentisering och auktorisering bygger på Azure AD, kan du kan använda Azure AD villkorsstyrd åtkomst för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join- eller Azure AD-Hybrid anslutits för stationära datorer och hanteras av Intune för enheter. Du kan också dra nytta av Azure Active Directory Premium-funktioner som Azure Multi-Factor Authentication och machine learning-stödda säkerheten i [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Eftersom Azure AD Application Proxy-autentisering och auktorisering bygger på Azure AD, kan du kan använda Azure AD villkorlig åtkomst för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join- eller Azure AD-Hybrid anslutits för stationära datorer och hanteras av Intune för enheter. Du kan också dra nytta av Azure Active Directory Premium-funktioner som Azure Multi-Factor Authentication och machine learning-stödda säkerheten i [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

@@ -1,22 +1,22 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: tamram
-ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: df5d8ff941c742d546208c27c7af4e7bcbeec08a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073751"
 ---
 | Resource | Standard-filresurser | Premium-filresurser (förhandsversion) |
 |----------|---------------|------------------------------------------|
 | Minsta storlek på en filresurs | Någon lägsta gräns; betala | 100 giB; etablerad |
 | Maximal storlek på en filresurs | 5 TiB | 100 TiB |
 | Maximal storlek på en fil i en filresurs | 1 TiB | 1 TiB |
-| Maximalt antal filer i en filresurs | Ingen gräns | Ingen gräns |
+| Maximalt antal filer i en filresurs | Obegränsad | Obegränsad |
 | Högsta IOPS per resurs | 1,000 IOPS | 100,000 IOPS |
 | Maximalt antal lagrade åtkomstprinciper per fil dela | 5 | 5 |
 | Måldataflöde för en enskild filresurs | Upp till 60 MiB/sek | Se premium filen resurs ingående och utgående värden|

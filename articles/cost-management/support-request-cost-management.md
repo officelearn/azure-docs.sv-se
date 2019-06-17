@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967113"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Skapa en supportbegäran för Cloudyn
@@ -34,7 +34,7 @@ Du kan öppna en supportbegäran om du inte hittar den information som du letar 
 9. I **problemtyp** Välj **Cloudyn äldre**, och välj sedan en **kategori**.
 10. I den **rubrik** anger en rubrik som beskriver din begäran.
 11. I den **information** rutan, ange mer information.
-12. För **när började problemet?**, Välj en ungefärliga datum och tid för och klicka sedan på **nästa**.  
+12. För **när började problemet?** , Välj en ungefärliga datum och tid för och klicka sedan på **nästa**.  
 14. I den **kontaktinformation** området, Välj din primära kontaktmetod och uppge din kontaktinformation och klicka sedan på **skapa**.  
 
 När ett supportärende skapas, läggs den till stöd för kön. Svarstiden beror på supportavtal och allvarlighetsgraden (inverkan på företaget). Mer information finns i [supportens omfattning och svarstid](https://azure.microsoft.com/support/plans/response/).

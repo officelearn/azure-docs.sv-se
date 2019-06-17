@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f58d6cbc6ec04e51e105662dff31c60ff502584c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudier: Azure Active Directory-integrering med Questetra BPM Suite
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Questetra BPM Suite till Azure AD, som d
 
 **Utför följande steg för att lägga till Questetra BPM Suite från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Questet
    
     ![Azure AD enkel inloggning][10]
 
-3. Öppna den **SingleSignOnSAML** klickar du på **SSO (SAML)**. 
+3. Öppna den **SingleSignOnSAML** klickar du på **SSO (SAML)** . 
    
     ![Azure AD enkel inloggning][11]
 
@@ -246,7 +246,7 @@ När du klickar på panelen Questetra BPM Suite i åtkomstpanelen, bör det vara
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

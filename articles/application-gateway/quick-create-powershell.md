@@ -1,19 +1,19 @@
 ---
 title: Snabbstart – Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell | Microsoft Docs
-description: Lär dig hur du använder Azure PowerShell till att skapa en programgateway med Azure Application Gateway som dirigerar webbtrafik till virtuella datorer i en serverdelspool.
+description: Lär dig hur du använder Azure PowerShell för att skapa en Azure Application Gateway som dirigerar Internet-trafik till virtuella datorer i en serverdelspool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053348"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell
 
@@ -36,7 +36,7 @@ Om du väljer att installera och använda Azure PowerShell lokalt kräver den h�
 
 ### <a name="resource-group"></a>Resursgrupp
 
-I Azure allokerar du relaterade resurser till en resursgrupp. Du kan antingen använda en befintlig resursgrupp eller skapa en ny. I det här exemplet ska vi skapa en ny resursgrupp med hjälp av den [New AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet enligt följande: 
+I Azure allokerar du relaterade resurser till en resursgrupp. Du kan antingen använda en befintlig resursgrupp eller skapa en ny. I det här exemplet ska du skapa en ny resursgrupp med hjälp av den [New AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet enligt följande: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>Resurser som krävs
 
-För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk.  Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.  Du kan skapa ett nytt undernät för Application Gateway, eller så kan du använda en befintlig. I det här exemplet skapar du två undernät i det här exemplet: en för application gateway och en för backend-servrarna. Du kan konfigurera Frontend IP för Programgatewayen ska vara offentlig eller privat enligt ditt användningsområde. I det här exemplet väljer vi en offentlig Klientdels-IP.
+För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk.  Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.  Du kan skapa ett nytt undernät för Application Gateway, eller så kan du använda en befintlig. I det här exemplet skapar du två undernät i det här exemplet: en för application gateway och en för backend-servrarna. Du kan konfigurera Frontend IP för Programgatewayen ska vara offentlig eller privat enligt ditt användningsområde. I det här exemplet ska du välja en offentlig Klientdels-IP.
 
 1. Skapa undernätskonfigurationerna genom att anropa [New AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
 2. Skapa virtuellt nätverk med undernätskonfigurationerna genom att anropa [New AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -219,7 +219,7 @@ New-AzApplicationGateway `
 IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
 
 1. Kör [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) att hämta den offentliga IP-adressen för application gateway. 
-2. Kopiera och klistra in den offentliga IP-adressen i webbläsarens adressfält. När du uppdaterar webbläsaren bör du se namnet på den virtuella datorn. Ett giltigt svar verifierar att application gateway har skapats och är det kunna ansluta med serverdelen.
+2. Kopiera och klistra in den offentliga IP-adressen i webbläsarens adressfält. När du uppdaterar webbläsaren bör du se namnet på den virtuella datorn. Ett giltigt svar verifierar att application gateway har skapats och den kan ansluta med serverdelen.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500403"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063469"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Hantera moduler i Azure Automation
 
-Azure Automation tillhandahåller möjligheten att importera PowerShell-moduler till ditt Automation-konto som ska användas av PowerShell-baserade runbooks. Dessa moduler kan vara anpassade moduler som du har skapat från PowerShell-galleriet eller AzureRM och Az-moduler för Azure.
+Azure Automation tillhandahåller möjligheten att importera PowerShell-moduler till ditt Automation-konto som ska användas av PowerShell-baserade runbooks. Dessa moduler kan vara anpassade moduler som du har skapat från PowerShell-galleriet eller AzureRM och Az-moduler för Azure. När du skapar ett Automation-konto importeras vissa moduler som standard.
 
 ## <a name="import-modules"></a>Importera moduler
 
@@ -50,6 +50,22 @@ Om du vill importera en modul från PowerShell-galleriet, gå till https://www.p
 Du kan även importera moduler från PowerShell-galleriet direkt från ditt Automation-konto. I ditt Automation-konto väljer **moduler** under **delade resurser**. På sidan moduler **bläddringsgalleriegenskapen**. Gör det öppnas den **Bläddringsgalleriegenskapen** sidan. Du kan använda den här sidan för att söka i PowerShell-galleriet för en modul. Välj den modul som du vill importera och klicka på **importera**. På den **importera** klickar du på **OK** att starta importen.
 
 ![Importera PowerShell-galleriet från Azure-portalen](../media/modules/gallery-azure-portal.png)
+
+## <a name="delete-modules"></a>Ta bort moduler
+
+Om du har problem med en modul eller om du behöver återställa till en tidigare version av en modul, kan du ta bort den från ditt Automation-konto. Du kan inte ta bort den ursprungliga versionen av den [standard moduler](#default-modules) som importeras när du skapar ett Automation-konto. Om du vill ta bort modulen är en nyare version av en av de [standard moduler](#default-modules) installerad, det ska återställa till den version som installerades med ditt Automation-konto. I annat fall tas alla moduler som du tar bort från ditt Automation-konto.
+
+### <a name="azure-portal"></a>Azure Portal
+
+Gå till ditt Automation-konto i Azure-portalen och välj **moduler** under **delade resurser**. Välj den modul som du vill ta bort. På den **modulen** sida, clcick **ta bort**. Om den här modulen är en av de [standard moduler](#default-modules) det kommer att återställas till den version som var tillgänglig när Automation-kontot har skapats.
+
+### <a name="powershell"></a>PowerShell
+
+Ta bort en modul via PowerShell genom att köra följande kommando:
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
 
 ## <a name="internal-cmdlets"></a>Intern-cmdletar
 
@@ -209,6 +225,37 @@ Vi rekommenderar att du Tänk på följande när du redigerar en PowerShell-modu
 * Modulen bör finnas i ett xcopy-kan paket. Azure Automation-moduler distribueras till begränsat Automation-läge när runbooks behöver köra. Modulerna måste fungera oberoende av värden som de körs på. Du bör kunna Zip upp och flytta ett paket för modulen och låta den fungera som vanligt när de importeras till en annan värd PowerShell-miljö. För att det ska ske, bör inte modulen beror på några filer utanför modulmappen. Den här mappen är den mapp som dekomprimeras vid modulen importeras till Azure Automation. Modulen bör också inte beroende av unika registerinställningar på en värd som dessa inställningar anges när en produkt installeras. Alla filer i modulen ska ha en sökväg färre än 140 tecken. Alla sökvägar över 140 tecken kommer orsaka problem när du importerar en runbook. Om denna bästa praxis inte följs användas modulen inte i Azure Automation.  
 
 * Om du refererar till [Az för Azure Powershell-moduler](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) i din modul, se till att du inte också refererar till `AzureRM`. Den `Az` modulen kan inte användas tillsammans med den `AzureRM` moduler. `Az` har stöd för runbooks men inte har importerat som standard. Vill veta mer om den `Az` moduler och saker att ta hänsyn till finns i [Az modulen stöd i Azure Automation](../az-modules.md).
+
+## <a name="default-modules"></a>Standardmoduler
+
+I följande tabell visas de moduler som importeras som standard när ett Automation-konto har skapats. Moduler som anges nedan kan med nyare versioner av dem importeras, men den ursprungliga versionen kan inte tas bort från ditt Automation-konto även om du tar bort en nyare version av dem.
+
+|Modulnamn|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>Nästa steg
 

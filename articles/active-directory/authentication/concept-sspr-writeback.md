@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113503"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -152,7 +152,6 @@ Lösenord skrivs tillbaka i följande situationer:
    * Alla administratör självbetjäning force ändra lösenord, exempelvis utgångsdatum för lösenord
    * Alla självbetjäning lösenordsåterställning för administratörer som kommer från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com)
    * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [Azure-portalen](https://portal.azure.com)
-   * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [Microsoft 365 Administrationscenter](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Stöds inte tillbakaskrivningar
 
@@ -162,6 +161,7 @@ Lösenord är *inte* skrivas tillbaka i någon av följande situationer:
    * Slutanvändare återställa sina egna lösenord med hjälp av PowerShell version 1, version 2 eller Azure AD Graph API
 * **Åtgärder som inte stöds**
    * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från PowerShell version 1, version 2 eller Azure AD Graph API
+   * Alla administratörsinitierad slutanvändarens lösenord med självbetjäning från den [Microsoft 365 Administrationscenter](https://admin.microsoft.com)
 
 > [!WARNING]
 > Det går inte att använda för kryssrutan ”användaren måste ändra lösenord vid nästa inloggning” i den lokala Active Directory-administrationsverktyg som Active Directory-användare och datorer eller Active Directory Administrationscenter. När du ändrar ett lösenord Markera lokala inte det här alternativet.

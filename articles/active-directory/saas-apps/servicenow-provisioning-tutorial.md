@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869852"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
@@ -41,10 +41,10 @@ För att konfigurera Azure AD-integrering med ServiceNow behöver du följande:
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="assigning-users-to-servicenow"></a>Tilldela användare till ServiceNow
@@ -75,7 +75,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Servicenows använ
 
 1. Ange den **etablering** läge till **automatisk**. 
 
-    ![etablering](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Etablering](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 1. Under avsnittet autentiseringsuppgifter som administratör utför du följande steg:
    

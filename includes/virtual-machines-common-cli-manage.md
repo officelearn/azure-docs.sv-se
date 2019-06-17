@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117248"
 ---
 Azure CLI kan du skapa och hantera dina Azure-resurser på macOS, Linux och Windows. Den här artikeln beskriver några av de vanligaste kommandon för att skapa och hantera virtuella datorer (VM).
@@ -19,14 +19,14 @@ Den här artikeln kräver Azure CLI version 2.0.4 eller senare. Kör `az --versi
 Mer detaljerad hjälp med särskilda kommandoradsväxlingar och alternativ du kan använda online kommandohjälp och alternativ genom att skriva `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>Skapa VM:ar
-| Uppgift | Azure CLI-kommandon |
+| Aktivitet | Azure CLI-kommandon |
 | --- | --- |
 | Skapa en resursgrupp | `az group create --name myResourceGroup --location eastus` |
 | Skapa en virtuell Linux-dator | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
-| Skapa en virtuell Windows-dator. | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+| Skapa en virtuell Windows-dator | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>Hantera VM-status
-| Uppgift | Azure CLI-kommandon |
+| Aktivitet | Azure CLI-kommandon |
 | --- | --- |
 | Starta en virtuell dator | `az vm start --resource-group myResourceGroup --name myVM` |
 | Stoppa en virtuell dator | `az vm stop --resource-group myResourceGroup --name myVM` |
@@ -36,7 +36,7 @@ Mer detaljerad hjälp med särskilda kommandoradsväxlingar och alternativ du ka
 | Ta bort en virtuell dator | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### <a name="get-vm-info"></a>Hämta VM-info
-| Uppgift | Azure CLI-kommandon |
+| Aktivitet | Azure CLI-kommandon |
 | --- | --- |
 | Lista över virtuella datorer | `az vm list` |
 | Hämta information om en virtuell dator | `az vm show --resource-group myResourceGroup --name myVM` |
@@ -44,7 +44,7 @@ Mer detaljerad hjälp med särskilda kommandoradsväxlingar och alternativ du ka
 | Hämta alla tillgängliga storlekar för virtuella datorer | `az vm list-sizes --location eastus` |
 
 ## <a name="disks-and-images"></a>Diskar och avbildningar
-| Uppgift | Azure CLI-kommandon |
+| Aktivitet | Azure CLI-kommandon |
 | --- | --- |
 | Lägg till en datadisk i en virtuell dator | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Ta bort en datadisk från en virtuell dator | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |

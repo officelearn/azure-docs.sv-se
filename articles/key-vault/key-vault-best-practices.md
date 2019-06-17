@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65227930"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Bästa praxis att använda Key Vault
@@ -32,7 +32,7 @@ Förslag när du styr åtkomst till ditt valv är följande:
 
 Vår rekommendation är att använda ett valv per program per miljö (utveckling, Förproduktion och produktion). Det ger dig inte dela hemligheter mellan miljöer och minskar också hotet om ett intrång.
 
-## <a name="backup"></a>Säkerhetskopiera
+## <a name="backup"></a>Backup
 
 Kontrollera att du regelbundet ta tillbaka in av din [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) update/delete/skapar för objekt inom ett valv.
 

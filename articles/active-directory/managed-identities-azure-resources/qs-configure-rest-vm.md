@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112712"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av REST API-anrop
@@ -35,7 +35,7 @@ I den här artikeln använder CURL för att göra anrop till Azure Resource Mana
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
+- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Om du använder Windows kan du installera den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller Använd den [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure-portalen.
 - [Installera den lokala konsolen i Azure CLI](/cli/azure/install-azure-cli), om du använder den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller en [Linux-distributionsoperativsystem](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
@@ -83,7 +83,7 @@ Om du vill skapa en Azure-dator med systemtilldelade hanterade identiteten aktiv
    
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
    
    **Brödtext i begäran**
@@ -172,7 +172,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator so
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
    
    **Brödtext i begäran**
@@ -204,7 +204,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator so
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -239,7 +239,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator so
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -282,7 +282,7 @@ Om du vill inaktivera systemtilldelade hanterad identitet på en virtuell dator,
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -341,7 +341,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -422,7 +422,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -534,7 +534,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        |
  
    **Brödtext i begäran**
@@ -566,7 +566,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -602,7 +602,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -641,7 +641,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -682,7 +682,7 @@ Om du vill ta bort en Användartilldelad identitet till en virtuell dator måste
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.
  
    Om du har hanterade identiteter som tilldelas den virtuella datorn, de listas i svaret på den `identity` värde.
@@ -705,7 +705,7 @@ Om du vill ta bort en Användartilldelad identitet till en virtuell dator måste
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -737,7 +737,7 @@ Om du vill ta bort en Användartilldelad identitet till en virtuell dator måste
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
@@ -767,7 +767,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Content-Type*     | Krävs. Ange `application/json`.        |
 |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
 **Brödtext i begäran**
@@ -794,7 +794,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Content-Type*     | Krävs. Ange `application/json`.        |
 |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.| 
 
 **Brödtext i begäran**

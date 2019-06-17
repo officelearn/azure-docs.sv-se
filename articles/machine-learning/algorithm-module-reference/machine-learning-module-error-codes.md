@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029767"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Undantag och felkoder för algoritm- och modulreferens
@@ -701,7 +701,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
 |Undantag meddelanden|  
 |------------------------|  
-|Åtgärden kunde inte utföras.|  
+|Åtgärden misslyckades.|  
 |Fel uppstod när du har slutfört åtgärden: {0}.|  
   
 
@@ -1192,7 +1192,7 @@ Se följande artiklar om du behöver hjälp med Hive-frågor för machine learni
   
  Om det finns ett meddelande för SQL genereras som rapporterats av modulen undantaget, fatta beslut utifrån det rapporterade felet. Till exempel innehåller felmeddelandena ibland specifika vägledningar om det troliga fel:
 + *Det finns ingen sådan kolumn eller saknas databasen*, som anger att du kan ha angett ett kolumnnamn som är fel. Om du är säker kolumnens namn är korrekt, försök med hakparenteser eller citattecken runt kolumn-ID.
-+ *SQL-logikfel nära \<SQL-nyckelord\>*, som anger att det finns ett syntaxfel innan det angivna nyckelordet
++ *SQL-logikfel nära \<SQL-nyckelord\>* , som anger att det finns ett syntaxfel innan det angivna nyckelordet
 
   
 |Undantag meddelanden|  
@@ -2191,4 +2191,4 @@ Om du behöver mer hjälp, rekommenderar vi att du lägger upp detaljerat meddel
 |------------------------|  
 |Undantag i biblioteket.|  
 |Biblioteket undantag: {0}|  
-|{0} biblioteket undantag: {1}|  
+|{0} Biblioteket undantag: {1}|  

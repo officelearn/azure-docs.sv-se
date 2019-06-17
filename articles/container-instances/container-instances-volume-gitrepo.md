@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
 ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563027"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
@@ -27,7 +27,7 @@ Den *gitRepo* volym monterar en katalog och klonar angivna Git-lagringsplatsen t
 
 När du monterar en *gitRepo* volym, kan du ange tre egenskaper för att konfigurera volymen:
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
 | `repository` | Ja | En fullständig URL, inklusive `http://` eller `https://`, Git-lagringsplatsen för kloning.|
 | `directory` | Nej | Katalogen som dit databasen bör klonas. Sökvägen måste inte innehålla eller börja med ”`..`”.  Om du anger ”`.`”, databasen klonas till katalogen för den volymen. I annat fall klona på Git-lagringsplatsen i en underkatalog till det angivna namnet i katalogen volym. |

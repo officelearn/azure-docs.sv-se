@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472611"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
@@ -32,13 +32,13 @@ På sidan Lokal sammanfattning visas en översikt över den profilerade VMware-m
 
 **Genomsnittligt antal diskar per kompatibel virtuell dator**: Det genomsnittliga antalet diskar för samtliga kompatibla virtuella datorer.
 
-**Genomsnittlig diskstorlek (GB)**: Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
+**Genomsnittlig diskstorlek (GB)** : Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
 
-**Desired RPO (minuter)**: Antingen standard rpo-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
+**Desired RPO (minuter)** : Antingen standard rpo-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
 
-**Önskad bandbredd (Mbit/s)**: Det värde som du angav för parametern ”Bandwidth” när rapporten genererades för att beräkna möjligt Återställningspunktmål.
+**Önskad bandbredd (Mbit/s)** : Det värde som du angav för parametern ”Bandwidth” när rapporten genererades för att beräkna möjligt Återställningspunktmål.
 
-**Observerad vanliga dataomsättning per dag (GB)**: Den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
+**Observerad vanliga dataomsättning per dag (GB)** : Den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
 ## <a name="recommendations"></a>Rekommendationer
 
@@ -199,19 +199,19 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Storage-konto**: Namnet som använder det föreslagna lagringskonto prefixet.
 
-**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen läsning/skrivningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)** : Den högsta IOPS-arbetsbelastningen läsning/skrivningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)** : Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Azure VM-storlek**: Lämplig mappad Azure Cloud Services VM-storlek för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder, IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
 **Antalet diskar**: Det totala antalet virtuella datordiskar (vmdk: er) på den virtuella datorn.
 
-**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)** : Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antal processorkärnor på den virtuella datorn.
 
-**Minne (MB)**: RAM-minne på den virtuella datorn.
+**Minne (MB)** : RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
@@ -251,17 +251,17 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 * Total dataomsättning per dag överskrider gränsen för omsättning som stöds per dag med 2 TB av en by a processerver.
 
 
-**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)** : Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet den 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)** : Högsta dataomsättningsfrekvensen på disken (standardvärdet den 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Antalet diskar**: Det totala antalet vmdk: er på den virtuella datorn.
 
-**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)** : Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antal processorkärnor på den virtuella datorn.
 
-**Minne (MB)**: Mängden RAM-minne på den virtuella datorn.
+**Minne (MB)** : Mängden RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 

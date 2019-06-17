@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: d309765e6c4b0b0cc8a7e92977134d4135a69a13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073036"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Användardefinierade funktioner-klientbiblioteksreferens
 
@@ -30,9 +30,9 @@ Med en utrymmesidentifierare kan returnerar den här funktionen utrymmet från d
 
 **Typ**: global funktion
 
-| Parameter  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Description  |
 | ---------- | ------------------- | ------------ |
-| *ID*  | `guid` | utrymmesidentifierare |
+| *id*  | `guid` | utrymmesidentifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -40,9 +40,9 @@ Med en sensor identifierare kan returnerar den här funktionen sensorn från dia
 
 **Typ**: global funktion
 
-| Parameter  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Description  |
 | ---------- | ------------------- | ------------ |
-| *ID*  | `guid` | sensorn identifierare |
+| *id*  | `guid` | sensorn identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -50,9 +50,9 @@ Med en enhets-ID kan returnerar den här funktionen enheten från diagrammet.
 
 **Typ**: global funktion
 
-| Parameter  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Description  |
 | ------ | ------------------- | ------------ |
-| *ID* | `guid` | Enhets-ID |
+| *id* | `guid` | Enhets-ID |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, dataType) ⇒ `value`
 

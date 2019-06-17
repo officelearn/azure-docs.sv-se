@@ -11,19 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715813"
 ---
 # <a name="application-gateway-redirect-overview"></a>Översikt över Application Gateway-omdirigering
 
-Du kan använda application gateway för att omdirigera trafik.  Den har en allmän omdirigering mekanism som gör för att omdirigera trafik som tas emot i en lyssnare till en annan lyssnare eller till en extern webbplats. Detta förenklar konfigurationen, optimerar resursanvändningen och har stöd för den nya omdirigering scenarier inklusive globala och sökvägsbaserad omdirigering.
+Du kan använda application gateway för att omdirigera trafik.  Den har en allmän omdirigeringsmekanism som gör det möjligt att omdirigera trafik som tas emot i en lyssnare till en annan lyssnare eller till en webbadress till en extern webbplats. Detta förenklar konfigurationen, optimerar resursanvändningen och har stöd för den nya omdirigering scenarier inklusive globala och sökvägsbaserad omdirigering.
 
 Ett vanligt scenario för omdirigering av för många webbprogram är att stödja automatisk HTTP till HTTPS-omdirigering för att säkerställa att all kommunikation mellan program och dess användare sker via en krypterad sökväg. Kunder har tidigare använde tekniker som skapar en dedikerad backend-adresspool vars syfte är att omdirigera begäran som tas emot på HTTP till HTTPS. Med stöd för omdirigering i Application Gateway kan åstadkommer du detta genom att lägga till en ny konfiguration för omdirigering till en regel för vidarebefordran och ange en annan lyssnare med HTTPS-protokollet som mållyssnare.
 
@@ -51,5 +50,3 @@ Kunder måste skapa en ny omdirigerings-konfigurationsobjekt, som anger mållyss
 ### <a name="next-steps"></a>Nästa steg
 
 [Konfigurera URL-omdirigering på application gateway](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

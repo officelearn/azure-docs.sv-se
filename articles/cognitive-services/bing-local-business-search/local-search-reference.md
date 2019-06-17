@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796750"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
@@ -46,12 +46,12 @@ Begäran måste använda HTTPS-protokollet.
 > Maximal URL-längd är 2 048 tecken. För att säkerställa att din URL-längd inte överskrider gränsen, ska den maximala längden på dina frågeparametrar vara mindre än 1 500 tecken. Om URL: en överskrider 2 048 tecken, returnerar servern 404 hittades inte.  
   
   
-## <a name="headers"></a>Huvuden  
+## <a name="headers"></a>Rubriker  
 Följande är de rubriker som en begäran och svaret kan innehålla.  
   
-|Sidhuvud|Beskrivning|  
+|Huvud|Beskrivning|  
 |------------|-----------------|  
-|Godkänn|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](https://json-ld.org/), inställd program/ld + json Accept-huvud.|  
+|Acceptera|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](https://json-ld.org/), inställd program/ld + json Accept-huvud.|  
 |<a name="acceptlanguage" />Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du ställer in den här rubriken, måste du även ange Frågeparametern kopia. För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
 |<a name="market" />BingAPIs-Market|Svarshuvud.<br /><br /> Marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Exempel: sv-SE.|  
 |<a name="traceid" />BingAPIs-TraceId|Svarshuvud.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår ska du avbilda detta ID. Om det inte går att fastställa och lösa problemet ska du ange ID:t tillsammans med annan information som du ger supportteamet.|  
@@ -70,7 +70,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Value|Type|Obligatoriskt|  
+|Namn|Värde|Typ|Obligatoriskt|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  
@@ -94,7 +94,7 @@ Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyck
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|  
@@ -107,26 +107,26 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
 
   
   
-### <a name="license"></a>Licensvillkor  
+### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
-|namn|Namnet på licensen.|String|  
+|name|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
 
 
-### <a name="link"></a>Länka  
+### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |text|Texten som visas.|String|  
@@ -140,9 +140,9 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
-|namn|Utgivarens namn.|String|  
+|name|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
   
   
@@ -150,12 +150,12 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="place"></a>Plats  
 Definierar information om en lokal företag, till exempel en restaurang eller hotell.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|String|  
-|adress|Postadress av där enheten är belägen.|PostalAddress|  
+|Adress|Postadress av där enheten är belägen.|PostalAddress|  
 |entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|EntityPresentationInfo|  
-|namn|Entitetsnamn.|String|  
+|name|Entitetsnamn.|String|  
 |Telefon|Enhetens telefonnummer.|String|  
 |url|URL till dess webbplats.<br /><br /> Använder denna URL tillsammans med entitetsnamn att skapa en hyperlänk som när du klickar på tar användaren till dess webbplats.|String|  
 |webSearchUrl|URL till Bings sökresultatet för denna plats.|String| 
@@ -164,7 +164,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolean|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
@@ -174,21 +174,21 @@ Definierar frågekontexten som Bing används för begäran.
 
 ### <a name="identifiable"></a>Identifierbar
 
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
-|ID|Resurs-ID|String|
+|id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
 
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |items|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
 
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
@@ -198,7 +198,7 @@ Definierar ett objekt med Sök resultat att visa.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
   
-|Namn|Value|  
+|Namn|Värde|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Sökresultaten ska visas i den likriktade.|  
 |<a name="ranking-pole" />pol|Sökresultat som ska ges mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).|  
@@ -209,7 +209,7 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Value|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Platser|En lista över entiteter som är relevanta för sökfrågan.|JSON-objekt|  

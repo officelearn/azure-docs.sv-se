@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307331"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverksgränssnitt för virtuella Azure Windows-datorer 
@@ -79,7 +79,7 @@ Följ dessa steg om du vill återställa nätverksgränssnitt:
 #### <a name="use-azure-portal"></a>Använda Azure-portalen
 
 1.  Gå till [Azure-portalen]( https://ms.portal.azure.com).
-2.  Välj **virtuella datorer (klassiska)**.
+2.  Välj **virtuella datorer (klassiska)** .
 3.  Välj den berörda virtuella datorn.
 4.  Välj **IP-adresser**.
 5.  Om den **privat IP-tilldelning** är inte **statiska**, ändra den till **statiska**.

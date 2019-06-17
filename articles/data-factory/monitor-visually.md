@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60717071"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Övervaka Azure-datafabriker visuellt
@@ -42,8 +42,8 @@ Listvy för varje pipelinekörning i dina Data Factory v2-pipelines. Inkluderade
 | Namn på pipeline | Namnet på pipeline. |
 | Åtgärder | Enkel åtgärd för att visa de aktivitetskörningar. |
 | Kör Start | Pipeline-körning start datum tid (MM/DD/ÅÅÅÅ HH: mm: SS AM/PM) |
-| Varaktighet | Körningens varaktighet (: mm: ss) |
-| Aktiverad av | Manuell utlösare, schemautlösare |
+| Duration | Körningens varaktighet (: mm: ss) |
+| Utlöses av | Manuell utlösare, schemautlösare |
 | Status | Misslyckades, lyckades, pågår |
 | Parametrar | Parametrar (namn, värde-par) för pipelinekörning |
 | Fel | Pipelinekörning fel (if/any) |
@@ -59,7 +59,7 @@ Listvy med aktivitetskörningar som motsvarar respektive pipelinekörning. Klick
 | Aktivitetsnamn | Namnet på aktiviteten i pipelinen. |
 | Aktivitetstyp | Typ av aktivitet, till exempel kopiera, HDInsightSpark, HDInsightHive osv. |
 | Kör Start | Aktivitetskörning start datum tid (MM/DD/ÅÅÅÅ HH: mm: SS AM/PM) |
-| Varaktighet | Körningens varaktighet (: mm: ss) |
+| Duration | Körningens varaktighet (: mm: ss) |
 | Status | Misslyckades, lyckades, pågår |
 | Indata | JSON-matris som beskriver aktivitetsindata |
 | Resultat | JSON-matris som beskriver aktivitetsutdata |

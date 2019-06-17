@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073589"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady för HLS
 
@@ -59,7 +59,7 @@ Följande krävs när du använder Media Services att leverera HLS som krypterat
 
 Följande måste anges på sidan för viktiga leverans av Media Services:
 
-  * **App-certifikat (AC)**: Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
+  * **App-certifikat (AC)** : Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
 
        När du konfigurerar en viktiga leveransprincip måste du ange lösenordet och PFX-filen i Base64-format.
 
@@ -82,7 +82,7 @@ Följande måste anges på sidan för viktiga leverans av Media Services:
 
 Följande måste anges av klientsidan FPS:
 
-  * **App-certifikat (AC)**: Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
+  * **App-certifikat (AC)** : Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
 
 Få en verklig be första om du vill spela upp en krypterad FairPlay-dataström, och sedan generera ett verkligt certifikat. Den här processen skapar alla tre delar:
 
@@ -134,7 +134,7 @@ Du kan utveckla player appar med hjälp av iOS SDK. Om du vill kunna spela upp i
 >
 >
 
-## <a name="streaming-urls"></a>Direktuppspelnings-URL:er
+## <a name="streaming-urls"></a>Strömmande URL: er
 Om din tillgång har krypterats med mer än en DRM, bör du använda en kryptering-tagg i strömnings-URL: (format = 'm3u8-aapl' kryptering = ”xxx”).
 
 Följande gäller:
@@ -513,7 +513,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

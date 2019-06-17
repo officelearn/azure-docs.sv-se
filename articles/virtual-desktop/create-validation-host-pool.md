@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070667"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudier: Skapa en värdpool för att verifiera tjänstuppdateringar
 
@@ -71,7 +71,7 @@ I förhandsversion inträffar tjänstuppdateringar på cirka en månatlig takt. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat en verifiering värd pool, kan du kan också fylla i verifieringen värd poolen med RemoteApps. Mer information om hur du hanterar appar i virtuella Windows-skrivbordet finns i Hantera app grupper självstudien.
+Nu när du har skapat poolen verifiering värd kan du lära dig hur du distribuerar och ansluta till ett hanteringsverktyg för att hantera virtuella skrivbord för Microsoft-resurser.
 
 > [!div class="nextstepaction"]
-> [Hantera grupper självstudier](./manage-app-groups.md)
+> [Distribuera en självstudiekurs om enhetshantering verktyget](./manage-resources-using-ui.md)

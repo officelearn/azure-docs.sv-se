@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf359f38bd7032b4de48a17b91ba1c10b165c91
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3f034a206ca114b484bd29c72d8e53f9ae5aa498
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103695"
 ---
 # <a name="tutorial-integrate-druva-with-azure-active-directory"></a>Självstudier: Integrera Druva med Azure Active Directory
 
@@ -216,4 +216,4 @@ När du väljer panelen Druva i åtkomstpanelen, bör det vara loggas in automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

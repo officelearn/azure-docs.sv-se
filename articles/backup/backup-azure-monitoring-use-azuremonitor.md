@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808518"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -257,7 +257,7 @@ Resursen är här det Recovery Service-valvet och därför måste du upprepa sam
 Avisering via aktivitetsloggar kan användas, ***Azure Backup-tjänsten rekommenderar starkt att du använder LA för övervakning av skala och inte aktivitet av följande skäl***.
 
 - **Vissa scenarier:** Gäller endast för Virtuella Azure-säkerhetskopieringar och ska upprepas för varje RS-valvet.
-- **Definition av passar:** Den schemalagda aktiviteten för säkerhetskopiering inte ryms inom de senaste definitionerna för aktivitetsloggar och överensstämmer med [diagnostikloggar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Det här leda till oväntade påverkan när data också finns via aktiviteten logg för driftshändelsekanal ändras som visade nedan.
+- **Definition av passar:** Den schemalagda aktiviteten för säkerhetskopiering inte ryms inom de senaste definitionerna för aktivitetsloggar och överensstämmer med [diagnostikloggar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Det här leda till oväntade påverkan när data också finns via aktiviteten logg för driftshändelsekanal ändras som visade nedan.
 - **Problem med aktiviteten logg för driftshändelsekanal:** Vi har flyttat till en ny modell för också aktivitetsloggar från Azure Backup på Recovery Services-valv. Flytten har tyvärr påverkas generering av aktivitetsloggar i Azure suveräna moln. Om Azure suveräna moln användare skapas/konfigurerat några aviseringar från aktivitetsloggar via Azure Monitor, skulle de inte aktiveras. I alla offentliga Azure-regioner, om en användare samlar in Recovery Services-aktivitetsloggar till Log Analytics-arbetsyta som vi redan nämnt [här](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), dessa loggar också visades inte.
 
 Därför rekommenderas att använda Log Analytics-arbetsytan för övervakning och avisering i skala för alla Azure Backup skyddade arbetsbelastningar.

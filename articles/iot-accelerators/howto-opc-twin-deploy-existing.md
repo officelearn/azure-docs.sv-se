@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451314"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080504"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-Twin till ett befintligt projekt
 
-OPC-Twin-modulen körs på IoT Edge och tillhandahåller flera edge-tjänster till OPC-Twin och register-tjänster. 
+OPC-Twin-modulen körs på IoT Edge och tillhandahåller flera edge-tjänster till OPC-Twin och register-tjänster.
 
 Tjänsten OPC-Twin micro underlättar kommunikationen mellan factory operatorer och OPC UA-serverenheter på fabriksgolvet via en OPC Twin IoT Edge-modul. Tjänsten micro exponerar OPC UA-tjänster (Bläddra, Läs, Skriv- och körningsbehörighet) via dess REST-API. 
 
 OPC UA device registret mikrotjänst ger åtkomst till registrerade OPC UA-program och deras slutpunkter. Operatörer och administratörer kan registrera och avregistrera nya OPC UA-program och bläddra bland befintliga, inklusive slutpunkter. Förutom hantering av slutpunkten och programmet katalogiserar registry-tjänsten också registrerade OPC Twin IoT Edge-moduler. Tjänst-API ger dig kontroll över edge-modul-funktionerna, till exempel starta eller stoppa serveridentifiering (genomsökning services) eller aktivera nya endpoint twins som kan nås med hjälp av tjänsten OPC-Twin micro.
 
-Kärnan i modulen är den överordnade identitet. Övervakaren hanterar endpoint twin, vilket motsvarar OPC UA-serverslutpunkter som aktiveras med hjälp av motsvarande OPC UA-registret API. Den här slutpunkten twins översätta OPC UA JSON som tagits emot från OPC-Twin micro tjänsten som körs i molnet till binära OPC UA-meddelanden, som skickas över en tillståndskänslig säker kanal till hanterade slutpunkten. Övervakaren tillhandahåller även av identifieringstjänster som skickar händelser för identifiering av enheten till OPC UA device onboarding-tjänsten för bearbetning, där de här händelserna resultera i att uppdateringar till OPC UA-registret.  Den här artikeln visar hur du distribuerar OPC-Twin-modulen till ett befintligt projekt. 
+Kärnan i modulen är den överordnade identitet. Övervakaren hanterar endpoint twin, vilket motsvarar OPC UA-serverslutpunkter som aktiveras med hjälp av motsvarande OPC UA-registret API. Den här slutpunkten twins översätta OPC UA JSON som tagits emot från OPC-Twin micro tjänsten som körs i molnet till binära OPC UA-meddelanden, som skickas över en tillståndskänslig säker kanal till hanterade slutpunkten. Övervakaren tillhandahåller även av identifieringstjänster som skickar händelser för identifiering av enheten till OPC UA device onboarding-tjänsten för bearbetning, där de här händelserna resultera i att uppdateringar till OPC UA-registret.  Den här artikeln visar hur du distribuerar OPC-Twin-modulen till ett befintligt projekt.
 
 > [!NOTE]
 > Mer information om distributionsinformation och instruktioner finns i GitHub [databasen](https://github.com/Azure/azure-iiot-opc-twin-module).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kontrollera att du har PowerShell och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installerade tillägg.   Om du inte har gjort det ännu, klona GitHub-lagringsplatsen.  Öppna en kommandotolk eller terminal och kör:
+Kontrollera att du har PowerShell och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installerade tillägg. Om du inte redan har gjort det, klona GitHub-lagringsplatsen. Kör följande kommandon i PowerShell:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>Distribuera industriella IoT-tjänster till Azure
 
-1. På den öppna Kommandotolken eller kör terminal:
+1. I PowerShell-session kör du:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
 2. Följ anvisningarna för att tilldela ett namn för resursgruppen för distributionen och ett namn till webbplatsen.   Skriptet distribuerar mikrotjänster och deras beroenden för Azure-plattformen i resursgrupp i Azure-prenumerationen.  Skriptet kan du även registrerar ett program i din Azure Active Directory (AAD)-klient för att stödja OAUTH-baserad autentisering.  Distributionen tar flera minuter.  Ett exempel på det alternativ som visas när lösningen har distribuerats:
 
@@ -77,11 +78,12 @@ Distributionsskriptet försöker registrera två AAD-program i Azure Active Dire
 
 Du kan även distribuera en allt-i-ett-demo i stället för bara de tjänster och beroenden.  Alla i en demo innehåller tre OPC UA-servrar, OPC-Twin-modulen, alla mikrotjänster och ett exempel webbprogram.  Den är avsedd för demonstration.
 
-1. Kontrollera att du har en klon av lagringsplatsen (se ovan). Öppna en kommandotolk eller terminal i roten av lagringsplatsen och kör:
+1. Kontrollera att du har en klon av lagringsplatsen (se ovan). Öppna en PowerShell-kommandotolk i roten av lagringsplatsen och kör:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
 2. Följ anvisningarna för att tilldela ett nytt namn för resursgruppen och ett namn till webbplatsen.  När du har distribuerats visas skriptet URL till slutpunkten för web-program.
 
@@ -89,49 +91,49 @@ Du kan även distribuera en allt-i-ett-demo i stället för bara de tjänster oc
 
 Skriptet använder följande parametrar:
 
-```bash
+```powershell
 -type
 ```
 
 Typ av distribution (virtuell dator, lokala, demonstration)
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 Kan vara namnet på en befintlig eller en ny resursgrupp.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
 Valfritt, prenumerations-ID där resurser ska distribueras.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 Eller prenumerationens namn.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
 Valfritt, ett resursgruppsplats. Om du försöker skapa en ny resursgrupp i den här platsen.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Ett namn för AAD-programmet att registrera. 
+Ett namn för AAD-programmet att registrera.
 
-```bash
+```powershell
 -tenantId
 ```
 
 AAD-klient att använda.
 
-```bash
+```powershell
 -credentials
 ```
 

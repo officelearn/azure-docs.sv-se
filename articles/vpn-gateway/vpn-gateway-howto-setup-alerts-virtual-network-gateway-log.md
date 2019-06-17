@@ -5,18 +5,26 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/22/2019
+ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510209"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066894"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för diagnostiklogg händelser från VPN-Gateway
 
-Den här artikeln kan du ställa in aviseringar baserat på diagnostiklogg händelser från Azure VPN Gateway.
+Den här artikeln kan du ställa in aviseringar baserat på diagnostiklogg händelser från Azure VPN Gateway. Följande loggar är tillgängliga.
+
+|***Namn*** | ***Beskrivning*** |
+|---        | ---               |
+|GatewayDiagnosticLog | Innehåller diagnostikloggar för gateway-konfigurationshändelser, primära ändringar och underhåll |
+|TunnelDiagnosticLog | Innehåller tunnel tillståndsändringshändelser. Tunnel upprätta/koppla från händelser har en sammanfattande orsak till tillståndsändringen om tillämpligt |
+|RouteDiagnosticLog | Loggar ändras till statiska vägar och BGP-händelser som inträffar på gatewayen |
+|IKEDiagnosticLog | Loggar IKE kontrollmeddelanden och händelser på gatewayen |
+|P2SDiagnosticLog | Loggar kontrollmeddelanden för punkt-till-plats och händelser på gatewayen |
 
 ## <a name="setup"></a>Ställa in aviseringar
 

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154677"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
@@ -201,7 +201,7 @@ Blockchain Workbench distributionen kräver registrering av en Azure AD-program.
     |Inställning  | Värde  |
     |---------|---------|
     |Namn | `Blockchain API` |
-    |Programtyp |Webbapp/API|
+    |Programtyp |Webbapp / API|
     |Inloggnings-URL | `https://blockchainapi` |
 
 5. Välj **skapa** att registrera Azure AD-programmet.

@@ -11,14 +11,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764415"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Omvandla data med hjälp av SQL Server-lagrad procedur i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Aktuell version](transform-data-using-stored-procedure.md)
 
@@ -65,11 +65,11 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs de här JSON-egenskaper:
 
-| Egenskap                   | Beskrivning                              | Krävs |
+| Egenskap                  | Beskrivning                              | Krävs |
 | ------------------------- | ---------------------------------------- | -------- |
-| namn                      | Namn på aktiviteten                     | Ja      |
+| name                      | Namn på aktiviteten                     | Ja      |
 | description               | Text som beskriver vad aktiviteten används till | Nej       |
-| typ                      | För lagrade Proceduraktiviteten aktivitetstyp är **SqlServerStoredProcedure** | Ja      |
+| type                      | För lagrade Proceduraktiviteten aktivitetstyp är **SqlServerStoredProcedure** | Ja      |
 | linkedServiceName         | Referensen till den **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | storedProcedureName       | Ange namnet på den lagrade proceduren att anropa. | Ja      |
 | storedProcedureParameters | Ange värden för parametrarna för lagrad procedur. Använd `"param1": { "value": "param1Value","type":"param1Type" }` skickar parametervärden och deras typ som stöds av datakällan. Om du vill skicka null för en parameter kan du använda `"param1": { "value": null }` (gemener). | Nej       |

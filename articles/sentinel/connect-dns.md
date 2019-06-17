@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204412"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
@@ -51,7 +51,7 @@ DNS-anslutning sker genom att installera en agent på den DNS-datorn. Agenten ta
 
 2. Om din DNS-dator inte är en Azure-dator:
     1. Klicka på **hämta och installera agenten för Windows Azure-datorer**.
-    1. I den **direktagent** fönstret väljer du antingen **ladda ned Windows agent (64-bitars)** eller **ladda ned Windows agent (32-bitars)**.
+    1. I den **direktagent** fönstret väljer du antingen **ladda ned Windows agent (64-bitars)** eller **ladda ned Windows agent (32-bitars)** .
     1. Installera agenten på DNS-datorn. Kopiera den **arbetsyte-ID**, **primärnyckel**, och **sekundärnyckel** och använda dem när du uppmanas till detta under installationen.
 
 3. Om du vill använda relevanta schemat i Log Analytics för DNS-loggar, Sök efter **DnsEvents**.

@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593609"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
@@ -75,7 +75,7 @@ När kraven har slutförts, är det första steget att skapa ett redundanskluste
 
    | Sidan | Inställningar |
    | --- | --- |
-   | Innan du börjar |Använd standard |
+   | Innan du börjar |Använd standardvärden |
    | Välj servrar |Skriv namnet på första SQL Server i **RETUR servernamn** och klicka på **Lägg till**. |
    | Verifieringsvarning |Välj **Nej. jag inte behöver support från Microsoft för detta kluster och därför inte vill köra verifieringstesterna. När jag klickar på Nästa kommer fortsätta att skapa klustret**. |
    | Åtkomstpunkt för administration av klustret |Skriv ett namn för klustret, till exempel **SQLAGCluster1** i **klusternamnet**.|
@@ -299,7 +299,7 @@ Du är nu redo att konfigurera en tillgänglighetsgrupp med följande steg:
 
     ![Guiden för ny AG, Välj inledande datasynkronisering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var,  **\\ \\ \<första SQLServer\>\Backup\\**. Klicka på **Nästa**.
+8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var,  **\\ \\ \<första SQLServer\>\Backup\\** . Klicka på **Nästa**.
 
    >[!NOTE]
    >Fullständig synkronisering tar en fullständig säkerhetskopiering av databasen på den första instansen av SQL Server och återställer det till den andra instansen. Fullständig synkronisering rekommenderas inte för stora databaser, eftersom det kan ta lång tid. Du kan minska nu genom att manuellt gör en säkerhetskopia av databasen och återställer dem med `NO RECOVERY`. Om databasen har redan återställts med `NO RECOVERY` på andra SQL Server innan du konfigurerar Availability-gruppen, Välj **Anslut bara**. Om du vill säkerhetskopiera när du har konfigurerat Availability-gruppen, Välj **hoppa över inledande datasynkronisering**.

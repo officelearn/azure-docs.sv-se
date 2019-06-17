@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299091"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075065"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -89,7 +89,7 @@ När du inaktiverar en logikapp, kan alla instanser som körs för närvarande t
 
 ## <a name="integration-accounts"></a>Integrationskonton
 
-Prissättning för konsumtion gäller [integrationskonton](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utvecklar och testar den [B2B- och EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) funktioner i Azure Logic Apps utan extra kostnad.
+Fast prismodellen gäller [integrationskonton](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utvecklar och testar den [B2B- och EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) funktioner i Azure Logic Apps utan extra kostnad.
 Du kan ha ett integrationskonto i varje Azure-region. Varje integrationskontot kan lagra upp till specifika [mängder artefakter](../logic-apps/logic-apps-limits-and-config.md), som innehåller samarbetspartner, avtal, kartor, scheman, sammansättningar, certifikat, batchkonfigurationer och så vidare.
 
 Med Azure Logic Apps erbjuder Free, Basic och Standard-integrationskonton. Nivåerna Basic och Standard stöds av den Logic Apps servicenivåavtal (SLA), medan den kostnadsfria nivån stöds inte av något serviceavtal och har en gräns på dataflöde och användning.

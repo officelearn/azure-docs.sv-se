@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515429"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text till tal-API
@@ -60,9 +60,9 @@ Klienter måste använda följande slutpunkt för att komma åt tjänsten text t
 
 I följande tabell visas de HTTP-huvuden som används för syntes röstförfrågningar.
 
-Sidhuvud |Värde |Kommentarer
+Huvud |Värde |Kommentar
 ----|----|----
-Innehållstyp | program/ssml + xml | Inkommande innehållstyp.
+Content-Type | program/ssml + xml | Inkommande innehållstyp.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bitars-mono-text till tal <br> **2.** raw-16 khz-16-bitars-mono-pcm <br>**3.** ljud-16 khz – 16 kbit/s-mono-siren <br> **4.** riff-16 khz – 16 kbit/s-mono-siren <br> **5.** riff-16 khz-16-bitars-mono-pcm <br> **6.** ljud-16 khz-128kbitrate-mono-mp3 <br> **7.** ljud-16 khz-64kbitrate-mono-mp3 <br> **8.** ljud-16 khz-32kbitrate-mono-mp3 | Ljudformatet utdata.
 X-Search-AppId | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
 X-Search-ClientID | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar en programinstans för varje installation.
@@ -190,7 +190,7 @@ Mer information om implementering finns i den [Visual C# .NET text till tal-exem
 
 I följande tabell visas några av de nationella inställningar som stöds och relaterade rösttyper.
 
-Nationella inställningar | Kön | Tjänsten Namnmappningen
+Nationell inställning | Kön | Tjänsten Namnmappningen
 ---------|--------|------------
 ar-EG* | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”
@@ -271,7 +271,7 @@ zh-TW | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, Yating, Apo
 zh-TW | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, HanHanRUS)”
 zh-TW | Man | ”Microsoft Server tal Text till tal-röst (zh-TW, Zhiwei, Apollo)”
 
- * ar-t.ex har stöd för Modern Standard arabiska (MSA).
+ \* ar-t.ex har stöd för Modern Standard arabiska (MSA).
 
 > [!NOTE]
 > Observera att tidigare tjänstnamn **Microsoft Server tal Text till tal-röst (cs-CZ, Vit)** och **Microsoft Server tal Text till tal-röst (en IE, Shaun)** upphör att gälla efter 3/31 januari 2018 i för att optimera funktioner för Bing-Taligenkänning. Uppdatera din kod med uppdaterade namn.

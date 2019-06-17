@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 9cf9e1aabc0898ef025c7c2f517e631a812e67d7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969018"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processor-ändringsflödet i Azure Cosmos DB 
@@ -41,7 +41,7 @@ Det finns fyra huvudsakliga komponenter för att implementera ändringsflödet p
 
    * Fortsättning: Anger placeringen (fortsättningstoken) i ändringsflödet för en viss partition.
 
-   * Tidsstämpel: Lånet senast uppdaterades; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla.
+   * Timestamp: Lånet senast uppdaterades; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla.
 
 1. **Värd för händelsebearbetning:** Varje värd avgör hur många partitioner för att bearbeta baserat på hur många andra instanser av värdar har aktiva lån.
 

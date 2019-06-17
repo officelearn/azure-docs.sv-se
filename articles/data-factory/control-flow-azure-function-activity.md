@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727047"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
@@ -32,7 +32,7 @@ Returtypen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att
 
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |
-| typ   | Type-egenskapen måste anges till: **AzureFunction** | ja |
+| type   | Type-egenskapen måste anges till: **AzureFunction** | ja |
 | funktionen app-url | URL för Azure Functions-App. Formatet är `https://<accountname>.azurewebsites.net`. Denna URL är värdet under **URL** avsnittet när du visar Funktionsappen i Azure portal  | ja |
 | Funktionsnyckel | Åtkomstnyckel för Azure-funktion. Klicka på den **hantera** för respektive funktion och kopiera antingen den **funktionsnyckel** eller **värdnyckeln**. Läs mer här: [Azure Functions HTTP-utlösare och bindningar](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | ja |
 |   |   |   |
@@ -41,13 +41,13 @@ Returtypen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att
 
 | **Egenskap**  | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
-| namn  | Namnet på aktiviteten i pipelinen  | String | ja |
-| typ  | Aktiviteten är 'AzureFunctionActivity' | String | ja |
+| name  | Namnet på aktiviteten i pipelinen  | String | ja |
+| type  | Aktiviteten är 'AzureFunctionActivity' | String | ja |
 | Länkad tjänst | Azure-funktion som är länkad tjänst för motsvarande Azure Function-App  | Länkade tjänstreferensen | ja |
 | Funktionsnamn  | Namnet på funktionen i Azure Function-App som anropar den här aktiviteten | String | ja |
-| metod  | REST API-metoden för funktionsanropet | Sträng typer som stöds: ”HÄMTA”, ”POST”, ”PUT”   | ja |
+| method  | REST API-metoden för funktionsanropet | Sträng typer som stöds: ”HÄMTA”, ”POST”, ”PUT”   | ja |
 | sidhuvud  | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: ”headers”: {”Accept-språk” ”: en-us”, ”Content-Type”: ”application/json”} | Sträng (eller ett uttryck med resultType av sträng) | Nej |
-| brödtext  | texten som skickas tillsammans med begäran till funktionen api-metoden  | Sträng (eller ett uttryck med resultType av sträng) eller ett objekt.   | Krävs för PUT/POST-metoder |
+| body  | texten som skickas tillsammans med begäran till funktionen api-metoden  | Sträng (eller ett uttryck med resultType av sträng) eller ett objekt.   | Krävs för PUT/POST-metoder |
 |   |   |   | |
 
 Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](control-flow-web-activity.md#request-payload-schema) avsnittet.

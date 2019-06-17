@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790906"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Lägga till språkanalysverktyg till ett Azure Search-index
@@ -67,13 +67,13 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Baskiska||eu.lucene|  
 |Bulgariska|bg.microsoft|bg.lucene|  
 |Katalanska|ca.microsoft|ca.lucene|  
-|Kinesiska (förenklad)|zh-Hans.microsoft|zh-Hans.lucene|  
-|Kinesiska (traditionell)|zh-Hant.microsoft|zh-Hant.lucene|  
+|Kinesiska, förenklad|zh-Hans.microsoft|zh-Hans.lucene|  
+|Kinesiska, traditionell|zh-Hant.microsoft|zh-Hant.lucene|  
 |Kroatiska|hr.microsoft||  
 |Tjeckiska|cs.microsoft|cs.lucene|  
 |Danska|da.microsoft|da.lucene|  
 |Nederländska|nl.microsoft|nl.lucene|  
-|Engelska|en.microsoft|en.lucene|  
+|Svenska|en.microsoft|en.lucene|  
 |Estniska|et.microsoft||  
 |Finska|fi.microsoft|fi.lucene|  
 |Franska|fr.microsoft|fr.lucene|  
@@ -88,7 +88,7 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Indonesiska (Bahasa)|id.microsoft|id.lucene|  
 |Iriska||ga.lucene|  
 |Italienska|it.microsoft|it.lucene|  
-|japanska|ja.microsoft|ja.lucene|  
+|Japanska|ja.microsoft|ja.lucene|  
 |Kannada|kn.microsoft||  
 |Koreanska|ko.microsoft|ko.lucene|  
 |Lettiska|lv.microsoft|lv.lucene|  
@@ -96,7 +96,7 @@ Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service 
 |Malayalam|ml.microsoft||  
 |Malajiska (latinsk)|ms.microsoft||  
 |Marathi|mr.microsoft||  
-|Norska (bokmål)|nb.microsoft|no.lucene|  
+|Norska|nb.microsoft|no.lucene|  
 |Persiska||fa.lucene|  
 |Polska|pl.microsoft|pl.lucene|  
 |Portugisiska (Brasilien)|pt-Br.microsoft|pt-Br.lucene|  

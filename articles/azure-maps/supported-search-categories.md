@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727156"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps stöds kategorier
@@ -45,7 +45,7 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | COLLEGE\_UNIVERSITY | sitt första år college/högskola, skola/universitet, högskola, universitet prep skola, university |
 | KOMMERSIELLA\_BYGGNAD | kontorsbyggnad park huvudkontor kommersiella att skapa |
 | COMMUNITY\_CENTER | Community-center |
-| FÖRETAG | Electronics, produktion, datatjänster för datorn, folkhälsan tekniker, diversifierad financials, djur skydd, flygbolag, utvinning, tjänst, e-post/paket/frakt leverans, bus rader, hem installation reparation, rensning av tjänster, oem, skatt tjänster, olja naturligt gas, juridiska tjänster, konstruktion, telekommunikation, transport, bil tillverkning, kemikalier, begravning service mortuaries, brygga tunnel åtgärder, bil, teknisk konstruktion, tjänster, investering rådgivare annonsering /-marknadsföring, flytta lagring, besparingar institution, insurance, programvara, bus pharmaceuticals, restaurang bröllop tjänster, Technologie, fastigheter, taxi, limousine shuttle service-auktoriserad uthyrningar utvinningsmodellen, publicera tekniker, kabel telefon, import/export-distribution, företag, genomföra, kol mine(s), estate(s), brewery, gold mine(s) |
+| FÖRETAGETS | Electronics, produktion, datatjänster för datorn, folkhälsan tekniker, diversifierad financials, djur skydd, flygbolag, utvinning, tjänst, e-post/paket/frakt leverans, bus rader, hem installation reparation, rensning av tjänster, oem, skatt tjänster, olja naturligt gas, juridiska tjänster, konstruktion, telekommunikation, transport, bil tillverkning, kemikalier, begravning service mortuaries, brygga tunnel åtgärder, bil, teknisk konstruktion, tjänster, investering rådgivare annonsering /-marknadsföring, flytta lagring, besparingar institution, insurance, programvara, bus pharmaceuticals, restaurang bröllop tjänster, Technologie, fastigheter, taxi, limousine shuttle service-auktoriserad uthyrningar utvinningsmodellen, publicera tekniker, kabel telefon, import/export-distribution, företag, genomföra, kol mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | KULTURELLA\_CENTER | kulturella center |
 | TANDLÄKAREN | tandläkaren |

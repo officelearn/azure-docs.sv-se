@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487078"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsöverväganden för dataförflyttning
@@ -127,7 +127,7 @@ Virtuellt nätverk är en logisk representation av ditt nätverk i molnet. Du ka
 
 I följande tabell sammanfattas de nätverk och gateway-konfigurationsrekommendationer baserat på olika kombinationer av käll- och målplatserna flytt av hybriddata.
 
-| Källa | Mål | Nätverkskonfiguration | Installationsprogram för gateway |
+| source | Mål | Nätverkskonfiguration | Installationsprogram för gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Det kan vara installeras antingen lokalt eller på en virtuell Azure-dator (VM) i ett virtuellt nätverk | 
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat Peering) | Det kan vara installerad antingen lokalt eller på en virtuell Azure-dator i ett virtuellt nätverk | 
@@ -183,7 +183,7 @@ För följande datalager i molnet kräver vitlistning av IP-adressen för gatewa
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Fråga:** Gatewayen kan delas mellan olika datafabriker?
-**Svar:** Vi stöder inte den här funktionen ännu. Vi arbetar på den.
+**Svar:** Vi stöder inte den här funktionen ännu. Vi jobbar på det.
 
 **Fråga:** Vilka är portkraven för att gatewayen ska fungera?
 **Svar:** Gateway gör HTTP-baserade anslutningar till öppet internet. Den **utgående portarna 443 och 80** måste vara tillgänglig för gateway att upprätta anslutningen. Öppna **inkommande Port 8050** endast på datornivå (inte på nivån för företagets brandvägg) för programmet Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa / mål och sedan måste du öppna **1433** samt port. Mer information finns i [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of gateway) avsnittet. 

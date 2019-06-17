@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407910"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudier: Azure Active Directory-integrering med TOPdesk – Secure
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av TOPdesk – Secure till Azure AD behöver 
 
 **Lägg till TOPdesk – Secure från galleriet genom att utföra följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -184,7 +184,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
     d. Ladda upp den logotypfil som du fick från TOPdesk-supportteamet genom att gå till **logotypikonen** och klicka på **Bläddra**.
 
-    e. I textrutan **Användarnamnsattribut** skriver du `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. I textrutan **Användarnamnsattribut** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. I textrutan **Visningsnamn** skriver du ett namn för konfigurationen.
 
@@ -250,7 +250,7 @@ När det gäller TOPdesk – Secure är etablering en manuell aktivitet.
 
 1. Logga in på din **TOPdesk – Secure**-företagsplats som administratör.
 
-2. På menyn längst upp klickar du på **TOPdesk \> New (Ny) \> Support Files (Supportfiler) \> Operator (Operatör)**.
+2. På menyn längst upp klickar du på **TOPdesk \> New (Ny) \> Support Files (Supportfiler) \> Operator (Operatör)** .
 
     ![Operatör](./media/topdesk-secure-tutorial/ic790610.png "Operatör")
 
@@ -283,5 +283,5 @@ När du klickar på TOPdesk – Secure-panelen i åtkomstpanelen bör du automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

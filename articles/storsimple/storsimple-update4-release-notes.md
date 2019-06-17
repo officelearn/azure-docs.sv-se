@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64698642"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Viktig information om StorSimple 8000-serien uppdatering 4
 
@@ -73,7 +73,7 @@ Följande tabell innehåller en översikt över problem som har åtgärdats i up
 | 3 |Supportpaket |Det fanns problem som rör supportpaket som skulle resultera i ett System.OutOfMemory undantag eller andra fel vilket resulterar i en Support paketet fel vid skapande av i föregående versionen. De här felen åtgärdas i den här versionen. |Ja |Ja |
 | 4 |Övervakning |I föregående versionen har fästa det ett problem som rör övervakning diagram för lokalt volymer där förbrukning visades i EB. Det här felet har åtgärdats i den här versionen. |Ja |Ja |
 | 5 |Migrering |Det fanns flera problem som rör tillförlitligheten för migrering från 5000 – 7000-serien 8000-serien enheter i tidigare version. De här problemen har åtgärdats i den här versionen. |Ja |Ja |
-| 6 |Uppdatering |I tidigare versioner, om det var ett uppdateringsfel, styrenheterna skulle styrenheterna i återställningsläge och därför användaren kunde inte fortsätta med uppdateringen och skulle behöva kontakta Microsoft Support. <br> Det här beteendet har ändrats i den här versionen. Om användaren har ett uppdateringsfel när båda styrenheterna kör samma version (uppdatering 4), styrenheterna försätts inte i återställningsläge. Om du påträffar felet, rekommenderar vi att de vänta en stund och försök sedan uppdateringen. Åtgärden kan lyckas. Om åtgärden misslyckas, bör de kontakta Microsoft Support. |Ja |Ja |
+| 6 |Uppdatera |I tidigare versioner, om det var ett uppdateringsfel, styrenheterna skulle styrenheterna i återställningsläge och därför användaren kunde inte fortsätta med uppdateringen och skulle behöva kontakta Microsoft Support. <br> Det här beteendet har ändrats i den här versionen. Om användaren har ett uppdateringsfel när båda styrenheterna kör samma version (uppdatering 4), styrenheterna försätts inte i återställningsläge. Om du påträffar felet, rekommenderar vi att de vänta en stund och försök sedan uppdateringen. Åtgärden kan lyckas. Om åtgärden misslyckas, bör de kontakta Microsoft Support. |Ja |Ja |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Kända problem i uppdatering 4 från tidigare versioner

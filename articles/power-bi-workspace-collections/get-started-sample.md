@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714502"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
@@ -140,7 +140,7 @@ Den **visa** hanterar visningen av Power BI **rapporter** och en Power BI **rapp
 
 | En del | Beskrivning |
 | --- | --- |
-| Rubrik |Namnet på rapporten. |
+| Titel |Namnet på rapporten. |
 | QueryString |En länk till rapporten-ID. |
 ```cshtml
 <div id="reports-nav" class="panel-collapse collapse">
@@ -170,7 +170,7 @@ Report.cshtml: Ange den **Model.AccessToken**, och Lambda-uttrycket för **Power
 </div>
 ```
 
-### <a name="controller"></a>Kontrollenhet
+### <a name="controller"></a>domänkontrollant
 
 **DashboardController.cs**: Skapar en PowerBIClient skicka en **apptoken**. En JSON Web Token (JWT) genereras från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
 

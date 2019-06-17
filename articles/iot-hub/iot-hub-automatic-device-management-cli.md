@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322589"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Automatisk IoT-enhetshantering i stor skala med Azure CLI
@@ -105,7 +105,7 @@ Använd följande kommando för att skapa en konfiguration:
 
 * --**hubbnamn** -namnet på IoT-hubben konfigurationen kommer att skapas. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
-* --**målvillkoret** -ange ett Målvillkor som bestämmer vilka enheter som ska användas med den här konfigurationen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen önskade egenskaper och måste matcha uttrycket-format. Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`. 
+* --**målvillkoret** -ange ett Målvillkor som bestämmer vilka enheter som ska användas med den här konfigurationen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen önskade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`. 
 
 * --**prioritet** -ett positivt heltal. I händelse av att två eller flera konfigurationer är inriktade på samma enhet, gäller konfigurationen med det högsta numeriska värdet för prioritet.
 

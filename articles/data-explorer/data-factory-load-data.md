@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447976"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till Datautforskaren i Azure med Azure Data Factory 
@@ -46,7 +46,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
     **Inställning**  | **Fältbeskrivning**
     |---|---|
-    | **Namn** | Ange ett globalt unikt namn för din datafabrik. Om du får felet *”datafabriksnamnet \"LoadADXDemo\" är inte tillgänglig”*, ange ett annat namn för data factory. Regler för namngivning av Data Factory-artefakter, se [Data Factory – namnregler](/azure/data-factory/naming-rules).|
+    | **Namn** | Ange ett globalt unikt namn för din datafabrik. Om du får felet *”datafabriksnamnet \"LoadADXDemo\" är inte tillgänglig”* , ange ett annat namn för data factory. Regler för namngivning av Data Factory-artefakter, se [Data Factory – namnregler](/azure/data-factory/naming-rules).|
     | **Prenumeration** | Välj din Azure-prenumeration där du vill skapa data factory. |
     | **Resursgrupp** | Välj **Skapa nytt** och ange namnet på en ny resursgrupp. Välj **Använd befintlig**, om du har en befintlig resursgrupp. |
     | **Version** | Välj **V2** |
@@ -158,7 +158,7 @@ Azure Data Explorer ny länkad tjänst har skapats för att kopiera data i målt
     * Andra mappningen inträffar när den här tabelldata matas in i Datautforskaren i Azure. Mappningen utförs enligt [regler för mappning av CSV](/azure/kusto/management/mappings#csv-mapping). Observera att även om datakällan inte CSV-format, ADF har konverterat datan till tabellformat, därför CSV mappningen är bara relevant mappningen i det här skedet.
         * Under **Azure Data Explorer (Kusto) mottagare egenskaper** lägga till den relevanta **inmatning mappningsnamn** (valfritt) så att kolumnmappning kan användas.
         * Om **inmatning mappningsnamn** har inte angetts ”by-name” mappning ordning som definierats i **kolumnmappningarna** avsnittet sker. Om ”by-name” mappningen misslyckas, försöker Azure Data Explorer att mata in data i en ”efter kolumn position” ordning (maps genom-placering som standard).
-    * Välj **nästa**
+    * Välj **Nästa**
 
     ![Kolumnmappningen för mål-datauppsättning](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

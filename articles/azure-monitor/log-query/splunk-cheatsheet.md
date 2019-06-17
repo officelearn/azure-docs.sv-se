@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425142"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk till Azure Monitor log-fråga
@@ -30,14 +30,14 @@ I följande tabell jämförs begrepp och datastrukturer mellan Splunk och Azure 
 
  | Begrepp  | Splunk | Azure Monitor |  Kommentar
  | --- | --- | --- | ---
- | Distributionsenhet  | kluster |  kluster |  Azure Monitor kan godtyckligt mellan kluster frågor. Splunk inte. |
+ | Distributionsenhet  | Kluster |  Kluster |  Azure Monitor kan godtyckligt mellan kluster frågor. Splunk inte. |
  | Data cacheminnen |  buckets  |  Principer för cachelagring och kvarhållning |  Styr perioden och cachelagring för data. Den här inställningen direkt påverkar prestanda för frågor och kostnaden för distributionen. |
- | Logisk partition av data  |  index  |  databas  |  Tillåter logisk uppdelning av data. Båda implementeringar gör unioner och koppla aktuellt över dessa partitioner. |
- | Strukturerade händelsemetadata | Gäller inte | tabell |  Splunk har inte konceptet exponeras till frågespråket för händelsemetadata. Azure Monitor-loggar har konceptet med en tabell som har kolumner. Varje händelse-instans är mappad till en rad. |
+ | Logisk partition av data  |  index  |  database  |  Tillåter logisk uppdelning av data. Båda implementeringar gör unioner och koppla aktuellt över dessa partitioner. |
+ | Strukturerade händelsemetadata | Gäller inte | table |  Splunk har inte konceptet exponeras till frågespråket för händelsemetadata. Azure Monitor-loggar har konceptet med en tabell som har kolumner. Varje händelse-instans är mappad till en rad. |
  | Data record | händelse | rad |  Terminologi-ändring. |
  | Data-postattribut | Fältet |  Kolumn |  Detta är fördefinierade som en del av tabellstrukturen i Azure Monitor. I Splunk har varje händelse en egen uppsättning fält. |
  | Typer | datatyp |  datatyp |  Azure Monitor-datatyper är mer explicit när de har angetts för kolumner. Båda har möjlighet att arbeta dynamiskt med datatyper och grovt jämföras uppsättning datatyper, inklusive stöd för JSON. |
- | Fråga och sökning  | sök | DocumentDB |  Konceptet är i princip detsamma mellan både Azure Monitor och Splunk. |
+ | Fråga och sökning  | Sök | DocumentDB |  Konceptet är i princip detsamma mellan både Azure Monitor och Splunk. |
  | Tidpunkt för händelsen inmatning | Systemtiden | ingestion_time() |  I Splunk hämtar varje händelse en system-tidsstämpel för den tid som händelsen har indexerats. I Azure Monitor kan definiera du en princip med namnet ingestion_time som Exponerar en systemkolumn som kan refereras med funktionen ingestion_time(). |
 
 ## <a name="functions"></a>Functions
@@ -55,7 +55,7 @@ I följande tabell anger funktioner i Azure Monitor som motsvarar Splunk funktio
 | SUBSTR | substring() | (1)<br>Observera också att Splunk använder ett-baserade index. Azure Monitor noterar nollbaserade index. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| matchning | matchar regex |  (2)  |
+| Matchning | matchar regex |  (2)  |
 | regex | matchar regex | I Splunk, `regex` en operator. I Azure Monitor är det en relationella operator. |
 | searchmatch | == | I Splunk, `searchmatch` kan söka efter den exakta strängen.
 | slumpmässig | SLUMP()<br>rand(n) | Splunks funktionen returnerar ett tal från noll till 2<sup>31</sup>-1. Azure Monitor ”returnerar en siffra mellan 0,0 och 1,0, eller om en parameter angavs, mellan 0 och n-1.
@@ -158,7 +158,7 @@ Se den [aggregeringar i Azure Monitor logga frågor](aggregations.md) för olika
 
 
 
-### <a name="join"></a>Slå ihop
+### <a name="join"></a>Anslut
 Koppling i Splunk har betydande begränsningar. Underfrågan har en gräns på 10000 resultat (anges i distributionskonfigurationsfilen) och det ett begränsat antal join varianter.
 
 | |  | |

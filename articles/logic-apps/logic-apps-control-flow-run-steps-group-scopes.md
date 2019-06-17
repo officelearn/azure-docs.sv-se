@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685556"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
@@ -158,16 +158,16 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
 Lägg sedan till ett omfång så att du kan gruppera specifika åtgärder och utvärdera deras status.
 
-## <a name="add-a-scope"></a>Lägg till Omfång
+## <a name="add-a-scope"></a>Lägg till omfång
 
 1. Om du inte redan gjort öppna logikappen i Logic App Designer. 
 
 1. Lägga till ett scope på arbetsflödet plats som du vill. Till exempel om du vill lägga till ett scope mellan befintliga stegen i logikapparbetsflöde, Följ dessa steg: 
 
    1. Flyttar du pekaren över pilen där du vill lägga till området. 
-   Välj den **plustecknet** (**+**) > **Lägg till en åtgärd**.
+   Välj den **plustecknet** ( **+** ) > **Lägg till en åtgärd**.
 
-      ![Lägg till Omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Lägg till omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
    1. I sökrutan anger du ”omfång” som filter. 
    Välj den **omfång** åtgärd.

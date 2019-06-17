@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199473"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
@@ -32,56 +32,56 @@ Kända lösningar för att felsöka problem i Azure Cloud Shell omfattar:
 ### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser i FireFox
 
 - **Information om**: Cloudshell använder en öppen websocket att skicka indata/utdata till din webbläsare. FireFox har förinställda principer som kan stänga websocket tidigt orsakar tidig tidsgränser i Cloud Shell.
-- **Upplösning**: Öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
+- **Lösning**: Öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i ett låst nätverk miljö
 
 - **Information om**: Administratörer kan inaktivera åtkomst till Cloud Shell för sina användare. Cloudshell använder åtkomst till den `ux.console.azure.com` domäner som kan nekas, stoppas alla åtkomst till Cloud Shell entrypoints inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure-kontotillägg och docs.microsoft.com.
-- **Upplösning**: Begränsa åtkomsten till `ux.console.azure.com` via nätverksinställningar för din miljö. Cloud Shell-ikonen finns kvar i portal.azure.com, men ansluta inte till tjänsten.
+- **Lösning**: Begränsa åtkomsten till `ux.console.azure.com` via nätverksinställningar för din miljö. Cloud Shell-ikonen finns kvar i portal.azure.com, men ansluta inte till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Storage-dialogruta - fel: 403 RequestDisallowedByPolicy
 
 - **Information om**: När du skapar ett lagringskonto via Cloud Shell, är det misslyckades på grund av en Azure policy placeras av din administratör. Felmeddelandet innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Upplösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy nekar skapa lager.
+- **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy nekar skapa lager.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Storage-dialogruta - fel: 400 DisallowedOperation
 
 - **Information om**: När du använder Azure Active Directory-prenumeration kan skapa du inte lagring.
-- **Upplösning**: Använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer kan inte skapa Azure-resurser.
+- **Lösning**: Använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer kan inte skapa Azure-resurser.
 
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta terminal: Det går inte att upprätta websocket. Tryck på `Enter` återansluta.
 - **Information om**: Cloudshell kräver möjligheten att upprätta en websocket-anslutning till Cloud Shell-infrastruktur.
-- **Upplösning**: Kontrollera att du har konfigurerat dina nätverksinställningar för att aktivera skicka https-begäranden och websocket-förfrågningar till domäner på *. console.azure.com.
+- **Lösning**: Kontrollera att du har konfigurerat dina nätverksinställningar för att aktivera skicka https-begäranden och websocket-förfrågningar till domäner på *. console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Ange din Cloud Shell-anslutning till stöd för att använda TLS 1.2
  - **Information om**: För att definiera TLS-version för din anslutning till Cloud Shell, måste du ange specifika inställningar för webbläsaren.
- - **Upplösning**: Gå till säkerhetsinställningarna i webbläsaren och markera kryssrutan bredvid ”Använd TLS 1.2”.
+ - **Lösning**: Gå till säkerhetsinställningarna i webbläsaren och markera kryssrutan bredvid ”Använd TLS 1.2”.
 
 ## <a name="bash-troubleshooting"></a>Bash-felsökning
 
 ### <a name="cannot-run-the-docker-daemon"></a>Det går inte att köra docker-daemon
 
 - **Information om**: Cloudshell använder en behållare för att vara värd för miljön shell, som ett resultat som kör daemon är inte tillåtet.
-- **Upplösning**: Använda [docker-dator](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera docker-behållare från en fjärransluten Docker-värd.
+- **Lösning**: Använda [docker-dator](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera docker-behållare från en fjärransluten Docker-värd.
 
 ## <a name="powershell-troubleshooting"></a>Felsökning av PowerShell
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
 - **Information om**: Om en användare startar ett GUI-program, returnerar prompten inte. När en klona en privat GitHub-lagringsplats som har tvåfaktorautentisering aktiverat, exempelvis visas en dialogruta för att slutföra tvåfaktorautentisering.
-- **Upplösning**: Stäng och öppna gränssnittet.
+- **Lösning**: Stäng och öppna gränssnittet.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Felsökning av fjärrhantering av virtuella Azure-datorer
 > [!NOTE]
 > Virtuella Azure-datorer måste ha en offentlig IP-adress som riktas mot.
 
 - **Information om**: På grund av Windows-brandväggen standardinställningarna för WinRM kan användaren se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Upplösning**:  Kör `Enable-AzVMPSRemoting` att aktivera alla aspekter av PowerShell-fjärrkommunikation på måldatorn.
+- **Lösning**:  Kör `Enable-AzVMPSRemoting` att aktivera alla aspekter av PowerShell-fjärrkommunikation på måldatorn.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` uppdaterar inte resultatet i Azure-enheten
 
 - **Information om**: Som standard att optimera användarupplevelsen, resultatet av `dir` cachelagras i Azure-enheten.
-- **Upplösning**: När du skapar, uppdatera eller ta bort en Azure-resurs, kör du `dir -force` att uppdatera resultatet i Azure-enheten.
+- **Lösning**: När du skapar, uppdatera eller ta bort en Azure-resurs, kör du `dir -force` att uppdatera resultatet i Azure-enheten.
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 

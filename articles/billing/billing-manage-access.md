@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918743"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Hantera åtkomst till faktureringsinformation för Azure
@@ -71,7 +71,7 @@ Billing Reader-funktionen är en förhandsversion och har stöd inte för icke-g
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj prenumerationen på [prenumerationsbladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) på Azure-portalen.
 
-1. Välj **åtkomstkontroll (IAM)**.
+1. Välj **åtkomstkontroll (IAM)** .
 1. Välj **rolltilldelningar** att visa alla rolltilldelningar för den här prenumerationen.
 1. Välj **Lägg till rolltilldelning**.
 1. I den **rollen** listrutan väljer du **Billing Reader**.

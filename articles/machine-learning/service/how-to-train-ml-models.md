@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075022"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning
 
@@ -66,7 +66,7 @@ Parameter | Beskrivning
 
 Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för eventuella pip-paket som behövs
 
-Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska köras på den fjärranslutna beräkningen med ett anrop till den `submit` fungerar på din [Experiment](concept-azure-machine-learning-architecture.md#experiment) objektet `experiment`. 
+Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska köras på den fjärranslutna beräkningen med ett anrop till den `submit` fungerar på din [Experiment](concept-azure-machine-learning-architecture.md#experiments) objektet `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -125,13 +125,13 @@ print(run.get_portal_url())
 När du startar en utbildning som kör där källkatalogen är en lokal Git-lagringsplats, lagras information om databasen i körningshistoriken. Till exempel loggas aktuellt genomförande-ID för lagringsplatsen som en del av historiken.
 
 ## <a name="examples"></a>Exempel
-En bärbar dator som visar grunderna i mönstret för kostnadsuppskattning, finns här:
+En bärbar dator som visar grunderna i ett mönster för kostnadsuppskattning, finns här:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-För en bärbar dator som tränar en scikit-Läs modellen använder kostnadsuppskattning, se:
+För en bärbar dator som tränar en scikit-veta modellen med hjälp av kostnadsuppskattning, se:
 * [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Anteckningsböcker på utbildning modeller med ramverk för djup inlärning specifika estimators finns här:
+Anteckningsböcker på utbildning modeller med hjälp av ramverk för djup inlärning specifika estimators finns här:
 * [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

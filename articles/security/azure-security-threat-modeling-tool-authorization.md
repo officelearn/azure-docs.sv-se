@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935871"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Security ram: Auktorisering | Åtgärder 
@@ -43,7 +43,7 @@ ms.locfileid: "64935871"
 
 ## <a id="acl-restricted-access"></a>Kontrollera att rätt ACL: er är konfigurerade för att begränsa obehörig åtkomst till data på enheten
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -54,7 +54,7 @@ ms.locfileid: "64935871"
 
 ## <a id="sensitive-directory"></a>Se till att känsliga användarspecifika programinnehållet lagras i användarprofilens katalog
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -65,7 +65,7 @@ ms.locfileid: "64935871"
 
 ## <a id="deployed-privileges"></a>Se till att distribuerade program körs med de lägsta privilegierna
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -76,7 +76,7 @@ ms.locfileid: "64935871"
 
 ## <a id="sequential-logic"></a>Framtvinga sekventiella steg ordning vid bearbetning av business logic-flöden
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -87,7 +87,7 @@ ms.locfileid: "64935871"
 
 ## <a id="rate-enumeration"></a>Implementera begränsar mekanism för att förhindra uppräkning frekvensbegränsningen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -98,7 +98,7 @@ ms.locfileid: "64935871"
 
 ## <a id="principle-least-privilege"></a>Kontrollera att rätt behörighet är på plats och principen lägsta privilegier följs
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -109,7 +109,7 @@ ms.locfileid: "64935871"
 
 ## <a id="logic-request-parameters"></a>Logik och resurs åtkomst auktorisering affärsbeslut får inte baseras på den inkommande begäranparametrar
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -128,7 +128,7 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="enumerable-browsing"></a>Kontrollera innehållet och resurser är inte uppräkningsbara eller tillgängliga öppet via kraftfullt surfning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -139,7 +139,7 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="privileged-server"></a>Se till att minst Privilegierade konton som används för att ansluta till databasservern
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -150,7 +150,7 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="rls-tenants"></a>Implementera säkerhet på radnivå RLS att hindra klienter från åtkomst till varandras data
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -163,7 +163,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sysadmin-users"></a>Sysadmin-rollen bör bara ha giltiga nödvändiga användare
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -174,7 +174,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="cloud-least-privileged"></a>Ansluta till Molngatewayen med lägsta behörighet token
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Distribution |  
@@ -185,7 +185,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sendonly-sas"></a>Använda en skicka behörighet för endast SAS-nyckel för att skapa enhetstoken
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -196,7 +196,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="access-tokens-hub"></a>Använd inte åtkomsttokens som ger direktåtkomst till Händelsehubben
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -207,7 +207,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sas-minimum-permissions"></a>Ansluta till Event Hub med SAS-nycklar som har den lägsta behörigheten som krävs
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -218,7 +218,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="resource-docdb"></a>Använd resurstokens för att ansluta till Cosmos DB när det är möjligt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -229,7 +229,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="grained-rbac"></a>Aktivera detaljerad åtkomsthantering för Azure-prenumeration med RBAC
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
@@ -240,7 +240,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="cluster-rbac"></a>Begränsa åtkomsten för klientens till klusteråtgärder med RBAC
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -251,7 +251,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="modeling-field"></a>Utföra security modellering och använda på fältnivå om det behövs
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -262,7 +262,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="portal-security"></a>Utföra security modellering av portalen konton med tanke på att säkerhetsmodell för portalen skiljer sig från resten av CRM
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM Portal | 
 | **SDL fas**               | Utveckla |  
@@ -273,7 +273,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="permission-entities"></a>Ge detaljerad behörighet på ett intervall med enheter i Azure Table Storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -284,7 +284,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="rbac-azure-manager"></a>Aktivera rollbaserad åtkomstkontroll (RBAC) till Azure storage-konto med Azure Resource Manager
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -295,7 +295,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="rooting-detection"></a>Implementera implicit uppbrytning eller rota identifiering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
@@ -306,7 +306,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="weak-class-wcf"></a>Svag Class Reference i WCF
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -343,7 +343,7 @@ Den `<behaviorExtensions/>` element i WCF-konfigurationsfilen nedan instruerar W
 
 ## <a id="wcf-authz"></a>WCF-implementera auktorisering kontroll
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -391,7 +391,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementera rätt auktoriseringsmekanism i ASP.NET Web API
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Utför auktoriseringskontroller i enheten om den har stöd för olika åtgärder som kräver olika behörighetsnivåer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -453,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Utför auktoriseringskontroller i fält-Gateway om det har stöd för olika åtgärder som kräver olika behörighetsnivåer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Utveckla |  

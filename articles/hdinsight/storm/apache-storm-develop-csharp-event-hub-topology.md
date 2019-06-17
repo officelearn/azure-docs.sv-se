@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078274"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)
 
@@ -38,7 +38,7 @@ Microsoft.SCP.Net.SDK NuGet-paketet som du använder för ditt projekt måste ma
 > [!IMPORTANT]  
 > I exemplet i det här dokumentet förväntar sig en HDInsight 3.5 eller 3.6-klustret.
 >
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. 
 
 C#-topologier måste också ha .NET 4.5.
 
@@ -137,8 +137,8 @@ Händelsehubbar är datakällan för det här exemplet. Använd informationen i 
 
    | Namn | Behörigheter |
    | --- | --- |
-   | författare |Skicka |
-   | läsare |Lyssna |
+   | skrivare |Skicka |
+   | Läsare |Lyssna |
 
     ![Skärmbild av resursen åtkomstfönstret principer](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 

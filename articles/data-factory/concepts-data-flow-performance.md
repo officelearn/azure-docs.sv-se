@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057975"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa data flöden prestanda- och justeringsguide
 
@@ -41,7 +41,7 @@ Klicka på ikonen visas Körningsplan och efterföljande prestanda profilen för
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimera för Azure SQL Database och Azure SQL Data Warehouse
 
-![Käll-del](media/data-flow/sourcepart2.png "käll-delen")
+![Käll-del](media/data-flow/sourcepart3.png "käll-delen")
 
 ### <a name="partition-your-source-data"></a>Partitionera dina källdata
 
@@ -122,8 +122,8 @@ Klicka på ikonen visas Körningsplan och efterföljande prestanda profilen för
 * För att undvika att få slut beräkningsresurser för noden kan du hålla standard eller explicit partitioneringsschema i ADF som optimeras för prestanda, och sedan lägga till en efterföljande Kopieringsaktivitet i pipelinen som slår samman alla för en del filer från den utgående mappen till en ny enda filen. I princip skiljer åtgärden av omvandling från filen sammanslagning denna teknik och ger samma resultat som om du anger ”utdata till fil”.
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra dataflöde artiklar:
+Se andra dataflöde artiklar rör prestanda:
 
-- [Översikt över flödet av data](concepts-data-flow-overview.md)
+- [Dataflödet optimera fliken](concepts-data-flow-optimize-tab.md)
 - [Data flödesaktivitet](control-flow-execute-data-flow-activity.md)
 - [Övervaka prestanda för dataflöde](concepts-data-flow-monitoring.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935727"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
@@ -90,7 +90,7 @@ Utgivaren kan även överföra sina priser kalkylblad till en temporär lagrings
      }
 ```
 
-<a name="regions"></a>Regioner
+<a name="regions"></a>Regions
 -------
 
 I följande tabell visas de olika regionerna att du kan ange anpassade core priser och deras motsvarande valutakoder.
@@ -142,7 +142,7 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Nordmakedonien      | MKD               |
+| MK         | Norra Makedonien      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |

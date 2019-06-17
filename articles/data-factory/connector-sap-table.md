@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074051"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Kopiera data från SAP-tabellen med hjälp av Azure Data Factory
 
@@ -29,7 +29,13 @@ Du kan kopiera data från SAP-tabell till alla datalager för mottagare som stö
 
 Mer specifikt stöder den här tabellen för SAP-anslutningen:
 
-- Kopiera data från SAP-tabellen i **SAP Business Suite med version 7.01 eller högre** (i en senaste SAP Support paketet Stack lanseras efter år 2015) eller **S/4HANA**.
+- Kopiera data från SAP-tabellen i:
+
+    - **SAP ECC** med version 7.01 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)
+    - **SAP BW** med version 7.01 eller senare
+    - **SAP S/4HANA**
+    - **Andra produkter i SAP Business Suite** med version 7.01 eller senare 
+
 - Kopiera data från både **SAP Transparent tabell** och **visa**.
 - Kopiera data med hjälp av **grundläggande autentisering** eller **SNC** (skydda nätverkskommunikation) om SNC har konfigurerats.
 - Ansluta till **programserver** eller **Message Server**.
@@ -59,7 +65,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för SAP Business Warehouse öppna hubben som är länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **SapTable** | Ja |
 | server | Namnet på den server som den SAP-instansen finns.<br/>Om du vill ansluta till **SAP-programservern**. | Nej |
@@ -167,7 +173,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från och till SAP BW Open Hub, stöds följande egenskaper.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SapTableResource**. | Ja |
 | tableName | Namnet på tabellen SAP för att kopiera data från. | Ja |
@@ -198,12 +204,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från SAP-tabell, stöds följande egenskaper.
 
-| Egenskap                          | Beskrivning                                                  | Krävs |
+| Egenskap                         | Beskrivning                                                  | Krävs |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | type                             | Type-egenskapen måste anges till **SapTableSource**.       | Ja      |
 | Radantal                         | Antal rader som ska hämtas.                              | Nej       |
 | rfcTableFields                   | Fält att kopiera från SAP-tabellen. Till exempel `column0, column1`. | Nej       |
-| rfcTableOptions                  | Alternativ för att filtrera raderna i SAP-tabellen. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. | Nej       |
+| rfcTableOptions                  | Alternativ för att filtrera raderna i SAP-tabellen. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. Se mer beskrivning under den här tabellen. | Nej       |
 | customRfcReadTableFunctionModule | Anpassade RFC funktionsmodul som kan användas för att läsa data från SAP-tabellen. | Nej       |
 | partitionOption                  | Mekanismen partition för att läsa från SAP-tabellen. Alternativ som stöds är: <br/>- **Ingen**<br/>- **PartitionOnInt** (normal heltal eller heltalsvärden med noll utfyllnad till vänster, till exempel 0000012345)<br/>- **PartitionOnCalendarYear** (4 siffror i formatet ”åååå”)<br/>- **PartitionOnCalendarMonth** (6 siffror i formatet ”YYYYMM”)<br/>- **PartitionOnCalendarDate** (8 siffror i formatet ”ååååmmdd”) | Nej       |
 | partitionColumnName              | Namnet på kolumnen att partitionera data. | Nej       |
@@ -215,6 +221,18 @@ För att kopiera data från SAP-tabell, stöds följande egenskaper.
 >- Om din SAP-tabell har stora mängder data, till exempel flera miljarder rader använder `partitionOption` och `partitionSetting` för att dela upp data i små partitioner, då data läses av partitioner och varje datapartition hämtas från SAP-servern via en enda RFC-anrop.<br/>
 >- Tar `partitionOption` som `partitionOnInt` exempelvis beräknas antalet rader i varje partition genom (totalt antal rader som ligger mellan *partitionUpperBound* och *partitionLowerBound*) /*maxPartitionsNumber*.<br/>
 >- Om du vill köra ytterligare partitioner parallellt för att påskynda kopia, vi rekommenderar starkt att göra `maxPartitionsNumber` som en multipel av värdet för `parallelCopies` (Läs mer i [parallella kopia](copy-activity-performance.md#parallel-copy)).
+
+I `rfcTableOptions`, du kan använda t.ex. följande vanliga SAP fråga operatorer för att filtrera rader: 
+
+| Operator | Beskrivning |
+| :------- | :------- |
+| EQ | Lika med |
+| NE | Inte lika med |
+| LT | Mindre än |
+| LE | Mindre än eller lika med |
+| GT | Större än |
+| GE | Större än eller lika med |
+| T.EX. | I som (Emma %) |
 
 **Exempel:**
 

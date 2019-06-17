@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106158"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-postmeddelande från din SMTP-konto med Azure Logic Apps
@@ -47,13 +47,13 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol (SMTP)-anslutningstjänst
 1. Under det sista steget där du vill lägga till en SMTP-åtgärden, väljer **nytt steg**. 
 
    Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I sökrutan anger du ”smtp” som filter. Välj vilken åtgärd du önska under åtgärder.
 
 1. När du uppmanas, anger du den här anslutningsinformationen:
 
-   | Egenskap  | Krävs | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Anslutningsnamn** | Ja | Ett namn för anslutningen till din SMTP-server | 
    | **SMTP-serveradress** | Ja | Adress för din SMTP-server | 

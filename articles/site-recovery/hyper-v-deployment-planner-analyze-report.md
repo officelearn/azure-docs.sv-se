@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772899"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery
@@ -33,13 +33,13 @@ Bladet med lokal sammanfattning ger en översikt över den profilerade Hyper-V-m
 
 **Genomsnittligt antal diskar per kompatibel virtuell dator**: Det genomsnittliga antalet diskar för samtliga kompatibla virtuella datorer.
 
-**Genomsnittlig diskstorlek (GB)**: Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
+**Genomsnittlig diskstorlek (GB)** : Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
 
-**Desired RPO (minuter)**: Antingen standard rpo-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
+**Desired RPO (minuter)** : Antingen standard rpo-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
 
-**Önskad bandbredd (Mbit/s)**: Det värde som du angav för parametern ”bandbredd” vid tidpunkten för rapporten genererades för att beräkna realistiska mål för återställningspunkt (RPO).
+**Önskad bandbredd (Mbit/s)** : Det värde som du angav för parametern ”bandbredd” vid tidpunkten för rapporten genererades för att beräkna realistiska mål för återställningspunkt (RPO).
 
-**Observerad vanliga dataomsättning per dag (GB)**: Den genomsnittliga dataomsättning som observerats under alla profileringsdagar.
+**Observerad vanliga dataomsättning per dag (GB)** : Den genomsnittliga dataomsättning som observerats under alla profileringsdagar.
 
 ## <a name="recommendations"></a>Rekommendationer 
 Rekommendationsbladet för Hyper-V till Azure-rapporten innehåller följande information enligt vald önskat RPO:
@@ -195,19 +195,19 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Storage-konto**: Namnet som använder det föreslagna lagringskonto prefixet.
 
-**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen läsning/skrivningen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta läs/skriv-IOPS för den virtuella datorn är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)** : Den högsta IOPS-arbetsbelastningen läsning/skrivningen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta läs/skriv-IOPS för den virtuella datorn är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Högsta Dataomsättning i MB/s (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Den totala dataomsättningen för den virtuella datorn är inte alltid summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning i MB/s (med tillväxtfaktor)** : Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Den totala dataomsättningen för den virtuella datorn är inte alltid summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Azure VM-storlek**: Lämplig mappad storlek för Azure Cloud Services för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder (IOPS). Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
 **Antalet diskar**: Det totala antalet virtuella datordiskar (VHD) på den virtuella datorn.
 
-**Diskstorlek (GB)**: Den totala storleken för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)** : Den totala storleken för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antal processorkärnor på den virtuella datorn.
 
-**Minne (MB)**: RAM-minne på den virtuella datorn.
+**Minne (MB)** : RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
@@ -252,17 +252,17 @@ Excel-rapporten som genereras av distributionshanteraren för Site Recovery inne
 
 * Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB.
 
-**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta antalet läs-och skrivåtgärder (IOPS) för den virtuella datorn är den högsta summan av de enskilda diskarnas läs-och skrivåtgärder (IOPS) under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)** : Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Det totala antalet läs- och skrivåtgärder (IOPS) för en virtuell dator är inte alltid summan av den virtuella datorns individuella läs- och skrivåtgärder (IOPS). Den högsta antalet läs-och skrivåtgärder (IOPS) för den virtuella datorn är den högsta summan av de enskilda diskarnas läs-och skrivåtgärder (IOPS) under varje minut av profileringsperioden.
 
-**Högsta Dataomsättning (MB/s) (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning (MB/s) (med tillväxtfaktor)** : Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) tillsammans med faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av den virtuella datorns individuella dataomsättning. Den högsta dataomsättningen för den virtuella datorn är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Antalet diskar**: Det totala antalet virtuella hårddiskar på den virtuella datorn.
 
-**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)** : Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
 **Kärnor**: Antal processorkärnor på den virtuella datorn.
 
-**Minne (MB)**: Mängden RAM-minne på den virtuella datorn.
+**Minne (MB)** : Mängden RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
@@ -298,13 +298,13 @@ Kalkylbladet tillhandahåller kravet på totalt ledigt diskutrymme för varje vo
 
 **Hyper-V-värd**: Listan över profilerade Hyper-V-servrar. Om en server är en del av ett Hyper-V-kluster grupperas alla klusternoder ihop.
 
-**Volym (VHD-sökväg)**: Varje volym på en Hyper-V-värd där VHD: er/vhdx: er finns. 
+**Volym (VHD-sökväg)** : Varje volym på en Hyper-V-värd där VHD: er/vhdx: er finns. 
 
-**Ledigt utrymme (GB)**: Det lediga tillgängliga utrymmet på volymen.
+**Ledigt utrymme (GB)** : Det lediga tillgängliga utrymmet på volymen.
 
-**Totalt lagringsutrymme som krävs på volymen (GB)**: Det totala lediga utrymmet krävs på volymen för lyckad inledande replikering och deltareplikering. 
+**Totalt lagringsutrymme som krävs på volymen (GB)** : Det totala lediga utrymmet krävs på volymen för lyckad inledande replikering och deltareplikering. 
 
-**Total mängd ytterligare lagring som ska etableras på volymen för lyckad replikering (GB)**: Den rekommenderar det totala ytterligare utrymmet som måste etableras på volymen för lyckad inledande replikering och deltareplikering.
+**Total mängd ytterligare lagring som ska etableras på volymen för lyckad replikering (GB)** : Den rekommenderar det totala ytterligare utrymmet som måste etableras på volymen för lyckad inledande replikering och deltareplikering.
 
 ## <a name="initial-replication-batching"></a>Inledande batchbearbetning av replikering 
 
@@ -327,21 +327,21 @@ När du har följt rekommendationerna för lokal lagring för varje volym finns 
 
 **Kommentarer**: Om det krävs någon åtgärd för en specifik volym på en virtuell dator, anges kommentaren här. Om det exempelvis inte finns tillräckligt med ledigt utrymme på en volym visas kommentaren ”Add additional storage to protect this VM” (Lägg till ytterligare lagringsutrymme för att skydda den här virtuella datorn).
 
-**Volym (VHD-sökväg)**: Volymens namn där den Virtuella datorns virtuella hårddiskar finns. 
+**Volym (VHD-sökväg)** : Volymens namn där den Virtuella datorns virtuella hårddiskar finns. 
 
-**Ledigt utrymme på volymen (GB)**: Det ledigt diskutrymmet på volymen för den virtuella datorn. Vid beräkningen av ledigt utrymme på volymerna övervägs det använda diskutrymmet för deltareplikering av de virtuella datorerna för föregående batchar vars VHD:er finns på samma volym. 
+**Ledigt utrymme på volymen (GB)** : Det ledigt diskutrymmet på volymen för den virtuella datorn. Vid beräkningen av ledigt utrymme på volymerna övervägs det använda diskutrymmet för deltareplikering av de virtuella datorerna för föregående batchar vars VHD:er finns på samma volym. 
 
 Exempelvis kan VM1, VM2 och VM3 finnas på volymen E:\VHDpath. Ledigt utrymme på volymen är 500 GB före replikering. VM1 är en del av batch 1, VM2 är en del av batch 2 och VM3 är en del av batch3. För VM1 är det lediga tillgängliga utrymmet 500 GB. För VM2 blir det lediga tillgängliga utrymmet 500 – diskutrymmet som krävs för deltareplikering för VM1. Om vi säger att VM1 kräver 300 GB utrymme för deltareplikering blir det lediga tillgängliga utrymmet för VM2 500 GB – 300 GB = 200 GB. På samma sätt kräver VM2 300 GB för deltareplikering. Det lediga tillgängliga utrymmet för VM3 skulle bli 200 GB - 300 GB = -100 GB.
 
-**Lagring som krävs på volymen för inledande replikering (GB)**: Det lediga utrymmet som krävs på volymen för den virtuella datorn för inledande replikering.
+**Lagring som krävs på volymen för inledande replikering (GB)** : Det lediga utrymmet som krävs på volymen för den virtuella datorn för inledande replikering.
 
-**Lagring som krävs på volymen för deltareplikering (GB)**: Det lediga utrymmet som krävs på volymen för den virtuella datorn för deltareplikering.
+**Lagring som krävs på volymen för deltareplikering (GB)** : Det lediga utrymmet som krävs på volymen för den virtuella datorn för deltareplikering.
 
-**Ytterligare lagring som krävs baserat på brist för att undvika replikeringsfel (GB)**: Ytterligare lagringsutrymme som krävs på volymen för den virtuella datorn. Det är maximum för den inledande replikeringens och deltareplikeringens utrymmeskrav minus det fria utrymmet på volymen.
+**Ytterligare lagring som krävs baserat på brist för att undvika replikeringsfel (GB)** : Ytterligare lagringsutrymme som krävs på volymen för den virtuella datorn. Det är maximum för den inledande replikeringens och deltareplikeringens utrymmeskrav minus det fria utrymmet på volymen.
 
-**Minsta bandbredd som krävs för inledande replikering (Mbit/s)**: Den minsta bandbredd som krävs för inledande replikering för den virtuella datorn.
+**Minsta bandbredd som krävs för inledande replikering (Mbit/s)** : Den minsta bandbredd som krävs för inledande replikering för den virtuella datorn.
 
-**Minsta bandbredd som krävs för deltareplikering (Mbit/s)**: Den minsta bandbredd som krävs för deltareplikering för den virtuella datorn.
+**Minsta bandbredd som krävs för deltareplikering (Mbit/s)** : Den minsta bandbredd som krävs för deltareplikering för den virtuella datorn.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Information om nätverksanvändning för varje batch 
 Varje batchtabell innehåller en sammanfattning av nätverksanvändningen för varje batch.
@@ -352,7 +352,7 @@ Varje batchtabell innehåller en sammanfattning av nätverksanvändningen för v
 
 **Ungefärlig förbrukad bandbredd för deltareplikering av batch**: Den bandbredd som krävs för deltareplikering av batchens virtuella datorer. 
 
-**Uppskattad inledande replikeringstid för batch (hh: mm)**: Uppskattad inledande replikeringstid i timmar: minuter.
+**Uppskattad inledande replikeringstid för batch (hh: mm)** : Uppskattad inledande replikeringstid i timmar: minuter.
 
 
 

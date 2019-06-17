@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39aed992a2143065b0737d6a2dde3bcc9f2f958e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Självstudier: Azure Active Directory-integrering med HireVue
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av HireVue i Azure AD behöver du lägga till
 
 **Utför följande steg för att lägga till HireVue från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med HireV
 
     a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
 
-    | Miljö | Webbadress |
+    | Miljö | URL |
     |-------------|---|
     | Produktion | `https://<companyname>.hirevue.com` |
     | Mellanlagring    | `https://<companyname>.stghv.com` |
@@ -207,4 +207,4 @@ När du klickar på HireVue-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

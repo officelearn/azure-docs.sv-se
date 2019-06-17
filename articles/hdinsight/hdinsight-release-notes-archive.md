@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713042"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Viktig information för Azure HDInsight
@@ -28,7 +28,7 @@ Azure HDInsight är en av de mest populära tjänsterna bland företagskunder f�
 
 Nya uppdateringar och funktioner kan delas följande kategorier:
 
-*  ***Uppdatera Hadoop och andra projekt med öppen källkod*** – förutom 1000 + felkorrigeringar över 20 +-projekt med öppen källkod, den här uppdateringen innehåller en ny version av **Spark (2.3)** och **Kafka (1.0)**.
+*  ***Uppdatera Hadoop och andra projekt med öppen källkod*** – förutom 1000 + felkorrigeringar över 20 +-projekt med öppen källkod, den här uppdateringen innehåller en ny version av **Spark (2.3)** och **Kafka (1.0)** .
 
     a.  [**Nya funktioner i Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -822,73 +822,73 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Sammanfattning:** Apache Ranger principutvärdering ignorerar tecken efter ”\*” jokertecknet |
+| **Sammanfattning:**  Apache Ranger principutvärdering ignorerar tecken efter ”\*” jokertecknet |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Allvarlighetsgrad:** kritiska                                                                           |
-| **Leverantör:** Hortonworks                                                                          |
-| **Versioner berörda:** HDInsight 3.6-versioner, inklusive Apache Ranger versioner 0.5.x/0.6.x/0.7.0     |
-| **Användare som påverkas:** miljöer som använder Ranger-principer med tecken efter ”\*' jokertecken tecken – som min\*testa, testa\*.txt |
-| **Konsekvenser:** princip resource matcher ignorerar tecken efter '\*' jokertecken, vilket kan leda till oönskat beteende.      |
-| **Åtgärda detalj:** Ranger princip resource matcher har uppdaterats för att korrekt hantera jokertecken matchningar.           |
-| **Rekommenderad åtgärd:** uppgradera till HDI 3.6 (med Apache Ranger 0.7.1+).                                |
+| **Allvarlighetsgrad:**  kritiska                                                                           |
+| **Leverantör:**  Hortonworks                                                                          |
+| **Versioner berörda:**  HDInsight 3.6-versioner, inklusive Apache Ranger versioner 0.5.x/0.6.x/0.7.0     |
+| **Användare som påverkas:**  miljöer som använder Ranger-principer med tecken efter ”\*' jokertecken tecken – som min\*testa, testa\*.txt |
+| **Konsekvenser:**  princip resource matcher ignorerar tecken efter '\*' jokertecken, vilket kan leda till oönskat beteende.      |
+| **Åtgärda detalj:**  Ranger princip resource matcher har uppdaterats för att korrekt hantera jokertecken matchningar.           |
+| **Rekommenderad åtgärd:**  uppgradera till HDI 3.6 (med Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Sammanfattning:** Apache Ranger Hive Authorizer ska kontrollera om RWX-behörighet när extern plats har angetts |
+| **Sammanfattning:**  Apache Ranger Hive Authorizer ska kontrollera om RWX-behörighet när extern plats har angetts |
 |--------------------------------------------------------------------------------------------------|
-| **Allvarlighetsgrad:** kritiska                                                                           |
-| **Leverantör:** Hortonworks                                                                          |
-| **Versioner berörda:** HDInsight 3.6-versioner, inklusive Apache Ranger versioner 0.5.x/0.6.x/0.7.0 |
-| **Användare som påverkas:** miljöer som använder extern plats för hive-tabeller |
-| **Konsekvenser:** i miljöer med extern plats för hive-tabeller, Apache Ranger Hive Authorizer ska kontrollera om RWX-behörighet för den externa plats som anges för att skapa en tabell. |
-| **Åtgärda detalj:** Ranger Hive Authorizer har uppdaterats för att korrekt hantera Kontrollera behörighet med extern plats. |
-| **Rekommenderad åtgärd:** användarna måste uppgradera till HDI 3.6 (med Apache Ranger 0.7.1+). |
+| **Allvarlighetsgrad:**  kritiska                                                                           |
+| **Leverantör:**  Hortonworks                                                                          |
+| **Versioner berörda:**  HDInsight 3.6-versioner, inklusive Apache Ranger versioner 0.5.x/0.6.x/0.7.0 |
+| **Användare som påverkas:**  miljöer som använder extern plats för hive-tabeller |
+| **Konsekvenser:**  i miljöer med extern plats för hive-tabeller, Apache Ranger Hive Authorizer ska kontrollera om RWX-behörighet för den externa plats som anges för att skapa en tabell. |
+| **Åtgärda detalj:**  Ranger Hive Authorizer har uppdaterats för att korrekt hantera Kontrollera behörighet med extern plats. |
+| **Rekommenderad åtgärd:**  användarna måste uppgradera till HDI 3.6 (med Apache Ranger 0.7.1+). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Sammanfattning:** potentiella körning av kod som fel användare i Apache Storm |
+| **Sammanfattning:**  potentiella körning av kod som fel användare i Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Allvarlighetsgrad:** viktigt |
-| **Leverantör:** Hortonworks |
-| **Versioner som berörs:** HDP 2.4.0 HDP-2.5.0 HDP-2.6.0 |
-| **Användare som påverkas:** användare som använder Storm i skyddat läge och använder blobstore för att distribuera topologi baserat artefakter eller med hjälp av blobstore för att distribuera resurser topologi. |
-| **Konsekvenser:** Under vissa situationer och konfigurationer av storm är det teoretiskt sett möjligt för ägaren av en topologi att lura Övervakaren för att starta en arbetsprocess som en annan, icke-rot, användare. I värsta fall kan detta leda till säkra autentiseringsuppgifter för den användare som ska äventyras. Problemet gäller endast för installationer av Apache Storm med säkerhet är aktiverad. |
-| **Lösning:** uppgradera till HDP-2.6.2.1 eftersom det finns för närvarande inga problemlösningar.  |
+|**Allvarlighetsgrad:**  viktigt |
+| **Leverantör:**  Hortonworks |
+| **Versioner som berörs:**  HDP 2.4.0 HDP-2.5.0 HDP-2.6.0 |
+| **Användare som påverkas:**  användare som använder Storm i skyddat läge och använder blobstore för att distribuera topologi baserat artefakter eller med hjälp av blobstore för att distribuera resurser topologi. |
+| **Konsekvenser:**  Under vissa situationer och konfigurationer av storm är det teoretiskt sett möjligt för ägaren av en topologi att lura Övervakaren för att starta en arbetsprocess som en annan, icke-rot, användare. I värsta fall kan detta leda till säkra autentiseringsuppgifter för den användare som ska äventyras. Problemet gäller endast för installationer av Apache Storm med säkerhet är aktiverad. |
+| **Lösning:**  uppgradera till HDP-2.6.2.1 eftersom det finns för närvarande inga problemlösningar.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Sammanfattning:** handler/ssl/OpenSslEngine.java i Netty 4.0.x innan 4.0.37.Final och 4.1.x innan 4.1.1.Final gör att fjärranslutna angripare kan orsaka en denial of service (slinga) |
+| **Sammanfattning:**  handler/ssl/OpenSslEngine.java i Netty 4.0.x innan 4.0.37.Final och 4.1.x innan 4.1.1.Final gör att fjärranslutna angripare kan orsaka en denial of service (slinga) |
 |--------------------------------------------------------------------------------------------------|
 | **Allvarlighetsgrad:** Mellan  |
-| **Leverantör:** Hortonworks  |
-| **Versioner som berörs:** HDP 2.x.x sedan 2.3.x  |
-| **Berörda användare:** alla användare som använder HDFS. |
-| **Konsekvenser:** påverkan är låg eftersom Hortonworks inte använder OpenSslEngine.java direkt i Hadoop-kodbas.     |
-| **Rekommenderad åtgärd:** uppgradera till HDP 2.6.3.   |
+| **Leverantör:**  Hortonworks  |
+| **Versioner som berörs:**  HDP 2.x.x sedan 2.3.x  |
+| **Berörda användare:**  alla användare som använder HDFS. |
+| **Konsekvenser:**  påverkan är låg eftersom Hortonworks inte använder OpenSslEngine.java direkt i Hadoop-kodbas.     |
+| **Rekommenderad åtgärd:**  uppgradera till HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Sammanfattning:** Apache Ranger sökvägsmatchning problem i principutvärdering                                                                    |
+| **Sammanfattning:**  Apache Ranger sökvägsmatchning problem i principutvärdering                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Allvarlighetsgrad:** Normal                                                                                                                   |
+| **Allvarlighetsgrad:**  Normal                                                                                                                   |
 | **Leverantör:** Hortonworks                                                                                                                |
-| **Versioner berörda:** alla HDP 2,5 versioner, inklusive Apache Ranger versioner 0.6.0/0.6.1/0.6.2                                         |
-| **Användare som påverkas:** alla användare av ranger princip admin-verktyget.                                                                         |
-| **Konsekvenser:** Ranger principmodulen felaktigt matchar sökvägar i vissa villkor när en princip innehåller jokertecken och rekursiv flaggor. |
+| **Versioner berörda:**  alla HDP 2,5 versioner, inklusive Apache Ranger versioner 0.6.0/0.6.1/0.6.2                                         |
+| **Användare som påverkas:**  alla användare av ranger princip admin-verktyget.                                                                         |
+| **Konsekvenser:**  Ranger principmodulen felaktigt matchar sökvägar i vissa villkor när en princip innehåller jokertecken och rekursiv flaggor. |
 | **Åtgärda detalj:** Fast principlogik för utvärdering                                                                                          |
-| **Rekommenderad åtgärd:** användarna måste uppgradera till HDP 2.5.4+ (med Apache Ranger 0.6.3+) eller HDP 2.6 + (med Apache Ranger 0.7.0+)         |
+| **Rekommenderad åtgärd:**  användarna måste uppgradera till HDP 2.5.4+ (med Apache Ranger 0.6.3+) eller HDP 2.6 + (med Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Sammanfattning:** Apache Ranger lagras över flera webbplatser problemet  |
+| **Sammanfattning:**  Apache Ranger lagras över flera webbplatser problemet  |
 |--------------------------------------------------------------------------------------------------|
-| **Allvarlighetsgrad:** Normal |
-| **Leverantör:** Hortonworks |
-| **Versioner berörda:** alla HDP 2.3/2.4/2.5 versioner, inklusive Apache Ranger versioner 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Användare som påverkas:** alla användare av ranger princip admin-verktyget. |
-| **Konsekvenser:** Apache Ranger är sårbar för ett lagras Cross Site Scripting när du lägger till anpassade villkor. Administratörer kan lagra vissa godtyckliga javascript kod köra när vanliga användare loggar in och åtkomstprinciper. |
-| **Åtgärda detalj:** har lagts till logik för att rensa indata från användaren.  |
-| **Rekommenderad åtgärd:** användarna måste uppgradera till HDP 2.5.4+ (med Apache Ranger 0.6.3+) eller HDP 2.6 + (med Apache Ranger 0.7.0+)  |
+| **Allvarlighetsgrad:**  Normal |
+| **Leverantör:**  Hortonworks |
+| **Versioner berörda:**  alla HDP 2.3/2.4/2.5 versioner, inklusive Apache Ranger versioner 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Användare som påverkas:**  alla användare av ranger princip admin-verktyget. |
+| **Konsekvenser:**  Apache Ranger är sårbar för ett lagras Cross Site Scripting när du lägger till anpassade villkor. Administratörer kan lagra vissa godtyckliga javascript kod köra när vanliga användare loggar in och åtkomstprinciper. |
+| **Åtgärda detalj:**  har lagts till logik för att rensa indata från användaren.  |
+| **Rekommenderad åtgärd:**  användarna måste uppgradera till HDP 2.5.4+ (med Apache Ranger 0.6.3+) eller HDP 2.6 + (med Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>Åtgärdade problem för support
 
@@ -1433,7 +1433,7 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-## <a name="upgrading"></a>Uppgraderar
+## <a name="upgrading"></a>Uppgradera
 
 Alla dessa funktioner är tillgängliga i HDInsight 3.6. För att få den senaste versionen av Spark, Kafka och R-Server (Machine Learning Services), Välj Spark, Kafka, ML-Services-versionen när du [skapa ett kluster i HDInsight 3.6](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Du kan välja lagringstyp ADLS som ett alternativ för att få support för ADLS. Befintliga kluster uppgraderas inte till dessa versioner automatiskt.
 

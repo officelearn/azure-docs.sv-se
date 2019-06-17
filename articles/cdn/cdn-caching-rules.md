@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679211"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Kontrollera Cachelagringsbeteendet med cachelagringsregler
@@ -75,7 +75,7 @@ Du kan ange cachens giltighetstid i dagar, timmar, minuter och sekunder för glo
 
 För anpassade cacheregler är två matchningsvillkor tillgängliga:
  
-- **Sökväg**: Det här tillståndet matchar sökvägen till URL: en, exklusive domännamnet, och har stöd för jokertecknet (\*). Till exempel _/myfile.html_, _/min/mapp / *_, och _/my/images/*.jpg_. Maxlängden är 260 tecken.
+- **Sökväg**: Det här tillståndet matchar sökvägen till URL: en, exklusive domännamnet, och har stöd för jokertecknet (\*). Till exempel _/myfile.html_, _/min/mapp / *_ , och _/my/images/*.jpg_. Maxlängden är 260 tecken.
 
 - **Tillägget**: Det här tillståndet matchar filnamnstillägget för den begärda filen. Du kan ange en lista över kommaavgränsade filnamnstillägg som matchar. Till exempel _.jpg_, _.mp3_, eller _.png_. Det maximala antalet tillägg är 50 och det maximala antalet tecken per tillägget är 16. 
 
@@ -103,7 +103,7 @@ Globala och anpassade cachelagringsreglerna bearbetas i följande ordning:
    - Funktionssättet för cachelagring: **Ange om saknas**
    - Giltighetstid för cache: 3 dagar
 
-När dessa regler är inställda, en begäran om  _&lt;slutpunktens värdnamn&gt;_.azureedge.net/home/index.html utlösare anpassad cachelagring regel #2, som har angetts till: **Ange om saknas** och tre dagar. Därför, om den *index.html* filen har `Cache-Control` eller `Expires` HTTP-huvuden, de är Aviseringsfrekvens; annars, om dessa huvuden inte har angetts filen cachelagras för tre dagar.
+När dessa regler är inställda, en begäran om  _&lt;slutpunktens värdnamn&gt;_ .azureedge.net/home/index.html utlösare anpassad cachelagring regel #2, som har angetts till: **Ange om saknas** och tre dagar. Därför, om den *index.html* filen har `Cache-Control` eller `Expires` HTTP-huvuden, de är Aviseringsfrekvens; annars, om dessa huvuden inte har angetts filen cachelagras för tre dagar.
 
 > [!NOTE] 
 > Filer som cachelagras innan en regeländring ha sitt ursprung cache-inställningen för varaktigheten. Om du vill återställa varaktigheterna cache, måste du [Rensa filen](cdn-purge-endpoint.md). 

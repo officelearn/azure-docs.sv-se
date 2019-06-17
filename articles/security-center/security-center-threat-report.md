@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703916"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Hotinformationsrapporter i Azure Security Center
@@ -51,9 +51,9 @@ Security Center tillhandahåller tre typer av hotrapporter, som kan variera bero
 Den här typen av information är användbart vid de [incidenthantering](security-center-incident-response.md) processer, där det finns en pågående undersökning för att förstå orsaken angreppet, angriparens avsikter och vad du gör för att lösa problemet kan åtgärdas .
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Hur kommer du åt hotinformationsrapporten?
-Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure portal och följ stegen nedan för att se mer information om varje avisering:
+Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)** . Öppna Azure portal och följ stegen nedan för att se mer information om varje avisering:
 
-1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
+1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)** .
 2. Klicka på ikonen för att öppna bladet **Säkerhetsvarningar** som innehåller mer information om aviseringarna och klicka sedan på den säkerhetsvarning som du vill visa mer information om.
 
     ![Säkerhetsaviseringar](./media/security-center-threat-report/security-center-threat-report-fig1.png)

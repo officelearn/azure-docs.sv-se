@@ -4,22 +4,20 @@ description: Hur du konfigurerar ditt tjänstprogram för Azure-molnet för att 
 services: cloud-services
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/06/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.topic: conceptual
+ms.workload: azure-vs
+ms.date: 03/06/2018
+ms.author: ghogen
 ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717750"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera anslutning till fjärrskrivbordet för en roll i Azure Cloud Services med hjälp av Visual Studio
 
@@ -48,10 +46,8 @@ När du använder Visual Studio 2017 version 15.4 och tidigare, kan du använda 
 
    > [!Note]
    > De certifikat som du behöver för en fjärrskrivbordsanslutning skiljer sig från de certifikat som du använder för andra Azure-åtgärder. Fjärråtkomst-certifikatet måste ha en privat nyckel.
-   >
-   >
 
-5. Välj ett certifikat i listan eller välj  **&lt;skapa... &gt;**. Om du skapar ett nytt certifikat, ange ett eget namn för det nya certifikatet när du uppmanas och välj **OK**. Det nya certifikatet visas i rutan nedrullningsbara listan.
+5. Välj ett certifikat i listan eller välj  **&lt;skapa... &gt;** . Om du skapar ett nytt certifikat, ange ett eget namn för det nya certifikatet när du uppmanas och välj **OK**. Det nya certifikatet visas i rutan nedrullningsbara listan.
 
 6. Ange ett användarnamn och ett lösenord. Du kan inte använda ett befintligt konto. Använd inte ”administratör” som användarnamn för det nya kontot.
 

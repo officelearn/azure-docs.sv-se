@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061609"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hub och Node.js
 
@@ -106,7 +106,7 @@ Den `GcmService` objektet innehåller en `send` metod som kan användas för att
 - **Nyttolasten** -meddelandets JSON eller rådatasträng nyttolast.
 - **Motringning** -Återanropsfunktionen.
 
-Mer information om nyttolastformatet finns i den **nyttolast** delen av den [implementera GCM-Server](https://developer.android.com/google/gcm/server.html#payload) dokumentet.
+Mer information om nyttolastformatet finns i den **nyttolast** delen av den [implementera GCM-Server](https://developers.google.com/cloud-messaging/) dokumentet.
 
 I följande kod används den `GcmService` instans som exponeras av den `NotificationHubService` att skicka ett push-meddelande till alla registrerade klienter.
 

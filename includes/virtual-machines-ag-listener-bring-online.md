@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165458"
 ---
 1. I Klusterhanteraren Expandera **roller**, och sedan markera din tillgänglighetsgruppen.  
@@ -31,7 +31,7 @@ ms.locfileid: "66165458"
 
 8. Starta SQL Server Management Studio och Anslut till den primära repliken.
 
-9. Gå till **AlwaysOn hög tillgänglighet** > **Tillgänglighetsgrupper** > **\<AvailabilityGroupName\>**   >  **Tillgänglighetsgruppens lyssnare**.  
+9. Gå till **AlwaysOn hög tillgänglighet** > **Tillgänglighetsgrupper** >  **\<AvailabilityGroupName\>**   >  **Tillgänglighetsgruppens lyssnare**.  
     Namnet på lyssnare som du skapade i hanteraren för redundanskluster ska visas.
 
 10. Högerklicka på namnet på lyssnare och klicka sedan på **egenskaper**.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916766"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
@@ -37,7 +37,7 @@ Network Performance Monitor är en molnbaserad hybridnätverk övervakningslösn
 
     Den här funktionen kan du utföra tester baserat på HTTP, HTTPS, TCP och ICMP för att övervaka i nära realtid eller historiskt tillgänglighet och svarstid för din tjänst. Du kan också övervaka bidraget för nätverket i paketförlust och fördröjning. Med en topologisk Nätverkskarta kan du isolera nätverk kapacitetssänkningar. Du kan identifiera problem vinklar som inträffar längs nätverkssökvägen från noden till tjänsten med svarstidsdata på varje hopp. Med inbyggda tester kan du övervaka nätverksanslutning till Office 365 och Dynamics CRM utan någon förkonfiguration. Med den här funktionen kan du övervaka nätverksanslutning till alla TCP-kompatibla slutpunkt, till exempel webbplatser, SaaS-program, PaaS-program och SQL-databaser.
 
-* [ExpressRoute-övervakning](network-performance-monitor-expressroute.md): Övervaka anslutningsmöjligheter från slutpunkt till slutpunkt och prestanda mellan dina olika avdelningar och Azure, via Azure ExpressRoute.  
+* [ExpressRoute-övervakning](network-performance-monitor-expressroute.md): Övervaka anslutningar slutpunkt till slutpunkt och prestanda mellan dina avdelningskontor och Azure, via Azure ExpressRoute.  
 
 Mer information om de olika funktionerna som stöds av [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns tillgänglig online.
  

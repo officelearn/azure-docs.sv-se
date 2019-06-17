@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899507"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061151"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -27,7 +27,7 @@ Frågor eller problem med [Azure Application Insights i Java][java]? Här följe
 
 * Om beroendet `<version>` elementet använder ett mönster med jokertecken (t.ex.) (Maven) `<version>[2.0,)</version>` eller (Gradle) `version:'2.0.+'`), försök att ange en viss version i stället som `2.0.1`. Se den [viktig](https://github.com/Microsoft/ApplicationInsights-Java/releases) för den senaste versionen.
 
-## <a name="no-data"></a>Ingen data
+## <a name="no-data"></a>Inga data
 **Jag har lagts till Application Insights och kört min app, men jag har aldrig sett data i portalen.**
 
 * Vänta en minut och klicka på Uppdatera. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan också uppdatera manuellt. Uppdateringsintervall beror på vilket tidsintervall i diagrammet.

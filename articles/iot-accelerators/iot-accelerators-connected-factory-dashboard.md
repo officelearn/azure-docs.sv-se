@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067937"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Använda funktioner i instrumentpanelen för lösningen accelerator för ansluten fabrik
 
@@ -42,7 +42,7 @@ Du kan filtrera informationen som visas på instrumentpanelen, antingen i den **
 
 ## <a name="browse-an-opc-ua-server"></a>Navigera i en OPC UA-serverläsare
 
-När du distribuerar solution accelerator, etablerar du automatiskt en uppsättning simulerade OPC UA-servrar som du kan bläddra från instrumentpanelen. Simulerade servrar gör det enkelt att experimentera med lösningsaccelerator utan att behöva distribuera verkliga servrar. Om du vill ansluta en verklig OPC UA-server till lösningen finns i den [ansluta OPC UA-enheten till ansluten fabrik lösningsaccelerator](iot-accelerators-connected-factory-gateway-deployment.md) självstudien.
+När du distribuerar solution accelerator, etablerar du automatiskt en uppsättning simulerade OPC UA-servrar som du kan bläddra från instrumentpanelen. Simulerade servrar gör det enkelt att experimentera med lösningsaccelerator utan att behöva distribuera verkliga servrar.
 
 1. Klicka på den **bläddringsikonen** i navigeringsfältet instrumentpanelen:
 
@@ -111,6 +111,5 @@ När du är klar kan du ta bort solution accelerator från Azure-prenumerationen
 
 Nu när du har distribuerat en fungerande lösningsaccelerator kan du fortsätta lära dig mer om IoT-lösningsacceleratorer genom att läsa följande artiklar:
 
-* [Ansluten fabrik accelerator genomgång av lösning](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Anslut enheten till lösningsaccelerator ansluten fabrik](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Konfigurera ansluten fabrik lösningsaccelerator](iot-accelerators-connected-factory-configure.md)
 * [Behörigheter på webbplatsen azureiotsolutions.com](iot-accelerators-permissions.md)

@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900897"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights SDK för .NET
@@ -229,8 +229,8 @@ Eftersom Storage-köer stöder HTTP-API, spåras automatiskt alla åtgärder med
 
 Det här exemplet visar hur du spårar den `Enqueue` igen. Du kan:
 
- - **Korrelera återförsök (i förekommande fall)**: Alla har en gemensam överordnad som har den `Enqueue` igen. Annars är de spåras som underordnade till den inkommande begäranden. Om det finns flera logiska begäranden i kön, kan det vara svårt att hitta vilka anropet gav återförsök.
- - **Korrelera Storage-loggar (om och vid behov)**: De är korrelerad med Application Insights telemetry.
+ - **Korrelera återförsök (i förekommande fall)** : Alla har en gemensam överordnad som har den `Enqueue` igen. Annars är de spåras som underordnade till den inkommande begäranden. Om det finns flera logiska begäranden i kön, kan det vara svårt att hitta vilka anropet gav återförsök.
+ - **Korrelera Storage-loggar (om och vid behov)** : De är korrelerad med Application Insights telemetry.
 
 Den `Enqueue` åtgärden är underordnad till en överordnad åtgärd (till exempel en inkommande HTTP-begäran). HTTP-anrop för beroende är underordnad den `Enqueue` åtgärden och aggregerar för inkommande begäran:
 

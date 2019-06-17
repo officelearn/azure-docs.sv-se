@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799145"
 ---
 # <a name="extending-geojson-geometries"></a>Utöka GeoJSON geometrier
@@ -40,10 +40,10 @@ Den `Circle` geometri stöds inte av den [GeoJSON-specifikationen][1]. Vi använ
 
 En `Circle` geometri representeras med hjälp av den `GeoJSON Feature` objekt __måste__ innehåller följande:
 
-1. Centrera
+1. Center
    >Cirkelns center visas med en `GeoJSON Point` typen.
 
-2. Radie
+2. Radius
    >Cirkelns `radius` visas med `GeoJSON Feature`'s egenskaper. Radius-värdet är i _taxor_ och måste vara av typen `double`.
 
 3. Undertyp

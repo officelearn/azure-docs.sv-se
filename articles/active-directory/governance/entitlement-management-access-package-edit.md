@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833150"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Redigera och hantera ett befintligt paket för åtkomst i Azure AD rättigheten hantering (förhandsversion)
@@ -326,7 +326,7 @@ De flesta användare i din katalog kan logga in på portalen Mina åtkomst och a
 
     Om inställd **Ja**, åtkomst paketet inte visas i min åtkomst användarportalen. Det enda sättet som en användare kan visa åtkomst-paketet är om de har direkt **portalen Mina åtkomstlänk** till åtkomst-paketet.
 
-## <a name="delete"></a>Radera
+## <a name="delete"></a>Ta bort
 
 Ett åtkomst-paket kan bara tas bort om det inte använder aktiv användare.
 

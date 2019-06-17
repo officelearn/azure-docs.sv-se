@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kör Apache Hive-frågor i Azure HDInsight - Apache Zeppelin'
-description: Lär dig hur du använder Apache Zeppelin du kör Apache Hive-frågor.
+description: I den här snabbstarten lär du dig för att köra Apache Hive-frågor med Apache Zeppelin.
 keywords: hdinsight, hadoop, hive, LLAP interaktiv fråga
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056692"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Snabbstart: Kör Apache Hive-frågor i Azure HDInsight med Apache Zeppelin
 
@@ -83,12 +83,3 @@ I den här snabbstarten har du lärt dig hur du använder Apache Zeppelin för a
 
 > [!div class="nextstepaction"]
 > [Ansluta till Azure HDInsight och kör Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>Se också
-
-* [Visualisera Apache Hive-data med Microsoft Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Visualisera Interactive Query Apache Hive-data med Power BI i Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Ansluta Excel till Apache Hadoop med Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Använda Azure HDInsight-verktyg för Visual Studio Code](../hdinsight-for-vscode.md).
-* [Ladda upp Data till HDInsight](../hdinsight-upload-data.md).

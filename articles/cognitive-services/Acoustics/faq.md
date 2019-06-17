@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693884"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Vanliga och frågor svar om projektet Akustik
 
@@ -27,7 +27,7 @@ Projektet Akustik uppsättning plugin-program är ett Akustik system som beräkn
 
 Du kan ladda ned den [projekt Akustik Unity-plugin-programmet](https://www.microsoft.com/download/details.aspx?id=57346) eller [projekt Akustik Unreal plugin-programmet](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-x-platform"></a>Har stöd för projektet Akustik <x> plattform?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Har stöd för projektet Akustik &lt;x&gt; plattform?
 
 Projektstöd Akustik plattform utvecklas baserat på kundernas behov. Kontakta oss på den [projekt Akustik forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) att fråga om stöd för ytterligare plattformar.
 

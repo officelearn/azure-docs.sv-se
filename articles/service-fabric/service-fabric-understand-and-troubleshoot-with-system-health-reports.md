@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060359"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -36,7 +36,7 @@ Systemhälsorapporter ger bättre inblick i klustret och programfunktioner och f
 > 
 > 
 
-System-datorn rapporterar identifieras av källan som börjar med den ”**System.**” prefix. Watchdogs kan inte använda samma prefix för deras källor som avvisas rapporter med ogiltiga parametrar.
+System-datorn rapporterar identifieras av källan som börjar med den ”**System.** ” prefix. Watchdogs kan inte använda samma prefix för deras källor som avvisas rapporter med ogiltiga parametrar.
 
 Låt oss titta på vissa systemrapporter att förstå vad utlöser dem och lär dig hur du åtgärdar de problem som de representerar.
 
@@ -72,17 +72,37 @@ När något av föregående villkor sker **System.FM** eller **System.FMM** flag
 * **Egenskapen**: Återskapa.
 * **Nästa steg**: Undersök nätverksanslutningen mellan noderna, samt tillståndet för de specifika noder som visas på beskrivningen av hälsorapporten.
 
-## <a name="node-system-health-reports"></a>Noden systemhälsorapporter
-System.FM som representerar tjänsten Redundanshanteraren är utfärdaren som hanterar information om klusternoderna. Varje nod bör ha en rapport från System.FM som visar sitt tillstånd. Entiteterna noden tas bort när tillståndet noden tas bort. Mer information finns i [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+### <a name="seed-node-status"></a>Startvärdesklassen nodstatus
+**System.FM** rapporterar en kluster-nivån varning om vissa startvärdesnoder är skadade. Startvärdesnoder är noder som upprätthåller tillgängligheten för underliggande klustret. Dessa noder hjälpa dig att se till att klustret förblir upp genom att upprätta lån med andra noder och fungerar som tiebreakers under vissa typer av nätverksfel. Om en majoritet av seed-noder tillhör klustret och de inte är online igen kan stängs klustret automatiskt. 
 
-### <a name="node-updown"></a>Noden upp/ned
-System.FM rapporterar som OK när noden läggs till ringen (det är igång). Den rapporterar ett fel när noden avgår ringen (det är inte tillgängligt, antingen för att uppgradera eller helt enkelt eftersom den har inte). Health-hierarkin som skapats av health store ska hantera distribuerade entiteter i korrelation med System.FM-nodrapporter. Det tar hänsyn till noden alla distribuerade entiteter virtuella överordnad. Distribuerade entiteter på noden som är tillgängliga via frågor om noden rapporteras som drift av System.FM med samma instans som den instans som är associerade med entiteter. När System.FM rapporterar att noden är inte igång eller startas om som en ny instans i hälsoarkivet rensas automatiskt de distribuerade entiteter som kan finnas endast på noden nedåt eller på föregående instans av noden.
+En seed-noden är defekt om statusen noden inte är tillgängligt, har tagits bort eller okänd.
+Varning-rapporten för seed nodstatus visar en lista över alla felaktiga startvärdesnoder med detaljerad information.
+
+* **SourceID**: System.FM
+* **Egenskapen**: SeedNodeStatus
+* **Nästa steg**: Om den här varningen visas i klustret, följer du anvisningarna för att åtgärda det: För kluster som kör Service Fabric version 6.5 eller senare: För Service Fabric-kluster på Azure, när noden seed stängs av, försöker Service Fabric ändra den automatiskt till en icke-seed-nod. Om du vill göra det gör att är antalet icke-startvärdesnoder i den primära nodtypen större eller lika med antalet ned startvärdesnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen att uppnå detta.
+Beroende på status för klustret, kan det ta lite tid att åtgärda problemet. När detta är gjort rensas automatiskt varning rapporten.
+
+För fristående i Service Fabric-kluster, för att ta bort rapporten varning måste alla startvärdesnoder fungerar felfritt. Beroende på varför startvärdesnoder är felaktiga, olika åtgärder måste vidtas: om noden seed är ned, användarna behöver för att få noden seed fram; Om noden seed har tagits bort eller okänd, den här noden seed [måste tas bort från klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Varning-rapporten rensas automatiskt när alla startvärdesnoder fungerar felfritt.
+
+För kluster som kör Service Fabric-version som är äldre än 6.5: I det här fallet måste varning rapporten tas bort manuellt. **Användare bör kontrollera att alla startvärdesnoder fungerar felfritt innan du rensar rapporten**: om noden seed är nere kan användare behöva öppna noden seed; om noden seed är har tagits bort eller okänd, noden seed måste tas bort från klustret.
+När alla startvärdesnoder fungerar felfritt, använder du följande kommando från Powershell för att [avmarkera rapporten varning](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+
+```powershell
+PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+
+## Node system health reports
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+
+### Node up/down
+System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
 
 * **SourceId**: System.FM
-* **Egenskapen**: Tillstånd.
-* **Nästa steg**: Om noden är nere för en uppgradering kan ska det gå tillbaka när den har uppgraderats. I det här fallet bör hälsotillståndet gå tillbaka till OK. Om noden inte gå tillbaka eller misslyckas, måste problemet mer undersökning.
+* **Property**: State.
+* **Next steps**: If the node is down for an upgrade, it should come back up after it's been upgraded. In this case, the health state should switch back to OK. If the node doesn't come back or it fails, the problem needs more investigation.
 
-I följande exempel visas System.FM-händelse med ett hälsotillstånd OK för nod:
+The following example shows the System.FM event with a health state of OK for node up:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
@@ -104,7 +124,7 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Certifikatet löper ut
+### <a name="certificate-expiration"></a>Förfallodatum för certifikat
 **System.FabricNode** rapporterar en varning när certifikat som används av noden närmar sig förfallodatum. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server**, och **Certificate_default_client**. När utvärderingsperioden är minst två veckor, är hälsotillståndet rapporten OK. När utvärderingsperioden är inom två veckor, är rapporttypen som en varning. TTL-värde på dessa händelser är oändligt, och de tas bort när en nod lämnar klustret.
 
 * **SourceId**: System.FabricNode
@@ -632,25 +652,25 @@ Egenskapen och text kan du ange vilken API har fastnat. Nästa steg ska vidtas f
 
 - **IStatefulServiceReplica.Close** och **IStatefulServiceReplica.Abort**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. Det kan också vara som `ICommunicationListener.CloseAsync`, eller om åsidosatts gäller `OnCloseAsync` har fastnat.
 
-- **IStatefulServiceReplica.ChangeRole (S)** och **IStatefulServiceReplica.ChangeRole(N)**: I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
+- **IStatefulServiceReplica.ChangeRole (S)** och **IStatefulServiceReplica.ChangeRole(N)** : I de flesta fall är en tjänst som inte respekterar annullering token som skickas till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
 
-- **IStatefulServiceReplica.ChangeRole(P)**: I de flesta fall är att tjänsten inte har returnerat en uppgift från `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P)** : I de flesta fall är att tjänsten inte har returnerat en uppgift från `RunAsync`.
 
 Andra API-anrop som kan fastna finns på den **IReplicator** gränssnitt. Exempel:
 
 - **IReplicator.CatchupReplicaSet**: Den här varningen anger att en av två saker. Det finns inte tillräckligt med repliker. För att se om så är fallet, visa replikens status repliker i partitionen eller System.FM hälsorapport för en har fastnat omkonfiguration. Eller replikerna bekräfta inte åtgärder. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att fastställa förloppet för alla repliker. Problemet har med repliker vars `LastAppliedReplicationSequenceNumber` värdet ligger bakom primärt `CommittedSequenceNumber` värde.
 
-- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: Den här varningen anger ett problem i skapandeprocessen. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)** : Den här varningen anger ett problem i skapandeprocessen. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
 
 ### <a name="replicator-system-health-reports"></a>Replikator systemhälsorapporter
-**Replikeringskön är full:**
+**Replikeringskön är full:** 
 **System.Replicator** rapporterar en varning när Replikeringskön är full. På primärt blir Replikeringskön vanligtvis full eftersom en eller flera sekundära repliker är långsamt att bekräfta åtgärder. På sekundärt inträffar detta när tjänsten är långsamt att tillämpa åtgärderna. Varningen rensas när kön är inte längre fullständig.
 
 * **SourceId**: System.Replicator
 * **Egenskapen**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på vilken replikroll.
 * **Nästa steg**: Om rapporten är på primärt, kontrollera anslutningen mellan noderna i klustret. Om alla anslutningar fungerar felfritt, kan det finnas minst en långsam sekundär med en hög disk fördröjning tillämpas åtgärder. Om rapporten på sekundärt den kontrollerar du på diskanvändning och prestanda på noden först. Kontrollera sedan utgående anslutningen från den långsamma noden till primärt.
 
-**RemoteReplicatorConnectionStatus:**
+**RemoteReplicatorConnectionStatus:** 
 **System.Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär () fjärreplikatorns inte är felfri. Den fjärreplikatorns adress visas i rapportens meddelandet, vilket gör det enklare att identifiera om felaktig konfiguration skickades in eller om det finns nätverksproblem mellan replikatörer.
 
 * **SourceId**: System.Replicator
@@ -674,7 +694,7 @@ Andra API-anrop som kan fastna finns på den **IReplicator** gränssnitt. Exempe
 När en åtgärd för namngivning av tar längre tid än förväntat flaggas igen med en varning-rapport på den primära repliken för Naming service-partitionen som fungerar igen. Om åtgärden slutförs, avmarkeras varningen. Om åtgärden har slutförts med fel, innehåller health-rapporten information om felet.
 
 * **SourceId**: System.NamingService
-* **Egenskapen**: Börjar med prefixet ”**Duration_**” och identifierar långsam åtgärd och Service Fabric-namnet som åtgärden tillämpas. Till exempel om skapa tjänst vid namn **fabric: / MyApp/MyService** tar för lång, egenskapen är **Duration_AOCreateService.fabric:/MyApp/MyService**. ”AO” pekar på rollen för namngivning av partitionen för det här namnet och åtgärden.
+* **Egenskapen**: Börjar med prefixet ”**Duration_** ” och identifierar långsam åtgärd och Service Fabric-namnet som åtgärden tillämpas. Till exempel om skapa tjänst vid namn **fabric: / MyApp/MyService** tar för lång, egenskapen är **Duration_AOCreateService.fabric:/MyApp/MyService**. ”AO” pekar på rollen för namngivning av partitionen för det här namnet och åtgärden.
 * **Nästa steg**: Kontrollera varför namngivning åtgärden misslyckas. Varje åtgärd kan ha olika rotorsaker. Till exempel kan ta bort tjänsten ha fastnat. Tjänsten kan ha fastnat eftersom programvärden håller kraschar på en nod på grund av ett fel för användaren i kod.
 
 I följande exempel visas en åtgärd för att skapa tjänsten. Åtgärden tog längre tid än den konfigurera varaktigheten. ”AO” återförsök och skickar arbete ”Nej”. ”Nej” slutfört den sista åtgärden med TIMEOUT. I det här fallet är samma replik primär för både ”AO” och ”Nej” roller.
@@ -762,7 +782,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ladda ner
+### <a name="download"></a>Ladda ned
 System.Hosting rapporterar ett fel om inte paketet ned program.
 
 * **SourceId**: System.Hosting
@@ -840,7 +860,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ladda ner
+### <a name="download"></a>Ladda ned
 System.Hosting rapporterar ett fel om inte paketet ned service.
 
 * **SourceId**: System.Hosting

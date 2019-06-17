@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620489"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
@@ -49,7 +49,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1
 * Flagga för att beräkna och ange MD5-hash har nu aktiverats för AzCopy uppladdningar. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Förhandsvisningsfunktioner
+### <a name="preview-features"></a>Förhandsversionsfunktioner
 
 * Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
 * Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
@@ -145,7 +145,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1
 * Flagga för att beräkna och ange MD5-hash har nu aktiverats för AzCopy uppladdningar. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Förhandsvisningsfunktioner
+### <a name="preview-features"></a>Förhandsversionsfunktioner
 
 * Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
 * Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
@@ -198,7 +198,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1
 * Du kan nu ändra ägare och ägande grupp vid hantering av åtkomst för en ADLS Gen2 behållare, fil eller mapp.
 * På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/features/storage-explorer/) själv och sedan installera manuellt. #1089
 
-### <a name="preview-features"></a>Förhandsvisningsfunktioner
+### <a name="preview-features"></a>Förhandsversionsfunktioner
 
 * Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning. #938
 * Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
@@ -259,7 +259,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1
 1/9/2019
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* 1.6.1 lades entiteter som läggs till ADLS Gen2 ACL: er av ObjectId som användare kan inte alltid som grupper. Endast grupper läggs nu som grupper och enheter, till exempel företagsprogram andService huvudkonton läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* 1\.6.1 lades entiteter som läggs till ADLS Gen2 ACL: er av ObjectId som användare kan inte alltid som grupper. Endast grupper läggs nu som grupper och enheter, till exempel företagsprogram andService huvudkonton läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
 * Om ett ADLS Gen2 Storage-konto har inga behållare och anslöts med namnet och nyckeln, skulle Lagringsutforskaren inte identifierar att Lagringskontot har ADLS Gen2. Problemet har åtgärdats. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
 * I 1.6.0 eller senare, skulle konflikter under kopiera och klistra in inte fråga efter en lösning. I stället misslyckas bara den borttagna kopian. Nu på den första konflikten blir du ombedd hur du vill ska lösas. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * Alla verifiering av ObjectIds i dialogrutan Hantera åtkomst har inaktiverats på grund av API-begränsningar. Verifieringen utförs nu endast för användare UPN-namn. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)

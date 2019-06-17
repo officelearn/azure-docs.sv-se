@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926261"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
@@ -234,9 +234,9 @@ I följande tabell finns detaljerad information om status för SMB 1 i varje ver
 
 | Windows-version                           | SMB 1-standardstatus | Inaktivera/ta bort metod       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (förhandsversion)             | Disabled             | Ta bort med Windows-funktionen |
-| Windows Server, versioner 1709+            | Disabled             | Ta bort med Windows-funktionen |
-| Windows 10, versioner 1709+                | Disabled             | Ta bort med Windows-funktionen |
+| Windows Server 2019 (förhandsversion)             | Inaktiverad             | Ta bort med Windows-funktionen |
+| Windows Server, versioner 1709+            | Inaktiverad             | Ta bort med Windows-funktionen |
+| Windows 10, versioner 1709+                | Inaktiverad             | Ta bort med Windows-funktionen |
 | Windows Server 2016                       | Enabled              | Ta bort med Windows-funktionen |
 | Windows 10, versionerna 1507, 1607 och 1703 | Enabled              | Ta bort med Windows-funktionen |
 | Windows Server 2012 R2                    | Enabled              | Ta bort med Windows-funktionen | 

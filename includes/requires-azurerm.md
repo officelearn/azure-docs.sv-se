@@ -2,19 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 06/05/2019
 ms.topic: include
-ms.openlocfilehash: a956cd1e029371fa7031d262206b0ce10aa8dbff
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 550ace93479278df2a592a87ee34d10f8763d2f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133109"
 ---
 > [!IMPORTANT]
 >
-> Med den här funktionen i Azure från PowerShell måste du ha den `AzureRM` -modulen installerad. Det här är en äldre modul endast tillgängliga för Windows PowerShell 5.x som tar emot kritiska programuppdateringar, men inte längre får nya funktioner. Om du har den `Az` installerat modulen, behöver du installera `AzureRM` samt. Installera `AzureRM`:
-> 
-> 1. Inaktivera AzureRM alias i `Az` (om aktiverat) med `Disable-AzAlias`. Kör det här kommandot utan `Az` installerats eller är ofarliga med alias som har inaktiverats.
-> 2. Följ den [senaste Installationsinstruktioner för AzureRM](/powershell/azure/install-az-ps). Även om du har `AzureRM` installerat, uppdatera till den senaste versionen.
+> Med den här funktionen i Azure från PowerShell kräver den `AzureRM` -modulen installerad. Det här är en äldre modul som är endast tillgängligt för Windows PowerShell 5.1 som inte längre får nya funktioner.
+> Den `Az` och `AzureRM` moduler är __inte__ kompatibla när installerade för samma versioner av PowerShell.
+> Om du behöver båda versionerna:
+>
+> 1. [Avinstallera modulen Az](/powershell/azure/uninstall-az-ps) från en PowerShell 5.1-session.
+> 2. [Installerar AzureRM-modulen](/powershell/azure/azurerm/install-azurerm-ps) från en PowerShell 5.1-session.
+> 3. [Ladda ned och installera PowerShell Core 6.x eller senare](/powershell/scripting/install/installing-powershell-core-on-windows).
+> 4. [Installera modulen Az](/powershell/azure/install-az-ps) i en PowerShell Core-session.
 

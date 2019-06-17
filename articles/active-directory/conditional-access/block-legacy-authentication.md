@@ -1,8 +1,8 @@
 ---
 title: Blockera äldre autentisering till Azure Active Directory (Azure AD) med villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur du kan förbättra din säkerhetsposition genom att blockera äldre autentisering med hjälp av Azure AD villkorsstyrd åtkomst.
+description: Lär dig hur du kan förbättra din säkerhetsposition genom att blockera äldre autentisering med hjälp av Azure AD villkorlig åtkomst.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,19 +18,19 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112709"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
 Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder Azure Active Directory (Azure AD) ett stort antal autentiseringsprotokoll, inklusive äldre autentisering. Äldre protokoll stöder dock inte multifaktorautentisering (MFA). MFA är ett vanligt krav adress identitetsstöld i många miljöer. 
 
 
-Om din miljö är redo att blockera äldre autentisering för att förbättra din klient protection kan göra du det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst att blockera äldre autentisering för din klient.
+Om din miljö är redo att blockera äldre autentisering för att förbättra din klient protection, kan du göra det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
 
 
@@ -38,7 +38,7 @@ Om din miljö är redo att blockera äldre autentisering för att förbättra di
 
 Den här artikeln förutsätter att du är bekant med: 
 
-- Den [grundbegreppen](overview.md) av Azure AD villkorsstyrd åtkomst 
+- Den [grundbegreppen](overview.md) av Azure AD villkorlig åtkomst 
 - Den [bästa praxis](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure portal
 
 
@@ -55,7 +55,7 @@ En faktor autentisering (till exempel användarnamn och lösenord) är inte till
 
 Hur kan du förhindra att appar som använder äldre autentisering från att komma åt resurser i din klient Rekommendationen är att bara blockera dem med en princip för villkorlig åtkomst. Om det behövs kan tillåta du enbart vissa användare och specifika nätverksplatser du använder appar som baseras på äldre autentisering.
 
-Principer för villkorlig åtkomst tillämpas efter det att den första faktorautentiseringen har slutförts. Därför är inte villkorlig åtkomst avsedd som första åtgärd vid exempelvis DoS-attacker (överbelastningsattacker), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.
+Principer för villkorlig åtkomst tillämpas efter den första-factor-autentiseringen har slutförts. Därför villkorlig åtkomst är inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som attacker för denial of service (DoS), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.
 
 
 
@@ -140,6 +140,6 @@ Om du blockerar äldre autentisering med hjälp av det andra villkoret som klien
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte är bekant med att konfigurera principer för villkorlig åtkomst än [kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md) ett exempel.
+- Om du inte är bekant med att konfigurera principer för villkorlig åtkomst än [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md) ett exempel.
 
 - Mer information om stöd för modern autentisering finns i [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

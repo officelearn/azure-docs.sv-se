@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 058e5962bdf01d02abff8629df42c550fe669852
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110804"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft identity-plattformen (v2.0)
 
@@ -37,7 +37,7 @@ Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen f
 - **Programkonfiguration API och PowerShell**: vilket gör att programkonfiguration av dina program via REST-API (Microsoft Graph och Azure Active Directory Graph 1.6) och PowerShell, så att du kan automatisera dina DevOps-uppgifter.
 - **Developer innehåll**: konceptuell och referera till dokumentation, Snabbstart exempel, kodexempel, självstudier och instruktionsguider.
 
-För utvecklare erbjuder Microsoft identity-plattformen sömlös integrering i innovationer i området identitet och säkerhet, till exempel konfiguration av lösenordsfri autentisering, Step Up autentisering och villkorsbaserad åtkomst.  Du behöver inte implementera sådan funktion själv: program som är integrerade med Microsofts identitetsplattform internt dra nytta av sådana innovationer.
+För utvecklare erbjuder Microsoft identity-plattformen sömlös integrering i innovationer i området identitet och säkerhet, till exempel konfiguration av lösenordsfri autentisering, Step Up autentisering och Villkorsbaserad åtkomst.  Du behöver inte implementera sådan funktion själv: program som är integrerade med Microsofts identitetsplattform internt dra nytta av sådana innovationer.
 
 Med Microsoft identity-plattformen, kan du skriver koden en gång och nå alla användare. Du kan skapa en app på en gång och har den arbeta över många plattformar, eller skapa en app som fungerar som en klient som resursprogrammet (API).
 
@@ -77,6 +77,6 @@ När du är redo att starta appen i en **produktionsmiljö**, granska dessa meto
 - Aktivera [proxyservrar och anpassa HTTP-klienter](msal-net-provide-httpclient.md).
 - Testa din integrering genom att följa den [Microsoft identity-plattformen integration checklista](identity-platform-integration-checklist.md).
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 Om du planerar att skapa en kundinriktad program som loggar in sociala och lokala identiteter, finns i den [översikt över Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

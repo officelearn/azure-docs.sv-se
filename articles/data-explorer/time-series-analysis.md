@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604064"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analys av tidsserier i Datautforskaren i Azure
@@ -34,16 +34,16 @@ Den resulterande tabellen innehåller en kolumn för tidsstämpel, tre sammanhan
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Tidsstämpel | BrowserVer | OsVer | Land/region |
-|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Storbritannien och Nordirland |
+|   | TimeStamp | BrowserVer | OsVer | Land/region |
+|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Storbritannien |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
-|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Storbritannien och Nordirland |
-|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | Storbritannien och Nordirland |
+|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Storbritannien |
+|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | Storbritannien |
 |   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | Litauen |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Indien |
-|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Storbritannien och Nordirland |
+|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Storbritannien |
 |   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Nederländerna |
-|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Storbritannien och Nordirland |
+|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Storbritannien |
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Indien |
 
 Eftersom det finns inga mått, kan vi bara skapa en uppsättning tidsserier som representerar trafik antal, partitioneras efter OS med följande fråga:
@@ -142,7 +142,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | perioder | Poäng | dagar |
+|   | perioder | Poäng | days |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 
@@ -180,7 +180,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | LOC | anonOp | DB | DataRead |
+|   | TIDSSTÄMPEL | LOC | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | -865998331941149874 | 262 | 279862 |

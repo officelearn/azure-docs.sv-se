@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684680"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric-nodtyper och VM-skalningsuppsättningar
@@ -34,7 +34,7 @@ I bilden ovan visas skalningsuppsättningsinstanser startar instansen 0 och seda
 När du skalar upp en skalningsuppsättning skapas en ny instans. Ny scale set-instansnamnet är vanligtvis skalningsuppsättningen namn samt nästa instansnummer. I vårt exempel är det BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa scale set-belastningsutjämnare till nodtyper och skalningsuppsättningar
-Om du har distribuerat ditt kluster i Azure-portalen eller använt exempelmallen för Azure Resource Manager, visas alla resurser under en resursgrupp. Du kan se belastningsutjämnare för varje scale set eller noden. Namnet på belastningsutjämnaren använder följande format: **LB -&lt;nodtypnamn&gt;**. Ett exempel är LB-sfcluster4doc-0, enligt följande bild:
+Om du har distribuerat ditt kluster i Azure-portalen eller använt exempelmallen för Azure Resource Manager, visas alla resurser under en resursgrupp. Du kan se belastningsutjämnare för varje scale set eller noden. Namnet på belastningsutjämnaren använder följande format: **LB -&lt;nodtypnamn&gt;** . Ett exempel är LB-sfcluster4doc-0, enligt följande bild:
 
 ![Resurser][Resources]
 

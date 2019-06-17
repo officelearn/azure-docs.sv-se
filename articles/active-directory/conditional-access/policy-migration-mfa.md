@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112202"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal
 
@@ -31,7 +31,7 @@ Scenariot i den här artikeln visar hur du migrerar en klassiska princip som kr�
 Migreringen består av följande steg:
 
 1. [Öppna den klassiska principen](#open-a-classic-policy) att hämta konfigurationsinställningarna.
-1. Skapa en ny princip för villkorlig åtkomst i Azure AD att ersätta din klassiska principen. 
+1. Skapa en ny Azure AD villkorlig åtkomstprincip för att ersätta din klassiska principen. 
 1. Inaktivera den klassiska principen.
 
 ## <a name="open-a-classic-policy"></a>Öppna den klassiska principen
@@ -44,7 +44,7 @@ Migreringen består av följande steg:
 
    ![Villkorlig åtkomst](./media/policy-migration-mfa/02.png)
 
-1. I den **hantera** klickar du på **klassiska principer (förhandsversion)**.
+1. I den **hantera** klickar du på **klassiska principer (förhandsversion)** .
 
    ![Klassiska principer](./media/policy-migration-mfa/12.png)
 
@@ -125,5 +125,5 @@ Om du vill inaktivera din klassiska principen, klickar du på **inaktivera** i d
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om den klassiska principen migrering finns i [migrera klassiska principer i Azure-portalen](policy-migration.md).
-- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).

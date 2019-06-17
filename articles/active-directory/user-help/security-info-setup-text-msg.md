@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482274"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda textmeddelanden
@@ -86,11 +86,11 @@ Om du vill textmeddelanden för att vara den standardmetod som används när du 
 
     ![Ändra-länk för standard inloggningsmetod](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Välj **Phone - text (*_your_phone_number_*)** från listan över tillgängliga metoder och välj sedan **Bekräfta**.
+2. Välj **Phone - text ( *_your_phone_number_* )** från listan över tillgängliga metoder och välj sedan **Bekräfta**.
 
     ![Välj metod för att logga in standard](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    Standardmetod som används för inloggning ändringar i **Phone - text (*_your_phone_number_*)**.
+    Standardmetod som används för inloggning ändringar i **Phone - text ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Ytterligare information om säkerhetsmetoder
 Du har ytterligare alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:

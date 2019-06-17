@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147046"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Använda den klassiska Azure CLI med Azure Storage
@@ -79,7 +79,7 @@ Se [Tilldela administratörsroller i Azure Active Directory (Azure AD)](https://
 5. Öppna din önskade textredigerare (vim till exempel) i din lokala dator. Ange skriptet ovan till en textredigerare.
 6. Nu kan behöva du uppdatera skriptvariabler baserat på dina inställningar.
 
-   * **< Storage_account_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för ditt lagringskonto. **Viktigt!** Namnet på lagringskontot måste vara unikt i Azure. Det måste vara gemener, för!
+   * **< Storage_account_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för ditt lagringskonto. **Viktigt:** Namnet på lagringskontot måste vara unikt i Azure. Det måste vara gemener, för!
    * **< Storage_account_key >** åtkomstnyckeln för ditt lagringskonto.
    * **< Container_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för din behållare.
    * **< Image_to_upload >** ange en sökväg till en bild på din lokala dator, till exempel ”: ~ / images/HelloWorld.png”.
@@ -194,7 +194,7 @@ En katalog innehåller ett valfritt hierarkisk struktur för en Azure-filresurs.
 azure storage directory create myshare myDir
 ```
 
-Obs den katalogsökvägen kan innehålla flera nivåer *t.ex.*, **en / b**. Du måste dock se till att alla överordnade kataloger finns. Till exempel för sökvägen **en / b**, måste du skapa katalog **en** först, sedan att skapa katalogen **b**.
+Obs den katalogsökvägen kan innehålla flera nivåer *t.ex.* , **en / b**. Du måste dock se till att alla överordnade kataloger finns. Till exempel för sökvägen **en / b**, måste du skapa katalog **en** först, sedan att skapa katalogen **b**.
 
 ### <a name="upload-a-local-file-to-directory"></a>Ladda upp en lokal fil till katalogen
 I följande exempel laddar upp en fil från **~/temp/samplefile.txt** till den **MinMapp** directory. Ändra sökvägen till filen så att den pekar på en giltig fil på den lokala datorn:

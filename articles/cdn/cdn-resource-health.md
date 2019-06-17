@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696179"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Övervaka hälsotillståndet för Azure CDN-resurser
   
@@ -51,7 +51,7 @@ Azure CDN Resource health är en delmängd av [Azure resource health](../resourc
 
 Statusar som rör Azure CDN resource health finns nedan.
 
-|Meddelande | Rekommenderad åtgärd |
+|Message | Rekommenderad åtgärd |
 |---|---|
 |Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter | Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter.|
 |CDN-hanteringstjänsten är tyvärr inte tillgänglig just nu | Kom tillbaka senare för statusuppdateringar; Kontakta supporten om problemet kvarstår efter den förväntade lösningstiden.|

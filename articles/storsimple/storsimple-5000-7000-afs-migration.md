@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150741"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
@@ -65,7 +65,7 @@ Migrera data från StorSimple är 5000-7000 till AFS en tvåstegsprocess:
 1.  Replikera data från den lokala servern där StorSimple-volymer är monterade till en Azure Files dela.  Replikeringen sker via en AFS-agent som du installerar.
 2.  Koppla från StorSimple-enheten. Lokala diskar fungerar sedan som den lokala cachen.
 
-### <a name="migration-steps"></a>Migreringssteg
+### <a name="migration-steps"></a>Migreringsanvisningar
 
 Utför följande steg för att migrera Windows-filresurs som konfigurerats på StorSimple-volymer till en Azure File Sync-resurs. 
 1.  Utföra dessa steg på samma Windows Server-värd där StorSimple-volymer är monterade eller Använd ett annat system. 

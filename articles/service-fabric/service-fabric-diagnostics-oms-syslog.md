@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118394"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux klusterhändelser i Syslog
@@ -32,9 +32,9 @@ Service Fabric visar en uppsättning händelser på plattformsnivå om viktig ak
 I utgåvan av 6.4 har SyslogConsumer introducerats för att skicka Service Fabric-plattformshändelser till Syslog för Linux-kluster. När aktiverad, flödar automatiskt händelser till Syslog som kan samlas in och skickas av Log Analytics-agenten.
 
 Varje Syslog-händelse har 4 komponenter
-* Lokal
+* Anläggning
 * Identitet
-* Meddelande
+* Message
 * Severity
 
 SyslogConsumer skriver alla plattformshändelser med hjälp av anläggning `Local0`. Du kan uppdatera till någon giltig resurs genom att ändra config-config. Den identitet som används är `ServiceFabric`. Meddelandet innehåller hela händelsen serialiseras i JSON så att den kan efterfrågas och används av en mängd olika verktyg. 

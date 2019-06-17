@@ -3,17 +3,17 @@ title: Använd enhetsuppsättningar i ditt program med Azure IoT Central | Micro
 description: Som operatör anger hur du använder enheten i Azure IoT Central programmet.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052937"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
@@ -50,7 +50,7 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 
 1. Markera din enhet.
 
-1. Välj fliken **Instrumentpanel**.
+1. Välj fliken **Instrumentpanel** .
 
 1. Välj **Redigera**.
 

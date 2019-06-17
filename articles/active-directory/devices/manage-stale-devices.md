@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c61c62555b3712983d7eb5c1478ed193730ed9b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110577"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
 
@@ -54,7 +54,7 @@ Eftersom en inaktuell enhet definieras som en registrerad enhet som inte har anv
 
 Utvärderingen av aktivitetsstämpeln utlöses av ett autentiseringsförsök för en enhet. Azure AD utvärderar aktivitetsstämpeln när:
 
-- En princip för villkorsstyrd åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klientappar](../conditional-access/app-based-conditional-access.md) har utlösts.
+- En principer för villkorlig åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klientappar](../conditional-access/app-based-conditional-access.md) har utlösts.
 
 - Windows 10-enheter som är Azure AD-anslutna eller Hybrid Azure AD-anslutna är aktiva i nätverket. 
 

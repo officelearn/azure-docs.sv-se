@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610536"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
@@ -106,7 +106,7 @@ Azure Monitor-loggar kan vara användbart i kriminaltekniska och andra säkerhet
 Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Dessutom hjälper Azure Security Center med säkerhetsåtgärder genom att ge dig en enda instrumentpanel som hämtar aviseringar och rekommendationer som kan åtgärdas omedelbart. Ofta kan du åtgärda problem med ett enda klick i Azure Security Center-konsolen.
-## <a name="applications"></a>Appar
+## <a name="applications"></a>Program
 Avsnittet innehåller ytterligare information om viktiga funktioner i programmet säkerhets- och sammanfattning information om dessa funktioner.
 
 ### <a name="web-application-vulnerability-scanning"></a>Web Application granskar säkerhetsrisker

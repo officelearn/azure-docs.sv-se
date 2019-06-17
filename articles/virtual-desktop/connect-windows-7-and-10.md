@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145992"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Ansluta från Windows 10 eller Windows 7
 
-> Gäller för Windows 7 och Windows 10.
+> Gäller för: Windows 7 och Windows 10.
 
 En nedladdningsbar klient är tillgängliga som ger tillgång till Windows Virtual Desktop resurser från enheter som kör Windows 7 och Windows 10.
 
@@ -51,7 +51,7 @@ När du prenumererar på en feed uppdateras innehållet i flödet automatiskt me
 
 När du prenumererar kan du visa mer information om flödet genom att öppna informationspanelen.
 
-1. Från klientens huvudsidan, Välj ellipsen (**...** ) till höger om namnet på feed.
+1. Från klientens huvudsidan, Välj ellipsen ( **...** ) till höger om namnet på feed.
 1. Välj den nedrullningsbara menyn **information**.
 1. Panelen information som visas på höger sida av klienten.
 
@@ -68,7 +68,7 @@ Om det behövs kan du starta en manuell uppdatering genom att välja på **Uppda
 
 Det här avsnittet får du lära dig att avbryta prenumerationen på en feed. Du kan avbryta prenumerationen för att prenumerera på igen med ett annat konto eller ta bort dina resurser från systemet.
 
-1. Från klientens huvudsidan, Välj ellipsen (**...** ) till höger om namnet på feed.
+1. Från klientens huvudsidan, Välj ellipsen ( **...** ) till höger om namnet på feed.
 1. Välj den nedrullningsbara menyn **Unsubscribe**.
 1. Granska och välj **Fortsätt** från dialogrutan.
 

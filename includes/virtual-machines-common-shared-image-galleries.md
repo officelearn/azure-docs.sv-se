@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133150"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina hanterade avbildningar. Delade Image Galleries innehåller:
 
 - Hanterad global replikering av avbildningar.
 - Versionshantering och gruppering av avbildningar för enklare hantering.
-- Med hög tillgänglighet bilder med Zonredundant lagring (ZRS) konton i regioner som har stöd för Tillgänglighetszoner. ZRS ger bättre återhämtning mot zonindelad fel.
+- Med hög tillgänglighet bilder med Zonredundant lagring (ZRS) konton i regioner som har stöd för Tillgänglighetszoner. ZRS ger bättre motståndskraft mot problem i enskilda zoner.
 - Delning mellan prenumerationer och även mellan Active Directory (AD)-klienter, med hjälp av RBAC.
 - Skala dina distributioner med bild repliker i varje region.
 
@@ -78,15 +78,15 @@ Regioner visas i tabellen nedan. Alla offentliga regioner kan vara målregioner,
 
 | Regioner |
 |---------------------|-----------------|------------------|-----------------|
-| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Storbritannien, södra 2      |
-| Australien, centrala 2 | Östasien       | Sydkorea, södra      | Storbritannien, västra         |
-| Östra Australien      | Östra USA         | Norra centrala USA | Västra centrala USA |
-| Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra Europa     |
-| Södra Brasilien        | East US 2 EUAP  | Södra centrala USA | Indien, västra      |
-| Centrala Kanada      | Frankrike, centrala  | Södra Indien      | Västra USA         |
-| Östra Kanada         | Frankrike, södra    | Sydostasien   | Västra USA         |
-| Indien, centrala       | Östra Japan      | Storbritannien, norra         | Västra USA 2       |
-| Centrala USA          | Västra Japan      | Storbritannien, södra         |                 |
+| Australien, centrala   | USA, centrala – EUAP | Sydkorea, centrala    | Västra centrala USA |
+| Australien, centrala 2 | Östasien       | Sydkorea, södra      | Västra Europa     |
+| Östra Australien      | Östra USA         | Norra centrala USA | Indien, västra      |
+| Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra USA         |
+| Södra Brasilien        | East US 2 EUAP  | Södra centrala USA | Västra USA 2       |
+| Centrala Kanada      | Frankrike, centrala  | Södra Indien      |                 |
+| Östra Kanada         | Frankrike, södra    | Sydostasien   |                 |
+| Indien, centrala       | Östra Japan      | Storbritannien, södra         |                 |
+| Centrala USA          | Västra Japan      | Storbritannien, västra          |                 |
 
 
 

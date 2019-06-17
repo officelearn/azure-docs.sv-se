@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702489"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +74,7 @@ Mekanism för att återskapa initrd eller initramfs avbildningen kan variera ber
 ### <a name="resizing-vhds"></a>Ändra storlek på virtuella hårddiskar
 VHD-avbildningar på Azure måste ha en virtuell storlek justeras till 1 MB.  Virtuella hårddiskar som skapats med hjälp av Hyper-V är vanligtvis justerade korrekt.  Om den virtuella Hårddisken inte är justerad korrekt, får du ett felmeddelande som liknar följande när du försöker skapa en avbildning från en virtuell Hårddisk.
 
-* VHD- http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd har en som inte stöds virtuella storlek 21475270656 byte. Storleken måste vara ett heltal (i MB).
+* VHD-http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd har en som inte stöds virtuella storlek 21475270656 byte. Storleken måste vara ett heltal (i MB).
 
 I det här fallet, ändra storlek på den virtuella datorn med Hyper-V Manager-konsolen eller [storleksändring-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Om du inte kör i en Windows-miljö, bör du använda `qemu-img` att konvertera (vid behov) och ändra storlek på den virtuella Hårddisken.
 

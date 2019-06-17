@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764313"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktiviteten i Azure Data Factory
@@ -54,14 +54,14 @@ Du kan använda en hook webbaktivitet för att styra körningen av pipelines med
 
 
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-namn | Namnet på web hook-aktivitet | String | Ja |
-typ | Måste vara inställt på **WebHook**. | String | Ja |
-metod | REST API-metoden för mål-slutpunkten. | sträng. Typer som stöds: 'POST' | Ja |
+name | Namnet på web hook-aktivitet | String | Ja |
+type | Måste vara inställt på **WebHook**. | String | Ja |
+method | REST API-metoden för mål-slutpunkten. | sträng. Typer som stöds: 'POST' | Ja |
 url | Mål-slutpunkten och sökvägen | Sträng (eller uttryck med resultType av sträng). | Ja |
 Rubriker | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: ”headers”: {”Accept-språk” ”: en-us”, ”Content-Type”: ”application/json”}. | Sträng (eller ett uttryck med resultType av sträng) | Ja, krävs Content-type-huvud. ”headers”: {”Content-Type”: ”application/json”} |
-brödtext | Representerar den nyttolast som skickas till slutpunkten. | Texten som skickas tillbaka till anropet tillbaka URI: N ska vara en giltig JSON. Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
+body | Representerar den nyttolast som skickas till slutpunkten. | Texten som skickas tillbaka till anropet tillbaka URI: N ska vara en giltig JSON. Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
 autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic” eller ”ClientCertificate”. Mer information finns i [autentisering](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) avsnittet. Undanta den här egenskapen om autentisering inte krävs. | Sträng (eller ett uttryck med resultType av sträng) | Nej |
 timeout | Hur länge aktiviteten ska vänta tills den &#39;callBackUri&#39; anropas. Hur länge aktiviteten väntar på callBackUri anropas. Standardvärdet är 10mins (”00: 10:00”). Formatet är Timespan d.v.s. d.hh:mm:ss | String | Nej |
 

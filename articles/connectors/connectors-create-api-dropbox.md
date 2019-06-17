@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312566"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Ladda upp och hantera filer i Dropbox med hjälp av Azure Logic Apps
@@ -57,7 +57,7 @@ Välj den här åtgärden från åtgärdslistan över: **Hämta filinnehåll med
 
 1. Om du inte har redan behörighet Azure Logic Apps för att få åtkomst till Dropbox, bevilja åtkomst nu.
 
-1. Bläddra till sökvägen till filen som du vill använda bredvid den **filsökväg** väljer du ellipserna (**...** ) knappen. 
+1. Bläddra till sökvägen till filen som du vill använda bredvid den **filsökväg** väljer du ellipserna ( **...** ) knappen. 
 
    Du kan också klicka på den **filsökväg** och från den dynamiska innehållslistan, väljer **filsökväg**, vars värde är tillgänglig som utdata från utlösaren som du lade till i föregående avsnitt.
 

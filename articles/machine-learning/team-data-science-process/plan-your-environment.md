@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704488"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
@@ -105,7 +105,7 @@ Dessa frågor är att planera din lagring och bearbetning av miljöer. De hjälp
 ### <a name="how-large-is-your-data"></a>Hur stora är dina data?
 
 * Små: Mindre än 2 GB
-* Medel: Större än 2 GB och mindre än 10 GB
+* Medium: Större än 2 GB och mindre än 10 GB
 * Stora: Större än 10 GB
 
 Ta till exempel Azure Machine Learning Studio-miljön:

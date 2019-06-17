@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074235"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM-avbildningar och deras distribution på Microsoft Azure
 
@@ -68,6 +68,18 @@ Oracle ger support som kör Oracle DB 12.1 Standard eller Enterprise Edition i A
 ### <a name="attached-disk-configuration-options"></a>Ansluten disk konfigurationsalternativ
 
 Anslutna diskar är beroende av Azure Blob storage-tjänsten. Varje standard disk kan högst teoretisk cirka 500 indata/utdataåtgärder per sekund (IOPS). Vårt erbjudande för premium disk är att föredra för databasarbetsbelastningar med höga prestanda och kan uppnå upp till 5 000 IOps per disk. Du kan använda en skiva om som uppfyller dina behov. Du kan dock förbättra effektiva IOPS-prestanda om du använder flera anslutna diskar, sprida databasdata över dem och sedan använda Oracle automatisk Storage Management (ASM). Se [Oracle automatisk lagringsöversikt](https://www.oracle.com/technetwork/database/index-100339.html) mer specifik information för Oracle ASM. Ett exempel på hur du kan installera och konfigurera Oracle ASM på en Linux Azure VM finns i den [installera och konfigurera Oracle automatisk lagringshantering](configure-oracle-asm.md) självstudien.
+
+### <a name="shared-storage-configuration-options"></a>Konfigurationsalternativ för delad lagring
+
+Azure NetApp-filer har utformats för att uppfylla de viktigaste kraven för att köra arbetsbelastningar med höga prestanda som databaser i molnet och tillhandahåller;
+- Azure intern delade NFS storage-tjänst för att köra Oracle-arbetsbelastningar antingen via VM inbyggda NFS-klienten eller Oracle dNFS
+- Skalbar prestandanivåer som återspeglar verkliga intervallet av IOPS-kraven
+- Låg latens
+- Hög tillgänglighet, hög tillförlitlighet och hanterbarhet i skala, vanligtvis krävs av verksamhetskritiska kritiska företagsarbetsbelastningar (till exempel SAP och Oracle)
+- Snabba och effektiva säkerhetskopiering och återställning för att uppnå lägsta RTO och RPO SLA
+
+Dessa funktioner är möjligt eftersom Azure NetApp filer är baserad på NetApp ONTAP® all-flash-system som körs inom Azure datacentermiljö – som en intern Azure-tjänst. Resultatet är ett perfekt databasen lagringsteknik som kan etableras och används precis som andra Azure-lagringsalternativen. Se [Azure NetApp Files dokumentation](https://docs.microsoft.com/azure/azure-netapp-files/) mer information om hur du distribuerar och komma åt Azure NetApp filer NFS-volymer. Se [Oracle på Azure bästa praxis Guide med hjälp av Azure NetApp distributionsfiler](https://www.netapp.com/us/media/tr-4780.pdf) för rekommendationer om metodtips för att driva en Oracle-databas på Azure NetApp-filer.
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application kluster (Oracle RAC)
 Oracle RAC är utformad för att minimera fel på en nod i ett lokalt kluster med flera noder konfiguration. Den förlitar sig på två lokala tekniker som inte är inbyggt i hyperskala offentliga molnmiljöer: multicast-nätverk och delad disk. Om din databaslösning kräver Oracle RAC i Azure, måste tredje = tillverkare om du vill aktivera dessa tekniker. Mer information om Oracle RAC finns i den [FlashGrid SkyCluster sidan](https://www.flashgrid.io/oracle-rac-in-azure/).

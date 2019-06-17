@@ -19,10 +19,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546101"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering av appar
@@ -34,7 +34,7 @@ Det här dokumentet ger kontext och beskrivningar av olika funktioner i den [Pro
 ## <a name="my-applications-or-converged-applications"></a>Mina program eller konvergerade program
 Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v2.0-slutpunkten. Dessa program möjlighet att logga in användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure Active Directory. Läs mer om Azure AD v2.0-slutpunkten i den [v2.0 översikt](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med autentiseringsslutpunkt för Microsoft-konto `https://login.live.com`.
 
-## <a name="azure-ad-only-applications"></a>Endast Azure AD-program
+## <a name="azure-ad-only-applications"></a>Azure AD-endast program
 Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v1.0-slutpunkten. Dessa program kan bara ha möjlighet att logga in användare med arbets-/ skolkonton från Azure Active Directory. Den här listan innehåller program som har registrerats med hjälp av den **appregistreringar** användarupplevelsen i den [Azure-portalen](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Live SDK-program
@@ -49,7 +49,7 @@ För närvarande tillåts bara två typer av programhemligheter i portalen för 
 Du måste överföra ett certifikat som innehåller en offentlig nyckel.
 
 ## <a name="profile"></a>Profil
-Profilavsnittet för portalen för registrering av appen kan användas för att anpassa inloggningssidan för ditt program. Just nu kan du ändra inloggning sidans programlogotyp, villkoren i tjänstens URL och URL för sekretesspolicy. Logotypen måste vara en transparent bild på 48 x 48 eller 50 x 50 bildpunkter i en GIF-, PNG- eller JPEG-fil som är på högst 15 kB. Försök ändra värdena och visa den resulterande inloggningssidan!
+Profilavsnittet för portalen för registrering av appen kan användas för att anpassa inloggningssidan för ditt program. Just nu kan du ändra inloggning sidans programlogotyp, villkoren i tjänstens URL och URL för sekretesspolicy. Logotypen måste vara en transparent 48 x 48 eller 50 x 50 bildpunkter bild i en GIF-, PNG- eller JPEG-fil som är 15 KB eller mindre. Försök ändra värdena och visa den resulterande inloggningssidan!
 
 ## <a name="live-sdk-support"></a>Live SDK-Support
 När du aktiverar ”Live SDK stöd” alla programhemligheter som du skapar kommer att tillhandahållas till Azure AD och Account datalager. På så sätt kan dina program för att integrera direkt med Microsoft Account service (login.live.com). Om du vill skapa en app med Account direkt (i stället för med Azure AD v2.0-slutpunkten) bör du kontrollera Live SDK-stöd är aktiverat.

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486472"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
@@ -103,7 +103,7 @@ Vi behåller inga fler viktig information här. Hämta senaste versionsantecknin
 *  Har stöd för inställningen HTTP-proxy för gatewayen med hjälp av Konfigurationshanteraren för Gateway. Om konfigurerat, kan Azure Blob, Azure Table, Azure Data Lake och Document DB nås via HTTP-proxy.
 *  Har stöd för rubriken hantering för TextFormat när du kopierar data från/till Azure Blob, Azure Data Lake Store lokala filsystem och lokala HDFS.
 *  Har stöd för kopiering av data från Lägg till Blob- och Page Blob tillsammans med redan stöds Blockblob.
-*  Introducerar en ny gatewaystatus **Online (begränsat)**, vilket betyder att de flesta funktioner för gatewayen fungerar förutom interaktiva åtgärden stöd för guiden Kopiera.
+*  Introducerar en ny gatewaystatus **Online (begränsat)** , vilket betyder att de flesta funktioner för gatewayen fungerar förutom interaktiva åtgärden stöd för guiden Kopiera.
 *  Ger ökad stabilitet av gateway-registrering med hjälp av Registreringsnyckeln.
 
 ## <a name="216040"></a>2.1.6040.

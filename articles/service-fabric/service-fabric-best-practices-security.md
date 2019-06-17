@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074352"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -205,7 +205,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Vi rekommenderar att du implementerar en branschstandard-konfiguration som är allmänt kända och väl beprövad, till exempel Microsoft säkerheten, till skillnad från skapa en baslinje själv](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); ett alternativ för att etablera dessa på den virtuella datorn Skalningsuppsättningar är att använda Azure Desired State Configuration (DSC)-tilläggshanterare för att konfigurera de virtuella datorerna när de kommer online, så att de kör programvara för produktion.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure-brandväggen är en hanterad, molnbaserad säkerhet nätverkstjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg som en tjänst med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet. ](https://docs.microsoft.com/azure/firewall/overview); detta gör möjligheten att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Dess bör du använda [Azure brandväggen FQDN taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda via brandväggen. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursdefinitionen för mallen. Två brandväggsregler som är gemensamma för Service Fabric-program är att nätverket kluster att kommunicera med * download.microsoft.com, och * servicefabric.azure.com; Hämta Windows-uppdateringar och Service Fabric Compute virtuell dator tilläggskod.
+[Azure-brandväggen är en hanterad, molnbaserad säkerhet nätverkstjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg som en tjänst med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet. ](https://docs.microsoft.com/azure/firewall/overview); detta gör möjligheten att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Dess bör du använda [Azure brandväggen FQDN taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda via brandväggen. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursdefinitionen för mallen. Brandväggsregler som är gemensamma för Service Fabric-program är att tillåta följande för ditt virtuella nätverk för kluster:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+Brandväggsreglerna kompletterar din tillåtna utgående Nätverkssäkerhetsgrupperna, som skulle inkludera Service fabric och lagring, som tillåtna mål från ditt virtuella nätverk.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ Som standard installeras Windows Defender antivirus på Windows Server 2016. Mer
 
 > [!NOTE]
 > I ditt program mot skadlig kod-dokumentationen för konfigurationsregler om du inte använder Windows Defender. Windows Defender stöds inte i Linux.
+
+## <a name="platform-isolation"></a>Isolering av plattformen
+Som standard, Service Fabric-program har beviljats åtkomst till Service Fabric-körningen, som visar sig i olika former: [miljövariabler](service-fabric-environment-variables-reference.md) som pekar på sökvägar på värden för program och Fabric-filer, en slutpunkt för kommunikation mellan processer som accepterar programspecifika begäranden och klienten certifikatet som Fabric förväntar sig programmet du använder för att autentisera sig själv. I fall som tjänsten innehåller själva betrodd kod, är det lämpligt att inaktivera den här åtkomsten till SF-körning - såvida inte uttryckligen behövs. Åtkomst till körningsmiljön tas bort med hjälp av följande försäkran i principavsnittet i applikationsmanifestet: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

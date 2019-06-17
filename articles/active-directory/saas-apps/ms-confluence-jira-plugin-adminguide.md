@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935789"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassians Jira och växer samman administratörshandboken för Azure Active Directory
@@ -112,11 +112,11 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
 * **Metadata-URL**: URL till hämta federationsmetadata från Azure AD.
 
-* **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/.
+* **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https:// *\<domän: port >* /.
 
-* **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/plugins/servlet/saml/auth.
+* **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https:// *\<domän: port >* /plugins/servlet/saml/auth.
 
-* **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/plugins/servlet/saml/auth.
+* **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https:// *\<domän: port >* /plugins/servlet/saml/auth.
 
 * **IdP entitets-ID**: Entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
 
@@ -144,7 +144,7 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
 * **Ett certifikat som snart upphör att gälla i Azure AD**: Tillägg hand tar om automatisk förnyelse av certifikatet. När ett certifikat upphör snart att gälla, ett nytt certifikat ska markeras som aktiv och bör tas bort oanvända certifikat. När en användare försöker logga in på Jira i det här scenariot, plugin-programmet hämtar och sparar det nya certifikatet.
 
-* **Vill du inaktivera WebSudo (inaktivera säker administratör-session)**:
+* **Vill du inaktivera WebSudo (inaktivera säker administratör-session)** :
 
   * För Jira, skydda administratör sessioner (det vill säga Lösenordsbekräftelse innan du använder administrativa funktioner) är aktiverade som standard. Om du vill ta bort den här möjligheten i Jira-instans anger du följande rad i filen jira-config.properties: `ira.websudo.is.disabled = true`
 

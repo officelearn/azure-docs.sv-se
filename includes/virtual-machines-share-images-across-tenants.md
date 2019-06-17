@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145892"
 ---
 Delade Image Galleries kan du dela bilder med hjälp av RBAC. Du kan använda RBAC för att dela bilder i din klient, och även till personer utanför din klientorganisation. Men om du vill dela avbildningar utanför din Azure-klient i skala, bör du skapa en appregistrering för att underlätta delning.  Med hjälp av en appregistrering kan möjliggöra mer komplexa delning, t.ex.: 
@@ -38,9 +38,9 @@ Skapa en programregistrering som används av både klienter för att dela galler
 
 Ge appen registrering behörighet att använda delade bildgalleriet.
 1. Välj delad galleriet som du vill dela med en annan klient i Azure-portalen.
-1. Välj **Välj åtkomstkontroll (IAM)**, och under **Lägg till rolltilldelning** Välj *Lägg till*. 
+1. Välj **Välj åtkomstkontroll (IAM)** , och under **Lägg till rolltilldelning** Välj *Lägg till*. 
 1. Under **rollen**väljer **läsare**.
-1. Under **tilldela åtkomst till:**, lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
+1. Under **tilldela åtkomst till:** , lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
 1. Under **Välj**, typ *myGalleryApp* och välja certifikatet när det visas i listan. När du är klar väljer du **spara**.
 
 
@@ -54,9 +54,9 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 
 I den [Azure-portalen](https://portal.azure.com) logga in som klient 2 och ge appen registrering åtkomst till resursgruppen där du vill skapa den virtuella datorn.
 
-1. Välj resursgruppen och välj sedan **åtkomstkontroll (IAM)**. Under **Lägg till rolltilldelning** Välj **Lägg till**. 
+1. Välj resursgruppen och välj sedan **åtkomstkontroll (IAM)** . Under **Lägg till rolltilldelning** Välj **Lägg till**. 
 1. Under **rollen**, typ **deltagare**.
-1. Under **tilldela åtkomst till:**, lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
+1. Under **tilldela åtkomst till:** , lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
 1. Under **Välj** typ *myGalleryApp* välja certifikatet när det visas i listan. När du är klar väljer du **spara**.
 
 > [!NOTE]

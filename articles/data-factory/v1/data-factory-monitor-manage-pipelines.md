@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122813"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av Azure-portalen och PowerShell
@@ -49,7 +49,7 @@ Det här avsnittet beskriver också hur en datamängdssektor övergår från ett
 
 ### <a name="navigate-to-your-data-factory"></a>Gå till din data factory
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **datafabriker** på menyn till vänster. Om du inte ser det klickar du på **fler tjänster >**, och klicka sedan på **datafabriker** under den **information + analys** kategori.
+2. Klicka på **datafabriker** på menyn till vänster. Om du inte ser det klickar du på **fler tjänster >** , och klicka sedan på **datafabriker** under den **information + analys** kategori.
 
    ![Bläddra igenom alla > datafabriker](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. På den **datafabriker** bladet välj datafabrik som du är intresserad av.
@@ -89,10 +89,10 @@ Datauppsättningen segment i datafabriken kan ha något av följande statusar:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Undertillstånd</th><th align="left">Beskrivning</th>
+    <th align="left">Status</th><th align="left">Undertillståndet</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Tiden har inte inne för att köra sektorn.</td>
+    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte inne för att köra sektorn.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Uppströmsberoendena är inte redo.</td>
@@ -117,16 +117,16 @@ Datauppsättningen segment i datafabriken kan ha något av följande statusar:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Sektorn behandlas.</td>
 </tr>
 <tr>
-<td rowspan="4">Fungerar inte</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
 </tr>
 <tr>
-<td>Annullerad</td><td>Sektorn avbröts av användaren.</td>
+<td>Avbrutna</td><td>Sektorn avbröts av användaren.</td>
 </tr>
 <tr>
 <td>Validering</td><td>Verifieringen misslyckades.</td>
@@ -134,7 +134,7 @@ Datauppsättningen segment i datafabriken kan ha något av följande statusar:
 <tr>
 <td>-</td><td>Det gick inte att vara genereras och/eller verifiera sektorn.</td>
 </tr>
-<td>Klar</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
+<td>Redo</td><td>-</td><td>Sektorn är klar för användning.</td>
 </tr>
 <tr>
 <td>Hoppades över</td><td>Ingen</td><td>Sektorn bearbetas inte.</td>
@@ -156,7 +156,7 @@ Om sektorn har körts flera gånger, ser du flera rader i den **aktivitetskörni
 
 Om sektorn inte finns i den **redo** tillstånd, kan du se sektorer uppströms som inte är redo och som blockerar aktuell sektor från att köras i den **sektorer uppströms som inte är redo** lista. Den här funktionen är användbar när din sektorn har **väntar på** tillstånd och du vill förstå uppströmsberoendena sektorn väntar på.
 
-![Sektorer uppströms som inte är klara](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Sektorer uppströms som inte är redo](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### <a name="dataset-state-diagram"></a>Datauppsättningen tillståndsdiagram
 När du distribuerar en data factory pipelines har en ogiltig aktiv period och skär datauppsättningen övergång från ett tillstånd till ett annat. För närvarande följande statusen för sektorn diagrammet nedan tillstånd:

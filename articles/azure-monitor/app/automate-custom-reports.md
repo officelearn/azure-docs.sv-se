@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067660"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -92,7 +92,7 @@ availabilityResults
 
    ![Skapa en ny funktion-skärmbild](./media/automate-custom-reports/function-app-03.png)
 
-5. Välj den  **_Application Insights schemalagda sammanfattad mallen_**.
+5. Välj den  **_Application Insights schemalagda sammanfattad mallen_** .
 
      > [!NOTE]
      > Som standard skapas funktionsappar med körningsversion 2.x. Du måste [målversion Azure Functions runtime](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x för att använda Application Insights schemalagda sammanfattad mall.
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Om du inte har ett SendGrid-konto kan du skapa en. SendGrid-dokumentation för Azure Functions är [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om bara vill att en minimal förklaring av hur du konfigurerar SendGrid och generera en API-nyckel som sådan anges i slutet av den här artikeln. 
 
-9. Välj **integrera** och klicka på utdata under **SendGrid ($return)**.
+9. Välj **integrera** och klicka på utdata under **SendGrid ($return)** .
 
      ![Skärmbild av utdata](./media/automate-custom-reports/function-app-09.png)
 

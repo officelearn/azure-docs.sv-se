@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548288"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läsa in data från Office 365 med hjälp av Azure Data Factory
@@ -32,7 +32,7 @@ Den här artikeln visar hur du använder Data Factory _läser in data från Offi
       
    ![Sida för ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Namn**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadFromOffice365Demo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**LoadFromOffice365Demo**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadFromOffice365Demo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_ **LoadFromOffice365Demo**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data factory. 
     * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
     * **Version**: Välj **V2**.
@@ -137,7 +137,7 @@ Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, v
 
 Om det här är första gången du begär data för den här kontexten (en kombination av vilka data som tabell håller på att åtkomst, vilken destination kontot är data som läses in i och vilka användaridentitet är att göra data åtkomstbegäran), ser du kopieringsaktiviteten status som ”**pågår**”, och endast när du klickar på länken ”information” under åtgärder ska du se statusen som ”**RequesetingConsent**”.  En medlem i gruppen data access godkännaren måste godkänna begäran i Privileged Access Management innan extrahering av data kan fortsätta.
 
-_Status som begär tillstånd:_
+_Status som begär tillstånd:_ 
 ![körning aktivitetsinformation – begäran om godkännande](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Status som extraherar data:_

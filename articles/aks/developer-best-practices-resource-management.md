@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073954"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metodtips för programutvecklare att hantera resurser i Azure Kubernetes Service (AKS)
@@ -74,6 +74,8 @@ Med Azure Dev blanksteg, utveckla, felsöka och testa program direkt mot ett AKS
 
 Integrerad utvecklings- och processen Dev blanksteg minskar behovet av lokala testmiljöer, till exempel [minikube][minikube]. Däremot du utvecklar och testar mot ett AKS-kluster. Det här klustret kan skyddas och isolerade som anges i föregående avsnitt om användning av namnområden logiskt isolera ett kluster. När dina appar är redo att distribuera till produktion, kan du tryggt distribuera som din utveckling har utförts mot ett verkligt AKS-kluster.
 
+Azure Dev blanksteg är avsedd att användas med program som körs på Linux-poddar och noder.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Använd Visual Studio Code-tillägget för Kubernetes
 
 **Bästa praxis riktlinjer** – installera och använda VS Code-tillägg för Kubernetes när du skriver YAML manifest. Du kan också använda tillägget för integrerad distributionslösning och kan bidra programägare som sällan interagerar med AKS-klustret.
@@ -87,6 +89,8 @@ Den [Visual Studio Code-tillägg för Kubernetes] [ vscode-kubernetes] hjälper 
 **Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` verktyg med öppen källkod att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
 
 Den [kube-advisor] [ kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
+
+Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
 
 I ett AKS-kluster som är värd för många utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på AKS-kluster.
 
@@ -110,3 +114,4 @@ Om du vill implementera vissa av dessa metodtips, finns i följande artiklar:
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

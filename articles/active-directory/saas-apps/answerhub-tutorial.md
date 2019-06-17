@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudier: Azure Active Directory-integrering med AnswerHub
 
@@ -158,7 +158,7 @@ I det här avsnittet konfigurerar du enkel inloggning för AnswerHub.
 
     ![Avsnittet Nycklar och certifikat](./media/answerhub-tutorial/ic785173.png "Nycklar och certifikat")  
 
-    a. Öppna det base64-kodade certifikatet som du laddade ned från Azure-portalen i Anteckningar, kopiera innehållet och klistra sedan in det i rutan för **offentlig nyckel för IDP (x509-format)**.
+    a. Öppna det base64-kodade certifikatet som du laddade ned från Azure-portalen i Anteckningar, kopiera innehållet och klistra sedan in det i rutan för **offentlig nyckel för IDP (x509-format)** .
   
     b. Välj **Spara**.
 
@@ -184,7 +184,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     a. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** anger **brittasimon\@< yourcompanydomain.extension >**.  
+    b. I den **användarnamn** anger **brittasimon\@< yourcompanydomain.extension >** .  
     Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
@@ -254,5 +254,5 @@ När du väljer AnswerHub-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

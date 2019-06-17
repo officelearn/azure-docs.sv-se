@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587487"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
@@ -284,9 +284,9 @@ En NSG innehåller vissa inbyggda regler som du bör känna till. Dessa är:
 
 -   **Tillåt all trafik i ett specifikt virtuellt nätverk:** Alla virtuella datorer i samma Azure Virtual Network kan kommunicera med varandra.
 
--   **Tillåt Azure belastningsutjämning för inkommande:** den här regeln tillåter trafik från alla källadress till alla måladresser för Azure load balancer.
+-   **Tillåt Azure belastningsutjämning för inkommande:**  den här regeln tillåter trafik från alla källadress till alla måladresser för Azure load balancer.
 
--   **Neka alla inkommande:** den här regeln blockerar all trafik som källa från Internet som du uttryckligen tillåts.
+-   **Neka alla inkommande:**  den här regeln blockerar all trafik som källa från Internet som du uttryckligen tillåts.
 
 -   **Tillåt all trafik utgående till Internet:** Den här regeln kan virtuella datorer initierar anslutningar till Internet. Om du inte vill att dessa anslutningar som initieras, måste du skapa en regel för att blockera anslutningarna eller framtvinga Tvingad tunneltrafik.
 
@@ -509,7 +509,7 @@ Azure erbjuder många verktyg för att övervaka, förhindra, upptäcka och svar
 
 -   Azure Monitor-loggar
 
-### <a name="network-watcher"></a>Nätverksbevakare
+### <a name="network-watcher"></a>Nätverksbevakaren
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -Scenario-baserad övervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 
@@ -547,7 +547,7 @@ Anger den [nästa hopp](https://docs.microsoft.com/azure/network-watcher/network
 
 Nästa hopp returnerar också routningstabellen som är associerad med nästa hopp. När du frågar efter en nästa hopp om vägen definieras som en användardefinierad väg, returneras det flödet. Annars returneras nästa hopp ”Systemväg”.
 
-#### <a name="security-group-view"></a>Säkerhetsgruppvy
+#### <a name="security-group-view"></a>säkerhetsgruppvy
 
 Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator. Nätverkssäkerhetsgrupper är associerade på en undernätverksnivå eller på en NIC-nivå. När associerade på en undernätverksnivå måste tillämpas på alla VM-instanser i undernätet. Nätverk [säkerhetsgrupp visa](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) returnerar alla konfigurerade NSG: er och regler som är associerade på Nätverkskorts- och undernätsnivå nivå för en virtuell dator som ger inblick i konfigurationen. Dessutom returneras gällande säkerhetsregler för varje nätverkskort på en virtuell dator. Med hjälp av nätverkssäkerhetsgruppvy, kan du utvärdera en virtuell dator för nätverk, till exempel öppna portar. Du kan också bekräfta om Nätverkssäkerhetsgruppen fungerar som förväntat baserat på en [jämförelse mellan den konfigurerade och gällande säkerhetsregler](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 

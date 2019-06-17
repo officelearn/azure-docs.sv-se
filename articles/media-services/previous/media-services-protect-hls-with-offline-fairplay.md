@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935408"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming för iOS 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Media Services som du använder:"]
 > * [Version 3](../latest/offline-fairplay-for-ios.md)
 > * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
 
@@ -207,7 +207,7 @@ Följande vanliga frågor och svar ge hjälp med felsökning:
 - **Varför den fortfarande spela upp ljudet utan video under offline-läge när jag har lagt till enbart ljud = false?** Beroende på content delivery network (CDN) cache viktiga utformning, kanske innehållet cachelagras. Rensa cacheminnet.
 - **FPS offline-läge stöds även på iOS 11 förutom iOS 10?** Ja. FPS offline-läge stöds för iOS 10 och iOS 11.
 - **Varför hittar inte dokumentet ”Offline uppspelning med FairPlay Streaming och HTTP Live Streaming” i FPS Server SDK?** Sedan FPS Server SDK version 4, skulle det här dokumentet samman i ”FairPlay Streaming Programming Guide”.
-- **Vad den sista parametern står för i följande API: et för FPS offline-läge?**
+- **Vad den sista parametern står för i följande API: et för FPS offline-läge?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Dokumentation för detta API finns i [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration metoden](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametern representerar passets offline hyra, med timme som enheten.

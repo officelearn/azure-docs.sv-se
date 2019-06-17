@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160961"
 ---
 Jobbet producerar en JSON-utdata-fil som innehåller metadata om identifierade och spårade ansikten. Metadata innehåller koordinater som anger platsen för ansikten, samt ett face ID-nummer som indikerar spårningen av den individen. Face ID-nummer är lätt att återställa under omständigheter när främre ansiktet förloras eller överlappas i RAM, vilket resulterar i vissa personer komma tilldelats flera ID: N.
@@ -31,11 +31,11 @@ Utdata JSON innehåller följande element:
 |Element|Beskrivning|
 |---|---|
 | start |Starttiden för den första händelsen i ”ticken”. |
-| varaktighet |Längden på ett fragment, i ”ticken”. |
+| Varaktighet |Längden på ett fragment, i ”ticken”. |
 | index | (Gäller bara för Azure Media Redactor) definierar ramens index för den aktuella händelsen. |
 | interval |Intervallet för varje händelsepost i avsnittet i ”ticken”. |
-| händelser |Varje händelse innehåller ansikten har identifierats och spåras inom den varaktigheten. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten. En tom hakparentes [] innebär inga ansikten har identifierats. |
-| ID |ID för ansiktet som spåras. Det här talet ändras oavsiktligt om ett ansikte blir oidentifierade. En viss person bör ha samma ID i hela den övergripande videon, men detta kan inte garanteras på grund av begränsningar i identifieringsalgoritm (ocklusion, osv.). |
+| evenemang |Varje händelse innehåller ansikten har identifierats och spåras inom den varaktigheten. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten. En tom hakparentes [] innebär inga ansikten har identifierats. |
+| id |ID för ansiktet som spåras. Det här talet ändras oavsiktligt om ett ansikte blir oidentifierade. En viss person bör ha samma ID i hela den övergripande videon, men detta kan inte garanteras på grund av begränsningar i identifieringsalgoritm (ocklusion, osv.). |
 | x, y |Övre vänstra hörnet X och Y-koordinaterna för de står inför angränsande ruta i en normaliserad skala av 0,0 till 1,0. <br/>-X- och Y koordinaterna är relativ till liggande alltid, så om du har en stående video (eller upp och ned, när det gäller iOS), måste du transponera koordinaterna i enlighet med detta. |
 | bredd, höjd |Bredden och höjden på ansiktet angränsande ruta i en normaliserad skala av 0,0 till 1,0. |
 | facesDetected |Detta finns i slutet av JSON-resultaten och sammanfattar hur många ansikten som algoritmen har identifierats under videon. Eftersom de ID: N kan återställas oavsiktligt om ett ansikte blir oidentifierade (t.ex. de står inför går utanför skärmen ser direkt), det här antalet kan inte alltid lika med SANT antalet ansikten i videon. |

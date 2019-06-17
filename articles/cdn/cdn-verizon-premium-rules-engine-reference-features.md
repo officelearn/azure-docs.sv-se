@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080776"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium regler – funktioner
 
@@ -338,7 +338,7 @@ Om du vill duplicera ”no-cache” cachelagring av frågesträngar beteende på
 
 Följande exempel för den här funktionen tillhandahåller en exempelförfrågan och standard-cachenyckel:
 
-- **Exempel på begäran:** http://wpc.0001.&lt; Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234 och språk = sv & userid = 01
+- **Exempel på begäran:** http://wpc.0001.&lt ; Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234 och språk = sv & userid = 01
 - **Standard cachenyckel:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inkludera
@@ -516,8 +516,8 @@ Format för att ange sidhuvuden för begäran och svar definieras enligt följan
 
 Rubriktyp|Format|Exempel
 -|-|-
-Begärandehuvud|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> % {Auktorisering} i
-Svarshuvud|%{[ResponseHeader]()}[o]()| %{Age}o <br/> % {Content-Type}-o <br/> %{Cookie}o
+Begärandehuvud|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> % {Auktorisering} i
+Svarshuvud|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> % {Content-Type}-o <br/> %{Cookie}o
 
 Viktig information:
 
@@ -999,7 +999,7 @@ Viktig information:
     - server
     - trailer
     - transfer-encoding
-    - Uppgradera
+    - upgrade
     - variera
     - via
     - varning

@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
 ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106308"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Monitor-loggar i Azure Logic Apps
@@ -46,7 +46,7 @@ Du kan aktivera loggning antingen direkt från ditt integrationskonto eller [via
 1. Nu hitta och välj ditt integrationskonto. I filtret listor, väljer du de värden som gäller för ditt integrationskonto.
 När du är klar väljer **Lägg till diagnostikinställning**.
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som är associerat med ditt integrationskonto | 
    | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resursgrupp för ditt integrationskonto | 
@@ -88,7 +88,7 @@ När du är klar väljer **Lägg till diagnostikinställning**.
 1. Nu hitta och välj ditt integrationskonto. I filtret listor, väljer du de värden som gäller för ditt integrationskonto.
 När du är klar väljer **Lägg till diagnostikinställning**.
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som är associerat med ditt integrationskonto | 
    | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resursgrupp för ditt integrationskonto | 

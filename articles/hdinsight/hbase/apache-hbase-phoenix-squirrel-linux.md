@@ -1,19 +1,19 @@
 ---
 title: 'Snabbstart: Fråga Apache HBase i Azure HDInsight - Apache Phoenix'
-description: Lär dig använda Apache Phoenix i HDInsight. Dessutom lär du dig hur du installerar och konfigurerar SQLLine på din dator att ansluta till ett HBase-kluster i HDInsight.
+description: I den här snabbstarten får du lära dig hur du använder Apache Phoenix i HDInsight. Dessutom lär du dig hur du installerar och konfigurerar SQLLine på din dator att ansluta till ett HBase-kluster i HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: fd812698ef68a4077b7de6a612392d30d195ec39
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076279"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Snabbstart: Fråga Apache HBase i Azure HDInsight med Apache Phoenix
 
@@ -126,10 +126,3 @@ I den här snabbstarten lärde du dig att använda Apache Phoenix köra HBase fr
 
 > [!div class="nextstepaction"]
 > [Apache Phoenix i HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-
-## <a name="see-also"></a>Se även
-
-* [SQLLine manuell](http://sqlline.sourceforge.net/#manual).
-* [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html).
-* [Apache Phoenix i 15 minuter eller mindre](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
-* [HDInsight HBase-översikt](./apache-hbase-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Hur – kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
-description: Lär dig hur du konfigurerar principer för Azure Active Directory (Azure AD) enhetsbaserad villkorlig åtkomst som kräver hanterade enheter för åtkomst till appen i molnet.
+title: Hur – kräver hanterade enheter för åtkomst till appen molnet med Azure Active Directory villkorlig åtkomst | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) enhetsbaserade principer för villkorlig åtkomst som kräver hanterade enheter för åtkomst till appen i molnet.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -17,12 +17,12 @@ ms.date: 06/14/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354799"
+ms.locfileid: "67112150"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv att hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du kan konfigurera principer för villkorlig å
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorsstyrd åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
+Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorlig åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
 
 - **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
 
@@ -44,7 +44,7 @@ Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorsstyrd
 
 Mastering balans mellan säkerhet och produktivitet är en utmaning. Det hjälper dig för att förbättra användarnas produktivitet ökningen av enheter som stöds till dina molnresurser. Å andra sidan vill du förmodligen inte vissa resurser i din miljö för att användas av enheter med en okänd skyddsnivån. För de berörda resurserna bör du kräva att användare kan bara komma åt dem med hjälp av en hanterad enhet. 
 
-Med Azure AD villkorlig åtkomst, kan du lösa det här kravet med en enda princip som tilldelar åtkomst:
+Du kan lösa det här kravet med en enda princip som tilldelar åtkomst med Azure AD villkorlig åtkomst:
 
 - Till valda molnappar
 

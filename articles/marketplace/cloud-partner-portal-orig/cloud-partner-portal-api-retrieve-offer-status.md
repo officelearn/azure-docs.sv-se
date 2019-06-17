@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935459"
 ---
 <a name="retrieve-offer-status"></a>Hämta erbjudandestatus 
@@ -155,7 +155,7 @@ Hämtar den aktuella statusen för erbjudandet.
 |  **Namn**                    |    **Beskrivning**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | Erbjudandet har inte publicerats.                          |
-|  NotStarted                  | Erbjudandet är nytt och inte startad.                            |
+|  Ej startad                  | Erbjudandet är nytt och inte startad.                            |
 |  WaitingForPublisherReview   | Erbjudande väntar på godkännande av utgivaren.                 |
 |  Körs                     | Erbjud bidrag bearbetas.                     |
 |  Lyckades                   | Erbjudandet bidrag har bearbetat.               |
@@ -168,12 +168,12 @@ Hämtar den aktuella statusen för erbjudandet.
 
 |  **Namn**                    |    **Beskrivning**                           |
 |  -------------------------   |  ------------------------------------------  |
-|  NotStarted                  | Steg har inte startat.                        |
+|  Ej startad                  | Steg har inte startat.                        |
 |  Pågår                  | Steget körs.                             |
 |  WaitingForPublisherReview   | Steget väntar på godkännande av utgivaren.      |
 |  WaitingForApproval          | Steget väntar på godkännande av processen.        |
 |  Blockerad                     | Steg blockeras.                             |
-|  Avvisad                    | Steg avvisas.                            |
+|  Avvisade                    | Steg avvisas.                            |
 |  Slutför                    | Steg har slutförts.                            |
 |  Avbrutna                    | Steg avbröts.                           |
 |  |  |

@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925681"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Ange in ett program utvecklare kontrollerad Distribution (ADCD) i IBM zD & T v1
@@ -165,7 +165,7 @@ När det tidigare konfigurationssteget är slutförd, den **skapar du en avbildn
 
 7. På nästa skärm anger du dina autentiseringsuppgifter för den virtuella datorn (det vill säga inte ztadmin autentiseringsuppgifter).
 
-8. I fönstret Egenskaper anger du antalet **centrala processorer (CPs)**, mängden **systemminnet (GB)**, och **distributionskatalogen** för avbildningen som körs. Eftersom detta är en demo du hålla allt små.
+8. I fönstret Egenskaper anger du antalet **centrala processorer (CPs)** , mängden **systemminnet (GB)** , och **distributionskatalogen** för avbildningen som körs. Eftersom detta är en demo du hålla allt små.
 
 9. Kontrollera att den är markerad för **problemet IPL kommando för att z/OS när du distribuerar automatiskt**.
 

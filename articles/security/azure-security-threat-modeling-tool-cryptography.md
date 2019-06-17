@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121225"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Security ram: Kryptografi | Åtgärder 
@@ -35,7 +35,7 @@ ms.locfileid: "62121225"
 
 ## <a id="cipher-length"></a>Använd endast godkända symmetriska blockchiffer och nyckellängder
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -46,7 +46,7 @@ ms.locfileid: "62121225"
 
 ## <a id="vector-ciphers"></a>Använd godkända block chiffer lägen och initiering angreppsmetoderna symmetriska chiffer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -57,7 +57,7 @@ ms.locfileid: "62121225"
 
 ## <a id="padding"></a>Använd godkända asymmetriska algoritmer, nyckellängder och utfyllnad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -68,7 +68,7 @@ ms.locfileid: "62121225"
 
 ## <a id="numgen"></a>Använd godkända slumpmässigt nummer generatorer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -79,7 +79,7 @@ ms.locfileid: "62121225"
 
 ## <a id="stream-ciphers"></a>Använd inte symmetriska stream-chiffer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -90,7 +90,7 @@ ms.locfileid: "62121225"
 
 ## <a id="mac-hash"></a>Använd godkända MAC/HMAC/registreras hash-algoritmer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -101,7 +101,7 @@ ms.locfileid: "62121225"
 
 ## <a id="hash-functions"></a>Använd endast godkända kryptografiska hash-funktioner
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -112,7 +112,7 @@ ms.locfileid: "62121225"
 
 ## <a id="strong-db"></a>Använda stark krypteringsalgoritmer för att kryptera data i databasen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -123,7 +123,7 @@ ms.locfileid: "62121225"
 
 ## <a id="ssis-signed"></a>SSIS-paket ska krypteras och digitalt signerade
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -134,7 +134,7 @@ ms.locfileid: "62121225"
 
 ## <a id="securables-db"></a>Lägg till digital signatur i kritiska databasen skyddbara objekt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -145,7 +145,7 @@ ms.locfileid: "62121225"
 
 ## <a id="ekm-keys"></a>Använda SQLServer EKM för att skydda krypteringsnycklar
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -156,7 +156,7 @@ ms.locfileid: "62121225"
 
 ## <a id="keys-engine"></a>Använda AlwaysEncrypted funktionen om krypteringsnycklar inte ska lämnas ut till databasmotorn
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -167,7 +167,7 @@ ms.locfileid: "62121225"
 
 ## <a id="keys-iot"></a>Store kryptografiska nycklar på ett säkert sätt på IoT-enheter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -190,7 +190,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="random-hub"></a>Generera en slumpmässig symmetrisk nyckel med tillräckligt med längden för autentisering till IoT Hub
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
@@ -201,7 +201,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="pin-remote"></a>Se till att en princip för hantering av enheter som kräver en PIN-kod för användning och tillåter fjärråtkomst rensas
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM Mobile Client | 
 | **SDL fas**               | Distribution |  
@@ -212,7 +212,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="bitlocker"></a>Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. BitLocker)
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM Outlook Client | 
 | **SDL fas**               | Utveckla |  
@@ -223,7 +223,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="rolled-server"></a>Se till att Signeringsnycklar har flyttats över när du använder Identity Server
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Distribution |  
@@ -234,7 +234,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="client-server"></a>Se till att kryptografiskt stark klient-ID, klienthemlighet är används i Identity Server
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Utveckla |  

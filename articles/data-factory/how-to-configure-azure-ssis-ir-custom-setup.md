@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711570"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
@@ -66,7 +66,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
 1. Hämta, installera och starta [Azure Storage Explorer](https://storageexplorer.com/).
 
-   1. Under **(lokala och anslutna)**, höger-Välj **Lagringskonton** och välj **Anslut till Azure storage**.
+   1. Under **(lokala och anslutna)** , höger-Välj **Lagringskonton** och välj **Anslut till Azure storage**.
 
       ![Anslut till Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -122,7 +122,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
 1. Om du vill se andra exempel på anpassad installation, ansluter du till behållaren offentlig förhandsversion med Azure Storage Explorer.
 
-   a.  Under **(lokala och anslutna)**, högerklicka på **Lagringskonton**väljer **Anslut till Azure storage**väljer **använda en anslutningssträng eller en delad åtkomst signatur-URI för**, och välj sedan **nästa**.
+   a.  Under **(lokala och anslutna)** , högerklicka på **Lagringskonton**väljer **Anslut till Azure storage**väljer **använda en anslutningssträng eller en delad åtkomst signatur-URI för**, och välj sedan **nästa**.
 
       ![Anslut till Azure storage med signatur för delad åtkomst](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

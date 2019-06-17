@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806363"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Rapport om användningen och insikter i Azure Active Directory-portalen
@@ -45,7 +45,7 @@ Om du vill komma åt data i rapporten användningen och insikter, behöver du:
 2. Välj rätt katalog och sedan **Azure Active Directory** och välj **företagsprogram**.
 3. Från den **aktivitet** väljer **användning och insikter** att öppna rapporten. 
 
-![Användningen och insikter rapport](./media/concept-usage-insights-report/main-menu.png)
+![Rapport om användning och insikter](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Använda rapporten
@@ -58,7 +58,7 @@ Du kan också ange fokus på ett visst program. Välj **visa inloggningsaktivite
 
 När du väljer en dag i programmet Se Användningsdiagram, få en detaljerad lista över inloggningsaktiviteterna för programmet.  
 
-![Användningen och insikter rapport](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Rapport om användning och insikter](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

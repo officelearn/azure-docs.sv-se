@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bb5c4d508344f391d610aeaa7e0be54a93c997dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080034"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -194,87 +194,6 @@ Ja. Azure DNS-namnservrarna är dual stack. Dual stack innebär att de har IPv4 
 Internationaliserade domännamn (IDN) koda varje DNS-namn med hjälp av [punycode](https://en.wikipedia.org/wiki/Punycode). DNS-frågor görs med hjälp av dessa punycode-kodat namn.
 
 Konvertera zonnamn eller postuppsättningsnamnet till punycode om du vill konfigurera IDN: er i Azure DNS. Azure DNS stöder inte för närvarande inbyggda konvertering till eller från punycode.
-
-## <a name="private-dns"></a>Privata DNS
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-### <a name="does-azure-dns-support-private-domains"></a>Stöder privata domäner i Azure DNS?
-
-Stöd för privata domäner implementeras med hjälp av funktionen privata zoner. Den här funktionen är för närvarande tillgängligt som offentlig förhandsversion. Privata zoner hanteras genom att använda samma verktyg som internet-ansluten Azure DNS-zoner. De är matchas från i de angivna virtuella nätverken. Mer information finns i den [översikt](private-dns-overview.md).
-
-Privata zoner stöds för närvarande inte på Azure portal.
-
-Information om andra interna DNS-alternativ i Azure finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Vad är skillnaden mellan virtuella nätverk för registrering och virtuella matchningsnätverk i samband med privata zoner?
-
-Du kan länka virtuella nätverk till en privat DNS-zon som ett virtuellt nätverk för registrering eller som ett virtuellt nätverk för matchning. I båda fallen matcha virtuella datorer i det virtuella nätverket har mot poster i den privata zonen. Med ett virtuellt nätverk för registrering registreras DNS-poster automatiskt i zonen för de virtuella datorerna i det virtuella nätverket. När en virtuell dator i en registrering av virtuellt nätverk har tagits bort, tas motsvarande DNS-posten från den länkade privata zonen bort automatiskt. 
-
-### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS Private Zones fungerar i Azure-regioner?
-
-Ja. Privata zoner har stöd för DNS-matchning mellan virtuella nätverk i Azure-regioner. Privata zoner fungerar även om du inte uttryckligen peerkoppla virtuella nätverk. De virtuella nätverken måste anges som virtuella matchningsnätverk för privat zon. Kunder kan måste de virtuella nätverken är peer-kopplad för TCP/HTTP-trafik kan flöda från en region till en annan.
-
-### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Är anslutningen till Internet från virtuella nätverk som krävs för privata zoner?
-
-Nej. Privata zoner fungerar tillsammans med virtuella nätverk. Kunder använda dem för att hantera domäner för virtuella datorer eller andra resurser inom och mellan virtuella nätverk. Internetanslutning krävs inte för namnmatchning. 
-
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Kan samma privat zon användas för flera virtuella nätverk för matchning av?
-
-Ja. Kunder kan associera upp till 10 virtuella matchningsnätverk med en privat zon.
-
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Kan ett virtuellt nätverk som hör till en annan prenumeration läggas till som ett virtuellt nätverk för lösning till en privat zon?
-
-Ja. Du måste ha skrivbehörighet för åtgärden på de virtuella nätverken och privata DNS-zonen. Skrivbehörighet kan beviljas till flera RBAC-roller. Till exempel har klassiska nätverk deltagare RBAC-roller skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
-
-### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Automatiskt registrerade VM DNS-poster i en privat zon raderas automatiskt när de virtuella datorerna har tagits bort av kunden?
-
-Ja. Om du tar bort en virtuell dator inom ett virtuellt nätverk för registrering av tas DNS-posterna som registrerades i zonen bort automatiskt. 
-
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kan en automatiskt registrerade VM-post i en privat zon från en virtuellt registreringsnätverk tas bort manuellt?
-
-Nej. De virtuella datorn DNS-poster som registreras automatiskt i en privat zon från ett virtuellt nätverk för registrering är inte synlig eller redigerbar av kunder. Du kan skriva över de automatiskt registrerad DNS-posterna med en manuellt skapad DNS-post i zonen. Följande frågor och svar kan du lösa det här avsnittet.
-
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Vad händer när vi försöker att manuellt skapa en ny DNS-post till en privat zon som har samma värdnamn som en befintlig virtuell dator som ska registreras automatiskt i ett virtuellt nätverk för registrering?
-
-Försök att manuellt skapa en ny DNS-post till en privat zon som har samma värdnamn som en befintlig, automatiskt registrerad-dator i ett virtuellt nätverk för registrering. När du gör det, skriver den nya DNS-posten över automatiskt registrerade VM-post. Om du försöker ta bort den här manuellt skapade DNS-posten från zonen igen, lyckas ta bort. Automatisk registrering sker igen så länge som den virtuella datorn fortfarande finns och har en privat IP-adress som är kopplade till den. DNS-posten skapas automatiskt i zonen.
-
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>Vad händer när vi ta bort länken till ett virtuellt registreringsnätverk från en privat zon? Automatiskt registrerade VM-poster från det virtuella nätverket tas bort från zonen för?
-
-Ja. Om du vill ta bort länken till ett virtuellt registreringsnätverk från en privat zon, kan du uppdatera DNS-zonen för att ta bort det associerade virtuella nätverket för registrering. I den här processen tas VM-poster som har registreras automatiskt bort från zonen. 
-
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Vad händer om vi tar bort ett registrering eller matchning virtuellt nätverk som är länkad till en privat zon? Har vi uppdatera den privata zonen för att ta bort länken till det virtuella nätverket som ett registrerings- eller virtuella matchningsnätverk från zonen manuellt?
-
-Ja. När du tar bort ett virtuellt nätverk för registrering eller matchning utan att bryta dess länk från en privat zon först lyckas din borttagningen. Men det virtuella nätverket är inte automatiskt avlänkas från din privata zon, om sådana. Du måste manuellt ta bort länken till det virtuella nätverket från den privata zonen. Därför ta bort länken till ditt virtuella nätverk från din privata zonen innan du tar bort den.
-
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>DNS-matchningen med hjälp av standard FQDN (internal.cloudapp.net) fungerar fortfarande även när en privat zon (till exempel private.contoso.com) är länkad till ett virtuellt nätverk?
-
-Ja. Privata zoner ersätter inte DNS-upplösning som standard med hjälp av Azure-tillhandahållen internal.cloudapp.net zonen. Den erbjuds som en ytterligare funktion eller förbättring. Om du förlitar dig på Azure-tillhandahållen internal.cloudapp.net eller på din egen privat zon använder du det fullständiga Domännamnet för zonen som du vill matcha mot. 
-
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>DNS-suffix på virtuella datorer inom ett virtuellt nätverk som är länkade ändras med den privata zonen?
-
-Nej. DNS-suffix på de virtuella datorerna i ditt länkade virtuella nätverk är som standard medföljer Azure suffix (”*. internal.cloudapp.net”). Du kan manuellt ändra den här DNS-suffix på dina virtuella datorer med den privata zonen. 
-
-### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Finns det några begränsningar för privata zoner för den här förhandsversionen?
-
-Ja. Den offentliga förhandsversionen finns följande begränsningar.
-* Ett virtuellt registreringsnätverk per privat zon.
-* Upp till 10 virtuella matchningsnätverk per privat zon.
-* En beroende virtuella nätverkslänkar till endast en privat zon som ett virtuellt nätverk för registrering.
-* En given virtuella nätverkslänkar till upp till 10 privata zoner som ett virtuellt nätverk för matchning.
-* Om ett virtuellt nätverk för registrering har angetts, kan DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte visas eller hämtas från PowerShell, CLI eller API: er. VM-poster har registrerats och lösa har.
-* Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
-* Omvänd DNS för en privat IP-adress som inte är registrerat i den privata zonen returnerar ”internal.cloudapp.net” som DNS-suffix. Detta suffix får inte vara löst. Ett exempel är en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk lösning till en privat zon.
-* Ett virtuellt nätverk måste anges när den länkar för första gången för att en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket sedan kan inte vara tom för att framtida länka som ett registrering eller matchning virtuellt nätverk till andra privata zoner.
-* Villkorlig vidarebefordran stöds inte, till exempel om du vill aktivera matchning mellan Azure och lokala nätverk. Lär dig hur kunderna kan få det här scenariot via andra mekanismer. Se [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
-
-### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Finns det någon kvoter eller gränser för zoner eller poster för privata zoner?
-
-Det finns ingen gräns för antalet zoner som tillåts per prenumeration för privata zoner. Det finns ingen gräns för antalet postuppsättningar per zon för privata zoner. Både offentliga och privata zoner tillgodoräknas övergripande DNS-gränser. Mer information finns i den [Azure-prenumeration och tjänstbegränsningar](../azure-subscription-service-limits.md#azure-dns-limits)
-
-### <a name="is-there-portal-support-for-private-zones"></a>Finns det portal-stöd för privata zoner?
-
-Privata zoner som redan har skapats via API: er, PowerShell, CLI och SDK: er är synliga på Azure portal. Men kunder kan inte skapa nya privata zoner eller hantera associationer med virtuella nätverk. För virtuella nätverk som är associerade som virtuellt registreringsnätverk kan visas från portalen inte automatiskt registrerade VM-poster. 
 
 ## <a name="next-steps"></a>Nästa steg
 

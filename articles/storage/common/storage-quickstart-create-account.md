@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234167"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -63,7 +63,7 @@ Ingen.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -220,7 +220,7 @@ Om du vill rensa de resurser som skapats av den här artikeln kan du ta bort res
 Ta bort en resursgrupp med Azure-portalen:
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
-2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** (**...**) till höger om listan.
+2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** ( **...** ) till höger om listan.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067399"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Serverloggar i Azure Database för PostgreSQL – enskild Server
@@ -50,9 +50,9 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpun
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Loggning nivå, exempel: LOGGEN, FEL, MEDDELANDE |
-| Meddelande | Primär loggmeddelande | 
+| Message | Primär loggmeddelande | 
 | Domain | Server-versionen, till exempel: postgres-10 |
-| Information | Sekundär loggmeddelande (om tillämpligt) |
+| Detalj | Sekundär loggmeddelande (om tillämpligt) |
 | columnName | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Namnet på schemat (om tillämpligt) |
 | DatatypeName | Namnet på datatypen (om tillämpligt) |

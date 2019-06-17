@@ -18,10 +18,10 @@ ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797450"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP-certifieringar och konfigurationer som körs på Microsoft Azure
@@ -51,7 +51,7 @@ Referenser:
 - [1928533 - SAP-program på Azure: Produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533) för alla SAP NetWeaver-baserade program, inklusive SAP TREX, SAP LiveCache och SAP innehållsserver. Och alla databaser, exklusive SAP HANA.
 
 
-| SAP-produkt | Gäst-OS | RDBMS | Typer av virtuella datorer |
+| SAP-produkt | Gästoperativsystem | RDBMS | Typer av virtuella datorer |
 | --- | --- | --- | --- |
 | SAP Business Suite-program | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, DS11_v2 to DS15_v2, GS1 to GS5, D2s_v3 to D64s_v3, E2s_v3 to E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQLServer, Oracle (Windows och endast Oracle Linux), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, DS11_v2 to DS15_v2, GS1 to GS5, D2s_v3 to D64s_v3, E2s_v3 to E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
@@ -60,7 +60,7 @@ Referenser:
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Andra SAP-arbetsbelastningar som stöds i Azure
 
-| SAP-produkt | Gäst-OS | RDBMS | Typer av virtuella datorer |
+| SAP-produkt | Gästoperativsystem | RDBMS | Typer av virtuella datorer |
 | --- | --- | --- | --- |
 | SAP Business en på SQLServer | Windows  | SQL Server | Alla NetWeaver certifierade VM-typer<br /> [SAP-kommentar #928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BITAR PER KANAL 10.01 MS SP08 | Windows och Linux | | Alla typer av NetWeaver certifierade virtuella datorer<br /> SAP-kommentar #2451795 |

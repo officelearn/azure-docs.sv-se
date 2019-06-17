@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111230"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobilprogram att anrop webb-API: er
 
@@ -52,7 +52,7 @@ Att tänka på för mobilappar:
 
 - **Användarupplevelsen är nyckeln**: Tillåt användare att se värdet av din app innan du ställer för att logga in och begär bara behörigheterna som krävs.
 - **Stöd för alla användarkonfigurationer**: Många mobila affärsanvändare är under villkorlig åtkomst och policyer för efterlevnad. Var noga med att stödja dessa viktiga scenarier.
-- **Implementera enkel inloggning (SSO)**: MSAL och Microsoft identity-plattformen gör att aktivera enkel inloggning för enkelt via enhetens webbläsare eller Microsoft Authenticator (och Intune-Företagsportalen för Android).
+- **Implementera enkel inloggning (SSO)** : MSAL och Microsoft identity-plattformen gör att aktivera enkel inloggning för enkelt via enhetens webbläsare eller Microsoft Authenticator (och Intune-Företagsportalen för Android).
 
 ## <a name="specifics"></a>Närmare information
 

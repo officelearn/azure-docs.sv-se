@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/11/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6e1870093dc89856e093267172418e9c7330c479
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080568"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge är en AI-aktiverad edge-beräkningsenhet med funktioner fö
     - Dela in de data som behövs för djupare analys i molnet i delmängder och överföra dem.
     - Analysera och reagera på IoT-händelser. 
 
-- **Inference Azure Machine Learning** – med Data Box Edge kan du köra ML-modeller (Machine Learning) för att få snabba resultat som kan användas innan data skickas till molnet. Den fullständiga datamängden överförs för att fortsätta att träna om och förbättra dina ML-modeller.
+- **Inference Azure Machine Learning** – med Data Box Edge kan du köra ML-modeller (Machine Learning) för att få snabba resultat som kan användas innan data skickas till molnet. En fullständig uppsättning data kan överföras om du vill fortsätta att träna och förbättra dina ML-modeller. Läs mer om hur du använder Azure ML-maskinvara snabbare modeller på Databox Edge-enhet i [distribuera Azure ML maskinvara accelerated modeller på Databox Edge](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Överföra data över nätverket till Azure** – använd Data Box Edge för att snabbt och enkelt överföra data till Azure för att möjliggöra ytterligare beräkning och analys eller i arkiveringssyfte. 
 

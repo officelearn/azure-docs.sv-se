@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800124"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Anpassa en Person modell med Video Indexer-webbplats
@@ -28,14 +28,14 @@ Du kan använda Video Indexer-webbplatsen för att redigera ansikten som upptäc
 1. Om du vill visa, redigera och ta bort Person-modeller i ditt konto, bläddra till Video Indexer-webbplatsen och logga in.
 2. Klicka på knappen innehållsmodellen anpassning i det övre högra hörnet på sidan.
 
-    ![Anpassning av innehållsmodellen](./media/customize-face-model/content-model-customization.png)
+    ![Innehållsmodellen anpassning](./media/customize-face-model/content-model-customization.png)
 3. Välj fliken personer.
 
     Standard Person modellen visas i ditt konto. Den Person som standard-modellen innehåller alla ansikten du redigeras eller ändras i insikter om dina videor som du inte har angett en anpassad modell Person under indexering. 
 
     Om du har skapat andra Person modeller, visas de på den här sidan också. 
 
-    ![Anpassning av innehållsmodellen](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![Innehållsmodellen anpassning](./media/customize-face-model/content-model-customization-people-tab.png)
 
 ## <a name="create-a-new-person-model"></a>Skapa en ny Person-modell
 
@@ -91,7 +91,7 @@ Du kan ta bort alla Person-modell som du skapade i ditt konto. Men du kan inte t
 
     ![Ta bort en person](./media/customize-face-model/delete-person.png)
     
-    Ett popup-fönster ska visas och meddelar dig om att den här åtgärden tar bort Person modellen och alla personer och filer som ingår. Det går inte att ångra den här åtgärden. 
+    Ett popup-fönster ska visas och meddelar dig om att den här åtgärden tar bort Person modellen och alla personer och filer som ingår. Den här åtgärden kan inte ångras. 
 
     ![Ta bort en person](./media/customize-face-model/delete-person2.png)
 1. Klicka på Ta bort igen om du är säker.

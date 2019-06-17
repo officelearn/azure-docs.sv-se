@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603103"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
@@ -121,14 +121,14 @@ Azure Import/Export-tjänsten har stöd för kopiering av data till och från al
 
 |Land/region  |Land/region  |Land/region  |Land/region  |
 |---------|---------|---------|---------|
-|Östra USA    | Europa, norra        | Indien, centrala        |US Gov, Iowa         |
-|USA, västra     |Europa, västra         | Indien, södra        | US DoD Östra        |
-|USA, östra 2    | Asien, östra        |  Indien, västra        | US DoD Centrala        |
-|USA, västra 2     | Sydostasien        | Kanada, centrala        | Kina, östra         |
-|Centrala USA     | Australien, östra        | Kanada, östra        | Kina, norra        |
-|USA, norra centrala     |  Australien, sydöstra       | Brasilien, södra        | Södra Storbritannien        |
-|USA, södra centrala     | Japan, västra        |Sydkorea, centrala         | Tyskland, centrala        |
-|USA, västra centrala      |  Japan, östra       | Virginia (USA-förvaltad region)        | Tyskland, nordöstra        |
+|Östra USA    | Norra Europa        | Indien, centrala        |US Gov, Iowa         |
+|Västra USA     |Västra Europa         | Södra Indien        | US DoD, östra        |
+|USA, östra 2    | Östasien        |  Indien, västra        | US DoD, centrala        |
+|Västra USA 2     | Sydostasien        | Centrala Kanada        | Östra Kina         |
+|Centrala USA     | Östra Australien        | Östra Kanada        | Norra Kina        |
+|Norra centrala USA     |  Sydöstra Australien       | Södra Brasilien        | Storbritannien, södra        |
+|Södra centrala USA     | Västra Japan        |Sydkorea, centrala         | Centrala Tyskland        |
+|Västra centrala USA     |  Östra Japan       | Virginia (USA-förvaltad region)        | Nordöstra Tyskland        |
 
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden

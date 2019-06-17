@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269200"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappningen Data Flow Uttrycksverktyget
@@ -42,7 +42,7 @@ När du arbetar på ditt uttryck kan växla du om du vill på felsökningsläge 
 
 ![Uttrycksverktyget](media/data-flow/exp5.png "uttryck förhandsgranskning")
 
-## <a name="comments"></a>Kommentarer
+## <a name="comments"></a>Kommentar
 
 Lägga till kommentarer i ditt uttryck med hjälp av enda rad och flerradiga kommentarssyntax:
 

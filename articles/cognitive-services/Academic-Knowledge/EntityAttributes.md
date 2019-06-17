@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340187"
 ---
 # <a name="entity-attributes"></a>Entitetsattribut
@@ -24,7 +24,7 @@ Academic graph består av 7 typer av entiteten. Alla entiteter har en entitets-I
 ## <a name="common-entity-attributes"></a>Vanliga entitetsattribut
 Namn    |Beskrivning                |Typ       | Åtgärder
 ------- | ------------------------- | --------- | ----------------------------
-Id      |Enhets-id                  |Int64      |Lika med
+Id      |Entitets-ID                  |Int64      |Lika med
 Ty      |Entitetstyp                |Enum   |Lika med
 
 ## <a name="entity-type-enum"></a>Entiteten typen enum

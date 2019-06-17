@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881224"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Källkontrollintegrering i Azure Automation - äldre
@@ -45,7 +45,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
    | Välj källa |Välj källa. För närvarande endast **GitHub** stöds. |
    | Auktorisering |Klicka på den **auktorisera** knappen för att bevilja Azure Automation-åtkomst till din GitHub-lagringsplats. Om du redan är inloggad på ditt GitHub-konto i ett annat fönster, används autentiseringsuppgifterna för kontot. När auktoriseringen är klar visas sidan för ditt GitHub-användarnamn under **auktorisering egenskapen**. |
    | Välj centrallager |Välj en GitHub-lagringsplats i listan över tillgängliga databaser. |
-   | Välj en gren |Välj en gren i listan över tillgängliga grenar. Endast den **master** grenen visas om du inte har skapat några grenar. |
+   | Välj gren |Välj en gren i listan över tillgängliga grenar. Endast den **master** grenen visas om du inte har skapat några grenar. |
    | Runbookmapp |Sökvägen till runbook-mappen anger sökvägen i GitHub-lagringsplats från vilken du vill skicka eller hämta din kod. Det måste anges i formatet **/mappnamn/undermappsnamn**. Endast runbookar i sökvägen till runbook-mappen kommer att synkroniseras till din Automation-konto. Runbooks i undermappar i sökvägen till runbook-mappen kommer **inte** synkroniseras. Använd **/** att synkroniseras alla runbookar under databasen. |
 3. Exempel: Om du har en databas med namnet **PowerShellScripts** som innehåller en mapp med namnet **RootFolder**, som innehåller en mapp med namnet **undermapp**. Du kan använda följande strängar för att synkronisera varje mappnivå:
 

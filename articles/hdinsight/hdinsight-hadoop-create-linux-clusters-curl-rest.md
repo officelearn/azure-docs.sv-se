@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059410"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop-kluster med Azure REST-API
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707350"
 Lär dig hur du skapar ett HDInsight-kluster med hjälp av en Azure Resource Manager-mall och Azure REST-API.
 
 Azure REST-API kan du utföra hanteringsåtgärder på tjänster som finns i Azure-plattformen, inklusive att skapa nya resurser, till exempel HDInsight-kluster.
-
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]  
 > Stegen i det här dokumentet används de [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) verktyg för att kommunicera med Azure REST-API.
@@ -215,7 +212,7 @@ Det här exemplet används i stegen i det här dokumentet. Ersätta exemplet *v�
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
+## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
 Följ stegen i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) och ansluta till din prenumeration med hjälp av den `az login` kommando.
 

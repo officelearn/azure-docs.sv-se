@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose distribution förhandsversion
 description: Azure Service Fabric accepterar Docker Compose-format för att göra det lättare att dirigera befintliga behållare med Service Fabric. Det här stödet förhandsvisas just nu.
 services: service-fabric
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 2/23/2018
+ms.author: aljo, subramar
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60948842"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose-distributionsstöd i Azure Service Fabric (förhandsversion)
@@ -139,8 +138,8 @@ Konfigurera klustret för att genomdriva resursbegränsningar, enligt beskrivnin
 ### <a name="ports-section"></a>Portar avsnittet
 
 Ange antingen http eller https-protokollet i avsnittet portar som används av Service Fabric service-lyssnare. Detta säkerställer att protokollet som slutpunkten har publicerats korrekt med namngivningstjänsten att omvänd proxyserver som vidarebefordrar begäranden:
-* För att dirigera till oskyddade Service Fabric Compose-tjänster, ange **/http**. Till exempel- **”80:80 / http”**.
-* För att dirigera till säkra Service Fabric Compose-tjänster, ange **/https**. Till exempel- **”443:443 / https”**.
+* För att dirigera till oskyddade Service Fabric Compose-tjänster, ange **/http**. Till exempel- **”80:80 / http”** .
+* För att dirigera till säkra Service Fabric Compose-tjänster, ange **/https**. Till exempel- **”443:443 / https”** .
 
 > [!NOTE]
 > /Http och /https portar avsnittet syntax är specifika för Service Fabric för att registrera rätt URL för Service Fabric-lyssnare.  Om Docker compose file-syntax verifieras programmässigt, kan det orsaka ett valideringsfel.
@@ -166,5 +165,3 @@ Till exempel kund A kan ha ett program som instansierats med AppTypeA 1.0 och ku
 
 * Läs igenom den [Service Fabric-programmodellen](service-fabric-application-model.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)
-
-<!-- Update_Description: wording update -->

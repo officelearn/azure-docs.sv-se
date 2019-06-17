@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979330"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Skapa principer för matris egenskaper på Azure-resurser
@@ -185,7 +185,7 @@ För varje villkor exemplet nedan ersätter `<field>` med `"field": "Microsoft.S
 
 Följande resultat är resultatet av en kombination av villkoret och exempel principregeln och matrisen med befintliga värdena ovan:
 
-|Villkor |Resultat |Förklaring |
+|Tillstånd |Resultatet |Förklaring |
 |-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Inget |Ett matriselement utvärderas som false (127.0.0.1! = 127.0.0.1) och en som true (127.0.0.1! = 192.168.1.1) och **notEquals** villkoret är _FALSKT_ och effekten utlöses inte. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Principens effekt |Båda matriselement utvärderas som true (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1) och **notEquals** villkoret är _SANT_ och effekten blir utlöst. |

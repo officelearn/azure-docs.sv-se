@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057335"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste Azure Multi-Factor Authentication Server
 
 Den här artikeln vägleder dig genom uppgraderingsprocessen Azure Multi-Factor Authentication (MFA) Server version 6.0 eller senare. Om du vill uppgradera en äldre version av PhoneFactor Agent kan se [uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
 Om du uppgraderar från version 6.x eller senare till v7.x eller senare, ändra alla komponenter från .NET 2.0 till .NET 4.5. Alla komponenter kräver även Microsoft Visual C++ 2015 Redistributable uppdatering 1 eller senare. MFA Server-installationsprogrammet installerar x86 och x64 versioner av dessa komponenter om de inte redan är installerade. Om Användarportalen och webbtjänsten Mobile App körs på separata servrar, måste du installera dessa paket innan du uppgraderar komponenterna. Du kan söka efter den senaste uppdateringen av Microsoft Visual C++ 2015 Redistributable på den [Microsoft Download Center](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
 
 Uppgraderingssteg i korthet:
 

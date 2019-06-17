@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788000"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault
@@ -21,7 +21,7 @@ ms.locfileid: "65788000"
 ## <a name="introduction"></a>Introduktion
 Den här självstudien beskriver hur du får använda storage client side encryption med Azure Key Vault. Vi går igenom hur du krypterar och dekrypterar en blob i ett konsolprogram med hjälp av dessa tekniker.
 
-**Uppskattad tidsåtgång:** 20 minuter
+**Uppskattad tidsåtgång:** 20 minuter
 
 Mer information om Azure Key Vault finns i [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md).
 

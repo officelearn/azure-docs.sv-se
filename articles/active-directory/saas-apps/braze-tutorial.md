@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 670319eb3fb79742d2946f5fc45ca8904e8c1dd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Självstudier: Azure Active Directory-integrering med Braze
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Braze i Azure AD, som du behöver lägga til
 
 **Utför följande steg för att lägga till Braze från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
 
     | Namn | Källattribut|
     | -----| --------------- |
-    | e-post | user.userprincipalname |
+    | email | user.userprincipalname |
     | first_name| user.givenname|
     | last_name| user.surname|
     | inloggning| user.mail|
@@ -232,4 +232,4 @@ När du klickar på panelen Braze i åtkomstpanelen, bör det vara loggas in aut
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

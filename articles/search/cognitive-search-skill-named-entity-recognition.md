@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952044"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Namngivna Entitetsidentifiering kognitiva kunskaper
@@ -49,7 +49,7 @@ Parametrar är skiftlägeskänsliga.
 
 ## <a name="skill-inputs"></a>Färdighet indata
 
-| Indatanamn      | Beskrivning                   |
+| Indatanamnet      | Beskrivning                   |
 |---------------|-------------------------------|
 | languageCode  | Valfri. Standardvärdet är `"en"`.  |
 | text          | Texten att analysera.          |
@@ -59,9 +59,9 @@ Parametrar är skiftlägeskänsliga.
 | Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
 | personer      | En matris med strängar där varje sträng representerar namnet på en person. |
-| platser  | En matris med strängar där varje sträng representerar en plats. |
+| locations  | En matris med strängar där varje sträng representerar en plats. |
 | organisationer  | En matris med strängar där varje sträng representerar en organisation. |
-| entiteter | En matris med komplexa typer. Varje typ av komplexa innehåller följande fält: <ul><li>kategori (`"person"`, `"organization"`, eller `"location"`)</li> <li>värde (faktiska entitetsnamnet)</li><li>förskjutning (plats där det hittades i texten)</li><li>förtroende (ett värde mellan 0 och 1 som representerar den säker på att värdet är en faktisk enhet)</li></ul> |
+| Entiteter | En matris med komplexa typer. Varje typ av komplexa innehåller följande fält: <ul><li>kategori (`"person"`, `"organization"`, eller `"location"`)</li> <li>värde (faktiska entitetsnamnet)</li><li>förskjutning (plats där det hittades i texten)</li><li>förtroende (ett värde mellan 0 och 1 som representerar den säker på att värdet är en faktisk enhet)</li></ul> |
 
 ##  <a name="sample-definition"></a>Exempeldefinition
 

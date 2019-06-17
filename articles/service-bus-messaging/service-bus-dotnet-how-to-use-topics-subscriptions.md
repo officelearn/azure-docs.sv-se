@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991783"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
@@ -47,7 +47,7 @@ För att kunna skicka meddelanden till ämnet skriver du ett C#-konsolprogram me
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
+Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
@@ -390,9 +390,9 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     ```
 9. Kör programmet och kontrollera portalen igen. Observera att värdena för **Antal meddelanden** och **Aktuell** nu är **0**.
    
-    ![Ämneslängd][topic-message-receive]
+    ![Ämnets längd][topic-message-receive]
 
-Gratulerar! Med .NET Standard-biblioteket har du nu skapat ett ämne och en prenumeration, skickat tio meddelanden och tagit emot dessa meddelanden.
+Grattis! Med .NET Standard-biblioteket har du nu skapat ett ämne och en prenumeration, skickat tio meddelanden och tagit emot dessa meddelanden.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 

@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546262"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
@@ -63,7 +63,7 @@ Du kan sedan skapa en Azure-resurs för din gateway när du har installerat gate
 
 3. På den **skapa anslutningsgatewayen** anger du den här informationen för din gatewayresursen:
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------|
    | **Namn** | Namn för din gateway-resurs | 
    | **Prenumeration** | Namn på din Azure-prenumeration, som ska vara samma prenumeration som din logikapp. Standard-prenumerationen baseras på Azure-konto du använde för att logga in. | 

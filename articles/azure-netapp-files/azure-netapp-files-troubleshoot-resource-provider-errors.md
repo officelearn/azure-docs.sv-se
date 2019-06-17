@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ms.openlocfilehash: d4e06429aa1efec7c3301c7d0f0e7e17800fd520
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63769443"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Felsöka fel i resursprovidern för Azure NetApp Files
@@ -34,7 +34,7 @@ Azure Key Vault tog inte emot rätt autentiseringsuppgifter eller autentiserings
 * Lösning   
 Azure NetApp Files-tjänsten använder Azure Key Vault. Azure Key Vault autentiserar med hjälp av en token från Azure Active Directory. Programmets ägare måste därför registrera programmet i Azure Active Directory.
 
-* Lösning   
+* Lösning:   
 Ingen.  Azure Key Vault måste ställas in korrekt för att använda Azure NetApp-filer.  
 
 <a name="error_02"></a>***Skapa en Token kan inte ändras.***   
@@ -47,7 +47,7 @@ Du försöker ändra skapa token när volymen har skapats, som inte är en gilti
 * Lösning   
 Överväg att ta bort parametern från förfrågan om att Stäng felmeddelandet när volymen har skapats.
 
-* Lösning   
+* Lösning:   
 Om du vill ändra skapa token kan du skapa en ny volym med en ny token skapas och migrera data till den nya volymen.
 
 
@@ -60,7 +60,7 @@ Skapa en token uppfyller inte kravet på längd.  När du skapar en volym med hj
 * Lösning   
 Öka längden på Skapa token. Du kan till exempel lägga till ett annat ord. i början eller slutet av skapa token.
 
-* Lösning   
+* Lösning:   
 Det minsta längd på Skapa token inte kan kringgås.  Du kan använda ett prefix eller suffix för att öka skapa token längd.
 
 
@@ -73,7 +73,7 @@ Volymen kan hålla visas i portalen under en tid när den har tagits bort. Om du
 * Lösning   
 Rensa webbläsarens cacheminne om du använder portalen. Det finns också en interna cacheminnet som uppdateras var tionde minut.  Du kan försöka att rensa cacheminnet igen.  Om problemet kvarstår efter 10 minuter kan du skapa ett supportärende.
 
-* Lösning   
+* Lösning:   
 Använd en annan volym under tiden och ignorera den befintliga påverkas.
 
 
@@ -86,7 +86,7 @@ Volymen kan fortsätta att visas i portalen under en tid när den har tagits bor
 * Lösning   
 Om du använder portalen har volymen redan skapats.  Volymen bör visas automatiskt. Om problemet kvarstår kan du skapa ett supportärende.
 
-* Lösning   
+* Lösning:   
 Du kan skapa en volym med ett annat namn och en annan skapa token.
 
 
@@ -99,7 +99,7 @@ Sökvägen innehåller ogiltiga tecken, till exempel en punkt (””.), kommate
 * Lösning   
 Ta bort tecken som inte är alfabetisk bokstäver, siffror eller bindestreck (”-”) från den angivna sökvägen.
 
-* Lösning   
+* Lösning:   
 Du kan ersätta ett understreck med ett bindestreck eller använda versaler i stället för blanksteg som anger början av nya ord (t.ex, använda ”NewVolume” i stället för ”ny volym”).
 
 
@@ -112,7 +112,7 @@ ID för filsystemet anges när volymen har skapats. Volym-ID kan inte ändras se
 * Lösning   
 Ingen.
 
-* Lösning   
+* Lösning:   
 Ingen.  Volym-ID skapas när volymen skapas och kan inte ändras senare.
 
 
@@ -125,7 +125,7 @@ Verifiering av indata-begäran misslyckades för minst en av följande fält: Ru
 * Lösning   
 Se till att ange alla parametrar som krävs och inte är i konflikt på kommandoraden. Exempelvis kan ange du inte både UnixReadOnly och UnixReadWrite på samma gång.
 
-* Lösning   
+* Lösning:   
 Se avsnittet lösning.  
 
 
@@ -138,7 +138,7 @@ Verifiering av indata-begäran misslyckades för minst en av följande fält: Ru
 * Lösning   
 Se till att ange alla parametrar som krävs och inte är i konflikt på kommandoraden. Exempel: du kan inte ange både UnixReadOnly och UnixReadWrite på samma gång
 
-* Lösning   
+* Lösning:   
 Se avsnittet lösning.  
 
 
@@ -151,7 +151,7 @@ Du försöker skapa en volym med ett namn som är samma som en befintlig volym.
 * Lösning   
 Använd ett unikt namn när du skapar en volym.
 
-* Lösning   
+* Lösning:   
 Om det behövs kan du ändra namnet på den befintliga volymen så att den nya volymen kan använda rätt namn.
 
 
@@ -164,7 +164,7 @@ Volymens namn är för kort.
 * Lösning   
 Öka längden på volymens namn.  
 
-* Lösning   
+* Lösning:   
 Du kan lägga till ett gemensamma prefix eller suffix volymens namn.
 
 
@@ -177,7 +177,7 @@ Underliggande API svarar inte, vilket resulterar i ett internt fel. Det här fel
 * Lösning   
 Problemet troligen är tillfälligt.  Begäran bör fungera om en stund.
 
-* Lösning   
+* Lösning:   
 Ingen. Underliggande API: et är viktiga för att hantera volymer.  
 
 
@@ -190,7 +190,7 @@ Autentiseringsuppgifter som är ogiltigt eller felaktigt angiven förhindra åtk
 * Lösning   
 Se till att autentiseringsuppgifterna som anges och har angett korrekt på kommandoraden.
 
-* Lösning   
+* Lösning:   
 Ingen.  Ställa in autentiseringsuppgifter korrekt är nödvändigt för att använda Azure NetApp-filer.  
 
 
@@ -203,7 +203,7 @@ Ett internt fel uppstod och förhindrade att åtgärden slutfördes.
 * Lösning   
 Det här felet är troligt att vara tillfällig.  Vänta några minuter och försök igen. Om problemet kvarstår kan du skapa ett ärende om du vill ha teknisk support undersöka problemet.
 
-* Lösning   
+* Lösning:   
 Vänta några minuter och kontrollera om problemet kvarstår.
 
 
@@ -216,7 +216,7 @@ Det här felet indikerar att kommandot inte är tillgänglig för active prenume
 * Lösning   
 Kontrollerar du att kommandot har angetts och tillgängliga för resursen och prenumeration som du använder.
 
-* Lösning   
+* Lösning:   
 Se avsnittet lösning.  
 
 
@@ -229,7 +229,7 @@ Monteringsmålet definieras när den har skapats och kan inte ändras senare.
 * Lösning   
 Ingen.  Monteringsmålet kan inte ändras när volymen har skapats.
 
-* Lösning   
+* Lösning:   
 Ingen.
 
 
@@ -242,7 +242,7 @@ Du försökte ändra en parameter (t.ex volym-ID) som inte kan ändras.
 * Lösning   
 Ingen. Parametern för volym-ID kan inte ändras.
 
-* Lösning   
+* Lösning:   
 Volym-ID får inte kräva ändring av.  En lösning är därför inte nödvändigt.
 
 <a name="error_18"></a>***Den begärda {0} hittades inte.***   
@@ -254,7 +254,7 @@ Du vill referera till en icke-befintligt resurs (till exempel en volym eller en 
 * Lösning   
 Kontrollera begäran för stavfel att se till att det refereras korrekt.
 
-* Lösning   
+* Lösning:   
 Se avsnittet lösning.
 
 <a name="error_19"></a>***Det gick inte att hämta autentiseringsuppgifter för prenumerationen '{0}'.***   
@@ -266,7 +266,7 @@ Autentiseringsuppgifter som är ogiltigt eller felaktigt set i prenumerationen f
 * Lösning   
 Se till att autentiseringsuppgifterna som anges och har angett korrekt på kommandoraden.
 
-* Lösning   
+* Lösning:   
 Ingen.  Ange autentiseringsuppgifter är korrekt nödvändigt för att använda Azure NetApp-filer.
 
 <a name="error_20"></a>***Okänd Azure NetApp filer fel.***   
@@ -278,7 +278,7 @@ Underliggande API: et skickar ett okänt fel.  Det här felet är troligt att va
 * Lösning   
 Problemet troligen är tillfälligt och begäran bör lyckas efter en stund. Om problemet kvarstår kan du skapa ett supportärende om du vill att problemet undersöks.
 
-* Lösning   
+* Lösning:   
 Ingen.  Underliggande API: et är viktiga för att hantera volymer.
 
 <a name="error_21"></a>***Värdet som togs emot för en okänd egenskap '{0}'.***   
@@ -290,7 +290,7 @@ Begäran har en uppsättning egenskaper som kan användas med varje resurs.  Du 
 * Lösning   
 Se till att alla egenskapsnamn är rättstavade och egenskaperna som är tillgängliga för prenumeration och resursgrupp.
 
-* Lösning   
+* Lösning:   
 Minska antalet egenskaper som definierats i förfrågan om att eliminera den egenskap som orsakar felet.
 
 
@@ -303,7 +303,7 @@ Du försöker att uppdatera resursen stöder inte uppdateringen.  Det är bara v
 * Lösning   
 Ingen.  Den resurs som du försöker uppdatera stöder inte uppdateringen. Därför kan inte ändras.
 
-* Lösning   
+* Lösning:   
 Skapa en ny resurs med uppdatering på plats och migrera data för en volym.
 
 
@@ -316,7 +316,7 @@ Export-principen som du har definierat uppfyller inte intervallet.
 * Lösning   
 Se till att indexet inte redan används och som är i intervallet från 1 till 5.
 
-* Lösning   
+* Lösning:   
 Det är inte obligatoriskt att använda export på volymerna. Du kan därför utelämna exportera principen helt och hållet om du inte behöver ha principregler för export.
 
 
@@ -329,7 +329,7 @@ Definierade exportera principen uppfyller inte kravet på principregler för exp
 * Lösning   
 Se till att indexet inte redan används och att den är i intervallet från 1 till 5.
 
-* Lösning   
+* Lösning:   
 Använd ett annat index för den regel som du vill ange.
 
 

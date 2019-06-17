@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: kumud,steveesp, mareat
 ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153740"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Nätverksbandbredd för virtuell dator
@@ -35,7 +35,7 @@ Azure-datorer måste ha en, men kan ha flera, nätverksgränssnitt som är anslu
 
 ## <a name="expected-network-throughput"></a>Förväntade nätverkets dataflöde
 
-Förväntade utgående dataflöde och antalet nätverksgränssnitt som stöds av varje VM-storlek beskrivs i Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-storlekar. Välj en typ, till exempel generell användning, och välj sedan en storlek-serien på den resulterande sidan, t.ex Dv2-serien. Varje serie har en tabell med nätverk specifikationer i den sista kolumnen med rubriken **maximalt antal nätverkskort / förväntade nätverksprestanda (Mbit/s)**. 
+Förväntade utgående dataflöde och antalet nätverksgränssnitt som stöds av varje VM-storlek beskrivs i Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-storlekar. Välj en typ, till exempel generell användning, och välj sedan en storlek-serien på den resulterande sidan, t.ex Dv2-serien. Varje serie har en tabell med nätverk specifikationer i den sista kolumnen med rubriken **maximalt antal nätverkskort / förväntade nätverksprestanda (Mbit/s)** . 
 
 Dataflöde gränsen gäller för den virtuella datorn. Dataflödet påverkas inte av följande faktorer:
 - **Antalet nätverksgränssnitt**: Bandbreddsbegränsningen beräknas kumulativt för all utgående trafik från den virtuella datorn.

@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: f8e6873a1ef44e8919d08d24dbab88c63ebb45bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110505"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -33,7 +33,7 @@ I en mobil- och molnorienterad värld ger Azure Active Directory (Azure AD) enke
 
 Via enheter i Azure AD får dina användare åtkomst till företagstillgångar. För att skydda dina företagstillgångar som IT-administratör kan du hantera dessa enheter-identiteter. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.
 
-Identitetshantering för enheten är också grunden för [enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md). Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
+Identitetshantering för enheten är också grunden för [enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md). Med enhetsbaserad villkorlig åtkomst kan du se till att åtkomsten till resurser i din miljö är endast möjlig med hanterade enheter.
 
 ## <a name="getting-devices-in-azure-ad"></a>Hämta enheter i Azure AD
 
@@ -44,7 +44,7 @@ Om du vill ha en enhet i Azure AD, har du två alternativ:
 
 När du **registrerar** en enhet till Azure AD kan du hantera en enhets identitet. När en enhet registreras ger Azure AD-enhetsregistrering den en identitet som används för att autentisera enheten när användaren loggar in på Azure AD. Du kan använda identiteten för att aktivera eller inaktivera en enhet.
 
-När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Microsoft Intune, uppdateras enhetsattributen i Azure AD med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav. Mer information om hur du registrerar enheter i Microsoft Intune finns i [Vad är enhetsregistrering?](https://docs.microsoft.com/intune/device-enrollment)
+När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Microsoft Intune, uppdateras enhetsattributen i Azure AD med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina krav för säkerhet och efterlevnad. Mer information om hur du registrerar enheter i Microsoft Intune finns i [Vad är enhetsregistrering?](https://docs.microsoft.com/intune/device-enrollment)
 
 Att **ansluta** en enhet är en utökning av att registrera tjänsten. Det innebär att du får alla fördelar med att registrera en enhet, och dessutom ändras enhetens lokala tillstånd. När du ändrar det lokala tillståndet kan användarna logga in på en enhet med en organisations arbets- eller skolkonto istället för ett personligt konto.
 
@@ -156,4 +156,4 @@ Som tumregel ska du använda:
    - Azure Active Directory-registrerade Windows 10-enheter, se [så här konfigurerar du Azure Active Directory-registrerade Windows 10-enheter](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Azure Active Directory-anslutna enheter, se [hur du planerar din implementering för Azure Active Directory-koppling](azureadjoin-plan.md).
    - Hybrid Azure AD-anslutna enheter: läs [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md).
-- Läs mer om enhetsbaserad villkorlig åtkomst i [principer för Konfigurera Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
+- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera Azure Active Directory principer för enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).

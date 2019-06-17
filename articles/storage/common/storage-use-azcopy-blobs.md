@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125796"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob storage
 
@@ -191,10 +191,10 @@ Det här avsnittet innehåller följande exempel:
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 
-Du kan synkronisera innehållet i ett lokalt filsystem på en blobbehållare. Du kan också synkronisera en blob-behållare till ett lokalt filsystem på din dator. Synkronisering är enkelriktad. Med andra ord välja du vilken av dessa två slutpunkter är källan och vilket som är målet.
+Du kan synkronisera innehållet i ett lokalt filsystem med en blob-behållare. Synkronisering är enkelriktad. Med andra ord välja du vilken av dessa två slutpunkter är källan och vilket som är målet.
 
 > [!NOTE]
-> Den aktuella versionen av AzCopy inte synkroniseras mellan andra källor och mål (till exempel: Fillagring eller Amazon Web Services (AWS) S3 buckets).
+> Det här scenariot stöds för närvarande bara för konton som inte har ett hierarkiskt namnområde. Den aktuella versionen av AzCopy inte synkroniseras mellan andra källor och mål (till exempel: Fillagring eller Amazon Web Services (AWS) S3 buckets).
 
 Den `sync` kommandot Jämför filnamn och senast ändrad tidsstämplar. Ange den `--delete-destination` valfri flagga till ett värde av `true` eller `prompt` att ta bort filer i målmappen om dessa filer inte längre finns i källkatalogen.
 
@@ -203,26 +203,24 @@ Om du ställer in den `--delete-destination` flaggan till `true` AzCopy tar bort
 > [!NOTE]
 > Om du vill förhindra oavsiktliga borttagningar, se till att aktivera den [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du använder den `--delete-destination=prompt|true` flaggan.
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>Synkronisera en behållare till ett lokalt filsystem
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Uppdatera en behållare med ändringar i ett lokalt filsystem
 
-I det här fallet det lokala filsystemet blir källan och behållaren är målet.
+I det här fallet behållaren är målet, och det lokala filsystemet är källan.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Exempel** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Uppdatera ett lokalt filsystem med ändringar i en behållare
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>Synkronisera ett lokalt filsystem till en behållare
-
-I det här fallet behållaren blir källan och det lokala filsystemet är målet.
+I det här fallet är målet för det lokala filsystemet och behållaren är källan.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **Exempel** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **Exempel** (hierarkiskt namnområde) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>Nästa steg
 

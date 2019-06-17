@@ -5,23 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/23/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b41c34d4dcbfa4107383318cd9665a41edee79f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120454"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Vad är Apache HBase i Azure HDInsight
 
 [Apache HBase](https://hbase.apache.org/) är en NoSQL-databas med öppen källkod som bygger på [Apache Hadoop](https://hadoop.apache.org/) och modellerade efter [Google BigTable](https://cloud.google.com/bigtable/). HBase ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och halvstrukturerade data i en schemalös databas sorterad per kolumnfamiljer.
 
 HBase är liknar en databas ur användarens perspektiv. Data lagras i rader och kolumner i en tabell och data i en rad grupperas per kolumnfamilj. HBase är en schemalös databas i den mening att varken kolumner eller den typ av data som lagras i dem måste definieras innan du använder dem. Den öppna källkoden skalas linjärt för att hantera petabyte med data på tusentals noder. Den kan utgå ifrån dataredundans, batchbearbetning och andra funktioner som tillhandahålls av distribuerade program i Hadoop-miljön.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Hur är Apache HBase implementerat i Azure HDInsight?
 
@@ -52,12 +50,7 @@ Canonical användningsfall för BigTable (och HBase via tillägg) skapades från
     Program kan köras ovanpå HBase genom att använda det som ett datalager. Exempel är Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji och Titan. Program kan också integreras med HBase. Exempel är [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [ Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/), och [Apache Drill](https://drill.apache.org/).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Kom igång med Apache HBase med Apache Hadoop i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Create HDInsight clusters on Azure Virtual Network](./apache-hbase-provision-vnet.md) (Skapa HDInsight-kluster i Azure Virtual Network)
 * [Konfigurera Apache HBase-replikering i HDInsight](apache-hbase-replication.md)
-* [Använd Apache Maven för att skapa Java-program som använder Apache HBase med HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>Se även
-* [Apache HBase](https://hbase.apache.org/)
-* [Referensguiden för Apache HBase](https://hbase.apache.org/book.html)
-* [Bigtable: Ett distribuerat Storage-System för strukturerade Data](https://research.google.com/archive/bigtable.html)

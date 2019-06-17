@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059287"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -62,6 +62,19 @@ Medan modellskapandet är automatiserad, du kan också [Lär dig hur viktiga ell
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>Time Series-prognoser
+Att skapa prognoser är en del av alla företag, oavsett om det gäller intäkter, inventering, försäljning eller kund begäran. Automatiserad ml använder ett antal kombinerade tekniker och metoder för att rekommendera en högkvalitativ tidsserie prognos. Time series-experiment i ml automatisk behandlas som ett multivarierad regressionsproblem. Senaste tidsserier är värden ”pivoteras” om du vill bli ytterligare dimensioner för regressor tillsammans med andra förutsägelser. 
+
+Den här metoden, till skillnad från klassisk time series-metoder, har en fördel med naturligt med flera kontextuella variabler och deras relation till varandra under utbildningen. I verkliga prognosmodellen program, kan flera faktorer påverka en prognos. Till exempel när försäljningsprognoser, enhet interaktioner av historiska trender, valutakurs och pris alla gemensamt försäljning resultatet. En ytterligare fördel är att alla de senaste innovationerna i regressionsmodeller gäller direkt för prognostisering.
+
+Hur långt i framtiden bör prognosen utöka (prognoser horizon) är en del av den grundläggande prognoser specifikationen. Ange den nödvändiga parametern av `max_horizon` i experimentet definierar hur många enhet perioder (baserat på tidsintervallet för dina utbildningsdata, till exempel varje månad, varje vecka på prognosmodell ska förutsäga ut. 
+
+Automatiserad ML lär sig en enda, men ofta internt förgrenad modell för alla objekt i datauppsättningen och förutsägelse vyer. Mer data kan därför beräkna Modellparametrar och generalisering till överblivna serien blir möjligt. 
+
+Funktioner som extraheras från träningsdata spelar en viktig roll. Automatiserad ML utför standard förbearbetning och genererar ytterligare time series-funktioner (t.ex. år, månad, veckodag osv) för att avbilda säsongens effekter och maximera förutsägande precision. 
+
+Du kan om lämpliga för ditt scenario, dirigera automatiserad ML för att skapa beräkningstider (`target_lags`) eller rullande fönster aggregering av data (`target_rolling_window_size`) från din målet (`y_value`) de senaste värdena. 
 
 ## <a name="preprocessing"></a>Förbearbeta
 
@@ -160,6 +173,7 @@ Automatiserad ML är också tillgängligt i andra Microsoft-lösningar som:
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Val av automatisk modell och utbildning i .NET-appar med Visual Studio och Visual Studio Code med ML.NET automatiserad ML (förhandsversion).|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Anropa maskininlärningsmodeller direkt i Power BI (förhandsversion).|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Skapa nya machine learning-modeller över dina data i SQL Server 2019 big data-kluster.|
 
 ## <a name="next-steps"></a>Nästa steg
 

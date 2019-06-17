@@ -8,19 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
-ms.date: 03/26/2019
-ms.openlocfilehash: 16a168f69c635ca86f40a08ba38a26d68c95954c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.date: 06/07/2019
+ms.openlocfilehash: 847b6f12a2be0b92fe59b19b81e7953e261d1dd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67129256"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
 Lär dig mer om den [Apache Hadoop](https://hadoop.apache.org/) ekosystem komponenter och versioner i Microsoft Azure HDInsight, samt Enterprise Security Package. Lär dig även att kontrollera komponenten-versioner som Hadoop i HDInsight.
-
-Varje HDInsight-version är en molndistribution av en version av Hortonworks Data Platform (HDP).
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Apache Hadoop-komponenter som är tillgängliga med olika versioner av HDInsight
 
@@ -48,8 +46,8 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 | Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
 | Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
-| Apache Spark | 2.3.2 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (endast Windows) |
-| Apache Livy | 0,5 | 0.4 | 0.3 | 0.3 | 0.2 | - |
+| Apache Spark | 2.3.1 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (endast Windows) |
+| Apache Livy | 0,5 | 0.4, 0.4, 0.3 | 0.3 | 0.3 | 0.2 | - |
 | Apache Kafka | 1.1.1 | 1.1, 1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
@@ -60,10 +58,7 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Sök efter aktuell versionsinformation för Hadoop-komponent
 
-Hadoop-ekosystemet komponenten versioner som är associerade med HDInsight-kluster-versioner kan ändra med uppdateringar till HDInsight. Att kontrollera Hadoop-komponenter och kontrollera vilka versioner som används för ett kluster, kan du använda Ambari REST API. Den **GetComponentInformation** kommandot hämtar information om tjänstens komponenter. Mer information finns i [Apache Ambari dokumentation][ambari-docs].
-
-> [!IMPORTANT]    
-> Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [Windows-avveckling på HDInsight](#hdinsight-windows-retirement).
+Hadoop-ekosystemet komponenten versioner som är associerade med HDInsight-kluster-versioner kan ändra med uppdateringar till HDInsight. Att kontrollera Hadoop-komponenter och kontrollera vilka versioner som används för ett kluster, kan du använda Ambari REST API. Den **GetComponentInformation** kommandot hämtar information om tjänstens komponenter. Mer information finns i [Apache Ambari dokumentation](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ### <a name="release-notes"></a>Viktig information
 
@@ -144,67 +139,14 @@ För närvarande stöder endast följande klustertyper Enterprise Security Packa
 
 Enterprise Security Package-stöder med hjälp av Azure Data Lake Storage som både den primära lagringen och Lägg till mer lagringsutrymme.
 
-### <a name="pricing-and-sla"></a>Priser och SLA
+### <a name="pricing-and-service-level-agreement"></a>Pris- och servicenivåavtal
 
 Information om priser och SLA för Enterprise Security Package finns i [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="hdinsight-windows-retirement"></a>Dras tillbaka HDInsight Windows
-
-Microsoft Azure HDInsight version 3.3 har den senaste versionen av HDInsight på Windows. Slutdatum för HDInsight på Windows är den 31 juli 2018. Om du har alla HDInsight-kluster på Windows 3.3 eller tidigare, måste du migrera till HDInsight i Linux (HDInsight version 3.5 eller senare) före den 31 juli 2018. Migrera till Linux-operativsystem kan du behålla möjligheten att skapa eller ändra storlek på dina HDInsight-kluster. Stöd för HDInsight version 3.3 på Windows upphörde den 27 juni 2016.
-
-Från och med HDInsight version 3.4 har släppt Microsoft HDInsight endast på Linux-operativsystem. Därför kan är vissa komponenter i HDInsight tillgängliga för Linux endast. Dessa inkluderar [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), interaktiv fråga [Apache Spark](https://spark.apache.org/), HDInsight-program och Azure Data Lake Storage som det primära filsystemet. Framtida versioner av HDInsight är endast tillgängliga på Linux-operativsystem. Det tillkommer ingen framtida versioner av HDInsight på Windows. 
-
-## <a name="faqs"></a>Vanliga frågor och svar
-
-### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>Hur ser tidslinjen för att ta bort HDInsight på Windows?
-
-Den 31 juli 2018 är slutdatum för HDInsight på Windows. Om planerat slutdatum är olika för din region, meddelas du separat. 
-
-### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>Vad är effekten av att ta bort HDInsight på Windows för befintliga kunder?
-
-När HDInsight på Windows har dragits tillbaka, det går inte att du skapar ett nytt HDInsight Windows-kluster eller ändra storlek på ett befintligt HDInsight Windows-kluster. Stöd för HDInsight version 3.3 upphörde den 27 juni 2016. Det finns därför ingen support eller felkorrigeringar för HDInsight 3.3 eller tidigare versioner. Framtida versioner av HDInsight är endast tillgängliga på Linux-operativsystem. Det tillkommer ingen framtida versioner av HDInsight på Windows.
- 
-### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Vilka versioner av HDInsight på Windows påverkas?
-
-Azure HDInsight version 3.3 är den senaste versionen av HDInsight för Windows. Innan HDInsight på Windows har dragits tillbaka måste alla HDInsight-Windows-kluster version 3.3 eller tidigare migreras till HDInsight på Linux version 3.5 eller senare. Migrera dina kluster till HDInsight i Linux kan du behålla möjligheten att skapa nya kluster eller ändra storlek på befintliga kluster. 
-
-### <a name="what-do-i-need-to-do"></a>Vad måste jag göra?
-
-Migrera dina HDInsight Windows-kluster till ett stöds HDInsight Linux-kluster innan 31 juli 2018. Läs mer i den [HDInsight migrace](hdinsight-migrate-from-windows-to-linux.md). Information om Azure HDInsight-versioner finns i listan över [versioner som stöds](hdinsight-component-versioning.md#supported-hdinsight-versions). 
-
-### <a name="where-do-i-find-the-cluster-os-type"></a>Var hittar jag kluster-OS-typ?
-
-Gå till sidan Översikt över HDInsight-kluster i Azure-portalen och leta upp **Klustertyp** under **Essentials**. OS-klustertyper visas på sidan. 
-
-### <a name="i-cant-migrate-to-an-hdinsight-linux-cluster-by-july-31-2018-what-is-the-impact-to-my-hdinsight-windows-cluster"></a>Jag kan inte migrera till ett kluster i HDInsight Linux innan 31 juli 2018. Vad är påverkan på mitt HDInsight Windows-kluster?
-
-HDInsight Windows-kluster kör som-är, men du kan inte skapa ett nytt HDInsight Windows-kluster eller ändra storlek på ett befintligt HDInsight Windows-kluster. 
-
-### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Mitt kluster är beroende av en .NET. Hur löser jag det här beroendet i Linux?
-
-Du kan lösa dina beroende för Linux-kluster med hjälp av den [Mono projekt](https://www.mono-project.com/). Den här öppen källkod-implementeringen av .NET är tillgänglig för HDInsight Linux-kluster. Läs mer i den [HDInsight migrace](hdinsight-migrate-from-windows-to-linux.md). 
-
-### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Jag är en ny kund för HDInsight på Windows. Hur kan jag skapa ett HDInsight-Windows-kluster?
-
-Från och med 3 juli 2017 endast befintliga HDInsight Windows kunder kan skapa nya HDInsight Windows kluster. Nya kunder kan inte skapa ett HDInsight-Windows-kluster i Azure-portalen med hjälp av PowerShell eller SDK. Vi rekommenderar att nya kunder skapar ett Linux HDInsight-kluster. Befintliga kunder kan skapa nya HDInsight Windows kluster tills HDInsight på Windows slutdatum. 
-
-### <a name="is-there-a-pricing-impact-associated-with-moving-from-hdinsight-on-windows-to-hdinsight-on-linux"></a>Finns det prissättningen påverkas som är associerade med att flytta från HDInsight på Windows till HDInsight på Linux?
-
-Nej, priserna är desamma för HDInsight på antingen OS. 
-
-### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Vad är kund fördelarna som är associerade med flytten till enbart med HDInsight på Linux?
-
-* Snabbare tid till marknad för öppen källkod stordatatekniker via tjänsten HDInsight
-* En stor community och ekosystem för support
-* Möjlighet att utöva aktivt med utveckling av öppen källkod-communityn för Hadoop och andra tekniker för stordata
-
-### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>HDInsight i Linux kan ge ytterligare funktioner utöver vad som är tillgängliga i HDInsight på Windows?
-
-Från och med HDInsight version 3.4 har släppt Microsoft HDInsight endast på Linux-operativsystem. Därför kan är vissa komponenter i HDInsight tillgängliga för Linux endast. Dessa inkluderar Apache Ranger, Kafka, Interactive Query, Spark, HDInsight-program, och Azure Data Lake Storage som det primära filsystemet. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Servicenivåavtalet för HDInsight-klusterversioner
 
-Serviceavtal (SLA) har definierats som en _support fönstret_. Fönstret support är tidsperioden som ett HDInsight-kluster av version som stöds av Microsofts kundservice och Support. Om versionen har en _stöd för förfallodatum_ som har klarat, HDInsight-klustret är utanför fönstret support. Mer information om versioner som stöds finns i listan över [HDInsight-kluster-versioner som stöds](hdinsight-migrate-from-windows-to-linux.md). Utgångsdatumet för stöd för en angiven HDInsight version X (när det finns en nyare version X + 1) beräknas som den senare av:  
+Serviceavtal (SLA) har definierats som en _support fönstret_. Fönstret support är tidsperioden som ett HDInsight-kluster av version som stöds av Microsofts kundservice och Support. Om versionen har en _stöd för förfallodatum_ som har klarat, HDInsight-klustret är utanför fönstret support. Utgångsdatumet för stöd för en angiven HDInsight version X (när det finns en nyare version X + 1) beräknas som den senare av:  
 
 * Formel 1: Lägg till 180 dagar i datumet när HDInsight-klusterversionen X släpptes.
 * Formel 2: Lägg till 90 dagar i datumet när HDInsight-klusterversionen X + 1 är tillgänglig i Azure-portalen.
@@ -228,7 +170,7 @@ Avsnittet innehåller länkar till viktig information för Hortonworks Data Plat
 * HDInsight-kluster av version 3.2 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 2.2][hdp-2-2].
 
   * Viktig information för specifika Apache-komponenter finns på följande sätt: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [vanliga](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), och [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* HDInsight-kluster av version 3.1 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. 3.1 för HDInsight-kluster som skapas före November, 7, 2014 baseras på [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* HDInsight-kluster av version 3.1 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. 3\.1 för HDInsight-kluster som skapas före November, 7, 2014 baseras på [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * HDInsight-kluster av version 3.0 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * HDInsight-kluster av version 2.1 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * HDInsight-kluster av version 1.6 använder en Hadoop-distribution som baseras på [Hortonworks Data Platform 1.1][hdp-1-1-0].
@@ -262,8 +204,8 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 |ZooKeeper: rekommenderade storlekar för Virtuella datorer||A4 v2||A2 v2|||A2M v2|
 |||A8 v2||A4 v2|||D3 v2|
 |||A2m v2||A8 v2|||E8 v3|
-|Edge: standardstorleken för virtuella datorer||||||D4 v2||
-|Edge: Rekommenderad storlek för virtuell dator||||||D4 v2||
+|ML-tjänster: standardstorleken för virtuella datorer||||||D4 v2||
+|ML-tjänster: Rekommenderad storlek för virtuell dator||||||D4 v2||
 |||||||D12 v2||
 |||||||D13 v2||
 |||||||D14 v2||
@@ -282,8 +224,8 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
   | Worker: rekommenderade storlekar för Virtuella datorer |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: standardstorleken för virtuella datorer | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | Edge: standard VM-storlekar | | | | | |D4 |
-  | Edge: rekommenderade storlekar för Virtuella datorer | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
+  | ML-tjänster: standard VM-storlekar | | | | | |D4 |
+  | ML-tjänster: rekommenderade storlekar för Virtuella datorer | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD kallas *Nimbus* för Storm typ av kluster.
@@ -293,14 +235,6 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 ## <a name="next-steps"></a>Nästa steg
 - [Installationen av kluster för Apache Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Arbeta i Apache Hadoop på HDInsight från Windows PC](hdinsight-hadoop-windows-tools.md)
-
-[Supported HDInsight versions]:(#supported-hdinsight-versions)
-
-[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
-
-[wa-forums]: https://azure.microsoft.com/support/forums/
-
-[connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
@@ -313,7 +247,3 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 [hdp-1-3-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
 [hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
-
-[ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-
-[zookeeper]: https://zookeeper.apache.org/

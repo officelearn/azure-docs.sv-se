@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061093"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ En lagringsklass används för att definiera hur en Azure-filresurs har skapats.
 * *Standard_RAGRS* -standard-geo-redundant lagring med läsbehörighet (RA-GRS)
 
 > [!NOTE]
-> Azure-filer för närvarande endast fungerar med standardlagring. Om du använder premiumlagring volymen inte går att etablera.
+> Azure Files stöd för premium storage i AKS-kluster som kör Kubernetes 1,13 eller högre.
 
 Mer information om Kubernetes lagringsklasser för Azure Files finns i [Kubernetes lagringsklasser][kubernetes-storage-classes].
 

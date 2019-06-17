@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
 ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143325"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
@@ -31,7 +31,7 @@ Kontrollera innan du uppgraderar Apache HBase, HBase-versioner på käll- och -k
 
 Här är ett exempel version kompatibilitetsöversikten. Y anger kompatibilitet och N anger en potentiella kompatibilitetsproblem:
 
-| Kompatibilitetstyp | Huvudversion| Podverze | Korrigering |
+| Kompatibilitetstyp | Huvudversion| Podverze | Patch |
 | --- | --- | --- | --- |
 | Klient-Server under överföring kompatibilitet | N | Y | Y |
 | Kompatibilitet för servrar | N | Y | Y |

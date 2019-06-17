@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943569"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
@@ -43,11 +43,11 @@ Det finns fyra huvudsakliga formulär för att skapa en Dynamics 365 för kunden
 
 Erbjudandet inställningar formuläret är en grundläggande och ange inställningar för erbjudandet. Olika fält beskrivs nedan.
 
-### <a name="offer-id"></a>ID för erbjudande
+### <a name="offer-id"></a>Erbjudande-ID
 
 Det här är en unik identifierare för erbjudandet i en utgivarprofil för. Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett bindestreck och kan ha högst 50 tecken. Det här fältet är låst när ett erbjudande lanseras.
 
-Exempel: om en utgivare **”contoso”** utgivare skapar ett erbjudande med erbjudande-ID **”exempel WebApp”**, den visas i AppSource som ”https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”
+Exempel: om en utgivare **”contoso”** utgivare skapar ett erbjudande med erbjudande-ID **”exempel WebApp”** , den visas i AppSource som ”https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”
 
 ### <a name="publisher-id"></a>Utgivar-ID
 
@@ -104,7 +104,7 @@ Välj bransch som din app är bäst anpassad efter. Om din app har kopplat till 
 
 Välj kategorier som är relevanta för din app. Välj högst 3.
 
-### <a name="app-type"></a>Apptyp
+### <a name="app-type"></a>Typ av App
 
 Välj typ av utvärderingsversion som gör att din app på AppSource. ”Fria” innebär att din app är kostnadsfria. ”Utvärderingsversion” innebär att kunder kan testa din app under en kort period på AppSource. ”Begär för utvärderingsversion' stöds inte för Dynamics 365 för kundengagemang appar. Välj inte det här alternativet.
 

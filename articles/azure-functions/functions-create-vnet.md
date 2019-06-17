@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063273"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Självstudie: integrera funktioner med ett Azure-nätverk
 
@@ -113,7 +113,7 @@ Du kan nu ansluta din funktionsapp till det virtuella nätverket med en WordPres
 
     ![Status för att konfigurera en funktion för nätverk](./media/functions-create-vnet/Networking-1.png)
 
-1. På sidan virtuellt nätverk integration väljer **Lägg till virtuellt nätverk (förhandsversion)**.
+1. På sidan virtuellt nätverk integration väljer **Lägg till virtuellt nätverk (förhandsversion)** .
 
     ![Lägg till förhandsversionen av VNet-integrering](./media/functions-create-vnet/networking-2.png)
 
@@ -137,7 +137,7 @@ Funktionsappen kan nu komma åt det virtuella nätverket där WordPress-webbplat
 
 Du kan använda VNet-integrering aktiverat, för att skapa en proxy i din funktionsapp som vidarebefordrar begäranden till den virtuella datorn som körs i det virtuella nätverket.
 
-1. I din funktionsapp väljer **proxyservrar** > **+**, Använd proxyinställningarna i tabellen nedanför bilden:
+1. I din funktionsapp väljer **proxyservrar** >  **+** , Använd proxyinställningarna i tabellen nedanför bilden:
 
     ![Ange proxyinställningar för](./media/functions-create-vnet/create-proxy.png)
 
@@ -170,4 +170,4 @@ Funktioner som körs i en premiumplan delar samma underliggande App Service-infr
 > [!div class="nextstepaction"]
 > [Mer information om Nätverksalternativ i funktioner](./functions-networking-options.md)
 
-[Premium-abonnemang]: functions-scale.md#premium-plan-public-preview
+[Premium-abonnemang]: functions-scale.md#premium-plan

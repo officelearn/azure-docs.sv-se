@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604113"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
@@ -136,7 +136,7 @@ Kohorter och filter är olika. Anta att du har en kohort användare från Storbr
 * Kohort-versionen innehåller alla händelser från användare som skickade en eller flera händelser från Storbritannien i det aktuella tidsintervallet. Om du dela upp efter land eller region, ser du antagligen många länder och regioner till.
 * Filter-versionen visas endast händelser från Storbritannien. Men om du dela upp efter land eller region, visas endast Storbritannien.
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 * [Analytics-frågespråket](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Användare, sessioner, händelser](usage-segmentation.md)

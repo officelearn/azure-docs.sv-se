@@ -2,17 +2,16 @@
 title: Exempel på konfiguration för att ansluta Cisco ASA-enheter till Azure VPN-gatewayer | Microsoft Docs
 description: Den här artikeln innehåller en exempelkonfiguration för att ansluta Cisco ASA-enheter till Azure VPN-gatewayer.
 services: vpn-gateway
-author: WenJason
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 10/19/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/19/2018
+ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648757"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/inget BGP)
@@ -303,4 +302,3 @@ Använd följande kommandon för ASA för felsökning:
 
 ## <a name="next-steps"></a>Nästa steg
 För att konfigurera aktiv-aktiv på flera platser och VNet-till-VNet-anslutningar, se [konfigurera aktiv-aktiv VPN-gatewayer](vpn-gateway-activeactive-rm-powershell.md).
-<!--Update_Description: wording update -->

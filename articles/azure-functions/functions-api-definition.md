@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341730"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
@@ -36,7 +36,7 @@ Du kan konfigurera alla OpenAPI-inställningar på den **API-Definition** sidan 
 > [!NOTE]
 > Funktionen API-definition-funktionen stöds inte för beta-runtime för närvarande.
 
-Om du vill aktivera generering av en värdbaserad OpenAPI-definition och en definition av Snabbstart, ange **API-definitionskälla** till **funktion (förhandsversion)**. **Externa URL: en** tillåter funktionen att använda en OpenAPI-definition som har är värdbaserad någon annanstans.
+Om du vill aktivera generering av en värdbaserad OpenAPI-definition och en definition av Snabbstart, ange **API-definitionskälla** till **funktion (förhandsversion)** . **Externa URL: en** tillåter funktionen att använda en OpenAPI-definition som har är värdbaserad någon annanstans.
 
 ## <a name="generate-definition"></a>Generera en Swagger-stommen från din funktion metadata
 Med hjälp av en mall kan du börja skriva din första OpenAPI-definition. Funktionen definition mallen skapar en null-optimerade OpenAPI-definitionen genom att använda alla metadata i filen function.json för var och en av dina funktioner för HTTP-utlösare. Du måste fylla i mer information om ditt API från den [OpenAPI-specifikation](https://swagger.io/specification/), till exempel mallar för begäranden och svar.

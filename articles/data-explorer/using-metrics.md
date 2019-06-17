@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826806"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer
@@ -44,12 +44,12 @@ I fönstret mått:
     |---|---|---|---|
     | Cache-användning | Procent | AVG, Max, Min | Procentandel tilldelade cache-resurser som används av klustret. Cache refererar till storleken på SSD som allokerats för användaraktivitet enligt definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är en hållbar status för ett kluster. Om den genomsnittliga cache-användningen är över 80%, klustret bör vara [skalas upp](manage-cluster-scale-up.md) till en storage optimerat prisnivå eller [utskalad](manage-cluster-scale-out.md) till fler instanser. Du kan också anpassa princip (färre dagar i cacheminnet). Om cachen användningen är över 100%, storleken på data som ska cachelagras enligt principen för cachelagring är större som den totala storleken på cacheminnet på klustret. |
     | Processor | Procent | AVG, Max, Min | Procentandel tilldelade beräkningsresurser som används av datorer i klustret. En Genomsnittlig CPU med 80% eller mindre är hållbar för ett kluster. Det högsta värdet för processor är 100%, vilket innebär att det finns inga fler beräkningsresurser för att bearbeta data. När ett kluster inte presterar bra, kontrollerar du det maximala värdet för processor och se om det finns specifika CPU: er som har blockerats. |
-    | Händelser som bearbetas (för Event Hubs) | Antal | Max, Min, Sum | Totalt antal händelser läsa från event hubs och bearbetas av klustret. Händelserna är uppdelade i avvisade händelser och händelser som accepteras av kluster-motorn. |
+    | Händelser som bearbetas (för Event Hubs) | Count | Max, Min, Sum | Totalt antal händelser läsa från event hubs och bearbetas av klustret. Händelserna är uppdelade i avvisade händelser och händelser som accepteras av kluster-motorn. |
     | Datainmatningssvarstid | Sekunder | AVG, Max, Min | Svarstid för data som samlas in från den tidpunkt som data togs emot i klustret tills den är redo för frågan. Datainmatning svarstiden beror på inmatning-scenario. |
-    | Datainmatning resultat | Antal | Antal | Totalt antal åtgärder för inmatning som misslyckades och lyckades. Använd **gäller dela** att skapa buckets att lyckas och misslyckas resultat och analysera dimensioner (**värdet** > **Status**).|
+    | Datainmatning resultat | Count | Antal | Totalt antal åtgärder för inmatning som misslyckades och lyckades. Använd **gäller dela** att skapa buckets att lyckas och misslyckas resultat och analysera dimensioner (**värdet** > **Status**).|
     | Datainmatning användning | Procent | AVG, Max, Min | Den procentandel av verkliga resurser som används för att mata in data från de totala resurserna som allokerats i principen kapacitet att utföra inmatning. Standardprincipen för kapacitet är längre än 512 samtidiga inmatning åtgärder eller 75% av klusterresurserna investerat i inmatning. Genomsnittlig inmatning användningen med 80% eller mindre är ett hållbar tillstånd för ett kluster. Högsta värdet för inmatning användning är 100%, vilket innebär att alla möjligheten för inmatning av klustret används och kan resultera i en kö för inmatning. |
-    | Datainmatning volymen (i MB) | Antal | Max, Min, Sum | Den totala storleken på data som matas in i klustret (i MB) före komprimering. |
-    | Hålla igång | Antal | Medel | Spårar svarstiden för klustret. Ett fullständigt dynamiska kluster returnerar värdet 1 och ett blockerade eller frånkopplat kluster returnerar 0. |
+    | Datainmatning volymen (i MB) | Count | Max, Min, Sum | Den totala storleken på data som matas in i klustret (i MB) före komprimering. |
+    | Hålla igång | Count | genomsn. | Spårar svarstiden för klustret. Ett fullständigt dynamiska kluster returnerar värdet 1 och ett blockerade eller frånkopplat kluster returnerar 0. |
     | Frågevaraktighet | Sekunder | Antal, genomsnitt, Min, Max, Sum | Total tid tills frågeresultat tas emot (omfattar inte Nätverksfördröjningen). |
     | | | |
 

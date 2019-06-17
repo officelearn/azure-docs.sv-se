@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143307"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
@@ -252,7 +252,7 @@ Om du använder en brandvägg från tredje part, kan du öppna port 8050 manuell
 
 Om du inte väljer att öppna port 8050 på gateway-datorn, använda metoder än med hjälp av den **ange autentiseringsuppgifter** program för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell-cmdlet. Se avsnittet Ange autentiseringsuppgifter och säkerhet på hur data lagrar autentiseringsuppgifter kan ställas in.
 
-## <a name="update"></a>Uppdatering
+## <a name="update"></a>Uppdatera
 Som standard uppdateras data management gateway automatiskt när en nyare version av gatewayen är tillgänglig. Gatewayen uppdateras inte förrän alla schemalagda uppgifter är klar. Inga ytterligare aktiviteter bearbetas av gatewayen tills uppdateringen har slutförts. Om uppdateringen misslyckas återställs gateway till den gamla versionen.
 
 Du kan se den schemalagda uppdateringstiden på följande platser:
@@ -368,8 +368,8 @@ Följande tabell innehåller beskrivningar av kolumner i den **Gateway-noder** l
 Namn | Namnet på logisk gateway och noder som är associerade med gatewayen. Noden är en lokal Windows-dator som gatewayen har installerats på den. Information om att ha fler än en nod (upp till fyra noder) i en enda logisk gateway finns i [Data Management Gateway - hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status för logisk gateway och gateway-noderna. Exempel: Online/Offline/Limited/osv. Läs om hur dessa statusar [gatewaystatus](#gateway-status) avsnittet.
 Version | Visar vilken version av logiska gatewayen och varje gateway-noden. Version av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logisk gateway-installationen endast noder med samma versionsnummer som funktionen logisk gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering misslyckas).
-Ledigt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild.
-Processoranvändning | CPU-utnyttjande på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild.
+Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild.
+CPU-användning | CPU-utnyttjande på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild.
 Nätverk (In/ut) | Nätverksanvändningen för en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild.
 Samtidiga jobb (körs / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier där CPU/minne/nätverk är underutnyttjade, men Tidsgränsen nåddes för aktiviteter. Den här funktionen är också tillgängliga med en enda nod gateway (även om funktionen för skalbarhet och tillgänglighet inte är aktiverad).
 Roll | Det finns två typer av roller i en gateway med flera noder – Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-noden som används för att hämta uppgifter/jobb från cloud services och skicka dem till olika arbetsnoder (inklusive själva).
@@ -383,13 +383,13 @@ Status  | Kommentarer/scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory-tjänsten.
 Offline | Noden är offline.
-Uppgraderar | Noden uppdateras automatiskt.
+Uppgradera | Noden uppdateras automatiskt.
 Begränsad | På grund av anslutningsproblem. Kanske på grund av HTTP-port 8050 problemet, service bus-anslutningsproblem eller synkroniseringsproblem för autentiseringsuppgifter.
-Inaktiv | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
+Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
 Följande tabell innehåller olika statusar av en **logisk gateway**. Status för gateway beror på status för gateway-noderna.
 
-Status | Kommentarer
+Status | Kommentar
 :----- | :-------
 Needs Registration | Någon nod är ännu registrerad på den här logiska gatewayen
 Online | Gateway-noderna är online
@@ -511,7 +511,7 @@ Det här avsnittet beskriver hur du skapar och registrerar en gateway med Azure 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Växla till mappen i Azure PowerShell: *C:\\\\programfilerna\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Kör *RegisterGateway.ps1* som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
+1. Växla till mappen i Azure PowerShell: *C:\\\\programfilerna\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Kör *RegisterGateway.ps1* som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

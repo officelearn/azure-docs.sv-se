@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073050"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Med hjälp av codec komprimerade ljudindata med Speech-SDK
 
@@ -23,6 +23,7 @@ Tal-SDK **filer som komprimerats ljud indata Stream** API gör det möjligt att 
 
 > [!IMPORTANT]
 > Strömning komprimerat ljud stöds bara för C++, C#, och Java i Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
+> Tal SDK-version 1.4.0 eller senare krävs.
 
 Wav PCM/i dokumentationen om likriktade tal.  Utanför wav/PCM stöds följande indata codec komprimerat format:
 

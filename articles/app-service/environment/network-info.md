@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069384"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -58,24 +58,32 @@ När du skalar upp eller ned, nya roller av rätt storlek har lagts till och sed
 
 ### <a name="ase-inbound-dependencies"></a>ASE inkommande beroenden ###
 
-ASE inkommande åtkomst beroenden är:
+Ase: N kräver följande portar vara öppna för ASE ska fungera:
 
 | Användning | Från | Till |
 |-----|------|----|
 | Hantering | Hanteringsadresser för App Service | ASE-undernät: 454, 455 |
 |  ASE intern kommunikation | ASE-undernät: Alla portar | ASE-undernät: Alla portar
-|  Tillåt Azure-belastningsutjämnare inkommande | Azure-lastbalanserare | ASE-undernät: Alla portar
-|  App tilldelade IP-adresser | App som är tilldelade adresser | ASE-undernät: Alla portar
+|  Tillåt Azure-belastningsutjämnare inkommande | Azure-lastbalanserare | ASE-undernät: 16001
 
-Inkommande hanteringstrafik ger kontroll av ASE förutom systemövervakning. Käll-adresserna för den här trafiken finns i den [ASE Management adresser] [ ASEManagement] dokumentet. Nätverkssäkerhetskonfigurationen måste tillåta åtkomst från alla IP-adresser på port 454 och 455. Om du blockerar åtkomst från dessa adresser kan din ASE blir ohälsosamt och sedan blir pausas.
+Det finns 2 portar som kan visa vara öppna på en port-sökning, 7654 och 1221. De svara med en IP-adress och inget mer. De kan blockeras om du vill. 
+
+Inkommande hanteringstrafik ger kontroll av ASE förutom systemövervakning. Käll-adresserna för den här trafiken finns i den [ASE Management adresser] [ ASEManagement] dokumentet. Nätverkssäkerhetskonfigurationen måste tillåta åtkomst från hanteringsadresserna ASE på port 454 och 455. Om du blockerar åtkomst från dessa adresser kan din ASE blir ohälsosamt och sedan blir pausas. TCP-trafik som kommer in på port 454 och 455 måste gå tillbaka ut från samma VIP eller du har ett problem med asymmetrisk routning. 
 
 Det finns många portar som används för komponentkommunikation i intern i ASE-undernät och de kan ändra. Detta kräver att alla portar i ASE-undernät är tillgänglig från ASE-undernät. 
 
-För kommunikationen mellan Azure-belastningsutjämnaren och på ASE-undernätet är de portar som måste vara öppna minst 454 och 455 16001. 16001 port används för keep alive trafik mellan belastningsutjämnare och ASE. Om du använder en ILB ASE, så du kan låsa trafik till bara 454, 455, 16001 portar.  Om du använder en extern ASE, måste du ta hänsyn till åtkomstportar vanlig app.  Om du använder appen tilldelade adresser som du behöver öppna den till alla portar.  När en adress har tilldelats en viss app kan använda portar som inte känd av i förväg att skicka HTTP och HTTPS-trafik till ASE belastningsutjämnaren.
+För kommunikationen mellan Azure-belastningsutjämnaren och på ASE-undernätet är de portar som måste vara öppna minst 454 och 455 16001. 16001 port används för keep alive trafik mellan belastningsutjämnare och ASE. Om du använder en ILB ASE, så du kan låsa trafik till bara 454, 455, 16001 portar.  Om du använder en extern ASE, måste du ta hänsyn till åtkomstportar vanlig app.  
 
-Om du använder appen tilldelade IP-adresser kan behöva du tillåta trafik från IP-adresser tilldelade till dina appar i ASE-undernätet.
+De portar som du behöver avse själv med är programportar:
 
-TCP-trafik som kommer in på port 454 och 455 måste gå tillbaka ut från samma VIP eller du har ett problem med asymmetrisk routning. 
+| Användning | Portar |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio fjärrfelsökning  |  4020, 4022, 4024 |
+|  Distribuera webbtjänsten | 8172 |
+
+Om du blockerar programportar din ASE kan fungera, men appen kan inte.  Om du använder appen tilldelade IP-adresser med en extern ASE, behöver du som tillåter trafik från IP-adresser tilldelade till dina appar till ASE-undernät på de portar som visas i ASE-portalen > sidan IP-adresser.
 
 ### <a name="ase-outbound-dependencies"></a>Utgående ASE-beroenden ###
 
@@ -83,15 +91,15 @@ En ASE beror på flera externa system för utgående åtkomst. Många av dessa s
 
 ASE kommunicerar ut att komma åt internet-adresser på följande portar:
 
-| Port | Användningsområden |
+| Användningsområden | Portar |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | Listan över återkallade certifikat, uppdateringar för Windows, Linux beroenden, Azure-tjänster |
-| 1433 | Azure SQL | 
-| 12000 | Övervakning |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, uppdateringar för Windows, Linux beroenden, Azure-tjänster | 80/443 |
+| Azure SQL | 1433 | 
+| Övervakning | 12000 |
 
-Den fullständiga listan med utgående beroenden finns i dokumentet som beskriver [låsa utgående trafik för App Service Environment](./firewall-integration.md). Om ASE förlorar åtkomst till dess beroenden, slutar fungera. När det sker tillräckligt länge inaktiveras ASE. 
+Utgående beroenden listas i dokument som beskriver [låsa utgående trafik för App Service Environment](./firewall-integration.md). Om ASE förlorar åtkomst till dess beroenden, slutar fungera. När det sker tillräckligt länge inaktiveras ASE. 
 
 ### <a name="customer-dns"></a>Kunden DNS ###
 
@@ -165,12 +173,12 @@ Det finns några poster i en Nätverkssäkerhetsgrupp för en ASE ska fungera so
 
 DNS-port behöver inte enligt trafik till DNS inte påverkas av NSG-regler. De här portarna omfattar inte de portar som dina appar kräver för att använda. Åtkomstportar vanlig app är:
 
-| Användning | Från | Till |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Konfigureras av användaren |  80, 443 |
-|  FTP/FTPS    | Konfigureras av användaren |  21, 990, 10001-10020 |
-|  Visual Studio fjärrfelsökning  |  Konfigureras av användaren |  4020, 4022, 4024 |
-|  Distribuera webbtjänsten | Konfigureras av användaren | 8172 |
+| Användning | Portar |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio fjärrfelsökning  |  4020, 4022, 4024 |
+|  Distribuera webbtjänsten | 8172 |
 
 När kraven på inkommande och utgående beaktas, bör NSG: erna likna NSG: er som visas i det här exemplet. 
 

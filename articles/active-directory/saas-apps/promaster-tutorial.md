@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 66393ffa5e8837b104e42df03ab3af5d6deea936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0a1f58705a64a973bb91e47e6e9fce87a48ce99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Självstudier: Azure Active Directory-integrering med ProMaster (genom Inlogik)
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av ProMaster (genom Inlogik) till Azure AD,
 
 **Utför följande steg för att lägga till ProMaster (genom Inlogik) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -172,11 +172,11 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ProMaster (genom Inlogik).
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **ProMaster (genom Inlogik)**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **ProMaster (genom Inlogik)** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **ProMaster (genom Inlogik)**.
+2. I listan med program väljer **ProMaster (genom Inlogik)** .
 
     ![Länken ProMaster (genom Inlogik) i listan med program](common/all-applications.png)
 
@@ -210,5 +210,5 @@ När du klickar på panelen ProMaster (genom Inlogik) i åtkomstpanelen, bör de
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

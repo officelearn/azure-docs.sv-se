@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596756"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schemareferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
@@ -38,7 +38,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 }
 ```
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 |-----------|----------|-------------|
 | `definition` | Ja | Från elementet för din arbetsflödesdefinition |
 | `$schema` | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -76,7 +76,7 @@ Här är den allmänna strukturen för en utdata-definition:
 }
 ```
 
-| Attribut | Krävs | Typ | Beskrivning |
+| Attribut | Obligatoriskt | Typ | Beskrivning |
 |-----------|----------|------|-------------|
 | <*key-name*> | Ja | String | Nyckelnamn för utdata returvärde |
 | <*typ av nyckel*> | Ja | int, float, string, securestring, bool, matris, JSON-objekt | Typen för det returnera värdet för utdata |
@@ -143,7 +143,7 @@ I den `staticResults` attributet, definiera en åtgärd utkast `outputs` och `st
 }
 ```
 
-| Attribut | Krävs | Typ | Beskrivning |
+| Attribut | Obligatoriskt | Typ | Beskrivning |
 |-----------|----------|------|-------------|
 | <*static-result-definition-name*> | Ja | String | Namnet på en definition av statiska resultatet som en åtgärdsdefinition kan hänvisa till via en `runtimeConfiguration.staticResult` objekt. Mer information finns i [Runtime konfigurationsinställningar](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda ett unikt namn som du vill. Som standard läggs den här unika namnet med ett tal, ökas vid behov. |
 | <*output-attributes-and-values-returned*> | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Till exempel när den `status` är `Succeeded`, `outputs` attribut innehåller attribut och värden returneras som fingerad utdata för åtgärden. Om den `status` är `Failed`, `outputs` attribut innehåller den `errors` attribut, som är en matris med en eller flera fel `message` objekt som har information om felet. |
@@ -292,7 +292,7 @@ När du är klar uttrycket visas för motsvarande egenskap i din arbetsflödesde
 
 I [uttryck](#expressions) och [functions](#functions), operatorer för att utföra specifika uppgifter, till exempel en egenskap eller ett värde i en matris.
 
-| Operator | Uppgift |
+| Operator | Aktivitet |
 |----------|------|
 | ' | Om du vill använda en strängliteral som indata eller i uttryck och funktioner, omsluta strängen bara med enkla citattecken, till exempel `'<myString>'`. Använd inte dubbla citattecken (””), som står i konflikt med JSON-formatering runt ett helt uttryck. Exempel: <p>**Ja**: length('Hello') </br>**Inte**: length("Hello") <p>När du skickar matriser eller siffror, behöver du inte wrapping skiljetecken. Exempel: <p>**Ja**: längden ([1, 2, 3]) </br>**Inte**: längden (”[1, 2, 3]”) |
 | [] | Om du vill referera till ett värde på en specifik plats (index) i en matris, använder du hakparenteser. Till exempel för att hämta objektet på andra i en matris: <p>`myArray[1]` |
@@ -302,7 +302,7 @@ I [uttryck](#expressions) och [functions](#functions), operatorer för att utfö
 
 <a name="functions"></a>
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Vissa uttryck få deras värden från runtime-åtgärder som inte kanske finns ännu när din arbetsflödesdefinitionen börjar köras. Du kan använda för att referera till eller arbeta med dessa värden i uttryck, [ *functions* ](../logic-apps/workflow-definition-language-functions-reference.md) som tillhandahåller Definitionsspråk för arbetsflödet.
 

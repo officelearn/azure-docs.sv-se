@@ -8,13 +8,13 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927514"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows PowerShell på virtuella skrivbord
+# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 Använd den här artikeln för att lösa fel och problem när du använder PowerShell med virtuella Windows-skrivbordet. Mer information om Remote Desktop Services PowerShell finns i [Windows Powershell för virtuella skrivbord](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
 

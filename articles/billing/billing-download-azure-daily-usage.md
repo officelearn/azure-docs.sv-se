@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60919009"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och hämta din Azure-användning och kostnader
@@ -77,7 +77,7 @@ Om du har ett Microsoft-kundavtal, kan du hämta din Azure-användning och kostn
 ### <a name="download-usage-for-billed-charges"></a>Ladda ned användningsdata för fakturerade kostnader
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 3. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 4. Välj **Fakturor**.
 5. Hitta raden på fakturan som motsvarar den användning som du vill hämta i rutnätet för fakturan.
@@ -94,7 +94,7 @@ Om du har ett Microsoft-kundavtal, kan du hämta din Azure-användning och kostn
 Du kan också hämta månad hittills användning för den aktuella faktureringsperioden. Dessa kostnader som inte har fakturerats ännu.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 3. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 4. I den **översikt** bladet hitta nedladdningslänkarna under månaden-till-date-avgifter.
 5. Välj **Azure-användning och kostnader**.

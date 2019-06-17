@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233847"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight Accelerated skrivningar för Apache HBase
@@ -36,7 +36,7 @@ Funktionen Accelerated skriver löser problemet med högre-skrivfördröjning p�
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du Accelerated skriver för HBase i HDInsight
 
-Om du vill skapa en ny HBase-kluster med funktionen Accelerated skriver, följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg3, lagring**. Under **Metaarkivsinställningar**, klickar du på kryssrutan bredvid **aktivera Accelerated skriver (förhandsversion)**. Fortsätt sedan med de återstående stegen för att skapa kluster.
+Om du vill skapa en ny HBase-kluster med funktionen Accelerated skriver, följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg3, lagring**. Under **Metaarkivsinställningar**, klickar du på kryssrutan bredvid **aktivera Accelerated skriver (förhandsversion)** . Fortsätt sedan med de återstående stegen för att skapa kluster.
 
 ![Aktivera snabbare skrivningar alternativet för Apache HBase i HDInsight](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 

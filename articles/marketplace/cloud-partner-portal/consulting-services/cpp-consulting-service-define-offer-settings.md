@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942773"
 ---
 # <a name="offer-settings-tab"></a>Fliken Erbjudandeinställningar
@@ -36,7 +36,7 @@ Som visas i exemplet är den **erbjudande-ID** läggs till Publicerings-ID för 
 Den här identifieraren är relaterat till ditt konto. När du har loggat in med ditt organisationskonto din **Publicerings-ID** visas i den nedrullningsbara menyn.
 
 
-### <a name="name"></a>Namn*
+### <a name="name"></a>Namn på *
 
 Den här strängen visas som erbjudandenamn på AppSource eller på Azure Marketplace. Den **namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera din rubrik för att lägga till varaktighet och erbjudandetyp till namnet på ditt erbjudande.
 

@@ -14,10 +14,10 @@ ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964034"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
@@ -66,7 +66,7 @@ Om du vill felsöka prestandaproblem, Välj **Undersök prestanda**.
 
 ![Skärmbild av prestandaupplevelse](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Gå till information
+### <a name="go-to-details"></a>Gå till detaljer
 
 Välj **går du till information om** att utforska transaktion slutpunkt till slutpunkt-upplevelsen, vilken kan erbjuda vyer anrop stack-nivå.
 
@@ -74,7 +74,7 @@ Välj **går du till information om** att utforska transaktion slutpunkt till sl
 
 ![Skärmbild av transaktionsinformation för slutpunkt till slutpunkt](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visa i Analytics
+### <a name="view-in-analytics"></a>Visa i analys
 
 Fråga och undersöka programdata ytterligare genom att klicka på **visa i analys**.
 

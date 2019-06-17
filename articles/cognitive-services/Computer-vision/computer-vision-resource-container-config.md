@@ -3,20 +3,20 @@ title: Konfigurera behållare – för visuellt innehåll
 titlesuffix: Azure Cognitive Services
 description: Konfigurera olika inställningar för identifiera Text behållare i visuellt.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 06/10/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fa6f04f28da2613f8b78e8885515ac40fa5961e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071311"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Konfigurera identifiera Text Docker-behållare
 
@@ -81,7 +81,7 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåtet| `Input` | String | Datorn Vision behållare Använd inte detta.|
+|Tillåts inte| `Input` | String | Datorn Vision behållare Använd inte detta.|
 |Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 

@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721083"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
@@ -65,7 +65,7 @@ Kontrollera den [utgående portar för Live Metrics Stream](../../azure-monitor/
 |Svarstid|Data som visas inom en sekund|Sammanlagda minuter|
 |Inga kvarhållning|Data kvarstår medan den i diagrammet och sedan tas bort|[Data bibehålls i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data som strömmas medan du öppna Live Metrics|Informationen skickas när SDK är installerat och aktiverat|
-|Kostnadsfri|Det kostar inget Live Stream-data|Lyder [priser](../../azure-monitor/app/pricing.md)
+|Lediga|Det kostar inget Live Stream-data|Lyder [priser](../../azure-monitor/app/pricing.md)
 |Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
 |Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du skyddar den här kanalen.|Kommunikationen är enkelriktade på portalen|
 

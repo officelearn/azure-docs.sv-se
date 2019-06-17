@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522181"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) kartan för att förstå programkomponenter
@@ -25,7 +25,7 @@ Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du använder funktionen kartan. Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="introduction-to-map-experience"></a>Introduktion till kartan upplevelse
@@ -90,7 +90,7 @@ Om gruppen innehåller övervakade och oövervakade servrar, kan du välja lämp
 Utför följande för att komma åt Azure Monitor för virtuella datorer direkt från en virtuell dator.
 
 1. I Azure-portalen väljer du **virtuella datorer**. 
-2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)**.  
+2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)** .  
 3. Välj den **kartan** fliken.
 
 Kartan visualisera beroenden för virtuella datorer, som kör processgrupper och processer med aktiva nätverksanslutningar under ett angivet tidsintervall.  Kartan visas som standard de senaste 30 minuterna.  Med hjälp av den **TimeRange** Väljaren i det övre vänstra hörnet, som du kan fråga efter historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat).  
@@ -102,7 +102,7 @@ Kartan visualisera beroenden för virtuella datorer, som kör processgrupper och
 Utför följande för att komma åt Azure Monitor för virtuella datorer direkt från en skalningsuppsättning för virtuell dator.
 
 1. I Azure-portalen väljer du **VM-skalningsuppsättningar**.
-2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)**.  
+2. I listan, väljer en virtuell dator och i den **övervakning** i avsnittet **Insights (förhandsversion)** .  
 3. Välj den **kartan** fliken.
 
 Kartan visualiserar alla instanser i skalningsuppsättningen som en gruppnod tillsammans med gruppens beroenden. Noden expanderade visar instanserna i skalningsuppsättningen, som du kan bläddra igenom tio i taget. Om du vill läsa in en karta för en specifik instans, väljer du att serverinstansen på kartan och sedan klicka på ellipsknappen till den är rätt och välj **Läs in Servermappning**. Karta för den instansen, så att du kan se processgrupper och processer med aktiva nätverksanslutningar över ett specifikt tidsintervall läses in. Kartan visas som standard de senaste 30 minuterna. Med hjälp av den **TimeRange** väljare som du kan fråga efter historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat).  
@@ -110,7 +110,7 @@ Kartan visualiserar alla instanser i skalningsuppsättningen som en gruppnod til
 ![Direct VM: översikt](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Du kan också komma åt en karta för en specifik instans från vyn instanser för virtual machine scale Sets. Gå till **instanser** under den **inställningar** och sedan välja **Insights (förhandsversion)**.
+>Du kan också komma åt en karta för en specifik instans från vyn instanser för virtual machine scale Sets. Gå till **instanser** under den **inställningar** och sedan välja **Insights (förhandsversion)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Visa karta från Azure Monitor
 Funktionen karta innehåller en global vy över dina virtuella datorer och deras beroenden från Azure Monitor.  Utför följande för att komma åt funktionen karta från Azure Monitor. 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521759"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
@@ -34,7 +34,7 @@ Du kan också manuellt bevilja den här rollen från Azure portal genom att utf�
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver **Kubernetes**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Kubernetes**.
 3. I listan över Kubernetes-kluster, väljer du ett i listan.
-2. I den vänstra menyn klickar du på **åtkomstkontroll (IAM)**.
+2. I den vänstra menyn klickar du på **åtkomstkontroll (IAM)** .
 3. Välj **+ Lägg till** att lägga till en rolltilldelning och välj den **övervakning mått Publisher** roll och under den **Välj** skriver **AKS** till Filtrera resultatet för just kluster tjänsthuvudnamn som definierats i prenumerationen. Välj det i listan som är specifik för klustret.
 4. Välj **spara** Slutför tilldela rollen. 
 

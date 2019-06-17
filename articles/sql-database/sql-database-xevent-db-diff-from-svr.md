@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206658"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL-databas
@@ -90,7 +90,7 @@ Utökade händelser-funktionen stöds av flera [catalog vyer](https://msdn.micro
 | **sys.database_event_session_targets** |Returnerar en rad för varje händelsemål för en händelsesessionen. |
 | **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i SQL Database-databasen. |
 
-I Microsoft SQL Server, liknande katalogvyer har namn som innehåller *.server\_*  i stället för *.database\_*. Namnmönstret liknar **sys.server_event_%**.
+I Microsoft SQL Server, liknande katalogvyer har namn som innehåller *.server\_*  i stället för *.database\_* . Namnmönstret liknar **sys.server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya dynamiska hanteringsvyer [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 

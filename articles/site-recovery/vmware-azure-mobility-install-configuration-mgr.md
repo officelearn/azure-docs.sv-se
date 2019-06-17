@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598073"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisera installation av Mobilitetstjänsten med System Center Configuration Manager
@@ -210,7 +210,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > Schemalägga installationen under din månatligt underhåll eller fönstret för uppdateringar av programvara för att undvika onödiga omstarter.
 
-Du kan övervaka förloppet för distributionen med hjälp av Configuration Manager-konsolen. Gå till **övervakning** > **distributioner** > *[package name]*.
+Du kan övervaka förloppet för distributionen med hjälp av Configuration Manager-konsolen. Gå till **övervakning** > **distributioner** >  *[package name]* .
 
   ![Skärmbild av Configuration Manager kan övervaka distributioner](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 

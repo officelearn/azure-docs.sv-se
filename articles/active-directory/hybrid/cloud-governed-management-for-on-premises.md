@@ -13,12 +13,12 @@ ms.date: 06/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7e54f6acfe1cbbe6e46fe92d132ebdaa91ff33
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109526"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Hur Azure AD ger Cloud regleras av lokala arbetsbelastningar
 
@@ -89,7 +89,7 @@ När en organisation är redo att flytta ett AD-integrerade program till molnet 
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Regleras molnhantering för lokal federation-baserade program
 
-För organisationer som redan använder en lokal identitetsprovider, möjliggör flytta program till Azure AD säkrare åtkomst och ett enklare administrativt perspektiv för federation. Azure AD kan konfigurera detaljerade programspecifika åtkomstkontroller, däribland Azure Multi-Factor Authentication med hjälp av Azure AD villkorsstyrd åtkomst. Azure AD stöder fler funktioner, inklusive programspecifika certifikat för tokensignering och förfallodatum för certifikat som kan konfigureras. Dessa funktioner, verktyg och vägledning kan organisationer att dra tillbaka sin lokala identitetsleverantörer. Microsofts egen IT-avdelningen, exempelvis en har flyttat 17,987 program från Microsofts interna Active Directory Federation Services (AD FS) till Azure AD.
+För organisationer som redan använder en lokal identitetsprovider, möjliggör flytta program till Azure AD säkrare åtkomst och ett enklare administrativt perspektiv för federation. Azure AD kan konfigurera detaljerade programspecifika åtkomstkontroller, däribland Azure Multi-Factor Authentication med hjälp av Azure AD villkorlig åtkomst. Azure AD stöder fler funktioner, inklusive programspecifika certifikat för tokensignering och förfallodatum för certifikat som kan konfigureras. Dessa funktioner, verktyg och vägledning kan organisationer att dra tillbaka sin lokala identitetsleverantörer. Microsofts egen IT-avdelningen, exempelvis en har flyttat 17,987 program från Microsofts interna Active Directory Federation Services (AD FS) till Azure AD.
 
 ![Azure AD-utveckling](media/cloud-governed-management-for-on-premises/image5.png)
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726879"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
@@ -187,7 +187,7 @@ I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDIn
 
 3. Ange eller Välj följande värden för den **ny datafabrik** panelen:
 
-    |Egenskap   |Värde  |
+    |Egenskap  |Värde  |
     |---------|---------|
     |Namn | Ange ett namn för data factory. Det här namnet måste vara globalt unikt.|
     |Prenumeration | Välj din Azure-prenumeration. |
@@ -228,7 +228,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
 4. Ange följande värden för storage-länkade tjänsten:
 
-    |Egenskap  |Värde |
+    |Egenskap |Värde |
     |---|---|
     |Namn |Ange `HDIStorageLinkedService`.|
     |Azure-prenumeration |Välj din prenumeration från den nedrullningsbara listan.|
@@ -250,7 +250,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
 4. I den **ny länkad tjänst** fönstret anger du följande värden och lämna resten som standard:
 
-    | Egenskap  | Värde |
+    | Egenskap | Värde |
     | --- | --- |
     | Namn | Ange `HDinisghtLinkedService`.|
     | Typ | Välj **på begäran HDInsight**. |

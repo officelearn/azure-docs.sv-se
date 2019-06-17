@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072456"
 ---
 # <a name="text-to-speech-rest-api"></a>Text till tal REST-API
 
@@ -44,31 +44,31 @@ Den `voices/list` slutpunkt kan du få en fullständig lista över röster för 
 
 | Region | Slutpunkt |
 |--------|----------|
-| Australien, östra | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brasilien, södra | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Kanada, centrala | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Östra Australien | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Södra Brasilien | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centrala Kanada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centrala USA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Östasien | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Östra USA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Centrala Frankrike | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Frankrike, centrala | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centrala Indien | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Östra Japan | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norra centrala USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norra Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Södra centrala USA | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Södra Storbritannien | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa, västra | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, västra 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Storbritannien, södra | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Västra Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Västra USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Västra USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Begärandehuvud
 
 Den här tabellen innehåller obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Sidhuvud | Beskrivning | Obligatoriskt / valfritt |
+| Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 
@@ -159,7 +159,7 @@ Dessa regioner har stöd för text till tal med hjälp av REST-API. Kontrollera 
 
 Den här tabellen innehåller obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Sidhuvud | Beskrivning | Obligatoriskt / valfritt |
+| Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
@@ -168,7 +168,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 ### <a name="audio-outputs"></a>Ljud utdata
 
-Detta är en lista över de format som ljud som skickas i varje begäran som den `X-Microsoft-OutputFormat` rubrik. Var och en innehåller en bithastigheten och kodningstyp. Speech Services stöder 24 KHz, 16 KHz och 8 KHz ljud matar ut.
+Detta är en lista över de format som ljud som skickas i varje begäran som den `X-Microsoft-OutputFormat` rubrik. Var och en innehåller en bithastigheten och kodningstyp. Speech Services stöder 24 kHz, 16 kHz och 8 kHz ljud matar ut.
 
 |||
 |-|-|
@@ -181,7 +181,7 @@ Detta är en lista över de format som ljud som skickas i varje begäran som den
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. Dock stöder inte 24khz röster `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat.
+> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. Dock stöder inte 24 kHz röster `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat.
 
 ### <a name="request-body"></a>Begärandetext
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118073"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen
 
@@ -146,7 +146,7 @@ Den [serverlös Beräkningsnivån](sql-database-serverless.md) är en förhandsv
 |TempDB-storlek (GB)|32|64|128|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
-|Mål-IOPS (64 KB)|250|500|1000|
+|Mål-IOPS (64 KB)|500|1000|2000|
 |Logga hastighetsbegränsningar (Mbit/s)|2.5|5.6|10|
 |Maximalt antal samtidiga arbetare (begäranden)|75|150|300|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|

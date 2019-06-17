@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706092"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay-Hybridanslutningar-protokoll
 
@@ -155,7 +155,7 @@ Om WebSocket-anslutning misslyckas på grund av Hybridanslutningen sökvägen in
 
 | Kod | Fel          | Beskrivning
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Kunde inte hittas      | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
+| 404  | Det gick inte att hitta      | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
 | 401  | Behörighet saknas   | Säkerhetstoken är saknad eller skadad eller ogiltig.
 | 403  | Förbjudna      | Säkerhetstoken är inte giltig för den här sökvägen för den här åtgärden.
 | 500  | Internt fel | Något gick fel i tjänsten.
@@ -221,7 +221,7 @@ Om det finns ett fel, kan tjänsten svara på följande sätt:
 
 | Kod | Fel          | Beskrivning
 | ---- | -------------- | -----------------------------------
-| 403  | Förbjudna      | Webbadressen är inte giltig.
+| 403  | Förbjudna      | URL: en är inte giltig.
 | 500  | Internt fel | Det uppstod ett fel i tjänsten
 
  När anslutningen har upprättats stängs servern av WebSocket när avsändaren WebSocket stänger, eller med följande status:
@@ -252,7 +252,7 @@ När du går igenom korrekt, misslyckas denna handskakning avsiktligt med en HTT
 
 | Kod | Fel          | Beskrivning                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Förbjudna      | Webbadressen är inte giltig.                |
+| 403  | Förbjudna      | URL: en är inte giltig.                |
 | 500  | Internt fel | Något gick fel i tjänsten. |
 
 #### <a name="request-message"></a>Meddelande om begäran
@@ -453,7 +453,7 @@ Om WebSocket-anslutning misslyckas på grund av Hybridanslutningen sökvägen in
 
 | Kod | Fel          | Beskrivning
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Kunde inte hittas      | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
+| 404  | Det gick inte att hitta      | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
 | 401  | Behörighet saknas   | Säkerhetstoken är saknad eller skadad eller ogiltig.
 | 403  | Förbjudna      | Säkerhetstoken är inte giltigt för den här sökvägen och för den här åtgärden.
 | 500  | Internt fel | Något gick fel i tjänsten.
@@ -491,21 +491,21 @@ Token kan också utföras antingen den `ServiceBusAuthorization` eller `Authoriz
 Eftersom tjänsten effektivt fungerar som en proxy, även om inte som en HTTP-proxy som SANT antingen läggs en `Via` rubrik eller annoterar den befintliga `Via` rubrik som är kompatibla med [RFC7230, avsnitt 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 Tjänsten lägger till värdnamnet för Relay-namnområde till `Via`.
 
-| Kod | Meddelande  | Beskrivning                    |
+| Kod | Message  | Beskrivning                    |
 | ---- | -------- | ------------------------------ |
 | 200  | Ok       | Begäran har hanterats av minst en lyssnare.  |
-| 202  | Accepterad | Begäran har godkänts av minst en lyssnare. |
+| 202  | Accepterat | Begäran har godkänts av minst en lyssnare. |
 
 Om det finns ett fel, kan tjänsten svara på följande sätt. Om svaret samlas in från tjänsten eller lyssnaren kan identifieras via förekomst av den `Via` rubrik. Om rubriken finns är svaret från lyssnaren.
 
 | Kod | Fel           | Beskrivning
 | ---- | --------------- |--------- |
-| 404  | Kunde inte hittas       | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
+| 404  | Det gick inte att hitta       | Hybridanslutning sökvägen är ogiltig eller den grundläggande Webbadressen felskriven.
 | 401  | Behörighet saknas    | Säkerhetstoken är saknad eller skadad eller ogiltig.
 | 403  | Förbjudna       | Säkerhetstoken är inte giltigt för den här sökvägen och för den här åtgärden.
 | 500  | Internt fel  | Något gick fel i tjänsten.
 | 503  | Felaktig gateway     | Begäran kan inte dirigeras till valfri lyssnaren.
-| 504  | Gateway-timeout | Begäran har dirigerats till en lyssnare, men lyssnaren bekräfta inte mottagandet i den begärda tiden.
+| 504  | Gateway-Timeout | Begäran har dirigerats till en lyssnare, men lyssnaren bekräfta inte mottagandet i den begärda tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 

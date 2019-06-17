@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545283"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
@@ -49,12 +49,12 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
+| ID | Obligatoriskt | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
 | Version | Obligatoriskt | Den här parametern anges till **2.0**. |
-| IssueInstant | Krävs | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
-| AssertionConsumerServiceUrl | Valfritt | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
-| ForceAuthn | Valfritt | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
-| IsPassive | Valfritt | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
+| IssueInstant | Obligatoriskt | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
+| AssertionConsumerServiceUrl | Valfri | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
+| ForceAuthn | Valfri | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
+| IsPassive | Valfri | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
 
 Alla andra `AuthnRequest` attribut, t.ex. godkännande, mål, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex och ProviderName är **ignoreras**.
 
@@ -97,7 +97,7 @@ Den `Scoping` element som innehåller en lista över identitetsleverantörer, ä
 
 Om omfattar inte den `ProxyCount` attribut, `IDPListOption` eller `RequesterID` element, eftersom de inte stöds.
 
-### <a name="signature"></a>Signatur
+### <a name="signature"></a>signatur
 Omfattar inte en `Signature` element i `AuthnRequest` element, som Azure AD inte stöder signerats autentiseringsbegäranden.
 
 ### <a name="subject"></a>Subject
@@ -199,7 +199,7 @@ Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/`där \<TenantID
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Signatur
+#### <a name="signature"></a>signatur
 
 Azure AD signerar försäkran som svar på en lyckad inloggning. Den `Signature` elementet innehåller en digital signatur som Molntjänsten kan använda för att autentisera källan för att kontrollera integriteten för kontrollen.
 

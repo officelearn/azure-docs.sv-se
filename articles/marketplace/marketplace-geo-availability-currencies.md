@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938256"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Geografisk tillgänglighet och support för valuta
@@ -96,7 +96,7 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Litauen                           | LT        | EUR          |
 | Luxemburg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| Nordmakedonien                     | MK        | USD          |
+| Norra Makedonien                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -106,7 +106,7 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Mongoliet                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocko                             | MA        | USD          |
-| Namibia                             | Ej tillämpligt        | USD          |
+| Namibia                             | Saknas        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |

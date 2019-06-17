@@ -3,17 +3,17 @@ title: Skapa och hantera regler för telemetri i programmet Azure IoT Central | 
 description: Azure IoT Central telemetri regler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8684301b83e01989c745b63848995142cb766188
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052982"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -59,7 +59,7 @@ Villkoret definierar de kriterier som övervakas av regeln.
    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
    - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
 
-     ![Villkor](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
+     ![Tillstånd](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.

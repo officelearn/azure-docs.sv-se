@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
 ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209463"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
@@ -64,7 +64,7 @@ DDoS Protection standardfunktioner omfattar:
 
 DDoS Protection Standard övervakar faktiska trafik användning och ständigt jämför den med de tröskelvärden som definierats i DDoS-princip. När trafik tröskelvärdet överskrids initieras automatiskt DDoS-åtgärd. När trafik lämnar under tröskelvärdet, tas minskningen bort.
 
-![Minskning](./media/ddos-protection-overview/mitigation.png)
+![Åtgärd](./media/ddos-protection-overview/mitigation.png)
 
 Under migrering av trafik som skickas till den skyddade resursen omdirigeras av tjänsten DDoS protection och flera kontroller som utförs, till exempel följande kontroller:
 

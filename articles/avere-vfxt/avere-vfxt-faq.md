@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595423"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
@@ -80,7 +80,7 @@ Ja, kunder kan använda mer än en molnleverantör med Avere vFXT klustret. Den 
 > [!NOTE] 
 > En avgift för programvara gäller om du vill använda Avere vFXT i AWS och Google Cloud, men inte med Azure.
 
-## <a name="technical-compute"></a>Teknisk: Beräkna
+## <a name="technical-compute"></a>Teknisk: Compute
 
 ### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Kan du beskriva vad en Avere vFXT miljö ”ut”?
 

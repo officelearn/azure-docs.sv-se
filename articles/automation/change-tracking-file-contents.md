@@ -10,10 +10,10 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304360"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med ändringsspårning
@@ -34,7 +34,7 @@ Filspårning innehåll kan du visa innehållet i en fil före och efter en ändr
 2. På menyn högst upp väljer **redigera inställningar för**.
 3. Välj **filinnehåll** och klicka på **länk**. Då öppnas det **Lägg till innehållsplats för ändringsspårning** fönstret.
 
-   ![aktivera](./media/change-tracking-file-contents/enable.png)
+   ![Aktivera](./media/change-tracking-file-contents/enable.png)
 
 4. Välj prenumeration och storage-konto du använder för att lagra innehållet i filen till. Om du vill aktivera innehåll filspårning för alla befintliga spårade filer väljer **på** för **ladda upp innehåll för alla inställningar**. Du kan därefter ändra detta för varje sökväg.
 

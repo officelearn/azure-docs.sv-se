@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963569"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
@@ -56,7 +56,7 @@ Den **etablering** fönstret börjar med en **läge** meny som visar etablering 
 
 Välj den **automatisk** alternativet för att ange inställningar för autentiseringsuppgifter som administratör, mappningar, starta och stoppa, och synkronisering.
 
-### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
+### <a name="admin-credentials"></a>Autentiseringsuppgifter som administratör
 
 Expandera **administratörsautentiseringsuppgifter** att ange de autentiseringsuppgifter som krävs för Azure AD för att ansluta till programmets API för användarhantering. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [självstudierna för konfiguration för det specifika programmet](user-provisioning.md).
 

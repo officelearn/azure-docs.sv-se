@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414961"
+ms.locfileid: "67113473"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -37,7 +37,7 @@ Det här dokumentet innehåller vägledning om strategier för en organisation s
 Det finns fyra viktiga takeaways i det här dokumentet:
 
 * Undvik att administratören kontoutelåsning genom att använda för åtkomst vid akutfall.
-* Implementera MFA med villkorlig åtkomst (CA) i stället för MFA per användare.
+* Implementera MFA med hjälp av villkorlig åtkomst (CA) i stället för MFA per användare.
 * Minimera kontoutelåsning för användare med hjälp av flera kontroller för villkorlig åtkomst (CA).
 * Minimera användaren kontoutelåsning genom att etablera flera autentiseringsmetoder eller motsvarigheter för varje användare.
 
@@ -109,7 +109,7 @@ Förstå din exponering vid avbrott bidrar till att minska risken och är en vik
 
 #### <a name="microsoft-recommendations"></a>Microsoft-rekommendationer
 
-Principer för villkorlig åtkomst för oförutsedda händelser är en **inaktiverad princip** som utesluter Azure MFA, tredje parts MFA riskbaserad eller enhetsbaserad kontroller. När din organisation bestämmer sig för att aktivera din nödplan, kan administratörer aktivera principen och inaktivera regelbundna kontroll-baserade policys.
+Oförutsedda händelser principer för villkorlig åtkomst är en **inaktiverad princip** som utesluter Azure MFA, tredje parts MFA riskbaserad eller enhetsbaserad kontroller. När din organisation bestämmer sig för att aktivera din nödplan, kan administratörer aktivera principen och inaktivera regelbundna kontroll-baserade policys.
 
 >[!IMPORTANT]
 > Inaktivera principer som höja säkerheten för dina användare, även tillfälligt minskar din säkerhetsposition medan nödplan är på plats.

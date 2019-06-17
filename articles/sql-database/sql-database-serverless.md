@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116206"
 ---
-# <a name="sql-database-serverless-preview"></a>SQL Database utan server (förhandsversion)
+# <a name="azure-sql-database-serverless-preview"></a>Azure SQL-databas utan server (förhandsversion)
+
+Azure SQL-databas utan server (förhandsversion) är en Beräkningsnivån för enskilda databaser som automatiskt skalar beräkning baserat på arbetsbelastningen begäran och fakturor för den beräkning som används per sekund. Serverlös Beräkningsnivån pausar automatiskt databaser under inaktiva perioder när endast storage faktureras och återupptas automatiskt databaser när aktiviteten returnerar.
 
 ## <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
 
-SQL-databas utan server (förhandsversion) är en enkel databas-Beräkningsnivån att skalar beräkning och fakturerar för den beräkning som används per sekund. 
-
-En databas på nivån för beräkning utan Server parametriserade av compute-intervallet som kan användas och en autopause fördröjning.
+Beräkning utan Server-nivå för en enskild databas parametriserade genom ett intervall för automatisk skalning av beräkning och en autopause fördröjning.  Konfigurationen av dessa parametrar forma prestandaupplevelse databasen och beräkningar.
 
 ![serverlös fakturering](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>Prestanda
+### <a name="performance-configuration"></a>Prestandakonfiguration
 
-- Antalet minsta virtuella kärnor och högsta virtuella kärnor är konfigurerbara parametrar som definierar en uppsättning beräkningskapacitet som är tillgängliga för databasen. Minne och i/o-gränserna är proportion till vCore-intervallet som angetts.  
-- Autopause fördröjningen är en konfigurerbar parameter som definierar tidsperioden som databasen måste vara inaktiv innan den pausas automatiskt. Databasen återupptas automatiskt vid nästa inloggning inträffar.
+- Den **minsta vCores** och **maximala vCores** är konfigurerbara parametrar som definierar en uppsättning beräkningskapacitet som är tillgängliga för databasen. Minne och i/o-gränserna är proportion till vCore-intervallet som angetts.  
+- Den **autopause fördröjning** är en konfigurerbar parameter som definierar tidsperioden databasen måste vara inaktiv innan den pausas automatiskt. Databasen återupptas automatiskt vid nästa inloggning eller andra aktiviteter inträffar.  Du kan också kan autopausing inaktiveras.
 
-### <a name="pricing"></a>Prissättning
+### <a name="cost"></a>Kostnad
 
-- Den totala avgiften för en databas utan Server är summan av beräkning faktura och storage-fakturan.
-Fakturering för beräkningen baseras på mängden virtuella kärnor som används och minne som används per sekund.
-- Minsta beräkningarna debiteras baseras på min virtuella kärnor och minsta minnesmängd.
-- När databasen är pausat debiteras endast lagring.
+- Kostnaden för en databas utan Server är summan av beräkningskostnaden och kostnaden för lagring.
+- När beräkning användningen är mellan lägsta och högsta gränsen som har konfigurerats, baseras beräkningskostnaden på vCore och minne som används.
+- När beräkning användningen är under den konfigurerade min, baseras beräkningskostnaden på min virtuella kärnor och minsta minnesmängd som har konfigurerats.
+- När databasen har pausats visas beräkningskostnaden är noll och endast lagringskostnader tillkommer.
+- Kostnaden för lagring definieras i på samma sätt som den etablerade beräkning-nivån.
+
+Mer kostnadsinformation, finns i [fakturering](sql-database-serverless.md#billing).
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -73,7 +76,7 @@ I följande tabell sammanfattas skillnader mellan den beräkning utan server och
 
 SQL-databas utan Server är för närvarande stöds endast i nivån generell användning på Generation 5 maskinvara i vCore-köp av modellen.
 
-## <a name="autoscale"></a>Automatisk skalning
+## <a name="autoscaling"></a>Automatisk skalning
 
 ### <a name="scaling-responsiveness"></a>Skala svarstider
 
@@ -98,9 +101,9 @@ I både utan server och etablerade compute-databaser, cache poster kan tas bort 
 
 SQL-cacheminnet växer när data hämtas från disken på samma sätt och med samma hastighet som etablerade databaser. När databasen är upptagen, kan cacheminnet växer obegränsad upp till högst minnesgränsen.
 
-## <a name="autopause-and-autoresume"></a>Autopause och autoresume
+## <a name="autopausing-and-autoresuming"></a>Autopausing och autoresuming
 
-### <a name="autopause"></a>Autopause
+### <a name="autopausing"></a>Autopausing
 
 Autopausing utlöses om samtliga följande villkor är uppfyllda under hela autopause fördröjningen:
 
@@ -117,7 +120,7 @@ Följande funktioner stöder inte autopausing.  Det vill säga om någon av föl
 
 Autopausing är tillfälligt inte under distributionen av vissa uppdateringar av tjänsten som kräver att databasen är online.  I sådana fall kan blir autopausing tillåtet igen när tjänstuppdateringen har slutförts.
 
-### <a name="autoresume"></a>Autoresume
+### <a name="autoresuming"></a>Autoresuming
 
 Autoresuming utlöses om något av följande villkor är uppfyllt när som helst:
 
@@ -148,7 +151,7 @@ Svarstiden för autoresume och autopause en serverlös databas är vanligtvis or
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding till nivån för beräkning utan Server
 
-Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Server-nivå följer samma mönster som du skapar en ny databas i etablerats Beräkningsnivån och omfattar följande två steg:
+Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Server-nivå följer samma mönster som du skapar en ny databas i etablerad Beräkningsnivån och omfattar följande två steg.
 
 1. Ange namn för tjänsten servicenivåmål. Tjänstmålet behandlar den tjänstnivån, maskinvara generation och max virtuella kärnor. I följande tabell visar service objektiva alternativen:
 
@@ -163,18 +166,20 @@ Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Serve
    |Parameter|Alternativ för värde|Standardvärde|
    |---|---|---|---|
    |Min vCores|Något av {0,5, 1, 2, 4} som inte överstiger max virtuella kärnor|0,5 virtuella kärnor|
-   |Autopause fördröjning|Min: 360 minuter (6 timmar)<br>Max: 10 080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopause: -1|360 minuter|
+   |Autopause fördröjning|Minimum: 360 minuter (6 timmar)<br>Maximalt: 10 080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopause: -1|360 minuter|
 
 > [!NOTE]
 > Med T-SQL för att flytta en befintlig databas till utan server eller ändra dess beräkningsstorleken stöds inte för närvarande men kan göras via Azure portal eller PowerShell.
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>Skapa ny utan Server-databas med hjälp av Azure portal
+### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas på nivån för beräkning utan Server 
+
+#### <a name="use-azure-portal"></a>Använda Azure-portalen
 
 Gå till [Snabbstart: Skapa en enskild databas i Azure SQL Database med Azure portal](sql-database-single-database-get-started.md).
 
-### <a name="create-new-serverless-database-using-powershell"></a>Skapa ny utan Server-databas med hjälp av PowerShell
+#### <a name="use-powershell"></a>Använd PowerShell
 
-I följande exempel skapas en ny databas på nivån för beräkning utan server som definieras av tjänstmål med namnet GP_S_Gen5_4 med standardvärden för min virtuella kärnor och autopause fördröjningen.
+I följande exempel skapas en ny databas på nivån för beräkning utan server.  Det här exemplet anger uttryckligen virtuella kärnor min, max virtuella kärnor och autopause fördröjning.
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Flytta etablerad beräkning databasen till nivån för beräkning utan Server
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Flytta databasen från etablerade Beräkningsnivån till nivån för beräkning utan Server
 
-I följande exempel flyttas en befintlig enskild databas från den etablerade Beräkningsnivån till nivån för beräkning utan server. Det här exemplet anger uttryckligen virtuella kärnor min, max virtuella kärnor och autopause fördröjning.
+#### <a name="use-powershell"></a>Använd PowerShell
+
+I följande exempel flyttar en databas från den etablerade Beräkningsnivån till beräkning utan Server-nivå. Det här exemplet anger uttryckligen virtuella kärnor min, max virtuella kärnor och autopause fördröjning.
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Flytta databas utan server till etablerade Beräkningsnivån
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Flytta databasen från beräkning utan Server nivå till etablerade Beräkningsnivån
 
 En databas utan Server kan flyttas till en etablerad Beräkningsnivån på samma sätt som att flytta en databas med etablerad beräkning i en beräkning utan Server-nivå.
 
@@ -214,13 +221,19 @@ En databas utan Server kan flyttas till en etablerad Beräkningsnivån på samma
 
 ### <a name="maximum-vcores"></a>Högsta antal virtuella kärnor
 
+#### <a name="use-powershell"></a>Använd PowerShell
+
 Ändra den maximala vCores utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `MaxVcore` argumentet.
 
 ### <a name="minimum-vcores"></a>Lägsta antal virtuella kärnor
 
+#### <a name="use-powershell"></a>Använd PowerShell
+
 Ändra min vCores utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `MinVcore` argumentet.
 
 ### <a name="autopause-delay"></a>Autopause fördröjning
+
+#### <a name="use-powershell"></a>Använd PowerShell
 
 Ändra autopause fördröjningen utförs med hjälp av den [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av den `AutoPauseDelayInMinutes` argumentet.
 
@@ -228,7 +241,7 @@ En databas utan Server kan flyttas till en etablerad Beräkningsnivån på samma
 
 ### <a name="resources-used-and-billed"></a>Resurser som används och faktureras
 
-Resurser för en serverlös databas är inkapslade av följande enheter:
+Resurser för en serverlös databas är inkapslade av app-paket och SQL-instans användarentiteter resource pool.
 
 #### <a name="app-package"></a>App-paket
 

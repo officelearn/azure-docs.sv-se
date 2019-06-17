@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458879"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure portal
@@ -52,7 +52,7 @@ Om du vill tillåta att program från Azure att ansluta till din Azure Database 
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Hantera befintliga brandväggsregler på servernivå med hjälp av Azure-portalen
 Upprepa stegen för att hantera brandväggsreglerna.
 * Lägg till den aktuella datorn, klicka på **+ Lägg till Min IP**. Klicka på **Spara** för att spara ändringarna.
-* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-**, och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
+* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-** , och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ändra en befintlig regel klickar du på något av fälten i regeln och sedan ändra. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ta bort en befintlig regel, klicka på ellipsen [...] och klicka sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
 

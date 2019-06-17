@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/20/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437879"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions bindning mönster för uttryck
@@ -314,5 +313,3 @@ I C# och andra .NET-språk, kan du använda ett viktigt bindning mönster, till 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Med hjälp av Azure funktionsreturvärde](./functions-bindings-return-value.md)
-
-<!-- Update_Description: link update -->

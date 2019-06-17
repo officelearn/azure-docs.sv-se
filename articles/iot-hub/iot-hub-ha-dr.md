@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779380"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och disaster recovery
@@ -125,10 +125,10 @@ För att förenkla det här steget ska du använda idempotenta åtgärder. Idemp
 
 Här är en sammanfattning av hr/DR-alternativ som visas i den här artikeln som kan användas som en referensram för att välja rätt alternativ som passar din lösning.
 
-| HR/DR-alternativet | MÅL FÖR ÅTERSTÄLLNINGSTID | Mål för återställningspunkt | Kräver manuella åtgärder? | Implementering komplexitet | Extra kostnad påverkan|
+| HR/DR-alternativet | MÅL FÖR ÅTERSTÄLLNINGSTID | RPO | Kräver manuella åtgärder? | Implementering komplexitet | Extra kostnad påverkan|
 | --- | --- | --- | --- | --- | --- |
 | Microsoft-initierad redundans |2 – 26 timmar|Se RPO tabellen ovan|Nej|Ingen|Ingen|
-| Manuell redundansväxling |10: e minut – 2 timmar|Se RPO tabellen ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Ingen|
+| Manuell redundans |10: e minut – 2 timmar|Se RPO tabellen ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Ingen|
 | Mellan region hög tillgänglighet |< 1 min|Beroende på replikeringsfrekvensen av ditt eget program för hög tillgänglighet|Nej|Hög|> 1 x-kostnaden för 1 IoT-hubb|
 
 ## <a name="next-steps"></a>Nästa steg

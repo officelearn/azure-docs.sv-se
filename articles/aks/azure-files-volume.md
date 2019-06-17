@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072092"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en volym med Azure Files-resurs i Azure Kubernetes Service (AKS)
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montera filresursen som en volym
 
-Om du vill montera Azure Files-resurs i din pod, konfigurerar du volymen i container-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Om du har ändrat namnet på resursen filer eller hemligt namn måste du uppdatera den *shareName* och *secretName*. Om du vill kan du uppdatera den `mountPath`, vilket är den sökväg där filerna delar är monterad i en pod.
+Om du vill montera Azure Files-resurs i din pod, konfigurerar du volymen i container-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Om du har ändrat namnet på resursen filer eller hemligt namn måste du uppdatera den *shareName* och *secretName*. Om du vill kan du uppdatera den `mountPath`, vilket är den sökväg där filerna delar är monterad i en pod. För Windows Server-behållare (för närvarande i förhandsversion i AKS), ange en *mountPath* med Windows sökväg konventionen, till exempel *”D:”* .
 
 ```yaml
 apiVersion: v1

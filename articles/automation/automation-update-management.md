@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075502"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -45,7 +45,7 @@ När en dator är klar en sökning efter uppdateringskompatibilitet vidarebeford
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
 
-För en Linux-dator utförs kompatibilitetsgenomsökningen var tredje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
+För en Linux-dator utförs kompatibilitetsgenomsökningen varje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
 
 Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad för att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS, beroende på när WSUS senast synkroniserad med Microsoft Update kan resultatet skiljer sig från vad Microsoft Updates visar. Det här beteendet är samma för Linux-datorer som är konfigurerade att rapportera till en lokal lagringsplats i stället för till en offentlig repo.
 
@@ -303,7 +303,7 @@ Hantering av uppdateringar är beroende av Windows Update för att hämta och in
 
 ### <a name="pre-download-updates"></a>Pre hämta uppdateringar
 
-Om du vill konfigurera automatiskt hämtar uppdateringar i en Grupprincip, kan du ange den [inställningen Konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) till **3**. Detta hämtar uppdateringar som behövs i bakgrunden, men installera inte dem. Detta håller uppdateringshantering kontroll över scheman, men kan uppdateringar som hämtas utanför underhållsperioden uppdateringshantering. Det här kan hindra **underhållsperioden har överskridits** fel i hantering av uppdateringar.
+Om du vill konfigurera automatiskt hämtar uppdateringar i en Grupprincip, kan du ange den [inställningen Konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) till **3**. Detta hämtar uppdateringar som behövs i bakgrunden, men installera inte dem. Detta håller uppdateringshantering kontroll över scheman, men kan uppdateringar som hämtas utanför underhållsperioden uppdateringshantering. Det här kan hindra **underhållsperioden har överskridits** fel i hantering av uppdateringar.
 
 Du kan också ange detta med PowerShell, kör följande PowerShell på ett system som du vill hämta uppdateringar automatiskt.
 

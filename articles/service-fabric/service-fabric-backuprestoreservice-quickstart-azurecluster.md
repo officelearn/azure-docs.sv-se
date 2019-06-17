@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059198"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Service Fabric tillhandahåller en uppsättning API: er för att uppnå följand
 - Kvarhållning av säkerhetskopior (kommande)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-* Service Fabric-kluster med Fabric version 6.2 och senare. Klustret ska ställas in på Windows Server. Referera till denna [artikeln](service-fabric-cluster-creation-via-arm.md) för steg för att skapa Service Fabric-kluster med Azure resource-mall.
+* Service Fabric-kluster med Fabric version 6.4 eller senare. Referera till denna [artikeln](service-fabric-cluster-creation-via-arm.md) för steg för att skapa Service Fabric-kluster med Azure resource-mall.
 * X.509-certifikat för kryptering av hemligheter som behövs för att ansluta till storage för lagring av säkerhetskopior. Se [artikeln](service-fabric-cluster-creation-via-arm.md) kunskaper om att hämta eller skapa ett X.509-certifikat.
 * Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .NET Core 2.0, bör programmet skapas med hjälp av Service Fabric SDK version 3.1 eller senare.
 * Skapa Azure Storage-konto för att lagra säkerhetskopior av programmet.

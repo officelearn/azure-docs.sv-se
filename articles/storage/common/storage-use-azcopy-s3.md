@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687919"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125791"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Kopiera data från Amazon S3 buckets med hjälp av AzCopy
 
@@ -49,6 +49,9 @@ Samla in din AWS-åtkomstnyckel och hemliga åtkomstnyckel och ange sedan dessa 
 ## <a name="copy-objects-directories-and-buckets"></a>Kopiera objekt, kataloger och buckets
 
 AzCopy använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, så att data har kopierats direkt mellan AWS S3 och lagringsservrar. Dessa kopieringsåtgärder använda inte bandbredd på datorn.
+
+> [!IMPORTANT]
+> Den här funktionen är för närvarande en förhandsversion. Om du vill ta bort data från S3-buckets efter en kopieringsåtgärd, se till att verifiera att data korrekt har kopierats till ditt lagringskonto innan du tar bort data.
 
 ### <a name="copy-an-object"></a>Kopiera ett objekt
 

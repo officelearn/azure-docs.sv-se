@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406403"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076447"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga startuppgifter för Cloud Service
 Den här artikeln innehåller några exempel på vanliga startuppgifter som du utför i din molntjänst. Du kan använda startåtgärder för att utföra åtgärder innan en roll startas. Åtgärder som du kanske vill utföra omfattar installera en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process. 
@@ -73,7 +73,7 @@ Errorlevel som returneras av *AppCmd.exe* anges i filen winerror.h och visas ock
 ### <a name="example-of-managing-the-error-level"></a>Exempel på att hantera Felnivån
 Det här exemplet lägger till ett avsnitt för komprimering och en post för komprimering för JSON till det *Web.config* -fil med felhantering och loggning.
 
-De relevanta avsnitten i den [ServiceDefinition.csdef] filen visas här, som innehåller inställningen den [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) attributet `elevated` att ge *AppCmd.exe* tillräcklig behörighet för att ändra inställningarna på den *Web.config* fil:
+De relevanta avsnitten i den [ServiceDefinition.csdef] filen visas här, som innehåller inställningen den [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) attributet `elevated` att ge *AppCmd.exe* tillräcklig behörighet för att ändra inställningarna på den *Web.config* fil:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

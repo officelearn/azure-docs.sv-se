@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509925"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain Workbench
@@ -58,7 +58,7 @@ Lägga till användare till den **administratör** i Azure AD-katalog:
 5.  Välj **användare och grupper > Lägg till användare**.
 6.  I **Lägg till tilldelning**väljer **användare**. Välja eller söka efter den användare som du vill lägga till som administratör. Klicka på **Välj** när du har valt.
 
-    ![Lägg till tilldelning ](./media/manage-users/add-user-assignment.png)
+    ![Lägg till tilldelning](./media/manage-users/add-user-assignment.png)
 
 9.  Kontrollera **rollen** är inställd på **administratör**
 10. Välj **Tilldela**. Tillagda användare visas i listan med administratörsrollen tilldelas.
@@ -87,11 +87,11 @@ Använda Blockchain Workbench-programmet för att hantera användare och organis
 1. Välj panelen medlem för att visa en lista över de aktuella medlemmarna.
 2. Välj **lägga till medlemmar**.
 
-    ![Lägg till medlemmar](./media/manage-users/application-add-members.png)
+    ![Lägga till medlemmar](./media/manage-users/application-add-members.png)
 
 3. Sök efter användarens namn.  Endast Azure AD-användare som finns i Blockchain Workbench-klientorganisationen visas. Om användaren inte hittas, måste du [lägga till Azure AD-användare](#add-azure-ad-users).
 
-    ![Lägg till medlemmar](./media/manage-users/find-user.png)
+    ![Lägga till medlemmar](./media/manage-users/find-user.png)
 
 4. Välj en **rollen** från listrutan.
 

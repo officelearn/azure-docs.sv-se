@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689376"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
 Azure Media Services v3 kan du extrahera insikter från din video och ljud filer med Video Indexer via AMS v3 analyzer förinställningar (beskrivs i den här artikeln). Använd Video Indexer direkt för att indexera mer detaljerad information. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [Självstudie: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
+Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [Självstudier: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > När du använder en Video- eller Audio Analyzer-förinställningen använder du Azure-portalen för att ställa in ditt konto på att ha 10 mediereserverade S3-enheter. Mer information finns i [Skala mediebearbetning](media-reserved-units-cli-how-to.md).
@@ -146,7 +146,7 @@ Exempel:
 |Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
-|namn|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
+|name|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
 |description|En beskrivning av kändisar. |
 |thumbnailId|ID för miniatyrbilden för den sida.|
@@ -296,7 +296,7 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 |Namn|Beskrivning|
 |---|---|
 |id|Etikett-ID.|
-|namn|Etikettnamn (till exempel ”dator”, ”TV”).|
+|name|Etikettnamn (till exempel ”dator”, ”TV”).|
 |language|Etiketten namn språk (vid översättning). BCP-47|
 |instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966314"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor: Säkerhetskopiera virtuella Azure-datorer
@@ -20,7 +20,7 @@ ms.locfileid: "65966314"
 Den här artikeln innehåller vanliga frågor och svar om säkerhetskopiering av virtuella Azure-datorer med den [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
-## <a name="backup"></a>Säkerhetskopiera
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Vilka VM-avbildningar kan aktiveras för säkerhetskopiering när jag skapar dem?
 När du skapar en virtuell dator kan du aktivera säkerhetskopiering för virtuella datorer som kör [operativsystem som stöds](backup-support-matrix-iaas.md#supported-backup-actions)
@@ -108,7 +108,7 @@ Ja, du kan använda säkerhetskopior som har gjorts innan diskar har migrerats f
 - Som standard skapar en ohanterad virtuell dator i en virtuell dator återställningsjobbet.
 - Du kan dock återställa diskar och använda dem för att skapa en hanterad virtuell dator.
 
-### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hur återställer jag en virtuell dator till en återställningspunkt innan den virtuella datorn har migrerats till managed disks?
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hur återställer jag en virtuell dator till en återställningspunkt innan den virtuella datorn har migrerats till hanterade diskar?
 Som standard skapar en virtuell dator med ohanterade diskar i en virtuell dator återställningsjobbet. Skapa en virtuell dator med hanterade diskar:
 1. [Återställa till ohanterade diskar](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [Konvertera de återställda diskarna till managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).

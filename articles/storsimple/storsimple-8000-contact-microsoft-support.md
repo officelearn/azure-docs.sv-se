@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606864"
 ---
-# <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
+# <a name="contact-microsoft-support"></a>Kontakta Microsofts support
 
 StorSimple Device Manager ger möjlighet att **logga en ny supportbegäran** inom sammanfattningsbladet för tjänsten. Om du får problem med din StorSimple-lösning kan du skapa en tjänstbegäran för teknisk support. I en online-session med supportpersonalen, kan du också behöva starta en supportsession på StorSimple-enheten. Den här artikeln beskriver hur du:
 

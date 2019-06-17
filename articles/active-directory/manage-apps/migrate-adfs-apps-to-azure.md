@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108257"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
@@ -46,7 +46,7 @@ Många organisationer har SaaS-appar eller anpassade verksamhetsspecifika appar 
 För organisationer som redan använder AD FS, Ping eller en annan lokal autentiseringsprovider, gör att flytta appar till Azure AD följande fördelar:
 
 **Säkrare åtkomst**
-- Konfigurera detaljerade programspecifika åtkomstkontroller, däribland Azure Multi-Factor Authentication (MFA), med [villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md). Principerna kan tillämpas på SaaS-appar och anpassade appar på samma sätt som du kanske gör i dag för Office 365.
+- Konfigurera detaljerade programspecifika åtkomstkontroller, däribland Azure Multi-Factor Authentication med hjälp av [Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md). Principerna kan tillämpas på SaaS-appar och anpassade appar på samma sätt som du kanske gör i dag för Office 365.
 - För att upptäcka hot och skydda inloggning som baseras på maskininlärning och heuristik som identifierar riskfylld trafik, kan du använda [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **Azure AD B2B-samarbete**
@@ -155,7 +155,7 @@ Appar som du kan flytta enkelt idag inkluderar SAML 2.0-appar som använder stan
 - Anpassade anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdas i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Utöver anpassade anspråk och **NameID**-element, är de konfigurationer som kräver extra konfigurationssteg i Azure AD som en del av migreringen följande:
-- Anpassad auktorisering eller Multi-Factor Authentication-regler i AD FS. Du kan konfigurera dem med hjälp av funktionen [Villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md).
+- Anpassad auktorisering eller Multi-Factor Authentication-regler i AD FS. Du kan konfigurera dem med hjälp av den [Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktionen.
 - Appar med flera SAML-slutpunkter. Du konfigurerar dem i Azure AD med hjälp av PowerShell. (Den här funktionen är inte tillgänglig i portalen.)
 - WS-Federation-appar, till exempel SharePoint-appar som kräver SAML version 1.1-tokens. Du måste konfigurera dem manuellt med hjälp av PowerShell.
 

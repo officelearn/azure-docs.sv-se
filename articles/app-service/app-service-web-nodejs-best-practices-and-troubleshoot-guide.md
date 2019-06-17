@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60853081"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
@@ -262,7 +262,7 @@ Den `cnodeconstants` [källfilen](https://github.com/Azure/iisnode/blob/master/s
 
 Aktivera FREB för ditt program att se win32-felkoden (vara säker på att du aktiverar FREB bara på icke-produktion platser av prestandaskäl).
 
-| Http-status | Understatus för http | Möjlig orsak? |
+| HTTP-Status | Understatus för http | Möjlig orsak? |
 | --- | --- | --- |
 | 500 |1000 |Det uppstod några fel skicka förfrågan om att IISNODE – kontrollerar om node.exe har startat. Har det gick kraschat node.exe vid start. Kontrollera din konfiguration för web.config för fel. |
 | 500 |1001 |-Win32Error 0x2 - App svarar inte på URL: en. Kontrollera URL-omskrivningsregler eller kontrollera om din uttryckliga app har rätt vägar definierade. -Win32Error 0x6d – namngiven pipe är upptagen – Node.exe tar inte emot begäranden eftersom pipe är upptaget. Kontrollera hög cpu-användning. -Övriga fel – kontrollera om node.exe kraschade. |

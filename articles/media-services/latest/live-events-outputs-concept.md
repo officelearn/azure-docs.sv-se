@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114677"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -54,14 +54,14 @@ Se ett .NET-kodexempel i [MediaV3LiveApp](https://github.com/Azure-Samples/media
 
 ![livekodning](./media/live-streaming/live-encoding.svg)
 
-När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Livehändelsen kodar den inkommande strömmen med enkel bithastighet till [videoström med flera bithastigheter](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) och gör den tillgänglig för leverans till uppspelningsenheter via protokoll såsom MPEG-DASH, HLS och Smooth Streaming. När du skapar den här typen av livehändelse anger du kodningstypen som **Standard** (LiveEventEncodingType.Standard).
+När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Du skulle ställa in en direktsänd händelse så att den kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), och tillgängliggör utdata för leverans till enheter via protokoll, till exempel MPEG-DASH, HLS eller spela upp och jämna ut Direktuppspelning.
 
-Du kan skicka bidragsflödet med en upplösning på upp till 1080p och en bildfrekvens på 30 bilder/sekund, med videocodecen H.264/AVC och ljudcodecen AAC (AAC-LC, HE-AACv1 eller HE-AACv2). Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
+När du använder direktsänd kodning, du kan skicka bidraget feed endast på lösningar till 1080p-lösning på en bildfrekvens av 30 bilder/sekund, med H.264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljudcodec. Observera att direkt Live-händelser har stöd för lösningar upp till 4 K på 60 bildrutor per sekund. Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
 
-När du använder livekodning (livehändelse inställd på **Standard**) definierar kodningsförinställningen hur den inkommande strömmen kodas till flera bithastigheter eller lager. Mer information finns i [Systemförinställningar](live-event-types-comparison.md#system-presets).
+Upplösningar och bithastigheter för utdata i utdata från livekodaren bestäms av förinställningen. Om du använder en **Standard** live encoder (LiveEventEncodingType.Standard), kommer *Default720p* förinställning anger en uppsättning med 6 lösning/bitars rate-par, som kommer från 720 p på 3.5Mbps ned 192 p med 200 kbit/s. Annars, om du använder en **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), kommer *Default1080p* förinställning anger en uppsättning med 6 lösning/bitars rate-par, som kommer från 1080 p på 3.5Mbps ned 180 p med 200 kbit/s. Mer information finns i [Systemförinställningar](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> För närvarande är det enda tillåtna förinställda värdet för livehändelser av typen Standard *Default720p*. Om du behöver använda en anpassad förinställning för livekodning bör du kontakta amshelp@microsoft.com. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager.
+> Om du vill anpassa live förinställningen för kodningen kan öppna ett supportärende via Azure-portalen. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det finns ett lager på 720p (om du begär en förinställning för en Standard live-kodare) eller på 1080p (om du begär en förinställning för en Premium1080p live-kodare) och högst 6 lager.
 
 ## <a name="live-event-creation-options"></a>Live-alternativ för skapande av händelse
 
@@ -93,6 +93,14 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
     Åtkomst-token måste vara unikt i ditt datacenter. Om programmet behöver för att använda en anpassad URL, bör du alltid vill skapa en ny GUID-instans för ditt åtkomst-token (istället för att alla befintliga GUID). 
 
+    Använd följande API: er för att aktivera anpassad URL och ange åtkomst-token till ett giltigt GUID (till exempel `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |Språk|Aktivera anpassad URL|Ange åtkomst-token|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Liveinmatning regler för namngivning av URL: en
 
 Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).<br/>

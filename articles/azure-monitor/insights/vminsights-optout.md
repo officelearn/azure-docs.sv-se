@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
 ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522125"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Så här inaktiverar du övervaka dina virtuella datorer med Azure Monitor för virtuella datorer (förhandsversion)
@@ -53,8 +53,8 @@ Följande steg beskriver hur du tar bort Azure Monitor för virtuella datorer om
 2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du Log Analytics. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. I listan med Log Analytics-arbetsytor, Välj den arbetsyta som du har valt när onboarding Azure Monitor för virtuella datorer.
 4. I den vänstra rutan, Välj **lösningar**.  
-5. Välj i listan över lösningar, **InfrastructureInsights (namn på arbetsyta)**, och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
-6. I listan med lösningar, Välj **ServiceMap (namn på arbetsyta)**, och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
+5. Välj i listan över lösningar, **InfrastructureInsights (namn på arbetsyta)** , och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
+6. I listan med lösningar, Välj **ServiceMap (namn på arbetsyta)** , och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
 
 Om innan onboarding Azure Monitor för virtuella datorer, inte var [insamling av prestandaräknare aktiverat](vminsights-enable-overview.md#performance-counters-enabled) för Windows eller Linux-baserade virtuella datorer i din arbetsyta, måste du inaktivera dessa regler genom att följa stegen som beskrivs [här](../platform/data-sources-performance-counters.md#configuring-performance-counters) för Windows och Linux.
 

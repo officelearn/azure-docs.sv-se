@@ -1,39 +1,31 @@
 ---
 title: Arkivera Azure diagnostikloggar
 description: Lär dig att arkivera dina Azure-diagnostikloggar för långsiktig kvarhållning i ett lagringskonto.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8ab8a0bcf0c2c00515e46f3e2bbdb55b42ff7a2a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071542"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
 I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](diagnostic-logs-overview.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
-> [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar måste du [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) som du kan arkivera dina diagnostikloggar. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du också arkivera din aktivitetslogg och diagnostikmått till ett lagringskonto, men kan det vara klokt du använder att lagringskonto för diagnostikloggar samt så att alla övervakningsdata på en central plats.
 
-> [!NOTE]
->  Du kan inte arkivera data till en storage-konto som bakom ett skyddat virtuellt nätverk.
-
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics-arbetsytan). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
+För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics-arbetsytan). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 365. [Du kan läsa mer om diagnostikinställningar här](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
@@ -71,17 +63,17 @@ Den nya inställningen visas i din lista över inställningar för den här resu
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```
-Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Category networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
 | ResourceId |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
-| Categories |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
+| Category |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
 | RetentionEnabled |Nej |Booleskt värde som anger om en bevarandeprincip är aktiverade på den här resursen. |
-| RetentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagras loggarna på obestämd tid. |
+| RetentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 365. Värdet noll lagras loggarna på obestämd tid. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Arkivera diagnostikloggar via Azure CLI
 

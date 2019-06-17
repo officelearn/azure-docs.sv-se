@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062230"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala datakällor med lokala Data Gateway
 Den lokala datagatewayen tillhandahåller säker dataöverföring mellan lokala datakällor och din Azure Analysis Services-servrar i molnet. Utöver att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen även med Azure Logic Apps, Power BI, Powerapps och Microsoft Flow. Du kan associera flera tjänster i samma prenumeration och samma region med en enda gateway. 
 
 Hämta installationsprogrammet med gatewayen första gången är en process som genomförs i fyra delar:
 
-- **Ladda ned och kör installationsprogrammet** – det här steget installerar en gateway-tjänst på en dator i din organisation. Du också logga in till Azure med ett konto i din [klientens](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (Gäst)-konton stöds inte.
+- **Ladda ned och kör installationsprogrammet** – det här steget installerar en gateway-tjänst på en dator i din organisation. Du också logga in till Azure med ett konto i din [klientens](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (Gäst)-konton stöds inte.
 
 - **Registrera din gateway** – i det här steget ska du ange ett namn och återställning för din gateway och väljer en region, registrera din gateway med Gateway-Molntjänsten. Din gateway-resurs kan registreras i valfri region, men vi rekommenderar att den är i samma region som Analysis Services-servrar. 
 

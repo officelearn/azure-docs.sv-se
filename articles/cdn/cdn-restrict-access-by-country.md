@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869587"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Begränsa Azure CDN-innehåll efter land/region
@@ -42,12 +42,12 @@ För att komma åt funktionen geo-filtrering, Välj din CDN-slutpunkt i portalen
 
 Från den **sökväg** anger den relativa sökvägen till den plats som användarna ska tillåtas eller nekas åtkomst. 
 
-Du kan använda geo-filtrering för alla filer med en vanlig snedstreck (/) eller Välj specifika mappar genom att ange katalogsökvägar (till exempel */bilder/*). Du kan också använda geo-filtrering för en enda fil (till exempel */pictures/city.png*). Flera regler tillåts; När du har angett en regel, visas en tom rad där du kan ange nästa regel.
+Du kan använda geo-filtrering för alla filer med en vanlig snedstreck (/) eller Välj specifika mappar genom att ange katalogsökvägar (till exempel */bilder/* ). Du kan också använda geo-filtrering för en enda fil (till exempel */pictures/city.png*). Flera regler tillåts; När du har angett en regel, visas en tom rad där du kan ange nästa regel.
 
 Till exempel är alla följande directory sökväg filter giltiga:   
 */*                                 
-*/Photos/*     
-*/Photos/Strasbourg /*     
+*/Photos/*      
+*/Photos/Strasbourg /*      
 */Photos/Strasbourg/City.PNG*
 
 ### <a name="define-the-type-of-action"></a>Definiera typ av åtgärd

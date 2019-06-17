@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057228"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Skrivbordsappen att anrop webb-API: er – appregistrering
 
@@ -42,16 +42,17 @@ Om ditt program använder interaktiv autentisering kan du logga in användare fr
 - Om du vill använda kodflöde för enheten kan logga du inte in användare med sina personliga Microsoft-konton ännu
 - Om du loggar in användare med sociala identiteter som passerar en B2C-auktoritet och principen kan använda du bara interaktiva och användarnamnet autentisering.
 
-## <a name="redirect-uris"></a>Omdirigerings-URI:er
+## <a name="redirect-uris"></a>Omdirigerings-URI: er
 
 Igen beror omdirigerings-URI: er använder i skrivbordsprogram på det flöde som du vill använda.
 
-- Om du använder interaktiv autentisering, ska du använda `https://login.microsoftonline.com/common/oauth2/nativeclient`. Du ska få den här konfigurationen genom att klicka på motsvarande URL-Adressen i den **autentisering** för ditt program
+- Om du använder den **interaktiv autentisering** eller **enheten kod Flow**, bör du använda `https://login.microsoftonline.com/common/oauth2/nativeclient`. Du ska få den här konfigurationen genom att klicka på motsvarande URL-Adressen i den **autentisering** för ditt program
   
   > [!IMPORTANT]
   > Idag MSAL.NET använder en annan omdirigerings-URI som standard i program som körs på Windows (`urn:ietf:wg:oauth:2.0:oob`). I framtiden vi vill ändra denna standardinställning och därför rekommenderar vi att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Om din app bara använder integrerad Windows-autentisering, användarnamn/lösenord eller enhet kod Flow, behöver du inte registrera en omdirigerings-URI för ditt program. Faktiskt flödena göra en tur och RETUR till Microsoft identity-plattformen v2.0-slutpunkten och ditt program ringas inte upp på någon specifik URI. För att skilja dem från en konfidentiell klient programflödet som inte har omdirigerings-URI: er antingen (klientens autentiseringsuppgifter flödet som används i daemon-program), du behöver att uttrycka att ditt program är ett offentligt klientprogram. Den här konfigurationen uppnås genom att gå till den **autentisering** för ditt program och i den **avancerade inställningar** underavsnitt, Välj **Ja**, på frågan **Hantera program som en offentlig klient** (i den **standard klienttyp** punkt)
+- Om din app bara använder integrerad Windows-autentisering, användarnamn/lösenord, behöver du inte registrera en omdirigerings-URI för ditt program. Faktiskt flödena göra en tur och RETUR till Microsoft identity-plattformen v2.0-slutpunkten och ditt program ringas inte upp på någon specifik URI. 
+- För att kunna skilja Kodflöde för enheten, integrerad Windows-autentisering och användarnamn/lösenord från en konfidentiell klient programflödet som inte har omdirigerings-URI: er antingen (klientens autentiseringsuppgifter flödet som används i daemon-program), måste du express När ditt program är ett offentligt klientprogram. Den här konfigurationen uppnås genom att gå till den **autentisering** för ditt program och i den **avancerade inställningar** underavsnitt, Välj **Ja**, på frågan **Hantera program som en offentlig klient** (i den **standard klienttyp** punkt)
 
   ![Tillåt offentlig klient](media/scenarios/default-client-type.png)
 

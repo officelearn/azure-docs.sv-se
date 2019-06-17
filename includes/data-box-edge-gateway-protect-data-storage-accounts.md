@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 653c175a559f5c0b7dc551b396e91276332df20a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754319"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120523"
 ---
 Enheten är associerad med ett storage-konto som används som mål för dina data i Azure. Åtkomst till lagringskontot styrs av prenumerationen och lagring för två 512-bitars åtkomstnycklar som är associerade med det lagringskontot.
 

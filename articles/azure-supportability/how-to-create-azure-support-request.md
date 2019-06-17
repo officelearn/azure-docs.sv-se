@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
 ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129067"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Skapa en supportbegäran för Azure
@@ -41,7 +41,7 @@ Du kan skapa en begäran från den övre navigeringsmenyn eller direkt från ett
 
 **Från det övre navigeringsfältet**
 
-![Hjälp och support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Hjälp och Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 Välj ”ny supportbegäran” från sidan Hjälp och Support
 
@@ -95,12 +95,12 @@ Beroende på hur allvarligt problemet, kan du bli ombedd att ange om du vill att
 
 ![Kontaktinformation 24 x 7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
-## <a name="all-support-requests"></a>Alla supportförfrågningar
+## <a name="all-support-requests"></a>Alla supportärenden
 När du har skapat supportförfrågan, kan du visa information från den **alla supportärenden** sidan.
 
 **Från det övre navigeringsfältet**
 
-![Hjälp och support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Hjälp och Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 Välj ”alla supportärenden” i den vänstra menyn från sidan Hjälp och Support.
 

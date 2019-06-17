@@ -11,27 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197144"
+ms.locfileid: "67118278"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
 
-Liknar en rolltilldelning en *neka tilldelning* bifogar en uppsättning Neka-åtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång i syfte att åtkomst nekas. Neka tilldelningar blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Vissa resource providers i Azure innehåller nu neka tilldelningar.
-
-Neka tilldelningar skiljer sig från rolltilldelningar på vissa sätt. Neka tilldelningar kan utesluta huvudnamn och förhindra arvet till underordnade omfång. Neka tilldelningar gäller även för [klassisk prenumerationsadministratör](rbac-and-directory-admin-roles.md) tilldelningar.
+Liknar en rolltilldelning en *neka tilldelning* bifogar en uppsättning Neka-åtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång i syfte att åtkomst nekas. Neka tilldelningar blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst.
 
 Den här artikeln beskrivs hur neka tilldelningar har definierats.
 
-> [!NOTE]
-> För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
+## <a name="how-deny-assignments-are-created"></a>Hur neka tilldelningar har skapats
+
+Neka tilldelningar skapas och hanteras av Azure för att skydda resurser. Till exempel Azure skisser och Azure-hanterade appar använda neka tilldelningar för att skydda resurser som hanteras av datorn. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="compare-role-assignments-and-deny-assignments"></a>Jämför rolltilldelningar och neka tilldelningar
+
+Neka tilldelningar följer ett liknande mönster som neka tilldelningar, men även ha några skillnader.
+
+| Funktion | Rolltilldelning | Neka tilldelning |
+| --- | --- | --- |
+| Bevilja åtkomst | :heavy_check_mark: |  |
+| Neka åtkomst |  | :heavy_check_mark: |
+| Kan skapas direkt | :heavy_check_mark: |  |
+| Gäller för ett omfång | :heavy_check_mark: | :heavy_check_mark: |
+| Exkludera huvudnamn |  | :heavy_check_mark: |
+| Förhindra arv till underordnade omfattningar |  | :heavy_check_mark: |
+| Gäller för [klassisk prenumerationsadministratör](rbac-and-directory-admin-roles.md) tilldelningar |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Neka rolltilldelningens egenskaper
 
@@ -54,14 +67,24 @@ Den här artikeln beskrivs hur neka tilldelningar har definierats.
 > | `ExcludePrincipals[i].Type` | Nej | String[] | En matris med objekt av typen representeras av ExcludePrincipals [i] .id. |
 > | `IsSystemProtected` | Nej | Boolean | Anger om det här neka tilldelning har skapats av Azure och inte kan redigeras eller tas bort. För närvarande kan neka alla tilldelningar är systemet som skyddas. |
 
-## <a name="system-defined-principal"></a>System-Defined Principal
+## <a name="the-all-principals-principal"></a>Alla säkerhetsobjekt huvudnamn
 
-Till stöd för neka tilldelningar, den **systemdefinierade huvudnamn** har introducerats. Den här huvudnamn representerar alla användare, grupper, tjänstens huvudnamn och hanterade identiteter i Azure AD-katalog. Om ägar-ID är ett noll GUID `00000000-0000-0000-0000-000000000000` och huvudnamn är en `SystemDefined`, huvudkontot som representerar alla säkerhetsobjekt. `SystemDefined` kan kombineras med `ExcludePrincipals` att neka alla huvudkonton utom vissa användare. `SystemDefined` har följande begränsningar:
+Till stöd för neka tilldelningar, ett systemdefinierade huvudnamn med namnet *alla huvudkonton* har introducerats. Den här huvudnamn representerar alla användare, grupper, tjänstens huvudnamn och hanterade identiteter i Azure AD-katalog. Om ägar-ID är ett noll GUID `00000000-0000-0000-0000-000000000000` och huvudnamn är en `SystemDefined`, huvudkontot som representerar alla säkerhetsobjekt. I Azure PowerShell-utdata, alla huvudkonton som ser ut som följande:
+
+```azurepowershell
+Principals              : {
+                          DisplayName:  All Principals
+                          ObjectType:   SystemDefined
+                          ObjectId:     00000000-0000-0000-0000-000000000000
+                          }
+```
+
+Alla säkerhetsobjekt kan kombineras med `ExcludePrincipals` att neka alla huvudkonton utom vissa användare. Alla huvudkonton har följande begränsningar:
 
 - Kan användas endast i `Principals` och kan inte användas i `ExcludePrincipals`.
 - `Principals[i].Type` måste anges till `SystemDefined`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa neka tilldelningar för Azure-resurser med Azure portal](deny-assignments-portal.md)
+* [Lista neka tilldelningar för Azure-resurser med Azure portal](deny-assignments-portal.md)
 * [Förstå rolldefinitioner för Azure-resurser](role-definitions.md)

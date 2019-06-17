@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: ed373cfa0ac755d56e7bc2601c65e0e6482ff6d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038879"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
@@ -29,7 +29,7 @@ När Azure Database for MariaDB-server har skapats kan använda du första anvä
 2. Använda administratörskonto och lösenord för att ansluta till databasservern. Använd din önskade klientverktyg, till exempel MySQL Workbench, mysql.exe, HeidiSQL eller andra. 
    Om du är osäker på hur du ansluter kan du läsa [använda MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för platshållarvärdet `new_master_user`. Den här syntaxen ger de listade behörigheter på alla databasscheman (*.*) till användarnamn (new_master_user i det här exemplet). 
+3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för platshållarvärdet `new_master_user`. Den här syntaxen ger de listade behörigheter på alla databasscheman ( *.* ) till användarnamn (new_master_user i det här exemplet). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

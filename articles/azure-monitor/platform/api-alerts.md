@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345914"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
@@ -32,7 +32,7 @@ Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log An
 En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen är kör och det tidsintervall som villkoren har identifierats.
 Scheman har egenskaper i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Interval |Hur ofta sökningen körs. Mätt i minuter. |
 | QueryTimeSpan |Det tidsintervall som villkoren utvärderas. Måste vara lika med eller större än intervall. Mätt i minuter. |
@@ -92,7 +92,7 @@ Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera pro
 
 Alla åtgärder har egenskaper i följande tabell.  Olika typer av aviseringar har olika ytterligare egenskaper som beskrivs nedan.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | `Type` |Typ av åtgärd.  Möjliga värden är för närvarande aviseringen och Webhook. |
 | `Name` |Visningsnamn för aviseringen. |
@@ -152,7 +152,7 @@ En Aviseringsåtgärd bör ha ett och endast ett tröskelvärde.  När resultate
 
 Tröskelvärden har egenskaper i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | `Operator` |Operator för tröskelvärde för jämförelse. <br> gt = större än <br> lt = mindre än |
 | `Value` |Värde för tröskelvärdet. |
@@ -357,7 +357,7 @@ E-postaviseringar skicka e-post till en eller flera mottagare.  De kan innehåll
 > Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Recipients |Lista över e-postadresser. |
 | Subject |Ämne för e-postmeddelandet. |
@@ -402,7 +402,7 @@ Reparationer startar en runbook i Azure Automation som försöker åtgärda prob
 
 Reparationer innehålla egenskaper i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | RunbookName |Namnet på runbooken. Detta måste matcha en publicerad runbook i automation-kontot som konfigurerats i Automation-lösningen i Log Analytics-arbetsytan. |
 | WebhookUri |URI för webhooken. |

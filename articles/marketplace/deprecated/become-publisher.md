@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258961"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
@@ -20,7 +20,7 @@ ms.locfileid: "66258961"
 Den här artikeln beskriver registrera som en cloud marketplace-utgivare. Beroende på din valda publiceringsalternativ och ditt aktuella medlemskap i Microsoft Partner Network kanske några av de följande stegen inte krävs. När registrerade du kommer att kunna skapa marketplace-erbjudanden för Azure Marketplace eller AppSource.
 
 
-|  | Registreringssteget | Varaktighet | Information |  
+|  | Registreringssteget | Duration | Information |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  

@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: e4aa5314811ceac9e1f9d1136fc8ae5557a3d71d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063254"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
-Den här artikeln vägleder dig med att använda Maven-kommandoradsverktyget för att skapa och publicera en Java-funktion till Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
+Den här artikeln hjälper dig med hjälp av kommandoradsverktyget Maven för att skapa och publicera en Java-funktion till Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den körklara genererade koden i projektet utgörs av en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som återspeglar en begäran:
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Klart att körklara genererade koden i projektet är en [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som utgörs av begäran:
 
 ```java
 public class Function {
@@ -156,7 +156,7 @@ Under distribueringen till Azure Functions används autentiseringsuppgifter frå
 az login
 ```
 
-Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`.
+Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`. Det här alternativet utförs en [Zip distribuera kör från paketet](functions-deployment-technologies.md#zip-deploy) läge har aktiverats.
 
 > [!NOTE]
 > När du använder Visual Studio Code för att distribuera funktionsappen, Kom ihåg att välja en icke-kostnadsfria prenumeration och du får ett felmeddelande. Du kan se din prenumeration på vänster sida av IDE.

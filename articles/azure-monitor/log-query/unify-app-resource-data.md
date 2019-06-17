@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424656"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
@@ -103,44 +103,44 @@ I följande tabell visas schemaolikheter mellan Log Analytics och Application In
 | ApplicationName | Programnamn|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | varaktighet |
-| AvailabilityMessage | meddelande |
+| AvailabilityDuration | Varaktighet |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | namn |
-| AvailabilityTimestamp | tidsstämpel |
+| AvailabilityTestName | name |
+| AvailabilityTimestamp | timestamp |
 | Webbläsare | client_browser |
-| Ort | client_city |
+| Stad | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Land/region | client_CountryOrRegion | 
+| Land | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | namn | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | Enhetstyp | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | meddelande | 
-| ExceptionType | typ |
+| ExceptionMessage | message | 
+| ExceptionType | type |
 | Åtgärds-ID | operation_id |
 | OperationName | operation_Name | 
 | Operativsystem | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | varaktighet | 
-| PageViewName | namn | 
+| PageViewDuration | Varaktighet | 
+| PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | varaktighet | 
+| RequestDuration | Varaktighet | 
 | Begärande-ID | id | 
-| RequestName | namn | 
+| RequestName | name | 
 | RequestSuccess | lyckades | 
 | ResponseCode | resultCode | 
 | Roll | cloud_RoleName |
 | Rollinstans | cloud_RoleInstance |
 | sessions-ID | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | typ |
+| TelemetryTYpe | type |
 | URL | _url |
 | UserAccountId | user_AccountId |
 

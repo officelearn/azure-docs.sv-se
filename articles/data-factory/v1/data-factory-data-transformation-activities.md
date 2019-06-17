@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486608"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
@@ -69,7 +69,7 @@ Se [Använd Machine Learning-aktiviteter](data-factory-azure-ml-batch-execution-
 ## <a name="stored-procedure-activity"></a>Lagrad proceduraktivitet
 Du kan använda SQL Server-lagrad procedur i en Data Factory-pipeline anropa en lagrad procedur i någon av följande datalager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-databas i ditt företag eller en Azure-dator. Se [lagrade Proceduraktiviteten](data-factory-stored-proc-activity.md) nedan för information.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-aktivitet för Data Lake Analytics
+## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
 Data Lake Analytics U-SQL-aktivitet kör en U-SQL-skript på ett Azure Data Lake Analytics-kluster. Se [Data Analytics U-SQL-aktivitet](data-factory-usql-activity.md) nedan för information. 
 
 ## <a name="net-custom-activity"></a>.NET-anpassad aktivitet

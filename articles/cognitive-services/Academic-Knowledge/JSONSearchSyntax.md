@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336974"
 ---
 # <a name="json-search-syntax"></a>Söksyntax för JSON
@@ -33,7 +33,7 @@ ms.locfileid: "61336974"
 }
 ```
 
-Nod-namn i en fråga sökväg (_v0, v1..._ ) fungerar som noden identifierare som kan refereras i frågeobjektet. edge-namn (_e0, e1 och..._ ) representerar typerna av motsvarande kanter i sökvägen. Vi kan använda en asterisk _*_ som en nod eller kanttabell namn (förutom från noden som måste anges) för att deklarera att det finns inga begränsningar på sådana element. Exempelvis kan en fråga sökväg `/v0/*/v1/e1/*/` hämtar sökvägar från diagrammet utan att begränsa typ av gränsen _(v0 v1)_. Under tiden kan har frågan inte begränsningar på målet (den sista noden) sökvägens antingen.
+Nod-namn i en fråga sökväg (_v0, v1..._ ) fungerar som noden identifierare som kan refereras i frågeobjektet. edge-namn (_e0, e1 och..._ ) representerar typerna av motsvarande kanter i sökvägen. Vi kan använda en asterisk _*_ som en nod eller kanttabell namn (förutom från noden som måste anges) för att deklarera att det finns inga begränsningar på sådana element. Exempelvis kan en fråga sökväg `/v0/*/v1/e1/*/` hämtar sökvägar från diagrammet utan att begränsa typ av gränsen _(v0 v1)_ . Under tiden kan har frågan inte begränsningar på målet (den sista noden) sökvägens antingen.
 
 När en sökväg innehåller bara en nod, säger _v0_, helt enkelt returnerar frågan alla enheter som uppfyller begränsningarna. En begränsning-objektet som tillämpas på noden från kallas en *startar frågeobjektet*, vars har inte angetts på följande sätt.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337569"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Skapa PHP webb- och arbetsroller
@@ -26,7 +26,7 @@ ms.locfileid: "60337569"
 
 Den här guiden visar hur du skapar PHP webb- eller worker-roller i en Windows-utvecklingsmiljö, välja en specifik version av PHP från ”inbyggd” versioner som är tillgängliga, ändra PHP-konfiguration, aktivera tillägg och slutligen kan distribuera till Azure. Det beskriver också hur du konfigurerar en web- eller worker-roll om du vill använda en PHP-körning (med anpassad konfiguration och tillägg) som du anger.
 
-Azure har tre beräkningsmodeller för körning av program: Azure App Service, Azure-datorer och Azure-molntjänster. Alla tre modeller stöder PHP. Molntjänster, vilket innefattar webb-och arbetsroller, erbjuder *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad webbserver för Internet Information Services (IIS) som värd frontend-webbprogram. En arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+Azure har tre beräkningsmodeller för körning av program: Azure App Service, Azure-datorer och Azure-molntjänster. Alla tre modeller stöder PHP. Molntjänster, vilket innefattar webb-och arbetsroller, erbjuder *plattform som en tjänst (PaaS)* . I en molntjänst tillhandahåller en webbroll en dedikerad webbserver för Internet Information Services (IIS) som värd frontend-webbprogram. En arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
 Mer information om alternativen finns i [Datorvärdalternativ från Azure](cloud-services/cloud-services-choose-me.md).
 

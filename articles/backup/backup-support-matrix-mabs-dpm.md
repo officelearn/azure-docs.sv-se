@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254639"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Backup Server eller System Center DPM
@@ -130,9 +130,9 @@ Anslutningen till Azure Backup-tjänsten krävs för säkerhetskopiering ska fun
 
 **MABS till Azure** | **Prenumeration** | **Säkerhetskopiering/återställning** 
 --- | --- | --- 
-Ansluten | Active | Säkerhetskopiera till DPM/MABS-disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställa från disken.<br/><br/> Återställa från Azure.
+Ansluten | Aktiv | Säkerhetskopiera till DPM/MABS-disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställa från disken.<br/><br/> Återställa från Azure.
 Ansluten | Har upphört att gälla/avetableras | Ingen säkerhetskopiering till disk- eller Azure.<br/><br/> Om prenumerationen har upphört att gälla, kan du återställa från Azure.<br/><br/> Om prenumerationen är inaktiverad, kan inte du återställa från Azure. Azure återställningspunkter tas bort.
-Ingen anslutning i mer än 15 dagar | Active | Ingen säkerhetskopiering till disk- eller Azure.<br/><br/> Du kan återställa från Azure.
+Ingen anslutning i mer än 15 dagar | Aktiv | Ingen säkerhetskopiering till disk- eller Azure.<br/><br/> Du kan återställa från Azure.
 Ingen anslutning i mer än 15 dagar | Har upphört att gälla/avetableras | Ingen säkerhetskopiering till disk- eller Azure.<br/><br/> Om prenumerationen har upphört att gälla, kan du återställa från Azure.<br/><br/> Om prenumerationen är inaktiverad, kan inte du återställa från Azure. Azure återställningspunkter tas bort.
 
 ## <a name="dpmmabs-storage-support"></a>Support för DPM/MABS-lagring

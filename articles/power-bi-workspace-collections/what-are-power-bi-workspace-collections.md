@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705139"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Vad är Power BI-arbetsytesamlingar?
@@ -60,7 +60,7 @@ Du kan använda cachelagrade datauppsättningar.  Men du kan inte uppdatera cach
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autentisering och auktorisering med apptoken
 
-**Microsoft Power BI-Arbetsytesamlingar** skjuter upp till ditt program för att utföra alla nödvändiga användarautentisering och auktorisering. Det finns inga explicit krav att dina slutanvändare att kunder i Azure Active Directory (AD Azure).  I stället programmets uttrycker till **Microsoft Power BI-Arbetsytesamlingar** auktorisering för att återge en Power BI-rapport med hjälp av **Autentiseringstoken för programmet (Apptoken)**.  Dessa **Apptoken** skapas efter behov när du vill att din app att återge en rapport.
+**Microsoft Power BI-Arbetsytesamlingar** skjuter upp till ditt program för att utföra alla nödvändiga användarautentisering och auktorisering. Det finns inga explicit krav att dina slutanvändare att kunder i Azure Active Directory (AD Azure).  I stället programmets uttrycker till **Microsoft Power BI-Arbetsytesamlingar** auktorisering för att återge en Power BI-rapport med hjälp av **Autentiseringstoken för programmet (Apptoken)** .  Dessa **Apptoken** skapas efter behov när du vill att din app att återge en rapport.
 
 ![Diagram för App-användning](media/what-are-power-bi-workspace-collections/app-tokens.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
 ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610608"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool, uppdaterad version 7.1.51023.1 – 2018-11-01
@@ -33,7 +33,7 @@ Som det ursprungligen anges i den [GA viktig](./azure-security-threat-modeling-t
 
 - Ingen
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="system-requirements"></a>Systemkraven
 
 - Operativsystem som stöds
   - Microsoft Windows 10

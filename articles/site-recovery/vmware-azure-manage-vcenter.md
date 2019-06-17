@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60600416"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Hantera VMware vCenter-server
@@ -98,7 +98,7 @@ När IP-adressen uppdateras, börjar Site Recovery-komponenter ta emot informati
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Migrera några skyddade virtuella datorer till en ny vCenter
 
 > [!NOTE]
-> Det här avsnittet gäller bara när du migrerar några av de skyddade virtuella datorerna till en ny vCenter. Om du vill skydda en ny uppsättning virtuella datorer från en ny vCenter [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault) och börja med  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)**.
+> Det här avsnittet gäller bara när du migrerar några av de skyddade virtuella datorerna till en ny vCenter. Om du vill skydda en ny uppsättning virtuella datorer från en ny vCenter [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault) och börja med  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)** .
 
 Flytta några virtuella datorer till en ny vCenter:
 
@@ -108,7 +108,7 @@ Flytta några virtuella datorer till en ny vCenter:
 4. Nu kan skydda den migrerade virtuella datorer med [att välja ny vCenter när du aktiverar skydd](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Om antalet virtuella datorer som migreras är **högre** att antalet virtuella datorer kvar i den gamla vCenter uppdaterar IP-adressen för den nya vCenter med hjälp av anvisningarna här. För några virtuella datorer som ska finnas kvar på den gamla vCenter [inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault), och starta  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)**.
+> Om antalet virtuella datorer som migreras är **högre** att antalet virtuella datorer kvar i den gamla vCenter uppdaterar IP-adressen för den nya vCenter med hjälp av anvisningarna här. För några virtuella datorer som ska finnas kvar på den gamla vCenter [inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault), och starta  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)** .
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

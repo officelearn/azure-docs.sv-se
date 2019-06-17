@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Självstudier: Azure Active Directory-katalogintegrering med Zoho
 
@@ -53,7 +53,7 @@ För att kunna konfigurera integreringen av Zoho i Azure AD måste du lägga til
 
 **Gör följande för att lägga till Zoho från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -249,5 +249,5 @@ När du klickar på Zoho-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

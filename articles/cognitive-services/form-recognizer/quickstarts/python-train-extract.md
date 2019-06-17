@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e799e4ae745d2dc2dea91aa0094b5ffb79ae6f77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063881"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -127,7 +127,7 @@ Obs den `"modelId"` värde. Du behöver den för följande steg.
 Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller från den. Anropa den **modellera – analysera** API genom att köra Python-skriptet som följer. Innan du kör kommandot gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<File Path>` med filsökväg eller URL: en för platsen för formuläret som du vill extrahera data från.
+1. Ersätt `<path to your form>` med sökvägen till ditt formulär (exempelvis C:\temp\file.pdf).
 1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
 1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
@@ -138,7 +138,7 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers

@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002836"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en Python-aktivitet i Azure Databricks
@@ -62,11 +62,11 @@ Här är exempel JSON-definition för en Databricks Python aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Krävs|
+|Egenskap|Beskrivning|Krävs|
 |---|---|---|
-|namn|Namnet på aktiviteten i pipelinen.|Ja|
+|name|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|typ|För Databricks Python-aktivitet är aktivitetstypen DatabricksSparkPython.|Ja|
+|type|För Databricks Python-aktivitet är aktivitetstypen DatabricksSparkPython.|Ja|
 |linkedServiceName|Namnet på den länkade tjänsten för Databricks där Python-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |pythonFile|URI för Python-fil som ska köras. Endast DBFS sökvägar stöds.|Ja|
 |parameters|Kommandoradsparametrar som ska skickas till Python-filen. Det här är en matris med strängar.|Nej|

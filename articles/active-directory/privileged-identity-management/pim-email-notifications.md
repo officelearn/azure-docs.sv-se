@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289185"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
@@ -50,7 +50,7 @@ Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll och
 
 | Användare | Rollaktivering väntar på godkännande | Begäran om rollaktivering har slutförts | PIM är aktiverat |
 | --- | --- | --- | --- |
-| Privilegierad rolladministratör</br>(Aktiverat/berättigade) | Ja</br>(endast om inga godkännare som explicit anges) | Ja* | Ja |
+| Privilegierad Rolladministratör</br>(Aktiverat/berättigade) | Ja</br>(endast om inga godkännare som explicit anges) | Ja* | Ja |
 | Säkerhetsadministratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja |
 | Global administratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja |
 
@@ -68,7 +68,7 @@ En veckovis PIM sammanfattande e-postmeddelande för Azure AD-roller skickas til
 
 E-postmeddelandet innehåller fyra paneler:
 
-| Upprepa | Beskrivning |
+| panelen | Beskrivning |
 | --- | --- |
 | **Användare som har aktiverats** | Antal gånger som användare aktiverat sin berättigad roll i klienten. |
 | **Användare som har gjorts permanenta** | Antal gånger som användare med en berättigad uppgift görs permanent. |

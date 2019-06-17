@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153431"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
@@ -158,8 +158,8 @@ Du kan hämta den hanterade identitet från Azure-portalen eller via programmeri
 
 Du kan hitta hanterad identitetsinformationen från Azure portal -> din data factory -> Egenskaper:
 
-- Objekt-ID för hanterad identitet
-- Hanterad identitetsklientorganisation
+- Hanterad identitet objekt-ID
+- Hanterad identitet klient
 - **Hanterade Identitetsprogram-ID** > Kopiera detta värde
 
 ![Hämta hanterad identitet](media/data-factory-service-identity/retrieve-service-identity-portal.png)

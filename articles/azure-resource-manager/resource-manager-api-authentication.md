@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61063300"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
@@ -287,7 +287,7 @@ Här följer identifierarna som används ofta inbyggda roller:
 | --- | --- |
 | Läsare |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Deltagare |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Virtuell datordeltagare |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Virtuell Datordeltagare |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtual Network-deltagare |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Lagringskontodeltagare |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 | Webbplatsdeltagare |de139f84-1756-47ae-9be6-808fbbe84772 |

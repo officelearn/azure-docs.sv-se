@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610572"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
@@ -38,7 +38,7 @@ ms.locfileid: "60610572"
 
 ## <a id="binaries-info"></a>Se till att binärfilerna har dolts om de innehåller känslig information
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -49,7 +49,7 @@ ms.locfileid: "60610572"
 
 ## <a id="efs-user"></a>Överväg att använda krypterade filsystem (EFS) används för att skydda konfidentiella användarspecifika data
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
@@ -60,7 +60,7 @@ ms.locfileid: "60610572"
 
 ## <a id="filesystem"></a>Se till att känsliga data som lagras av programmet i filsystemet är krypterad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -71,7 +71,7 @@ ms.locfileid: "60610572"
 
 ## <a id="cache-browser"></a>Se till att känsligt innehåll inte cachelagras i webbläsare
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -124,7 +124,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Kryptera avsnitt för Web App configuration-filer som innehåller känslig information
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -135,7 +135,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>Inaktivera automatisk komplettering HTML-attribut i känsliga formulär och indata
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -154,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>Se till att känsliga data som visas på användarskärmen maskeras
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -165,7 +165,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>Implementera dynamisk datamaskning för att begränsa exponering icke privilegierad användare för känsliga data
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -176,7 +176,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="salted-hash"></a>Se till att lösenord lagras i saltat hash-format
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -187,7 +187,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Se till att känsliga data i databaskolumner är krypterad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -198,7 +198,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="tde-enabled"></a>Kontrollera att databasnivå-kryptering (TDE) är aktiverat
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -209,7 +209,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Se till att databassäkerhetskopiorna är krypterad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -220,7 +220,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Se till att känsliga data som är relevanta för webb-API inte lagras i webbläsarens storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -244,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Kryptera känsliga data som lagras i Cosmos DB
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -255,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Använda Azure Disk Encryption för att kryptera diskar som används av virtuella datorer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure IaaS VM-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -266,7 +266,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Kryptera hemligheter i Service Fabric-program
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
@@ -277,7 +277,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>Utföra security modellering och använda enheter/Verksamhetsteamen om det behövs
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -288,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>Minimera åtkomst om du vill dela funktionen på kritiska entiteter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -299,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>Utbilda användare på riskerna med funktionen för Dynamics CRM-resurs och säkerhetsprinciper
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -310,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Inkludera en regel för utveckling-standarder som proscribing med config information i hantering av undantag
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -321,7 +321,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Använd Azure Storage Service Encryption (SSE) för Data i vila (förhandsversion)
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -332,7 +332,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="client-storage"></a>Använda Client Side Encryption för att lagra känsliga data i Azure Storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -343,7 +343,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="pii-phones"></a>Kryptera känsliga eller PII-data som skrivs till lokal lagring för telefoner
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
@@ -393,7 +393,7 @@ Om programmet inte är ett företagsprogram, använda plattform tillhandahålls 
 
 ## <a id="binaries-end"></a>Förvräng genererade binärfiler innan du distribuerar till slutanvändare
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
@@ -404,7 +404,7 @@ Om programmet inte är ett företagsprogram, använda plattform tillhandahålls 
 
 ## <a id="cert"></a>Ange clientCredentialType till certifikat eller Windows
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -423,7 +423,7 @@ Ange clientCredentialType till certifikat eller Windows.
 
 ## <a id="security"></a>WCF-Security-läge är inte aktiverat
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  

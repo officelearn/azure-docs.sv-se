@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61244352"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet
@@ -21,7 +21,7 @@ ms.locfileid: "61244352"
 
 IoT Hub [meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) gör att användarna kan dirigera meddelanden från enheten till molnet till tjänst-slutpunkter. Routning innehåller också en förfrågningar till möjlighet att filtrera data innan du skicka det till slutpunkterna. Varje routning fråga som du konfigurerar har följande egenskaper:
 
-| Egenskap       | Beskrivning |
+| Egenskap      | Beskrivning |
 | ------------- | ----------- |
 | **Namn**      | Det unika namnet som identifierar frågan. |
 | **Källa**    | Ursprunget för dataström som ska åtgärdas. Till exempel enhetstelemetri. |

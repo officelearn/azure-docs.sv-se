@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835608"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
@@ -108,7 +108,7 @@ Tabellen nedan visar stegen för autentiseringsflödet.
 | Steg | Utan provider-SDK | Med SDK-provider |
 | - | - | - |
 | 1. Registrera användare i | Omdirigerar klienten `/.auth/login/<provider>`. | Klientkoden loggar användaren in direkt med leverantörens SDK och får en autentiseringstoken. Information finns i leverantörens dokumentation. |
-| 2. Efterautentisering | Providern omdirigerar klienten `/.auth/login/<provider>/callback`. | Klientkoden [inlägg token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
+| 2. Post-authentication | Providern omdirigerar klienten `/.auth/login/<provider>/callback`. | Klientkoden [inlägg token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
 | 3. Upprätta autentiserad session | App Service lägger till autentiserade cookie svar. | App Service returnerar egna autentiseringstoken till klientkod. |
 | 4. Hantera autentiserade innehåll | Klienten inkluderar autentiseringscookie i efterföljande förfrågningar (hanteras automatiskt av webbläsare). | Klientkoden presenterar autentiseringstoken i `X-ZUMO-AUTH` rubrik (hanteras automatiskt av Mobile Apps-klient SDK: er). |
 
@@ -132,7 +132,7 @@ Välj det här alternativet om du inte behöver autentisering och auktorisering,
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begäranden
 
-Alternativet är **logga in med \<providern >**. App Service omdirigerar alla anonyma förfrågningar till `/.auth/login/<provider>` för providern som du väljer. Om anonym begäran kommer från en intern mobilapp, returnerade svaret är ett `HTTP 401 Unauthorized`.
+Alternativet är **logga in med \<providern >** . App Service omdirigerar alla anonyma förfrågningar till `/.auth/login/<provider>` för providern som du väljer. Om anonym begäran kommer från en intern mobilapp, returnerade svaret är ett `HTTP 401 Unauthorized`.
 
 Med det här alternativet behöver du inte skriva någon Autentiseringskod i din app. Mer detaljerad auktorisering, till exempel rollspecifika auktorisering, kan hanteras genom att kontrollera användarens anspråk (se [komma åt användaranspråk](app-service-authentication-how-to.md#access-user-claims)).
 

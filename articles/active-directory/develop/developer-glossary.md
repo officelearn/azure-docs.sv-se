@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235358"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ordlista för utvecklare av Microsoft identity-plattformen
@@ -54,7 +54,7 @@ När du registrera dig/uppdatera ett program i den [Azure-portalen][AZURE-portal
 
 Mer information finns i [program och tjänstobjekt][AAD-App-SP-Objects].
 
-## <a name="application-registration"></a>Programregistrering
+## <a name="application-registration"></a>programregistrering
 
 För att tillåta att ett program att integrera med och delegera Identity and Access Management-funktioner till Azure AD, måste den vara registrerad med en Azure AD [klient](#tenant). När du registrerar ditt program med Azure AD kan tillhandahåller du en identity-konfiguration för ditt program, så att den kan integreras med Azure AD och använder funktioner som:
 
@@ -64,11 +64,11 @@ För att tillåta att ett program att integrera med och delegera Identity and Ac
 
 Se [integrera program med Azure Active Directory] [ AAD-Integrating-Apps] för mer information.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>autentisering
 
 Act angrips en part för giltiga autentiseringsuppgifter som ligger till grund för att skapa ett säkerhetsobjekt som ska användas för identitets- och åtkomstkontroll. Under en [OAuth2 auktoriseringsbeviljande](#authorization-grant) exempelvis part autentisering fylls rollen antingen [resursägaren](#resource-owner) eller [klientprogram](#client-application), beroende på den bevilja används.
 
-## <a name="authorization"></a>Auktorisering
+## <a name="authorization"></a>authorization
 
 Åtgärden för att bevilja en autentiserad huvudnamn behörighet att göra något. Det vinns två huvudsakliga typer i Azure AD-programmeringsmodellen:
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Självstudier: Azure Active Directory-integrering med Templafy
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av Templafy i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Templafy från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -118,7 +118,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Templaf
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
-    | Namn | Källattribut| Namnområde  |
+    | Namn | Källattribut| Namnrymd  |
     | ---------------| --------------- | --------- |
     | givenName | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
@@ -132,7 +132,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Templaf
     | Avdelning | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
     | Telefonnummer | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
     | facsimilenumber | User.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | UPN | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | upn | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
@@ -228,4 +228,4 @@ När du klickar på panelen Templafy i åtkomstpanelen, bör det vara loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

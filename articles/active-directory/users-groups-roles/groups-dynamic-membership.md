@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66397883"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
@@ -38,7 +38,7 @@ När ett attribut för en användare eller enhet ändras utvärderar systemet al
 
 En medlemskapsregel som automatiskt fyller på en grupp med användare eller enheter är en binär uttryck som resulterar i ett sant eller FALSKT resultat. De tre delarna i en enkel regel är:
 
-* Egenskap 
+* Egenskap
 * Operator
 * Värde
 

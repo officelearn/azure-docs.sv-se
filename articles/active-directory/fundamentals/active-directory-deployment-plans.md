@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa7c4865313a48ae5d9041d2dceb6c91787bb6be
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c5c761cad49ad42bd592b1fd8105052b39ef1177
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110455"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Vill du ha vägledning slutpunkt till slutpunkt om hur du distribuerar vissa av Azure Active Directory-funktionerna (Azure AD)? Följande distributionsplaner går igenom affärsvärde, planeringsöverväganden, design och operativa procedurer som krävs för att distribuera några av de vanligaste Azure AD-funktionerna. 
@@ -58,7 +58,7 @@ Roller som kan vara följande
 |Scenario |Beskrivning |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med administratörsgodkända autentiseringsmetoder hjälper Azure MFA till att skydda din åtkomst till data och program, samtidigt som behovet av en enkel inloggningsprocess uppfylls.|
-|[Villkorlig åtkomst](https://aka.ms/deploymentplans/ca)|Med villkorlig åtkomst kan du implementera automatiserade beslut för åtkomstkontroll om vem som kan komma åt dina molnappar, baserat på villkor.|
+|[Villkorlig åtkomst](https://aka.ms/deploymentplans/ca)|Du kan implementera automatiserade besluten om åtkomstkontroll för vem som kan komma åt dina molnappar baserat på villkor med villkorlig åtkomst.|
 |[Självåterställning av lösenord](https://aka.ms/SSPRDPDownload)|Självåterställning av lösenord hjälper användarna att återställa sina lösenord utan inblandning av administratören, när och var som helst.|
 |[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) hjälper dig att hantera Privilegierade administrativa roller i Azure AD Azure-resurser och andra Microsoft Online Services. PIM tillhandahåller lösningar som just-in-time-åtkomst, begäran godkännandearbetsflöden och helt integrerad åtkomst granskningar så att du kan identifiera, upptäcka och förhindra att skadliga aktiviteter av Privilegierade roller i realtid.|
 |[Enkel inloggning](https://aka.ms/SSODPDownload)|Enkel inloggning underlättar åtkomst till alla appar och resurser du behöver för att göra affärer – du loggar bara in en gång, med ett enda användarkonto. När du har loggat in kan du gå från Microsoft Office till SalesForce till Box utan att behöva autentisera dig (till exempel att skriva ett lösenord) en andra gång.|

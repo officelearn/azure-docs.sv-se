@@ -13,10 +13,10 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: d8fa8b216ca6044adefe1398b58f5d14630540e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137148"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning för att distribuera webbappar med hjälp av Azure Resource Manager-mallar
@@ -131,7 +131,7 @@ I Azure Government, App Service-tjänstens huvudnamn har ID för **6a02c803-dafd
 
 Välj i Key Vault, **certifikat** och **generera/importera** att ladda upp.
 
-![Importera certifikatet](media/web-sites-rm-template-guidance/import-certificate.png)
+![Importera certifikat](media/web-sites-rm-template-guidance/import-certificate.png)
 
 I mallen, ange namnet på certifikatet för den `keyVaultSecretName`.
 

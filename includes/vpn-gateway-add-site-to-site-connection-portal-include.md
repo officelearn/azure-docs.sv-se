@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170129"
 ---
 1. Gå till och öppna sidan för den virtuella nätverksgatewayen. Det finns flera sätt att göra detta på. Du kan navigera till gatewayen VNet1GW genom att öppna **TestVNet1 -> Översikt -> Anslutna enheter -> VNet1GW**.
@@ -22,7 +22,7 @@ ms.locfileid: "66170129"
 3. På sidan **Lägg till anslutning** ställer du in värdena för anslutningen.
 
    - **Namn:** Namnge din anslutning.
-   - **Anslutningstyp:** Välj **plats-till-plats(IPSec)**.
+   - **Anslutningstyp:** Välj **plats-till-plats(IPSec)** .
    - **Virtuell nätverksgateway:** Värdet är låst eftersom du ansluter från den här gatewayen.
    - **Lokal nätverksgateway:** Klicka på **Välj en lokal nätverksgateway** och välj den lokala nätverksgatewayen som du vill använda.
    - **Delad nyckel:** Värdet måste matcha det värde som du använder för din lokala VPN-enhet. I det här exemplet använder vi abc123. Du kan (och bör) dock använda ett mer komplext värde. Det är viktigt att värdet du anger här är samma värde som du anger när du konfigurerade VPN-enheten.

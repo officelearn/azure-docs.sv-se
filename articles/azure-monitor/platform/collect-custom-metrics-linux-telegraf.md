@@ -1,18 +1,18 @@
 ---
 title: Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
 description: Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741613"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
@@ -47,7 +47,7 @@ Skapa en ny Linux-VM:
 
     ![Översikt över virtuella datorer storlek telegraf agent](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. På den **inställningar** sidan i **nätverk** > **Nätverkssäkerhetsgrupp**   >  ** Välj offentliga inkommande portar**väljer **HTTP** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**. 
+1. På den **inställningar** sidan i **nätverk** > **Nätverkssäkerhetsgrupp**   >  ** Välj offentliga inkommande portar**väljer **HTTP** och **SSH (22)** . Lämna resten av standardinställningarna och välj **OK**. 
 
 1. På sidan Sammanfattning väljer **skapa** att starta VM-distributionen. 
 
@@ -132,5 +132,6 @@ När de inte längre behövs kan du ta bort resursgruppen, virtuell dator och al
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [anpassade mått](metrics-custom-overview.md).
+
 
 

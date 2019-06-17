@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60397285"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföringen för små datauppsättningar med låg till måttlig nätverksbandbredd
@@ -51,7 +51,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
 | Funktion | Azure Lagringsutforskaren | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API: er eller SDK: er |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Tillgänglighet | Hämta och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP |
+| Tillgänglighet | Ladda ned och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP |
 | Grafiskt gränssnitt | Ja | Ja | Nej | Nej |
 | Plattformar som stöds | Windows, Mac, Linux | Webbaserad |Windows, Mac, Linux |Alla plattformar |
 | Tillåtna åtgärder för Blob storage<br>för blobbar och mappar | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbara |

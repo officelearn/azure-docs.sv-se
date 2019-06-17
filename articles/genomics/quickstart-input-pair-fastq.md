@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333680"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Skicka ett arbetsflöde med FASTQ-filsindata i Microsoft Genomics
@@ -21,7 +21,7 @@ ms.locfileid: "60333680"
 Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilerna är ett enskilt par FASTQ-filer. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här artikeln. 
 
 ## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Konfigurera: Ladda upp FASTQ-filerna till Azure storage
-Vi antar vi att du har två filer, *reads_1.fq.gz* och *reads_2.fq.gz*, och att du har laddat upp dem till ditt lagringskonto *myaccount* i Azure som **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/indata/reads_1<span></span>. rk<span></span>.gz<span> </span>** och **https://<span></span>myaccount.blob.core.<span> </span>windows<span></span>.net /<span></span>indata /<span></span>reads_2.fq<span></span>.gz<span> </span>** . Du har API-URL och din åtkomstnyckel. Du vill ha utdata i **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Vi antar vi att du har två filer, *reads_1.fq.gz* och *reads_2.fq.gz*, och att du har laddat upp dem till ditt lagringskonto *myaccount* i Azure som **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/indata/reads_1<span></span>. rk<span></span>.gz<span> </span>** och **https://<span></span>myaccount.blob.core.<span> </span>windows<span></span>.net /<span></span>indata /<span></span>reads_2.fq<span></span>.gz<span> </span>** . Du har API-URL och din åtkomstnyckel. Du vill ha utdata i **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
 ## <a name="submit-your-job-to-the-msgen-client"></a>Skicka jobbet till `msgen`-klienten 

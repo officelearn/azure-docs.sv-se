@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837340"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -30,20 +30,20 @@ Välj, hantera och driva Service Fabric-kluster.
 | --- | --- |
 | code-versions | Hämtar en lista över fabric code-versioner som har etablerats i ett Service Fabric-kluster. |
 | config-versions | Hämtar en lista över fabric config-versioner som har etablerats i ett Service Fabric-kluster. |
-| hälsa | Hämtar hälsotillståndet för Service Fabric-kluster. |
-| Manifest | Hämta Service Fabric-klustermanifestet. |
+| health | Hämtar hälsotillståndet för Service Fabric-kluster. |
+| manifest | Hämta Service Fabric-klustermanifestet. |
 | Åtgärden Avbryt | Avbryter en egen användaren felåtgärd. |
 | åtgärden-list | Hämtar en lista över användare egen fel åtgärder filtreras efter angivna indata. |
-| etablera | Etablera kodning eller paket i ett Service Fabric-kluster. |
+| provision | Etablera kodning eller paket i ett Service Fabric-kluster. |
 | recover-system | Anger att den ska försöka att återställa systemtjänster som för närvarande har fastnat i förlorar kvorum till Service Fabric-klustret. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-klustret. |
-| välj | Ansluter till en slutpunkt för Service Fabric-kluster. |
+| report-health | Skickar en hälsorapport på Service Fabric-klustret. |
+| Välj | Ansluter till en slutpunkt för Service Fabric-kluster. |
 | show-connection | Visa vilka Service Fabric-kluster som den här sfctl-instansen är ansluten till. |
-| avetablera | Avetablera kodning eller paket i ett Service Fabric-kluster. |
-| uppgradering | Börja uppgradera kodning eller version av Service Fabric-kluster. |
-| uppgraderingen återuppta | Kontrollera klusteruppgraderingen gå vidare till nästa uppgraderingsdomän. |
-| uppgraderingen-återställning | Återställa uppgradering av Service Fabric-kluster. |
-| uppgraderingen-status | Hämtar förloppet för den aktuella uppgraderingen av klustret. |
+| unprovision | Avetablera kodning eller paket i ett Service Fabric-kluster. |
+| upgrade | Börja uppgradera kodning eller version av Service Fabric-kluster. |
+| upgrade-resume | Kontrollera klusteruppgraderingen gå vidare till nästa uppgraderingsdomän. |
+| upgrade-rollback | Återställa uppgradering av Service Fabric-kluster. |
+| upgrade-status | Hämtar förloppet för den aktuella uppgraderingen av klustret. |
 | uppdatering av uppgradering | Uppdatera Uppgraderingsparametrar för en uppgradering av Service Fabric-klustret. |
 
 ## <a name="sfctl-cluster-code-versions"></a>sfctl kod-klusterversioner

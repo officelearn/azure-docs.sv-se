@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330574"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Med belastningsutjämning tjänster i Azure
@@ -68,7 +68,7 @@ Följande diagram illustrerar arkitekturen i det här scenariot:
 1. I Azure-portalen klickar du på **skapa en resurs** > **nätverk** > **Traffic Manager-profil**  >   **Skapa**.
 2. Ange följande information:
 
-   * **Namn**: Ge din Traffic Manager-profil ett DNS prefixet.
+   * **Namn på**: Ge din Traffic Manager-profil ett DNS prefixet.
    * **Routningsmetod**: Välj princip för routning av nätverkstrafik metod. Mer information om metoderna som finns i [om Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
    * **Prenumeration**: Välj den prenumeration som innehåller profilen.
    * **Resursgrupp**: Välj den resursgrupp som innehåller profilen. Det kan vara en ny eller befintlig resursgrupp.
@@ -83,7 +83,7 @@ Följande diagram illustrerar arkitekturen i det här scenariot:
 1. I Azure-portalen, i den vänstra rutan klickar du på **skapa en resurs** > **nätverk** > **Application Gateway**.
 2. Ange följande information om application gateway:
 
-   * **Namn**: Namnet på application gateway.
+   * **Namn på**: Namnet på application gateway.
    * **SKU-storlek**: Storleken på application gateway tillgänglig som liten, medel eller stor.
    * **Antal instanser**: Antalet instanser, ett värde mellan 2 och 10.
    * **Resursgrupp**: Den resursgrupp som innehåller application gateway. Det kan vara en befintlig resursgrupp eller en ny.
@@ -114,14 +114,14 @@ När du väljer en serverdelspool tar en Programgateway som är konfigurerad med
 
    Grundläggande inställningar:
 
-   + **Namn**: Det egna namnet för regeln som är tillgänglig i portalen.
+   + **Namn på**: Det egna namnet för regeln som är tillgänglig i portalen.
    + **Lyssnaren**: Lyssnaren som används för regeln.
    + **Standard serverdelspool**: Backend-poolen som ska användas med Standardregeln.
    + **Standardinställningar för HTTP**: HTTP-inställningar som ska användas med Standardregeln.
 
    Sökvägsbaserad regler:
 
-   + **Namn**: Det egna namnet för sökvägsbaserad regel.
+   + **Namn på**: Det egna namnet för sökvägsbaserad regel.
    + **Sökvägar**: Sökvägsregeln som används för att vidarebefordra trafik.
    + **Serverdelspool**: Backend-poolen som ska användas med den här regeln.
    + **HTTP-inställning**: HTTP-inställningar som ska användas med den här regeln.
@@ -143,7 +143,7 @@ I det här scenariot är Traffic Manager ansluten till application gateway (som 
 3. Skapa en slutpunkt genom att ange följande information:
 
    * **Typ**: Välj typ av slutpunkt för att utjämna belastningen. I det här scenariot väljer **Azure-slutpunkt** eftersom vi ansluter den till application gateway-instanser som har konfigurerats tidigare.
-   * **Namn**: Ange namnet på slutpunkten.
+   * **Namn på**: Ange namnet på slutpunkten.
    * **Målresurstyp**: Välj **offentliga IP-adressen** och under **målresurs**, Välj offentlig IP-Adressen för application gateway som konfigurerats tidigare.
 
    ![Traffic Manager ”Lägg till slutpunkten”](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)

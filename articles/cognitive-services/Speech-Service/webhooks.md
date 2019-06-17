@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072298"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks för Taltjänster
 
@@ -39,7 +39,7 @@ Nu ska vi skapa en webhook.
 
 Nu ska vi skapa en webhook för en offline avskrift. Scenariot: en användare har en lång körs ljudfil som de vill transkribera asynkront med API: et för Batch avskrift. 
 
-Skapa en web hook POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Webhooks kan skapas genom att göra en POST-begäran till https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 Konfigurationsparametrar för begäran tillhandahålls som JSON:
 
@@ -136,7 +136,7 @@ Skickar en POST-begäran till registrerade URL: en om en entitet för prenumerer
 
 Ett snabbtest kan göras med hjälp av webbplatsen https://bin.webhookrelay.com. Därifrån kan du hämta anrop tillbaka URL: er ska skickas som parameter till HTTP-POST för att skapa en webhook som beskrivs tidigare i dokumentet.
 
-Klicka på Skapa Bucket och följ de anvisningarna på skärmen anvisningarna för att hämta en hook. Använd sedan informationen i den här sidan för att registrera hooken med Speech-tjänsten. Nyttolasten för ett relä meddelanden - svar för slutförandet av en avskrift ser ut på följande sätt:
+Klicka på Skapa Bucket och följ de anvisningarna på skärmen anvisningarna för att hämta en hook. Använd sedan informationen i den här sidan för att registrera hooken med Speech-tjänsten. Nyttolasten för ett relay-meddelande – i svar för slutförandet av en avskrift-ser ut så här:
 
 ```json
 {

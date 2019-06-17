@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254067"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
@@ -57,7 +57,7 @@ Den här egenskapen samlar in den resurs som du mått för distribueras i vilka 
 ### <a name="timestamp"></a>Tidsstämpel
 Varje datapunkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln avbildar datum/tid då mätvärdet mäts eller samlas in. Azure Monitor accepterar måttdata med tidsstämplar som är så långt det är 20 minuter tidigare och 5 minuter i framtiden. Tidsstämpeln måste vara i ISO 8601-format.
 
-### <a name="namespace"></a>Namnområde
+### <a name="namespace"></a>Namnrymd
 Namnområden är ett sätt att kategorisera eller gruppera liknande mått. Du kan uppnå isolering mellan grupper av mått som kan samla in olika insights eller nyckeltal med hjälp av namnområden. Du kan till exempel ha ett namnområde som kallas **ContosoMemoryMetrics** som spårar minnesanvändning mått som profilera din app. En annan namnrymd som kallas **ContosoAppTransaction** kan spåra alla mått om användartransaktioner i ditt program.
 
 ### <a name="name"></a>Namn

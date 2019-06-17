@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159711"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Så här stoppar och startar du en molninstallation
@@ -24,7 +24,7 @@ ms.locfileid: "66159711"
 
     ![Virtuell dator i StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. När du stoppar en virtuell dator avallokeras den. När molninstallationen håller på att stoppas visas statusen **Frigör**. När molninstallationen har stoppats visas statusen **Stoppad (frigjord)**.
+4. När du stoppar en virtuell dator avallokeras den. När molninstallationen håller på att stoppas visas statusen **Frigör**. När molninstallationen har stoppats visas statusen **Stoppad (frigjord)** .
 
     ![Virtuell dator i StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

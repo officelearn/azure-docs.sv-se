@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487290"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med hjälp av Azure Data Factory .NET SDK
@@ -113,7 +113,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 1. Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2012/2013/2015.
    1. Starta **Visual Studio** 2012/2013/2015.
    2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
-   3. Expandera **Mallar** och välj **Visual C#**. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
+   3. Expandera **Mallar** och välj **Visual C#** . I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
    4. Välj **Konsolprogram** i listan över projekttyper till höger.
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
@@ -139,7 +139,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         </appSettings>
     </configuration>
     ```
-5. I filen App.Config uppdaterar du värden för  **&lt;program-ID&gt;**,  **&lt;lösenord&gt;**,  **&lt;prenumeration ID&gt;**, och **&lt;klient-ID&gt;** med dina egna värden.
+5. I filen App.Config uppdaterar du värden för  **&lt;program-ID&gt;** ,  **&lt;lösenord&gt;** ,  **&lt;prenumeration ID&gt;** , och **&lt;klient-ID&gt;** med dina egna värden.
 6. Lägg till följande **med** -uttryck för att den **Program.cs** filen i projektet.
 
     ```csharp

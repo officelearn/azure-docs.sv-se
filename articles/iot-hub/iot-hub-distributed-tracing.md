@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400850"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spårningsmeddelanden Azure IoT-enhet till molnet med distribuerad spårning (förhandsversion)
@@ -213,7 +213,7 @@ Om du vill ändra procentandelen av meddelanden från molnet, måste du uppdater
 
 1. Öppna VS Code och [konfigurera IoT Hub-anslutningssträngen](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expandera enheten och leta efter **distribuerad spårning av inställningen (förhandsversion)**. Under det klickar du på **Update distribuerad spårning-inställningen (förhandsversion)** för sub-nod.
+1. Expandera enheten och leta efter **distribuerad spårning av inställningen (förhandsversion)** . Under det klickar du på **Update distribuerad spårning-inställningen (förhandsversion)** för sub-nod.
 
     ![Aktivera distribuerad spårning i Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 

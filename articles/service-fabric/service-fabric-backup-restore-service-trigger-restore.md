@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413720"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
@@ -161,7 +161,7 @@ För restore-API måste du ange den _BackupId_ och _BackupLocation_ information.
 
 Du måste också välja en målpartitionen i alternativa klustret enligt anvisningarna i den [partitionsschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Alternativa kluster säkerhetskopian återställs på partitionen som anges i partitionsschemat från det ursprungliga förlorad klustret.
 
-Om partitions-ID på alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f60800c6`, kan du mappa den till det ursprungliga klustret partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` genom att jämföra den hög och låg nyckeln för _intervallet partitionering (UniformInt64Partition)_.
+Om partitions-ID på alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f60800c6`, kan du mappa den till det ursprungliga klustret partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` genom att jämföra den hög och låg nyckeln för _intervallet partitionering (UniformInt64Partition)_ .
 
 För _med namnet partitionering_, namnvärdet jämförs för att identifiera målpartitionen i alternativa kluster.
 

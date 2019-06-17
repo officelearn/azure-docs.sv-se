@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 05/28/2019
-ms.openlocfilehash: 6e7e07d130c8c4c8fa776dcad539398a004ecea0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 42bfa571818efa4d4a5ad96f62a47fb2b80dca3c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057557"
 ---
-# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Vad är Azure HDInsight och Apache Hadoop-teknikstacken?
+# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Vad är Apache Hadoop i Azure HDInsight?
 
 Den här artikeln ger en introduktion till Apache Hadoop i Azure HDInsight. Azure HDInsight är en fullständigt hanterad, fullständigt spektrum, open source-analytics-tjänst i molnet för företag. Du kan använda ramverk baserade på öppen källkod, till exempel Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R med flera. 
 
@@ -25,7 +25,7 @@ Den här artikeln ger en introduktion till Apache Hadoop i Azure HDInsight. Azur
 [Apache Hadoop](https://hadoop.apache.org/) refererar till ett ekosystem av program med öppen källkod som är ett ramverk för distribuerad bearbetning och analys av stordata-uppsättningar i kluster. Hadoop-teknikstacken innehåller relaterade program och verktyg, inklusive Apache Hive, Apache HBase, Spark, Kafka och många andra.
 
 
-Azure HDInsight är en molndistribution av Hadoop-komponenter från [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. Du kan använda de mest populära ramverken baserade på öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, R med flera. Med de här ramverken möjliggörs en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL), informationslagerhantering, maskininlärning och IoT.
+Azure HDInsight är en molndistribution av Hadoop-komponenter. Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. Du kan använda de mest populära ramverken baserade på öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, R med flera. Med de här ramverken möjliggörs en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL), informationslagerhantering, maskininlärning och IoT.
 
 Tillgängliga stackkomponenter med Hadoop-teknik på HDInsight finns i [komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md). Mer information om Hadoop i HDInsight finns på [sidan om Azure-funktioner för HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -140,7 +140,4 @@ Välbekanta verktyg för Business Intelligence (BI) hämtar, analyserar och rapp
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har lärt dig vad Azure HDInsight är och hur det tillhandahåller Hadoop och andra klustertyper i Azure. Gå vidare till nästa artikel om du vill veta hur man skapar ett Apache Hadoop-kluster i HDInsight.
-
-> [!div class="nextstepaction"]
-> [Skapa Apache Hadoop-kluster i HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Skapa Apache Hadoop-kluster i HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)

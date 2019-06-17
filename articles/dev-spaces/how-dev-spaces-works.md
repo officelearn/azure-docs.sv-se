@@ -11,10 +11,10 @@ ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
 ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399838"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad

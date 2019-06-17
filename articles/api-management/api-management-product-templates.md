@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61088196"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
@@ -78,7 +78,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |Paging|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för samlingen produkter.|  
 |Filtering|[Filtrering](api-management-template-data-model-reference.md#Filtering) entitet.|Filtrera information för sidan produkter.|  
@@ -203,7 +203,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |Product|[Produkten](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
 |IsDeveloperSubscribed|boolesk|Om den aktuella användaren en prenumeration på den här produkten.|  

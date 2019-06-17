@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640386"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Använd dynamisk DNS för att registrera värdnamn i DNS-servern
@@ -35,7 +35,7 @@ Domänanslutna Windows-klienter för att registrera sina IP-adresser med domänk
 ## <a name="linux-clients"></a>Linux-klienter
 Linux-klienter vanligtvis registrera inte sig själva med DNS-servern vid start, de antar DHCP-server gör. Azures DHCP-servrar har inte autentiseringsuppgifterna som ska registrera poster i DNS-servern. Du kan använda ett verktyg som kallas `nsupdate`, som ingår i Bind-paketet, för att skicka DDNS programuppdateringar. Eftersom DDNS-protokollet är standardiserat, kan du använda `nsupdate` även när du inte använder bindning på DNS-servern.
 
-Du kan använda krokar som tillhandahålls av DHCP-klient för att skapa och underhålla värdnamnsposten i DNS-servern. Under DHCP-cykel klienten kör skripten i */etc/dhcp/dhclient-exit-hooks.d/*. Du kan använda hookar för att registrera den nya IP-adress med hjälp av `nsupdate`. Exempel:
+Du kan använda krokar som tillhandahålls av DHCP-klient för att skapa och underhålla värdnamnsposten i DNS-servern. Under DHCP-cykel klienten kör skripten i */etc/dhcp/dhclient-exit-hooks.d/* . Du kan använda hookar för att registrera den nya IP-adress med hjälp av `nsupdate`. Exempel:
 
 ```bash
 #!/bin/sh

@@ -9,10 +9,10 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131355"
 ---
 ## <a name="timeout"></a>Funktionen app timeout-varaktighet 
@@ -23,8 +23,8 @@ Tidsgräns för varaktigheten för en funktionsapp definieras av egenskapen func
 |------|---------|---------|---------|
 | Förbrukning | 1.x | 5 | 10 |
 | Förbrukning | 2.x | 5 | 10 |
-| App Service | 1.x | Obegränsad | Obegränsad |
-| App Service | 2.x | 30 | Obegränsad |
+| App Service | 1.x | Obegränsat | Obegränsat |
+| App Service | 2.x | 30 | Obegränsat |
 
 > [!NOTE] 
 > Oavsett timeout funktionsappsinställning är 230 sekunder den maximala tid som en HTTP-utlöst funktion kan vidta för att svara på en begäran. Detta är på grund av den [standard timeout för inaktivitet på Azure Load Balancer](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Överväg att använda för längre bearbetningstider den [varaktiga funktioner asynkrona mönstret](../articles/azure-functions/durable/durable-functions-concepts.md#async-http) eller [skjuta upp det faktiska arbetet och returnera ett direkt svar](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).

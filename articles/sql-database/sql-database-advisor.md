@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417591"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Prestandarekommendationer för SQL-databas
@@ -77,9 +77,9 @@ När du har installerat den här rekommendationen kan Tvingad parameterisering i
 
 Rekommendationen ”åtgärda schemaproblemet” visas när Azure SQL Database-tjänsten upptäcker avvikelser i antalet schema-relaterade SQL fel som händer på din SQL-databas. I följande tabell visas de fel som är relaterade till problem med databasscheman:
 
-| SQL-felkod | Meddelande |
+| SQL-felkod | Message |
 | --- | --- |
-| 201 |Proceduren eller funktionen ”*'förväntar sig parametern'*', vilken inte tillhandahölls. |
+| 201 |Proceduren eller funktionen ” *'förväntar sig parametern'* ', vilken inte tillhandahölls. |
 | 207 |Ogiltigt kolumnnamn ' *'. |
 | 208 |Ogiltigt objektnamn ' *'. |
 | 213 |Kolumnnamnet eller antalet angivna värden stämmer inte överens tabelldefinitionen. |

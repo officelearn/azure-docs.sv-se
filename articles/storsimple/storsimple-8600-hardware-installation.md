@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630945"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rackmontera, och kabelansluta en StorSimple 8600-enhet
@@ -216,9 +216,9 @@ Du måste kabelanslut din enhet-nätverk som du ser i följande steg för att st
 | Label (Etikett) | Beskrivning |
 | --- | --- |
 | A |LAN med Internetåtkomst |
-| B |Kontrollenhet 0 |
+| B |Kontrollant 0 |
 | C |PCM 0 |
-| D |Kontrollenhet 1 |
+| D |Kontrollant 1 |
 | E |PCM 1 |
 | F |EBOD-kontrollanten 0 |
 | G |EBOD-kontrollanten 1 |

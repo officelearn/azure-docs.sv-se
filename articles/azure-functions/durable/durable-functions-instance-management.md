@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730777"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i varaktiga funktioner i Azure
@@ -41,7 +40,7 @@ Den här asynkrona åtgärden har slutförts när orchestration-process har sche
 
 Parametrarna för [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) är följande:
 
-* **Namn**: Namnet på orchestrator-funktion för att schemalägga.
+* **Namn på**: Namnet på orchestrator-funktion för att schemalägga.
 * **Indata**: JSON-serialiserbara data som ska skickas som indata till orchestrator-funktion.
 * **instanceId**: (Valfritt) Unikt ID för instansen. Om du inte anger den här parametern använder metoden ett slumpmässigt-ID.
 
@@ -63,7 +62,7 @@ public static async Task Run(
 
 Parametrarna för `startNew` är följande:
 
-* **Namn**: Namnet på orchestrator-funktion för att schemalägga.
+* **Namn på**: Namnet på orchestrator-funktion för att schemalägga.
 * **instanceId**: (Valfritt) Unikt ID för instansen. Om du inte anger den här parametern använder metoden ett slumpmässigt-ID.
 * **Indata**: (Valfritt) JSON-serialiserbara data som ska skickas som indata till orchestrator-funktion.
 
@@ -110,13 +109,13 @@ Den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 
 Det tar en `instanceId` (obligatoriskt), `showHistory` (valfritt), `showHistoryOutput` (valfritt) och `showInput` (valfritt, endast .NET) som parametrar.
 
-* **`showHistory`**: Om inställd `true`, svaret innehåller körningshistorik.
-* **`showHistoryOutput`**: Om inställd `true`, körningshistorik innehåller aktivitetsutdata.
-* **`showInput`**: Om inställd `false`, svaret inte innehåller indata för funktionen. Standardvärdet är `true`. (.NET)
+* **`showHistory`** : Om inställd `true`, svaret innehåller körningshistorik.
+* **`showHistoryOutput`** : Om inställd `true`, körningshistorik innehåller aktivitetsutdata.
+* **`showInput`** : Om inställd `false`, svaret inte innehåller indata för funktionen. Standardvärdet är `true`. (.NET)
 
 Metoden returnerar ett JSON-objekt med följande egenskaper:
 
-* **Namn**: Namnet på orchestrator-funktion.
+* **Namn på**: Namnet på orchestrator-funktion.
 * **instanceId**: Instans-ID för dirigering (bör vara samma som den `instanceId` indata).
 * **CreatedTime**: Tid då starta orchestrator-funktion som körs.
 * **LastUpdatedTime**: Tidpunkt då orchestration senaste med kontrollpunkt.
@@ -426,91 +425,9 @@ Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 
 Här är ett exempel HTTP-utlösare-funktion som visar hur du använder den här API:
 
-```C#
-// Copyright (c) .NET Foundation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
-
-namespace VSSample
-{
-    public static class HttpSyncStart
-    {
-        private const string Timeout = "timeout";
-        private const string RetryInterval = "retryInterval";
-
-        [FunctionName("HttpSyncStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-            HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            ILogger log)
-        {
-            // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
-            string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-
-            TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(30);
-            TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(1);
-            
-            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-                req,
-                instanceId,
-                timeout,
-                retryInterval);
-        }
-
-        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
-        {
-            string queryParameterStringValue = request.RequestUri.ParseQueryString()[queryParameterName];
-            if (string.IsNullOrEmpty(queryParameterStringValue))
-            {
-                return null;
-            }
-
-            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
-        }
-    }
-}
-```
-
-```Javascript
-const df = require("durable-functions");
-
-const timeout = "timeout";
-const retryInterval = "retryInterval";
-
-module.exports = async function (context, req) {
-    const client = df.getClient(context);
-    const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-
-    context.log(`Started orchestration with ID = '${instanceId}'.`);
-
-    const timeoutInMilliseconds = getTimeInSeconds(req, timeout) || 30000;
-    const retryIntervalInMilliseconds = getTimeInSeconds(req, retryInterval) || 1000;
-
-    return client.waitForCompletionOrCreateCheckStatusResponse(
-        context.bindingData.req,
-        instanceId,
-        timeoutInMilliseconds,
-        retryIntervalInMilliseconds);
-};
-
-function getTimeInSeconds (req, queryParameterName) {
-    const queryValue = req.query[queryParameterName];
-    return queryValue
-        ? queryValue // expected to be in seconds
-        * 1000 : undefined;
-}
-```
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 Anropa funktionen med följande rad. Använd 2 sekunder för timeout och 0,5 sekunder för återförsöksintervallet:
 
@@ -740,5 +657,3 @@ func durable delete-task-hub --task-hub-name UserTest
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du använder HTTP-APIs exempelvis management](durable-functions-http-api.md)
-
-<!-- Update_Description: wording update -->

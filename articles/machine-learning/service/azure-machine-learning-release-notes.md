@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065775"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -24,6 +24,51 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-06-10"></a>2019-06-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning-SDK för Python v1.0.43
+
++ **Nya funktioner**
+  + Azure Machine Learning nu erbjuder förstklassig support för populära machine learning och data analysis framework Scikit-Läs. Med hjälp av [ `SKLearn` kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), användare enkelt kan träna och distribuera modeller som lär du dig Scikit.
+    + Lär dig hur du [kör finjustering av hyperparametrar med Scikit Lär dig använda HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + Stöd har lagts till för att skapa ModuleStep i pipelines tillsammans med modulen och ModuleVersion klasser för att hantera återanvändbara beräkningsenheter.
+  + ACI webservices har nu stöd för beständiga scoring_uri via uppdateringar. Scoring_uri ändras från IP-adresser till FQDN. Dns-Namnetiketten för FQDN kan konfigureras genom att ange dns_name_label på deploy_configuration. 
+  + Automatiserad machine learning-nya funktioner:
+    + STL upplärda för prognostisering
+    + KMeans klustring har aktiverats för funktionen oinskränkt
+  + AmlCompute kvot godkännanden blev just snabbare! Vi har nu automatiserat processen för att godkänna din kvot förfrågningar inom ett tröskelvärde. Mer information om hur kvoter fungerar lär du dig [hantera kvoter](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+ 
+
++ **Förhandsversionsfunktioner**
+    + Integrering med [MLflow](https://mlflow.org) 1.0.0 spåra via azureml-mlflow paketet ([exempel anteckningsböcker](https://aka.ms/azureml-mlflow-examples)).
+    + Skicka Jupyter-anteckningsbok som en körning. [API-referensdokumentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Offentlig förhandsversion av [Data Drift detektor](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) via azureml-contrib-datadrift paketet ([exempel anteckningsböcker](https://aka.ms/azureml-datadrift-example)). Data Drift är en av de främsta skälen där modellens Precision försämras med tiden. Det händer när data betjänas skiljer sig från de data som modellen har tränats på att skapa modeller i produktion. AML Data Drift detektor hjälper kunder att övervaka data drift och skickar en avisering när drift har identifierats. 
+
++ **Större ändringar**
+
++ **Felkorrigeringar och förbättringar**
+  + RunConfiguration läsa in och spara har stöd för att ange en fullständig sökväg med fullständig säkerhetskopiering-compat för beteende för tidigare.
+  + Lägga till cachelagring i ServicePrincipalAuthentication, inaktiverad som standard.
+  + Aktivera loggning av samma måttnamnet flera områden.
+  + Onlineorder nu korrekt kan importeras från azureml.core (`from azureml.core import Model`).
+  + I pipeline steg `hash_path` parametern är nu föråldrad. Nytt beteende är att hash-fullständig källkatalog, utom filer som finns angivna i .amlignore eller .gitignore.
+  + I pipeline-paket, olika `get_all` och `get_all_*` metoder har ersatts med `list` och `list_*`respektive.
+  + azureml.Core.get_run kräver inte längre klasser som ska importeras innan det returneras den ursprungliga kör typen.
+  + Ett problem har åtgärdats där vissa anrop till webbtjänsten Update inte utlösa en uppdatering.
+  + Bedömning tidsgräns på AKS webservices ska vara mellan 5 MS och 300000ms. Högsta tillåtna scoring_timeout_ms för bedömnings begäranden har tagits stötar från 1 min till 5 minuter.
+  + LocalWebservice objekt har nu `scoring_uri` och `swagger_uri` egenskaper.
+  + Flytta utdata katalogskapandet och utdata directory uppladdning utanför processen för användare. Aktivera körningshistoriken SDK kan köras i användarprocessen för varje. Detta ska matcha vissa synkroniseringsproblem för distribuerad utbildning andra körs.
+  + Namnet på azureml-logg som skrivs från processen användarnamnet innehåller nu processnamn (för distribuerade utbilda endast) och PID.
+
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning Data Förbered SDK v1.1.5
+
++ **Felkorrigeringar och förbättringar**
+  + Intervallet för giltiga år har uppdaterats så att den matchar versionen av Windows kan tolkad datum/tid-värden som har 2 årtal formatet. Intervallet har ändrats från 1930 2029 till 1950 2049.
+  + När du läser i en fil- och inställningen `handleQuotedLineBreaks=True`, `\r` behandlas som en ny rad.
+  + Ett fel har åtgärdats som orsakade `read_pandas_dataframe` misslyckas i vissa fall.
+  + Förbättrad prestanda för `get_profile`.
+  + Förbättrade felmeddelanden.
 
 ## <a name="2019-05-28"></a>2019-05-28
 
@@ -513,7 +558,7 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK för Python v0.1.74
 
 + **Större ändringar** 
-  * * Workspace.compute_targets, datalager, experiment, bilder, modeller och *webservices* egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
+  * \* Workspace.compute_targets, datalager, experiment, bilder, modeller och *webservices* egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
   * *Run.get_context* gör blir föråldrat *Run.get_submitted_run*. Den andra metoden tas bort i kommande versioner.
   * *PipelineData* klass nu förväntar sig ett datalager-objekt som en parameter i stället för datastore_name. På samma sätt *Pipeline* accepterar default_datastore snarare än default_datastore_name.
 

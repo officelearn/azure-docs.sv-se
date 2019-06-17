@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111469"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
@@ -83,10 +83,10 @@ Reläer som öppnas med hjälp av den **netTCPRelay** WCF-bindning behandlar med
 | Kvotnamn | Scope |  Anteckningar | Värde |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare på en relay |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
-| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnområde |- |5,000 |
-| Relay slutpunkter per namnområde för tjänsten |Namnområde |- |10 000 |
-| Meddelandestorlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) vidarebefordrar |Namnområde |Inkommande meddelanden som överskrider kvoterna avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelandestorlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) vidarebefordrar |Namnområde |Ingen gräns meddelandestorlek. |Obegränsad |
+| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnrymd |- |5,000 |
+| Relay slutpunkter per namnområde för tjänsten |Namnrymd |- |10 000 |
+| Meddelandestorlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) vidarebefordrar |Namnrymd |Inkommande meddelanden som överskrider kvoterna avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelandestorlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) vidarebefordrar |Namnrymd |Ingen gräns meddelandestorlek. |Obegränsat |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Finns det några användningskvoter Relay?
 Som standard för valfri molntjänst anger Microsoft en sammanställd månatliga kvot för användning som beräknas för alla prenumerationer för en kund. Vi förstår att dina behov ibland kanske överskrider gränserna. Du kan kontakta kundtjänst när som helst, så att vi får veta vad du behöver och kan justera gränserna på rätt sätt. För Service Bus är de sammanlagda användningskvoter följande:

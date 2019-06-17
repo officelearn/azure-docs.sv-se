@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620608"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify gå tillägget för Linux-Agent
@@ -192,7 +192,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Installationsfel | activationKey krävs |
 | 51 | Installationsfel | OS-distribution som inte stöds |
 | 60 | Installationsfel | miljö krävs |
-| 70 | Installationsfel | Inte tillgängligt |
+| 70 | Installationsfel | Okänt |
 | 80 | Aktivera fel | Installation av Service misslyckades |
 | 90 | Aktivera fel | Tjänsten kunde inte startas |
 | 100 | Inaktivera det när | Tjänststoppet misslyckades |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66125218"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Överför lokala filer till Cloud Shell
@@ -21,7 +21,7 @@ Den `clouddrive` directory synkroniseras med Azure portal lagring-bladet. Använ
 2. Välj målfilen.
 3. Välj den **hämta** knappen.
 
-### <a name="upload-files"></a>Ladda upp filer
+### <a name="upload-files"></a>Överföra filer
 
 ![Lokala filer som ska laddas upp](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
 1. Gå till monterade filresursen.

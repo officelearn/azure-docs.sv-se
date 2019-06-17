@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152418"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
@@ -29,7 +29,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 
 - **Azure Data Factory**: Om du inte har något, följer du stegen för att [skapa en datafabrik](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
-- **SAP BW Open Hub mål (OHD) med måltypen ”databastabell”**: Skapa en OHD eller för att kontrollera att din OHD är korrekt konfigurerad för Data Factory-integrering finns i den [konfigurationer för SAP BW Open Hub mål](#sap-bw-open-hub-destination-configurations) i den här artikeln.
+- **SAP BW Open Hub mål (OHD) med måltypen ”databastabell”** : Skapa en OHD eller för att kontrollera att din OHD är korrekt konfigurerad för Data Factory-integrering finns i den [konfigurationer för SAP BW Open Hub mål](#sap-bw-open-hub-destination-configurations) i den här artikeln.
 
 - **SAP BW-användaren måste ha följande behörigheter**:
 
@@ -162,7 +162,7 @@ Om data factory **nu sätter vi igång** väljer **skapa pipeline från mall** a
 
    - **HighWatermarkBlobName**: Ange blobnamnet för att lagra värdet för högvattenmärket som `requestIdCache.txt`. I Blob storage, gå till motsvarande sökvägen till HighWatermarkBlobPath + HighWatermarkBlobName, till exempel *container/path/requestIdCache.txt*. Skapa en blob med innehåll 0.
 
-      ![Blobbinnehåll](media/load-sap-bw-data/blob.png)
+      ![Blobinnehåll](media/load-sap-bw-data/blob.png)
 
    - **LogicAppURL**: I den här mallen använder vi WebActivity för att anropa Azure Logic Apps för att ange storleksgränsen för hög i Blob storage. Eller du kan använda Azure SQL Database för att lagra den. Använda en lagrad procedur-aktivitet ska uppdatera värdet.
 

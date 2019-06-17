@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: ecf70bbbeae8fd68309f3343615f021038fb10b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111438"
 ---
 B-serien VM-familj kan du välja vilka VM-storlek har du nödvändiga basnivå prestanda för din arbetsbelastning med möjlighet att utöka CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2,3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor virtuell processor.
@@ -21,7 +21,7 @@ Virtuella datorer i B-serien är idealiska för arbetsbelastningar som inte beh�
 
 B-serien levereras i de sex storlekarna som följande:
 
-| Storlek             | vCPU  | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för virtuell dator | Max CPU-prestanda för virtuell dator | Inledande krediter | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
+| Storlek             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för virtuell dator | Max CPU-prestanda för virtuell dator | Inledande krediter | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |

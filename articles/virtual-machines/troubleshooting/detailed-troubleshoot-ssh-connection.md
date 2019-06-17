@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506255"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem med anslutning till en Linux-VM i Azure
@@ -40,7 +40,7 @@ Följande steg hjälper dig att isolera orsaken till felet och ta reda på lösn
 
 2. Välj **inställningar** att undersöka slutpunkter, IP-adresser, nätverkssäkerhetsgrupper och andra inställningar.
 
-   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md)**. Slutpunkter i virtuella datorer som har skapats med hjälp av Resource Manager lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna har tillämpats på den nya nätverkssäkerhetsgruppen och refereras till i undernätet.
+   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md)** . Slutpunkter i virtuella datorer som har skapats med hjälp av Resource Manager lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna har tillämpats på den nya nätverkssäkerhetsgruppen och refereras till i undernätet.
 
 Kontrollera de konfigurerade slutpunkterna för att kontrollera nätverksanslutningen och se om du kan ansluta till den virtuella datorn med ett annat protokoll som HTTP och en annan tjänst.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127097"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
@@ -72,7 +72,7 @@ Flera olika DNS-cachen paket, som till exempel dnsmasq, är tillgängliga. Här 
 **Ubuntu (använder resolvconf)**
   * Installera dnsmasq-paketet (”sudo apt-get install dnsmasq”).
 
-**SUSE (använder netconf)**:
+**SUSE (använder netconf)** :
 1. Installera dnsmasq-paketet (”sudo zypper installera dnsmasq”).
 2. Aktivera tjänsten dnsmasq (”systemctl aktivera dnsmasq.service”).
 3. Starta tjänsten dnsmasq (”systemctl start dnsmasq.service”).

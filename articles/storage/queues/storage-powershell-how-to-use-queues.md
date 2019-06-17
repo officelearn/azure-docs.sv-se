@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991344"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
@@ -35,7 +35,7 @@ Det finns ingen PowerShell-cmdletar för dataplanet för köer. Om du vill utfö
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
@@ -52,7 +52,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Skapa en resursgrupp
+## <a name="create-resource-group"></a>Skapa resursgrupp
 
 Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 

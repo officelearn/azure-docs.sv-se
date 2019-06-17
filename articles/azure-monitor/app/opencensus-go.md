@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577909"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Samla in distribuerade spårningar från Go (förhandsversion)
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Skapa Application Insights-källa
+## <a name="create-application-insights-resource"></a>Skapa Application Insights-resurs
 
 Du måste först skapa en Application Insights-resurs som genererar en instrumentationsnyckeln (ikey). Nyckeln används sedan för att konfigurera den lokala vidarebefordraren för att skicka distribuerade spårningar från programmets OpenCensus som instrumenteras till Application Insights.   
 

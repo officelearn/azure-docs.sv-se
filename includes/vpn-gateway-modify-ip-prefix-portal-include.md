@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121015"
 ---
 ### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
@@ -55,7 +55,7 @@ Så här tar du bort adressprefix:
 3. Klicka på **Ta bort**.
 4. Klicka på **spara** att spara dina inställningar.
 
-#### <a name="3-recreate-the-connection"></a>3 Återskapa anslutningen.
+#### <a name="3-recreate-the-connection"></a>3. Återskapa anslutningen.
 
 1. Navigera till den virtuella Nätverksgatewayen för ditt virtuella nätverk. (Inte den lokala Nätverksgatewayen.)
 2. På den virtuella Nätverksgatewayen i den **inställningar** klickar du på **anslutningar**.

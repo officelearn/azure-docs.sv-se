@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069403"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -68,7 +68,7 @@ Välj **App Services** på menyn till vänster och välj sedan appens namn.
 
 Du ser hanteringssidan för App Service-appen.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
@@ -82,7 +82,7 @@ Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte 
 
 Om App Service-planen inte är på nivån **F1** stänger du sidan **Skala upp** och hoppar till [Mappa en CNAME-post](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Skala upp App Service-planen
 
@@ -96,7 +96,7 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 ![Bekräftelse av skalningsåtgärd](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Mappa din domän
 
@@ -162,7 +162,7 @@ Om du har missat något steg eller stavat fel på något ord visas ett verifieri
 
 ![Verifieringsfel](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Mappa en A-post
 
@@ -213,7 +213,7 @@ När posterna har lagts till ser sidan för DNS-poster ut som i följande exempe
 
 ![Sida för DNS-poster](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Aktivera A-postmappning i appen
 
@@ -246,7 +246,7 @@ Om du har missat något steg eller stavat fel på något ord visas ett verifieri
 
 ![Verifieringsfel](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mappa en domän med jokertecken
 
@@ -310,7 +310,7 @@ Om du får ett HTTP 404-fel (Hittades inte) när du går till URL:en för den an
 - Den anpassade domänen som har konfigurerats saknar en A-post och/eller en CNAME-post.
 - Webbläsarklienten har cachat din domäns gamla IP-adress. Rensa cachen och testa DNS-matchningen på nytt. På en Windows-dator rensar du cachen med `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Migrera en aktiv domän
 
@@ -326,7 +326,7 @@ Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` s
 
 ![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-När åtgärden har slutförts ska din app returnera rätt sida på rotsökvägen (till exempel http://contoso.com)).
+När åtgärden har slutförts ska din app returnera rätt sida på rotsökvägen (till exempel http://contoso.com) ).
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

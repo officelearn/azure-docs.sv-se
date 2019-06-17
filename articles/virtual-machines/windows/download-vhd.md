@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076352"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Ladda ned Windows virtuella Hårddisken från Azure
@@ -36,7 +36,7 @@ Om du vill använda den virtuella Hårddisken som en bild för att skapa andra v
 2.  [Ansluta till den virtuella datorn](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  Öppna Kommandotolken som administratör på den virtuella datorn.
 4.  Ändra katalogen till *%windir%\system32\sysprep* och köra sysprep.exe.
-5.  I dialogrutan systemförberedelseverktyget väljer **ange System Out-of-Box Experience (OOBE)**, och se till att **Generalize** har valts.
+5.  I dialogrutan systemförberedelseverktyget väljer **ange System Out-of-Box Experience (OOBE)** , och se till att **Generalize** har valts.
 6.  Välj i Avslutningsalternativ, **avstängning**, och klicka sedan på **OK**. 
 
 Om du vill använda den virtuella Hårddisken som en disk för en ny instans av en befintlig virtuell dator eller en datadisk, gör du följande:
@@ -56,7 +56,7 @@ För att hämta VHD-filen, måste du generera en [signatur för delad åtkomst (
 3.  Ange Webbadressen till förfallotid *36000*.
 4.  Klicka på **generera URL: en**.
 
-    ![Skapa webbadress](./media/download-vhd/export-generate.png)
+    ![Skapa Webbadress](./media/download-vhd/export-generate.png)
 
 > [!NOTE]
 > Förfallotid har ökats från standard för att ge tillräckligt med tid för att ladda ned stora VHD-filen för ett Windows Server-operativsystem. Du kan förvänta dig en VHD-fil som innehåller operativsystemet Windows Server för att ta flera timmar att ladda ned beroende på din anslutning. Om du hämtar en virtuell Hårddisk för en datadisk standardtiden är tillräckliga. 

@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321827"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Ersätt en maskinvarukomponent på din enhet i StorSimple 8000-serien
@@ -106,8 +106,8 @@ Både primära höljet och EBOD-kabinett har enheten operatör moduler. Chassit 
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
-| 3 |Kontrollenhet 0 |
-| 4 |Kontrollenhet 1 |
+| 3 |Kontrollant 0 |
+| 4 |Kontrollant 1 |
 
 ![Serverdelen av enheten EBOD hölje plugin-moduler](./media/storsimple-hardware-component-replacement/IC769599.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bd9efbd3f0d445174f6db4395cbeee789313f6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Självstudier: Integrera Azure Active Directory med ContractWorks
 
@@ -53,7 +53,7 @@ När du ska konfigurera integreringen av ContractWorks med Azure AD måste du l�
 
 **Så här lägger du till ContractWorks från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -217,5 +217,5 @@ När du klickar på ContractWorks-panelen på åtkomstpanelen så ska du automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

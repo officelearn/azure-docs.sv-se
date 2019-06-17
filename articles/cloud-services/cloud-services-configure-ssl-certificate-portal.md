@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61434102"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
@@ -40,7 +40,7 @@ Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Certifikatet måste skapas för nyckelutbyte, kan exporteras till en Personal Information Exchange (.pfx)-fil.
-* Certifikatets ämnesnamn måste matcha den domän som används för att få åtkomst till Molntjänsten. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för cloudapp.net-domän. Du måste skaffa ett anpassat domännamn som ska användas när komma åt tjänsten. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för att komma åt ditt program. Exempel: om ditt domännamn är **contoso.com** du vill begära ett certifikat från din Certifikatutfärdare för ***. contoso.com** eller **www\.contoso.com**.
+* Certifikatets ämnesnamn måste matcha den domän som används för att få åtkomst till Molntjänsten. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för cloudapp.net-domän. Du måste skaffa ett anpassat domännamn som ska användas när komma åt tjänsten. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för att komma åt ditt program. Exempel: om ditt domännamn är **contoso.com** du vill begära ett certifikat från din Certifikatutfärdare för * **. contoso.com** eller **www\.contoso.com**.
 * Certifikatet måste använda minst 2048-bitars kryptering.
 
 För testning, kan du [skapa](cloud-services-certs-create.md) och använda ett självsignerat certifikat. Ett självsignerat certifikat har autentiserats inte via en Certifikatutfärdare och kan använda cloudapp.net domänen som URL för webbplatsen. Till exempel följande uppgift använder ett självsignerat certifikat som CN-namn (CN) som används i certifikatet är **sslexample.cloudapp.net**.

@@ -17,10 +17,10 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139770"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivå för Azure App Service
@@ -66,7 +66,7 @@ Beroende på din värdmiljö kan det kräva ytterligare åtgärder för att skal
 
 I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna din App Service-app-sida.
 
-I den vänstra navigeringen i din App Service-app-sida väljer **skala upp (App Service-plan)**.
+I den vänstra navigeringen i din App Service-app-sida väljer **skala upp (App Service-plan)** .
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
@@ -123,7 +123,7 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Tier "PremiumV2" `
     -WorkerSize "Small"
 ```
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 [Skala upp en app i Azure](web-sites-scale.md)  
 [Skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md)

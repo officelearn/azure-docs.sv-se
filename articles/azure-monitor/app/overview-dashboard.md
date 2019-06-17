@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mbullwin
 ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497156"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights instrumentpanel
@@ -37,7 +37,7 @@ Val av tidsintervall har förenklats till ett enkelt klick-gränssnitt.
 
 Övergripande har prestanda avsevärt ökat. Du har ett klick åtkomst till populära funktioner som **Search** och **Analytics**. Varje standard dynamiskt uppdaterar KPI panel ger inblick i motsvarande Application Insights-funktioner. Mer information om misslyckades begäranden väljer **fel** under den **Undersök** rubrik:
 
-![fel](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![Fel](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Instrumentpanel för program
 

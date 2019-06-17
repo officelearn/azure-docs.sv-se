@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859400"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
@@ -1112,7 +1112,7 @@ Du kan använda Active Directory Authentication Library (ADAL) för att registre
     * Ersätt **INSERT-UTFÄRDARE-HERE** med namnet på den klient som du har etablerat för ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Ersätt **INSERT-resurs-ID-HERE** med klient-ID för din mobilappsserverdel. Du kan hämta klient-ID från den **Avancerat** fliken **Azure Active Directory-inställningar** i portalen.
     * Ersätt **INSERT-klient-ID-HERE** med klient-ID som du kopierade från native client-program.
-    * Ersätt **INSERT-OMDIRIGERINGS-URI-HERE** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Ersätt **INSERT-OMDIRIGERINGS-URI-HERE** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

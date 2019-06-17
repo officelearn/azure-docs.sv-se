@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400482"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Aktuell version](connector-mongodb.md)
 
@@ -52,7 +52,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till: **MongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
@@ -95,7 +95,7 @@ Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper har stöd för MongoDB-datauppsättning:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbCollection** | Ja |
 | collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
@@ -126,7 +126,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbSource** | Ja |
 | query |Använd anpassade SQL-92 fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”collectionName” i datauppsättningen har angetts) |
@@ -182,8 +182,8 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectId |String |
+| Sträng |String |
 | UUID |Guid |
 | Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 

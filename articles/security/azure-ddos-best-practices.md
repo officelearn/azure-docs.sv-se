@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588162"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
@@ -182,7 +182,7 @@ Cybersäkerhet kräver konstant innovation i defense. Azure Standard för DDoS p
 
 DDoS-attacker som riktas mot Azure-resurser vanligtvis kräver minimala åtgärder från användaren synpunkt. Fortfarande, införliva DDoS lösning som en del av en incidenthantering strategi hjälper till att minimera påverkan på affärskontinuitet.
 
-### <a name="microsoft-threat-intelligence"></a>Microsoft Threat Intelligence
+### <a name="microsoft-threat-intelligence"></a>Microsoft hotinformation
 
 Microsoft har ett omfattande threat intelligence nätverk. Det här nätverket använder en utökad säkerhet-community som har stöd för Microsoft online services, Microsoft-partner och relationer inom gruppen internet security kunskapen. 
 

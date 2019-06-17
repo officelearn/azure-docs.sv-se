@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340204"
 ---
 # <a name="conference-series-entity"></a>Konferensen serien entitet
@@ -23,10 +23,10 @@ ms.locfileid: "61340204"
 
 Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Enhets-id                              |Int64      |Lika med
+Id      |Entitets-ID                              |Int64      |Lika med
 CN      |Konferensserie normalized namn      |String     |Lika med
-DCN     |Visningsnamn för konferens-serien         |String     |inga
-Kopia      |Konferensserie totala antalet källhänvisningar         |Int32      |inga  
-ECC     |Antalet för konferensen serien totala uppskattade källhänvisningar   |Int32      |inga
+DCN     |Visningsnamn för konferens-serien         |String     |Ingen
+CC      |Konferensserie totala antalet källhänvisningar         |Int32      |Ingen  
+ECC     |Antalet för konferensen serien totala uppskattade källhänvisningar   |Int32      |Ingen
 F.FId   |Fältet för studier entitets-ID som är associerade med konferensserie |Int64  | Lika med
 F.FN    |Fältet för studier namnet som associeras med konferensserie  | Är lika med,<br/>StartsWith

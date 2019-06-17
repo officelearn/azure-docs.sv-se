@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715658"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
@@ -171,10 +171,10 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
    
    Du behöver **databasen servernamnet, databasnamnet, användarnamnet och lösenordet** innan du fortsätter till nästa steg. Här följer stegen för att guida dig hur du hittar dem.
    
-   * En gång **Azure SQL-databas** på din mall diagram blir grön, klickar du på den och klicka sedan på **”öppna'**.
+   * En gång **Azure SQL-databas** på din mall diagram blir grön, klickar du på den och klicka sedan på **”öppna'** .
    * Du ser ett nytt fliken/webbläsarfönster som visar sidan för Azure portal. Klicka på **”resursgrupper”** på den vänstra panelen.
-   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **' YourSolutionName\_ResourceGroup'**.
-   * I den nya frigörs panelen, klickar du på den ![SQL ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ikon för att komma åt databasen. Databasnamnet är bredvid ikonen (till exempel **'pmaintenancedb'**), och **Databasservernamnet** anges under egenskapen Server name och bör likna  **YourSolutionName.database.windows.net**.
+   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **' YourSolutionName\_ResourceGroup'** .
+   * I den nya frigörs panelen, klickar du på den ![SQL ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ikon för att komma åt databasen. Databasnamnet är bredvid ikonen (till exempel **'pmaintenancedb'** ), och **Databasservernamnet** anges under egenskapen Server name och bör likna  **YourSolutionName.database.windows.net**.
    * Din databas **användarnamn** och **lösenord** är samma som användarnamnet och lösenordet tidigare registreras under distributionen av lösningen.
 2. Uppdatera datakällan för rapportfilen kalla sökvägen med Power BI Desktop.
    
@@ -182,8 +182,8 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
      
      ![Redigera frågor](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Välj den första tabellen och klicka på ![fråga inställningsikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) bredvid **'Source'** under **TILLÄMPADE steg** till höger **'Frågeinställningar'** panelen. Ignorera alla varningsmeddelanden som visas.
-   * I frigörs fönster, ersätter **'Server'** och **”databas”** med din egen och databasnamn och sedan på **'OK'**. Kontrollera att du anger porten 1433 för servernamnet, (**YourSolutionName.database.windows.net, 1433**). Lämna fältet databas som **pmaintenancedb**. Ignorera varningsmeddelanden som visas på skärmen.
-   * I nästa frigörs fönstret, ser du två alternativ i det vänstra fönstret (**Windows** och **databasen**). Klicka på **”databas”**, Fyll i din **'Användarnamn'** och **'Password'** (detta är det användarnamn och lösenord som du angav när du först distribueras lösningen och skapat en Azure SQL-databas). I ***väljer vilken nivå dessa inställningar ska tillämpas***, kontrollera nivån databasalternativ. Klicka sedan på **”Anslut”**.
+   * I frigörs fönster, ersätter **'Server'** och **”databas”** med din egen och databasnamn och sedan på **'OK'** . Kontrollera att du anger porten 1433 för servernamnet, (**YourSolutionName.database.windows.net, 1433**). Lämna fältet databas som **pmaintenancedb**. Ignorera varningsmeddelanden som visas på skärmen.
+   * I nästa frigörs fönstret, ser du två alternativ i det vänstra fönstret (**Windows** och **databasen**). Klicka på **”databas”** , Fyll i din **'Användarnamn'** och **'Password'** (detta är det användarnamn och lösenord som du angav när du först distribueras lösningen och skapat en Azure SQL-databas). I ***väljer vilken nivå dessa inställningar ska tillämpas***, kontrollera nivån databasalternativ. Klicka sedan på **”Anslut”** .
    * Klicka på den andra tabellen **PMResult** klickar ![ikonen Rapportnavigering](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) bredvid **'Source'** under **TILLÄMPADE steg** till höger **'Frågeinställningar'** panelen och uppdatera namnen på servern och databasen som i ovanstående steg och klicka på OK.
    * Stäng fönstret när du är interaktiva tillbaka till föregående sida. Ett meddelande visas – Klicka på **tillämpa**. Klicka slutligen på den **spara** för att spara ändringarna. Power BI-filen har nu upprätta anslutningen till servern. Om dina visualiseringar är tomma, kontrollera att du radera markeringarna på visualiseringar i visualisera alla data genom att klicka på raderingsikonen i det övre högra hörnet av seriemönstren. Använd uppdateringsknappen ska visa nya data på visualiseringar. Första gången se du bara seed-data på dina visualiseringar som data factory schemaläggs för uppdatering var tredje timme. När 3 timmar visas nya förutsägelser som visas i dina visualiseringar när du uppdaterar data.
 3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](https://www.powerbi.com/). Observera att det här steget en Power BI-konto (eller Office 365-konto).
@@ -197,7 +197,7 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
      <br/>
    * Att schemalägga en uppdatering av data, håller du muspekaren över den **PredictiveMaintenanceAerospace** datauppsättning, klickar du på ![ellipsikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) och välj sedan **Schemalägg uppdatering**.
      <br/>
-     **Obs!** Om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
+     **Obs:** Om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
      <br/>
      ![Schemalägg uppdatering](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>

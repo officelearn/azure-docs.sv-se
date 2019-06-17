@@ -10,10 +10,10 @@ ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333876"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
@@ -56,7 +56,7 @@ Tjänstens huvudnamn aktivera fjärradministrerad anslutning till ett register i
 
   * *Pull*: Distribuera behållare från ett register till orchestration-system, inklusive Kubernetes, DC/OS och Docker Swarm. Du kan också hämta från behållarregister till relaterade Azure-tjänster som [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), med mera.
 
-  * *Push-*: Skapa behållaravbildningar och skicka dem till ett register med kontinuerlig integrering och distribution av lösningar som Azure Pipelines eller Jenkins.
+  * *Push-* : Skapa behållaravbildningar och skicka dem till ett register med kontinuerlig integrering och distribution av lösningar som Azure Pipelines eller Jenkins.
 
 Du kan också logga in direkt med ett huvudnamn för tjänsten. När du kör följande kommando interaktivt ange tjänstens huvudnamn appID (användarnamn) och lösenord när du uppmanas till detta. Metodtips att hantera autentiseringsuppgifter för inloggning, finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens:
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: 9d94a976c08cdb5184ea4c5e2cd70ac039d78378
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384683"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
@@ -41,7 +41,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
 
 2. Från bladet **Anpassad distribution** anger du följande värden:
 
-    |Egenskap  |Beskrivning |
+    |Egenskap |Beskrivning |
     |---|---|
     |Prenumeration|Välj din Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en Azure Resource management-grupp eller Använd en befintlig.|

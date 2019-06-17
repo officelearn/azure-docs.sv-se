@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258769"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Aktivera diskkryptering för Azure Service Fabric-klusternoder i Linux 
@@ -65,7 +65,7 @@ Självregistrering kräver att förhandsversionen av disk-kryptering för virtue
 3. Installera den senaste versionen av den [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) versionen. Följande är VM-skalningsuppsättningen Azure Disk Encryption-cmdletar för att aktivera ([ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension))-kryptering, hämta ([hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypteringsstatus och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalan skalningsuppsättningsinstans.
 
 
-| Kommando | Version |  Source  |
+| Kommando | Version |  source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |

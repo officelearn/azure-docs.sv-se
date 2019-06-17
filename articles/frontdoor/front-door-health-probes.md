@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736589"
 ---
 # <a name="health-probes"></a>Hälsotillståndsavsökningar
@@ -29,7 +29,7 @@ Dörren har stöd för skicka avsökningar via HTTP eller HTTPS-protokoll. Dessa
 
 ## <a name="health-probe-responses"></a>Avsökningen hälsodeklarationssvar
 
-| Svar  | Beskrivning | 
+| Responses  | Beskrivning | 
 | ------------- | ------------- |
 | Fastställa hälsotillstånd  |  Ett 200 OK statuskod visar serverdelen är felfri. Allt annat anses vara fel. Om en giltig HTTP-svar inte tas emot för en avsökning av någon anledning (inklusive nätverksfel), räknas avsökningen som misslyckat.|
 | Mäta svarstiden  | Svarstiden är wall-clock-tiden mäts från det ögonblick då omedelbart innan vi skickar avsökningen begäran till den tidpunkt när vi får de sista byten av svaret. Vi använder en ny TCP-anslutning för varje begäran så att denna mätning inte prioriterar mot serverdelar med befintliga varma anslutningar.  |

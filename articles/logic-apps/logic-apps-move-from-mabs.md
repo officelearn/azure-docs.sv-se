@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61323102"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrera från BizTalk Services till Azure Logic Apps
@@ -88,7 +88,7 @@ När inkommande konverteras till XML (eller om XML var meddelandeformat togs emo
 
 I BizTalk Services konverterar transformeringen scenen en XML-baserade meddelandeformat till en annan. Det här arbetet genom att tillämpa en karta, med hjälp av TRFM-baserade mappningen. Processen påminner om i Logic Apps. Transformering åtgärden kör en karta från ditt Integrationskonto. Den största skillnaden är att kartor i Logic Apps i XSLT-format. XSLT omfattar möjligheten att återanvända befintliga XSLT som du redan har, inklusive maps som skapats för BizTalk Server och som innehåller functoids. 
 
-### <a name="routing-rules"></a>Hanteringsregler
+### <a name="routing-rules"></a>Routningsregler
 
 BizTalk Services blir ett beslut om routning på vilken slutpunkt eller anslutningen att skicka inkommande meddelanden eller data. Möjligheten att välja från förkonfigurerade slutpunkter är möjlig med hjälp av routingalternativ som filter:
 

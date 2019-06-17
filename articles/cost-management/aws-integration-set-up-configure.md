@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002128"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installera och konfigurera AWS kostnader och användning rapport-integrering
@@ -67,7 +67,7 @@ Använd guiden Skapa en ny roll:
 3. Välj **roller** och välj sedan **skapa roll**.
 4. På nästa sida väljer **en annan AWS-konto**.
 5. I **konto-ID**, ange **432263259397**.
-6. I **alternativ**väljer **kräver externt ID (metodtips när en tredje part tar den här rollen)**.
+6. I **alternativ**väljer **kräver externt ID (metodtips när en tredje part tar den här rollen)** .
 7. I **externt ID**, ange externt ID. Den externa ID är ett delat lösenord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på den **ny koppling** sidan i Cost Management. Exempelvis kan ett externt ID liknar _Companyname1234567890123_.
 
     > [!NOTE]
@@ -100,7 +100,7 @@ Konfigurera behörighet för kostnaden Explorer:
 
 1. Välj **väljer du en tjänst**.
 2. Ange **kostnad Explorer Service**.
-3. Välj **alla Explorer tjänster åtgärder (ce:\*)**. Den här åtgärden verifierar att samlingen är korrekt.
+3. Välj **alla Explorer tjänster åtgärder (ce:\*)** . Den här åtgärden verifierar att samlingen är korrekt.
 4. Välj **lägga till ytterligare behörigheter**.
 
 Lägg till behörighet för AWS-organisationer:

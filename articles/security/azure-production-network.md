@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611345"
 ---
 # <a name="the-azure-production-network"></a>Azure-produktionsnätverket
@@ -54,7 +54,7 @@ Azure implementerar robusta säkerhets- och funktioner för brandvägg på olika
 ### <a name="azure-security-features"></a>Azure säkerhetsfunktioner
 Azure implementerar värdbaserade programvarubrandväggar i produktionsmiljön. Flera grundläggande säkerhet och funktioner för brandvägg finns i grundläggande Azure-miljön. Dessa säkerhetsfunktioner visas en strategi för skydd på djupet i Azure-miljön. Kundinformation i Azure är skyddade av följande brandväggar:
 
-**Hypervisor-brandvägg (ett paketfilter)**: Den här brandväggen implementeras i hypervisorn och konfigureras av infrastrukturkontrollantens (FC) agent. Den här brandväggen skyddar den klient som körs på den virtuella datorn från obehörig åtkomst. Som standard när en virtuell dator skapas blockeras all trafik och sedan FC-agenten lägger till regler och undantag i filtret och tillåta auktoriserad trafik.
+**Hypervisor-brandvägg (ett paketfilter)** : Den här brandväggen implementeras i hypervisorn och konfigureras av infrastrukturkontrollantens (FC) agent. Den här brandväggen skyddar den klient som körs på den virtuella datorn från obehörig åtkomst. Som standard när en virtuell dator skapas blockeras all trafik och sedan FC-agenten lägger till regler och undantag i filtret och tillåta auktoriserad trafik.
 
 Två typer av regler är programmerade här:
 

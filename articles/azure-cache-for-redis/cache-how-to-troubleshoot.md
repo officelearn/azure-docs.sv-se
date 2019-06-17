@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
 ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830015"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Felsökning av Azure Cache för Redis
@@ -202,12 +202,12 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
 | --- | --- |
 | inst |Under det senaste tidsintervallet: 0-kommandon som har utfärdats |
 | mgr |Hanteraren för socket klarar `socket.select`, vilket innebär att den ber operativsystem och ange en socket som har att göra. Läsaren är inte aktivt lästes från nätverket eftersom det inte tror att det finns något att göra |
-| kö |Det finns 73 Totalt antal pågående åtgärder |
+| queue |Det finns 73 Totalt antal pågående åtgärder |
 | qu |6 för pågående åtgärder finns i unsent kön och ännu inte har skrivits till den utgående nätverkstrafik |
 | qs |67 pågående åtgärder har skickats till servern men ett svar är ännu inte tillgänglig. Svaret kan bli `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
 | qc |0 för pågående åtgärder har sett svar men ännu inte har markerats som slutförd eftersom de väntar på slutförande-loop |
 | WR |Det finns en aktiv skrivaren (dvs. inte ignoreras 6 ej skickade begäranden) byte/activewriters |
-| i |Det finns ingen aktiv läsare och noll byte är tillgängliga för att läsa på NIC byte/activereaders |
+| I |Det finns ingen aktiv läsare och noll byte är tillgängliga för att läsa på NIC byte/activereaders |
 
 ### <a name="steps-to-investigate"></a>Steg för att undersöka
 

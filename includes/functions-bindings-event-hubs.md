@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132450"
 ---
-## <a name="trigger"></a>Utlös
+## <a name="trigger"></a>Utlösare
 
 Använd funktionen utlösaren för att svara på en händelse som skickas till en event hub-händelseström. Du måste ha läsbehörighet till den underliggande händelsehubben för att konfigurera utlösaren. När funktionen har utlösts skrivit meddelandet som skickades till funktionen som en sträng.
 
@@ -400,7 +400,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 Event Hubs-utlösare innehåller flera [metadataegenskaper](../articles/azure-functions/./functions-bindings-expressions-patterns.md). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) klass.
 
-|Egenskap |Typ|Beskrivning|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Den `PartitionContext` instans.|
 |`EnqueuedTimeUtc`|`DateTime`|Kötid i UTC.|
@@ -418,7 +418,7 @@ Den [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 Använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
 
@@ -719,7 +719,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 }  
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |maxBatchSize|64|Det maximala antal mottagna händelser per receive-loop.|
 |prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande EventProcessorHost.|

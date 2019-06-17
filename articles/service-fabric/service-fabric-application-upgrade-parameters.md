@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614402"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
@@ -29,7 +29,7 @@ Den här artikeln beskrivs de olika parametrar som gäller under uppgraderingen 
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Programuppgraderingar startas via ett av tre lägen för användaren valbara uppgradering. Varje läge har en egen uppsättning parametrar för program:
-- Övervakad
+- Övervakas
 - Oövervakade automatiskt
 - Oövervakade manuell
 
@@ -44,12 +44,12 @@ Visual Studio Service Fabric-programuppgraderingsparametrar anges via dialogruta
 ### <a name="required-parameters"></a>Obligatoriska parametrar
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Gäller | Beskrivning |
+| Parameter | Gäller för | Beskrivning |
 | --- | --- | --- |
 ApplicationName |PS| Namnet på det program som ska uppgraderas. Exempel: fabric: / VisualObjects fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Versionen av programmet skriver som mål för uppgradering. |
 FailureAction |PS, VS|Tillåtna värden är **återställning**, **manuell**, och **ogiltigt**. Den kompenserande åtgärden som ska utföras när en *övervakade* uppgradera möten övervakning principöverträdelser principen eller hälsotillstånd. <br>**Rollback** anger att uppgraderingen automatiskt rullar tillbaka till den förberedande versionen. <br>**Manuell** anger att uppgraderingen växlar till den *UnmonitoredManual* Uppgraderingsläge. <br>**Ogiltig** anger att den misslyckade åtgärden är ogiltig.|
-Övervakad |PS|Anger att uppgraderingsläget är övervakad. När cmdleten har en uppgradering för en uppgraderingsdomän om hälsotillståndet för uppgraderingsdomänen och klustret uppfyller hälsoprinciper som du definierar, uppgraderar Service Fabric med nästa uppgraderingsdomän. Om uppgraderingsdomän eller kluster inte kan uppfylla hälsoprinciper, misslyckas uppgraderingen och Service Fabric återställer uppgraderingen för uppgraderingsdomänen eller återgår till manuellt läge per de principer som anges. Det här är det rekommenderade läget för programuppgraderingar i en produktionsmiljö. |
+Övervakas |PS|Anger att uppgraderingsläget är övervakad. När cmdleten har en uppgradering för en uppgraderingsdomän om hälsotillståndet för uppgraderingsdomänen och klustret uppfyller hälsoprinciper som du definierar, uppgraderar Service Fabric med nästa uppgraderingsdomän. Om uppgraderingsdomän eller kluster inte kan uppfylla hälsoprinciper, misslyckas uppgraderingen och Service Fabric återställer uppgraderingen för uppgraderingsdomänen eller återgår till manuellt läge per de principer som anges. Det här är det rekommenderade läget för programuppgraderingar i en produktionsmiljö. |
 UpgradeMode | VS | Tillåtna värden är **övervakade** (standard), **UnmonitoredAuto**, eller **UnmonitoredManual**. Se PowerShell-parametrar för varje steg i den här artikeln för information. |
 UnmonitoredAuto | PS | Anger att uppgraderingsläget oövervakade automatiskt. När Service Fabric en uppgraderingsdomän har uppgraderats, uppgraderar Service Fabric med nästa uppgraderingsdomän oavsett hälsotillstånd för systemprogram. Det här läget rekommenderas inte för produktion och används endast under utvecklingen av ett program. |
 UnmonitoredManual | PS | Anger att uppgraderingsläget oövervakade manuell. När Service Fabric uppgraderar en uppgraderingsdomän, väntar den att uppgradera med nästa uppgraderingsdomän med hjälp av den *återuppta ServiceFabricApplicationUpgrade* cmdlet. |
@@ -62,7 +62,7 @@ Använd den vågräta rullningslisten längst ned i tabellen om du vill visa ful
 
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Gäller | Beskrivning |
+| Parameter | Gäller för | Beskrivning |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Anger åsidosättningar för programparametrar.<br>PowerShell-programparametrar har angetts som hash-tabell namn/värde-par. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio-programparametrar kan anges i dialogrutan Publicera Service Fabric-program i den **Programparameterfil** fält.
 | Bekräfta |PS| Tillåtna värden är **SANT** och **FALSKT**. Frågar efter bekräftelse innan du kör cmdlet: en. |
@@ -105,16 +105,16 @@ parameters  |En JSON-kodad lista över program parametern åsidosättningar för
 Standard-service-hälsa-policy | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) kodad specifikation av hälsoprincip som används som standard för att utvärdera hälsan för en typ av tjänst. Kartan är tomt som standard. |
 åtgärd vid uppgraderingsfel | Tillåtna värden är **återställning**, **manuell**, och **ogiltigt**. Den kompenserande åtgärden som ska utföras när en *övervakade* uppgradera möten övervakning principöverträdelser principen eller hälsotillstånd. <br>**Rollback** anger att uppgraderingen automatiskt rullar tillbaka till den förberedande versionen. <br>**Manuell** anger att uppgraderingen växlar till den *UnmonitoredManual* Uppgraderingsläge. <br>**Ogiltig** anger att den misslyckade åtgärden är ogiltig.|
 force-restart | Om du uppdaterar en konfiguration eller datapaketet utan att uppdatera kod som tjänsten startas endast om ForceRestart egenskapen är inställd på **SANT**. När uppdateringen är klar meddelar Service Fabric tjänsten och att en ny konfigurationspaket eller datapaketet är tillgänglig. Tjänsten ansvarar för att tillämpa ändringarna. Om det behövs tjänsten kan starta om sig själv. |
-health-check-retry-timeout | Hur lång tid att försöka igen hälsotillstånd utvärdering när programmet eller klustret är i feltillstånd innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standard: PT0H10M0S. |
--stabil-hälsokontroll | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standard: PT0H2M0S. |
-health-check-wait-duration | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du tillämpar hälsoprinciper. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standard: 0.|
+health-check-retry-timeout | Hur lång tid att försöka igen hälsotillstånd utvärdering när programmet eller klustret är i feltillstånd innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. standard: PT0H10M0S. |
+-stabil-hälsokontroll | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. standard: PT0H2M0S. |
+health-check-wait-duration | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du tillämpar hälsoprinciper. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. standard: 0.|
 Maximalt antal defekta appar | Rekommenderade standardvärdet är 0. Ange det maximala antalet distribuerade program (se den [hälsotillstånd avsnittet](service-fabric-health-introduction.md)) som kan vara felaktiga innan programmet betraktas som defekt och misslyckas uppgraderingen. Den här parametern definierar programmets hälsotillstånd på noden och hjälper dig identifiera problem under uppgraderingen. Repliker av programmet kommer vanligtvis, Utjämning av nätverksbelastning till den andra noden, vilket gör att programmet syns felfritt, vilket medför att uppgraderingen kan fortsätta. Genom att ange en strikt *max felaktiga appar* hälsa, Service Fabric kan identifiera problem med programpaketet snabbt och hjälpa att skapa en snabb uppgraderingen misslyckas. Visas som ett tal mellan 0 och 100. |
 läge | Tillåtna värden är **övervakade**, **UpgradeMode**, **UnmonitoredAuto**, **UnmonitoredManual**. Standardvärdet är **UnmonitoredAuto**. Se Visual Studio och PowerShell *krävs parametrar* för beskrivningar av dessa värden.|
 replica-set-check-timeout |Mätt i sekunder. <br>**Tillståndslös tjänst**--inom en enda uppgraderingsdomän Service Fabric försöker se till att ytterligare instanser av tjänsten är tillgänglig. Om målet instansantalet finns mer än en väntar Service Fabric för fler än en instans ska vara tillgängligt, upp till ett högsta timeout-värde. Den här timeout anges med hjälp av den *replik-set-kontroll-timeout* egenskapen. Om tidsgränsen överskrids fortsätter Service Fabric med uppgraderingen, oavsett antalet instanser av tjänsten. Om målet instansantalet finns en Service Fabric väntar inte och omedelbart fortsätter med uppgraderingen.<br><br>**Tillståndskänslig tjänst**--inom en enda uppgraderingsdomän Service Fabric försöker se till att replikuppsättningen har ett kvorum. Service Fabric väntar för ett kvorum ska vara tillgängligt, upp till ett högsta timeout-värde (anges av den *replik-set-kontroll-timeout* egenskapen). Om tidsgränsen överskrids fortsätter Service Fabric med uppgraderingen, oavsett kvorum. Den här inställningen har angetts som aldrig (oändligt) när du återställer och 1200 sekunder när återtagning. |
 tjänsten hälsoprincip | JSON-kodad karta med tjänsten typ hälsoprincip per typ tjänstnamn. Kartan är tom vara standard. [Parametern JSON-format. ](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap). JSON för ”Value”-delen innehåller **MaxPercentUnhealthyServices**, **MaxPercentUnhealthyPartitionsPerService**, och **MaxPercentUnhealthyReplicasPerPartition**. Se avsnittet Visual Studio och PowerShell valfria parametrar finns beskrivningar av dessa parametrar.
-timeout | Anger tidsgränsen i sekunder för åtgärden. Standard: 60. |
-uppgraderingen domäntidsgräns | Hur lång tid varje domän har slutförts innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (obegränsat) och bör anpassas korrekt för ditt program. Standard: P10675199DT02H48M05.4775807S. |
-Tidsgräns för uppgradering | Hur lång tid varje domän har slutförts innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (obegränsat) och bör anpassas korrekt för ditt program. Standard: P10675199DT02H48M05.4775807S.|
+timeout | Anger tidsgränsen i sekunder för åtgärden. standard: 60. |
+uppgraderingen domäntidsgräns | Hur lång tid varje domän har slutförts innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (obegränsat) och bör anpassas korrekt för ditt program. standard: P10675199DT02H48M05.4775807S. |
+Tidsgräns för uppgradering | Hur lång tid varje domän har slutförts innan *FailureAction* körs. Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (obegränsat) och bör anpassas korrekt för ditt program. standard: P10675199DT02H48M05.4775807S.|
 warning-as-error | Tillåtna värden är **SANT** och **FALSKT**. Standardvärdet är **Falskt**. Kan skickas i som en flagga. Hantera varningshändelser för hälsotillståndet för programmet som fel vid utvärdering av hälsotillståndet för programmet under uppgraderingen. Som standard utvärderar inte Service Fabric health varningshändelser för att vara fel (fel), så uppgraderingen kan fortsätta även om det finns händelser. |
 
 ## <a name="next-steps"></a>Nästa steg

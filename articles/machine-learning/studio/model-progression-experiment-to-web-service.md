@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61066061"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en webbtjänst
@@ -67,7 +67,7 @@ I den här konverteringen träningsexperimentet inte tas bort. När processen ä
 >
 
 ### <a name="the-web-service"></a>Webbtjänsten
-När du är nöjd att din förutsägelseexperiment är klar, kan du distribuera din tjänst som antingen en klassisk webbtjänst eller en ny webbtjänst baserat på Azure Resource Manager. Att driftsätta modellen genom att distribuera den som en *klassiska Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]**. Distribuera som *nya Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [nyhet]**. Användare kan nu skicka data till din modell med hjälp av webbtjänsten REST API och få tillbaka resultaten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
+När du är nöjd att din förutsägelseexperiment är klar, kan du distribuera din tjänst som antingen en klassisk webbtjänst eller en ny webbtjänst baserat på Azure Resource Manager. Att driftsätta modellen genom att distribuera den som en *klassiska Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]** . Distribuera som *nya Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [nyhet]** . Användare kan nu skicka data till din modell med hjälp av webbtjänsten REST API och få tillbaka resultaten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Icke-vanliga fallet: skapa en icke-predictive webbtjänst
 Om experimentet inte träna en prediktiv analysmodell och du behöver inte skapa både ett träningsexperiment och en arbetsflödesbaserad experiment – det är bara ett experiment och du kan distribuera den som en webbtjänst. Machine Learning Studio identifierar om experimentet innehåller en förutsägbar modell genom att analysera de moduler som du har använt.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61244237"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
@@ -558,7 +558,7 @@ Följande gäller:
     Du kan blanda och matcha beteckningar som du finns.
     
     Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (Steg och intervallet ignoreras när Start är inställd på {bästa})
-  * Standard: Start:{Best}
+  * Som standard: Start:{Best}
 * Utdataformat måste anges uttryckligen för varje bild-format: JPG/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742130"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure (klassisk) i Azure
@@ -87,7 +87,7 @@ En Azure [Programgateway](../application-gateway/application-gateway-introductio
 ### <a name="at-a-glance"></a>En snabbtitt
 Tabellen nedan visar varje resurstyp med nivån metoder (dynamiska/statiska) och möjligheten att tilldela flera offentliga IP-adresser.
 
-| Resurs | Dynamisk | Statisk | Flera IP-adresser |
+| Resource | Dynamisk | Statisk | Flera IP-adresser |
 | --- | --- | --- | --- |
 | Molntjänst |Ja |Ja |Ja |
 | IaaS-VM eller PaaS rollinstans |Ja |Nej |Nej |
@@ -137,7 +137,7 @@ Du kan tilldela en privat IP-adress till konfigurationen på **klientsidan** fö
 ### <a name="at-a-glance"></a>En snabbtitt
 Tabellen nedan visar varje resurstyp med nivån metoder (dynamiska/statiska) och möjligheten att tilldela flera privata IP-adresser.
 
-| Resurs | Dynamisk | Statisk | Flera IP-adresser |
+| Resource | Dynamisk | Statisk | Flera IP-adresser |
 | --- | --- | --- | --- |
 | Virtuell dator (i en *fristående* molntjänst eller virtuella nätverk) |Ja |Ja |Ja |
 | PaaS-rollinstans (i en *fristående* molntjänst eller virtuella nätverk) |Ja |Nej |Nej |
@@ -162,7 +162,7 @@ I de flesta fall är offentliga IP-adresser kostnadsfria. Det finns en nominell 
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Skillnader mellan Resource Manager och klassiska distributioner
 Nedan visas en jämförelse av IP-adressering funktioner i Resource Manager och den klassiska distributionsmodellen.
 
-|  | Resurs | Klassisk | Resource Manager |
+|  | Resource | Klassisk | Resource Manager |
 | --- | --- | --- | --- |
 | **Offentlig IP-adress** |***VM*** |Kallas en ILPIP (dynamisk) |Kallas en offentlig IP-adress (dynamisk eller statisk) |
 |  ||Tilldelad till en IaaS-VM eller en PaaS-rollinstans |Som är kopplad till den Virtuella datorns nätverkskort |

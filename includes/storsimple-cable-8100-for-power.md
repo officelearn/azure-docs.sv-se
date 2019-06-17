@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155800"
 ---
 #### <a name="to-cable-for-power"></a>Till power-kabel
@@ -28,8 +28,8 @@ ms.locfileid: "66155800"
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Kontrollenhet 1 |
-   | 3 |Kontrollenhet 0 |
+   | 2 |Kontrollant 1 |
+   | 3 |Kontrollant 0 |
    | 4 |PCM 1 |
    | 5 |PDU |
 4. Om du vill aktivera systemet Vänd power-växlar på båda PCMs till på plats.

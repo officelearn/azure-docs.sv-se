@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751674"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
@@ -213,7 +213,7 @@ Det finns två uppsättningar med egenskaper som styr utfyllnad, egenskaper som 
 
     Om värdet för en dimension är FALSKT, definieras kernlar som är så att antalet noder på varje sida som lämnas ut är samma (upp till en skillnad på 1). Standardvärdet för det här attributet är en tuppel med alla komponenter som är lika med False.
 
-+ **UpperPad** och **LowerPad**: (valfritt) Ange större kontroll över utfyllnad att använda. **Viktigt!** Dessa attribut kan vara definierad om och bara om den **utfyllnad** egenskapen ovan är ***inte*** definierats. Värdena måste vara integer-värden tupplar med längder som är specifikaci för paketet. När dessa attribut anges, läggs ”dummy” noder på lägre och övre kanten av varje dimension skiktets indata. Antalet noder som har lagts till i det lägre och övre upphört att gälla i varje dimension bestäms av **LowerPad**[i] och **UpperPad**[i] respektive.
++ **UpperPad** och **LowerPad**: (valfritt) Ange större kontroll över utfyllnad att använda. **Viktigt:** Dessa attribut kan vara definierad om och bara om den **utfyllnad** egenskapen ovan är ***inte*** definierats. Värdena måste vara integer-värden tupplar med längder som är specifikaci för paketet. När dessa attribut anges, läggs ”dummy” noder på lägre och övre kanten av varje dimension skiktets indata. Antalet noder som har lagts till i det lägre och övre upphört att gälla i varje dimension bestäms av **LowerPad**[i] och **UpperPad**[i] respektive.
 
     För att säkerställa att kernlar motsvara endast ”verklig” noder och inte till ”dummy” noder, måste följande villkor vara uppfyllda:
   - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2`.

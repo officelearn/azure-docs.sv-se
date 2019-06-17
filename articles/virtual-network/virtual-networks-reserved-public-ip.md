@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
 ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789085"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Reserverade IP-adresser (klassisk distribution)
@@ -34,7 +34,7 @@ Mer information om IP-adresser i Azure den [IP-adresser](virtual-network-ip-addr
 
 ## <a name="when-do-i-need-a-reserved-ip"></a>När behöver jag en reserverad IP
 * **Du vill säkerställa att den IP-Adressen är reserverad i din prenumeration**. Om du vill reservera en IP-adress som inte har släppts från prenumerationen under några omständigheter, bör du använda en reserverade offentliga IP-adress.  
-* **Du vill att din IP-adress att hålla din molntjänst även över stoppas eller frigöras tillstånd (VM)**. Om du vill att din tjänst som kan nås med hjälp av en IP-adress ändras som inte, även när virtuella datorer i Molntjänsten stängdes av eller stoppa (frigjord).
+* **Du vill att din IP-adress att hålla din molntjänst även över stoppas eller frigöras tillstånd (VM)** . Om du vill att din tjänst som kan nås med hjälp av en IP-adress ändras som inte, även när virtuella datorer i Molntjänsten stängdes av eller stoppa (frigjord).
 * **Du vill kontrollera att utgående trafik från Azure använder en förutsägbar IP-adress**. Du kan ha den lokala brandväggen konfigurerade, så att endast trafik från specifika IP-adresser. Genom att reservera en IP-adress du vet källans IP-adress och behöver inte uppdatera brandväggsreglerna på grund av ett IP-ändring.
 
 ## <a name="faqs"></a>Vanliga frågor och svar

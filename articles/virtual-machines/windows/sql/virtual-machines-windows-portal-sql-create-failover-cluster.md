@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591501"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
@@ -74,7 +74,7 @@ Du bör ha en operativ tolkning av följande tekniker:
 - [Windows-klusterteknik](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Redundanskluster för SQL Server-instanser](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-En viktig skillnad är på en virtuell Azure IaaS-dator gästredundanskluster, rekommenderar vi att ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azure-nätverk har fysiska redundans, vilket gör ytterligare nätverkskort och undernät onödiga på ett gästkluster för virtuella Azure IaaS-datorer. Även om verifieringsrapporten utfärdar en varning att noderna är endast kan nås i ett enda nätverk, kan den här varningen ignoreras på Azure IaaS VM-gästredundanskluster. 
+En viktig skillnad är på en virtuell Azure IaaS-dator gästredundanskluster, rekommenderar vi att ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azures nätverk har fysisk redundans, vilket innebär att det inte behövs fler nätverkskort och undernät för gästkluster på virtuella Azure IaaS-datorer. Även om klustrets verifieringsrapport utfärdar en varning om att noderna endast kan nås i ett enda nätverk, kan varningen ignoreras för redundanskluster på virtuella Azure IaaS-gästdatorer. 
 
 Dessutom bör du ha en förståelse av följande tekniker:
 
@@ -113,7 +113,7 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
    - Klicka på **tillgänglighetsuppsättning**.
    - Klicka på **Skapa**.
    - På den **skapa tillgänglighetsuppsättning** , anger du följande värden:
-      - **Namn**: Ett namn för tillgänglighetsuppsättningen.
+      - **Namn på**: Ett namn för tillgänglighetsuppsättningen.
       - **Prenumeration**: Din Azure-prenumeration.
       - **Resursgrupp**: Om du vill använda en befintlig grupp klickar du på **Använd befintlig** och väljer du gruppen från den nedrullningsbara listan. Annars väljer **Skapa ny** och Skriv ett namn för gruppen.
       - **Plats**: Ange platsen där du tänker skapa virtuella datorer.
@@ -175,7 +175,7 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
 
    Öppna följande portar i Windows-brandväggen på varje virtuell dator.
 
-   | Syfte | TCP-Port | Anteckningar
+   | Syfte | TCP-port | Anteckningar
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port för standardinstanser av SQL Server. Om du har använt en avbildning från galleriet, öppnas automatiskt den här porten.
    | Hälsoavsökning | 59999 | Eventuella öppna TCP-port. Konfigurera i ett senare steg, belastningsutjämnaren [hälsoavsökning](#probe) och klustret ska använda den här porten.  
@@ -365,7 +365,7 @@ Skapa belastningsutjämnaren:
 
 1. Konfigurera belastningsutjämnaren med:
 
-   - **Namn**: Ett namn som identifierar belastningsutjämnaren.
+   - **Namn på**: Ett namn som identifierar belastningsutjämnaren.
    - **Typ**: Belastningsutjämnaren kan vara antingen offentliga eller privata. En privat belastningsutjämnare kan nås från inom samma virtuella nätverk. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet, använder du en offentlig belastningsutjämnare.
    - **Virtual Network**: Samma nätverk som de virtuella datorerna.
    - **Undernät**: Samma undernät som de virtuella datorerna.
@@ -397,7 +397,7 @@ Skapa belastningsutjämnaren:
 
 1. På den **Lägg till hälsoavsökning** bladet <a name="probe"> </a>ställer in hälsotillståndet avsökningen parametrarna:
 
-   - **Namn**: Ett namn för hälsoavsökningen.
+   - **Namn på**: Ett namn för hälsoavsökningen.
    - **Protokoll**: TCP.
    - **Port**: Ange till den port som du skapade i brandväggen för hälsoavsökningen i [det här steget](#ports). I den här artikeln i exemplet används TCP-port `59999`.
    - **Intervall**: 5 sekunder.
@@ -413,15 +413,15 @@ Skapa belastningsutjämnaren:
 
 1. Ange parametrar för regler för belastningsutjämning:
 
-   - **Namn**: Ett namn för regler för belastningsutjämning.
+   - **Namn på**: Ett namn för regler för belastningsutjämning.
    - **Frontend-IP-adress**: Använd IP-adressen för SQL Server FCI-klusterresursen för nätverket.
    - **Port**: Ange för SQL Server FCI TCP-port. Instans-standardporten är 1433.
-   - **Serverdelsport**: Det här värdet använder samma port som den **Port** värdet när du aktiverar **flytande IP (direkt serverreturnering)**.
+   - **Serverdelsport**: Det här värdet använder samma port som den **Port** värdet när du aktiverar **flytande IP (direkt serverreturnering)** .
    - **Serverdelspool**: Använd det namn på serverdelspool som du konfigurerade tidigare.
    - **Hälsoavsökning**: Använda hälsoavsökning som du konfigurerade tidigare.
    - **Sessionspermanens**: Ingen.
-   - **Inaktivitetstid (minuter)**: 4.
-   - **Flytande IP (direkt serverreturnering)**: Enabled
+   - **Inaktivitetstid (minuter)** : 4.
+   - **Flytande IP (direkt serverreturnering)** : Enabled
 
 1. Klicka på **OK**.
 

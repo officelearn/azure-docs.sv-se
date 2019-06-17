@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391233"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Obs!** Instrumentpanelen kanske inte visas korrekt status och utdata för funktioner som har stängts av.
+**Obs:** Instrumentpanelen kanske inte visas korrekt status och utdata för funktioner som har stängts av.
 
 Mer information finns i [WebJobs avslutning](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 SDK: N Serialiserar automatiskt objekt till JSON. Ett kömeddelande skapas alltid, även om objektet är null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i async-funktioner
-Om du vill skapa flera meddelanden, göra parametertypen för den utgående kön **ICollector<T>**  eller **IAsyncCollector<T>**, enligt följande exempel.
+Om du vill skapa flera meddelanden, göra parametertypen för den utgående kön **ICollector<T>**  eller **IAsyncCollector<T>** , enligt följande exempel.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -342,7 +342,7 @@ Meddelanden vars innehåll orsakar en funktion misslyckas anropas *skadliga medd
 ### <a name="automatic-poison-message-handling"></a>Hantering av automatisk skadligt meddelande
 SDK: N ska anropa en funktion upp till 5 gånger för att bearbeta ett kömeddelande. Om den femte försök misslyckas, flyttas meddelandet till en skadliga kö. Du kan se hur du konfigurerar det maximala antalet återförsök i [hur du ställer in konfigurationsalternativ](#how-to-set-configuration-options).
 
-Skadliga kön heter *{originalqueuename}*-skadliga. Du kan skriva en funktion du bearbetar meddelanden från skadliga kön av loggning av dem eller skicka ett meddelande till den manuella åtgärder krävs.
+Skadliga kön heter *{originalqueuename}* -skadliga. Du kan skriva en funktion du bearbetar meddelanden från skadliga kön av loggning av dem eller skicka ett meddelande till den manuella åtgärder krävs.
 
 I följande exempel på **CopyBlob** funktionen kommer att misslyckas när ett kömeddelande innehåller namnet på en blob som inte finns. När det sker så flyttas meddelandet från kön copyblobqueue till copyblobqueue poison kön. Den **ProcessPoisonMessage** loggar skadliga meddelandet.
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**Obs!** Kö, tabell och blob-namnet matchas varje gång en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
+**Obs:** Kö, tabell och blob-namnet matchas varje gång en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Hur du utlöser en funktion manuellt
 Utlös en funktion manuellt genom att använda den **anropa** eller **CallAsync** metoden på den **JobHost** objekt och **NoAutomaticTrigger** attribut i funktionen, som visas i följande exempel.
@@ -544,7 +544,7 @@ WebJobs SDK instrumentpanelen de senaste 100 rader i konsolen utdata visa upp n�
 
 ![Visa/Dölj utdata](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-I ett kontinuerligt Webbjobb programloggar som visas i/data/jobb/kontinuerlig/*{webjobname}*/job_log.txt i filsystemet för web app.
+I ett kontinuerligt Webbjobb programloggar som visas i/data/jobb/kontinuerlig/ *{webjobname}* /job_log.txt i filsystemet för web app.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

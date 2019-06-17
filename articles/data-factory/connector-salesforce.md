@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546580"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Aktuell version](connector-salesforce.md)
 
@@ -60,7 +60,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type |Type-egenskapen måste anges till **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox, ange `"https://test.salesforce.com"`. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel `"https://[domain].my.salesforce.com"`. |Nej |
@@ -138,7 +138,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från och till Salesforce, ange typegenskapen på datauppsättningen till **SalesforceObject**. Följande egenskaper stöds.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SalesforceObject**.  | Ja |
 | objectApiName | Salesforce-objektnamn att hämta data från. | Nej för källa, Ja för mottagare |
@@ -169,7 +169,7 @@ För att kopiera data från och till Salesforce, ange typegenskapen på dataupps
 >[!NOTE]
 >För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den tidigare ”RelationalTable” typ av datauppsättningen ser till att det fungerar även om du ser ett förslag att växla till den nya ”SalesforceObject”-typen.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **RelationalTable**. | Ja |
 | tableName | Namnet på tabellen i Salesforce. | Nej (om ”query” i källan för aktiviteten har angetts) |
@@ -182,7 +182,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiviteten till **SalesforceSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
 | query |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. Om frågan inte anges, hämtas alla data i Salesforce-objekt som angetts i ”objectApiName” i datauppsättningen. | Nej (om ”objectApiName” i datauppsättningen har angetts) |
@@ -232,7 +232,7 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 
 För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten till **SalesforceSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SalesforceSink**. | Ja |
 | writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
@@ -317,16 +317,16 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Decimal |
-| Date |DateTime |
-| Date/Time |DateTime |
-| Email |String |
+| Valuta |Decimal |
+| Date |Datetime |
+| Datum/tid |Datetime |
+| E-post |String |
 | Id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Decimal |
-| Percent |Decimal |
-| Phone |String |
+| Tal |Decimal |
+| Procent |Decimal |
+| Telefon |String |
 | Picklist |String |
 | Text |String |
 | Text Area |String |

@@ -9,13 +9,13 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148965"
 ---
-| Resource | Grundläggande | Standard | Premium |
+| Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 giB| 500 giB |
 | Maximal bildstorlek för lager | 200 GiB | 200 GiB | 200 GiB |
@@ -23,7 +23,7 @@ ms.locfileid: "66148965"
 | WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Ladda ned bandbredd Mbit/s<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd Mbit/s<sup>2</sup> | 10 | 20 | 50 |
-| Webhook-konfigurationer | 2 | 10 | 100 |
+| Webhooks | 2 | 10 | 100 |
 | Geo-replikering | Gäller inte | Gäller inte | [Stöds][geo-replication] |
 | Förtroende för innehåll | Gäller inte | Gäller inte | [Stöds][content-trust] |
 

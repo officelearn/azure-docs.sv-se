@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698990"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera klusterkonfigurationer för HDInsight
@@ -176,7 +176,7 @@ Hadoop-jobb finns vanligtvis i/o skapa en flaskhals eftersom. Genom att komprime
 
 Tillgängliga komprimeringstyperna är:
 
-| Format | Verktyg | Algoritmen | Filnamnstillägg | Delbara? |
+| Format | Verktyget | Algoritmen | Filnamnstillägg | Delbara? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SMAL | .gz | Nej |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
@@ -269,7 +269,7 @@ I följande avsnitt beskrivs ytterligare Hive-relaterade optimeringar som du kan
 
 Standard för kopplingstyp i Hive är en *shuffle join*. I Hive, särskilt Mappningskomponenter läsa indata och genererar en nyckel/värde-par för koppling till en mellanliggande-fil. Hadoop sorterar och slår ihop dessa par i en blandad-steget. Det här skedet shuffle är dyr. Att välja rätt kopplingen utifrån dina data kan du förbättra prestanda avsevärt.
 
-| Anslutningstyp | När | Så här | Hive-inställningar | Kommentarer |
+| Kopplingstyp | När | Så här | Hive-inställningar | Kommentar |
 | -- | -- | -- | -- | -- |
 | Shuffle koppling | <ul><li>Standardalternativet</li><li>Alltid fungerar</li></ul> | <ul><li>Läser från en del av någon av tabellerna</li><li>Buckets och sorterar på Join-nyckel</li><li>Skickar en bucket till varje minska</li><li>Anslut till görs på minska sida</li></ul> | Ingen betydande Hive inställning krävs | Fungerar varje gång |
 | Mappa Join | <ul><li>En tabell får plats i minnet</li></ul> | <ul><li>Läser in liten tabell i minnet hash-tabell</li><li>Strömmar via en del av stora filer</li><li>Ansluter till varje post från hash-tabell</li><li>Kopplingar är genom att enbart mappningen</li></ul> | `hive.auto.confvert.join=true` | Mycket snabba men begränsade |

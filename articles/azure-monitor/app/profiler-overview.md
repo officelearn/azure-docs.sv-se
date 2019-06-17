@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306333"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
@@ -75,7 +75,7 @@ Om **clr! ThePreStub** tar lång tid en begäran begäran är den första att k�
 
 ### <a id="ngencold"></a>Läser in koden ([kall])
 
-Om metodnamnet innehåller **[KALLA]**, till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, körningen av .NET Framework kod körs för första gången som inte är optimerad med [profil guidad optimering](/cpp/build/profile-guided-optimizations). För varje metod ska det visas högst en gång under processen.
+Om metodnamnet innehåller **[KALLA]** , till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, körningen av .NET Framework kod körs för första gången som inte är optimerad med [profil guidad optimering](/cpp/build/profile-guided-optimizations). För varje metod ska det visas högst en gång under processen.
 
 Om du läser in koden tar lång tid för en begäran, är den första att köra icke-optimerad delen av metoden i begäran. Överväg att använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den.
 
@@ -95,7 +95,7 @@ Metoder som **SqlCommand.Execute** tyda på att koden väntar en databasåtgärd
 
 **BLOCKED_TIME** anger att koden väntar på en annan resurs ska vara tillgängliga. Det kan till exempel vänta för ett synkroniseringsobjekt, för en tråd ska vara tillgängliga eller för att slutföra en begäran.
 
-### <a name="unmanaged-async"></a>Ohanterad asynkron
+### <a name="unmanaged-async"></a>Ohanterade Async
 
 .NET framework genererar ETW-händelser och skickar ett aktivitets-ID mellan trådar så att asynkrona anrop kan spåras i trådar. Ohanterad kod (intern kod) och vissa äldre format asynkron kod saknar dessa händelser och ett aktivitets-ID, så profiler inte kan avgöra vilken tråd och funktioner som körs i tråden. Detta är märkt ”ohanterade Async' i anropsstacken. Om du har hämtat ETW-fil kan du använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) att få överblick över vad som händer.
 

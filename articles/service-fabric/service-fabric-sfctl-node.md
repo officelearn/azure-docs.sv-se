@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258735"
 ---
 # <a name="sfctl-node"></a>sfctl node
@@ -30,12 +30,12 @@ Hantera de noder som formar ett kluster.
 | --- | --- |
 | Inaktivera | Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt. |
 | Aktivera | Aktivera en Service Fabric-klusternod som för närvarande har inaktiverats. |
-| hälsa | Hämtar hälsotillståndet för en Service Fabric-nod. |
+| health | Hämtar hälsotillståndet för en Service Fabric-nod. |
 | info | Hämtar information om en viss nod i Service Fabric-klustret. |
-| lista | Hämtar listan över noder i Service Fabric-klustret. |
-| läsa in | Hämtar load-information för en Service Fabric-nod. |
+| list | Hämtar listan över noder i Service Fabric-klustret. |
+| load | Hämtar load-information för en Service Fabric-nod. |
 | remove-state | Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort. |
-| rapportera hälsa | Skickar en hälsorapport på Service Fabric-noden. |
+| report-health | Skickar en hälsorapport på Service Fabric-noden. |
 | restart | Startar om en Service Fabric-klusternod. |
 | övergång | Startar eller stoppar en klusternod. |
 | transition-status | Hämtar förloppet för en åtgärd som är igång med StartNodeTransition. |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371180"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Kostnader för programvara som inte ingår i Azure Reserved VM Instances
@@ -27,7 +27,7 @@ Om du inte har en Azure Hybrid-förmånen på dina reserverade VM-instanser, är
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows software mätare som inte ingår i kostnaden för reservation
 
-| Mätar-ID | MeterName i användningsfil | Används av en virtuell dator |
+| MeterId | MeterName i användningsfil | Används av en virtuell dator |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reserverade Windows Server-instanser Burst (1 kärna) | B-serien |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reserverade Windows Server-instanser Burst (2 kärnor) | B-serien |
@@ -52,7 +52,7 @@ Om du inte har en Azure Hybrid-förmånen på dina reserverade VM-instanser, är
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Programvara-taxor som inte ingår i reservationskostnad services cloud
 
-| Mätar-ID | MeterName i användningsfil |
+| MeterId | MeterName i användningsfil |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU License|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU License|

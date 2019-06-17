@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928090"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Aktuell version](transform-data-using-machine-learning.md)
 
@@ -124,11 +124,11 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Executio
 }
 ```
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
-| namn              | Namnet på aktiviteten i pipelinen     | Ja      |
+| name              | Namnet på aktiviteten i pipelinen     | Ja      |
 | description       | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
-| typ              | För Data Lake Analytics U-SQL-aktivitet, är aktivitetstypen **AzureMLBatchExecution**. | Ja      |
+| type              | För Data Lake Analytics U-SQL-aktivitet, är aktivitetstypen **AzureMLBatchExecution**. | Ja      |
 | linkedServiceName | Länkade tjänster till Azure Machine Learning länkad tjänst. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | webServiceInputs  | Nyckel, värde-par, mappa namnen på Azure Machine Learning Web Service indata. Nyckeln måste matcha de indataparametrar som definierats i publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage-länkade tjänster nyckelpar och en FilePath egenskaper anger de inkommande Blob-platserna. | Nej       |
 | webServiceOutputs | Nyckel, värde-par, mappa namnen på Azure Machine Learning Web Service utdata. Nyckeln måste matcha utdataparametrar som definierats i publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage-länkade tjänster och FilePath egenskaper-par anger utdata Blob-platser. | Nej       |

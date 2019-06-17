@@ -124,10 +124,10 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
-| typeHandlerVersion | 1,5 | int |
-| fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
+| typeHandlerVersion | 1.5 | int |
+| fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1\> | string |
-| enableInternalDNSCheck | true | boolesk |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (t.ex.) | examplestorageacct | string |
 | storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438197"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hub-utdatabindning för Azure Functions
@@ -255,9 +255,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** |Saknas| Måste anges till ”notificationHub”. |
-|**riktning** |Saknas| Måste anges till ”ut”. | 
-|**Namn** |Saknas| Variabelnamnet som används i Funktionskoden för notification hub-meddelande. |
+|**type** |Saknas| Måste anges till ”notificationHub”. |
+|**direction** |Saknas| Måste anges till ”ut”. | 
+|**name** |Saknas| Variabelnamnet som används i Funktionskoden för notification hub-meddelande. |
 |**tagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Namnet på notification hub-resurs i Azure-portalen. |
 |**anslutning** | **connectionStringSetting** | Namnet på en appinställning som innehåller en anslutningssträng för Meddelandehubbar.  Anslutningssträngen måste anges till den *DefaultFullSharedAccessSignature* värde för din meddelandehubb. Se [sträng anslutningsinställningar](#connection-string-setup) senare i den här artikeln.|

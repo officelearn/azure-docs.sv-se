@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: Utforma en databas med hjälp av .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Migrera till SQL Database
+    - name: Singleton-databas
       items:
         - name: Migrera till en enkel databas/pooldatabas med DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Migrera till en hanterad instans med DMS
+        - name: Implementera en geo-distribuerad databas
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Konfigurera Azure SQL Data Sync
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Managed Instance
+      items:
+        - name: Migrera online med DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Konfigurera transaktionsreplikering
+          href: replication-with-sql-database-managed-instance.md
     - name: Säkerhet i SQL Database
       items:
         - name: Säkerhet för enkla databaser och pooldatabaser
           href: sql-database-security-tutorial.md
         - name: Säkerhet för hanterad instans
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Implementera en geo-distribuerad databas
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Konfigurera Azure SQL Data Sync
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: Skapa en förutsägelsemodell i R
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Verifiera inbyggt brandväggsskydd
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: Transaktionsreplikering
-          href: replication-with-sql-database-managed-instance.md
         - name: Konfigurera hotidentifiering
           href: sql-database-managed-instance-threat-detection.md
         - name: Anslut program

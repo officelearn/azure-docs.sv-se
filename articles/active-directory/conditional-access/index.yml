@@ -49,7 +49,7 @@ sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: Se hur du migrera dina klassiska principer för villkorsstyrd åtkomst.
+        text: Se hur du migrerar dina klassiska principer för villkorsstyrd åtkomst.
       - type: list
         style: unordered
         items:

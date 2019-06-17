@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322750"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Egenskaper för IoT Edge-agenten och IoT Edge hub modultvillingar
@@ -26,7 +26,7 @@ Den här artikeln innehåller önskade egenskaper och rapporterade egenskaper f�
 
 Modultvillingen för IoT Edge-agenten kallas `$edgeAgent` och samordnar kommunikationen mellan IoT Edge-agenten som körs på en enhet och IoT Hub. Önskade egenskaper anges när du använder ett manifest för distribution på en specifik enhet som en del av en enskild enhet eller i skala distribution. 
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | schemaVersion | Måste vara ”1.0” | Ja |
 | Runtime.Type | Måste vara ”docker” | Ja |
@@ -68,7 +68,7 @@ Den här senaste del av informationen är användbar om de senaste egenskaperna 
 
 I följande tabell innehåller inte information som kopieras från önskade egenskaper.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | -------- | ----------- |
 | lastDesiredVersion | Heltalet refererar till den senaste versionen av de önskade egenskaperna som bearbetas av IoT Edge-agenten. |
 | lastDesiredStatus.code | Det här är den statuskod som refererar till senaste önskade egenskaper som setts av IoT Edge-agenten. Tillåtna värden: `200` Åtgärden lyckades `400` ogiltig konfiguration, `412` ogiltig schemaversion `417` önskade egenskaper är tomma, `500` misslyckades |
@@ -98,7 +98,7 @@ I följande tabell innehåller inte information som kopieras från önskade egen
 
 Modultvillingen för IoT Edge hub kallas `$edgeHub` och samordnar kommunikationen mellan IoT Edge hub som körs på en enhet och IoT Hub. Önskade egenskaper anges när du använder ett manifest för distribution på en specifik enhet som en del av en enskild enhet eller i skala distribution. 
 
-| Egenskap  | Beskrivning | Krävs i distributionen manifestet |
+| Egenskap | Beskrivning | Krävs i distributionen manifestet |
 | -------- | ----------- | -------- |
 | schemaVersion | Måste vara ”1.0” | Ja |
 | vägar. {routeName} | En sträng som representerar en IoT Edge hub väg. | Den `routes` element kan vara närvarande men tom. |
@@ -106,7 +106,7 @@ Modultvillingen för IoT Edge hub kallas `$edgeHub` och samordnar kommunikatione
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub rapporterade egenskaper
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | -------- | ----------- |
 | lastDesiredVersion | Heltalet refererar till den senaste versionen av de önskade egenskaperna som bearbetas av IoT Edge hub. |
 | lastDesiredStatus.code | Det här är den statuskod som refererar till senaste önskade egenskaper som setts av IoT Edge hub. Tillåtna värden: `200` Åtgärden lyckades `400` ogiltig konfiguration, `500` misslyckades |

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063489"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Hantera skript före och efter
 
@@ -36,7 +36,7 @@ Upprepa denna process för den **UpdateManagement TurnOffVms** skript. Men när 
 
 Den **valda objekt** avsnittet visar nu både dina skript som valts och är på en förskript och den andra är en efterskript.
 
-![Markerade objekt](./media/pre-post-scripts/selected-items.png)
+![Valda objekt](./media/pre-post-scripts/selected-items.png)
 
 Konfigurera din distribution.
 
@@ -68,7 +68,7 @@ Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här param
 
 ## <a name="stopping-a-deployment"></a>Stoppa en distribution
 
-Om du vill stoppa en distribution baserad på ett Pre-skript som du måste [throw](automation-runbook-execution.md#throw) ett undantag. Om du inte utlöser ett undantag, körs distribution och inlägg skriptet fortfarande. Den [exempel-runbooken](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) i galleriet visar hur du kan göra detta. Följande är ett kodfragment från samma runbook.
+Om du vill stoppa en distribution baserad på en Pre-skriptet måste du [throw](automation-runbook-execution.md#throw) ett undantag. Om du inte utlöser ett undantag, körs distribution och inlägg skriptet fortfarande. Den [exempel-runbooken](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) i galleriet visar hur du kan göra detta. Följande är ett kodfragment från samma runbook.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -85,7 +85,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Namnet på Uppdateringskonfigurationen för programmet        |
 |SoftwareUpdateConfigurationRunId     | Unikt id för körningen.        |
@@ -210,7 +210,7 @@ Före och efter aktiviteter som körs som en runbook i ditt Automation-konto och
 
 ### <a name="interacting-with-azure-machines"></a>Interagera med datorer i Azure
 
-Före och efter uppgifter har körts som runbooks och kör inte internt på dina virtuella Azure-datorer i distributionen. För att interagera med virtuella datorer i Azure, måste du ha följande objekt:
+Före och efter aktiviteter körs som runbooks och kör inte internt på dina virtuella Azure-datorer i distributionen. För att interagera med virtuella datorer i Azure, måste du ha följande objekt:
 
 * Ett kör som-konto
 * En runbook som du vill köra
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>Kända problem
 
-* Du kan inte skicka objekt eller matriser till parametrar när du använder skript före och efter. Runbook misslyckas.
+* Du kan inte skicka ett booleskt värde, objekt eller matriser till parametrar när du använder skript före och efter. Runbook misslyckas. En fullständig lista över typer som stöds finns i [parametrar](#passing-parameters).
 
 ## <a name="next-steps"></a>Nästa steg
 

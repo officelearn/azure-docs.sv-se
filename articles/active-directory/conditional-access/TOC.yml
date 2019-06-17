@@ -34,7 +34,7 @@
 - name: Instruktionsguider
   expanded: true
   items:
-    - name: Planera distributionen för villkorsstyrd åtkomst
+    - name: Planera distributionen av villkorsstyrd åtkomst
       href: plan-conditional-access.md
     - name: Bästa praxis
       href: best-practices.md

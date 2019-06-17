@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: API för Azure Cosmos DB för MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Använd tabell-API om du migrerar data från Azure Table Storage till permium-tabellerbjudandet i Azure Cosmos DB.</p>
-            image:
-              src: media/index/table-api.svg
-            title: Tabell-API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Använd API för Cassandra om du migrerar data från Cassandra till en helt hanterad tjänst i en Azure Cosmos-databas.</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra-API
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Använd tabell-API om du migrerar data från Azure Table Storage till permium-tabellerbjudandet i Azure Cosmos DB.</p>
+            image:
+              src: media/index/table-api.svg
+            title: Tabell-API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Använd det inbyggda stödet för Apache Spark och kör analyser på data i ett Azure Cosmos-konto. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Inbyggd analys med Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Kör analys i realtid med en ändringsfeed genom att läsa den sorterade listan över dokument i en Azure Cosmos DB-container i den ordning som de ändrades. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: Ändringsfeed
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: '<p> Med Etcd-API:et kan du använda Azure Cosmos DB som serverdelslagring för Azure Kubernetes.</p>'
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd-API
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

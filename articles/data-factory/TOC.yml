@@ -486,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: Systemvariabler
           href: control-flow-system-variables.md
+        - name: Parametrar för dataflöde
+          href: parameters-data-flow.md
     - name: Säkerhet
       items:
         - name: Säkerhetsöverväganden vid dataflytt
@@ -516,7 +518,7 @@
       items:
         - name: Azure Integration Runtime
           href: create-azure-integration-runtime.md
-        - name: Lokal IR
+        - name: Integration Runtime med egen värd
           href: create-self-hosted-integration-runtime.md
         - name: Azure SSIS Integration Runtime
           href: create-azure-ssis-integration-runtime.md
@@ -546,6 +548,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Rensa SSISDB-loggar med Elastic Database-jobb
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Körning av felsökningspaket i Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Skapa utlösare
       items:
         - name: Skapa en händelsebaserad utlösare

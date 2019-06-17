@@ -37,6 +37,9 @@
       href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
     - name: Skydda artefakter
       href: resource-manager-tutorial-secure-artifacts.md
+    - name: Kontinuerlig integrering med Azure Pipelines
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
     - name: Använda säkra distributionsmetoder
       displayName: adm
       href: deployment-manager-tutorial.md

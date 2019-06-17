@@ -51,6 +51,8 @@
     - name: Instruktionsguider
       expanded: true
       items:
+        - name: Hantera B2B-delning
+          href: delegate-invitations.md
         - name: Hantera inbjudningar
           items:
             - name: Administratörer som lägger till B2B-användare
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Autentisering med engångskoder
               href: one-time-passcode.md
-            - name: B2B-delningsprinciper
-              href: delegate-invitations.md
             - name: Tillåta eller blockera inbjudningar
               href: allow-deny-list.md
             - name: Lägga till B2B-användare utan inbjudan

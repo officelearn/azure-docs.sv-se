@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Lägg till ansikten
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: Använda HeadPose för att rotera rektangel
+    - name: Använda attributet HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Ange en ansiktsigenkänningsmodell
       href: Face-API-How-to-Topics/specify-recognition-model.md

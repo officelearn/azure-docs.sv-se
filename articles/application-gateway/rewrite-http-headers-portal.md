@@ -9,10 +9,10 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64947167"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure-portalen
@@ -97,7 +97,7 @@ I det här exemplet ändrar vi en omdirigerings-URL genom att skriva om location
 
    - Under **skiftlägeskänsliga**väljer **nr**.
 
-   - I den **operatorn** väljer **är lika med (=)**.
+   - I den **operatorn** väljer **är lika med (=)** .
 
    - Ange ett mönster för reguljärt uttryck. I det här exemplet använder vi mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
 

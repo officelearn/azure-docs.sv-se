@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Slutanvändarportaler
       href: end-user-experiences.md
+    - name: Enkel inloggning med ett klick
+      items:
+        - name: Vad är enkel inloggning med ett klick
+          href: one-click-sso-tutorial.md
 - name: Instruktionsguider
   items:
     - name: Lägga till en molnapp

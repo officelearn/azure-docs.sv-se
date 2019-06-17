@@ -74,8 +74,9 @@
     - name: Synlighet i hela klientorganisationen
       href: security-center-management-groups.md
     - name: Implementera säkerhetsrekommendationer
-      href: security-center-recommendations.md
       items:
+        - name: Vad är säkerhetsrekommendationer
+          href: security-center-recommendations.md
         - name: Förbättra säkerheten
           href: security-center-monitoring.md
         - name: Skydda dina datorer och appar
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Hantera användardata
       href: security-center-privacy.md
+    - name: Hantera IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: security-center-faq.md
     - name: Säkerhet i Azure

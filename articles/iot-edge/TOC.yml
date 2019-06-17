@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Lagra data lokalt med SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Exempel på maskininlärning för slutpunkt till slutpunkt
+      items:
+        - name: Introduktion
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Konfigurera utvecklingsdator och Azure-tjänster
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Generera simulerade enhetsdata
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Träna och distribuera en Azure Machine Learning-modell
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Konfigurera en transparent gateway
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Skapa och distribuera IoT Edge-moduler
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Skicka data till IoT Hub via en transparent gateway
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Begrepp
   items:
     - name: IoT Edge-körning
@@ -149,6 +165,8 @@
       items:
         - name: Konfigurera en transparent gateway
           href: how-to-create-transparent-gateway.md
+        - name: Autentisera en underordnad enhet
+          href: how-to-authenticate-downstream-device.md
         - name: Ansluta en underordnad enhet
           href: how-to-connect-downstream-device.md
         - name: Modbus-protokollgateway

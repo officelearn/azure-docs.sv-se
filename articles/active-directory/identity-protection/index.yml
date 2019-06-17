@@ -16,7 +16,7 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: 'Se hur identifieringen av potentiellt komprometterade identiteter fungerar och hur du implementerar automatiska åtgärder för att ta hand om dem. Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2-versionen som gör att du kan:<ul><li>Identifiera potentiella sårbarheter som påverkar organisationens identiteter</li><li>Konfigurera principer för villkorsstyrd åtkomst för att automatiskt svara på misstänkta åtgärder relaterade till organisationens identiteter</li><li>Undersöka misstänkta incidenter och vidta lämpliga åtgärder för att lösa dem</li></ul><br> Följande resurser hjälper dig att komma igång snabbt.'
+  description: 'Se hur identifieringen av potentiellt komprometterade identiteter fungerar och hur du implementerar automatiska åtgärder för att ta hand om dem. Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2-versionen som gör att du kan:<ul><li>Identifiera potentiella sårbarheter som påverkar organisationens identiteter</li><li>Konfigurera principer för villkorsstyrd åtkomst för att automatiskt åtgärda misstänkt aktivitet relaterad till organisationens identiteter</li><li>Undersöka misstänkta incidenter och vidta lämpliga åtgärder för att lösa dem</li></ul><br> Följande resurser hjälper dig att komma igång snabbt.'
   aside:
     image:
       alt: null

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051709"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -40,7 +40,42 @@ Azure Disk Encryption stöds för närvarande på väljer distributioner och ver
 
 Azure Disk Encryption för Linux kräver en Internetanslutning för åtkomst till Active Directory, Key Vault, lagring och hanteringsslutpunkter för paketet.  Mer information finns i [krävs för Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Tilläggsschema
+## <a name="extension-schemata"></a>Tillägget scheman
+
+Det finns två scheman för Azure Disk Encryption: v1.1, ett nyare, rekommenderas schema som inte använder Azure Active Directory (AAD)-egenskaper och v0.1, ett äldre schema som kräver AAD egenskaper. Du måste använda schemaversion som motsvarar det tillägget som du använder: schemat v1.1 för azurediskencryptionforlinux har lagts tilläggsversion 1.1, schemat v0.1 för azurediskencryptionforlinux har lagts tilläggsversion 0.1.
+### <a name="schema-v11-no-aad-recommended"></a>Schemat v1.1: Ingen AAD (rekommenderas)
+
+V1.1 schemat bör och kräver inte Azure Active Directory-egenskaper.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "settings": {
+          "DiskFormatQuery": "[diskFormatQuery]",
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        },
+        "type": "AzureDiskEncryptionForLinux",
+        "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Schemat v0.1: med AAD 
+
+0,1 schemat kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate`.
+
+Med hjälp av `aadClientSecret`:
 
 ```json
 {
@@ -70,6 +105,37 @@ Azure Disk Encryption för Linux kräver en Internetanslutning för åtkomst til
 }
 ```
 
+Med hjälp av `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]",
+      "Passphrase": "[passphrase]"
+    },
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "DiskFormatQuery": "[diskFormatQuery]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+    "type": "AzureDiskEncryptionForLinux",
+    "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
 ### <a name="property-values"></a>Egenskapsvärden
 
 | Namn | Värdet / exempel | Datatyp |
@@ -77,16 +143,16 @@ Azure Disk Encryption för Linux kräver en Internetanslutning för åtkomst til
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | string |
-| AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (0,1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0,1 schema) AADClientSecret | password | string |
+| (0,1 schema) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| Passphrase | password | string | 
+| (valfritt) KeyVaultURL | url | string |
+| Lösenfras | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS-, Data, alla | string |
 

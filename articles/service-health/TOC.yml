@@ -2,37 +2,51 @@
   href: index.md
 - name: Översikt
   items:
-    - name: Vad är Azure-status?
+    - name: Tjänsten Azure Service Health
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Konfigurera aviseringar för Service Health-händelser
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+- name: Begrepp
+  items:
+    - name: Azure-statussida
       href: azure-status-overview.md
-    - name: Vad är Service Health?
+    - name: Service Health
       href: service-health-overview.md
-    - name: Vad är Resource Health?
+    - name: Resource Health
       href: resource-health-overview.md
 - name: Gör så här för att
   items:
     - name: Konfigurera aviseringar för Service Health-händelser
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-      items:
-        - name: Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
-          href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    - name: Konfigurera aviseringar om hälsotillståndet för tjänsten med en webhook
+    - name: Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    - name: Skicka aviseringar till externa system via webhook
       href: service-health-alert-webhook-guide.md
-      items:
-        - name: Konfigurera med ServiceNow
-          href: service-health-alert-webhook-servicenow.md
-        - name: Konfigurera med PagerDuty
-          href: service-health-alert-webhook-pagerduty.md
-        - name: Konfigurera med OpsGenie
-          href: service-health-alert-webhook-opsgenie.md
-        - name: Hämta hälsohändelser med REST
-          href: service-health-rest.md
+    - name: Skicka aviseringar till ServiceNow
+      href: service-health-alert-webhook-servicenow.md
+    - name: Skicka aviseringar till PagerDuty
+      href: service-health-alert-webhook-pagerduty.md
+    - name: Skicka aviseringar till OpsGenie
+      href: service-health-alert-webhook-opsgenie.md
+    - name: Hämta hälsohändelser med REST
+      href: service-health-rest.md
     - name: Konfigurera aviseringar för resurshälsotillståndshändelser
       href: resource-health-alert-arm-template-guide.md
+- name: Referens
+  items:
+    - name: Egenskaper för Service Health-aviseringar
+      href: service-health-notifications-properties.md
+    - name: 'Resource Health, typer och kontroller'
+      href: resource-health-checks-resource-types.md
+    - name: Vanliga frågor och svar om Resource Health
+      href: resource-health-faq.md
 - name: Resurser
   items:
-    - name: Vanliga frågor och svar
-      href: resource-health-faq.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Resurstyper och hälsokontroller är tillgängliga genom Azure Resource Health
-      href: resource-health-checks-resource-types.md
+    - name: Priser för avisering
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'

@@ -1,0 +1,15 @@
+- name: Dokumentation till säker utveckling
+  href: index.yml
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Bästa praxis
+      items:
+        - name: Översikt
+          href: secure-dev-overview.md
+        - name: Utforma säkra appar
+          href: secure-design.md
+        - name: Utveckla säkra appar
+          href: secure-develop.md
+        - name: Distribuera säkra appar
+          href: secure-deploy.md

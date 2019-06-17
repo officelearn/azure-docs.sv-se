@@ -10,14 +10,14 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/16/2019
+ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: 10b4c6bfb9c79ee933feadec2ee41e52c86df76e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d921e529140bc7446e3c9f97b33ba226431d7b91
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607719"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143517"
 ---
 # <a name="azure-security-documentation"></a>Dokumentation om Azure-säkerhet
 
@@ -122,12 +122,12 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-log-audit">
+        <a href="/azure/security/develop">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Vilka alternativ för övervakning och loggning finns det i Azure?</p>
+                            <p style="font-size: 1.12rem;">Utveckla och distribuera säkra program</p>
                         </div>
                     </div>
                 </div>
@@ -163,6 +163,23 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
 </ul>
 
 <ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+    <li style="list-style: none;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_code-samples.svg" alt="" /></div>
+                        <h3>Utvecklare</h3>
+                        <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/develop/secure-dev-overview">Metodtips för säker utveckling</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -227,29 +244,6 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
             </div>
         </div>
     </li>
-    <li style="list-style: none;">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardText">
-                     <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_tasks.svg" alt="" /></div>
-                     <h3>Checklistor</h3>
-                     <ul class="noBullet">
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-database-security-checklist">Skydda databaser</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-operational-security-checklist">Driftsäkerhet</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-service-fabric-security-checklist">Service Fabric-säkerhet</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</li>
 </ul>
 
 <ul class="cardsFTitle panelContent">

@@ -39,6 +39,8 @@
   items:
     - name: Distribuera med hjälp av Azure PowerShell
       href: deploy-ps.md
+    - name: Distribuera med Azure CLI
+      href: deploy-cli.md
     - name: Distribuera med hjälp av en mall
       href: deploy-template.md
     - name: Integrera med lastbalanserare

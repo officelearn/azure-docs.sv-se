@@ -89,12 +89,14 @@
               href: container-registry-auth-aks.md
         - name: Förtroende för innehåll
           href: container-registry-content-trust.md
-    - name: Bygga och korrigera
+    - name: ACR-uppgifter
       items:
-        - name: ACR-uppgifter
+        - name: Översikt över ACR-uppgifter
           href: container-registry-tasks-overview.md
         - name: Uppgifter i flera steg
           href: container-registry-tasks-multi-step.md
+        - name: Använda med hanterad identitet
+          href: container-registry-tasks-authentication-managed-identity.md
     - name: Register och andra Azure-tjänster
       items:
         - name: Azure Container Instances

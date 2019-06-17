@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: Fler scenarier
           href: licensing-group-advanced.md
-        - name: Grupplicenser med PowerShell
+        - name: Grupplicenser med PowerShell och Graph
           href: licensing-ps-examples.md
         - name: 'Tjänstplan-ID:n för licensiering'
           href: licensing-service-plan-reference.md

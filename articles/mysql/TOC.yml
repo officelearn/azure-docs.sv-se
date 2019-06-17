@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: Säkerhetskopiering och återställning
           href: concepts-backup.md
-    - name: Övervaka
+    - name: Övervaka och finjustera
       items:
-        - name: Övervaka
+        - name: Övervaka och finjustera
           href: concepts-monitoring.md
-        - name: Serverloggar
+        - name: Långsamma frågeloggar
           href: concepts-server-logs.md
+        - name: Granskningsloggar
+          href: concepts-audit-logs.md
+        - name: Query Store
+          href: concepts-query-store.md
+        - name: Query Performance Insight
+          href: concepts-query-performance-insight.md
+        - name: Prestandarekommendationer
+          href: concepts-performance-recommendations.md
     - name: Utveckling
       items:
         - name: Kompatibilitet för drivrutiner och verktyg
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Åtkomst till serverloggar
       items:
-        - name: Azure Portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: Långsamma frågeloggar
+          items:
+            - name: Azure Portal
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Granskningsloggar
+          items:
+            - name: Azure Portal
+              href: howto-configure-audit-logs-portal.md
     - name: Övervaka
       items:
         - name: Skapa aviseringar för mått

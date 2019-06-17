@@ -43,6 +43,8 @@
         - name: Offlineutvärdering
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Skalbarhet och prestanda
+      href: concepts-scalability-performance.md
 - name: Instruktionsguider
   items:
     - name: Skapa och konfigurera Personanpassning

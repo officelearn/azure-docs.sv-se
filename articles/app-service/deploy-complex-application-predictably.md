@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767006"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
@@ -193,7 +193,7 @@ Om du ökar detaljnivån till en app du ska kunna se app konfigurationsinformati
 Den **distribuera till Azure** knappen är bra, men du kan distribuera resursgruppsmall i azuredeploy.json endast om du har redan push-överfört azuredeploy.json i GitHub. Azure .NET SDK innehåller dessutom verktyg som du kan distribuera alla JSON-mallfil direkt från din lokala dator. Följ stegen nedan om du vill göra detta:
 
 1. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-2. Klicka på **Visual C#** > **molnet** > **Azure-resursgrupp**, klicka sedan på **OK**.
+2. Klicka på **Visual C#**  > **molnet** > **Azure-resursgrupp**, klicka sedan på **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. I **Välj Azure-mall**väljer **tom mall** och klicka på **OK**.
@@ -238,7 +238,7 @@ Den **distribuera till Azure** knappen är bra, men du kan distribuera resursgru
     > Automatisk skalning är en funktion som erbjuds i **Standard** nivå eller högre och plan på servernivå aviseringar är funktioner som erbjuds i **grundläggande** nivå eller högre, måste du ange den **sku** parameter att **Standard** eller **Premium** om du vill se alla dina nya App Insights-resurser tänds.
     > 
     > 
-16. Klicka på **Distribuera**. Om du har valt **spara lösenord**, lösenordet sparas i parameterfilen **i klartext**. Annars kan att du ombes att ange lösenordet för databasen under distributionsprocessen.
+16. Klicka på **distribuera**. Om du har valt **spara lösenord**, lösenordet sparas i parameterfilen **i klartext**. Annars kan att du ombes att ange lösenordet för databasen under distributionsprocessen.
 
 Klart! Nu behöver du bara gå till den [Azure-portalen](https://portal.azure.com/) och [Azure Resource Explorer](https://resources.azure.com) verktyg för att se nya aviseringar och inställningarna för automatisk skalning som lagts till i din JSON distribuerat program.
 

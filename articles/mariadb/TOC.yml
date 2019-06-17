@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: Säkerhetskopiering och återställning
           href: concepts-backup.md
-    - name: Övervaka
+    - name: Övervaka och finjustera
       items:
         - name: Övervaka
           href: concepts-monitoring.md
-        - name: Serverloggar
+        - name: Långsamma frågeloggar
           href: concepts-server-logs.md
+        - name: Granskningsloggar
+          href: concepts-audit-logs.md
+        - name: Query Store
+          href: concepts-query-store.md
+        - name: Query Performance Insight
+          href: concepts-query-performance-insight.md
+        - name: Prestandarekommendationer
+          href: concepts-performance-recommendations.md
     - name: Utveckling
       items:
         - name: Kompatibilitet för drivrutiner och verktyg
@@ -75,6 +83,8 @@
       items:
         - name: Dataintensiv replikering
           href: concepts-data-in-replication.md
+        - name: Skrivskyddade repliker
+          href: concepts-read-replicas.md
 - name: Instruktionsguider
   items:
     - name: Brandväggsregler
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Åtkomst till serverloggar
       items:
-        - name: Azure Portal
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+        - name: Långsamma frågeloggar
+          items:
+            - name: Azure Portal
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: Granskningsloggar
+          items:
+            - name: Azure Portal
+              href: howto-configure-audit-logs-portal.md
     - name: Övervaka
       items:
         - name: Skapa aviseringar för mått
@@ -125,6 +141,8 @@
       items:
         - name: Konfigurera dataintensiv replikering
           href: howto-data-in-replication.md
+        - name: Skapa skrivskyddade repliker på Azure-portalen
+          href: howto-read-replicas-portal.md
     - name: Felsöka
       items:
         - name: Felsöka anslutningsfel

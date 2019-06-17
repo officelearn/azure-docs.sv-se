@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715213"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsöka distributionsproblem för StorSimple-enhet
 ## <a name="overview"></a>Översikt
@@ -63,7 +63,7 @@ Följande steg sammanfattar installationsguiden. Mer detaljerad installationsinf
 ## <a name="common-errors-during-device-deployment"></a>Vanliga fel under distributionen av enhet
 I tabellerna nedan listas vanliga fel som kan uppstå när du:
 
-* Ställ in de nätverksinställningar som krävs.
+* Konfigurera nätverksinställningar som krävs.
 * Konfigurera proxyinställningar för valfri webbtjänst.
 * Konfigurera administratörslösenord för enheten.
 * Registrera enheten.
@@ -82,7 +82,7 @@ I tabellerna nedan listas vanliga fel som kan uppstå när du:
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Fel under valfritt web proxy-inställningar
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Ogiltig parameter (undantag från HRESULT: 0x80070057) |En av parametrarna som anges för att proxyinställningarna är inte giltig. |URI: N anges inte i rätt format. Använd följande format: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 |Invoke-HcsSetupWizard: Ogiltig parameter (undantag från HRESULT: 0x80070057) |En av parametrarna som anges för att proxyinställningarna är inte giltig. |URI: N anges inte i rätt format. Använd följande format: http:// *\<IP-adress eller FQDN för webbproxyserver >* : *\<TCP-portnummer >* |
 | 2 |Invoke-HcsSetupWizard: RPC-servern är inte tillgänglig (undantag från HRESULT: 0x800706ba) |Den grundläggande orsaken är en av följande:<ol><li>Klustret är inte igång.</li><li>Den passiva styrenheten inte kan kommunicera med den aktiva kontrollenheten och kommandot körs från passiv styrenhet.</li></ol> |Beroende på den bakomliggande orsaken:<ol><li>[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att se till att klustret är igång.</li><li>Kör kommandot från den aktiva styrenheten. Om du vill köra kommandot från den passiva styrenheten behöver så att den passiva styrenheten kan kommunicera med den aktiva kontrollenheten. Behöver du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om den här anslutningen är bruten.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC-anropet misslyckades (undantag från HRESULT: 0x800706be) |Klustret har stoppats. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att se till att klustret är igång. |
 | 4 |Invoke-HcsSetupWizard: Resursen hittades inte (undantag från HRESULT: 0x8007138f) |Klusterresursen hittades inte. Detta kan inträffa när installationen inte har rätt. |Du kan behöva återställa enheten till fabriksinställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att skapa en klusterresurs. |

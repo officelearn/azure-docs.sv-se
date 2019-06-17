@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935032"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Fylla i formuläret med butik
@@ -39,7 +39,7 @@ Välj bransch som din app är bäst anpassad efter. Om din app är kopplad till 
 
 Välj kategorier som är relevanta för din app. Välj minst en kategori och högst tre. Välja noggrant eftersom kunderna kan söka på AppSource baserat på kategorier
 
-### <a name="app-type"></a>Apptyp
+### <a name="app-type"></a>Typ av App
 
 Välj typ av utvärderingsversion som gör att din app på AppSource.
 **Kostnadsfria** innebär att din app är kostnadsfria. **Utvärderingsversion** innebär att kunder kan testa din app under en kort period på AppSource. **Begäran för utvärderingsversion** innebär att kunder kan begära en utvärderingsversion av appen från AppSource.

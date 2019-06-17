@@ -64,7 +64,9 @@ landingContent:
         links:
           - text: Konfigurera en transparent gateway
             url: how-to-create-transparent-gateway.md
-          - text: Ansluta en underordnad enhet
+          - text: Autentisera en underordnad enhet på Azure IoT Hub
+            url: how-to-authenticate-downstream-device.md
+          - text: Ansluta en underordnad enhet till en gateway
             url: how-to-connect-downstream-device.md
   - title: Förbereda för produktionsscenarier
     linkLists:

@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Snabbstarter
               items:
-                - name: Kryptera virtuell dator – Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Kryptera en virtuell Linux-dator med Azure CLI
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Kryptera en virtuell Linux-dator med Azure PowerShell
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Kryptera en virtuell Windows-dator med Azure CLI
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Kryptera en virtuell Windows-dator med Azure PowerShell
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Encryption
               items:
                 - name: Krav för diskkryptering

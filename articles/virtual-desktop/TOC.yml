@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. Skapa en värdpool för att verifiera tjänstuppdateringar
       href: create-validation-host-pool.md
+    - name: 6. Distribuera ett hanteringsverktyg
+      href: manage-resources-using-ui.md
+    - name: 7. Konfigurera tjänstaviseringar
+      href: set-up-service-alerts.md
 - name: Så här gör du
   items:
     - name: Ansluta till Windows Virtual Desktop-resurser
@@ -40,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Skala sessionsvärdar automatiskt
       href: set-up-scaling-script.md
+    - name: Anpassa RDP-egenskaper
+      href: customize-rdp-properties.md
 - name: Begrepp
   items:
     - name: Windows Virtual Desktop-miljö

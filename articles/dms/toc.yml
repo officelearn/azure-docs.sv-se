@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Övervaka migreringsaktiviteter
       href: how-to-monitor-migration-activity.md
-    - name: Migrera SSIS-paket till Azure
+    - name: Migrera SSIS-paket till Azure SQL Database
       href: how-to-migrate-ssis-packages.md
+    - name: Migrera SSI-paket till en hanterad Azure SQL Database-instans
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Resurser
   items:
     - name: Status för databasmigreringsscenario

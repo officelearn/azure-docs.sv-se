@@ -113,11 +113,11 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
+| fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix (t.ex.) | false | boolesk |
-| tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
+| skipDos2Unix (t.ex.) | false | boolean |
+| timestamp (t.ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t.ex.) | examplestorageacct | string |
 | storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 

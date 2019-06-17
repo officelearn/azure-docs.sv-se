@@ -70,18 +70,18 @@ Följande JSON visar schemat för VM-tillägget Chef. Tillägget som kräver min
 
 | Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | sträng (datum) |
+| apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | sträng (double) |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Inställningar
 
 | Namn | Värdet / exempel | Datatyp | Krävs?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (url) | Y |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| inställningar/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>Skyddade inställningarna
 

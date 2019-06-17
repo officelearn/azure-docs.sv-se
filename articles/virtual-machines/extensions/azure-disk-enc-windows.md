@@ -155,9 +155,9 @@ Med hjälp av `AADClientCertificate`:
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| (valfritt) Lösenfras | password | string | 
+| (valfritt) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS-, Data, alla | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Malldistribution
 Ett exempel på för malldistribution, se [ skapa en ny krypterade Windows virtuell dator från galleriet bilden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

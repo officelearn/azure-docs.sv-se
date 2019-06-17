@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346351"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
@@ -79,15 +79,15 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | dataset | Tillhandahåller datamängdsreferens för att avgöra vilka filer eller mappen ska tas bort | Ja |
-| rekursiv | Anger om filerna är borttagna rekursivt från undermapparna eller endast från den angivna mappen.  | Nej. Standardvärdet är `false`. |
+| recursive | Anger om filerna är borttagna rekursivt från undermapparna eller endast från den angivna mappen.  | Nej. Standardvärdet är `false`. |
 | maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt för att ta bort mappen eller filen.   |  Nej. Standardvärdet är `1`. |
 | EnableLogging | Anger om du behöver registrera mapp eller fil namnen som har tagits bort. Om sant, måste du ange ytterligare ett lagringskonto att spara loggfil, så att du kan spåra funktioner för aktiviteten Ta bort genom att läsa loggfilen. | Nej |
 | logStorageSettings | Gäller endast när enablelogging = true.<br/><br/>En grupp med lagringsegenskaper som kan vara angetts där du vill spara loggfilen som innehåller mappen eller filen namnen som har tagits bort av aktiviteten Ta bort. | Nej |
 | linkedServiceName | Gäller endast när enablelogging = true.<br/><br/>Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra filen som innehåller mappen eller filnamnen som har tagits bort av aktiviteten Ta bort. | Nej |
-| path | Gäller endast när enablelogging = true.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
+| sökväg | Gäller endast när enablelogging = true.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -117,10 +117,10 @@ Det finns två platser där du kan se och övervaka resultatet av aktiviteten Ta
 
 | Namn | Category | Status | Fel |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | Fil | Borttagen |  |
-| test2/hello789.txt | Fil | Borttagen |  |
-| test2/test3/hello000.txt | Fil | Borttagen |  |
-| test2/test3/zzz.json | Fil | Borttagen |  |
+| test1/yyy.json | Fil | Borttaget |  |
+| test2/hello789.txt | Fil | Borttaget |  |
+| test2/test3/hello000.txt | Fil | Borttaget |  |
+| test2/test3/zzz.json | Fil | Borttaget |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exempel på användning av aktiviteten Ta bort
 
@@ -143,7 +143,7 @@ Nu använder du aktiviteten Ta bort att ta bort mappen eller filerna genom en ko
 
 Du kan skapa en pipeline för att regelbundet rensa tid partitionerade mapp eller filer.  Till exempel mappstrukturen liknar som: `/mycontainer/2018/12/14/*.csv`.  Du kan utnyttja ADF systemvariabeln från schemautlösare att identifiera vilken mapp eller filer bör tas bort inom varje pipelinekörning. 
 
-#### <a name="sample-pipeline"></a>Exempelpipeline
+#### <a name="sample-pipeline"></a>Exempel på pipeline
 
 ```json
 {
@@ -263,7 +263,7 @@ Du kan skapa en pipeline för att regelbundet rensa tid partitionerade mapp elle
 
 Du kan skapa en pipeline för att rensa upp de gamla eller har upphört att gälla genom att använda filen attributfiltret: ”LastModified” i datauppsättningen.  
 
-#### <a name="sample-pipeline"></a>Exempelpipeline
+#### <a name="sample-pipeline"></a>Exempel på pipeline
 
 ```json
 {
@@ -328,7 +328,7 @@ Du kan flytta en fil med en Kopieringsaktivitet som kopierar en fil och sedan en
 > [!NOTE]
 > Om du vill flytta hela mappen genom att definiera en datauppsättning som innehåller endast en mappsökväg och sedan använda en Kopieringsaktivitet och en Delete-aktivitet för att referera till samma datamängd som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte nya filer som inkommer till mappen mellan kopiering av åtgärden och ta bort åtgärden.  Om det finns nya filer som anländer till mappen för tillfället när Kopieringsaktivitet är klar med kopieringsjobbet men har inte tagits stared aktiviteten Ta bort, är det möjligt att aktiviteten Ta bort raderas den nya dessa data anländer filen som inte har kopierats till destinati på ännu genom att ta bort hela mappen. 
 
-#### <a name="sample-pipeline"></a>Exempelpipeline
+#### <a name="sample-pipeline"></a>Exempel på pipeline
 
 ```json
 {
@@ -573,4 +573,4 @@ Datauppsättning för datamålet som används av Kopieringsaktivitet.
 
 Läs mer om hur du flyttar filerna i Azure Data Factory.
 
--   [Kopiera Data-verktyg i Azure Data Factory](copy-data-tool.md)
+-   [Verktyget Kopiera data i Azure Data Factory](copy-data-tool.md)

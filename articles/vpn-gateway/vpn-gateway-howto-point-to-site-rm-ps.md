@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989446"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
@@ -55,7 +55,7 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 * **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
 * **Resursgrupp: TestRG**
 * **Plats: USA, östra**
-* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning. (valfri)
+* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning. (valfritt)
 * **GW-namn: Vnet1GW**
 * **Namn på offentlig IP: VNet1GWPIP**
 * **VpnType: Routningsbaserad** 

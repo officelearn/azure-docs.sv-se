@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741002"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Datorgrupper i Azure Monitor log-frågor
@@ -53,7 +53,7 @@ Använd följande procedur för att skapa en datorgrupp från en loggsökning i 
 
 I följande tabell beskrivs de egenskaper som definierar en datorgrupp.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:---|:---|
 | Namn   | Namnet på frågan som visas i portalen. |
 | Funktionsalias | Ett unikt alias som används för att identifiera datorgruppen i en fråga. |
@@ -125,7 +125,7 @@ Följande fråga returnerar UpdateSummary-poster för endast datorer i Domändat
 ## <a name="computer-group-records"></a>Datorn gruppera poster
 En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och har egenskaperna i följande tabell.  Poster skapas inte för datorgrupper baserat på loggfrågor.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

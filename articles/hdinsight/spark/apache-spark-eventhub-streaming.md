@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 0bdcc253a57fb55d610d67acd9b6a50182a699e3
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: bf6a728f66f5eeaf5983ecd50d65326a59cc3267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066203"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -44,7 +44,7 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Ange följande värden:
 
-    |Egenskap  |Värde |
+    |Egenskap |Värde |
     |---|---|
     |Namn|Ange namnet på programmet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
     |Beskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **en enkel HDInsight Spark-strömning programmet**.|
@@ -80,7 +80,7 @@ Du kan använda den här händelsehubben för att lagra tweets.
 
 5. Ange följande värden för det nya Event Hubs-namnområdet:
 
-    |Egenskap  |Värde |
+    |Egenskap |Värde |
     |---|---|
     |Namn|Ange ett namn för event hub.  Det värde som används för den här självstudien är **myeventhubns20180403**.|
     |Prisnivå|Välj **standard**.|

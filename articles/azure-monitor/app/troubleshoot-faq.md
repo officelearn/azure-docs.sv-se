@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
 ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604276"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
@@ -195,7 +195,7 @@ Använda en enskild resurs för alla komponenter eller roller i en enda affärss
 | Beroendetelemetri |[Installera AI Status Monitor på servern](monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
 | Få stackspårningar från undantag |[Infoga TrackException anrop i din kod](asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
 | Sök loggspårningar |[Lägg till ett kort för loggning](asp-net-trace-logs.md) |Diagnostisera undantag, perf-problem |
-| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](javascript.md) |Användninganalys |
+| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](javascript.md) |Användningsanalys |
 | Klienten anpassade mått |[Spåra anrop i webbsidor](api-custom-events-metrics.md) |Förbättra användarupplevelsen |
 | Anpassade mått för Server |[Spårningsanrop i server](api-custom-events-metrics.md) |Business Intelligence |
 

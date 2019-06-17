@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b71ba92e46a0363a22695229c40bfac7e0d6f589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e4fb9e300a4019ffe47b82582783b9024d968ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Självstudier: Azure Active Directory-integrering med IDrive
 
@@ -29,7 +29,7 @@ Integreringen av IDrive med Azure AD medför följande fördelar:
 
 * Du kan styra vem som har åtkomst till IDrive från Azure AD.
 * Du kan göra så att användarna loggas in automatiskt i IDrive (enkel inloggning) med deras Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -53,7 +53,7 @@ För att konfigurera integreringen av IDrive i Azure AD måste du lägga till ID
 
 **Utför följande steg för att lägga till IDrive från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,7 +61,7 @@ För att konfigurera integreringen av IDrive i Azure AD måste du lägga till ID
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ För att konfigurera integreringen av IDrive i Azure AD måste du lägga till ID
 
      ![IDrive i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa enkel inloggning för Azure AD med IDrive baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i IDrive upprättas.
 
 För att konfigurera och testa enkel inloggning i Azure AD med IDrive måste du utföra följande uppgifter:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Konfigurera enkel inloggning för IDrive](#configure-idrive-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Skapa en IDrive-testanvändare](#create-idrive-test-user)** – för att skapa en motsvarighet till Britta Simon i IDrive som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IDriv
 
 1. Välj **Enkel inloggning** på sidan för programintegrering med **IDrive** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -113,13 +113,13 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IDriv
 
 6. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
+    ![Länk för hämtning av certifikat](common/certificateraw.png)
 
 7. I avsnittet **Konfigurera IDrive** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+    a. Inloggningswebbadress
 
     b. Azure AD-identifierare
 
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IDriv
 
 ### <a name="configure-idrive-single-sign-on"></a>Konfigurera enkel inloggning för IDrive
 
-För att konfigurera enkel inloggning på **IDrive**-sidan måste du skicka det nedladdade **certifikatet (RAW)** och lämpliga kopierade URL:er från Azure-portalen till [IDrive-supportteamet](https://www.idrive.com/support). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **IDrive**-sidan måste du skicka det nedladdade **certifikatet (RAW)** och lämpliga kopierade URL:er från Azure-portalen till [IDrive-supportteamet](https://www.idrive.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -196,5 +196,5 @@ När du klickar på IDrive-panelen på åtkomstpanelen bör du loggas in automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

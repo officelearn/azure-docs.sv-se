@@ -3,20 +3,21 @@ title: Konfigurera viktad resursallokering trafikroutningsmetod med Azure Traffi
 description: Den här artikeln förklarar hur du belastningsutjämna trafik med hjälp av en resursallokering-metod i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: allensu
+ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071281"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Konfigurera viktad trafikroutningsmetod i Traffic Manager
 
@@ -34,7 +35,7 @@ Ett vanligt trafik routning metoden mönster är att tillhandahålla en uppsätt
     1. För **trafik routning metodinställningar**, kontrollera att trafikroutningsmetod är **viktat**. Om det inte är det, klickar du på **viktat** från den nedrullningsbara listan.
     2. Ange den **inställningar för Slutpunktsövervakning** identiska för alla alla slutpunkter i den här profilen på följande sätt:
         1. Välj lämpliga **protokollet**, och ange den **Port** tal. 
-        2. För **sökväg** skriver ett snedstreck */*. Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
+        2. För **sökväg** skriver ett snedstreck */* . Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
         3. Överst på sidan klickar du på **spara**.
 5. Testa ändringarna i konfigurationen på följande sätt:
     1.  I portalens sökfältet, Sök efter namnet på Traffic Manager-profilen och klickar på Traffic Manager-profilen i resultaten som visas.

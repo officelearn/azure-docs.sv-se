@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924658"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure klassiska prenumerationsadministratörer
@@ -38,7 +38,7 @@ Den här artikeln beskrivs hur du lägger till eller ändrar rollerna delad admi
 
     Medadministratörer kan endast tilldelas prenumerationsområde.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 
 1. Klicka på den **klassiska administratörer** fliken.
 
@@ -71,7 +71,7 @@ Observera att den [inbyggda roller för Azure-resurser](../role-based-access-con
 
 1. Öppna [prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välja en prenumeration.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **åtkomstkontroll (IAM)** .
 
 1. Klicka på den **klassiska administratörer** fliken.
 

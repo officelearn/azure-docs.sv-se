@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694716"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller, samma prenumeration
@@ -31,8 +31,8 @@ Stegen för att skapa en virtuell nätverkspeering är olika, beroende på om de
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
 |[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
-|[Both Resource Manager](create-peering-different-subscriptions.md) |Annorlunda|
-|[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Annorlunda|
+|[Both Resource Manager](create-peering-different-subscriptions.md) |Olika|
+|[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Olika|
 
 Att går inte skapa en virtuell nätverkspeering mellan två virtuella nätverk som distribueras via den klassiska distributionsmodellen. Om du vill ansluta virtuella nätverk som har både skapats via den klassiska distributionsmodellen kan du använda en Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att ansluta virtuella nätverk.
 

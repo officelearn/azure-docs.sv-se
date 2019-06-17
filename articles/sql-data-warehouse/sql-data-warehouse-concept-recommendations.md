@@ -11,10 +11,10 @@ ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61421230"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Rekommendationer för SQL Data Warehouse
@@ -46,9 +46,9 @@ Om du vill se en lista över tabeller som påverkas av de här rekommendationern
 Advisor identifierar tabell kandidaterna utifrån följande fysiska egenskaper för replikerad tabell rekommendationer:
 
 - Replikerad tabellstorlek
-- Antal kolumner
+- Antalet kolumner
 - Tabelltyp för distribution
-- Antal partitioner
+- Antalet partitioner
 
 Advisor utnyttjar kontinuerligt arbetsbelastning-baserade heuristik, till exempel tabellen åtkomst frekvens, rader returneras i genomsnitt och tröskelvärden runt data warehouse-storlek och aktiviteten för att säkerställa hög kvalitet rekommendationer genereras. 
 

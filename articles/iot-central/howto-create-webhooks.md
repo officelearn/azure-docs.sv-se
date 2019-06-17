@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 22167de6676837c45c48a0bafd19b1ba69578827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888333"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Skapa webhook-åtgärder på regler i Azure IoT Central
@@ -39,7 +39,7 @@ I det här exemplet kan du ansluta till RequestBin att bli meddelad när regler 
 
 Nu när regeln utlöses, visas en ny begäran visas i RequestBin.
 
-## <a name="payload"></a>Nyttolast
+## <a name="payload"></a>nyttolast
 
 När en regel utlöses görs en HTTP POST-begäran att Motringnings-URL som innehåller en json-nyttolast med mått, enhet, regel och programinformation. För en telemetri-regel nyttolasten som returneras liknar följande:
 

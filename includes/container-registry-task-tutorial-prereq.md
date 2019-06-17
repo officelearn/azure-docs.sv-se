@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148973"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133516"
 ---
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -27,9 +27,12 @@ För att utlösa en aktivitet på ett genomförande till en Git-lagringsplats be
 
 1. Gå till sidan där personliga åtkomsttokens skapas i GitHub på https://github.com/settings/tokens/new
 1. Ange en kort **beskrivning** för din token, till exempel ”ACR Tasks Demo”
-1. Under **repo** aktiverar du **repo:status** och **public_repo**
+1. Välj områden för ACR att få åtkomst till lagringsplatsen. Åtkomst till en offentlig repo som i den här självstudien under **repo**, aktivera **lagringsplats: status** och **public_repo**
 
    ![Skärmbild av sidan Personlig åtkomsttoken i GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > Att generera en PAT att komma åt en *privata* lagringsplatsen, väljer du etableringsomfånget för fullständig **lagringsplatsen** kontroll.
 
 1. Välj knappen **Generera token** (du kan behöva bekräfta lösenordet)
 1. Kopiera och spara din genererade token på en **säker plats** (du använder denna token när du definierar en uppgift i följande avsnitt)

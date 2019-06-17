@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338460"
 ---
 # <a name="interpret-method"></a>tolka metod
@@ -31,7 +31,7 @@ Om du vill skapa en interaktiv upplevelse, kan du anropa den här metoden upprep
 
 Namn     | Värde | Krävs?  | Beskrivning
 ---------|---------|---------|---------
-**Fråga**    | Textsträngen | Ja | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
+**query**    | Textsträngen | Ja | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
 **model**    | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
 **Slutför** | 0 eller 1 | Nej<br>standard: 0  | 1 innebär att automatisk komplettering förslag genereras baserat på de grammatik och graph.         
 **antal**    | Tal | Nej<br>standard: 10 | Maximalt antal tolkningar för att returnera.         
@@ -44,7 +44,7 @@ Namn     | Värde | Krävs?  | Beskrivning
 
 Namn     | Beskrivning
 ---------|---------
-**Fråga** |Den *fråga* parametern från begäran.
+**query** |Den *fråga* parametern från begäran.
 **tolkningar** |En matris med 0 eller fler olika sätt med matchande indata från användaren mot grammatik.
 **tolkningar [x] .logprob**  |Den relativa naturliga logg sannolikheten för tolkning. Större värden är mer troligt.
 **tolkningar [x] .parse**  |En XML-sträng som visar hur varje del av frågan har tolkas.

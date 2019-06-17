@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111966"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft identity-plattformen
 
@@ -233,12 +233,12 @@ Uppdatera token kan vara ogiltig eller återkallas när som helst av olika skäl
 |   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-den lösenordsbaserade cookie | Icke-den lösenordsbaserade token | Konfidentiell klient-token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Lösenordet upphör att gälla | Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv |
-| Lösenordet har ändrats av användaren | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
-| Användare utför SSPR | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
-| Återställer lösenordet för serveradministratören | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
-| Användaren återkallar sina uppdateringstoken [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallad | Återkallad | Återkallad | Återkallad | Återkallad |
-| Administratör återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad | Återkallad |
-| [Enkel utloggning](v1-protocols-openid-connect-code.md#single-sign-out) på webben | Återkallad | Förblir aktiv | Återkallad | Förblir aktiv | Förblir aktiv |
+| Lösenordet har ändrats av användaren | Återkallat | Återkallat | Förblir aktiv | Förblir aktiv | Förblir aktiv |
+| Användare utför SSPR | Återkallat | Återkallat | Förblir aktiv | Förblir aktiv | Förblir aktiv |
+| Återställer lösenordet för serveradministratören | Återkallat | Återkallat | Förblir aktiv | Förblir aktiv | Förblir aktiv |
+| Användaren återkallar sina uppdateringstoken [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallat | Återkallat | Återkallat | Återkallat | Återkallat |
+| Administratör återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallat | Återkallat |Återkallat | Återkallat | Återkallat |
+| [Enkel utloggning](v1-protocols-openid-connect-code.md#single-sign-out) på webben | Återkallat | Förblir aktiv | Återkallat | Förblir aktiv | Förblir aktiv |
 
 > [!NOTE]
 > En inloggning som ”icke-password baserad” är en där användaren inte ange ett lösenord för att hämta den. Till exempel använda ansiktet med Windows Hello, en FIDO-nyckel eller en PIN-kod.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597269"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
@@ -230,7 +230,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    nano config.json
    ```
 
-   ![Konfigurationsfil](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Config-fil](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Det finns två objekt i den här filen som du kan konfigurera. Den första är `interval`, som definierar tidsintervallet (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte.
 

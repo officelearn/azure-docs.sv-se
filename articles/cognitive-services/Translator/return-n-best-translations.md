@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389676"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hur du returnerar N-Best översättningar
@@ -42,7 +42,7 @@ Signaturen är:
 | from | **Krävs** en sträng som representerar språkkoden för text för översättning. |
 | till | **Krävs** en sträng som representerar språkkoden att översätta text i. |
 | maxTranslations | **Krävs** ett heltal som representerar det maximala antalet översättningar ska returneras. |
-| Alternativ | **Valfritt** A TranslateOptions-objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard.
+| options | **Valfritt** A TranslateOptions-objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard.
 
 * Kategori: Det går endast att och standard, alternativet är ”Allmänt”.
 * ContentType: Det går endast att och standard, alternativet är ”text/plain”.

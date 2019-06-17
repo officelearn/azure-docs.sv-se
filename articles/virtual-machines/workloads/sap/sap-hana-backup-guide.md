@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60937090"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines
@@ -84,7 +84,7 @@ Information om konsekvenskontrollen tabellen finns också på SAP-webbplats på 
 
 För vanliga filsäkerhetskopieringsverktyg behövs inte en test-återställning. Det finns två SAP HANA-verktyg som hjälper dig för att kontrollera vilka backup kan användas för återställning: hdbbackupdiag och hdbbackupcheck. Se [manuellt kontrollerar om en återställning är möjlig](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) för mer information om dessa verktyg.
 
-### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>- Och nackdelar med HANA-säkerhetskopia jämfört med storage-ögonblicksbilder
+### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>\- Och nackdelar med HANA-säkerhetskopia jämfört med storage-ögonblicksbilder
 
 SAP&#39;t prioritera antingen HANA-säkerhetskopiering jämfört med storage-ögonblicksbilder. Visas en lista med sina för- och nackdelar, så en kan fastställa vilken ska användas beroende på situationen och tillgängliga lagringsteknik (se [strategi och planera din Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 

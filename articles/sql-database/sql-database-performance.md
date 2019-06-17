@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584836"
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
@@ -41,10 +40,10 @@ Den här vyn innehåller en sammanfattning av databasens prestanda och hjälper 
 
 ![Prestanda](./media/sql-database-performance/performance.png)
 
-* Den **rekommendationer** panel visar en uppdelning av justeringsrekommendationer för databasen (tre översta rekommendationer visas om det finns flera). Klicka på den här panelen tar dig till  **[prestandarekommendationer](#performance-recommendations)**. 
+* Den **rekommendationer** panel visar en uppdelning av justeringsrekommendationer för databasen (tre översta rekommendationer visas om det finns flera). Klicka på den här panelen tar dig till  **[prestandarekommendationer](#performance-recommendations)** . 
 * Den **Justeringsaktivitet** panelen innehåller en sammanfattning av pågående och slutförda justering åtgärder för din databas, vilket ger dig en snabb överblick över historiken för justeringsaktivitet. Klicka på den här panelen tar dig till fullständig justering historikvyn för din databas.
 * Den **automatisk justering** panelen visar den [automatisk justering configuration](sql-database-automatic-tuning-enable.md) för databasen (justering alternativ som ska vidtas automatiskt din databas). Om du klickar på den här panelen öppnas konfigurationsdialogruta automation.
-* Den **databasfrågor** panel visar en sammanfattning av frågeprestanda för databasen (övergripande DTU användnings- och top resurskrävande frågor). Klicka på den här panelen tar dig till  **[Query Performance Insight](#query-performance-insight)**.
+* Den **databasfrågor** panel visar en sammanfattning av frågeprestanda för databasen (övergripande DTU användnings- och top resurskrävande frågor). Klicka på den här panelen tar dig till  **[Query Performance Insight](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
 
@@ -74,7 +73,7 @@ Azure SQL-databaser automatiskt kan justera databasprestanda för genom att anv�
 
   ![instrumentpanel för prestanda](./media/sql-database-query-performance/performance.png)
 
-Mer information om den här sidan finns i artikeln  **[hur du använder Query Performance Insight](sql-database-query-performance.md)**.
+Mer information om den här sidan finns i artikeln  **[hur du använder Query Performance Insight](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

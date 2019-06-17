@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39a50240b4360c5b4adcd6020c2b80b0f06315f7
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541562"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett åtkomst-paket i Azure AD rättigheten hantering (förhandsversion)
@@ -34,7 +34,7 @@ ms.locfileid: "64541562"
 
 Det första steget är att logga in på portalen Mina åtkomst där du kan begära åtkomst till en åtkomst-paketet.
 
-**Nödvändiga roll:** Beställare
+**Nödvändiga roll:** Begärande
 
 1. Leta efter ett e-postmeddelande eller ett meddelande från hanteraren för projektet eller företag som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst-paketet som du behöver åtkomst till. Länken börjar med:
 
@@ -50,7 +50,7 @@ Det första steget är att logga in på portalen Mina åtkomst där du kan begä
 
 När du har hittat åtkomst-paketet i portalen Mina åtkomst, kan du skicka en begäran.
 
-**Nödvändiga roll:** Beställare
+**Nödvändiga roll:** Begärande
 
 1. Klicka på bockmarkeringen för att välja åtkomst-paket.
 
@@ -76,7 +76,7 @@ När du har hittat åtkomst-paketet i portalen Mina åtkomst, kan du skicka en b
 
 Om du skickar en förfrågan och begäran gäller fortfarande är i den **väntar på godkännande** tillstånd, kan du avbryta begäran.
 
-**Nödvändiga roll:** Beställare
+**Nödvändiga roll:** Begärande
 
 1. I portalen Mina åtkomst till vänster klickar du på **Förfrågningshistorik** att se en lista över dina önskemål och status.
 
@@ -92,7 +92,7 @@ Om du skickar en förfrågan och begäran gäller fortfarande är i den **vänta
 
 Om du begär åtkomst till en åtkomst-paket som har flera principer som gäller, kan du bli ombedd att välja en princip. En åtkomst-Pakethanteraren kan till exempel konfigurera ett åtkomst-paket med två principer för två grupper av internt anställda. Den första principen kan tillåta åtkomst för 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst till två dagar och inte kräver godkännande. Om du får det här scenariot måste du välja den princip du vill använda.
 
-**Nödvändiga roll:** Beställare
+**Nödvändiga roll:** Begärande
 
 ## <a name="next-steps"></a>Nästa steg
 

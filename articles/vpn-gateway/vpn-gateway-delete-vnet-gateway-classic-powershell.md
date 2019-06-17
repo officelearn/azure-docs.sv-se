@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60863988"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med hjälp av PowerShell (klassisk)
@@ -56,7 +56,7 @@ I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Öppna filen med en textredigerare och visa namnet på ditt klassiska virtuella nätverk. När du skapar ett virtuellt nätverk i Azure-portalen, visas inte det fullständiga namnet som använder Azure i portalen. Ett virtuellt nätverk som verkar ha namnet ”ClassicVNet1” i Azure-portalen kan till exempel ha en mycket längre namn i nätverkskonfigurationsfilen. Namnet kan se ut ungefär som: Gruppera ClassicRG1 ClassicVNet1. Virtuella nätverksnamn listas som **' VirtualNetworkSite name ='**. Använda namnen i nätverkskonfigurationsfilen när du kör PowerShell-cmdletar.
+Öppna filen med en textredigerare och visa namnet på ditt klassiska virtuella nätverk. När du skapar ett virtuellt nätverk i Azure-portalen, visas inte det fullständiga namnet som använder Azure i portalen. Ett virtuellt nätverk som verkar ha namnet ”ClassicVNet1” i Azure-portalen kan till exempel ha en mycket längre namn i nätverkskonfigurationsfilen. Namnet kan se ut ungefär som: Gruppera ClassicRG1 ClassicVNet1. Virtuella nätverksnamn listas som **' VirtualNetworkSite name ='** . Använda namnen i nätverkskonfigurationsfilen när du kör PowerShell-cmdletar.
 
 ## <a name="delete"></a>Steg 3: Ta bort den virtuella nätverksgatewayen
 

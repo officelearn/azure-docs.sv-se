@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450751"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Övervaka och hantera SharePoint-resurser med Azure Logic Apps
@@ -70,7 +70,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
    Välj vilken åtgärd du önska under åtgärder.
 
    Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange anslutningsinformationen som krävs när du uppmanas att logga in. Om du använder SharePoint Server, kontrollera att du väljer **Anslut via lokal datagateway**. När du är klar väljer du **Skapa**.
 

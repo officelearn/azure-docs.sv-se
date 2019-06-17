@@ -8,72 +8,74 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 06/06/2019
 ms.author: diberry
-ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f8d2f6d9fce6a249a782f959ac7672ac8e123fbc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594070"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075167"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda active learning för att förbättra din kunskapsbas
 
 Aktiv inlärning kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användare-bidrag till dina frågor och svar-par. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. 
 
-Kunskapsbasen ändras inte automatiskt. Du måste acceptera förslag för att ändringar ska börja gälla. Förslagen lägga till frågor men inte ändra eller ta bort befintliga frågor.
+Kunskapsbasen ändras inte automatiskt. Du måste acceptera förslagen för ändringar ska börja gälla. Förslagen lägga till frågor men inte ändra eller ta bort befintliga frågor.
 
 ## <a name="what-is-active-learning"></a>Vad är aktiv inlärning?
 
 QnA Maker lär sig nya fråga variationer med implicit och explicit feedback.
  
-* Implicit feedback – rankningen förstår när en användare fråga har flera svar med resultat som är mycket nära och ser detta som feedback. 
-* Explicit feedback – när flera svar med lite skillnad i resultat returneras i kunskapsbasen klientprogrammet ombeds användaren vilken fråga är rätt fråga. Explicit Användarfeedback skickas till QnA Maker med Train-API. 
+* [Implicit feedback](#how-qna-makers-implicit-feedback-works) – rankningen förstår när en användare fråga har flera svar med resultat som är mycket nära och ser detta som feedback. Du behöver inte göra något för att detta ska inträffa.
+* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – när flera svar med lite skillnad i resultat som returneras i kunskapsbasen klientprogrammet uppmanar användarna vilka fråga är rätt fråga. Explicit Användarfeedback skickas till QnA Maker med den [träna API](#train-api). 
 
 Båda metoderna ger rankningen med liknande frågor som är klustrade.
 
 ## <a name="how-active-learning-works"></a>Hur active learning fungerar
 
-Aktiv inlärning utlöses baserat på poäng för övre några svar returnerades av QnA Maker för en viss fråga. Om skillnaderna poäng ligger inom ett mindre intervall kommer frågan betraktas som ett möjligt _förslag_ för var och en av de möjliga svar. 
+Aktiv inlärning utlöses baserat på poäng för de översta några svar som returneras av QnA Maker. Om skillnaderna poäng ligger inom ett mindre intervall, sedan frågan betraktas som ett möjligt förslag (som en annan fråga) för var och en av de möjliga QnA-par. När du har accepterat den föreslagna frågan för en specifik QnA-par, avvisas de för andra par. Du måste komma ihåg att spara och träna när du tar emot förslag.
 
-Alla förslag är klustrade tillsammans efter likhet och övre förslag på alternativa frågor visas baserat på åtkomstfrekvensen för de specifika frågorna av slutanvändare. Aktiv inlärning ger bästa möjliga förslagen i fall där slutpunkterna får ett rimligt antal och mängd användningsfrågor.
+Aktiv inlärning ger bästa möjliga förslagen i fall där slutpunkterna får ett rimligt antal och mängd användningsfrågor. När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa. Alla förslag är klustrade tillsammans efter likhet och övre förslag på alternativa frågor visas baserat på åtkomstfrekvensen för de specifika frågorna av slutanvändare.
 
-När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa.
+När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. Det finns inte en API för att hantera förslag.
 
-När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. 
+## <a name="how-qna-makers-implicit-feedback-works"></a>Så här fungerar QnA Maker implicit feedback
 
-## <a name="upgrade-your-version-to-use-active-learning"></a>Uppgradera din version om du vill använda aktiv inlärning
-
-Aktiv inlärning stöds i körningsversion 4.4.0 och senare. Om din kunskapsbas skapades på en tidigare version [uppgradera din runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) att använda den här funktionen. 
-
-## <a name="best-practices"></a>Regelverk
-
-Metodtips när du använder aktiv inlärning finns [bästa praxis](../Concepts/best-practices.md#active-learning).
-
-## <a name="score-proximity-between-knowledge-base-questions"></a>Poäng nära mellan kunskapsbas frågor
+QnA Maker implicit feedback använder en algoritm för att fastställa poäng nära sedan aktiv inlärning förslag. Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i följande exempel är inte avsedda att åtgärdas, men bör användas som en vägledning för att förstå effekten av algoritmen endast.
 
 När en fråga poängen är mycket säker på, till exempel 80%, är en uppsättning resultat som anses för aktiv inlärning breda, cirka inom 10%. Eftersom förtroendepoäng minskar, till exempel 40%, minskar antal poäng, cirka inom % 4. 
 
-Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i föregående exempel är inte avsedda att åtgärdas, men bör användas som en vägledning för att förstå effekten av algoritmen endast.
+## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Hur du ger explicit feedback med Train-API
 
-## <a name="turn-on-active-learning"></a>Aktivera aktiv inlärning
+Det är viktigt att QnA Maker hämtar explicit feedback om vilka av svaren var det bästa svaret. Hur det bästa svaret bestäms är upp till dig och kan innehålla:
 
-Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor. 
+* Feedback från användare, välja ett av svaren.
+* Affärslogik, till exempel fastställa en godtagbar poäng intervall.  
+* En kombination av båda användaren feedback och affärslogik.
+
+## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Uppgradera din runtime-versionen om du vill använda aktiv inlärning
+
+Aktiv inlärning stöds i körningsversion 4.4.0 och senare. Om din kunskapsbas skapades på en tidigare version [uppgradera din runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) att använda den här funktionen. 
+
+## <a name="turn-on-active-learning-to-see-suggestions"></a>Aktivera active learning för att se förslag
+
+Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor. När du aktiverar active inlärning måste skicka information från klientappen till QnA Maker. Mer information finns i [arkitektoniska flöde för att använda GenerateAnswer och träna API: er från en robot](#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
 1. Välj **publicera** att publicera i knowledge base. Aktiv inlärning frågor samlas in från GenerateAnswer API förutsägelse slutpunkten endast. Frågorna till rutan i QnA Maker portal inverkar inte aktiv inlärning.
 
-1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i övre högra hörnet.  
+1. Om du vill aktivera active learning på QnA Maker-portalen, går du till det övre högra hörnet, väljer din **namn**går du till [ **tjänstinställningar**](https://www.qnamaker.ai/UserSettings).  
 
-    ![Aktivera aktiv inlärning föreslagna fråga alternativ från tjänstinställningssidan. Välj användarnamnet i den övre högra menyn och välj sedan inställningarna för tjänsten.](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Aktivera aktiv inlärning föreslagna fråga alternativ från tjänstinställningssidan. Välj ditt användarnamn på menyn längst upp till höger och välj sedan inställningarna för tjänsten.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Hitta QnA Maker-tjänsten och sedan växla **aktiv inlärning**. 
 
     [![Växla om funktionen aktiv inlärning på inställningssidan för tjänsten. Om det inte går att växla funktionen, kan du behöva uppgradera din tjänst.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
-    En gång **aktiv inlärning** är aktiverad, kunskap föreslår nya frågor med jämna mellanrum baserat på Användarinitierat frågor. Du kan inaktivera **aktiv inlärning** genom att ändra inställningen igen.
+    En gång **aktiv inlärning** är aktiverad, kunskapsbasen föreslår nya frågor med jämna mellanrum baserat på Användarinitierat frågor. Du kan inaktivera **aktiv inlärning** genom att ändra inställningen igen.
 
-## <a name="add-active-learning-suggestion-to-knowledge-base"></a>Lägg till aktiv inlärning förslag till kunskapsbas
+## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Godkänna en aktiv inlärning förslag i knowledge base
 
 1. Om du vill se de föreslagna frågorna på den **redigera** kunskapsbas markerar **Visningsalternativ**och välj sedan **visa aktiv inlärning förslag**. 
 
@@ -83,25 +85,35 @@ Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor.
 
     [![Med filtret genom att visa/dölj förslag för att visa endast aktiv inlärning föreslagna fråga alternativ.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1.  Varje fråga med förslag visar nya frågor med en bock `✔` , för att godkänna frågan eller en `x` att avvisa förslagen. Klicka på bockmarkeringen för att lägga till frågan. 
+1. Varje par med frågor och svar föreslår nya fråga alternativen med en bock `✔` , för att godkänna frågan eller en `x` att avvisa förslagen. Klicka på bockmarkeringen för att lägga till frågan. 
 
     [![Välj eller avvisa aktiv inlärning föreslagna fråga alternativ genom att välja grön bock eller red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    Du kan lägga till eller ta bort _alla förslag_ genom att välja **Lägg till alla** eller **avvisa alla**.
+    Du kan lägga till eller ta bort _alla förslag_ genom att välja **Lägg till alla** eller **avvisa alla** i kontextuella verktygsfältet.
 
 1. Välj **spara och träna** att spara ändringarna i kunskapsbasen.
 
-1. Välj **publicera** så att ändringarna ska vara tillgängliga från GenerateAnswer-API: et.
+1. Välj **publicera** så att ändringarna ska vara tillgängliga från den [GenerateAnswer API](metadata-generateanswer-usage.md#generateanswer-request-configuration).
 
-    När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa.
+    När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker alternativa frågor som du kan godkänna eller avvisa.
 
-## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Fastställa bästa valet när flera frågor har liknande resultat
 
-När en fråga är för nära andra frågor i poäng, kan klient-programmets utvecklare du be för information.
+<a name="#score-proximity-between-knowledge-base-questions"></a>
 
-### <a name="use-the-top-property-in-the-generateanswer-request"></a>Använd egenskapen längst upp i GenerateAnswer begäran
+### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Arkitektoniska flöde för att använda GenerateAnswer och träna API: er från en robot
 
-När du skickar en fråga till QnA Maker efter svar, kan en del av JSON-texten för att returnera fler än ett övre svar:
+En bot eller andra klientprogram ska använda följande arkitektoniska flöde för att använda aktiv inlärning:
+
+* Bot [får svaret från kunskapsbasen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API med hjälp av den `top` egenskapen för att hämta ett antal svar.
+* Bot avgör explicit feedback:
+    * Använda din egen [anpassad affärslogik](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtrera bort låg poäng.
+    * Visa lista över möjliga svar till användaren i bot eller klientprogram, och få användarens valda svar.
+* Bot [skickar valda svar tillbaka till QnA Maker](#bot-framework-sample-code) med den [träna API](#train-api).
+
+
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Använd egenskapen längst upp i GenerateAnswer begäran för att få flera matchande svar
+
+När du skickar en fråga till QnA Maker efter ett svar på `top` egenskapen för JSON-texten anger antalet svar ska returneras. 
 
 ```json
 {
@@ -111,7 +123,9 @@ När du skickar en fråga till QnA Maker efter svar, kan en del av JSON-texten f
 }
 ```
 
-När klientprogrammet (till exempel en chattrobot) tar emot svaret, returneras på 3 viktiga frågor:
+### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Använd egenskapen poäng tillsammans med affärslogik för att få svar på Visa användare
+
+När klientprogrammet (till exempel en chattrobot) tar emot svaret, returneras på 3 viktiga frågor. Använd den `score` egenskapen att analysera avståndet mellan poäng. Det här närhet intervallet bestäms av egen affärslogik. 
 
 ```json
 {
@@ -150,13 +164,11 @@ När klientprogrammet (till exempel en chattrobot) tar emot svaret, returneras p
 }
 ```
 
-### <a name="client-application-follow-up-when-questions-have-similar-scores"></a>Klienten programmet uppföljning när frågor har liknande resultat
+## <a name="client-application-follow-up-when-questions-have-similar-scores"></a>Klienten programmet uppföljning när frågor har liknande resultat
 
-Visar alla frågor i klientprogrammet med ett alternativ för att användaren väljer frågan som representerar sin avsikt. 
+Ditt klientprogram visar frågor med ett alternativ för att användaren väljer _enskild fråga_ som representerar sin avsikt. 
 
 När användaren väljer en av de befintliga frågorna, skickar klientprogrammet användarens val som feedback med QnA Maker träna API. Denna feedback är klar med aktivt learning feedback-loop. 
-
-Använd den [Azure Bot exempel](https://aka.ms/activelearningsamplebot) att se aktiv inlärning i ett scenario för slutpunkt till slutpunkt.
 
 ## <a name="train-api"></a>Träna API
 
@@ -173,8 +185,8 @@ Content-Type: application/json
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
 |Host subdomain|Resursnamnet för QnAMaker|string|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Sidhuvud|Innehållstyp|string|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
-|Sidhuvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
+|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Utbildning feedback|
 
 JSON-texten har flera inställningar:
@@ -204,6 +216,121 @@ Ett lyckat svar returneras statusen 204 och inget JSON-svarstexten.
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
+## <a name="bot-framework-sample-code"></a>Exempelkod för bot framework
+
+Din bot framework-kod måste anropa API träna om användarens fråga som ska användas för aktiv inlärning. Det finns två typer av kod för att skriva:
+
+* Fastställer om frågan ska användas för aktiv inlärning
+* Skicka fråga till QnA Maker träna API för aktiv inlärning
+
+I den [Azure Bot exemplet](https://aka.ms/activelearningsamplebot), båda dessa aktiviteter planerats. 
+
+### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exempel C# koden för att träna API med Bot Framework 4.x
+
+Följande kod visar hur du skickar information till QnA Maker med Train-API. Detta [hela kodexemplet](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) finns på GitHub.
+
+```csharp
+public class FeedbackRecords
+{
+    // <summary>
+    /// List of feedback records
+    /// </summary>
+    [JsonProperty("feedbackRecords")]
+    public FeedbackRecord[] Records { get; set; }
+}
+
+/// <summary>
+/// Active learning feedback record
+/// </summary>
+public class FeedbackRecord
+{
+    /// <summary>
+    /// User id
+    /// </summary>
+    public string UserId { get; set; }
+
+    /// <summary>
+    /// User question
+    /// </summary>
+    public string UserQuestion { get; set; }
+
+    /// <summary>
+    /// QnA Id
+    /// </summary>
+    public int QnaId { get; set; }
+}
+
+/// <summary>
+/// Method to call REST-based QnAMaker Train API for Active Learning
+/// </summary>
+/// <param name="host">Endpoint host of the runtime</param>
+/// <param name="FeedbackRecords">Feedback records train API</param>
+/// <param name="kbId">Knowledgebase Id</param>
+/// <param name="key">Endpoint key</param>
+/// <param name="cancellationToken"> Cancellation token</param>
+public async static void CallTrain(string host, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
+{
+    var uri = host + "/knowledgebases/" + kbId + "/train/";
+
+    using (var client = new HttpClient())
+    {
+        using (var request = new HttpRequestMessage())
+        {
+            request.Method = HttpMethod.Post;
+            request.RequestUri = new Uri(uri);
+            request.Content = new StringContent(JsonConvert.SerializeObject(feedbackRecords), Encoding.UTF8, "application/json");
+            request.Headers.Add("Authorization", "EndpointKey " + key);
+
+            var response = await client.SendAsync(request, cancellationToken);
+            await response.Content.ReadAsStringAsync();
+        }
+    }
+}
+```
+
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Node.js-kodexempel för träna API med Bot Framework 4.x 
+
+Följande kod visar hur du skickar information till QnA Maker med Train-API. Detta [hela kodexemplet](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) finns på GitHub.
+
+```javascript
+async callTrain(stepContext){
+
+    var trainResponses = stepContext.values[this.qnaData];
+    var currentQuery = stepContext.values[this.currentQuery];
+
+    if(trainResponses.length > 1){
+        var reply = stepContext.context.activity.text;
+        var qnaResults = trainResponses.filter(r => r.questions[0] == reply);
+
+        if(qnaResults.length > 0){
+
+            stepContext.values[this.qnaData] = qnaResults;
+
+            var feedbackRecords = {
+                FeedbackRecords:[
+                    {
+                        UserId:stepContext.context.activity.id,
+                        UserQuestion: currentQuery,
+                        QnaId: qnaResults[0].id
+                    }
+                ]
+            };
+
+            // Call Active Learning Train API
+            this.activeLearningHelper.callTrain(this.qnaMaker.endpoint.host, feedbackRecords, this.qnaMaker.endpoint.knowledgeBaseId, this.qnaMaker.endpoint.endpointKey);
+            
+            return await stepContext.next(qnaResults);
+        }
+        else{
+
+            return await stepContext.endDialog();
+        }
+    }
+
+    return await stepContext.next(stepContext.result);
+}
+```
+
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktiv inlärning sparas i den exporterade kunskapsbasen
 
 När din app har aktiv inlärning aktiverat, och du exportera en app i `SuggestedQuestions` kolumnen i filen tsv behåller data aktiv inlärning. 
@@ -228,6 +355,10 @@ Den `SuggestedQuestions` kolumnen är ett JSON-objekt av information om implicit
 ```
 
 När du importera den här appen fortsätter aktiv inlärning att samla in information och rekommendera förslag på kunskapsbasen. 
+
+## <a name="best-practices"></a>Bästa praxis
+
+Metodtips när du använder aktiv inlärning finns [bästa praxis](../Concepts/best-practices.md#active-learning).
 
 ## <a name="next-steps"></a>Nästa steg
  

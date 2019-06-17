@@ -16,10 +16,10 @@ ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cb96f4aaef461d049ca496780d542ad7db229e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307768"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av mallar
@@ -32,7 +32,7 @@ I den här artikeln med distributionsmallen Azure Resource Manager-du lära dig 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Om du är bekant med hjälp av mall för distribution av Azure Resource Manager kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
+- Om du är bekant med hjälp av mall för distribution av Azure Resource Manager kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar

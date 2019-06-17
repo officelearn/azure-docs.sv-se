@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411377"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Strömmande slutpunkten (ursprungliga)-fel 
@@ -48,7 +48,7 @@ Förfrågan tillåts inte på grund av något av följande orsaker:
 |MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |Kryptering krävs för innehållet, leveransprincip krävs för utdataformat. |
 |MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |Kryptering har inte angetts i inställningar för leverans. |
 
-## <a name="404-not-found"></a>404 Kunde ej hittas
+## <a name="404-not-found"></a>404 Hittades inte
 
 Åtgärden försöker att agera på en resurs som inte längre finns. Till exempel kan resursen har redan tagits bort.
 

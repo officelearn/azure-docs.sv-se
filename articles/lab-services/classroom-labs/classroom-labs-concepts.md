@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067379"
 ---
 # <a name="classroom-labs-concepts"></a>Classroom Labs-begrepp
 I följande lista innehåller huvudbegrepp Lab Services och definitioner:
 
 ## <a name="quota"></a>Kvot
-Kvoten är tidsgränsen (i timmar) som en lärare kan ställa in för en student att använda ett labb VM. Det kan anges till 0, obegränsat eller ett visst antal timmar. Om kvoten har angetts till 0, kan en student bara använda den virtuella datorn när ett schema körs eller när en lärare sätter manuellt på den virtuella datorn för studenter.
+Kvoten är tidsgränsen (i timmar) som en lärare kan ställa in för en student att använda ett labb VM. Det kan anges till 0 eller ett visst antal timmar. Om kvoten har angetts till 0, kan en student bara använda den virtuella datorn när ett schema körs eller när en lärare sätter manuellt på den virtuella datorn för studenter.
  
 ## <a name="schedules"></a>Scheman
 Scheman är tid (en gång eller återkommande) som en lärare kan skapa för klassen. Alla virtuella datorer i labbet startas automatiskt i början till schemat och de stoppas i slutet av schemat. Kvot timmar används inte när ett schema körs.

@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761973"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
@@ -35,7 +35,7 @@ JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (post
 
 **Indata**:
 
-| Skapa | Time | Vikt |
+| Skapa | Tid | Vikt |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +68,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | LicensePlate | Time |
+| Skapa | LicensePlate | Tid |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Utdata**:
 
-| Skapa | LicensePlate | Time |
+| Skapa | LicensePlate | Tid |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +100,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Utdata**:
 
-| CarsPassed | Time |
+| CarsPassed | Tid |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Output1**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Output2**:
 
-| Skapa | Time | Count |
+| Skapa | Tid | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Exempel:
 
 **Indata**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Exempel:
 
 **Utdata:**
 
-| CountMake | Time |
+| CountMake | Tid |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**Förklaring:**
+**Förklaring:** 
 **antal (DISTINKTA Kontrollera)** returnerar antalet distinkta värden i den **gör** kolumnen inom ett tidsintervall.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Exempel på sökfråga: Fastställa om ett värde har ändrats
@@ -247,14 +247,14 @@ GROUP BY
 
 **Indata**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Utdata**:
 
-| Skapa | Time |
+| Skapa | Tid |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Indata**:
 
-| LicensePlate | Skapa | Time |
+| LicensePlate | Skapa | Tid |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Utdata**:
 
-| LicensePlate | Skapa | Time |
+| LicensePlate | Skapa | Tid |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +310,7 @@ GROUP BY
 
 Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i varje 10 minuters intervall.
 
-| LicensePlate | Skapa | Time |
+| LicensePlate | Skapa | Tid |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
 
 **Indata**:
 
-| LicensePlate | Skapa | Time |
+| LicensePlate | Skapa | Tid |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
 
 **Utdata**:
 
-| LicensePlate | Skapa | Time |
+| LicensePlate | Skapa | Tid |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Indata**:
 
-| Skapa | LicensePlate | Time |
+| Skapa | LicensePlate | Tid |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Utdata**:
 
-| Skapa | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Skapa | Tid | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,14 +422,14 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Indata**:  
 
-| Användare | Funktion | Händelse | Time |
+| Användare | Funktion | Händelse | Tid |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Starta |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Slut |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |slutpunkt |2015-01-01T00:00:08.0000000Z |
 
 **Utdata**:  
 
-| Användare | Funktion | Giltighetstid |
+| Användare | Funktion | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -443,7 +443,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
         Event = 'end'
 ```
 
-**Förklaring**: Använd den **senaste** funktionen för att hämta senaste **tid** värde när händelsetyp var **starta**. Den **senaste** använder **PARTITION BY [user]** att indikera att resultatet beräknas per unika användare. Frågan har 1 timme maxgränsen för tidsskillnaden mellan **starta** och **stoppa** händelser, men kan konfigureras vid behov **(GRÄNSEN DURATION(hour, 1)**.
+**Förklaring**: Använd den **senaste** funktionen för att hämta senaste **tid** värde när händelsetyp var **starta**. Den **senaste** använder **PARTITION BY [user]** att indikera att resultatet beräknas per unika användare. Frågan har 1 timme maxgränsen för tidsskillnaden mellan **starta** och **stoppa** händelser, men kan konfigureras vid behov **(GRÄNSEN DURATION(hour, 1)** .
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Exempel på sökfråga: Identifiera varaktigheten för ett villkor
 **Beskrivning**: Ta reda på hur lång tid en tillstånd inträffade.
@@ -451,7 +451,7 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
 
 **Indata**:
 
-| Skapa | Time | Vikt |
+| Skapa | Tid | Vikt |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -506,7 +506,7 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Utdata (första 10 raderna)**:
+**Utdata (första 10 raderna)** :
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
@@ -614,7 +614,7 @@ WHERE
 
 **Indata**:
 
-| LicensePlate | Skapa | Time | TollID |
+| LicensePlate | Skapa | Tid | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -655,7 +655,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Indata**:  
 
-| DeviceId | Time | Attribut | Value |
+| DeviceId | Tid | Attribut | Värde |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |

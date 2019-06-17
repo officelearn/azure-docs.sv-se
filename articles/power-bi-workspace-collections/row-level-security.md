@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715196"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Säkerhet på postnivå med Power BI-arbetsytesamlingar
@@ -48,7 +48,7 @@ Här följer några saker att Observera med schemat:
 
 * Alla åtgärder som **totalförsäljning**, lagras i den **försäljning** faktatabell.
 * Det finns fyra ytterligare relaterade dimensionstabeller: **Objektet**, **tid**, **Store**, och **distrikt**.
-* Pilar på relationsraderna visar hur filter kan flöda från en tabell till en annan. Exempel: om ett filter är placerat på **tid [Date]**, i det aktuella schemat filtrerar den bara ned värdena i den **försäljning** tabell. Inga andra tabeller kan påverkas av det här filtret eftersom alla pilar i relationsraderna pekar på försäljningstabellen och inte bort.
+* Pilar på relationsraderna visar hur filter kan flöda från en tabell till en annan. Exempel: om ett filter är placerat på **tid [Date]** , i det aktuella schemat filtrerar den bara ned värdena i den **försäljning** tabell. Inga andra tabeller kan påverkas av det här filtret eftersom alla pilar i relationsraderna pekar på försäljningstabellen och inte bort.
 * Den **distrikt** tabell visar vem som är chef för varje distrikt:
   
   ![Distrikt tabellrader](media/row-level-security/district-table-4.png)

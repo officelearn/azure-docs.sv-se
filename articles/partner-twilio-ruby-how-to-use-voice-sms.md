@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457659"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Använda Twilio för röst- och SMS-funktioner i Ruby
@@ -52,16 +52,16 @@ Twilio-verb är XML-taggar som talar om för Twilio vad du **gör**. Till exempe
 
 Här följer en lista över Twilio-verb.
 
-* **&lt;Dial&gt;**: Ansluter anroparen till en annan telefon.
-* **&lt;Gather&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
-* **&lt;Hangup&gt;**: Slutar ett anrop.
-* **&lt;Play&gt;**: Spelar upp en ljudfil.
-* **&lt;Pause&gt;**: Väntar tyst under ett angivet antal sekunder.
-* **&lt;Post&gt;**: Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* **&lt;Redirect&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Reject&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
-* **&lt;Say&gt;**: Konverterar text till tal som görs på ett anrop.
-* **&lt;Sms&gt;**: Skickar ett SMS-meddelande.
+* **&lt;Dial&gt;** : Ansluter anroparen till en annan telefon.
+* **&lt;Gather&gt;** : Samlar in siffror som anges på telefon-tangentbordet.
+* **&lt;Hangup&gt;** : Slutar ett anrop.
+* **&lt;Play&gt;** : Spelar upp en ljudfil.
+* **&lt;Pause&gt;** : Väntar tyst under ett angivet antal sekunder.
+* **&lt;Post&gt;** : Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt;Redirect&gt;** : Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
+* **&lt;Reject&gt;** : Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
+* **&lt;Say&gt;** : Konverterar text till tal som görs på ett anrop.
+* **&lt;Sms&gt;** : Skickar ett SMS-meddelande.
 
 Läs mer om Twilio-verb, deras attribut och TwiML [TwiML][twiml]. Mer information om Twilio-API finns i [Twilio-API][twilio_api].
 

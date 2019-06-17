@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 01877e4d982433608dd10fb44f2506b8bf71aff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33d6ddb4434813e87e0fa1be3b5335795e9774cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Självstudier: Azure Active Directory-integrering med Bugsnag
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Bugsnag i Azure AD måste du lägga till B
 
 **Utför följande steg för att lägga till Bugsnag från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -191,4 +191,4 @@ När du klickar på Bugsnag-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

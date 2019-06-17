@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudier: Azure Active Directory-integrering med Jitbit Helpdesk
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Jitbit Helpdesk i Azure AD, som du behöver 
 
 **Utför följande steg för att lägga till Jitbit Helpdesk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -232,7 +232,7 @@ För att aktivera Azure AD-användare att logga in på Jitbit Helpdesk, måste d
 
    a. I den **användarnamn** textrutan typ användarnamnet för användaren som **BrittaSimon**.
 
-   b. I den **e-post** textrutan e-post för användaren som **BrittaSimon@contoso.com**.
+   b. I den **e-post** textrutan e-post för användaren som **BrittaSimon@contoso.com** .
 
    c. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
@@ -255,4 +255,4 @@ När du klickar på panelen Jitbit Helpdesk i åtkomstpanelen, bör det vara log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -14,14 +14,14 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389046"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Flytta data från ODBC-datalager med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-odbc-connector.md)
 > * [Version 2 (aktuell version)](../connector-odbc.md)
 
@@ -65,7 +65,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller beskrivning för JSON-element som är specifika för ODBC-länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesOdbc** |Ja |
 | connectionString |Den icke-autentiseringsuppgifter delen av anslutningssträngen och en valfri krypterade autentiseringsuppgifter. Se exemplen i följande avsnitt. <br/><br/>Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) som du har konfigurerat på gateway-datorn med `"DSN=<name of the DSN>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta). |Ja |
@@ -137,7 +137,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **RelationalTable** (som inkluderar ODBC datauppsättning) har följande egenskaper
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i ODBC-datalager. |Ja |
 
@@ -148,7 +148,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som inkluderar ODBC), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 

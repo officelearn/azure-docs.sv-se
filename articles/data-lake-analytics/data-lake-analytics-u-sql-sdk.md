@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813549"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Kör och testa U-SQL med Azure Data Lake U-SQL SDK
@@ -338,7 +338,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Egenskaper**
 
-|Egenskap |Typ|Beskrivning|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |AlgebraPath|string|Sökvägen till filen algebra (algebra filen är ett av kompileringsresultaten)|
 |CodeBehindReferences|string|Om skriptet innehåller ytterligare koden bakom referenser, anger sökvägar avgränsade med ””;|
@@ -364,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Metod**
 
-|Metod|Beskrivning|Returnera|Parameter|
+|Metod|Beskrivning|Gå tillbaka|Parameter|
 |------|-----------|------|---------|
 |offentliga bool DoCompile()|Kompilera U-SQL-skript|SANT om åtgärden lyckades| |
 |offentliga bool DoExec()|Kör det kompilerade resultat|SANT om åtgärden lyckades| |

@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977903"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
@@ -71,7 +71,7 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 
 * **Aviseringsplats**: Vi rekommenderar minst 3/5 platser. Optimal relationen mellan aviseringsplats och antalet testplatser är **aviseringsplats** = **antal testplatser** – 2, med minst fem testa platser.
 
-## <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
+## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
 
 > [!NOTE]
@@ -320,7 +320,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
     Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av lastbalanserare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange radslut vilket överskrider HTTP-specifikationen och därför misslyckas valideringen på .NET WebRequest-nivån. Kontrollera svaret för att hitta huvuden som kan vara felaktiga.
     
-    Anteckning: URL: en kanske inte är felaktig på webbläsare som har en Avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Obs! URL: en kanske inte är felaktig på webbläsare som har en Avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Jag ser inte någon relaterad telemetri på serversidan för att diagnostisera testfel?*
     

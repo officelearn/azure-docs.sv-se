@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602284"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Slutför en åtkomstgranskning i Azure-resursroller i PIM
@@ -47,10 +47,10 @@ Alla åtkomstgranskningar har ett slutdatum, men du kan använda den **stoppa** 
 ### <a name="reset"></a>Återställ
 Du kan återställa en åtkomstgranskning för att ta bort alla beslut som görs på den. När du har återställt en åtkomstgranskning, alla användare är markerade som ej granskade igen. 
 
-### <a name="apply"></a>Tillämpa
+### <a name="apply"></a>Använd
 När en åtkomstgranskning är klar kan du använda den **tillämpa** knappen för att implementera resultatet av granskningen. Om en användares åtkomst nekades i granskningen, det här steget tar du bort deras rolltilldelning.  
 
-### <a name="delete"></a>Radera
+### <a name="delete"></a>Ta bort
 Om du inte är intresserad av granskningen längre, kan du ta bort den. Den **ta bort** knappen tar bort granskningen från PIM-programmet.
 
 ## <a name="results"></a>Resultat

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070673"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellen och partitionera data i Azure Cosmos DB med ett verkliga exempel
 
@@ -479,7 +479,7 @@ Så för att optimera den här senaste begäran vi introducera en tredje behåll
 
 Den här behållaren har partitionerats med `type`, som alltid kommer att vara `post` i våra artiklar. Gör som säkerställer att alla objekt i den här behållaren ska vara i samma partition.
 
-För att uppnå denormalisering, behöver vi bara koppla på ändringsflödet pipeline som tidigare har vi lagt för att skicka ut inlägg till den nya behållaren. En viktig sak till utan tänka på är att vi måste se till att vi bara lagrar 100 senaste inläggen; i annat fall kan innehållet i behållaren växa överskrider den maximala storleken för en partition. Detta görs genom att anropa en [efter utlösaren](stored-procedures-triggers-udfs.md#triggers) varje gång ett dokument läggs till i behållaren:
+För att uppnå denormalisering, behöver vi bara koppla på ändringsflödet pipeline som tidigare har vi lagt för att skicka ut inlägg till den nya behållaren. En viktig sak att ha i åtanke är att vi måste se till att vi bara lagrar 100 senaste inläggen; i annat fall kan innehållet i behållaren växa överskrider den maximala storleken för en partition. Detta görs genom att anropa en [efter utlösaren](stored-procedures-triggers-udfs.md#triggers) varje gång ett dokument läggs till i behållaren:
 
 ![Avnormalisera inlägg till feed behållaren](./media/how-to-model-partition-example/denormalization-3.png)
 

@@ -11,10 +11,10 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61078099"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
@@ -209,13 +209,13 @@ Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella 
 
 1. Skapa en länk från **Hämta status** till **Start-AzureRmVM**.<br> ![Runbook med kodmodul](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Klicka på länken och ändra **Använd villkor** till **Ja** i fönstret Konfiguration. Observera att länken förvandlas till en streckad linje vilket betyder att målaktiviteten endast körs om villkoret är sant.  
-1. För **Villkorsuttryck** skriver du *$ActivityOutput['Hämta status'] -eq "Stoppad"*. Nu körs **Start-AzureRmVM** bara om den virtuella datorn har stoppats.
+1. För **Villkorsuttryck** skriver du *$ActivityOutput['Hämta status'] -eq "Stoppad"* . Nu körs **Start-AzureRmVM** bara om den virtuella datorn har stoppats.
 1. Expandera **Cmdlets** och sedan **Microsoft.PowerShell.Utility** i bibliotekskontrollen.
 1. Lägg till **Write-Output** på arbetsytan två gånger.
 1. I den första **Write-Output**-kontrollen klickar du på **Parametrar** och ändrar värdet för **Etikett** till *Meddela att den virtuella datorn har startat*.
-1. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"$VMName har startat."*.
+1. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"$VMName har startat."* .
 1. I den andra **Write-Output**-kontrollen klickar du på **Parametrar** och ändrar värdet för **Etikett** till *Meddela att det inte gick att starta den virtuella datorn*
-1. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"Det gick inte att starta $VMName."*.
+1. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"Det gick inte att starta $VMName."* .
 1. Skapa en länk från **Start-AzureRmVM** till **Meddela att den virtuella datorn har startat** och **Meddela att det inte gick att starta den virtuella datorn**.
 1. Välj länken till **Meddela att den virtuella datorn har startat** och ändra **Använd villkor** till **Sant**.
 1. För **Villkorsuttryck** skriver du *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Nu körs den här Write-Output-kontrollen bara om den virtuella datorn har startats.

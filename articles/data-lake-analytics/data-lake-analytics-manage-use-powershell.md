@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156427"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
@@ -84,7 +84,7 @@ Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential 
 ## <a name="manage-accounts"></a>Hantera konton
 
 
-### <a name="list-accounts"></a>Lista konton
+### <a name="list-accounts"></a>Lista över konton
 
 ```powershell
 # List Data Lake Analytics accounts within the current subscription.
@@ -242,8 +242,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Använd den `-Result` parametern för att identifiera om avslutade jobb har slutförts. Den har dessa värden:
 
-* Annullerad
-* Fungerar inte
+* Har avbrutits
+* Misslyckad
 * Ingen
 * Lyckades
 

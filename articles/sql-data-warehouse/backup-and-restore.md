@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236569"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
@@ -27,7 +27,7 @@ En *data warehouse ögonblicksbild* skapar en återställningspunkt som du kan a
 
 En *datalager återställning* är ett nytt datalager som har skapats från en återställningspunkt för en befintlig eller borttagna data warehouse. Återställa ditt informationslager är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom den återskapar dina data efter oavsiktliga skador eller tas bort. Data warehouse är också en kraftfull mekanism för att skapa kopior av ditt informationslager för test- eller utvecklingsmiljö.  SQL Data Warehouse återställning priser kan variera beroende på databasens storlek och plats för källa och mål-datalagret. I genomsnitt inom samma region ta återställning priserna vanligtvis cirka 20 minuter. 
 
-## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
+## <a name="automatic-restore-points"></a>Automatisk återställningspunkter
 
 Ögonblicksbilder är en inbyggd funktion i tjänsten som skapar återställningspunkter. Du behöver inte aktivera den här funktionen. Automatiska återställningspunkter för närvarande kan inte tas bort av användare där tjänsten använder dessa återställningspunkter pekar Underhåll serviceavtal för återställning.
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764330"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Aktiviteten för gruppverifiering i Azure Data Factory
@@ -59,10 +59,10 @@ Du kan använda en verifiering i en pipeline för att säkerställa att pipeline
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-namn | Namnet på 'Verifiera'-aktivitet | String | Ja |
-typ | Måste vara inställt på **verifiering**. | String | Ja |
+name | Namnet på 'Verifiera'-aktivitet | String | Ja |
+type | Måste vara inställt på **verifiering**. | String | Ja |
 dataset | Aktiviteten ska blockera körning tills den här datauppsättningen referensen har verifierats finns och att den uppfyller de angivna villkoren eller timeout har uppnåtts. Datauppsättning som angetts ska ha stöd för egenskapen ”MinimumSize” eller ”ChildItems”. | Datamängdsreferens | Ja |
 timeout | Anger tidsgränsen för aktivitetens körning. Om inget värde anges är standardvärdet sju dagar (”7.00:00:00”). Formatet är d.hh:mm:ss | String | Nej |
 Strömsparläge | En fördröjning i sekunder mellan försöken för verifiering. Om inget värde anges är standardvärdet 10 sekunder. | Integer | Nej |

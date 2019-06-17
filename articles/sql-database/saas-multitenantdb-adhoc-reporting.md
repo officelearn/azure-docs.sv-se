@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485831"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra ad hoc-analysfrågor över flera Azure SQL-databaser
@@ -96,7 +96,7 @@ Den här övningen lägger till schemat (extern datakälla och definitioner av e
 
     ![Skapa extern datakälla](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   De externa tabeller som refererar till klienttabeller definieras med **DISTRIBUTION = SHARDED(VenueId)**. Detta skickar en fråga för en viss *VenueId* till rätt databas och förbättrar prestandan för många scenarier som du ser i nästa avsnitt.
+   De externa tabeller som refererar till klienttabeller definieras med **DISTRIBUTION = SHARDED(VenueId)** . Detta skickar en fråga för en viss *VenueId* till rätt databas och förbättrar prestandan för många scenarier som du ser i nästa avsnitt.
 
     ![Skapa externa tabeller](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

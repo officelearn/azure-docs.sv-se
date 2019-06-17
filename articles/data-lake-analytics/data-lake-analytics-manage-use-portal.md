@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813448"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure portal
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs** > **information + analys** > **Datasjöanalys**.
 3. Välj värden för följande objekt: 
-   1. **Namn**: Namnet på Data Lake Analytics-kontot.
+   1. **Namn på**: Namnet på Data Lake Analytics-kontot.
    2. **Prenumeration**: Den Azure-prenumeration som används för kontot.
    3. **Resursgrupp**: Azure-resursgruppen där kontot skapas i. 
    4. **Plats**: Azure-datacentret för Data Lake Analytics-kontot. 
@@ -111,7 +111,7 @@ Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp 
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Lägg till användare eller säkerhetsgrupper i ett Data Lake Analytics-konto
 
 1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. Klicka på **åtkomstkontroll (IAM)** > **Lägg till rolltilldelning**.
+2. Klicka på **åtkomstkontroll (IAM)**  > **Lägg till rolltilldelning**.
 3. Välj en roll.
 4. Lägg till en användare.
 5. Klicka på **OK**.

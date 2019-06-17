@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d9745bdb1cb6de86a96946564865958433d49732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Självstudier: Azure Active Directory-integrering med Ziflow
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Ziflow i Azure AD, som du behöver lägga ti
 
 **Utför följande steg för att lägga till Ziflow från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -247,5 +247,5 @@ När du klickar på panelen Ziflow i åtkomstpanelen, bör det vara loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

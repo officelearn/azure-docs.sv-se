@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565726"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
@@ -121,9 +121,9 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 > 
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap                      | Beskrivning                              | Krävs |
+| Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
-| typ                         | Ange typegenskapen som **HDInsightOnDemand**. | Ja      |
+| type                         | Ange typegenskapen som **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antal arbetare och datanoder i klustret. HDInsight-klustret har skapats med 2 huvudnoder, förutom antalet arbetsnoder som du anger för den här egenskapen. Noderna är storleken Standard_D3 som har 4 kärnor. En 4-worker nodkluster tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder plus 2\*4 = 8 kärnor för huvudnoder). Mer information om den Standard_D3 nivån finns [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | Tillåtna inaktivitetstiden för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiv när en aktivitet körningen har slutförts, om det finns inga aktiva jobb i klustret.<br /><br />Till exempel om en aktivitet kör tar 6 minuter och **timeToLive** är inställd på 5 minuter, kluster är kvar alive i 5 minuter efter 6 minuter bearbeta den aktivitet som körs. Om en annan aktivitet som kör körs i fönstret 6 minuter, bearbetas den av samma kluster.<br /><br />Det är en kostsam åtgärd (det kan ta ett tag) för att skapa ett HDInsight-kluster på begäran. Använd den här inställningen som behövs för att förbättra prestanda för en data factory genom att återanvända ett HDInsight-kluster på begäran.<br /><br />Om du ställer in den **timeToLive** värde att **0**, klustret tas bort när aktiviteten körs har slutförts. Men om du ställer in ett högt värde för kan klustret Behåll inaktiv, onödigt lett till höga kostnader. Det är viktigt att ange ett lämpligt värde utifrån dina behov.<br /><br />Om den **timeToLive** har angetts på rätt sätt måste flera pipelines kan dela instansen av HDInsight-kluster på begäran. | Ja      |
 | version                      | Versionen av HDInsight-klustret. Tillåtna HDInsight-versioner, se [stöds HDInsight versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Om värdet inte anges, den [senaste HDI-standardversion](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) används. | Nej       |
@@ -144,7 +144,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap               | Beskrivning                              | Obligatoriskt |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar core (core-site.xml) för att skapa HDInsight-klustret. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -197,7 +197,7 @@ Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följand
 ### <a name="node-sizes"></a>Nodstorlekar
 Om du vill ange storleken på huvudnoder, datanoder och ZooKeeper-noder, använder du följande egenskaper: 
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Obligatoriskt |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är **Standard_D3**. Mer information finns i [ange nodstorlekar](#specify-node-sizes). | Nej       |
 | dataNodeSize      | Anger storleken på datanod. Standardvärdet är **Standard_D3**. | Nej       |
@@ -215,7 +215,7 @@ Om du vill skapa D4 storlek huvudnoderna och arbetsnoder ange **Standard_D4** so
 
 Om du anger ett felaktigt värde för dessa egenskaper visas följande meddelande:
 
-  Det gick inte att skapa kluster. Undantag: Det går inte att slutföra klustret för att skapa. Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Klustret sörjande tillstånd: ”Fel”. Meddelande: 'PreClusterCreationValidationFailure'. 
+  Det gick inte att skapa kluster. Undantag: Det går inte att slutföra klustret för att skapa. Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Klustret sörjande tillstånd: ”Fel”. meddelande: 'PreClusterCreationValidationFailure'. 
   
 Om du ser det här meddelandet, kontrollera att du använder du cmdlet och API-namn från tabellen i [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md).  
 
@@ -257,11 +257,11 @@ Du kan skapa en länkad HDInsight-tjänst för att registrera ett eget HDInsight
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| typ              | Ange typegenskapen som **HDInsight**. | Ja      |
+| type              | Ange typegenskapen som **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
-| användarnamn          | Namnet på användarkontot du använder för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
+| username          | Namnet på användarkontot du använder för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
 | password          | Lösenordet för användarkontot.   | Ja      |
 | linkedServiceName | Namnet på den länkade storage-tjänst som refererar till Blob-lagring som används av HDInsight-klustret. <p>För närvarande kan ange du inte ett Data Lake Store-länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Data Lake Store från Hive och Pig-skript. </p> | Ja      |
 
@@ -305,9 +305,9 @@ Ett annat alternativ är att tillhandahålla den **batchUri** slutpunkt. Exempel
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| typ              | Ange typegenskapen som **AzureBatch**. | Ja      |
+| type              | Ange typegenskapen som **AzureBatch**. | Ja      |
 | accountName       | Namnet på Batch-kontot.         | Ja      |
 | accessKey         | Åtkomstnyckeln för Batch-kontot.  | Ja      |
 | Poolnamn          | Namnet på poolen med virtuella datorer.    | Ja      |
@@ -332,7 +332,7 @@ Du kan skapa en Machine Learning länkad tjänst för att registrera en Machine 
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap    | Beskrivning                              | Krävs |
+| Egenskap   | Beskrivning                              | Obligatoriskt |
 | ---------- | ---------------------------------------- | -------- |
 | Typ       | Ange typegenskapen som **AzureML**. | Ja      |
 | mlEndpoint | Batchbedömnings-URL: en.                   | Ja      |
@@ -343,9 +343,9 @@ Du kan skapa en Data Lake Analytics-länkad tjänst för att länka en Data Lake
 
 I följande tabell beskrivs de allmänna egenskaper som används i JSON-definition:
 
-| Egenskap                  | Beskrivning                              | Krävs                                 |
+| Egenskap                 | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| typ                 | Ange typegenskapen som **AzureDataLakeAnalytics**. | Ja                                      |
+| type                 | Ange typegenskapen som **AzureDataLakeAnalytics**. | Ja                                      |
 | accountName          | Namnet på Data Lake Analytics-kontot.  | Ja                                      |
 | dataLakeAnalyticsUri | Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | Azure-prenumerations-ID.                    | Nej<br /><br />(Om inte anges används prenumerationen för data factory.) |
@@ -362,7 +362,7 @@ Registrera en program-entitet för att använda autentisering av tjänstens huvu
 
 Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
 
-| Egenskap                 | Beskrivning                              | Krävs |
+| Egenskap                | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Programmets klient-ID.     | Ja      |
 | servicePrincipalKey | Programnyckel.           | Ja      |
@@ -390,9 +390,9 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 #### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 För autentisering av användare autentiseringsuppgifter för Data Lake Analytics, anger du följande egenskaper:
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap          | Beskrivning                              | Obligatoriskt |
 | :---------------- | :--------------------------------------- | :------- |
-| Auktorisering | I Data Factory Editor väljer den **auktorisera** knappen. Ange den autentiseringsuppgift som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja      |
+| authorization | I Data Factory Editor väljer den **auktorisera** knappen. Ange den autentiseringsuppgift som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja      |
 | sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**

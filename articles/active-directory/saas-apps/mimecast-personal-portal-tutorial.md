@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Självstudier: Azure Active Directory-integrering med Mimecast Personal Portal
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Mimecast Personal Portal med Azure AD mås
 
 **Utför följande steg för att lägga till Mimecast Personal Portal från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
     a. I rutan **Inloggnings-URL** anger du en URL: 
 
-    | Region  |  Value | 
+    | Region  |  Värde | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | USA   | `https://us-api.mimecast.com/login/saml`|
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
 
-    | Region  |  Value | 
+    | Region  |  Värde | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | USA   | `https://us-api.mimecast.com/sso/<accountcode>`|    
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
     c. I textrutan **Svars-URL** anger du en URL: 
 
-    | Region  |  Value | 
+    | Region  |  Värde | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | USA   | `https://us-api.mimecast.com/login/saml`|
@@ -290,5 +290,5 @@ När du klickar på panelen för Mimecast Personal Portal på åtkomstpanelen b�
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

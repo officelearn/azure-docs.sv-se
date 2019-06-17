@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573765"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
@@ -291,7 +291,7 @@ Den här frågan är: ”Vad är sannolikheten att en tillgång misslyckas i nä
 
 ![Bild 5. Fel tid förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för flera klassificering för fel tid förutsägelse
 
-Den här frågan är: ”Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter på grund av orsaken/rotproblemet _P<sub>jag</sub>_”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet av en tillgång som ”upphör snart att misslyckas på grund av orsaken _P<sub>jag</sub>_” (etikett = _P<sub>jag</sub>_). Etikettera alla poster som är ”normal” (etikett = 0). I den här metoden är etiketter dessutom kategoriska (se bild 6).
+Den här frågan är: ”Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter på grund av orsaken/rotproblemet _P<sub>jag</sub>_ ”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet av en tillgång som ”upphör snart att misslyckas på grund av orsaken _P<sub>jag</sub>_ ” (etikett = _P<sub>jag</sub>_ ). Etikettera alla poster som är ”normal” (etikett = 0). I den här metoden är etiketter dessutom kategoriska (se bild 6).
 
 ![Bild 6. Rotorsak förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för flera klassificering för rot orsak förutsägelse
 

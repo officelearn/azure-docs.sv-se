@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001216"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering för programmet
@@ -34,7 +34,7 @@ En form av autentiseringsuppgifter som ett program kan använda för autentiseri
 ## <a name="assertion-format"></a>Assertion format
 Om du vill beräkna kontrollen, du kan använda en av många [JSON Web Token](https://jwt.ms/) bibliotek i valfritt språk. Den information som utförs av token är följande:
 
-### <a name="header"></a>Sidhuvud
+### <a name="header"></a>Huvud
 
 | Parameter |  Kommentar |
 | --- | --- |
@@ -53,7 +53,7 @@ Om du vill beräkna kontrollen, du kan använda en av många [JSON Web Token](ht
 | `nbf` | Inte före: det datum som token inte kan användas. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token utfärdats. |
 | `sub` | Ämne: Som för `iss`, ska vara client_id (program-ID för klienttjänsten) |
 
-### <a name="signature"></a>Signatur
+### <a name="signature"></a>signatur
 
 Signaturen är beräknad tillämpa certifikatet enligt beskrivningen i den [JSON Web Token RFC7519-specifikation](https://tools.ietf.org/html/rfc7519)
 

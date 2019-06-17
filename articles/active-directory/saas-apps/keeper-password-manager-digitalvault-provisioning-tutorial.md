@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508559"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudier: Konfigurera sköter Lösenordshanteraren & digitala valv för automatisk användaretablering
@@ -45,7 +45,7 @@ Innan du konfigurerar sköter Lösenordshanteraren & digitala valv för automati
 
 **Utför följande steg för att lägga till sköter Lösenordshanteraren & digitala valvet från Azure AD-programgalleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 9. Klicka på **Spara**.
 

@@ -11,10 +11,10 @@ ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60599567"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logic apps
@@ -407,7 +407,7 @@ Du kan skapa en MVC-webbapp för att visa felposter från Cosmos DB om du vill v
 Här följer exempel på vår MVC-appinformation som skapats med den tidigare beskrivna metoden.
 
 #### <a name="error-management-list"></a>Fel vid hantering av lista
-![Lista över fel](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Fellista](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Fel vid hantering av detaljvy
 ![Information om fel](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)

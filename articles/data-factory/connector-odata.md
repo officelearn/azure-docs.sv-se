@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400122"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiera data från en OData-källan med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-odata-connector.md)
 > * [Aktuell version](connector-odata.md)
 
@@ -46,7 +46,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper har stöd för en OData-länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen måste anges till **OData**. |Ja |
 | url | Rot-URL för OData-tjänsten. |Ja |
@@ -195,7 +195,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från OData-, ange den **typ** egenskapen på datauppsättningen till **ODataResource**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskap måste anges till **ODataResource**. | Ja |
 | path | Sökvägen till OData-resursen. | Ja |
@@ -230,7 +230,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från OData-, ange den **källa** typ i Kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **RelationalSource**. | Ja |
 | query | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs!** OData-koppling kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |

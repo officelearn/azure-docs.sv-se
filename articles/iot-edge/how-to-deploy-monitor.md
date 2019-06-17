@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126377"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
@@ -126,7 +126,7 @@ Eftersom flera distributioner kan samma enhet som mål, bör du ge varje distrib
 1. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här distributionen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`. 
 1. Välj **nästa** att gå vidare till det sista steget.
 
-### <a name="step-6-review-deployment"></a>Steg 6: Granska distributionen
+### <a name="step-6-review-deployment"></a>Steg 6: Granska distribution
 
 Granska information om din distribution, och välj sedan **skicka**.
 

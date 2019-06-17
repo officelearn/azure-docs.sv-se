@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232583"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services 
@@ -58,9 +58,9 @@ I följande tabell beskrivs JWT-token i AMS.
 | Utfärdare | Utfärdaren sträng från valt skydda säkerhetstokentjänst (STS) |
 | --- | --- |
 | Målgrupp |Publik sträng från används STS |
-| Anspråk |En uppsättning anspråk |
+| anspråk |En uppsättning anspråk |
 | NotBefore |Starta tokens giltighet |
-| Går ut |End giltigheten hos token |
+| Upphör att gälla |End giltigheten hos token |
 | SigningCredentials |Den nyckel som delas med PlayReady-servern för fjärrskrivbordslicenser, castLabs licensservern och STS, det kan vara antingen symmetriskt eller asymmetriskt nyckel. |
 
 ### <a name="jwt-token-in-castlabs"></a>JWT-token i castLabs
@@ -71,7 +71,7 @@ I följande tabell beskrivs JWT-token i castLabs.
 | --- | --- |
 | optData |En JSON-sträng som innehåller information om dig. |
 | CRT |En JSON-sträng som innehåller information om tillgången, dess licensrättigheter för information och uppspelning. |
-| IAT |Den aktuella datumet/tiden i epoch. |
+| iat |Den aktuella datumet/tiden i epoch. |
 | jti |En unik identifierare om denna token (varje token kan bara användas en gång i castLabs systemet). |
 
 ## <a name="sample-solution-setup"></a>Exemplet lösning installationen

@@ -3,18 +3,18 @@ title: Definiera en ny enhetstyp i Azure IoT Central | Microsoft Docs
 description: I den här självstudien får du lära dig hur du som byggare definierar en ny enhetstyp i Azure IoT Central-programmet. Du kan definiera telemetri, tillstånd, egenskaper och inställningar för din typ.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056776"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudier: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -398,7 +398,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
     | Inställning      | Värde       |
     | ------------ | ----------- |
-    | Rubrik        | Fläktmotorhändelser |
+    | Titel        | Fläktmotorhändelser |
     | Tidsintervall   | Senaste 30 minuterna |
     | Mått     | Sprider meddelar fel (Välj **synlighet** bredvid **fläkt meddelar fel**) |
 
@@ -424,7 +424,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
     | Inställning                 | Värde         |
     | ----------------------- | ------------- |
-    | Rubrik                   | Enhetsegenskaper |
+    | Titel                   | Enhetsegenskaper |
     | Inställningar och egenskaper | Ange temperatur<br/>Serienummer<br/>Version av inbyggd programvara |
 
     Inställningar och egenskaper som du tidigare har definierat på sidorna **Inställningar och Egenskaper** visas i **Tillgängliga kolumner**.

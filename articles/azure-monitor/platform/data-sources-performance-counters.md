@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205759"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- och Linux prestanda datakällor i Azure Monitor
@@ -90,7 +90,7 @@ Parametrarna i det här elementet beskrivs i följande tabell.
 
 I följande tabell visas de objekt och räknare som du kan ange i konfigurationsfilen.  Det finns ytterligare räknare för vissa program enligt beskrivningen i [samla in prestandaräknare för Linux-program i Azure Monitor](data-sources-linux-applications.md).
 
-| Objektnamn | Räknarnamn |
+| Objektnamn | Namn på räknare |
 |:--|:--|
 | Logisk Disk | % Ledigai-noder |
 | Logisk Disk | Ledigt utrymme i procent |
@@ -187,7 +187,7 @@ Azure Monitor samlar in alla angivna prestandaräknare på sina angivna provinte
 ## <a name="performance-record-properties"></a>Egenskaper för prestanda-post
 Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Dator |Datorn där händelsen har samlats in från. |
 | CounterName |Namnet på prestandaräknaren |

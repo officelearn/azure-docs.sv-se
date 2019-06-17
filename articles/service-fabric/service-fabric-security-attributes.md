@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003063"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Security attribut för Azure Service Fabric
@@ -41,7 +41,7 @@ Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Servic
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-## <a name="detection"></a>Identifiering
+## <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

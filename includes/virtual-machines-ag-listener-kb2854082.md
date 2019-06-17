@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165378"
 ---
 Sedan om alla servrar i klustret kör Windows Server 2008 R2 eller Windows Server 2012 måste du kontrollera att snabbkorrigeringen [KB2854082](https://support.microsoft.com/kb/2854082) installeras på var och en av lokala servrar eller virtuella Azure-datorer som ingår i klustret. En server eller virtuell dator som är i klustret, men inte i tillgänglighetsgruppen, bör du även ha den här snabbkorrigeringen installeras.

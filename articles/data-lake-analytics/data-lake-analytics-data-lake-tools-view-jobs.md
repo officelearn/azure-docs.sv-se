@@ -10,10 +10,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616253"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använd Jobbwebbläsare och Jobbvy för Azure Data Lake Analytics
@@ -46,11 +46,11 @@ Jobbet innehåller:
     
     * Förbereder: Ladda upp skriptet till molnet, när du kompilerar och optimera skriptet med hjälp av tjänsten kompilera.
     * I kö: Jobb ställs i kö när de väntar på tillräckligt med resurser, eller jobb överskrider de maximala samtidiga jobb per konto begränsning. Prioritetsinställningen avgör vilken ordning köade jobb – Ju lägre nummer, desto högre prioritet.
-    * Körs: Jobbet körs faktiskt i Data Lake Analytics-kontot.
+    * Kör: Jobbet körs faktiskt i Data Lake Analytics-kontot.
     * Slutför: Jobbet slutförs (exempelvis Slutför filen).
       
       Jobbet kan misslyckas i varje fas. Till exempel kompileringsfel i förbereda fas, timeout-fel i fasen i kö och körningsfel i körs fas osv.
-  * Grundläggande information
+  * Grundläggande Information
     
       Grundläggande Jobbinformationen visar i den nedre delen av panelen jobbsammanfattning.
     
@@ -62,7 +62,7 @@ Jobbet innehåller:
     * Skicka/Starttid/Sluttid: Den tid när Data Lake Analytics-tjänsten tar emot bidrag/startar jobbet/avslutas jobbet körs eller inte.
     * Kompilering/i kö/körs: Klocktid ägnat åt under fasen för förbereda/i kö/körs.
     * Konto: Data Lake Analytics-kontot som används för att köra jobbet.
-    * Författare: Den användare som skickade jobb, det kan vara en verklig person konto eller ett system.
+    * Skapad av: Den användare som skickade jobb, det kan vara en verklig person konto eller ett system.
     * Prioritet: Prioriteten för jobbet. Ju lägre nummer, desto högre prioritet. Den påverkar bara serie jobb i kön. Inte åsidosätter jobb som körs genom att ställa in en högre prioritet.
     * Parallellitet: Det begärda maximala antalet samtidiga Azure Data Lake Analytics Units (ADLAUs), även kallat hörn. För närvarande ett hörn är lika med en virtuell dator med två virtuella kärnor och sex GB RAM, även om detta kunde uppgraderas i framtiden Data Lake Analytics uppdateras.
     * Byte till vänster: Byte som måste bearbetas tills jobbet har slutförts.
@@ -136,7 +136,7 @@ Jobbet innehåller:
     Du kan utföra vissa åtgärder för metadata i U-SQL-skript, till exempel skapa en databas, ta bort en tabell osv. Dessa åtgärder visas i Metadata-åtgärd efter kompilering. Du kan hitta intyg, skapa entiteter, släpp entiteter här.
   
     ![Åtgärder för metadata för Azure Data Lake Analytics-Jobbvy](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Statushistorik
+* Tillståndshistorik
   
     Den Tillståndshistorik visualiseras också i jobbsammanfattning, men du kan få mer information här. Du hittar detaljerad information t.ex. när jobbet är förberedd i kö, igång körs avslutas. Du kan också hitta hur många gånger som jobbet har kompilerats (CcsAttempts: 1) när jobbet skickas till klustret faktiskt (i detalj: Skicka jobb till kluster), osv.
   

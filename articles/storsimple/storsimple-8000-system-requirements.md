@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631914"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-serien programvara, hög tillgänglighet och nätverkskrav
@@ -61,13 +61,13 @@ Följande programvarukrav finns för de valfria StorSimple-komponenterna (StorSi
 
 StorSimple-enheten är en låst enhet. Portar som måste öppnas i brandväggen för att tillåta för iSCSI-, moln- och hanteringstrafik. I följande tabell visas de portar som måste öppnas i brandväggen. I den här tabellen *i* eller *inkommande* refererar till den riktning som inkommande klientbegäranden åtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Krävs | Anteckningar |
+| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Obligatoriskt | Anteckningar |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Utdata |WAN |Nej |<ul><li>Utgående port används för åtkomst till Internet för att hämta uppdateringar.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Utdata |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li><li>Den här porten används också på båda styrenheterna för skräpinsamling.</li></ul> |
-| UDP 53 (DNS) |Utdata |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internet-baserad DNS-server. |
-| UDP 123 (NTP) |Utdata |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internetbaserad NTP-server. |
-| TCP 9354 |Utdata |WAN |Ja |Den utgående porten används av StorSimple-enheten för att kommunicera med StorSimple Device Manager-tjänsten. |
+| TCP 80 (HTTP)<sup>3</sup> |ut |WAN |Nej |<ul><li>Utgående port används för åtkomst till Internet för att hämta uppdateringar.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |ut |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li><li>Den här porten används också på båda styrenheterna för skräpinsamling.</li></ul> |
+| UDP 53 (DNS) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internet-baserad DNS-server. |
+| UDP 123 (NTP) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internetbaserad NTP-server. |
+| TCP 9354 |ut |WAN |Ja |Den utgående porten används av StorSimple-enheten för att kommunicera med StorSimple Device Manager-tjänsten. |
 | 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att ansluta till data via iSCSI. |
 | 5985 |I |LAN |Nej |Inkommande port används av StorSimple Snapshot Manager för att kommunicera med StorSimple-enheten.<br>Den här porten används också när du fjärransluta till Windows PowerShell för StorSimple via HTTP. |
 | 5986 |I |LAN |Nej |Den här porten används när du fjärransluta till Windows PowerShell för StorSimple via HTTPS. |

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160702"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Hur du installerar IoT Edge på Kubernetes (förhandsversion)
@@ -78,7 +78,7 @@ Alla komponenter i edge-distribution är begränsad till ett Kubernetes-namnomr�
     minikube dashboard
     ```
 
-    Under klusternamnområden, ser du en för IoT Edge-enheten följer konventionen *msiot -\<iothub-name >-\<edgedevice-name >*. IoT Edge-agenten och iotedged poddarna måste vara igång i det här namnområdet.
+    Under klusternamnområden, ser du en för IoT Edge-enheten följer konventionen *msiot -\<iothub-name >-\<edgedevice-name >* . IoT Edge-agenten och iotedged poddarna måste vara igång i det här namnområdet.
 
 1. Lägg till en simulerad temperatur sensor-modulen med hjälp av stegen i den [distribuera en modul](quickstart-linux.md#deploy-a-module) avsnittet i snabbstarten. IoT Edge-modulhantering görs från IoT Hub-portalen precis som andra IoT Edge-enhet. Gör lokala ändringar i modulkonfigurationen via Kubernetes verktyg rekommenderas inte eftersom de kan komma att skrivas över.
 

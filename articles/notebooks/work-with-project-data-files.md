@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240364"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Arbeta med datafiler i Azure Notebook-projekt
@@ -62,11 +62,11 @@ Du kan sätta filer i ett projekt från instrumentpanelen för projektet eller i
 
 1. I den **status för uppladdning** popup-fönstret som visas, väljer du en **målmapp** från den nedrullningsbara listan:
 
-    - Sessionen mapp (*~/* ): Överför filer till den aktuella notebook-sessionen men skapa inte filer i projektet. Mappen session är en peer till projektmappen, men bevaras inte när sessionen har upphört. Prefixet filnamnen med den relativa sökvägen för att komma åt sessionsfiler i koden, *... /*.
+    - Sessionen mapp ( *~/* ): Överför filer till den aktuella notebook-sessionen men skapa inte filer i projektet. Mappen session är en peer till projektmappen, men bevaras inte när sessionen har upphört. Prefixet filnamnen med den relativa sökvägen för att komma åt sessionsfiler i koden, *... /* .
 
         Med hjälp av mappen session är användbar för experimentering och undviker att fylla i projektet med filer som du kanske eller kanske inte behöver på lång sikt. Du kan också ladda upp filer till mappen session som har identiska namn till filer i projektet utan att orsaka konflikter och utan att behöva byta namn på filerna. Exempel: Anta att du har en version av *data.csv* i projektet redan, där du vill experimentera med en annan version av *data.csv*. Du kan köra anteckningsboken med hjälp av data i den överförda filen genom att ladda upp filen till mappen session (refererar till den i kod med *... /data.csv*) i stället för data i projektets-filen.
 
-    - Projektmapp, till exempel (*/project*): Överför filer till projektet där de kan vara nås med hjälp av relativa sökvägar i kod. Ladda upp en fil i den här mappen är samma som att ladda upp en fil på instrumentpanelen för projektet. Filen sparas med projektet och är tillgängliga i senare sessioner.
+    - Projektmapp, till exempel ( */project*): Överför filer till projektet där de kan vara nås med hjälp av relativa sökvägar i kod. Ladda upp en fil i den här mappen är samma som att ladda upp en fil på instrumentpanelen för projektet. Filen sparas med projektet och är tillgängliga i senare sessioner.
 
         Överföringen misslyckas om du försöker överföra en fil med samma namn som en som redan finns i projektet. Om du vill skriva över en fil, ladda upp den nya filen från instrumentpanelen för projektet i stället, vilket ger dig möjlighet att skriva över.
 

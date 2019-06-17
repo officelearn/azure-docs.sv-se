@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065701"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Serverloggar i Azure Database for MariaDB
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsam fråga loggar i Azure Database for MariaDB
 I Azure Database for MariaDB är långsam frågelogg tillgängliga för användare. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning.
 
 Mer information om långsam frågelogg finns MariaDB-dokumentationen för [långsam frågelogg](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Åtkomst till serverloggar
-Du kan visa och ladda ned Azure-databas för MariaDB loggar med hjälp av Azure-portalen och Azure CLI.
+## <a name="access-slow-query-logs"></a>Långsamma frågeloggar för åtkomst
+Du kan visa och ladda ned Azure-databas för MariaDB långsamma frågeloggar med hjälp av Azure-portalen och Azure CLI.
 
 Välj din Azure Database for MariaDB-server i Azure-portalen. Under den **övervakning** väljer du den **serverloggar** sidan.
 
@@ -30,7 +30,7 @@ Loggarna är tillgängliga i upp till sju dagar från de har skapats. Om den tot
 
 Loggar roteras var 24 timmar eller 7 GB, beroende på vilket som kommer först.
 
-## <a name="configure-logging"></a>Konfigurera loggning
+## <a name="configure-slow-query-logging"></a>Konfigurera långsam frågelogg
 Långsam frågelogg är inaktiverad som standard. Aktivera det genom att ange slow_query_log on.
 
 Andra parametrar som du kan justera är:

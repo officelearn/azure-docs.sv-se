@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473543"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Som en Kryptografiprovider, skapa och hantera en Azure IoT Central-App för din kunds räkning 
@@ -47,7 +47,7 @@ Du kan bara skapa betala per användning-program som en Kryptografiprovider. Om 
 
 Namnet på ditt program visas på den **Programhanterare** sidan och inom varje Azure IoT Central program. Du kan välja ett namn för ditt program med Azure IoT Central. Välj ett namn som passar dig och till andra i din organisation.
 
-## <a name="application-url"></a>Programwebbadress
+## <a name="application-url"></a>Program-URL
 
 Programmets URL är en länk till ditt program. Du kan spara ett bokmärke till den i webbläsaren eller dela den med andra.
 
@@ -87,7 +87,7 @@ Du kan välja någon av de tillgängliga mallarna för din nya Azure IoT Central
 | Programmall | Beskrivning |
 | -------------------- | ----------- |
 | Anpassat program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
-| Contoso-exempel       | Skapar ett program som innehåller en mall för enheten för en enkel ansluten enhet. Använd den här mallen för att börja utforska Azure IoT Central. |
+| Exemplet Contoso       | Skapar ett program som innehåller en mall för enheten för en enkel ansluten enhet. Använd den här mallen för att börja utforska Azure IoT Central. |
 | Exemplet Devkits       | Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Använd den här mallen om du är en enhet utvecklare experimentera med kod på någon av dessa enheter. |
 
 ## <a name="next-steps"></a>Nästa steg

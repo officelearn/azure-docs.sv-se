@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061382"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
-Transparent datakryptering (TDE) kan du skydda Azure SQL Database, Azure SQL Managed Instance och Azure Data Warehouse mot skadlig aktivitet. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **master** databas i SQL Database.  Den **master** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användardatabaser.
+Transparent datakryptering (TDE) kan du skydda Azure SQL Database, Azure SQL Managed Instance och Azure Data Warehouse mot skadliga offline aktivitet genom att kryptera vilande data. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **master** databas i SQL Database.  Den **master** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användardatabaser.
 
 TDE måste aktiveras manuellt för Azure SQL Managed Instance, äldre databaser på Azure SQL Database eller Azure SQL Data Warehouse.  
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a6781387121a691c6599ffaeb5722ecc6e16132
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704698"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
 En hanterad avbildningsresurs kan skapas från en generaliserad virtuell dator (VM) som lagras som en hanterad disk eller en ohanterad disk i ett lagringskonto. Avbildningen kan sedan användas för att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras, se [priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 

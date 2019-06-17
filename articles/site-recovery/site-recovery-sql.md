@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924856"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server
@@ -27,7 +27,7 @@ Innan du börjar bör du kontrollera att du förstår SQL Server haveriberedskap
 Många arbetsbelastningar använder SQL Server som grund och den kan integreras med appar som SharePoint, Dynamics och SAP, för att implementera datatjänster.  SQL Server kan distribueras på flera olika sätt:
 
 * **Fristående SQL Server**: SQL Server och alla databaser finns på en enskild dator (fysisk eller en virtuell). När virtualiserade, används värd klustring för hög tillgänglighet lokalt. På gästnivå hög tillgänglighet är inte implementerad.
-* **SQL Server-Redundansklustring instanser (alltid på FCI)**: Två eller flera noder som kör SQL Server instanced med delade diskar konfigureras i ett redundanskluster i Windows. Om en nod är nere kan kan klustret redundansväxla SQL Server till en annan instans. Den här konfigurationen används vanligtvis för att implementera hög tillgänglighet på en primär plats. Den här distributionen skydda inte mot strömavbrott eller avbrott i lagret delad lagring. En delad disk kan implementeras med hjälp av iSCSI, fibre channel eller delade vhdx.
+* **SQL Server-Redundansklustring instanser (alltid på FCI)** : Två eller flera noder som kör SQL Server instanced med delade diskar konfigureras i ett redundanskluster i Windows. Om en nod är nere kan kan klustret redundansväxla SQL Server till en annan instans. Den här konfigurationen används vanligtvis för att implementera hög tillgänglighet på en primär plats. Den här distributionen skydda inte mot strömavbrott eller avbrott i lagret delad lagring. En delad disk kan implementeras med hjälp av iSCSI, fibre channel eller delade vhdx.
 * **SQL Always On-Tillgänglighetsgrupper**: Två eller flera noder är inställda i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans.
 
   Den här artikeln använder följande inbyggda SQL disaster recovery tekniker för att återställa databaser till en fjärrplats:
@@ -45,7 +45,7 @@ Site Recovery kan skydda SQL Server som sammanfattas i tabellen.
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
-**Azure** |Ej tillämpligt| Ja
+**Azure** |Saknas| Ja
 
 ### <a name="supported-sql-server-versions"></a>SQL Server-versioner som stöds
 De här SQL Server-versioner som stöds för scenarierna som stöds:
@@ -72,15 +72,15 @@ Den här tabellen sammanfattas våra rekommendationer för integrering av SQL Se
 
 | **Version** | **Utgåva** | **Distribution** | **Lokalt till lokalt** | **Lokal till Azure** |
 | --- | --- | --- | --- | --- |
-| SQLServer 2016, 2014 eller 2012 |Enterprise |Redundansklusterinstans |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
-|| Enterprise |Always On-Tillgänglighetsgrupper för hög tillgänglighet |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
+| SQLServer 2016, 2014 eller 2012 |Företag |Redundansklusterinstans |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
+|| Företag |Always On-Tillgänglighetsgrupper för hög tillgänglighet |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
 || Standard |Redundansklusterinstans (FCI) |Site Recovery-replikering med lokala spegling |Site Recovery-replikering med lokala spegling |
 || Enterprise eller Standard |Fristående |Site Recovery-replikering |Site Recovery-replikering |
 | SQL Server 2008 R2 eller 2008 |Enterprise eller Standard |Redundansklusterinstans (FCI) |Site Recovery-replikering med lokala spegling |Site Recovery-replikering med lokala spegling |
 || Enterprise eller Standard |Fristående |Site Recovery-replikering |Site Recovery-replikering |
 | SQL Server (alla versioner) |Enterprise eller Standard |Redundansklusterinstans - DTC-program |Site Recovery-replikering |Stöds inte |
 
-## <a name="deployment-prerequisites"></a>Distributionskrav
+## <a name="deployment-prerequisites"></a>Kraven för distribution
 
 * En lokal SQL Server-distributionen, kör en SQL Server-version som stöds. Vanligtvis måste du också Active Directory för SQL-servern.
 * Kraven för scenariot som du vill distribuera. Mer information om kraven för stöd för [replikering till Azure](site-recovery-support-matrix-to-azure.md) och [lokala](site-recovery-support-matrix.md), och [distributionskraven](site-recovery-prereq.md).

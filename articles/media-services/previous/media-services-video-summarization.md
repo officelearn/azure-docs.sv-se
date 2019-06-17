@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825561"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video miniatyrer för att skapa en Videosammanfattning  
@@ -63,7 +63,7 @@ I följande tabell beskrivs standardlängden när **maxMotionThumbnailInSecs** a
 
 |  |  |  |
 | --- | --- | --- |
-| Videovaraktighet |d < 3 min |för 3 min < d < 15 min |
+| Videons längd |d < 3 min |för 3 min < d < 15 min |
 | Varaktighet för miniatyr |15 sek (2-3 scener) |30 sekunder (3 – 5 scener) |
 
 Följande JSON anger tillgängliga parametrar.

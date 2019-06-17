@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158517"
 ---
 Innan du kan använda Azure CLI med Resource Manager-kommandon och mallar för att distribuera Azure-resurser och arbetsbelastningar med resursgrupper, måste du ha ett konto hos Azure. Om du inte har något konto kan du skaffa ett [kostnadsfritt Azure-utvärderingskonto här](https://azure.microsoft.com/pricing/free-trial/).
@@ -30,7 +30,7 @@ Den här artikeln beskriver grundläggande kommandon som du vill använda med Az
 > 
 > 
 
-| Uppgift | Resource Manager |
+| Aktivitet | Resource Manager |
 | --- | --- |
 | Skapa en grundläggande virtuell dator |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Hämta `image-urn` från kommandot `azure vm image list`. Fler exempel finns i [den här artikeln ](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .) |
 | Skapa en virtuell Linux-dator |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |

@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791549"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET
@@ -59,7 +59,7 @@ Om du vill spara utdata till Azure Storage med File Conventions-bibliotek, måst
 
 1. Navigera till ditt Batch-konto i Azure Portal.
 1. Under **inställningar**väljer **Lagringskonto**.
-1. Om du inte redan har ett lagringskonto som är associerade med ditt Batch-konto, klickar du på **Storage-konto (ingen)**.
+1. Om du inte redan har ett lagringskonto som är associerade med ditt Batch-konto, klickar du på **Storage-konto (ingen)** .
 1. Välj ett lagringskonto i listan för din prenumeration. För bästa prestanda använder du ett Azure Storage-konto som är i samma region som Batch-konto där dina aktiviteter kör.
 
 ## <a name="persist-output-data"></a>Spara utdata

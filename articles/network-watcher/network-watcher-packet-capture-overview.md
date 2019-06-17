@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4cfbfc4bed5438ed901fca86d8c2939d3860c68e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061588"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduktion till variabla infångade paket i Azure Network Watcher
 
-Variabla infångade paket Network Watcher kan du skapa packet capture-sessioner för att spåra trafik till och från en virtuell dator. Packet capture bidrar till att diagnostisera nätverk avvikelser både reaktivt och proactivity. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer.
+Variabla infångade paket Network Watcher kan du skapa packet capture-sessioner för att spåra trafik till och från en virtuell dator. Det hjälper dig för att diagnostisera nätverk avvikelser både reaktivt och proaktivt infångade paket. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer.
 
 Paketfångsten är ett tillägg för virtuell dator som startas via en fjärranslutning via Network Watcher. Den här funktionen förenklar arbetet med att köra ett infångat manuellt på den önskade virtuella datorn, vilket sparar värdefull tid. Paketfångsten kan aktiveras via portal, PowerShell, CLI eller REST API. Ett exempel på hur du kan aktivera infångade paket är med VM-aviseringar. Filter tillhandahålls för avbildningssessionen att se till att du fånga in trafik som du vill övervaka. Filter baseras på 5-tuppel (protokoll, lokala IP-adressen, IP-Fjärradress, lokal port och portar) information. Hämtade data lagras i den lokala disken eller en storage-blob. Det finns en gräns på 10 packet capture sessioner per region per prenumeration. Den här gränsen gäller enbart för sessioner och gäller inte för sparade paket avbilda filer lokalt på den virtuella datorn eller i ett lagringskonto.
 
@@ -34,7 +34,7 @@ För att minska den information du avbildning till bara den information som du v
 
 **Avbilda konfiguration**
 
-|Egenskap |Beskrivning|
+|Egenskap|Beskrivning|
 |---|---|
 |**Maximalt antal byte per paket (byte)** | Hur många byte från varje paket som har hämtats, samlas alla byte om det lämnas tomt. Hur många byte från varje paket som har hämtats, samlas alla byte om det lämnas tomt. Om du behöver endast IPv4-rubrik – ange 34 här |
 |**Maximalt antal byte per session (byte)** | Sammanlagt antal byte i som fångas när värdet har nåtts sessionen avslutas.|
@@ -42,7 +42,7 @@ För att minska den information du avbildning till bara den information som du v
 
 **Filtrering (valfritt)**
 
-|Egenskap |Beskrivning|
+|Egenskap|Beskrivning|
 |---|---|
 |**Protokoll** | Protokollet som används för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.|
 |**Lokal IP-adress** | Det här värdet filtrerar infångade att paket där den lokala IP-adressen matchar den här filtervärde.|

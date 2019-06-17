@@ -10,10 +10,10 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602116"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med infogad kod i Azure Logic Apps
@@ -52,7 +52,7 @@ I den här artikeln exempel logic app utlöses när ett nytt e-postmeddelande ta
 
    * Om du vill lägga till åtgärden i slutet av arbetsflödet, Välj **nytt steg**.
 
-   * Flytta muspekaren över pilen som ansluter de här stegen för att lägga till åtgärden mellan befintliga steg. Välj plustecknet (**+**), och välj **Lägg till en åtgärd**.
+   * Flytta muspekaren över pilen som ansluter de här stegen för att lägga till åtgärden mellan befintliga steg. Välj plustecknet ( **+** ), och välj **Lägg till en åtgärd**.
 
    Det här exemplet lägger till den **infogad kod** åtgärd under Office 365 Outlook-utlösaren.
 
@@ -127,7 +127,7 @@ Den `workflowContext` objekt med den här strukturen, som innehåller den `actio
 
 Den här tabellen innehåller mer information om dessa subegenskaper:
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |----------|------|-------|
 | `actions` | Objektsamling | Resultatobjekt från åtgärder som körs innan din kodfragmentet körs. Varje objekt har en *nyckel / värde-* par där nyckeln är namnet på en åtgärd och värdet motsvarar att anropa den [actions() funktionen](../logic-apps/workflow-definition-language-functions-reference.md#actions) med `@actions('<action-name>')`. Åtgärdens namn använder samma åtgärdsnamn som används i den underliggande arbetsflödesdefinitionen som ersätter blanksteg (””) i Åtgärdsnamnet på med understreck (_). Det här objektet ger tillgång till åtgärden egenskapsvärden från aktuella arbetsflödesinstansen körs. |
 | `trigger` | Object | Objekt från utlösaren och motsvarande att anropa den [trigger() funktionen](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Det här objektet ger tillgång till utlösaren egenskapsvärden från aktuella arbetsflödesinstansen körs. |

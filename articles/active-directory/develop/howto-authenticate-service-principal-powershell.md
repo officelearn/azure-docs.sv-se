@@ -17,10 +17,10 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6d6de5186b1906d56b5a43317d9c36ad1cc6aad
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540403"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Anvisningar: Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
@@ -207,7 +207,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
   -StartDate $cert.NotBefore
 ```
 
-## <a name="debug"></a>Felsök
+## <a name="debug"></a>Felsöka
 
 Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 0e1127d90aeb4c59687ac4df7fb7ebae1901cee8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228422"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-ftp-connector.md)
 > * [Aktuell version](connector-ftp.md)
@@ -50,7 +50,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för FTP-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **FtpServer**. | Ja |
 | host | Ange namn eller IP-adressen för FTP-servern. | Ja |
@@ -125,7 +125,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från FTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) format-baserade datauppsättning och inställningar som stöds . Följande egenskaper har stöd för FTP under `location` inställningar i formatet-baserade datauppsättning:
 
-| Egenskap    | Beskrivning                                                  | Krävs |
+| Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | Egenskapen type under `location` i datauppsättningen måste anges till **FtpServerLocation**. | Ja      |
 | folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
@@ -164,7 +164,7 @@ Att kopiera data från FTP i **Parquet eller avgränsat textformat**, referera t
 
 Att kopiera data från FTP i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **FileShare** |Ja |
 | folderPath | Sökvägen till mappen. Jokerteckenfilter stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br/><br/>Exempel: rootfolder/undermappen/se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). |Ja |
@@ -220,7 +220,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Att kopiera data från FTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för FTP under `storeSettings` inställningar i formatet-baserade kopieringskälla:
 
-| Egenskap                  | Beskrivning                                                  | Krävs                                      |
+| Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | Egenskapen type under `storeSettings` måste anges till **FtpReadSetting**. | Ja                                           |
 | recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
@@ -279,7 +279,7 @@ Att kopiera data från FTP i **Parquet eller avgränsat textformat**, referera t
 
 Att kopiera data från FTP i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
 | recursive | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125805"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Använd StorSimple Device Manager-tjänsten för att hantera volymer på StorSimple Virtual Array
@@ -39,7 +39,7 @@ StorSimple-volymer kan vara:
 ### <a name="provisioned-capacity"></a>Etablerad kapacitet
 Se tabellen nedan för högsta etablerade kapaciteten för varje volym.
 
-| **Gräns för identifierare**                                       | **Gräns**     |
+| **Gräns för identifierare**                                       | **Gränsen**     |
 |------------------------------------------------------------|---------------|
 | Minsta storlek på en nivåindelad volym                            | 500 GB        |
 | Maximal storlek på en nivåindelad volym                            | 5 TB          |
@@ -133,7 +133,7 @@ Utför följande steg för att ta bort en volym.
 1. Från den **volymer** inställningen på sammanfattningsbladet för StorSimple-tjänsten, Välj den virtuella matrisen som du vill du ta bort volymen finns.
 2. **Välj** volym och klicka på **...**  (alternativt Högerklicka i den här raden) och på snabbmenyn väljer **ta bort**.
    
-    ![Ta bort volym](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
+    ![Ta bort volymen](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Kontrollera status på den volym som du vill ta bort. Om du vill ta bort volymen inte är offline, kopplar från den först följa stegen i [koppla från en volym](#take-a-volume-offline).
 4. När du uppmanas att bekräfta i den **ta bort** bladet Godkänn bekräftelsen och klicka på **ta bort**. Volymen kommer nu att tas bort och **volymer** bladet visar den uppdaterade listan med volymer i den virtuella matrisen.
 

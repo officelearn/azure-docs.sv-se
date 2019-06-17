@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127200"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Använd StorSimple Snapshot Manager för att hantera säkerhetskopieringskatalogen
@@ -92,7 +92,7 @@ Använd följande procedur för att skapa en dubblett (klonar) av en volym eller
    
    1. I den **namn** anger du ett namn för den klonade volymen. Det här namnet visas i den **volymer** noden. 
    2. (Valfritt) Välj **enhet**, och välj sedan en enhetsbeteckning från den nedrullningsbara listan.
-   3. (Valfritt) Välj **mapp (NTFS)**, och ange en mappsökväg eller klicka på Bläddra och välj en plats för mappen. 
+   3. (Valfritt) Välj **mapp (NTFS)** , och ange en mappsökväg eller klicka på Bläddra och välj en plats för mappen. 
    4. Klicka på **Skapa**.
 5. När kloningsprocessen är klar måste du initiera klonad volym. Starta Serverhanteraren och starta sedan Diskhantering. Detaljerade anvisningar finns i [Monteringsvolymer](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). När det startas volymen kommer att anges under den **volymer** nod i den **omfång** fönstret. Om du inte ser den volym som visas, kan du uppdatera listan över volymer (Högerklicka på den **volymer** noden och klicka sedan på **uppdatera**).
 
@@ -125,7 +125,7 @@ Innan du börjar måste du kontrollera att du har en aktuell säkerhetskopia av 
    
    1. I den **namn** anger du ett namn för den klonade volymen. Det här namnet visas i den **volymer** noden. 
    2. (Valfritt) Välj **enhet**, och välj sedan en enhetsbeteckning från den nedrullningsbara listan. 
-   3. (Valfritt) Välj **mapp (NTFS)**, och ange en sökväg eller klicka på **Bläddra** och välj en plats för mappen. 
+   3. (Valfritt) Välj **mapp (NTFS)** , och ange en sökväg eller klicka på **Bläddra** och välj en plats för mappen. 
    4. Klicka på **Skapa**. 
 5. När kloningsprocessen är klar måste du initiera klonad volym. Starta Serverhanteraren och starta sedan Diskhantering. Detaljerade anvisningar finns i [Monteringsvolymer](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). När det startas volymen kommer att anges under den **volymer** nod i den **omfång** fönstret. 
    

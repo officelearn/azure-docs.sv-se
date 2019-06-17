@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331415"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
@@ -197,7 +197,7 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
    > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
+1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)** , och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
 
    > [!NOTE] 
    > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -209,7 +209,7 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Skapa databasomfattande autentisering med **IDENTITY = ”hanterad tjänstidentitet'**:
+   1. Skapa databasomfattande autentisering med **IDENTITY = ”hanterad tjänstidentitet'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ Anslutningsfel 40914 relaterar till *virtuella Nätverksregler*, som anges på f
 
 ### <a name="error-40914"></a>Error 40914
 
-*Meddelandetext:* Det går inte att öppna servern '*[servernamn]*' begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.
+*Meddelandetext:* Det går inte att öppna servern ' *[servernamn]* ' begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.
 
 *Felbeskrivning:* Klienten finns i ett undernät som har serverslutpunkter för virtuellt nätverk. Men Azure SQL Database-servern har ingen regel för virtuella nätverk som ger behörighet att kommunicera med SQL-databasen till undernätet.
 

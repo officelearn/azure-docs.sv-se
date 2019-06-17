@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135198"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway översikt över hälsoövervakning
@@ -57,10 +56,10 @@ När de matchar de villkor som anges, den kan kopplas för att avsöka konfigura
 
 | Avsökningen egenskapen | Värde | Beskrivning |
 | --- | --- | --- |
-| Avsökningswebbadress |http://127.0.0.1:\<port\>/ |URL-sökväg |
+| URL för webbavsökning |http://127.0.0.1:\<port\>/ |URL-sökväg |
 | Interval |30 |Hur lång tid i sekunder som ska förflyta innan nästa hälsoavsökningen skickas.|
 | Time-out |30 |Hur lång tid i sekunder application gateway probe svar inväntas innan du markerar avsökningen som skadad. Om en avsökning returnerar felfri, markeras direkt motsvarande serverdelen som felfritt.|
-| Tröskelvärde för Ej felfri |3 |Styr hur många avsökningar för att skicka om det uppstår ett fel av regelbundna hälsoavsökningen. Dessa ytterligare hälsotillståndsavsökningar skickas i snabb följd att fastställa hälsotillståndet för serverdelen snabbt och väntar inte tills avsökningsintervallet. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för ej felfri |3 |Styr hur många avsökningar för att skicka om det uppstår ett fel av regelbundna hälsoavsökningen. Dessa ytterligare hälsotillståndsavsökningar skickas i snabb följd att fastställa hälsotillståndet för serverdelen snabbt och väntar inte tills avsökningsintervallet. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!NOTE]
 > Porten är samma port som backend-HTTP-inställningarna.
@@ -89,7 +88,7 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 | `Path` |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. |
 | Interval |Avsökningsintervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
 | Time-out |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte tas emot inom denna tidsgräns, markeras avsökningen som misslyckat.  |
-| Tröskelvärde för Ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!IMPORTANT]
 > Om Application Gateway har konfigurerats för en enda plats, som standard värden anges namnet som 127.0.0.1, såvida inte annat har konfigurerats i anpassad avsökning.
@@ -105,5 +104,3 @@ Dessutom går inte att blockera utgående Internet-anslutning och inkommande tra
 När du läst om Application Gateway hälsoövervakning kan du konfigurera en [anpassade hälsoavsökning](application-gateway-create-probe-portal.md) i Azure-portalen eller en [anpassade hälsoavsökning](application-gateway-create-probe-ps.md) med PowerShell och Azure Resource Manager distributionsmodell.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

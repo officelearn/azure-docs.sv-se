@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127386"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användarbehörighet att specifika labbprinciper
@@ -28,7 +28,7 @@ Den här artikeln visar hur du använder PowerShell för att ge användare behö
 ## <a name="policies-as-resources"></a>Principer som resurser
 Enligt beskrivningen i den [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) artikeln RBAC Aktivera detaljerad åtkomsthantering av resurser för Azure. Med RBAC kan du hålla isär uppgifter i din DevOps-team och bevilja endast mängden åtkomst till användare som de behöver för att utföra sitt arbete.
 
-I DevTest Labs är en princip för en resurstyp som gör att åtgärden RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Varje labb-princip är en resurs i typen av resurs och kan tilldelas som ett omfång i en RBAC-roll.
+I DevTest Labs är en princip för en resurstyp som gör att åtgärden RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Varje labb-princip är en resurs i typen av resurs och kan tilldelas som ett omfång i en RBAC-roll.
 
 Till exempel för att ge användare läs/skrivbehörighet till den **tillåtna storlekar** princip, skapa en anpassad roll som fungerar med den **Microsoft.DevTestLab/labs/policySets/policies/** åtgärd , och sedan tilldela rätt användare till den här anpassade rollen i omfånget för **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 

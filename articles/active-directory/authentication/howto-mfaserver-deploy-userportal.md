@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056049"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -27,6 +27,9 @@ Användarna loggar in på användarportalen med sitt vanliga användarnamn och l
 Administratörer av användarportalen kan konfigureras och beviljas behörighet att lägga till nya användare och uppdatera befintliga användare.
 
 Beroende på din miljö kan du distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern eller på en annan Internet-ansluten server.
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
 
 ![MFA-Serveranvändarportal inloggningssidan](./media/howto-mfaserver-deploy-userportal/portal.png)
 

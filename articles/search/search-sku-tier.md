@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539248"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
@@ -45,8 +45,8 @@ I följande tabell visas de tillgängliga nivåerna. Du hittar mer information o
 
 |Nivå | Kapacitet |
 |-----|-------------|
-|Kostnadsfritt | Delas med andra prenumeranter. Inte möjligheter till skalning. Begränsad till tre index och 50 MB lagringsutrymme. |
-|Grundläggande | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
+|Lediga | Delas med andra prenumeranter. Inte möjligheter till skalning. Begränsad till tre index och 50 MB lagringsutrymme. |
+|Basic | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
 |Standard 1 (S1) | För S1 och senare, dedikerade virtuella datorer med mer lagring och bearbetning av kapacitet på alla nivåer. För S1 är partitionsstorlek 25 GB/partition (med högst 300 GB per tjänst). |
 |Standard 2 (S2) | Liknar S1, men med 100 GB-partitioner (och högst 1,2 TB per tjänst). |
 |Standard 3 (S3) | 200 GB partitioner (med högst 2,4 TB per tjänst). |
@@ -80,7 +80,7 @@ När du gör uppskattningar kostnaden för en söklösning, hålla i åtanke som
 
 Det viktigaste fakturering konceptet att förstå för Azure Search-åtgärder är den *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner för indexering och frågor, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda.
 
-SU är produkten av den *repliker* och *partitioner* används av en tjänst: **(R x P = SU)**.
+SU är produkten av den *repliker* och *partitioner* används av en tjänst: **(R x P = SU)** .
 
 Varje tjänst börjar med en SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er. Den här högsta gränsen nås på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, till exempel. Det är vanligt att använda mindre än total kapacitet (till exempel en 3-replik, 3-partition service som 9 su: er). Se den [kombinationer av Partition och repliken](search-capacity-planning.md#chart) diagram för giltiga kombinationer.
 

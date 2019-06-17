@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937833"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
@@ -70,7 +70,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 |  | Visa en lista över Element | Grundläggande krav | Optimal krav | 
 |:--- |:--- |:--- |:--- |
 |1 |Erbjudandeinställningar | <br>• Erbjudande-ID: Högst 50 tecken <br>• Publicerings-ID: Välj listrutan <br>• Namn: Max 50 tecken | Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker. | 
-| 2 | SKU:er | Partner klickar på nya SKU: er| Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker.  |
+| 2 | SKUs | Partner klickar på nya SKU: er| Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker.  |
 | 3 | Marketplace-artefakter | Logotyper visas korrekt |<br>• Logotyp inkluderar ”hero bild”, vilket är den stora formatbild i Azure Portal <br>• Logotyper: Liten (48 x 48) & stor (216 x 216) krävs <br>• Hero avbildningskrav: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärmbild (Max 5):  CPP kräver en .png-avbildning med lösning 1 280 x 720.|
 | 4 | Lead-hantering |<br>• Lead-hantering: Välj system där dina leads ska lagras. <br>• Veta hur du ansluter din CRM-systemet [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
@@ -88,7 +88,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 6 | & Hjälp om lösningssupport  | Support och hjälp krävs inte  | | 
 | 7 | Sekretesspolicy och användningsvillkor tillgängliga  |  Principer eller villkor som krävs inte  | | 
 | 8 | Tjänsttyper | Kontrollera att tjänsttyp matchar rubrik | |
-| 9 | Kompetenser |<br>• Måste vara minst en av följande:<br>• Programutveckling <br>• Programintegrering <br>• Application Lifecycle Management <br>• Molnplattform <br>• Dataanalys <br>• Data Center <br>• Dataplattform <br>• DevOps |
+| 9 | Uppnådda |<br>• Måste vara minst en av följande:<br>• Programutveckling <br>• Programintegrering <br>• Application Lifecycle Management <br>• Molnplattform <br>• Dataanalys <br>• Data Center <br>• Dataplattform <br>• DevOps |
 | 10 | Products | Måste vara Azure | |
 | 11 | Land/region | Se till att land och region matchningar valt valuta | |
 | 12 | Läs mer  | <br>• Länkarna längst ned (under Beskrivning inte marketplace länkarna till vänster) leder till mer information om lösningen och är offentligt tillgängliga och visas korrekt. <br>• Länkar måste ha ett ”namn” och visas inte som namnet på alla nedladdningar | |

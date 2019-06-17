@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772966"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
@@ -29,7 +29,7 @@ EventSource namnet för klassen tillståndskänslig Reliable Services StatefulSe
 
 Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), och [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Händelser
+## <a name="events"></a>Events
 | Händelsenamn | Händelse-ID | Nivå | Händelsebeskrivning |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Information |Genereras när tjänsten RunAsync uppgiften har startats |
@@ -104,9 +104,9 @@ Reliable Services-runtime genererar följande händelser under den `Service Fabr
 
  Namn på räknare | Beskrivning |
 | --- | --- |
-| Påbörja transaktion-åtgärder/sek | Antal nya skrivtransaktioner som skapats per sekund.|
+| Börja transaktionsåtgärder/sek | Antal nya skrivtransaktioner som skapats per sekund.|
 | Transaktionsåtgärder/sek | Antalet Lägg till/Uppdatera/ta bort åtgärder som utförs på tillförlitliga samlingar per sekund.|
-| Tömda logg-byte/sek | Antalet byte som replikatorn tömmer till disken av Transaktionsreplikering i per sekund |
+| Logga tömning byte/sek | Antalet byte som replikatorn tömmer till disken av Transaktionsreplikering i per sekund |
 | Begränsade åtgärder/sek | Antal åtgärder per sekund av Transaktionsreplikering i på grund av begränsningar som avvisas. |
 | Genomsn. Transaktionen ms/incheckning | Genomsnittlig incheckning svarstider per transaktion i millisekunder |
 | Genomsn. Svarstid för tömning (ms) | Genomsnittlig varaktighet för tömning diskåtgärder initieras av Transaktionsreplikering i i millisekunder |
@@ -117,10 +117,10 @@ Reliable Services-runtime genererar följande händelser under den `Service Fabr
 
  Namn på räknare | Beskrivning |
 | --- | --- |
-| Objektsantal | Antal objekt i arkivet.|
+| Objektantal | Antal objekt i arkivet.|
 | Diskstorlek | Totalt antal diskens storlek i byte på kontrollpunktsfiler för arkivet.|
-| Skrivna byte/s, kontrollpunktsfil | Antal byte som skrivs per sekund för senaste kontrollpunktsfilen.|
-| Överföring vid diskkopiering i byte/s | Antal byte på disk läsas (på den primära repliken) eller skrivas (på en sekundär replik) per sekund under en store-kopia.|
+| Kontrollpunkt filen skrivna byte/sek | Antal byte som skrivs per sekund för senaste kontrollpunktsfilen.|
+| Kopiera Disk byte/sek för överföring | Antal byte på disk läsas (på den primära repliken) eller skrivas (på en sekundär replik) per sekund under en store-kopia.|
 
 ## <a name="next-steps"></a>Nästa steg
 [EventSource providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

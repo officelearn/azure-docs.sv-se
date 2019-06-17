@@ -13,10 +13,10 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485109"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS-analyser med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
@@ -87,7 +87,7 @@ Den här guiden utforskar analytics över försäljningsdata för biljett. I det
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuera SQL Data Warehouse använder Data Factory och Blob-lagring 
 I appen Wingtip biljetter distribueras klienternas transaktionsdata över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, inläsning och transformera (ELT) av dessa data till datalagret. Om du vill läsa in data i SQL Data Warehouse mest effektivt ADF extraherar data till mellanliggande-blobfiler och använder sedan [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) att läsa in data till datalagret.   
 
-I det här steget ska du distribuera ytterligare resurser som används i självstudien: ett SQL Data Warehouse kallas _tenantanalytics_, en Azure Data Factory kallas _dbtodwload -\<användaren\>_  , och ett Azure storage-konto med namnet _wingtipstaging\<användaren\>_. Lagringskontot används för att tillfälligt lagra extraherade filer som blobar innan de läses in i informationslagret. Det här steget också distribuerar data warehouse-schemat och definierar ADF-pipelines som samordnar ELT-processen.
+I det här steget ska du distribuera ytterligare resurser som används i självstudien: ett SQL Data Warehouse kallas _tenantanalytics_, en Azure Data Factory kallas _dbtodwload -\<användaren\>_  , och ett Azure storage-konto med namnet _wingtipstaging\<användaren\>_ . Lagringskontot används för att tillfälligt lagra extraherade filer som blobar innan de läses in i informationslagret. Det här steget också distribuerar data warehouse-schemat och definierar ADF-pipelines som samordnar ELT-processen.
 1. I PowerShell ISE öppnar *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* och ange:
     - **$DemoScenario** = **2** distribuera klient analytics data warehouse, blob-lagring och data factory 
 1. Tryck på **F5** att köra demo-skriptet och distribuera Azure-resurser. 
@@ -126,7 +126,7 @@ I den [Azure-portalen](https://ms.portal.azure.com) i resursgruppen, kontrollera
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Det här avsnittet utforskar data factory skapas. Följ stegen nedan för att starta data factory:
-1. I portalen klickar du på datafabriken som kallas **dbtodwload -\<användaren\>**.
+1. I portalen klickar du på datafabriken som kallas **dbtodwload -\<användaren\>** .
 2. Klicka på **författare och Övervakare** att starta i Data Factory-designer i en separat flik. 
 
 ## <a name="extract-load-and-transform-data"></a>Extrahera, belastning, och omvandla data

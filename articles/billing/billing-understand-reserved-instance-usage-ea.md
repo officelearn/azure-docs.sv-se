@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126850"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta Enterprise-avtal reservation kostnader och användning
@@ -45,7 +45,7 @@ Jämförelse av två datauppsättningar:
 | Köp av reservation | Tillgängligt i den här vyn.<br><br>  Att hämta datafiltret på ChargeType = &quot;köp&quot;. <br><br> Referera till ReservationID eller ReservationName veta vilka reservation avgiften gäller för.  | Ej tillämpligt för den här vyn. <br><br> Köp kostnader tillhandahålls inte i amorterade data. |
 | EffectivePrice | Värdet är noll för användning som får rabatten. | Värdet är per timme-beräknas kostnaden för reservation för användning med reservationsrabatten. |
 | Oanvända reserverade (ger antalet timmar som de reservationen inte har använts under en dag och värdet av avfallet) | Ej tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br><br> För att få dessa data kan filtrera på ChargeType = &quot;UnusedReservation&quot;.<br><br>  Referera till ReservationID eller ReservationName veta vilka reservation har varit underutnyttjade. Detta är hur mycket av reservationen har gått i för dagen.  |
-| Enhetspris (pris på resursen från din prisdokument) | Tillgänglig | Tillgänglig |
+| Enhetspris (pris på resursen från din prisdokument) | Tillgängligt | Tillgängligt |
 
 Annan information som är tillgängliga i Azure-användningsdata har ändrats:
 
@@ -94,7 +94,7 @@ I Azure-portalen går du till [kostnadshantering + fakturering](https://portal.a
 2. Klicka på **användning och kostnader**.
 3. Klicka på **Hämta**.  
 ![Exempel som visar var du hämtar datafilen för CSV-användning i Azure portal](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. I **ladda ned användning och kostnader** under **användning information Version 2** väljer **alla avgifter (förbrukning och inköp)** och klicka sedan på Hämta. Upprepa detta för **Amorterad avgifter (förbrukning och inköp)**.
+4. I **ladda ned användning och kostnader** under **användning information Version 2** väljer **alla avgifter (förbrukning och inköp)** och klicka sedan på Hämta. Upprepa detta för **Amorterad avgifter (förbrukning och inköp)** .
 
 CSV-filer som hämtas innehåller faktiska kostnader och amorterade.
 

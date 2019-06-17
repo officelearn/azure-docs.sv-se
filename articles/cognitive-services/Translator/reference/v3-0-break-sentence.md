@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-pawal
 ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387562"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
@@ -45,7 +45,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfritt Frågeparametern*.<br/>Språktaggen som identifierar språket i indatatexten. Om en kod inte anges används automatisk språkidentifiering.</td>
   </tr>
   <tr>
-    <td>skript</td>
+    <td>script</td>
     <td>*Valfritt Frågeparametern*.<br/>Skripttypen identifiera skript som används av indatatexten. Om ett skript inte anges, antas standardskript för språket.</td>
   </tr>
 </table> 

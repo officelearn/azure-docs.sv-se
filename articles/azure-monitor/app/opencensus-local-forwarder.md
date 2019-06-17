@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699346"
 ---
 # <a name="local-forwarder-preview"></a>Lokala vidarebefordrare (förhandsversion)
@@ -29,13 +29,13 @@ Lokala vidarebefordraren är en [projekt med öppen källkod på GitHub](https:/
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows-tjänst
+#### <a name="windows-service"></a>Windows Service
 
 Det enklaste sättet för att köra lokala vidarebefordrare under Windows är genom att installera den som en Windows-tjänst. Versionen levereras med en körbar fil för Windows (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) som enkelt kan registreras med operativsystemet.
 
 > [!NOTE]
 > Den lokala vidarebefordrartjänsten kräver minst .NET Framework 4.7. Om du inte har .NET Framework 4.7 tjänsten startar installation, men inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Ladda ned LF. WindowsServiceHost.zip filen från den [lokala vidarebefordrare versionen sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Övervaka tjänsten genom att kontrollera **.log* filer i katalogen /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Övervaka tjänsten genom att kontrollera * *.log* filer i katalogen /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Lokala vidarebefordrare kan fungera med macOS, men det är för närvarande inte stöds officiellt.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Övervaka lokala vidarebefordrare
 
-Spårningar skrivs till filsystemet bredvid den körbara filen som kör lokala vidarebefordrare (leta efter **.log* filer). Du kan placera en fil med namnet *NLog.config* bredvid den körbara filen för din egen konfiguration i stället för standardvärdet. Se [dokumentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) beskrivning av formatet.
+Spårningar skrivs till filsystemet bredvid den körbara filen som kör lokala vidarebefordrare (leta efter * *.log* filer). Du kan placera en fil med namnet *NLog.config* bredvid den körbara filen för din egen konfiguration i stället för standardvärdet. Se [dokumentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) beskrivning av formatet.
 
 Om ingen konfigurationsfil anges (som är standard), lokala vidarebefordrare använder standardkonfigurationen, som du hittar [här](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 

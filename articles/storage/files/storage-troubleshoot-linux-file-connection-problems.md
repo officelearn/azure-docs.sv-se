@@ -9,18 +9,51 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118715"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
 Den här artikeln innehåller vanliga problem som rör Azure Files när du ansluter från Linux-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. 
 
 Utöver felsökningsstegen i den här artikeln, kan du använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) så att den Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Felsökaren innehåller steg för att hjälpa dig med problem med att ansluta, mappa och montera Azure-filresurser.
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
+
+### <a name="cause"></a>Orsak
+
+Vanliga orsaker till det här problemet är:
+
+- Du använder en inkompatibel klient för Linux-distribution. Vi rekommenderar att du använder följande Linux-distributioner för att ansluta till en Azure-filresurs:
+
+|   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från både lokalt och över olika regioner) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- CIFS-verktyg (cfs utils) har inte installerats på klienten.
+- Den lägsta SMB/CIFS-versionen 2.1, installeras inte på klienten.
+- SMB 3.0-kryptering stöds inte på klienten. Den föregående tabellen innehåller en lista med Linux-distributioner som stöd för montering från både lokalt och över flera regioner med hjälp av kryptering. Andra distributioner kräver kernel 4.11 och senare versioner.
+- Du försöker ansluta till ett lagringskonto via TCP-port 445, vilket inte stöds.
+- Du försöker ansluta till en Azure-filresurs från en Azure-dator och den virtuella datorn är inte i samma region som lagringskontot.
+- Om den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files tillåter endast anslutningar som använder SMB 3.0 med kryptering.
+
+### <a name="solution"></a>Lösning
+
+Lös problemet genom att använda den [felsökningsverktyget för Azure Files-monteringsfel på Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Det här verktyget:
+
+* Hjälper dig att validera klienten köra-miljö.
+* Identifierar inkompatibla klientkonfigurationen som skulle orsaka fel åtkomst för Azure Files.
+* Ger vägledning på att åtgärda själv.
+* Samlar in diagnostik-spårningar.
 
 <a id="mounterror13"></a>
 ## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>”Montera error(13): Åtkomst nekad ”när du monterar en Azure-filresurs
@@ -55,9 +88,11 @@ I Linux visas ett felmeddelande som liknar följande:
 
 Du har nått den övre gränsen för samtidiga öppna referenser som tillåts för en fil.
 
+Det finns en kvot på 2 000 öppna referenser i en enda fil. När du har 2 000 öppna referenser visas ett felmeddelande som säger kvoten har uppnåtts.
+
 ### <a name="solution"></a>Lösning
 
-Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [checklista för prestanda och skalbarhet i Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam filkopieringen till och från Azure Files i Linux
@@ -66,36 +101,12 @@ Minska antalet samtidiga öppna referenser genom att stänga några referenser o
 - Om du känner till dess slutliga storlek för en fil som du utvidgar med hjälp av skrivningar och din programvara inte uppleva kompatibilitetsproblem när en oskrivna slutet på filen innehåller nollor, anger du filstorlek i förväg i stället för att varje skrivning en utöka skrivning.
 - Använd rätt copy-metoden:
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för alla överföring mellan två filresurser.
-    - Använd [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) mellan filresurser på den lokala datorn.
-
-<a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>”Montera error(112): Värddatorn är inte tillgänglig ”på grund av en återanslutning timeout
-
-En ”112” mount-fel uppstår på Linux-klient när klienten har varit inaktiv under en längre tid. När du har en utökad inaktivitetstid klienten kopplas och tidsgränsen uppnås för anslutningen.  
-
-### <a name="cause"></a>Orsak
-
-Anslutningen kan vara inaktiv av följande skäl:
-
--   Kommunikationsfel i nätverket som förhindrar återställning av en TCP-anslutning till servern när alternativet ”soft” montera används
--   Senaste återanslutning korrigeringar som inte finns i äldre kernel
-
-### <a name="solution"></a>Lösning
-
-Problemet återanslutning i Linux-kärnan löses nu som en del av följande ändringar:
-
-- [Korrigeringen återansluta om du vill skjuta upp smb3 session inte återansluta långt efter socket återansluta](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
-- [Anropa tjänsten echo omedelbart efter socket återansluta](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: Åtgärda ett möjligt minnet skadas under reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: Åtgärda ett möjligt dubbla låsning av mutex under reconnect (för kernel v4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
-
-Men kan de här ändringarna inte flyttas ännu till Linux-distributioner. Den här och andra återanslutning korrigeringar finns i följande populära Linux-kernel: 4.4.40 4.8.16 och 4.9.1. Den här snabbkorrigeringen får du genom att uppgradera till en av dessa rekommenderade kernel-versioner.
-
-### <a name="workaround"></a>Lösning:
-
-Du kan undvika det här problemet genom att ange en hård montering. En hård montering tvingas klienten att vänta tills en anslutning har upprättats eller uttryckligen avbrott. Du kan använda den för att förhindra fel på grund av timeout för nätverket. Den här lösningen kan dock orsaka obestämd väntar. Var beredd på att stoppa anslutningar vid behov.
-
-Om du inte uppgradera till de senaste kernel-versionerna, kan du undvika problemet genom att lagra en fil i Azure-filresursen som du skriver med 30 sekunders mellanrum eller mindre. Detta måste vara en skrivåtgärd, till exempel skriva om skapade eller ändrade datum för filen. Annars kan du få cachelagrade resultat och åtgärden kan inte utlösa återanslutning.
+    - Med hjälp av cp med parallella kunde förbättra kopia hastighet, antalet trådar som beror på användningsfall och arbetsbelastning. Det här exemplet används sex: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Verktyg med öppen källkod från tredje part som:
+        - [GNU parallella](http://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) – sorterar filerna och hanteringspaket dem i partitioner.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -använder Fpart och en kopieringsverktyget skapa flera instanser att migrera data från src_dir till dst_url.
+        - [Flera](https://github.com/pkolano/mutil) -flertrådiga cp och md5sum baserat på GNU coreutils.
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>”Montera error(115): Åtgärden pågår ”när du montera Azure Files med hjälp av SMB 3.0
@@ -106,7 +117,7 @@ Vissa Linux-distributioner stöder inte ännu krypteringsfunktionerna i SMB 3.0.
 
 ### <a name="solution"></a>Lösning
 
-Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kerneln. Den här funktionen gör det möjligt för montering av en Azure-filresurs från en lokal plats eller från en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. 
+Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kerneln. Den här funktionen gör det möjligt för montering av en Azure-filresurs från en lokal plats eller från en annan Azure-region. Den här funktionen ingår i Linux-distributioner som anges i [minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Andra distributioner kräver kernel 4.11 och senare versioner.
 
 Om din Linux SMB-klienten inte stöder kryptering kan montera en Azure-filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filresursen. Kontrollera att den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot. 
 
@@ -133,13 +144,13 @@ Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsam prestanda på en Azure-filresursen monteras på en Linux VM
 
-### <a name="cause"></a>Orsak
+### <a name="cause-1-caching"></a>Orsak 1: Cachelagring
 
-En möjlig orsak till den dåliga prestandan är inaktiverad cachelagring.
+En möjlig orsak till den dåliga prestandan är inaktiverad cachelagring. Cachelagring kan vara användbart om du använder en fil flera gånger, i annat fall kan det vara en belastning. Kontrollera om du använder cachen innan du inaktiverar den.
 
-### <a name="solution"></a>Lösning
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Om du vill kontrollera om cachelagring är inaktiverat, leta efter den **cache =** posten. 
+Om du vill kontrollera om cachelagring är inaktiverat, leta efter den **cache =** posten.
 
 **Cache = ingen** anger att cachelagring är inaktiverat. Montera resursen med hjälp av monteringskommandot eller genom att uttryckligen lägga till den **cache = strikt** mount-kommandot för att säkerställa att standard-cachelagring eller ”strikt” cachelagring läge är aktiverat.
 
@@ -154,6 +165,14 @@ Du kan också kontrollera om rätt alternativ som används genom att köra den *
 ```
 
 Om den **cache = strikt** eller **serverino** alternativet är inte finns, demontera och montera Azure Files igen genom att köra monteringskommandot från den [dokumentation](../storage-how-to-use-files-linux.md). Kontrollera sedan som den **/etc/fstab** post har rätt alternativ.
+
+### <a name="cause-2-throttling"></a>Orsak 2: Begränsning
+
+Det går du upplever begränsning och dina begäranden skickas till en kö. Du kan kontrollera detta genom att utnyttja [Azure Storage-mått i Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+
+Kontrollera din app ligger inom den [Azure Files skala mål](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Tidsstämplar förlorades i kopiera filer från Windows till Linux
@@ -172,40 +191,6 @@ Använd det storage-kontot för att kopiera filerna:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
-
-### <a name="cause"></a>Orsak
-
-Vanliga orsaker till det här problemet är:
-
-
-- Du använder en inkompatibel klient för Linux-distribution. Vi rekommenderar att du använder följande Linux-distributioner för att ansluta till en Azure-filresurs:
-
-    |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från både lokalt och över olika regioner) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- CIFS-verktyg (cfs utils) har inte installerats på klienten.
-- Den lägsta SMB/CIFS-versionen 2.1, installeras inte på klienten.
-- SMB 3.0-kryptering stöds inte på klienten. SMB 3.0-kryptering är tillgänglig i Ubuntu 16,4 tum och senare versioner, tillsammans med SUSE 12,3 och senare versioner. Andra distributioner kräver kernel 4.11 och senare versioner.
-- Du försöker ansluta till ett lagringskonto via TCP-port 445, vilket inte stöds.
-- Du försöker ansluta till en Azure-filresurs från en Azure-dator och den virtuella datorn är inte i samma region som lagringskontot.
-- Om den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files tillåter endast anslutningar som använder SMB 3.0 med kryptering.
-
-### <a name="solution"></a>Lösning
-
-Lös problemet genom att använda den [felsökningsverktyget för Azure Files-monteringsfel på Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Det här verktyget:
-
-* Hjälper dig att validera klienten köra-miljö.
-* Identifierar inkompatibla klientkonfigurationen som skulle orsaka fel åtkomst för Azure Files.
-* Ger vägledning på att åtgärda själv.
-* Samlar in diagnostik-spårningar.
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;”: I/o-fel
 
@@ -248,6 +233,35 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 Du kan sedan skapa symlinks föreslås vanliga ord på den [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+<a id="error112"></a>
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>”Montera error(112): Värddatorn är inte tillgänglig ”på grund av en återanslutning timeout
+
+En ”112” mount-fel uppstår på Linux-klient när klienten har varit inaktiv under en längre tid. När du har en utökad inaktivitetstid klienten kopplas och tidsgränsen uppnås för anslutningen.  
+
+### <a name="cause"></a>Orsak
+
+Anslutningen kan vara inaktiv av följande skäl:
+
+-   Kommunikationsfel i nätverket som förhindrar återställning av en TCP-anslutning till servern när alternativet ”soft” montera används
+-   Senaste återanslutning korrigeringar som inte finns i äldre kernel
+
+### <a name="solution"></a>Lösning
+
+Problemet återanslutning i Linux-kärnan löses nu som en del av följande ändringar:
+
+- [Korrigeringen återansluta om du vill skjuta upp smb3 session inte återansluta långt efter socket återansluta](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+- [Anropa tjänsten echo omedelbart efter socket återansluta](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS: Åtgärda ett möjligt minnet skadas under reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Åtgärda ett möjligt dubbla låsning av mutex under reconnect (för kernel v4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+
+Men kan de här ändringarna inte flyttas ännu till Linux-distributioner. Den här och andra återanslutning korrigeringar finns i den [minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) delen av den [Använd Azure Files med Linux](storage-how-to-use-files-linux.md)artikeln. Den här snabbkorrigeringen får du genom att uppgradera till en av dessa rekommenderade kernel-versioner.
+
+### <a name="workaround"></a>Lösning:
+
+Du kan undvika det här problemet genom att ange en hård montering. En hård montering tvingas klienten att vänta tills en anslutning har upprättats eller uttryckligen avbrott. Du kan använda den för att förhindra fel på grund av timeout för nätverket. Den här lösningen kan dock orsaka obestämd väntar. Var beredd på att stoppa anslutningar vid behov.
+
+Om du inte uppgradera till de senaste kernel-versionerna, kan du undvika problemet genom att lagra en fil i Azure-filresursen som du skriver med 30 sekunders mellanrum eller mindre. Detta måste vara en skrivåtgärd, till exempel skriva om skapade eller ändrade datum för filen. Annars kan du få cachelagrade resultat och åtgärden kan inte utlösa återanslutning.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

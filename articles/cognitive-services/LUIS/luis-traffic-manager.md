@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123551"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
@@ -308,7 +308,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
     Ett lyckat svar är samma svaret som steg 3.
 
 ### <a name="powershell-variables"></a>PowerShell-variabler
-I föregående avsnitt, tre PowerShell variabler har skapats: `$eastprofile`, `$westprofile`, `$parentprofile`. Dessa variabler används mot slutet av Traffic Manager-konfigurationen. Om du har valt att inte skapa variablerna eller har glömt att, eller tidsgränsen uppnås för PowerShell-fönstret kan du använda PowerShell-cmdlet  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, för att hämta profilen igen och tilldela den till en variabeln. 
+I föregående avsnitt, tre PowerShell variabler har skapats: `$eastprofile`, `$westprofile`, `$parentprofile`. Dessa variabler används mot slutet av Traffic Manager-konfigurationen. Om du har valt att inte skapa variablerna eller har glömt att, eller tidsgränsen uppnås för PowerShell-fönstret kan du använda PowerShell-cmdlet  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , för att hämta profilen igen och tilldela den till en variabeln. 
 
 Ersätta dem i vinkelparenteser, `<>`, med rätt värden för var och en av de tre profiler som du behöver. 
 

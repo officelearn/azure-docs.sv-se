@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193873"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Felsökningsguide: Skapa och Anslut till en Azure Machine Learning Studio-arbetsyta
@@ -57,6 +57,6 @@ När den nya Machine Learning Studio-arbetsytan har skapats kan logga du in till
 
 Efter det raderas cookies, starta om webbläsaren och gå sedan till den [Microsoft Azure Machine Learning Studio](https://studio.azureml.net) sidan. När du ombeds ange ett användarnamn och lösenord anger du samma Microsoft-konto som du använde för att skapa arbetsytan.
 
-## <a name="comments"></a>Kommentarer
+## <a name="comments"></a>Kommentar
 
 Vårt mål är att göra Machine Learning-miljö så smidig som möjligt. Du publicera alla kommentarer och problem med den [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) så att vi dig.

@@ -3,20 +3,20 @@ title: Använda PowerShell för att hantera Traffic Manager i Azure
 description: Med hjälp av PowerShell för Traffic Manager med Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: a2065ba51b74d7f55464a22df0f55cac4c6defcb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071034"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -54,7 +54,7 @@ New-AzResourceGroup -Name MyRG -Location "West US"
 Du kan skapa en Traffic Manager-profil med den `New-AzTrafficManagerProfile` cmdlet:
 
 ```powershell
-$profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 I följande tabell beskrivs parametrarna:
@@ -77,7 +77,7 @@ Cmdleten skapar en Traffic Manager-profil i Azure och returnerar ett motsvarande
 Använd för att hämta ett befintligt objekt för Traffic Manager-profil i `Get-AzTrafficManagerProfle` cmdlet:
 
 ```powershell
-$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$TmProfile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 ```
 
 Denna cmdlet returnerar ett objekt för Traffic Manager-profil.
@@ -95,9 +95,9 @@ Alla profilegenskaper kan ändras utom profilens RelativeDnsName. Om du vill än
 I följande exempel visar hur du ändrar profilens TTL:
 
 ```powershell
-$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-$profile.Ttl = 300
-Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
+$TmProfile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$TmProfile.Ttl = 300
+Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
 Det finns tre typer av Traffic Manager-slutpunkter:
@@ -130,12 +130,12 @@ I båda fallen:
 I det här exemplet skapar vi en Traffic Manager-profil och lägga till två App Service-slutpunkter med hjälp av den `Add-AzTrafficManagerEndpointConfig` cmdlet.
 
 ```powershell
-$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$TmProfile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 $webapp1 = Get-AzWebApp -Name webapp1
-Add-AzTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
 $webapp2 = Get-AzWebApp -Name webapp2
-Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
-Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 ### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Exempel 2: Att lägga till en publicIpAddress-slutpunkten med `New-AzTrafficManagerEndpoint`
 
@@ -161,10 +161,10 @@ När du anger externa slutpunkter:
 I det här exemplet vi skapa en Traffic Manager-profil, lägga till två externa slutpunkter och sedan spara ändringarna.
 
 ```powershell
-$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
-Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
-Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
+$TmProfile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $TmProfile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
+Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $TmProfile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
 ### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Exempel 2: Lägga till externa slutpunkter med hjälp av `New-AzTrafficManagerEndpoint`
@@ -194,7 +194,7 @@ I det här exemplet vi skapar nya Traffic Manager över- och underordnade profil
 $child = New-AzTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 $parent = New-AzTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
-Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 ```
 
 Kortfattat i det här exemplet vi inte lägga till andra slutpunkter till över- eller underordnad-profiler.
@@ -214,7 +214,7 @@ Traffic Manager kan arbeta med slutpunkter från olika prenumerationer. Du måst
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
-$ip = Get-AzPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+$ip = Get-AzPublicIpAddress -Name $IpAddressName -ResourceGroupName $EndpointRG
 
 Set-AzContext -SubscriptionId $trafficmanagerSubscription
 New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
@@ -232,10 +232,10 @@ Det finns två sätt att uppdatera en befintlig Traffic Manager-slutpunkt:
 I det här exemplet ändra vi prioritet på två slutpunkter i en befintlig profil.
 
 ```powershell
-$profile = Get-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
-$profile.Endpoints[0].Priority = 2
-$profile.Endpoints[1].Priority = 1
-Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
+$TmProfile = Get-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+$TmProfile.Endpoints[0].Priority = 2
+$TmProfile.Endpoints[1].Priority = 1
+Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
 ### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Exempel 2: Uppdaterar en slutpunkt med hjälp av `Get-AzTrafficManagerEndpoint` och `Set-AzTrafficManagerEndpoint`
@@ -311,8 +311,8 @@ Denna cmdlet uppmanas att bekräfta. Varningen kan förhindras med hjälp av den
 Också du kan ange profilen som ska tas bort med hjälp av en profil-objekt:
 
 ```powershell
-$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-Remove-AzTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+$TmProfile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile [-Force]
 ```
 
 Den här sekvensen kan även pipas:

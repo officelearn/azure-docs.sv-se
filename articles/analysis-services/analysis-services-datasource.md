@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142549"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
@@ -92,7 +92,7 @@ Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gate
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan leverantör
 
-Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer när du ansluter till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providers, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kan det hända att felmeddelandet: **Providern 'SQLNCLI11.1' inte är registrerad**. Eller, om du har en DirectQuery-modell ansluter till lokala datakällor och du använder inbyggda providers, kanske du ser felmeddelandet: **Fel vid skapande av OLE DB-raden ange. Felaktig syntax nära 'LIMIT'**.
+Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer när du ansluter till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providers, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kan det hända att felmeddelandet: **Providern 'SQLNCLI11.1' inte är registrerad**. Eller, om du har en DirectQuery-modell ansluter till lokala datakällor och du använder inbyggda providers, kanske du ser felmeddelandet: **Fel vid skapande av OLE DB-raden ange. Felaktig syntax nära 'LIMIT'** .
 
 När du migrerar en lokal SQL Server Analysis Services-tabellmodell till Azure Analysis Services, kan det vara nödvändigt att ändra providern.
 

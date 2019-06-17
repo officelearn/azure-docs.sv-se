@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 05/14/2019
 ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156270"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser (RI)
@@ -78,8 +78,8 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
     |Region    |Azure-regionen som omfattas av reservationen.|    
     |Storlek på virtuell dator     |Storleken på de Virtuella datorinstanserna.|
     |Optimera för     |Flexibilitet för Virtuella datorinstanser storlek tillämpas reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet prioriterar datacentrets kapacitet för dina distributioner. Det ger ytterligare förtroende i din möjlighet att starta VM-instanser när så behövs. Kapacitetsprioritet är bara tillgänglig när reservationsomfånget är enstaka prenumeration. |
-    |Period        |Ett eller tre år.|
-    |Antal    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
+    |Term        |Ett eller tre år.|
+    |Kvantitet    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
@@ -97,8 +97,8 @@ Du kan inte ändra följande typer av ändringar efter köpet direkt:
 
 - En befintlig reservation region
 - SKU
-- Antal
-- Giltighetstid
+- Kvantitet
+- Duration
 
 Du kan dock *exchange* en reservation om du vill göra ändringar.
 

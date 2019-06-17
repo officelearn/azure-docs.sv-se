@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833075"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Felsöka HTTP-fel ”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” i Azure App Service
@@ -83,7 +83,7 @@ Om du vill få åtkomst till App Service-diagnostik, navigera till din App Servi
 #### <a name="use-the-kudu-debug-console"></a>Använda Kudu-Felsökningskonsolen
 App Service levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Detta kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din app.
 
-Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/**.
+Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/** .
 
 Några av de saker som Kudu tillhandahåller är:
 

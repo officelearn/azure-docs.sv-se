@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591983"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
@@ -85,7 +85,7 @@ Skapa det virtuella nätverket:
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Namn på undernät** |Administratör |
+   | **Namn på undernät** |Admin |
    | **Adressintervall för undernätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du tänker använda. **Prenumeration** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resursgruppen. |
@@ -206,7 +206,7 @@ I följande steg, konfigurerar den **ad-primary-dc** datorer som en domänkontro
 1. I portalen, öppnar den **SQL-HA-RG** resource gruppen och välj den **ad-primary-dc** dator. På **ad-primary-dc**, klickar du på **Connect** att öppna en RDP-fil för fjärråtkomst till skrivbordet.
 
     ![Ansluta till en virtuell dator](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Logga in med ditt konfigurerade administratörskonto (**\DomainAdmin**) och lösenord (**Contoso! 0000**).
+2. Logga in med ditt konfigurerade administratörskonto ( **\DomainAdmin**) och lösenord (**Contoso! 0000**).
 3. Som standard den **Serverhanteraren** instrumentpanelen visas.
 4. Klicka på den **Lägg till roller och funktioner** länk på instrumentpanelen.
 

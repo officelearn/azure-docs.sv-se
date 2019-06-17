@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137792"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
@@ -62,7 +62,7 @@ Ja, det här scenariot stöds. Referera till [flera domäner](how-to-connect-ins
 **F: Kan du ha flera anslutningar för samma Active Directory-domän i Azure AD Connect?**  
 Nej, flera anslutningar för samma AD-domän stöds inte. 
 
-**F: Kan jag flytta Azure AD Connect-databasen från den lokala databasen till en fjärransluten SQL Server-instans?**   
+**F: Kan jag flytta Azure AD Connect-databasen från den lokala databasen till en fjärransluten SQL Server-instans?**    
 Ja, ange följande allmänna riktlinjer om hur du gör detta. Vi arbetar på ett mer detaljerad dokument.
 1. Säkerhetskopiera LocalDB ADSync-databas.
 Det enklaste sättet att göra detta är att använda SQL Server Management Studio installerat på samma dator som Azure AD Connect. Ansluta till *(LocalDb). \ADSync*, och sedan säkerhetskopiera ADSync-databas.

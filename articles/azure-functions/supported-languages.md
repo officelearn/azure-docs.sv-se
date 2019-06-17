@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
 ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148827"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
@@ -45,7 +45,7 @@ Version 2.x-körningen stöder inte experimentella språk. Stöd för nya språk
 
 ### <a name="language-extensibility"></a>Utökningsbarhet för språk
 
-2.x-körningen är utformad att erbjuda [språk utökningsbarhet](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). JavaScript och Java-språk i 2.x-körningen skapas med den här utökningsbarhet.
+2\.x-körningen är utformad att erbjuda [språk utökningsbarhet](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). JavaScript och Java-språk i 2.x-körningen skapas med den här utökningsbarhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704445"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
 
@@ -77,13 +77,13 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 
  När ett fel inträffar och kontroll som leder till den `on-error` principer för felet lagras i [kontext. LastError](api-management-policy-expressions.md#ContextVariables) egenskapen, som kan användas av principer i den `on-error` avsnittet. LastError har följande egenskaper.  
   
-| Namn     | Typ   | Beskrivning                                                                                               | Krävs |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | string | Elementet där felet uppstod-namn. Kan vara antingen princip eller en inbyggd pipeline Stegnamn.     | Ja      |
-| Reason   | string | Dator-vänlig felkoden som skulle kunna användas i felhantering.                                       | Nej       |
-| Message  | string | Läsbart felbeskrivning.                                                                         | Ja      |
-| Scope    | string | Namnet på området där felet uppstod och kan vara någon av ”global”, ”product”, ”-api” eller ”åtgärden” | Nej       |
-| Section  | string | Namn på avsnittet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
+| Namn       | Typ   | Beskrivning                                                                                               | Obligatoriskt |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Elementet där felet uppstod-namn. Kan vara antingen princip eller en inbyggd pipeline Stegnamn.     | Ja      |
+| `Reason`   | string | Dator-vänlig felkoden som skulle kunna användas i felhantering.                                       | Nej       |
+| `Message`  | string | Läsbart felbeskrivning.                                                                         | Ja      |
+| `Scope`    | string | Namnet på området där felet uppstod och kan vara någon av ”global”, ”product”, ”-api” eller ”åtgärden” | Nej       |
+| `Section`  | string | Namn på avsnittet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
 | `Path`     | string | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
 | `PolicyId` | string | Värdet på den `id` attributet, om har angetts av kunden, för principen där felet uppstod             | Nej       |
 
@@ -99,8 +99,8 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 | Source        | Tillstånd                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | konfiguration | URI: N matchar inte till API: et eller åtgärden | OperationNotFound       | Det går inte att matcha inkommande begäran till en åtgärd.                                                                      |
-| Auktorisering | Prenumerationsnyckel som inte angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerationsnyckel. Se till att inkludera prenumerationsnyckel vid begäranden till den här API: et. |
-| Auktorisering | Nyckelvärdet för prenumerationen är ogiltig         | SubscriptionKeyInvalid  | Åtkomst nekad på grund av ogiltigt prenumerations-nyckel. Se till att ange en giltig nyckel för en aktiv prenumeration.            |
+| authorization | Prenumerationsnyckel som inte angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerationsnyckel. Se till att inkludera prenumerationsnyckel vid begäranden till den här API: et. |
+| authorization | Nyckelvärdet för prenumerationen är ogiltig         | SubscriptionKeyInvalid  | Åtkomst nekad på grund av ogiltigt prenumerations-nyckel. Se till att ange en giltig nyckel för en aktiv prenumeration.            |
   
 ## <a name="predefined-errors-for-policies"></a>Fördefinierade fel för principer  
  Följande fel är fördefinierade för feltillstånd som kan uppstå under utvärderingen.  
@@ -108,7 +108,7 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 | Source       | Tillstånd                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Hastighetsbegränsning   | Priset har överskridits                                             | RateLimitExceeded         | Hastighetsbegränsning överskriden                                                                                                               |
-| kvot        | Kvoten har överskridits                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvot fylls i xx:xx:xx. - eller - elimineras bandbredd kvot. Kvot fylls i xx:xx:xx. |
+| kvot        | Kvoten har överskridits                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvot fylls i xx:xx:xx. \- eller - elimineras bandbredd kvot. Kvot fylls i xx:xx:xx. |
 | jsonp        | Parametervärdet för återanrop är ogiltigt (innehåller felaktiga tecken) | CallbackParameterInvalid  | Värdet för motringningen parametern {Motringnings-parametern-name} är inte en giltig JavaScript-identifierare.                                          |
 | ip-filter    | Det gick inte att parsa anroparen IP från begäran                          | FailedToParseCallerIP     | Det gick inte att upprätta IP-adress för anroparen. Åtkomst nekad.                                                                        |
 | ip-filter    | Anroparen IP finns inte i listan över tillåtna                                | CallerIpNotAllowed        | Anropares IP-adress {ip-adress} är inte tillåtet. Åtkomst nekad.                                                                        |

@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024028"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Sökutforskaren för att fråga efter data i Azure Search 
@@ -70,7 +70,7 @@ Lägg till **$count** att hämta antalet matchningar i ett index. Antalet är de
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Exempel 4 – begränsa fält i sökresultat
 
-Lägg till **$select** att begränsa resultaten till de uttryckligen namngivna fält för lättare att läsa utdata i **Sökutforskaren**. Att hålla söksträngen och **$count = true**, prefix argument med **&**. 
+Lägg till **$select** att begränsa resultaten till de uttryckligen namngivna fält för lättare att läsa utdata i **Sökutforskaren**. Att hålla söksträngen och **$count = true**, prefix argument med **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

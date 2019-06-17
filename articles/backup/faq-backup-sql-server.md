@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700175"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor och svar om SQL Server-databaser som körs på en virtuell Azure-säkerhetskopiering
@@ -37,7 +37,7 @@ Under vissa omständigheter utlöser korrigerande säkerhetskopieringar i Azure 
 Automatisk-reparation av nodtjänst som en funktion är aktiverad för alla användare som standard. Men om du väljer att inte välja bort den utför sedan den nedan:
 
   * På SQL Server-instansen i den *c:\Program\Microsoft Files\Azure arbetsbelastning Backup\bin* mapp, skapa eller redigera den **ExtensionSettingsOverrides.json** fil.
-  * I den **ExtensionSettingsOverrides.json**anger *{”EnableAutoHealer”: false}*.
+  * I den **ExtensionSettingsOverrides.json**anger *{”EnableAutoHealer”: false}* .
   * Spara ändringarna och stäng filen.
   * Öppna på SQL Server-instansen **uppgift hantera** och starta sedan om den **AzureWLBackupCoordinatorSvc** service.  
 

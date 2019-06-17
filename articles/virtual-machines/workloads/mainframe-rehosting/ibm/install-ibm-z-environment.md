@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859349"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD & T dev/test-miljö på Azure
@@ -58,7 +58,7 @@ Den här artikeln visar hur du ställer in Z utveckling och Test-miljö (zD & T)
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på den **översikt** bladet för den virtuella datorn via den **Connect** knappen. Välj den **SSH** fliken och kopiera kommandot SSH-inloggning till Urklipp.
 
-4. Logga in på en [Bash-gränssnittet](/azure/cloud-shell/quickstart) från din lokala dator och klistra in kommandot. Det är i formatet **ssh\<användar-id\>\@\<IP-adress\>**. När du tillfrågas om dina autentiseringsuppgifter, anger du dem för att upprätta en anslutning till din arbetskatalog.
+4. Logga in på en [Bash-gränssnittet](/azure/cloud-shell/quickstart) från din lokala dator och klistra in kommandot. Det är i formatet **ssh\<användar-id\>\@\<IP-adress\>** . När du tillfrågas om dina autentiseringsuppgifter, anger du dem för att upprätta en anslutning till din arbetskatalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installationsfilen till servern
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834928"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Använd Time Series Insights för att visualisera telemetri som skickas från lösningsaccelerator Enhetssimulering
@@ -41,7 +41,7 @@ Följande steg använder Azure CLI i Azure Cloud Shell för att skapa konsumentg
     az resource list --resource-group contoso-simulation -o table
     ```
 
-    IoT-hubben är resurs av typen **Microsoft.Devices /**.
+    IoT-hubben är resurs av typen **Microsoft.Devices /** .
 
 1. Lägg till en konsumentgrupp som heter **devicesimulationtsi** till hubben. Använd namnet på din lösning och hub accelerator i följande kommando:
 
@@ -69,7 +69,7 @@ Följande steg använder Azure CLI i Azure Cloud Shell för att skapa konsumentg
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Contoso-simulering**. Använd namnet på din lösningsaccelerator. |
     | Location | Det här exemplet används **USA, östra**. Skapa din miljö i samma region som din enhet simulering accelerator. |
-    | SKU |**S1** |
+    | Sku |**S1** |
     | Kapacitet | **1** |
 
     ![Skapa Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
@@ -98,15 +98,15 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Använd konsumentgrup
     | Inställning | Värde |
     | ------- | ----- |
     | Händelsekälla namn | Följande skärmbild använder namnet **contoso-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
-    | Source | **IoT Hub** |
+    | source | **IoT Hub** |
     | Importalternativ | **Använd IoT Hub från tillgängliga prenumerationer** |
     | Prenumerations-ID:t | I listrutan väljer du din Azure-prenumeration. |
-    | IoT Hub-namn | **contoso-simulation7d894**. Använd namnet på IoT-hubben från utvecklingsacceleratorn Enhetssimulering. |
-    | IoT Hub-principnamn | **iothubowner** |
-    | IoT Hub-principnyckel | Det här fältet fylls i automatiskt. |
-    | IoT Hub-konsumentgrupp | **devicesimulationtsi** |
+    | Namnet på IOT hub | **contoso-simulation7d894**. Använd namnet på IoT-hubben från utvecklingsacceleratorn Enhetssimulering. |
+    | Principnamn för IOT hub | **iothubowner** |
+    | Principnyckel för IOT hub | Det här fältet fylls i automatiskt. |
+    | IOT hub-konsumentgrupp | **devicesimulationtsi** |
     | Händelseserialiseringsformat | **JSON** |
-    | Egenskapsnamn för tidsstämpel | Lämna tomt |
+    | Egenskapsnamnet för tidsstämpeln | Lämna tomt |
 
     ![Skapa händelsekälla](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 

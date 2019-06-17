@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116919"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Så här skapar du ett klassiskt virtuellt nätverk med hjälp av Azure CLI
@@ -32,12 +32,12 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
             info:    network vnet create command OK
    
    * **--vnet**. Namnet på den VNet som ska skapas. I scenariot *TestVNet*
-   * **-e (eller---adressutrymmet)**. VNet-adressutrymmet. I scenariot *192.168.0.0*
-   * **-i (eller - cidr)**. Nätverksmasken i CIDR-format. I scenariot *16*.
+   * **-e (eller---adressutrymmet)** . VNet-adressutrymmet. I scenariot *192.168.0.0*
+   * **-i (eller - cidr)** . Nätverksmasken i CIDR-format. I scenariot *16*.
    * **-n (eller--subnet-name**). Namnet på det första undernätet. I scenariot *klientdel*.
-   * **-p (eller--undernät-start-ip)**. Första IP-adressen för undernätet eller undernätets adressutrymme. I scenariot *192.168.1.0*.
-   * **-r (eller--undernät cidr)**. Nätverksmasken i CIDR-format för undernätet. I scenariot *24*.
-   * **-l (eller --location)**. Azure-region där det virtuella nätverket skapas. I scenariot *centrala USA*.
+   * **-p (eller--undernät-start-ip)** . Första IP-adressen för undernätet eller undernätets adressutrymme. I scenariot *192.168.1.0*.
+   * **-r (eller--undernät cidr)** . Nätverksmasken i CIDR-format för undernätet. I scenariot *24*.
+   * **-l (eller --location)** . Azure-region där det virtuella nätverket skapas. I scenariot *centrala USA*.
 3. Du skapar ett undernät måste köra den **azure undernät för virtuellt nätverk skapar** kommando:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -55,8 +55,8 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
             info:    network vnet subnet create command OK
    
    * **-t (eller--vnet-name**. Namnet på VNet där undernätet kommer att skapas. I scenariot *TestVNet*.
-   * **-n (eller --name)**. Namnet på det nya undernätet. I scenariot *serverdel*.
-   * **-a (eller --address-prefix)**. CIDR-block för undernätet. I scenariot *192.168.2.0/24*.
+   * **-n (eller --name)** . Namnet på det nya undernätet. I scenariot *serverdel*.
+   * **-a (eller --address-prefix)** . CIDR-block för undernätet. I scenariot *192.168.2.0/24*.
 4. Om du vill visa egenskaperna för det nya vnet, kör den **azure network vnet show** kommando:
    
             azure network vnet show

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19969588001bd48bd1c998fe49061db80d94c636
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66518524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101274"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Självstudier: Integrera Helper Helper med Azure Active Directory
 
@@ -155,4 +155,4 @@ När du väljer panelen Helper Helper i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
 ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155227"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Aktuell version](concepts-pipeline-execution-triggers.md)
 
@@ -80,10 +80,10 @@ Pipelinen har två parametrar i JSON-definitionen: **sourceBlobContainer** och *
 Du kan köra din pipeline manuellt med hjälp av en av följande metoder:
 - .NET SDK
 - Azure PowerShell-modul
-- REST API
+- REST-API
 - Python SDK
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 Kommandot i följande exempel visar hur du kör din pipeline manuellt med hjälp av REST-API:t:
 
 ```
@@ -277,7 +277,7 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
-| JSON-egenskap | Type | Obligatoriskt | Standardvärde | Giltiga värden | Exempel |
+| JSON-egenskap | Typ | Obligatoriskt | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Ja | Ingen | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objekt | Ja | Ingen | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

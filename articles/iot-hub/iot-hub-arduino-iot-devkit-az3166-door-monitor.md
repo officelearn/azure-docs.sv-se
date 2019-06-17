@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370364"
 ---
 # <a name="door-monitor"></a>Dörren Övervakare          
@@ -68,7 +68,7 @@ Har fyllt i registreringsformuläret:
 
    * **Resursgrupp**: Skapa en resursgrupp för att vara värd för SendGrid-tjänsten eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/manage-resource-groups-portal.md).
 
-   * **Namn**: Namnet på SendGrid-tjänsten. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
+   * **Namn på**: Namnet på SendGrid-tjänsten. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
    * **Lösenord**: Tjänsten kräver ett lösenord som inte ska användas för vad som helst i det här projektet.
 

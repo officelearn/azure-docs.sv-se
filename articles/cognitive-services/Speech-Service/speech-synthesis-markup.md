@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021445"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
@@ -37,7 +37,7 @@ Som standard Syntetiserar tjänsten text till tal i en neutral formatmall. Neura
 
 Talar style ändringar kan tillämpas på nivån mening. Formaten varierar röst. Om en typ inte stöds, returnerar tjänsten syntetiskt tal som standard språkneutralt format.
 
-| Röst | Stil | Beskrivning | 
+| Röst | stil | Beskrivning | 
 |-----------|-----------------|----------|
 | `en-US-JessaNeural` | type=`cheerful` | Representerar en känsla som är positiva och nöjd |
 | | type=`empathy` | Representerar en uppfattning om sköta och förstå |

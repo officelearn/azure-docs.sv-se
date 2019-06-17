@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482914"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en controller-modulen på StorSimple-enheten
@@ -36,7 +36,7 @@ Den här självstudien beskrivs hur du tar bort och ersätter en eller båda con
 
 I följande tabell visas scenarierna för ersättning av stöds controller.
 
-| Fall | Ersättning scenario | Aktuella proceduren |
+| Ärende | Ersättning scenario | Aktuella proceduren |
 |:--- |:--- |:--- |
 | 1 |En kontrollenhet är i ett felaktigt tillstånd, den andra styrenheten är felfri och aktiv. |[Enkel controller ersättning](#replace-a-single-controller), som beskriver den [logiken bakom en enda domänkontrollant ersättning](#single-controller-replacement-logic), samt de [ersättning steg](#single-controller-replacement-steps). |
 | 2 |Båda styrenheterna har misslyckats och kräva ersättning. De chassin, diskar och hölje är hälsosamma. |[Dubbel domänkontrollant ersättning](#replace-both-controllers), som beskriver den [logiken bakom en dubbel domänkontrollant ersättning](#dual-controller-replacement-logic), samt de [ersättning steg](#dual-controller-replacement-steps). |
@@ -94,8 +94,8 @@ Utför följande steg om en av kontrollenheterna i din Microsoft Azure StorSimpl
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Kontrollenhet 0 |
-   | 4 |Kontrollenhet 1 |
+   | 3 |Kontrollant 0 |
+   | 4 |Kontrollant 1 |
 4. Ta bort alla anslutna nätverkskablarna från data hamnar på kontrollanten misslyckades. Om du använder en 8600 modell kan du också ta bort SAS-kablar som ansluter kontrollanten till EBOD-kontrollanten.
 5. Följ stegen i [ta bort en kontrollant](#remove-a-controller) att ta bort den misslyckade styrenheten.
 6. Installera factory ersättningen på samma plats som den misslyckade styrenheten har tagits bort. Detta utlöser styrenhet ersättning logiken. Mer information finns i [enkel controller ersättning logic](#single-controller-replacement-logic).

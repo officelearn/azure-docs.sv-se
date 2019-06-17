@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65813392"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
@@ -59,9 +59,9 @@ Observera tjänsten innehåller en länk för en **hanterad resursgrupp**. Resur
 
 Om du vill ta bort allt innehåll för tjänsten, inklusive den låsta infrastrukturresursgrupp Välj **ta bort** för tjänsten.
 
-![Ta bort tjänst](./media/resource-group-lock-resources/delete-service.png)
+![Ta bort tjänsten](./media/resource-group-lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
@@ -218,7 +218,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Du kan låsa distribuerade resurser med den [REST API för hanteringslås](https://docs.microsoft.com/rest/api/resources/managementlocks). REST API kan du skapa och ta bort lås och hämta information om befintliga Lås.
 
 Om du vill skapa ett lås, kör du:

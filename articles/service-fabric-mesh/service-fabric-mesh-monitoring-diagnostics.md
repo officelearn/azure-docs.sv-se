@@ -16,10 +16,10 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 36c9a5d75c4a72365638619ab85d451df647feb3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939826"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
@@ -58,7 +58,7 @@ Nät miljön Exponerar en handfull mått som anger hur dina behållare utför. F
 | MemoryUtilization | ActualMem/AllocatedMem i procent | % |
 | AllocatedCpu | CPU som allokerats enligt Azure Resource Manager-mall | Millicores |
 | AllocatedMemory | Minne som allokerats enligt Azure Resource Manager-mall | MB |
-| ActualCpu | Processoranvändning | Millicores |
+| ActualCpu | CPU-användning | Millicores |
 | ActualMemory | Minnesanvändning | MB |
 | ContainerStatus | 0 - ogiltig: Status för container är okänd <br> 1 - väntar: Behållaren har schemalagts att starta <br> 2 – startar: Behållaren håller startar <br> 3 – igång: Behållaren har startat <br> 4 – stoppar: Behållaren stoppas <br> 5 – stoppats: Behållaren har stoppats | Gäller inte |
 | ApplicationStatus | 0 - Unknown: Status kan inte hämtas <br> 1 - klar: Programmet körs <br> 2 – uppgradera: Det finns en uppgradering pågår <br> 3 – skapa: Programmet håller på att skapas <br> 4 – tar bort: Programmet tas bort <br> 5 – misslyckades: Det gick inte att distribuera programmet | Gäller inte |
@@ -72,7 +72,7 @@ Nät miljön Exponerar en handfull mått som anger hur dina behållare utför. F
 Varje mått är tillgängliga på olika dimensioner så att du kan se aggregeringar på olika nivåer. Den aktuella listan över dimensioner är följande:
 
 * ApplicationName
-* ServiceName
+* Tjänstnamn
 * ServiceReplicaName
 * CodePackageName
 

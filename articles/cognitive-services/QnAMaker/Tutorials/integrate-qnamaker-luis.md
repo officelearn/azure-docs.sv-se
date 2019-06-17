@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053157"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker och LUIS för att distribuera din kunskapsbas
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
@@ -27,7 +27,7 @@ Den här artikeln använder Bot Framework v3-SDK. Finns i denna [Bot Framework a
 
 ## <a name="architecture"></a>Arkitektur
 
-![QnA Maker luis-arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker med Language Understanding-arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan från en LUIS-modell och sedan använda den för att dirigera till rätt kunskapsbas för QnA Maker.
 
@@ -51,7 +51,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
 
 ## <a name="web-app-bot"></a>Web app-robot
 
-1. [Skapa en Web App-robot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) med LUIS-mall. Välj 3.x SDK och programmeringsspråket C#.
+1. [Skapa en ”grundläggande” Web App-robot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) som automatiskt lägger till en LUIS-app. Välj 4.x SDK och C# programmeringsspråket.
 
 1. När web app-robot skapas i Azure-portalen väljer du web app-robot.
 1. Välj **programinställningar** i Web app bot service navigering, rulla ned till **programinställningar** under tillgängliga inställningar.

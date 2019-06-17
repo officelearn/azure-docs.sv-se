@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112135"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory i användningsvillkor
 
@@ -122,16 +122,16 @@ När du har skapat dokument med dina användningsvillkor, följ anvisningarna f�
    | **Åtkomst till molnappar för alla gäster** | Principer för villkorlig åtkomst kommer att skapas för alla gäster och alla molnappar. Den här principen påverkar Azure-portalen. När den har skapats kan du bli ombedd att logga ut och logga in. |
    | **Åtkomst till molnappar för alla användare** | Principer för villkorlig åtkomst kommer att skapas för alla användare och alla molnappar. Den här principen påverkar Azure-portalen. När den har skapats, kommer du att behöva logga ut och logga in. |
    | **Anpassad princip** | Välj användare, grupper och appar som den här användningsvillkoren ska kopplas till. |
-   | **Skapa princip för villkorlig åtkomst senare** | Det här användningsvillkoret visas i kontrollistan för beviljande när du skapar en princip för villkorsstyrd åtkomst. |
+   | **Skapa princip för villkorlig åtkomst senare** | Det här användningsvillkoret visas i kontrollistan när du skapar en princip för villkorlig åtkomst. |
 
    >[!IMPORTANT]
-   >Kontrollerna för principer för villkorlig åtkomst (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton. Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
+   >Villkorlig åtkomst principkontroller (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton. Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
 
-    Anpassade villkorliga åtkomstprinciper Aktivera detaljerade användningsvillkor för ett specifikt molnprogram eller grupp av användare. Mer information finns i [ Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar](require-tou.md).
+    Anpassade principer för villkorlig åtkomst aktiverar detaljerade användningsvillkor för ett specifikt molnprogram eller grupp av användare. Mer information finns i [ Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar](require-tou.md).
 
 1. Klicka på **Skapa**.
 
-   Om du har valt en mall för villkorlig åtkomst har en ny skärm visas där du kan skapa princip för villkorlig åtkomst.
+   Om du har valt en anpassad mall för villkorlig åtkomst har en ny skärm visas där du kan skapa anpassade principen för villkorlig åtkomst.
 
    ![Anpassad princip](./media/terms-of-use/custom-policy.png)
 
@@ -307,7 +307,7 @@ Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer
 > [!IMPORTANT]
 > Användare inom området behöver logga ut och logga in för att uppfylla en ny princip om:
 >
-> - en villkorlig åtkomstprincip är aktiverad för ett användningsvillkor
+> - principer för villkorlig åtkomst är aktiverat på användningsvillkor
 > - eller andra användningsvillkor skapas
 
 ## <a name="b2b-guests-preview"></a>B2B-gäster (förhandsversion)
@@ -384,4 +384,4 @@ S: Användningsvillkor använder följande slutpunkter för autentisering: https
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar](require-tou.md)
-- [Best practices for conditional access in Azure Active Directory](best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)
+- [Metodtips för villkorlig åtkomst i Azure Active Directory](best-practices.md)

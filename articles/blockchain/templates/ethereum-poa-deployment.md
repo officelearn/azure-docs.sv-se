@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126376"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
@@ -175,7 +175,7 @@ Adressen för varje verifieraren tilldelas automatiskt den [identitetsarkiv](#id
 #### <a name="consortium-name"></a>Consortium namn
 En administratör kan uppdatera Consortium-namnet som visas överst på sidan.  Välj kugghjulsikonen i det övre vänstra hörnet att uppdatera namnet Consortium.
 
-#### <a name="account-menu"></a>Kontomeny
+#### <a name="account-menu"></a>Meny
 I det övre högerkant hörnet är dina Ethereum-kontoalias och identicon.  Om du är administratör har du möjlighet att uppdatera ditt alias.
 
 ![Konto](./media/ethereum-poa-deployment/governance-dapp-account.png)
@@ -202,7 +202,7 @@ När en prenumeration är skyddad, går du till Azure-portalen. Välj ”+”, M
 
 Följande avsnitt vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet består av fem steg: Grunderna, distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar, Azure Monitor.
 
-#### <a name="basics"></a>Grundinställningar
+#### <a name="basics"></a>Grundläggande inställningar
 
 Under **grunderna**, ange värden för standard parametrar för alla distributioner, till exempel prenumeration, resursgrupp och grundläggande VM-egenskaper.
 
@@ -261,7 +261,7 @@ Virtuell dator och lagringsnivå påverkar nätverkets prestanda.  Vi rekommende
   SKU för virtuell dator|Lagringsnivå|Pris|Dataflöde|Svarstid
   ---|---|---|---|---
   F1|Standard SSD|Låg|Låg|Hög
-  D2_v3|Standard SSD|medel|medel|medel
+  D2_v3|Standard SSD|medium|medium|medium
   F16s|Premium SSD|Hög|Hög|Låg
 
 En exempeldistribution visas nedan: ![storlek och prestanda](./media/ethereum-poa-deployment/network-size-and-performance.png)
@@ -278,7 +278,7 @@ Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konso
 Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras.  Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket.|5 - 999,999,999|10101010
 Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Saknas
 Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
-Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP
+Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP-adress
 Block Gas Limit (Advanced Options = Enable)|Startar block gas gränsen på nätverket|Numerisk|50000000
 Reseal Blockeringsperiod (sek)|Frekvensen som tomt block skapas när det finns inga transaktioner i nätverket. Tätare har snabbare avveckling överföring men ökade lagringskostnader.|Numerisk|15
 Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning till en lista med tillåtna av Ethereum-konton.|Kontraktet bytecode|Saknas
@@ -330,7 +330,7 @@ Om du anger en e-postadress ([grunderna avsnittet](#basics)), ett e-postmeddelan
 
 ![distribution av e-post](./media/ethereum-poa-deployment/deployment-email.png)
 
-##### <a name="portal"></a>Portal
+##### <a name="portal"></a>Portalen
 
 När distributionen har slutförts och alla resurser som har etablerats kan du visa utdataparametrarna i resursgruppen.
 
@@ -760,7 +760,7 @@ WebAssembly support har redan aktiverats för dig i den nyligen distribuerade Po
 
 ## <a name="reference"></a>Referens
 
-### <a name="faq"></a>Vanliga frågor
+### <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 #### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag Observera att det finns många transaktioner i nätverket som jag fungerade\'t skicka. Var kommer dessa från?
 

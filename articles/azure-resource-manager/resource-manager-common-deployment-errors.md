@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128591"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
@@ -30,7 +30,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 
 ## <a name="error-codes"></a>Felkoder
 
-| Felkod | Minskning | Mer information |
+| Felkod | Åtgärd | Mer information |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Följ namngivningsbegränsningar för storage-konton. | [Lösa lagringskontonamn](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -95,7 +95,7 @@ Verifieringsfel uppstår från scenarier som kan fastställas före distribution
 
 Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i den [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
-### <a name="validation-errors"></a>Verifieringsfel
+### <a name="validation-errors"></a>verifieringsfel
 
 När du distribuerar via portalen kan se du ett valideringsfel efter att ha skickat dina värden.
 
@@ -131,7 +131,7 @@ Visas mer information om hur du distribuerar. Välj alternativet för att hitta 
 
 Du ser felmeddelandet och felkoder. Observera att det finns två felkoder. Första felkoden (**DeploymentFailed**) är ett allmänt fel som inte ger de information du behöver för att lösa felet. Andra felkoden (**StorageAccountNotFound**) tillhandahåller de information du behöver. 
 
-![felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
+![Felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541750"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure Pipelines för att skapa och distribuera HPC-lösningar
@@ -26,7 +26,7 @@ I det här exemplet ska vi skapa en version och släppa pipeline för att distri
 
 ![Diagram över flödet av distribution i vår Pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Inställningar
+### <a name="setup"></a>Konfiguration
 
 Om du vill följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett teamprojekt.
 
@@ -418,13 +418,13 @@ Det finns ett antal steg ingår i distributionen av infrastrukturen. Eftersom vi
     * **Åtgärd**: Skapa eller uppdatera resursgrupp
     * **Resursgrupp**: $(resourceGroupName)
     * **Plats**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **Åsidosätt mallparametrar**: - accountName $(storageAccountName)
 
 1. Ladda upp artefakter från källkontrollen till Lagringskontot. Det finns en Azure-Pipeline-aktivitet för att utföra detta. Som en del av den här uppgiften, den Molnlagringskontots behållar-URL och SAS-Token kan vara för utdata till en variabel i Azure-Pipelines. Det innebär att den kan återanvändas i hela den här fasen av agenten.
 
     Lägg till den **Azure File Copy** uppgift och ange följande egenskaper:
-    * **Källa:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates /
+    * **Källa:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates /
     * **Azure anslutningstypen**: Azure Resource Manager
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
     * **Måltypen**: Azure-blobb
@@ -441,7 +441,7 @@ Det finns ett antal steg ingår i distributionen av infrastrukturen. Eftersom vi
     * **Åtgärd**: Skapa eller uppdatera resursgrupp
     * **Resursgrupp**: $(resourceGroupName)
     * **Plats**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Åsidosätt mallparametrar**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 En vanlig metod är att använda Azure Key Vault-uppgifter. Om tjänstens huvudnamn (anslutning till din Azure-prenumeration) har en lämplig åtkomst-principer som angetts, den kan hämta hemligheter från ett Azure Key Vault och kan användas som variabler i din pipeline. Namnet på hemligheten att skapas med det associerade värdet. Exempelvis kan en hemlighet i sshPassword refereras med $(sshPassword) i versionsdefinitionen.

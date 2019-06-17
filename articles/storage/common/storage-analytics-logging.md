@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204976"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-loggning
@@ -94,7 +94,7 @@ Läs om hur lista blobbar programmässigt [uppräkning av Blob-resurser](https:/
 |`MM`|Månaden med två siffror för loggen. Exempel: `07`|
 |`DD`|Dagen med två siffror i loggen. Exempel: `31`|
 |`hh`|Två siffror timmen som anger den första timmen för loggarna, 24-timmarsformat UTC format. Exempel: `18`|
-|`mm`|De två siffror som anger från minut för loggarna. **Obs!**  Det här värdet stöds inte i den aktuella versionen av Storage Analytics och dess värde alltid kommer att `00`.|
+|`mm`|De två siffror som anger från minut för loggarna. **Obs:**  Det här värdet stöds inte i den aktuella versionen av Storage Analytics och dess värde alltid kommer att `00`.|
 |`<counter>`|Ett nollbaserat räknare med sex siffror som anger antalet loggblobarna som genererats för storage-tjänsten i en timme lång tid. Den här räknaren börjar vid `000000`. Exempel: `000001`|
 
  Följande är ett fullständigt exempel loggnamn som kombinerar ovanstående exempel:

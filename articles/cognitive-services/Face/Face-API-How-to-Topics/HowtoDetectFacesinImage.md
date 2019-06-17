@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.openlocfilehash: 46bd1bdd55725878bc7b1bd55d5e24b78d82aada
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66124553"
 ---
 # <a name="get-face-detection-data"></a>Hämta data för identifiering av ansikte
@@ -27,7 +27,7 @@ Den här guiden visar hur du:
 - Hämta platserna för olika ansiktslandmärken, till exempel elever och näsa munnen i en bild.
 - Gissa kön, ålder, känslor och andra attribut för ett identifierat ansikte.
 
-## <a name="setup"></a>Inställningar
+## <a name="setup"></a>Konfiguration
 
 Den här handboken förutsätts att du redan skapat en [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) objekt, med namnet `faceClient`, med ett ansikte prenumeration nyckel och slutpunkt-URL. Härifrån kan du använda funktionen för identifiering av ansikte genom att anropa antingen [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), som används i den här guiden eller [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Anvisningar för hur du ställer in den här funktionen finns i den [identifiera ansikten Snabbstart för C# ](../quickstarts/csharp-detect-sdk.md).
 

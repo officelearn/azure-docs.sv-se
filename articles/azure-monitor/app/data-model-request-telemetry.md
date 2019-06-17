@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900537"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begärandetelemetri: Application Insights-datamodell
@@ -39,19 +39,19 @@ Identifierare för en instans för anrop av begäran. Används för korrelation 
 
 Maxlängd: 128 tecken
 
-## <a name="url"></a>URL
+## <a name="url"></a>Url
 
 URL för begäran med alla parametrar för frågesträngen.
 
 Maxlängd: 2048 tecken
 
-## <a name="source"></a>Källa
+## <a name="source"></a>source
 
 Källan för begäran. Exempel är instrumenteringsnyckeln för anroparen eller ip-adressen för anroparen. Mer information finns i [korrelation](../../azure-monitor/app/correlation.md) sidan.
 
 Maxlängd: 1024 tecken
 
-## <a name="duration"></a>Varaktighet
+## <a name="duration"></a>Duration
 
 Varaktighet i format för begäran: `DD.HH:MM:SS.MMMMMM`. Måste vara positivt och mindre än `1000` dagar. Det här fältet är obligatoriskt eftersom begärandetelemetri representerar igen med början och slutet.
 
@@ -61,7 +61,7 @@ Resultatet av en Frågekörningen. HTTP-statuskod för HTTP-begäranden. Det kan
 
 Maxlängd: 1024 tecken
 
-## <a name="success"></a>Lyckades
+## <a name="success"></a>Klart
 
 Uppgift om lyckade och misslyckade anrop. Det här fältet är obligatoriskt. Ange när inte uttryckligen till `false` – en begäran anses ska lyckas. Det här värdet till `false` om åtgärden avbröts av undantag eller felkoden resultat returnerades.
 

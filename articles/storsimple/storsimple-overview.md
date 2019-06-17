@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630211"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybridlösning för molnlagring
@@ -244,7 +244,7 @@ Följande är en lista över infrastrukturkomponenter StorSimple som stöds.
 
 Följande är en lista med annan programvara som används med StorSimple för att bygga lösningar.
 
-| Typ av arbetsbelastning | Programvara som används med StorSimple | Versioner som stöds|Länka till lösningsguide| 
+| Typer av arbetsbelastningar | Programvara som används med StorSimple | Versioner som stöds|Länka till lösningsguide| 
 | --- | --- | --- | --- |
 | Mål för säkerhetskopia |Veeam |Veeam v 9 och senare |[StorSimple som ett säkerhetskopieringsmål med Veaam](storsimple-configure-backup-target-veeam.md)|
 | Mål för säkerhetskopia |Veritas Backup Exec |Backup Exec 16 och senare |[StorSimple som ett säkerhetskopieringsmål med Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|

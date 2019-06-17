@@ -15,10 +15,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475515"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
@@ -101,8 +101,8 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| utgivare | Microsoft.Powershell.DSC | string |
-| typ | DSC | string |
+| publisher | Microsoft.Powershell.DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Egenskap inställningsvärden

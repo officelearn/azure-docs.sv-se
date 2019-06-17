@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964391"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användaretablering
@@ -34,7 +34,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * En Slack-klienten med den [Plus plan](https://aadsyncfabric.slack.com/pricing) eller bättre har aktiverats
 * Ett användarkonto i Slack med administratörsbehörighet för Team
 
-Anteckning: Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
+Obs! Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
 
 ## <a name="assigning-users-to-slack"></a>Tilldela användare till Slack
 

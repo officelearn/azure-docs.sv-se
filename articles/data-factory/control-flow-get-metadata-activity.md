@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346924"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
@@ -43,7 +43,7 @@ GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och u
 
 **Fillagring:**
 
-| Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | storlek<br>(fil) | skapad<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
+| Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | size<br>(fil) | Skapat<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | structure<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -60,7 +60,7 @@ GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och u
 
 **Relationsdatabas:**
 
-| Anslutning/Metadata | struktur | Antal kolumner | Det finns |
+| Anslutning/Metadata | structure | Antal kolumner | Det finns |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
 | Hanterad Azure SQL Database-instans | √ | √ | √ |
@@ -75,12 +75,12 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 |:--- |:--- |
 | itemName | Namnet på filen eller mappen. |
 | ItemType | Typ av filen eller mappen. Utdatavärdet `File` eller `Folder`. |
-| storlek | Storleken på filen i byte. Gäller för bara fil. |
-| skapad | Skapad datum/tid för filen eller mappen. |
+| size | Storleken på filen i byte. Gäller för bara fil. |
+| Skapat | Skapad datum/tid för filen eller mappen. |
 | lastModified | Senast ändrad datum/tid för filen eller mappen. |
 | childItems | Lista över undermappar och filer i den angivna mappen. Gäller endast på mappen. Utdatavärdet är en lista med namn och typ för varje underordnade objekt. |
 | contentMD5 | MD5 för filen. Gäller för bara fil. |
-| struktur | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och Kolumntyp. |
+| structure | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och Kolumntyp. |
 | Antal kolumner | Antalet kolumner i filen eller relationstabell. |
 | Det finns| Om en fil/mapp/table finns eller inte. Tänk om ”finns” anges i fältlistan GetaMetadata aktiviteten inte misslyckas trots att det inte finns objektet (fil/mapp/table); i stället returnerar `exists: false` i utdata. |
 
@@ -131,7 +131,7 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 
 GetMetadata-aktiviteten kan för närvarande hämta följande typer av metadatainformation.
 
-Egenskap  | Beskrivning | Krävs
+Egenskap | Beskrivning | Obligatoriskt
 -------- | ----------- | --------
 fieldList | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnittet om metadata som stöds. | Ja 
 dataset | Referens-datauppsättning vars GetMetaData-aktivitet är kan hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till avsnitt om anslutningsprogram på datauppsättningen syntax information. | Ja

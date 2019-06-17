@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076307"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: Webbapp som anropar webb-API: er
+# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: Webbapp som anropar webb-API:er
 
 Lär dig hur du skapar en webbapp användare logga in på Microsoft identity-plattformen och som anropar webb-API: er åt den inloggade användaren.
 
@@ -39,7 +39,7 @@ Det här scenariot supposes att du har gått igenom följande scenario:
 
 Du lägger till autentisering till din Webbapp som därför kan logga in användare och anropar ett webb-API för den inloggade användaren räkning.
 
-![Webbapp som anropar webb-API: er](./media/scenario-webapp/web-app.svg)
+![Webbapp som anropar webb-API:er](./media/scenario-webapp/web-app.svg)
 
 Web Apps som anropar webb-API: er:
 

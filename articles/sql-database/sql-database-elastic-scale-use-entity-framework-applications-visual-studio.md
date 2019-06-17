@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331932"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
@@ -45,8 +45,8 @@ När du har skapat dessa databaser, fyller du i platshållare i **Program.cs** m
 
 Entity Framework utvecklare förlitar sig på något av följande fyra arbetsflöden att bygga program och säkerställa persistence för programobjekt:
 
-* **Kod först (ny databas)**: EF-utvecklare skapar modellen i programkoden och sedan EF genererar databasen från den. 
-* **Kod först (befintlig databas)**: Utvecklaren kan EF generera programkoden för modellen från en befintlig databas.
+* **Kod först (ny databas)** : EF-utvecklare skapar modellen i programkoden och sedan EF genererar databasen från den. 
+* **Kod först (befintlig databas)** : Utvecklaren kan EF generera programkoden för modellen från en befintlig databas.
 * **Modellera första**: Utvecklaren skapar modellen i EF designer och sedan EF skapar databasen från modellen.
 * **Databasen första**: Utvecklare använder EF verktyg för att härleda modellen från en befintlig databas. 
 

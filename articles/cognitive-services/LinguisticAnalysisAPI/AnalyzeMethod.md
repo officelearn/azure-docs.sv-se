@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401195"
 ---
 # <a name="analyze-method"></a>Analysera metod
@@ -26,7 +26,7 @@ ms.locfileid: "61401195"
 Den **analysera** REST-API används för att analysera en viss naturligt språk som indata.
 Som kan innebära att bara söka efter den [meningar och token](Sentences-and-Tokens.md) inom som indata, att hitta den [av ordklasser taggar](POS-tagging.md), eller för att hitta den [av valkrets trädet](Constituency-Parsing.md).
 Du kan ange vilka resultat som du vill ha genom att välja relevanta analysverktyg.
-Om du vill visa alla tillgängliga analysverktyg, titta på den  **[analysverktyg](AnalyzersMethod.md)**.
+Om du vill visa alla tillgängliga analysverktyg, titta på den  **[analysverktyg](AnalyzersMethod.md)** .
 
 Observera att du måste ange språket för den inmatade strängen.
 

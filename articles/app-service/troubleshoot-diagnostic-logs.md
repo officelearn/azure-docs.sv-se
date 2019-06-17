@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059644"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -75,7 +75,7 @@ För **webbserverloggning**, kan du välja **storage** eller **filsystem**. Att 
 
 Om du sparar loggar på filsystemet kan filerna nås via FTP eller hämtat som ett Zip-arkiv med hjälp av Azure CLI.
 
-Som standard loggar tas inte bort automatiskt (med undantag för **Programinloggning (filsystem)**). Om du vill ta bort loggar automatiskt, ange den **kvarhållningsperiod (dagar)** fält.
+Som standard loggar tas inte bort automatiskt (med undantag för **Programinloggning (filsystem)** ). Om du vill ta bort loggar automatiskt, ange den **kvarhållningsperiod (dagar)** fält.
 
 > [!NOTE]
 > Om du [återskapa lagringskontots åtkomstnycklar](../storage/common/storage-create-storage-account.md), måste du återställa respektive loggningsinställningarna för att använda de uppdaterade nycklarna. Gör så här:
@@ -93,7 +93,7 @@ Valfri kombination av file system eller blob storage kan aktiveras på samma gå
 > Information som lagras i **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska blob-lagring och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Hur: Hämtningsloggar
+## <a name="download"></a> Hur: Ladda ned loggar
 Diagnostisk information som lagras i app-filsystem kan nås direkt med FTP. Det kan också hämtas som en Zip-arkiv med Azure CLI.
 
 Katalogstrukturen som loggar lagras i är följande:
@@ -192,12 +192,12 @@ När du loggar till blob storage lagras data i fil med kommaavgränsade värden 
 | Date |Datum och tid då händelsen inträffade |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | ApplicationName |Appnamnet |
-| Instans-ID |Instans av appen som händelsen inträffade på |
+| InstanceId |Instans av appen som händelsen inträffade på |
 | EventTickCount |Datum och tid då händelsen inträffade i Skalstreckets format (större precision) |
 | EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
 | Pid |Process-ID |
 | tid |Tråd-ID för tråden som producerade händelsen |
-| Meddelande |Detalj händelsemeddelande |
+| Message |Detalj händelsemeddelande |
 
 Data som lagras i en blob skulle se ut ungefär så här:
 
@@ -205,7 +205,7 @@ Data som lagras i en blob skulle se ut ungefär så här:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> För ASP.NET Core loggning åstadkoms med hjälp av den [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider som den här providern insättningar ytterligare loggfiler till blob-behållaren. Mer information finns i [ASP.NET Core loggning i Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> För ASP.NET Core loggning åstadkoms med hjälp av den [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider som den här providern insättningar ytterligare loggfiler till blob-behållaren. Mer information finns i [ASP.NET Core loggning i Azure](/aspnet/core/fundamentals/logging).
 >
 >
 

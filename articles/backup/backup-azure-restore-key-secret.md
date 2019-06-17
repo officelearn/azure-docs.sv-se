@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
 ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127908"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
@@ -52,7 +52,7 @@ Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Des
 $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-## <a name="restore-key"></a>Återställ nyckeln
+## <a name="restore-key"></a>Återställa nyckel
 
 När JSON-filen har genererats i den målsökväg som nämns ovan, generera nyckel blob-fil från JSON-filen och skicka för att återställa viktiga cmdlet om du vill placera nyckel (KEK) tillbaka i nyckelvalvet.
 
@@ -108,7 +108,7 @@ Om du har säkerhetskopierat krypterade virtuella datorn med hjälp av Azure VM 
 
 Den metod som nämns ovan skulle fungera för alla återställningspunkter. Den äldre metoden för att få nyckel och Hemlig information från återställningspunkten, skulle dock vara giltigt för återställningspunkter som är äldre än den 11 juli 2017 för virtuella datorer som har krypterats med BEK och KEK. När disken Återställningsjobbet har slutförts för krypterade virtuella datorn med [steg för PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm), se till att $rp fylls med ett giltigt värde.
 
-### <a name="restore-key"></a>Återställ nyckeln
+### <a name="restore-key"></a>Återställa nyckel
 
 Du kan använda följande cmdletar för att hämta nyckel (KEK) information från återställningspunkten och skicka om du vill återställa viktiga cmdlet om du vill placera den i nyckelvalvet.
 

@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: f5fc778ee4d8f91232bc732cc276f642f748b29d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297549"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, schemalägga och kör återkommande uppgifter och arbetsflöden med upprepningsutlösare i Azure Logic Apps
@@ -55,7 +55,7 @@ Skillnader mellan den här utlösaren och utlösare för glidande fönster för 
 
    ![Ange intervall och frekvens](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Egenskap  | Obligatoriskt | JSON-namn | Type | Beskrivning |
+   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
    | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på åtkomstfrekvensen. Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. |
    | **Frekvens** | Ja | frequency | String | Tidsenhet för upprepningen: **Andra**, **minut**, **timme**, **dag**, **vecka**, eller **månad** |
@@ -66,7 +66,7 @@ Skillnader mellan den här utlösaren och utlösare för glidande fönster för 
 
    ![Avancerade alternativ för schemaläggning](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Egenskap  | Obligatoriskt | JSON-namn | Type | Beskrivning |
+   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
    | **Tidszon** | Nej | Tidszon | String | Gäller endast när du anger en starttid eftersom den här utlösaren inte acceptera [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
    | **Starttid** | Nej | startTime | String | Ange ett startdatum och starttid i följande format: <p>ÅÅÅÅ-MM-ddTHH om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-: ssZ om du inte väljer en tidszon <p>Till exempel om du vill 18 September 2017 kl 2:00, sedan ange ”2017-09-18T14:00:00” och välj en tidszon som Pacific Standard Time. Alternativt kan du ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** Starttiden måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>Starttiden är den första förekomsten för enkla scheman och för komplexa scheman inte utlösaren utlöses alla snabbare än starttiden. [*Vad är hur kan jag använda startdatum och tidpunkt?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |

@@ -10,10 +10,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076822"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
@@ -89,7 +89,7 @@ Om du vill skapa ett Azure Automation-konto i Azure-portalen gör du följande:
 
 När Automation-kontot har skapats skapas flera resurser automatiskt. När du har skapat, kan dessa runbooks tas bort om du inte vill att de. Det kör som-konton kan användas för att autentisera till ditt konto i en runbook och ska fortsätta om du inte skapar en ny eller behöver dem inte. I följande tabell sammanfattas resurserna för Kör som-kontot.
 
-| Resurs | Beskrivning |
+| Resource | Beskrivning |
 | --- | --- |
 | AzureAutomationTutorial-runbook |Ett exempel grafisk runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
 | AzureAutomationTutorialScript-runbook |Ett exempel PowerShell-runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
@@ -99,7 +99,7 @@ När Automation-kontot har skapats skapas flera resurser automatiskt. När du ha
 
 I följande tabell sammanfattas resurserna för det klassiska Kör som-kontot.
 
-| Resurs | Beskrivning |
+| Resource | Beskrivning |
 | --- | --- |
 | AzureClassicAutomationTutorial-runbook |Ett exempel på en grafisk runbook. Runbook hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska kör som-kontot (certifikat). Den visar sedan namn på virtuella datorer och status. |
 | AzureClassicAutomationTutorial Script-runbook |Ett exempel PowerShell-runbook. Runbook hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska kör som-kontot (certifikat). Den visar sedan namn på virtuella datorer och status. |

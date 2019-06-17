@@ -1,5 +1,5 @@
 ---
-title: Konfigurera autentisering sessionshantering med villkorlig åtkomst i Azure Active Directory
+title: Konfigurera sessionshantering för autentisering med Azure Active Directory villkorsstyrd åtkomst
 description: Anpassa Azure AD authentication sessionskonfiguration inklusive användarinloggning i persistence för frekvens och webbläsare.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112326"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentisering sessionshantering med villkorlig åtkomst
 
@@ -53,7 +53,7 @@ Azure AD-standarden för persistence för webbläsare kan användare på personl
 Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicens. Om du vill veta mer om villkorlig åtkomst, se [vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 15 oktober och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
+> Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 1 November och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Principen 1: Logga in frekvensen kontroll
 
@@ -68,13 +68,13 @@ Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicen
 1. Välj ett värde på **timmar** eller **dagar** listrutan
 1. Spara principen
 
-![Princip för villkorlig åtkomst som konfigurerats för inloggning i frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Princip för villkorlig åtkomst har konfigurerats för inloggning i frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 Registrerade Windows-enheter logga in på enheten anses vara en uppmaning i Azure AD. Om du har konfigurerat tecknet i säkerhetskopieringsfrekvens till 24 timmar för Office-appar, registrerad användare på Azure AD Windows enheter att uppfylla inloggningen frekvens princip genom att logga in på enheten och inte uppmanas igen när du öppnar Office-appar.
 
 Om du har konfigurerat annan inloggning frekvens för olika web apps som körs i samma webbläsarsession tillämpas striktaste principen på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en enda session-token.
 
-### <a name="policy-2-persistent-browser-session"></a>Princip för 2: Beständig webbläsarsession
+### <a name="policy-2-persistent-browser-session"></a>Princip för 2: Beständiga webbläsarsession
 
 1. Skapa ny princip
 1. Välj alla nödvändiga villkor.
@@ -86,7 +86,7 @@ Om du har konfigurerat annan inloggning frekvens för olika web apps som körs i
 1. Välj ett värde från listrutan
 1. Spara princip
 
-![Princip för villkorlig åtkomst som konfigurerats för beständiga webbläsare](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Princip för villkorlig åtkomst har konfigurerats för beständiga webbläsare](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
 > Beständiga webbläsarsession konfiguration i Azure AD villkorlig åtkomst kommer att skriva över den ”Håll dig inloggad”? Ange i fönstret i Azure-portalen för samma användare för företagsanpassning, om du har konfigurerat båda principerna.
@@ -95,7 +95,7 @@ Om du har konfigurerat annan inloggning frekvens för olika web apps som körs i
 
 Verktyget hypotetiska används för att simulera en inloggning från användaren till målprogrammet och andra villkor baserat på hur du konfigurerat din princip. Sessionen management-kontroller för autentisering som visas i resultatet av verktyget.
 
-![Vad händer om verktyget resulterar för villkorlig](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultat av villkorlig åtkomst What If-verktyget](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Distribution av princip
 
@@ -103,5 +103,5 @@ För att säkerställa att din princip fungerar som förväntat, är rutin att t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns i artikeln [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+* Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns i artikeln [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
 * Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).

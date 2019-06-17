@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237814"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Säkerhetskopiera en SAP HANA-databas
@@ -27,7 +27,7 @@ ms.locfileid: "65237814"
 
 **Support** | **Detaljer**
 --- | ---
-**Geografiska områden som stöds** | Australien, sydöstra Australien, östra <br> Brasilien, södra <br> Kanada, centrala Kanada, östra <br> Sydostasien, Östasien <br> Östra USA, östra USA 2, USA, västra centrala, USA, västra, USA, västra 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala Indien, södra <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra, Storbritannien, västra
+**Geografiska områden som stöds** | Australien, sydöstra Australien, östra <br> Södra Brasilien <br> Kanada, centrala Kanada, östra <br> Sydostasien, Östasien <br> Östra USA, östra USA 2, USA, västra centrala, USA, västra, USA, västra 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala Indien, södra <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra, Storbritannien, västra
 **VM-operativsystem som stöds** | SLES 12 SP2 eller SP3.
 **HANA-versioner som stöds** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
@@ -40,7 +40,7 @@ ms.locfileid: "65237814"
 - Du kan säkerhetskopiera databasloggar var 15: e minut. Loggsäkerhetskopior endast börjar flöda när en fullständig säkerhetskopia för databasen har slutförts.
 - Du kan ta fullständiga och differentiella säkerhetskopieringar. Inkrementell säkerhetskopiering stöds inte för närvarande.
 - Du kan inte ändra principen för säkerhetskopiering när du har tillämpat den för SAP HANA-säkerhetskopiering. Om du vill säkerhetskopiera med olika inställningar, skapa en ny princip eller tilldela en annan princip. 
-    - Om du vill skapa en ny princip i valvet klickar du på **principer** > **principer för säkerhetskopiering** > **+ Lägg till** > **SAP HANA i Azure VM**, och ange andra inställningar.
+    - Om du vill skapa en ny princip i valvet klickar du på **principer** > **principer för säkerhetskopiering** >  **+ Lägg till** > **SAP HANA i Azure VM**, och ange andra inställningar.
     - Om du vill tilldela en annan princip i egenskaperna för den virtuella datorn som kör databasen, klickar du på principnamnet på aktuella. På den **Säkerhetskopieringsprincipen** sidan som du kan välja en annan princip som ska användas för säkerhetskopiering.
 
 

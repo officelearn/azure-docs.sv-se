@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521743"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
@@ -71,7 +71,7 @@ IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på 
 - **Statisk IP-adress**: Om nätverkskortet på källan virtuell dator använder statiska IP-adresser, mål VM NIC också att använda en statisk IP-adress.
 
 
-## <a name="ip-address-assignment-during-failover"></a>Tilldelning av IP-adress under redundansväxling
+## <a name="ip-address-assignment-during-failover"></a>IP-adresstilldelning under redundans
 
 **Käll- och undernät** | **Detaljer**
 --- | ---

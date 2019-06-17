@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053263"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Lägg till LUIS resultaten till Application Insights med en Bot iC#
 
 Den här självstudien lägger till LUIS Svarsinformation till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller Power BI för att analysera, aggregeras, och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
-Roboten har byggts med Bot Framework 3.x och Azure Web app-robot. En [Bot Framework 4.x med LUIS självstudiekursen](luis-csharp-tutorial-bf-v4.md) är också tillgänglig.
+Roboten har byggts med Bot Framework 4.x och Azure Web app-robot. En [Bot Framework 4.x med LUIS självstudiekursen](luis-csharp-tutorial-bf-v4.md) är också tillgänglig.
 
 I den här guiden får du lära dig att:
 
@@ -31,9 +31,9 @@ I den här guiden får du lära dig att:
 > * Samla in och skicka LUIS frågeresultaten till Application Insights
 > * Fråga efter Application Insights för övre avsikt, poäng och uttryck
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* LUIS web app-robot från den **[föregående självstudie](luis-csharp-tutorial-build-bot-framework-sample.md)** med Application Insights aktiveras.
+* En LUIS web app-robot från den **tutorial](luis-csharp-tutorial-bf-v4.md)** med Application Insights aktiveras.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) installerat lokalt på datorn.
 
 > [!Tip]
@@ -43,7 +43,7 @@ All kod i den här självstudien är tillgänglig på den [Azure-Samples GitHub-
 
 ## <a name="review-luis-web-app-bot"></a>Granska LUIS web app-robot
 
-Den här självstudien förutsätter att du har kod som ser ut som följande eller att du har slutfört den [andra självstudiekursen](luis-csharp-tutorial-build-bot-framework-sample.md):
+Den här självstudien förutsätter att du har kod som ser ut som följande eller att du har slutfört den [andra självstudiekursen](luis-csharp-tutorial-bf-v4.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 

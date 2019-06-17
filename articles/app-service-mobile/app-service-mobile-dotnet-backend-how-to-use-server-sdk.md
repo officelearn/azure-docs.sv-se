@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119532"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
@@ -53,7 +53,7 @@ Installera Azure-arbetsbelastning via installationsprogrammet för Visual Studio
 
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt...** ).
 2. Expandera **Visual C#** och välj **Web**.
-3. Välj **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
+3. Välj **ASP.NET-Webbtillämpningsprogram (.NET Framework)** .
 4. Fyll i projektets namn. Klicka sedan på **OK**.
 5. Välj **Azure-Mobilapp** i listan med mallar.
 6. Klicka på **OK** att skapa lösningen.
@@ -65,7 +65,7 @@ Installera Azure-arbetsbelastning via installationsprogrammet för Visual Studio
 Installera den [Azure SDK för .NET] [ 4] (version 2.9.0 eller senare) att skapa en Azure Mobile Apps-projekt i Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
 
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt...** ).
-2. Expandera **mallar** > **Visual C#**, och välj **Web**.
+2. Expandera **mallar** > **Visual C#** , och välj **Web**.
 3. Välj **ASP.NET-webbapp**.
 4. Fyll i projektets namn. Klicka sedan på **OK**.
 5. Under *ASP.NET 4.5.2-mallar mallar*väljer **Azure-Mobilapp**. Kontrollera **värd i molnet** att skapa en mobilserverdel i molnet som du kan publicera det här projektet.
@@ -104,7 +104,7 @@ Om du vill aktivera enskilda funktioner måste du anropa tilläggsmetoder på de
         .MapApiControllers()
         .ApplyTo(config);
 
-Server-Snabbstart från Azure-portalen anrop **UseDefaultConfiguration()**. Det här motsvarar följande inställningar:
+Server-Snabbstart från Azure-portalen anrop **UseDefaultConfiguration()** . Det här motsvarar följande inställningar:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package

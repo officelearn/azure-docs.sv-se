@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
 ms.openlocfilehash: 7ba4fb32ddfb8b3eb88d2dbfce265b070d521414
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119435"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiv-aktiv S2S VPN-anslutningar med Azure VPN gateway
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3 Skapa TestVNet1
+#### <a name="3-create-testvnet1"></a>3. Skapa TestVNet1
 Exemplet nedan skapar ett virtuellt nätverk med namnet TestVNet1 och tre undernät, där ett kallas GatewaySubnet, ett kallas FrontEnd och ett kallas BackEnd. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
 ```powershell
@@ -124,7 +124,7 @@ Skapa den virtuella nätverksgatewayen för TestVNet1. Observera att det finns t
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
-#### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3 Hämta gateway-offentliga IP-adresser och BGP-Peer-IP-adress
+#### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Hämta gateway-offentliga IP-adresser och BGP-Peer-IP-adress
 När gatewayen har skapats måste du hämta den BGP-Peer-IP-adressen på Azure VPN Gateway. Den här adressen behövs för att konfigurera Azure VPN-gatewayen som en BGP-Peer för dina lokala VPN-enheter.
 
 ```powershell
@@ -205,7 +205,7 @@ I det här steget skapar du anslutningen från TestVNet1 till Site5_1 med ”Ena
 New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3 VPN och BGP parametrar för din lokala VPN-enhet
+#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. VPN och BGP parametrar för din lokala VPN-enhet
 I exemplet nedan visas de parametrar som du ska ange i konfigurationsavsnittet BGP på din lokala VPN-enhet för den här övningen:
 
 ```
@@ -252,7 +252,7 @@ $lng5gw2 = Get-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
 New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3 Parametrarna för VPN och BGP för andra lokala VPN-enheten
+#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Parametrarna för VPN och BGP för andra lokala VPN-enheten
 På samma sätt nedan listas parametrarna du ska ange i den andra VPN-enheten:
 
 ```
@@ -319,7 +319,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3 Skapa en aktiv-aktiv VPN-gateway för TestVNet2
+#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Skapa en aktiv-aktiv VPN-gateway för TestVNet2
 Begära två offentliga IP-adresser som ska allokeras till den gateway som du skapar för ditt virtuella nätverk. Du kan också definiera undernätet och IP-konfigurationer som krävs.
 
 ```powershell
@@ -403,7 +403,7 @@ $gwpip2 = New-AzPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Locatio
 Add-AzVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPconf2 -Subnet $subnet -PublicIpAddress $gwpip2
 ```
 
-#### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3 Aktivera aktivt-aktivt läge och uppdatering av gateway
+#### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Aktivera aktivt-aktivt läge och uppdatering av gateway
 
 I det här steget ska du aktivera aktivt-aktivt läge och uppdatering av gateway. I det här exemplet använder just nu VPN-gateway är en äldre Standard-SKU. Aktiv-aktiv stöder dock inte Standard-SKU. Om du vill ändra storlek på den äldre SKU: N till ett som stöds (i det här fallet HighPerformance), anger du bara stöds äldre SKU: N som du vill använda.
 

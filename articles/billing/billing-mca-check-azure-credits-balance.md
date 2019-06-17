@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372258"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Spåra Azure kreditsaldo för Microsoft kundavtal
@@ -33,7 +33,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal]( https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök på **Cost Management + fakturering**.
 
    ![Skärmbild som visar search på portalen för kostnadshantering + fakturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
@@ -45,9 +45,9 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
    ![Skärmbild av kreditsaldo och transaktioner för en profil för fakturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
-   | Period               | Definition                           |
+   | Term               | Definition                           |
    |--------------------|--------------------------------------------------------|
-   | Uppskattat saldo  | Uppskattade mängden krediter som du har när du överväger alla faktureras och pågående transaktioner |
+   | Beräknad saldo  | Uppskattade mängden krediter som du har när du överväger alla faktureras och pågående transaktioner |
    | Aktuellt saldo    | Mängden krediter från och med den senaste fakturan. De omfattar inte eventuella väntande transaktioner |
    | Transaktioner       | Alla fakturering transaktioner som påverkade ditt saldo i Azure-kredit |
 
@@ -57,11 +57,11 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
    ![Skärmbild av krediter listor för en profil för fakturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Period                 | Definition                           |
+   | Term                 | Definition                           |
    |----------------------|--------------------------------------------------------|
-   | Källa               | Förvärv källan kredit |
+   | source               | Förvärv källan kredit |
    | Startdatum           | Det datum när du har köpt kredit |
-   | Upphörandedatum      | Det datum då krediten upphör att gälla |
+   | Förfallodatum      | Det datum då krediten upphör att gälla |
    | Saldo              | Saldo från och med den senaste fakturan |
    | Ursprungligt belopp      | Ursprunglig mängd kredit |
    | Status               | Den aktuella statusen för kredit. Status kan vara aktiv, används, upphört att gälla eller upphör att gälla |

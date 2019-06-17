@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fdabd237fa128326673d84e889387d03f184b00
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudier: Azure Active Directory-integrering med InsideView
 
@@ -143,13 +143,13 @@ Konfigurera Azure AD enkel inloggning med InsideView genom att göra följande:
 
     1. Öppna Raw certifikatet som du laddade ned från Azure-portalen. Kopiera innehållet i certifikatet till Urklipp och klistra in innehållet i den **STS Certificate** box.
 
-    1. I den **Crm användarmappning för Id** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. I den **Crm användarmappning för Id** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. I den **Crm e-mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. I den **Crm e-mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. I den **Crm förnamn mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    1. I den **Crm förnamn mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-    1. I den **Crm lastName mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+    1. I den **Crm lastName mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
 
     1. Välj **Spara**.
 
@@ -224,4 +224,4 @@ När du väljer panelen InsideView i åtkomstpanelen, bör det vara loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

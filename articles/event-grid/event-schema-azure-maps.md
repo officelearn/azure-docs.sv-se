@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861862"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid-Händelseschema för Azure Maps
@@ -127,7 +127,7 @@ Felobjekt returneras när ett fel uppstår i Maps-API. Felobjektet har följande
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| error | Felinformation |Det här objektet som returneras när ett fel uppstår i Maps-API  |
+| error | ErrorDetails |Det här objektet som returneras när ett fel uppstår i Maps-API  |
 
 ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinformation eller det objekt du har följande egenskaper:
 

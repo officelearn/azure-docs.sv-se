@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152897"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
@@ -110,7 +110,7 @@ Mer information finns i [namnmatchning som använder en egen DNS-server](../virt
 ### <a name="nsg"></a> Nätverkssäkerhetsgrupp
 Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) för det undernät som används av din Azure-SSIS integration runtime Tillåt inkommande/utgående trafik via följande portar: 
 
-| Direction | Transport-protokoll | Source | Källportsintervall | Mål | Målportsintervall | Kommentarer |
+| Direction | Transport-protokoll | source | Källportsintervall | Mål | Målportsintervall | Kommentar |
 |---|---|---|---|---|---|---|
 | Inkommande | TCP | AzureCloud<br/>(eller större område som Internet) | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt nätverk för Azure Resource Manager) <br/><br/>10100, 20100 och 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Data Factory-tjänsten använder dessa portar för att kommunicera med noderna i din Azure-SSIS integration runtime i det virtuella nätverket. <br/><br/> Om du skapar en NSG på undernätsnivå eller inte konfigurerar Data Factory alltid en NSG på nivån över nätverkskort (NIC) som anslutna till virtuella datorer som är värdar för Azure-SSIS IR. Endast inkommande trafik från Data Factory IP-adresser på de angivna portarna tillåts av den NSG för NIC-nivå. Även om du öppnar dessa portar för Internet-trafiken på undernätverksnivån i är trafik från IP-adresser som inte är Data Factory IP-adresser blockerad på nätverkskortnivån. |
 | Utgående | TCP | VirtualNetwork | * | AzureCloud<br/>(eller större område som Internet) | 443 | Noderna på din Azure-SSIS integration runtime i virtuella nätverk använda den här porten för att komma åt Azure-tjänster, till exempel Azure Storage och Azure Event Hubs. |
@@ -127,7 +127,7 @@ Eller du kan definiera användardefinierade vägar (Udr) för att framtvinga utg
 
 I båda fallen kan du tillämpa en väg med 0.0.0.0/0 med nästa hopptyp som **Internet** i undernät som är värd för den Azure-SSIS IR så att kommunikationen mellan Data Factory-tjänsten och Azure-SSIS IR är kan lyckas. 
 
-![Lägg till en rutt](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Lägg till en väg](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 Om du är orolig för att förlora möjligheten att granska utgående Internet-trafik från undernätet, du kan också lägga till en NSG-regel på undernätet för att begränsa utgående mål till [Azure Datacenter IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653). 
 
@@ -185,7 +185,7 @@ Du måste konfigurera ett virtuellt nätverk innan du kan ansluta till en Azure-
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
-1. Välj **fler tjänster**. Filtrera på och välj **virtuella nätverk (klassiska)**. 
+1. Välj **fler tjänster**. Filtrera på och välj **virtuella nätverk (klassiska)** . 
 
 1. Filtrera efter och välj ditt virtuella nätverk i listan. 
 

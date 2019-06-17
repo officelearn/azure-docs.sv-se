@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388683"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
@@ -39,7 +39,7 @@ Det här tillägget har stöd för följande operativsystem:
 |---|---|
 | Windows 10 (upp till version 1803)| Kärna |
 | Windows Server 2016 | Kärna |
-| Windows Server 2012 R2 | Kärna |
+| Windows Server 2012R2 | Kärna |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -74,8 +74,8 @@ Följande JSON visar schemat för tillägget.
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| utgivare | Microsoft.HpcCompute | string |
-| typ | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

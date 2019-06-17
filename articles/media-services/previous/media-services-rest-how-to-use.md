@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687064"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt 
@@ -74,7 +74,7 @@ Följande är en uppsättning valfria rubriker:
 | Huvud | Typ | Värde |
 | --- | --- | --- |
 | Date |RFC 1123 datum |Tidsstämpel för begäran |
-| Godkänn |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
+| Acceptera |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
 | Accept-Encoding |Gzip, deflate |GZIP och DEFLATE kodning, när så är tillämpligt. Obs! Media Services kan ignorera den här rubriken och returnera okomprimerade data för stora resurser. |
 | Accept-Language |”SV”, ”es” och så vidare. |Anger önskat språk för svaret. |
 | Accept-Charset |Teckenuppsättningen typen like ”UTF-8” |Standardvärdet är UTF-8. |
@@ -100,7 +100,7 @@ Följande är en fullständig lista över HTTP-verb som kan användas när att g
 | --- | --- |
 | HÄMTA |Returnerar det aktuella värdet för ett objekt. |
 | POST |Skapar ett objekt som baseras på data som tillhandahålls eller skickar ett kommando. |
-| PUT |Ersätter ett objekt, eller skapar en namngiven objekt (om tillämpligt). |
+| PLACERA |Ersätter ett objekt, eller skapar en namngiven objekt (om tillämpligt). |
 | DELETE |Tar bort ett objekt. |
 | SAMMANFOGA |Uppdaterar ett befintligt objekt med namngivna egenskapsändringar. |
 | HEAD |Returnerar metadata för ett objekt för en GET-svar. |

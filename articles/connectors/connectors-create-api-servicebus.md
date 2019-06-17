@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105588"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-meddelanden i molnet med Azure Service Bus och Azure Logic Apps
@@ -79,7 +79,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
    ![Välj Service Bus-utlösare](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Vissa utlösare kan returnera ett eller meddelanden, till exempel utlösaren **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)**. När dessa utlösare utlöses de tillbaka mellan ett och hur många meddelanden som anges av utlösarens **maximala meddelandeantalet** egenskapen.
+   > Vissa utlösare kan returnera ett eller meddelanden, till exempel utlösaren **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)** . När dessa utlösare utlöses de tillbaka mellan ett och hur många meddelanden som anges av utlösarens **maximala meddelandeantalet** egenskapen.
 
    *Alla Service Bus-utlösare är-longpolling utlösare*, vilket innebär att när utlösaren utlöses skapar utlösaren bearbetar alla meddelanden och väntar sedan 30 sekunder för fler meddelanden i kö eller ämne prenumerationen. 
    Om inga meddelanden visas i 30 sekunder kan hoppas utlösarkörning. 
@@ -90,7 +90,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
    1. Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
 
       Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-      Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+      Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
    1. I sökrutan anger du ”Azure Service Bus” som filter. 
    Välj vilken åtgärd du önska under åtgärder. 

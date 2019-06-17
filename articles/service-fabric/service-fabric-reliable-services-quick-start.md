@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130100"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
@@ -123,7 +123,7 @@ Service Fabric introducerar en ny typ av tjänst som är tillståndskänslig. En
 
 Om du vill konvertera ett värde för prestandaräknaren från tillståndslösa till hög tillgänglighet och beständig, även när tjänsten flyttar eller startar om, måste en tillståndskänslig tjänst.
 
-I samma *HelloWorld* program, du kan lägga till en ny tjänst genom att högerklicka på tjänsterna referenser i programprojektet och välja **Lägg till ny Service Fabric-tjänst ->**.
+I samma *HelloWorld* program, du kan lägga till en ny tjänst genom att högerklicka på tjänsterna referenser i programprojektet och välja **Lägg till ny Service Fabric-tjänst ->** .
 
 ![Lägga till en tjänst till ditt Service Fabric-program](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 

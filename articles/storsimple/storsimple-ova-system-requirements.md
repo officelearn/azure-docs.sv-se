@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629313"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
@@ -94,10 +94,10 @@ I följande tabell visas de portar som måste öppnas i brandväggen för att ti
 
 | **Nej. port<sup>1</sup>** | **In eller ut** | **Port omfång** | **Krävs** | **Anteckningar** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Utdata |WAN |Nej |Utgående port används för åtkomst till Internet för att hämta uppdateringar. <br></br>Utgående webbproxy kan konfigureras av användaren. |
-| TCP 443 (HTTPS) |Utdata |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Utgående webbproxy kan konfigureras av användaren. |
-| UDP 53 (DNS) |Utdata |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internet-baserad DNS-server. <br></br> Observera att om du distribuerar en filserver, bör du använda lokala DNS-servern. |
-| UDP 123 (NTP) |Utdata |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en filserver, rekommenderar vi att synkronisera tiden med Active Directory-domänkontrollanter. |
+| TCP 80 (HTTP) |ut |WAN |Nej |Utgående port används för åtkomst till Internet för att hämta uppdateringar. <br></br>Utgående webbproxy kan konfigureras av användaren. |
+| TCP 443 (HTTPS) |ut |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Utgående webbproxy kan konfigureras av användaren. |
+| UDP 53 (DNS) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internet-baserad DNS-server. <br></br> Observera att om du distribuerar en filserver, bör du använda lokala DNS-servern. |
+| UDP 123 (NTP) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en filserver, rekommenderar vi att synkronisera tiden med Active Directory-domänkontrollanter. |
 | TCP 80 (HTTP) |I |LAN |Ja |Det här är den inkommande porten för lokala användargränssnitt på StorSimple-enheten för lokal hantering. <br></br> Observera att komma åt lokala Användargränssnittet via HTTP omdirigeras automatiskt till HTTPS. |
 | TCP 443 (HTTPS) |I |LAN |Ja |Det här är den inkommande porten för lokala användargränssnitt på StorSimple-enheten för lokal hantering. |
 | TCP 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att ansluta till data via iSCSI. |

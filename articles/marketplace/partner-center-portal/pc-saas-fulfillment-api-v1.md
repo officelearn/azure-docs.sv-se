@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258946"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS Techtrends-API: er version 1 (inaktuell)
@@ -67,7 +67,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 | x-ms-requestid     | Nej           | En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här fältet är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | innehållstyp       | Ja          | `application/json`                                        |
-| Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
+| authorization      | Ja          | JSON web token (JWT) ägartoken.                    |
 | x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs:** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
 |  |  |  |
   
@@ -137,7 +137,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 | x-ms-correlationid     |   Nej         | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte anges så kommer en genereras och anges i svarshuvuden. |
 | If-Match/If-None-Match |   Nej         |   Stark verifieraren ETag-värdet.                                                          |
 | innehållstyp           |   Ja        |    `application/json`                                                                   |
-|  Auktorisering         |   Ja        |    JSON web token (JWT) ägartoken.                                               |
+|  authorization         |   Ja        |    JSON web token (JWT) ägartoken.                                               |
 | x-ms-marketplace-session-mode| Nej | Flagga för att aktivera kontrolläge när du prenumererar på ett SaaS-erbjudande. Om har angetts prenumerationen inte debiteras. Detta är användbart för ISV testscenarier. Ange det **'blobbar i kontrolläge har ”**|
 |  |  |  |
 
@@ -202,7 +202,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | x-ms-correlationid      | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte anges så kommer en genereras och anges i svarshuvuden. |
 | If-Match /If-None-Match | Nej           | Stark verifieraren ETag-värdet.                              |
 | innehållstyp            | Ja          | `application/json`                                        |
-| Auktorisering           | Ja          | JSON web token (JWT) ägartoken.                    |
+| authorization           | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
 *Brödtext*
@@ -264,7 +264,7 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Nej           | En unik sträng som värde för att spåra begäran från klienten. Rekommenderar att ett GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.                                                           |
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte anges så kommer en genereras och anges i svarshuvuden. |
-| Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
+| authorization      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
 *Svarskoder*
@@ -314,7 +314,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Nej           | En unik sträng som värde för att spåra begäran från klienten. Rekommenderar att ett GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.   |
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
-| Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
+| authorization      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  | 
 
 *Svarstext*
@@ -382,7 +382,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Nej           | En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.                                                           |
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-| Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                                                                    |
+| authorization      | Ja          | JSON web token (JWT) ägartoken.                                                                    |
 |  |  |  |
 
 *Svarstext*
@@ -454,7 +454,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Nej           | En unik sträng som värde för att spåra begäran från klienten. Rekommenderar att ett GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.             |
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-| Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
+| authorization      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
 *Svarstext*
@@ -529,7 +529,7 @@ En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. D
 | offerId                | String        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |
 | publisherId                | String        | Publicerings-ID för SaaS-erbjudande         |
 | planId                 | String        | Plan-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.          |
-| åtgärd                 | String        | Den åtgärd som utlösa det här meddelandet. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
+| action                 | String        | Den åtgärd som utlösa det här meddelandet. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
 | timeStamp                 | String        | Tidsstämpelvärde i UTC när den här aviseringen utlöstes.          |
 |  |  |  |
 

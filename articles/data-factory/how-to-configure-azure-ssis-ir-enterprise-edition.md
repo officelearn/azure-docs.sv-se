@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152430"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Etablera Enterprise Edition för Azure-SSIS Integration Runtime
@@ -42,7 +42,7 @@ Vissa av dessa funktioner måste du installera ytterligare komponenter om du vil
 | Fuzzy gruppering och Fuzzy Lookup omvandlingar  | Omvandlingarna Fuzzy gruppering och Fuzzy Lookup är förinstallerade på Azure-SSIS IR Enterprise Edition. De här komponenterna har stöd för både SQL Server och Azure SQL Database för att lagra referensdata. |
 | Termen extrahering och termen Lookup omvandlingar | Termen extrahering och termen Lookup omvandlingarna är förinstallerade på Azure-SSIS IR Enterprise Edition. De här komponenterna har stöd för både SQL Server och Azure SQL Database för att lagra referensdata. |
 
-## <a name="instructions"></a>Anvisningar
+## <a name="instructions"></a>Instruktioner
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059610"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -232,6 +232,27 @@ Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramver
 3. Starta om processen så att de nya inställningarna fångas upp av SDK
 
 4. När du är klar kan du återställa dessa ändringar.
+
+
+## <a name="PerfView"></a> Samla in loggar med PerfView
+[PerfView](https://github.com/Microsoft/perfview) är ett kostnadsfritt diagnostik och prestandaanalys verktyg som hjälper att isolera processor, minne och andra problem genom att samla in och visualisera diagnostikinformation från många källor.
+
+Application Insights SDK logga EventSource lokal felsökning loggarna som samlas in av PerfView.
+
+Hämta PerfView för att samla in loggar och kör det här kommandot:
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+Du kan ändra parametrarna efter behov.
+
+- **MaxCollectSec**. Ange den här parametern för att förhindra PerfView körs på obestämd tid och påverkar serverns prestanda.
+- **OnlyProviders**. Ange den här parametern för att endast samla in loggar från SDK. Du kan anpassa den här listan baserat på dina specifika undersökningar. 
+
+
+Mer information
+- [Spela in prestandaspårningar med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Application Insights-händelsekällor](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>Fortfarande fungerar inte...
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

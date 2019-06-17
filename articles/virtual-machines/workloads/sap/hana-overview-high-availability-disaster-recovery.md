@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5b7cc1744ac285df8ed502256c30f77bdc8db81f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477581"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA stora instanser hög tillgänglighet och katastrofåterställning recovery på Azure 
@@ -41,7 +41,7 @@ SAP HANA på Azure (stora instanser) erbjuds i två Azure-regioner i fyra geopol
 
 I följande tabell visar för närvarande stöds hög tillgänglighet och katastrofåterställning återställningsmetoder och kombinationer:
 
-| Scenariot som stöd i stora HANA-instanser | Alternativ för hög tillgänglighet | Haveriberedskapsalternativ | Kommentarer |
+| Scenariot som stöd i stora HANA-instanser | Alternativ för hög tillgänglighet | Haveriberedskapsalternativ | Kommentar |
 | --- | --- | --- | --- |
 | Enkel nod | Inte tillgängligt. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR. | |
 | Värden automatisk redundans: Skala ut (med eller utan standby)<br /> inklusive 1 + 1 | Möjligt med vänteläge tar rollen active.<br /> HANA styr växeln rollen. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR.<br /> Synkronisering av DR med hjälp av storage-replikering. | HANA volymuppsättningar är kopplade till alla noder.<br /> DR-plats måste ha samma antal noder. |

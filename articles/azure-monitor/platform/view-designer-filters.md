@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551742"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter i Azure Monitor-vyer
@@ -28,7 +28,7 @@ Klicka på datum tidsintervall överst i en vy för att öppna nedrullningsbara 
 
 ![Filter, exempel](media/view-designer-filters/filters-example-time.png)
 
-Klicka på den **+** Lägg till ett filter med hjälp av anpassade filter som definieras för vyn. Välja ett värde för filtret från listrutan eller skriver in ett värde. Fortsätt att lägga till filter genom att klicka på den **+**. 
+Klicka på den **+** Lägg till ett filter med hjälp av anpassade filter som definieras för vyn. Välja ett värde för filtret från listrutan eller skriver in ett värde. Fortsätt att lägga till filter genom att klicka på den **+** . 
 
 
 ![Filter, exempel](media/view-designer-filters/filters-example-custom.png)
@@ -48,13 +48,13 @@ I följande tabell beskrivs inställningarna för ett filter.
 |:---|:---|
 | Fältnamn | Namnet på fältet som används för filtrering.  Det här fältet måste matcha fältet sammanfatta i **fråga för värden**. |
 | Fråga för värden | Frågan ska köras för att fylla i listrutan för filter för användaren.  Den här frågan måste använda antingen [sammanfatta](/azure/kusto/query/summarizeoperator) eller [distinkta](/azure/kusto/query/distinctoperator) ange unika värden för ett visst fält det måste matcha den **fältnamn**.  Du kan använda [sortera](/azure/kusto/query/sortoperator) att sortera de värden som visas för användaren. |
-| Tagga | Namn på fältet som används i frågor som stöd för filtret och visas också till användaren. |
+| Tagg | Namn på fältet som används i frågor som stöd för filtret och visas också till användaren. |
 
 ### <a name="examples"></a>Exempel
 
 Följande tabell innehåller några exempel på vanliga filter.  
 
-| Fältnamn | Fråga för värden | Tagga |
+| Fältnamn | Fråga för värden | Tagg |
 |:--|:--|:--|
 | Computer   | Pulsslag &#124; distinct Computer &#124; sortera efter dator asc | Datorer |
 | EventLevelName | Event &#124; distinct EventLevelName | Severity |

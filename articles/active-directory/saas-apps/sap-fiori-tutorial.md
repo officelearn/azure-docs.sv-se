@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Självstudier: Azure Active Directory-integrering med SAP Fiori
 
@@ -78,7 +78,7 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med SAP Fiori, måste du utföra följande byggblock:
 
-| Uppgift | Beskrivning |
+| Aktivitet | Beskrivning |
 | --- | --- |
 | **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
 | **[Konfigurera SAP Fiori enkel inloggning](#configure-sap-fiori-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
@@ -193,7 +193,7 @@ I det här avsnittet konfigurerar du Azure AD enkel inloggning med SAP Fiori i A
 
     1. Välj **redigera** att öppna den **hantera användaranspråk** fönstret.
 
-    1. I den **omvandling** väljer **ExtractMailPrefix()**.
+    1. I den **omvandling** väljer **ExtractMailPrefix()** .
 
     1. I den **Parameter 1** väljer **user.userprinicipalname**.
 
@@ -272,7 +272,7 @@ I det här avsnittet konfigurerar du Azure AD enkel inloggning med SAP Fiori i A
 
     **Scenario 1**: SAP-användare till Azure AD-mappning
 
-    1. I SAP, under **information av NameID-Format ”Ospecificerad”**, notera detaljerna:
+    1. I SAP, under **information av NameID-Format ”Ospecificerad”** , notera detaljerna:
 
         ![Den information för NameID-Format ”okänt” dialogrutan i SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
@@ -282,7 +282,7 @@ I det här avsnittet konfigurerar du Azure AD enkel inloggning med SAP Fiori i A
 
     **Scenario 2**: Välj det användar-ID för SAP som baseras på den Konfigurera e-postadressen i SU01. I det här fallet bör du konfigurerat e-post-ID i SU01 för varje användare som kräver enkel inloggning.
 
-    1.  I SAP, under **information av NameID-Format ”Ospecificerad”**, notera detaljerna:
+    1.  I SAP, under **information av NameID-Format ”Ospecificerad”** , notera detaljerna:
 
         ![Den information för NameID-Format ”okänt” dialogrutan i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
@@ -314,7 +314,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >**. Till exempel **brittasimon\@contoso.com**.
+    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >** . Till exempel **brittasimon\@contoso.com**.
 
     1. Välj den **Show lösenord** markerar du kryssrutan. Skriv ned värdet som visas i den **lösenord** box.
 
@@ -374,4 +374,4 @@ Om du vill veta mer kan du granska dessa artiklar:
 
 - [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

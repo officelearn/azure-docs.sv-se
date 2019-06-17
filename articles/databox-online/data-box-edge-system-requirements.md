@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756553"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge-systemkrav
@@ -58,9 +58,9 @@ Azure IoT Edge kan utgående kommunikation från en lokal Edge-enhet till Azure-
 
 Använd följande tabell för portkonfiguration för de servrar som är värd för Azure IoT Edge-körningen:
 
-| Porten Nej. | In eller ut | Port omfång | Krävs | Riktlinjer |
+| Porten Nej. | In eller ut | Port omfång | Obligatoriskt | Riktlinjer |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Utdata       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
+| TCP 443 (HTTPS)| ut       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
 
 Fullständig information går du till [brandvägg och port konfigurationsregler för IoT Edge-distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

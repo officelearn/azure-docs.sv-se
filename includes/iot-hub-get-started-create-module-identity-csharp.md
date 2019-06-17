@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166276"
 ---
 ## <a name="create-a-module-identity"></a>Skapa en modulidentitet
@@ -20,7 +20,7 @@ ms.locfileid: "66166276"
 I det här avsnittet skapar du en .NET-konsolapp som skapar en enhetsidentitet och en modulidentitet i identitetsregistret i din IoT Hub. Enheter och moduler kan inte ansluta till IoT Hub utan en post i identitetsregistret. Mer information finns i den [avsnittet Identitetsregistret i IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md). När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
 
 
-1. **Skapa ett Visual Studio-projekt** – I Visual Studio lägger du till ett Visual C# Windows Classic Desktop-projekt i en ny lösning med hjälp av projektmallen **Console App (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare. Ge projektet namnet **CreateIdentities** och lösningen namnet **IoTHubGetStarted**.
+1. **Skapa ett Visual Studio-projekt** – I Visual Studio lägger du till ett Visual C# Windows Classic Desktop-projekt i en ny lösning med hjälp av projektmallen **Console App (.NET Framework)** . Kontrollera att .NET Framework-versionen är 4.6.1 eller senare. Ge projektet namnet **CreateIdentities** och lösningen namnet **IoTHubGetStarted**.
 
     ![Skapa en Visual Studio-lösning](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 

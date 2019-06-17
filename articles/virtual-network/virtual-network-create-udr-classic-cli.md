@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743929"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av Azure CLI
@@ -72,8 +72,8 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-l (eller --location)**. Azure-region där den nya NSG: N kommer att skapas. För vårt scenario, *westus*.
-   * **-n (eller --name)**. Namnet för den nya NSG. För vårt scenario, *NSG-klientdel*.
+   * **-l (eller --location)** . Azure-region där den nya NSG: N kommer att skapas. För vårt scenario, *westus*.
+   * **-n (eller --name)** . Namnet för den nya NSG. För vårt scenario, *NSG-klientdel*.
 3. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till serverdelsundernätet (192.168.2.0/24) till den **FW1** VM (192.168.0.4):
 
     ```azurecli
@@ -89,9 +89,9 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-r (eller--route-table-name)**. Namnet på routningstabellen där flödet kommer att läggas till. För vårt scenario, *UDR-klientdel*.
-   * **-a (eller --address-prefix)**. Adressprefix för undernätet där paket är avsedd för. För vårt scenario, *192.168.2.0/24*.
-   * **-t (eller--nästa hopptyp)**. Typ av objekt trafik skickas till. Möjliga värden är *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, eller *ingen*.
+   * **-r (eller--route-table-name)** . Namnet på routningstabellen där flödet kommer att läggas till. För vårt scenario, *UDR-klientdel*.
+   * **-a (eller --address-prefix)** . Adressprefix för undernätet där paket är avsedd för. För vårt scenario, *192.168.2.0/24*.
+   * **-t (eller--nästa hopptyp)** . Typ av objekt trafik skickas till. Möjliga värden är *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, eller *ingen*.
    * **-p (eller--nästa-hopp-ip-adress**). IP-adressen för nästa hopp. För vårt scenario, *192.168.0.4*.
 4. Kör följande kommando för att associera routningstabellen som skapats med den **klientdel** undernät:
 
@@ -114,7 +114,7 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-t (eller--vnet-namn)**. Namnet på det virtuella nätverket där undernätet finns. I vårt scenario, *TestVNet*.
+   * **-t (eller--vnet-namn)** . Namnet på det virtuella nätverket där undernätet finns. I vårt scenario, *TestVNet*.
    * **-n (eller--subnet-name**. Namnet på undernätet routningstabellen kommer att läggas till. I vårt scenario, *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Skapa den användardefinierade vägen för backend-undernät

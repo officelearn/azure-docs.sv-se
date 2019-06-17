@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478053"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Azure Import/Export-jobb
@@ -31,9 +31,9 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 | Jobbstatus | Beskrivning |
 |:--- |:--- |
 | Skapar | När ett jobb skapas, dess status är inställd på **skapa**. När jobbet är i den **skapa** tillstånd, Import/Export-tjänsten förutsätter att enheterna som inte har levererats till datacentret. Ett jobb kan finnas kvar i det här tillståndet för upp till två veckor, varefter den tas bort automatiskt av tjänsten. |
-| Fraktas | När du levererar ditt paket ska du uppdatera spårningsinformation i Azure-portalen.  Detta aktiverar jobbet i **leverans** tillstånd. Jobbet finns kvar i den **leverans** tillstånd i upp till två veckor. 
+| Leveransadress | När du levererar ditt paket ska du uppdatera spårningsinformation i Azure-portalen.  Detta aktiverar jobbet i **leverans** tillstånd. Jobbet finns kvar i den **leverans** tillstånd i upp till två veckor. 
 | Mottaget | När alla enheter har tagits emot i datacentret, jobbets status är inställd på **mottagna**. |
-| Överförs | När minst en enhet har startat bearbetning visas jobbets status är inställd på **överföra**. Mer information går du till [Enhetsstatus](#view-drive-status). |
+| Transferring | När minst en enhet har startat bearbetning visas jobbets status är inställd på **överföra**. Mer information går du till [Enhetsstatus](#view-drive-status). |
 | Paketering | När alla enheter har bearbetat jobbet placeras i **paketering** tillstånd förrän enheterna levereras till dig. |
 | Slutfört | När alla enheter har skickats till dig om jobbet har slutförts utan fel, sedan jobbet anges till **slutförd**. Jobbet tas automatiskt bort efter 90 dagar i den **slutförd** tillstånd. |
 | Stängd | När alla enheter har skickats till dig, om det finns några fel under bearbetningen av jobbet, jobbet har tilldelats **stängd**. Jobbet tas automatiskt bort efter 90 dagar i den **stängd** tillstånd. |
@@ -49,7 +49,7 @@ I följande tabell beskrivs varje tillstånd som varje enhet i ett jobb kan pass
 | Anges | För ett importjobb när jobbet har skapats från Azure-portalen är det ursprungliga tillståndet för en enhet **angivna**. För ett exportjobb eftersom ingen enhet anges när jobbet skapas, är den första Enhetsstatus **mottagna**. |
 | Mottaget | Enheten övergår till den **mottagna** tillstånd när Import/Export-tjänsten har bearbetat de enheter som har tagits emot från transportföretaget för ett importjobb. För ett exportjobb startenhet tillståndet är den **mottagna** tillstånd. |
 | NeverReceived | Enheten flyttas till den **NeverReceived** tillstånd när paketet för ett jobb tas emot, men paketet innehåller inte enheten. En enhet flyttar också i det här tillståndet om det har gått två veckor sedan tjänsten fick leveransadressen, men paketet har inte kommit på datacentret. |
-| Överförs | En enhet flyttas till den **överföra** tillstånd när tjänsten börjar att överföra data från enheten till Azure Storage. |
+| Transferring | En enhet flyttas till den **överföra** tillstånd när tjänsten börjar att överföra data från enheten till Azure Storage. |
 | Slutfört | En enhet flyttas till den **slutförd** tillstånd när tjänsten har överförts alla data utan fel.
 | CompletedMoreInfo | En enhet flyttas till den **CompletedMoreInfo** tillstånd när tjänsten har påträffat några problem när du kopierar data från eller till enheten. Informationen kan omfatta fel, varningar och informationsmeddelanden om skriver över BLOB-objekt.
 | ShippedBack | En enhet flyttas till den **ShippedBack** tillstånd när det har skickats från datacentret till avsändaradressen. |

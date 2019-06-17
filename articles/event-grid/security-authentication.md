@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117009"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
@@ -35,9 +35,9 @@ Liksom många andra tjänster som stöder webhooks måste Event Grid du bevisa �
 
 Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med Event Grid. Event Grid stöder två olika sätt att verifiera prenumerationen.
 
-1. **ValidationCode handskakning (programmässiga)**: Den här metoden rekommenderas om du kontrollera källkoden för din slutpunkt. Vid tidpunkten för händelsen prenumeration har skapats skickar Event Grid en händelse för verifiering av prenumeration till din slutpunkt. Schemat för den här händelsen är ungefär som andra Event Grid-händelse. Datamängden i den här händelsen innehåller en `validationCode` egenskapen. Programmet kontrollerar att begäran om verifiering är för en förväntad händelse-prenumeration och ekar verifieringskoden till Event Grid. Den här mekanismen för handskakning stöds i alla Event Grid-versioner.
+1. **ValidationCode handskakning (programmässiga)** : Den här metoden rekommenderas om du kontrollera källkoden för din slutpunkt. Vid tidpunkten för händelsen prenumeration har skapats skickar Event Grid en händelse för verifiering av prenumeration till din slutpunkt. Schemat för den här händelsen är ungefär som andra Event Grid-händelse. Datamängden i den här händelsen innehåller en `validationCode` egenskapen. Programmet kontrollerar att begäran om verifiering är för en förväntad händelse-prenumeration och ekar verifieringskoden till Event Grid. Den här mekanismen för handskakning stöds i alla Event Grid-versioner.
 
-2. **ValidationURL handskakning (manuell)**: I vissa fall kan du inte åtkomst till källkoden för slutpunkten att implementera ValidationCode-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svara med verifieringskoden.
+2. **ValidationURL handskakning (manuell)** : I vissa fall kan du inte åtkomst till källkoden för slutpunkten att implementera ValidationCode-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svara med verifieringskoden.
 
    Från och med versionen 2018-05-01-preview, Event Grid har stöd för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, Event Grid skickar en `validationUrl` -egenskapen i datamängden i händelsen prenumeration verifiering. För att slutföra handskakningen hitta URL: en i händelsedata och manuellt skickar en GET-begäran till den. Du kan använda antingen en REST-klient eller webbläsaren.
 
@@ -204,7 +204,7 @@ Event Grid erbjuder två inbyggda roller för att hantera prenumerationer på h�
 
 Du kan [tilldela dessa roller till en användare eller grupp](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription deltagare (förhandsgranskning)**: hantera åtgärder i Event Grid-prenumeration
+**EventGrid EventSubscription deltagare (förhandsgranskning)** : hantera åtgärder i Event Grid-prenumeration
 
 ```json
 [
@@ -240,7 +240,7 @@ Du kan [tilldela dessa roller till en användare eller grupp](../role-based-acce
 ]
 ```
 
-**EventGrid EventSubscription läsare (förhandsgranskning)**: läsa Event Grid-prenumerationer
+**EventGrid EventSubscription läsare (förhandsgranskning)** : läsa Event Grid-prenumerationer
 
 ```json
 [

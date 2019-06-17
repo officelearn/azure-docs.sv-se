@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147694"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster
@@ -131,8 +131,8 @@ Därefter ska du tänka på följande CORS-begäranden:
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
 | **Metod** |**Ursprung** |**Rubriker för begäran** |**Regeln matchar** |**Resultatet** |
-| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
-| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Första regeln |Klart |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Andra regeln |Klart |
 | **GET** |http:\//www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
 
 Den första begäran matchar den första regeln – den ursprungliga domänen matchar tillåtna ursprung, metoden matchar tillåtna metoder och rubriken matchar tillåtna huvuden – och därför lyckas.

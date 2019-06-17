@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538913"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270 skärmen-drivna appar på IBM-stordatorer med Azure med Azure Logic Apps och IBM 3270-anslutningen
@@ -355,11 +355,11 @@ När du är klar med alla de här stegen du använder åtgärden som du skapar i
    ![Välj 3270 åtgärd](./media/connectors-create-api-3270/select-3270-action.png)
 
    Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Om ingen anslutning finns ännu, ange nödvändig information för din anslutning och välj **skapa**.
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*connection-name*> | Namn för anslutningen |
    | **Integrationskonto-ID** | Ja | <*integration-account-name*> | Namn på ditt integrationskonto |
@@ -379,7 +379,7 @@ När du är klar med alla de här stegen du använder åtgärden som du skapar i
 
 1. Ange informationen som krävs för åtgärden:
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Hidx namn** | Ja | <*HIDX-file-name*> | Välj den 3270 HIDX-fil som du vill använda. |
    | **Metodnamn** | Ja | <*method-name*> | Välj metoden i HIDX-filen som du vill använda. När du har valt en metod i **Lägg till ny parameter** lista visas så att du kan välja parametrar som ska användas med metoden. |

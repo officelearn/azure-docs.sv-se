@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782873"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108399"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -49,7 +49,7 @@ Använd rikare principkontroller innan anslutningar till nätverket upprättas.
 
 Med [villkorlig åtkomst](../conditional-access/overview.md), kan du ange begränsningar på vilken trafik tillåts åtkomst till backend-server-program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan hos autentisering och användarprofilen för risken.
 
-Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. Dessutom kan dina program kan också dirigeras till Microsoft Cloud App Security via Azure AD villkorsstyrd åtkomst för att tillhandahålla övervakning i realtid och kontroller, via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) och [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) principer
+Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. Dessutom kan dina program också skickas vidare till Microsoft Cloud App Security via Azure AD villkorlig åtkomst för att tillhandahålla övervakning i realtid och kontroller, via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) och [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) principer
 
 ### <a name="traffic-termination"></a>Trafik-avslutning
 
@@ -163,7 +163,7 @@ Kopplingar håller en utgående anslutning öppen till Application Proxy-tjänst
 
 Begäran innehåller objekt från programmet, till exempel begärandehuvuden data från den krypterad cookien användaren att göra begäran och begärande-ID. Även om data från en krypterad cookie skickas med begäran, är inte autentiseringscookien själva.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3 Anslutningen bearbetar begäran från kön. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Anslutningen bearbetar begäran från kön. 
 
 Baserat på begäran, utför Application Proxy någon av följande åtgärder:
 

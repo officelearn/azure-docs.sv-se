@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952568"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
@@ -65,7 +65,7 @@ När du har kopplat ett Azure Maps-konto med Azure AD-klienten, kan du ge åtkom
 
     ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. I den **Lägg till rolltilldelning** fönstret under **rollen**väljer **Azure Maps datum läsare (förhandsgranskning)**. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**. Under **Välj**, Välj önskade användare eller program. Välj **Spara**.
+2. I den **Lägg till rolltilldelning** fönstret under **rollen**väljer **Azure Maps datum läsare (förhandsgranskning)** . Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**. Under **Välj**, Välj önskade användare eller program. Välj **Spara**.
 
     ![Lägg till rolltilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
 

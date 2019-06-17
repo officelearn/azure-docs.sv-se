@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306010"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
@@ -56,7 +56,7 @@ Två exempel förutsägelse problem åtgärdas i den här genomgången:
 2. **Regression**: Förutsäger sannolikheten för en ad klickar du på från funktioner.
 
 ## <a name="setup"></a>Ange ett HDInsight Hadoop-kluster för datavetenskap
-**Obs!** Detta är vanligtvis en **Admin** uppgift.
+**Obs:** Detta är vanligtvis en **Admin** uppgift.
 
 Konfigurera din Azure Data Science-miljö för att skapa lösningar för förutsägelseanalys med HDInsight-kluster i tre steg:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa00690cab2cf8bc1ef7c1c3ab279a9f59fcabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b003d4b08d393b6f3eb57539774df16a23b39b4d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO for Bitbucket by resolution GmbH
 
@@ -55,7 +55,7 @@ För att konfigurera integreringen av SAML SSO for Bitbucket by resolution GmbH 
 
 **Utför följande steg för att lägga till SAML SSO for Bitbucket by resolution GmbH från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -231,5 +231,5 @@ När du klickar på SAML SSO for Bitbucket by resolution GmbH-panelen i åtkomst
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

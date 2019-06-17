@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
 ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725370"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhetskopieringsmål med NetBackup
@@ -253,7 +253,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 | Typ av säkerhetskopiering kvarhållning | Storlek (TiB) | GFS multiplikatorn\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Varje vecka fullständig | 1 | 4  | 4 |
-| Dagliga inkrementella | 0,5 | 20 (cykler lika med antalet veckor per månad) | 12.2 för större kvot |
+| Dagliga inkrementella | 0,5 | 20 (cykler lika med antalet veckor per månad) | 12\.2 för större kvot |
 | Månatliga fullständig | 1 | 12 | 12 |
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |
@@ -472,7 +472,7 @@ När du har definierat de inledande diskpooler, måste du definiera tre ytterlig
 | Typ av säkerhetskopiering kvarhållning | Storlek (TiB) | GFS multiplikatorn\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Varje vecka fullständig |  1  |  4 | 4  |
-| Dagliga inkrementella  | 0,5  | 20 (cykler är lika med antalet veckor per månad) | 12.2 för större kvot |
+| Dagliga inkrementella  | 0,5  | 20 (cykler är lika med antalet veckor per månad) | 12\.2 för större kvot |
 | Månatliga fullständig  | 1 | 12 | 12 |
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav  |     |     | 38 |

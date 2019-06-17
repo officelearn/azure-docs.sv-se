@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23669671c9aec2ebad8e03e06a0ea1b139214cad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0b830f0760b768826b2d937b4a8b2ffbd8e9e2a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Självstudier: Azure Active Directory-integrering med SAP Business ByDesign
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av SAP Business ByDesign i Azure AD, som du beh
 
 **Utför följande steg för att lägga till SAP Business ByDesign från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SAP Bus
 
     a. Välj **omvandling** som en **källa**.
 
-    b. I den **omvandling** listrutan, väljer **ExtractMailPrefix()**.
+    b. I den **omvandling** listrutan, väljer **ExtractMailPrefix()** .
 
     c. I den **Parameter 1** listrutan väljer du det användarattribut som du vill använda för din implementering. Om du t.ex. vill använda EmployeeID som unikt användar-ID och du har lagrat attributvärdet i ExtensionAttribute2 väljer du sedan user.extensionattribute2.
 
@@ -257,4 +257,4 @@ När du klickar på panelen SAP Business ByDesign i åtkomstpanelen, bör det va
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

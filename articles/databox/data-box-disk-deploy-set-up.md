@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939653"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147492"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudier: Packa upp, Anslut och lås Azure Data Box-Disk
 
@@ -123,7 +123,9 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
     ```  
 8. Du kan visa innehållet på disken när disken har låsts upp.    
 
-    ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+Om du stöter på problem när du att låsa upp diskarna, se hur du [felsöka låsa upp problem](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Låsa upp diskar på Linux-klient
 
@@ -206,7 +208,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
 
 6. Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure-portalen som du hämtade i [Ansluta till diskar och hämta nyckeln](#connect-to-disks-and-get-the-passkey). Du kan också ange en lista med BitLocker-krypterade volymer som ska låsas upp. Nyckeln och volymlistan ska anges inom enkla citattecken. 
 
-    Ange följande kommando.
+    Skriv följande kommando.
  
     `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
@@ -253,6 +255,9 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
 8. När disken är upplåst kan du gå till monteringspunkten och visa innehållet på disken. Nu är du redo att kopiera data till *BlockBlob*- eller *PageBlob*-mappen. 
 
     ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+Om du stöter på problem när du att låsa upp diskarna, se hur du [felsöka låsa upp problem](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

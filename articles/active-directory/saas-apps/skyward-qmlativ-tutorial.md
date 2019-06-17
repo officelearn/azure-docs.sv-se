@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93c886b4b352de441e4393403187e40fd930955c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Självstudier: Azure Active Directory-integrering med Skyward Qmlativ
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Skyward Qmlativ i Azure AD måste du lägg
 
 **Utför följande steg för att lägga till Skyward Qmlativ från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -187,5 +187,5 @@ När du klickar på panelen för Skyward Qmlativ på åtkomstpanelen bör du log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

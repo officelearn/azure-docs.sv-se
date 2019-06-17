@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056534"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -81,6 +81,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 * **Service fabric** (endast Resource Manager): Den här taggen anger adressprefix för Service fabric-tjänsten. Om du anger *ServiceFabric* för, trafik tillåts eller nekas åtkomst till Service fabric. 
 * **AzureMachineLearning** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureMachineLearning. Om du anger *AzureMachineLearning* för, trafik tillåts eller nekas till AzureMachineLearning. 
 * **BatchNodeManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure BatchNodeManagement. Om du anger *BatchNodeManagement* för, trafik tillåts eller nekas från Batch-tjänsten till beräkningsnoder.
+* **AzureBackup**(endast Resource Manager): den här taggen anger adressprefix för tjänsten AzureBackup. Om du anger AzureBackup för värdet trafik tillåts eller nekas till AzureBackup.
 
 > [!NOTE]
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
@@ -96,19 +97,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
 
@@ -116,19 +117,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
@@ -148,7 +149,7 @@ I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *
 
 Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln [DenyAllInbound](#denyallinbound), krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Tillåt |
 
@@ -156,7 +157,7 @@ Den här regeln krävs för att tillåta trafik från Internet till webbservrarn
 
 Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alla | Neka |
 
@@ -164,7 +165,7 @@ Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåte
 
 Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
 
-|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Tillåt |
 

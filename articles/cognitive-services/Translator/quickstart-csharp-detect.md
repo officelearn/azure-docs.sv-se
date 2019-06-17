@@ -8,23 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 06/13/2019
 ms.author: erhopf
-ms.openlocfilehash: a6be4f89f19cd64f5c9d235dc628ca222dab973c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 76e97a5241c1e39d02d8f33bf1894743d32e6244
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123405"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med hjälp av C#
 
-I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av .NET Core och Translator Text REST API.
+I den här snabbstarten du lär dig hur du identifiera språket för den angivna texten med .NET Core C# 7.1 eller senare, och Translator Text REST API.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+* C#7.1 eller senare
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
@@ -47,6 +48,18 @@ Därefter behöver du installera Json.Net. Från projektkatalogen kör du:
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
+## <a name="select-the-c-language-version"></a>Välj den C# språkversion
+
+Den här snabbstarten kräver C# 7.1 eller senare. Det finns ett antal sätt att ändra den C# version för ditt projekt. I den här guiden får du lära dig hur du ändrar den `detect-sample.csproj` filen. Alla tillgängliga alternativ, till exempel ändra språk i Visual Studio finns i [väljer den C# språkversion](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+
+Öppna projektet och öppna sedan `detect-sample.csproj`. Se till att `LangVersion` är inställt på 7.1 eller senare. Om det inte finns en egenskapsgrupp med språkversion, lägger du till följande rader:
+
+```xml
+<PropertyGroup>
+   <LangVersion>7.1</LangVersion>
+</PropertyGroup>
+```
+
 ## <a name="add-required-namespaces-to-your-project"></a>Lägg till nödvändiga namnrymder i projektet
 
 Kommandot `dotnet new console` som du körde tidigare skapade ett nytt projekt, inklusive `Program.cs`. Den här filen är där du lägger programkoden. Öppna `Program.cs` och ersätt de befintliga using-instruktionerna. De här instruktionerna ser till att du har åtkomst till alla typer som krävs för att skapa och köra exempelappen.
@@ -55,15 +68,42 @@ Kommandot `dotnet new console` som du körde tidigare skapade ett nytt projekt, 
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+// Install Newtonsoft.Json with NuGet
 using Newtonsoft.Json;
+```
+
+## <a name="create-classes-for-the-json-response"></a>Skapa klasser för JSON-svar
+
+Nu ska vi skapa en klass som används när avserialisering av JSON-svaret som returnerades av Translator Text API.
+
+```csharp
+/// <summary>
+/// The C# classes that represents the JSON returned by the Translator Text API.
+/// </summary>
+public class DetectResult
+{
+    public string Language { get; set; }
+    public float Score { get; set; }
+    public bool IsTranslationSupported { get; set; }
+    public bool IsTransliterationSupported { get; set; }
+    public AltTranslations[] Alternatives { get; set; }
+}
+public class AltTranslations
+{
+    public string Language { get; set; }
+    public float Score { get; set; }
+    public bool IsTranslationSupported { get; set; }
+    public bool IsTransliterationSupported { get; set; }
+}
 ```
 
 ## <a name="create-a-function-to-detect-the-source-texts-language"></a>Skapa en funktion för att identifiera källtextens språk
 
-I klassen `Program` skapar du en funktion med namnet `Detect`. Den här klassen kapslar in den kod som används för att anropa Detect-resursen och skriver ut resultatet till konsolen.
+I klassen `Program` skapar du en funktion med namnet `DetectTextRequest()`. Den här klassen kapslar in den kod som används för att anropa Detect-resursen och skriver ut resultatet till konsolen.
 
 ```csharp
-static void Detect()
+static public async Task DetectTextRequest(string subscriptionKey, string host, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -72,20 +112,12 @@ static void Detect()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Ange prenumerationsnyckeln, värddatornamnet och sökvägen
-
-Lägg till följande rader i funktionen `Detect`.
-
-```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/detect?api-version=3.0";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-```
+## <a name="serialize-the-detect-request"></a>Serialisera identifiera begäran
 
 Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text som ska genomgå språkidentifiering.
 
 ```csharp
-System.Object[] body = new System.Object[] { new { Text = @"Salve mondo!" } };
+System.Object[] body = new System.Object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
@@ -115,42 +147,53 @@ I `HttpRequestMessage` gör du följande:
 Lägg till den här koden i `HttpRequestMessage`:
 
 ```csharp
-// Set the method to POST
+// Build the request.
 request.Method = HttpMethod.Post;
-
-// Construct the full URI
+// Construct the URI and add headers.
 request.RequestUri = new Uri(host + route);
-
-// Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-// Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request, get response
-var response = client.SendAsync(request).Result;
-var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
-// Pretty print the response
-Console.WriteLine(PrettyPrint(jsonResponse));
-Console.WriteLine("Press any key to continue.");
-```
-
-Om du vill skriva ut svaret med ”ganska skriva ut” (formatering för svaret), lägger du till den här funktionen i klassen Program:
-```
-static string PrettyPrint(string s)
+// Send the request and get response.
+HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+// Read response as a string.
+string result = await response.Content.ReadAsStringAsync();
+// Deserialize the response using the classes created earlier.
+DetectResult[] deserializedOutput = JsonConvert.DeserializeObject<DetectResult[]>(result);
+// Iterate over the deserialized response.
+foreach (DetectResult o in deserializedOutput)
 {
-    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+    Console.WriteLine("The detected language is '{0}'. Confidence is: {1}.\nTranslation supported: {2}.\nTransliteration supported: {3}.\n",
+        o.Language, o.Score, o.IsTranslationSupported, o.IsTransliterationSupported);
+    // Create a counter
+    int counter = 0;
+    // Iterate over alternate translations.
+    foreach (AltTranslations a in o.Alternatives)
+    {
+        counter++;
+        Console.WriteLine("Alternative {0}", counter);
+        Console.WriteLine("The detected language is '{0}'. Confidence is: {1}.\nTranslation supported: {2}.\nTransliteration supported: {3}.\n",
+            a.Language, a.Score, a.IsTranslationSupported, a.IsTransliterationSupported);
+    }
 }
 ```
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att anropa `Detect()` i funktionen `Main`. Leta upp `static void Main(string[] args)` och lägg till följande rader:
+Det sista steget är att anropa `DetectTextRequest()` i funktionen `Main`. Leta upp `static void Main(string[] args)` och Ersätt den med den här koden:
 
 ```csharp
-Detect();
-Console.ReadLine();
+static async Task Main(string[] args)
+{
+    // This is our main function.
+    // Output languages are defined in the route.
+    // For a complete list of options, see API reference.
+    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
+    string host = "https://api.cognitive.microsofttranslator.com";
+    string route = "/detect?api-version=3.0";
+    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
+}
 ```
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
@@ -163,30 +206,51 @@ dotnet run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta en förkortning på land/region i den här [Språklista](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+När du kör exemplet bör du se följande ut till terminal:
+
+> [!NOTE]
+> Hitta en förkortning på land/region i den här [Språklista](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+
+```bash
+The detected language is 'en'. Confidence is: 1.
+Translation supported: True.
+Transliteration supported: False.
+
+Alternative 1
+The detected language is 'fil'. Confidence is: 0.82.
+Translation supported: True.
+Transliteration supported: False.
+
+Alternative 2
+The detected language is 'ro'. Confidence is: 1.
+Translation supported: True.
+Transliteration supported: False.
+```
+
+Det här meddelandet är byggd från JSON-rådataformat, som ser ut så här:
 
 ```json
-[
-  {
-    "language": "it",
-    "score": 1.0,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 1.0,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      },
-      {
-        "language": "en",
-        "score": 1.0,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+[  
+    {  
+        "language":"en",
+        "score":1.0,
+        "isTranslationSupported":true,
+        "isTransliterationSupported":false,
+        "alternatives":[  
+            {  
+                "language":"fil",
+                "score":0.82,
+                "isTranslationSupported":true,
+                "isTransliterationSupported":false
+            },
+            {  
+                "language":"ro",
+                "score":1.0,
+                "isTranslationSupported":true,
+                "isTransliterationSupported":false
+            }
+        ]
+    }
 ]
 ```
 

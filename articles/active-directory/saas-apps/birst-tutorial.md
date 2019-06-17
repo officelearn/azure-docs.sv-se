@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd936c823501dfe53dd81ba64b56bfb491fc85e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Självstudier: Azure Active Directory-integrering med Birst Agile Business Analytics
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Birst Agile Business Analytics i Azure AD be
 
 **Utför följande steg för att lägga till Birst Agile Business Analytics från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -204,5 +204,5 @@ När du klickar på Birst Agile Business Analytics-panelen i åtkomstpanelen bö
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

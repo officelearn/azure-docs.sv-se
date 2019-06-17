@@ -16,10 +16,10 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827299"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
@@ -307,13 +307,13 @@ I det här steget ska du ge ”domain security” principbehörigheter för work
 
 6. Upprepa steg 3 – 5 ovan för var och en av dessa återstående säkerhetsprinciper:
 
-   | Operation | Säkerhetsprincip för domän |
+   | Åtgärd | Säkerhetsprincip för domän |
    | ---------- | ---------- |
    | Hämta och skicka | Worker Data: Offentliga Worker rapporter |
    | Hämta och skicka | Personliga Data: Arbeta kontaktinformation |
-   | Hämta  | Worker Data: Alla positioner |
-   | Hämta  | Worker Data: Aktuell Personal Information |
-   | Hämta  | Worker Data: Företag titel på Worker profil |
+   | Hämta | Worker Data: Alla positioner |
+   | Hämta | Worker Data: Aktuell Personal Information |
+   | Hämta | Worker Data: Företag titel på Worker profil |
    | Hämta och skicka | Workday-konton |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Konfigurera business process säkerhetsbehörigheter princip
@@ -474,7 +474,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
    * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000 (exklusive 2000000)
 
-      * Attribut: WorkerID
+      * attribut: WorkerID
 
       * Operator: REGEX-matchning
 
@@ -482,7 +482,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
    * Exempel: Endast anställda och inte tillfällig arbetare
 
-      * Attribut: EmployeeID
+      * attribut: EmployeeID
 
       * Operator: INTE ÄR NULL
 
@@ -545,7 +545,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | **Företagets**         | Företagets   |     |  Skapa och uppdatera |
 | **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa och uppdatera |
-| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
+| **BusinessTitle**   |  title     |     |  Skapa och uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **Kommuner**   |   L   |     | Skapa och uppdatera |
 | **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
@@ -614,7 +614,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
    * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000
 
-      * Attribut: WorkerID
+      * attribut: WorkerID
 
       * Operator: REGEX-matchning
 
@@ -622,7 +622,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
    * Exempel: Endast tillfällig arbetare och inte fast anställda
 
-      * Attribut: ContingentID
+      * attribut: ContingentID
 
       * Operator: INTE ÄR NULL
 
@@ -871,7 +871,7 @@ Du kan också kontrollera om du har alla nödvändiga portar öppna genom att ö
 Om du vill se till att verktyget ger rätt resultat, måste du kontrollera att:
 
 * Öppna verktyget i en webbläsare från servern där du har installerat agenten etablering.
-* Se till att alla proxyservrar eller brandväggar som gäller för din etablering Agent används också till den här sidan. Detta kan göras i Internet Explorer genom att gå till **Inställningar -> Internet-alternativ -> anslutningar LAN-inställningar ->**. På den här sidan kan se du fältet ”Använd en Proxy Server för ditt LAN”. Välj den här rutan och placera Proxyadressen i fältet ”adress”.
+* Se till att alla proxyservrar eller brandväggar som gäller för din etablering Agent används också till den här sidan. Detta kan göras i Internet Explorer genom att gå till **Inställningar -> Internet-alternativ -> anslutningar LAN-inställningar ->** . På den här sidan kan se du fältet ”Använd en Proxy Server för ditt LAN”. Välj den här rutan och placera Proxyadressen i fältet ”adress”.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan en Agent för etablering konfigureras för att etablera flera AD-domäner?
 
@@ -959,7 +959,7 @@ Lösningen för närvarande stöder inte binära attribut som *thumbnailPhoto* o
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Hur formaterar namn som visas i AD baserat på användarens avdelning/land/stad attribut och referensen regionala avvikelser?
 
-Det är ett vanligt krav du konfigurerar den *displayName* attribut i AD så att den innehåller även information om användarens avdelning och land/region. För t.ex. Om John Smith fungerar på marknadsföringsavdelningen i USA kan du sin *displayName* visas som *Smith, John (marknadsföring-US)*.
+Det är ett vanligt krav du konfigurerar den *displayName* attribut i AD så att den innehåller även information om användarens avdelning och land/region. För t.ex. Om John Smith fungerar på marknadsföringsavdelningen i USA kan du sin *displayName* visas som *Smith, John (marknadsföring-US)* .
 
 Här är hur du kan hantera sådana krav för att konstruera *CN* eller *displayName* att inkludera attribut, till exempel företag, affärsenhet, ort eller land/region.
 
@@ -988,14 +988,14 @@ Här är hur du kan hantera sådana krav för att konstruera *CN* eller *display
 
   Bekräfta med Workday-teamet att API-uttryck ovanför är giltiga för dina Workday-klientkonfiguration. Om nödvändigt, du kan redigera dem enligt beskrivningen i avsnittet [anpassning av listan över Workday-användarattribut](#customizing-the-list-of-workday-user-attributes).
 
-* Att skapa rätt attributet mappning uttryck, identifiera vilka Workday-attributet ”auktoritativt” representerar användarens förnamn, senaste namn, land och avdelning. Anta att attributen är *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* och *SupervisoryOrganization* respektive. Du kan använda detta för att skapa ett uttryck för AD *displayName* attributet på följande sätt för att få ett visningsnamn som *Smith, John (marknadsföring-US)*.
+* Att skapa rätt attributet mappning uttryck, identifiera vilka Workday-attributet ”auktoritativt” representerar användarens förnamn, senaste namn, land och avdelning. Anta att attributen är *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* och *SupervisoryOrganization* respektive. Du kan använda detta för att skapa ett uttryck för AD *displayName* attributet på följande sätt för att få ett visningsnamn som *Smith, John (marknadsföring-US)* .
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
     När du har det högra uttrycket kan redigera tabellen attributmappningar och ändra den *displayName* attributmappning enligt nedan:   ![DisplayName mappning](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
-* Utöka exemplet ovan ska vi say som du vill konvertera stadsnamn som kommer från Workday till snabbformat värden och sedan använda den för att skapa visningsnamn som *Smith, John (CHI)* eller *Doe, Jane (NYC)*, sedan detta kan åstadkommas med hjälp av ett Switch-uttryck med arbetsdagen *kommuner* attribut som den avgörande variabeln.
+* Utöka exemplet ovan ska vi say som du vill konvertera stadsnamn som kommer från Workday till snabbformat värden och sedan använda den för att skapa visningsnamn som *Smith, John (CHI)* eller *Doe, Jane (NYC)* , sedan detta kan åstadkommas med hjälp av ett Switch-uttryck med arbetsdagen *kommuner* attribut som den avgörande variabeln.
 
      ```
     Switch
@@ -1099,7 +1099,7 @@ När du klickar på någon av loggen granskningsposter i **aktivitetsinformation
 
   Öppna Windows Loggboken för att hitta etablering agenten loggposter som motsvarar den här importåtgärden AD, och Använd den **hitta...** menyalternativet ta loggposter som innehåller matchande ID/ansluta attributet egenskapsvärdet (i det här fallet *21023*).
 
-  ![Sök](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Hitta](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Söker efter posten med *händelse-ID = 9*, vilket ger du LDAP söka filter som används av agenten för att hämta AD-konto. Du kan kontrollera om det här är rätt sökfilter för att hämta unika användarposter.
 
@@ -1177,7 +1177,7 @@ Det här avsnittet beskrivs ofta upptäckta fel med Workday användaretablering 
 |--|---|---|---|
 |1.| Det gick inte att installera etableringsagenten med felmeddelandet:  *Tjänsten ”Microsoft Azure AD Connect etablering Agent” (AADConnectProvisioningAgent) kunde inte starta. Kontrollera att du har behörighet att starta systemet.* | Det här felet visas vanligtvis om du försöker installera etableringsagenten på en domänkontrollant och grupprinciper som förhindrar att tjänsten startar.  Den visas också om du har en tidigare version av agenten som körs och du inte har avinstallerat den innan du startar en ny installation.| Installera etableringsagenten på en icke-DC-servern. Se till att tidigare versioner av agenten avinstalleras innan du installerar den nya agenten.|
 |2.| Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent” är i *startar* tillstånd och växlar inte till *kör* tillstånd. | Som en del av installationen, agenten guiden skapar ett lokalt konto (**NT-tjänst\\AADConnectProvisioningAgent**) på servern och detta är den **logga in** konto som används för att starta den tjänsten. Om en säkerhetsprincip på din Windows server förhindrar att lokala konton som kör tjänsterna, kommer du får det här felet. | Öppna den *tjänstekonsolen*. Högerklicka på Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent' och fliken inloggning ange kontot för en domänadministratör att köra tjänsten. Starta om tjänsten. |
-|3| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
+|3.| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
 
 #### <a name="connectivity-errors"></a>Anslutningsfel
 

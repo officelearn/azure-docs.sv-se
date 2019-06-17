@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907249"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
@@ -119,7 +119,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Behörigheter |`sp=rw` |De behörigheter som beviljats av SAS omfattar Read (r) och skriva (w). |
 | IP-intervall |`sip=168.1.5.60-168.1.5.70` |IP-adressintervall som en begäran tas emot. |
 | Protocol |`spr=https` |Endast begäranden med hjälp av HTTPS tillåts. |
-| Signatur |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Används för att auktorisera åtkomst till bloben. Signaturen är en HMAC beräknas över en inloggning till sträng och nyckeln med SHA256-algoritmen och sedan kodad med Base64-kodning. |
+| signatur |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Används för att auktorisera åtkomst till bloben. Signaturen är en HMAC beräknas över en inloggning till sträng och nyckeln med SHA256-algoritmen och sedan kodad med Base64-kodning. |
 
 ### <a name="account-sas-uri-example"></a>Exempel för konto-SAS-URI
 

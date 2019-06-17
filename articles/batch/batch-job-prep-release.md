@@ -3,7 +3,7 @@ title: Skapa uppgifter för att förbereda jobb och fullständig jobb på beräk
 description: Använd jobbnivå förberedande uppgifter för att minimera dataöverföringen till Azure Batch compute-noder och publiceringsuppgifter för noden rensning när jobbet har slutförts.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 02/27/2017
-ms.date: 06/29/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 02/27/2017
+ms.author: lahugh
+ms.custom: seodec18
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776206"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobbförberedelse- och jobbpubliceringsaktiviteter på Batch compute-noder
@@ -59,7 +58,7 @@ Du kanske vill behålla en kopia av loggfiler som dina aktiviteter genererar ell
 > 
 > 
 
-## <a name="job-preparation-task"></a>Jobbförberedelseuppgift
+## <a name="job-preparation-task"></a>Jobbförberedelseaktivitet
 Innan körningen av ett jobb och uppgifter utför Batch jobbförberedelseaktiviteten på varje beräkningsnod som har schemalagts att köra en uppgift. Som standard väntar Batch-tjänsten för jobbförberedelseaktiviteten ska slutföras innan du kör uppgifter som är schemalagd att köras på noden. Du kan dock konfigurera tjänsten inte vänta. Om noden startar om jobbförberedelseaktiviteten körs igen, men du kan också inaktivera det här beteendet.
 
 Jobbförberedelseaktiviteten körs bara på noder som är schemalagda att köra en uppgift. Detta förhindrar onödig körningen av en förberedande aktivitet om en nod inte har tilldelats en uppgift. Detta kan inträffa när antalet uppgifter för ett jobb är mindre än antalet noder i poolen. Det gäller även när [för körning av samtidiga aktiviteten](batch-parallel-node-tasks.md) är aktiverad, så att vissa noder inaktiv om antal uppgifter är lägre än totalt antal möjliga samtidiga aktiviteter. Genom att inte köra jobbförberedelseaktiviteten på inaktiva noder, kan du spenderar mindre på kostnaderna för dataöverföring.
@@ -69,7 +68,7 @@ Jobbförberedelseaktiviteten körs bara på noder som är schemalagda att köra 
 > 
 > 
 
-## <a name="job-release-task"></a>Jobbpubliceringsuppgift
+## <a name="job-release-task"></a>Jobbpubliceringsaktivitet
 När ett jobb har markerats som slutförd, körs jobbpubliceringsaktiviteten på varje nod i poolen som har kört minst en aktivitet. Du kan markera ett jobb som slutförd genom att utfärda en avslutningsbegäran. Batch-tjänsten anger sedan jobbets status till *avslutande*avslutas alla aktiva eller pågående aktiviteter som är kopplade till jobbet och körs jobbpubliceringsaktiviteten. Jobbet därefter flyttas till den *slutförts* tillstånd.
 
 > [!NOTE]
@@ -196,11 +195,11 @@ Den här MSDN-foruminlägg innehåller en översikt över flera metoder för att
 
 Skrivna med ett Azure Batch-gruppmedlemmar beskrivs den flera metoder som du kan använda för att distribuera program och data för att beräkna noder.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: https://www.azure.cn/home/features/storage/
-[portal]: https://portal.azure.cn
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -226,5 +225,3 @@ Skrivna med ett Azure Batch-gruppmedlemmar beskrivs den flera metoder som du kan
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-<!-- Update_Description: wording update -->

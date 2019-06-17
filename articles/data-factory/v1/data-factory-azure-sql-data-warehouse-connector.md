@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335400"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-sql-data-warehouse.md)
 
@@ -69,7 +69,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure SQL Data Warehouse länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **AzureSqlDW** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för connectionString-egenskapen. Endast grundläggande autentisering stöds. |Ja |
@@ -82,7 +82,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet typeProperties är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **AzureSqlDWTable** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen eller vyn i Azure SQL Data Warehouse-databas som den länkade tjänsten refererar till. |Ja |
 
@@ -97,7 +97,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 ### <a name="sqldwsource"></a>SqlDWSource
 När källan är av typen **SqlDWSource**, följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
@@ -143,7 +143,7 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** har stöd för följande egenskaper:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. Mer information finns i [repeterbarhet avsnittet](#repeatability-during-copy). |Ett frågeuttryck. |Nej |
 | allowPolyBase |Anger om du vill använda PolyBase (om tillämpligt) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information. |True <br/>FALSKT (standard) |Nej |
@@ -349,32 +349,32 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
-| Datetimeoffset |Datetimeoffset |
+| date |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeriskt |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| ROWVERSION |Byte[] |
-| smalldatetime |Datetime |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

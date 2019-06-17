@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0414b71a7c3765f7cf4d847e61544ab8a90ae3e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Självstudier: Azure Active Directory-integrering med eKincare
 
@@ -55,7 +55,7 @@ För att konfigurera integreringen av eKincare i Azure AD måste du lägga till 
 
 **Utför följande steg för att lägga till eKincare från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -215,7 +215,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-ekincare-test-user"></a>Skapa en eKincare-testanvändare
 
-I det här avsnittet skapas en användare med namnet Britta Simon i eKincare. eKincare har stöd för **JIT-användaretablering (Just-In-Time)**, och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om användaren inte redan finns i eKincare skapas en ny efter autentisering.
+I det här avsnittet skapas en användare med namnet Britta Simon i eKincare. eKincare har stöd för **JIT-användaretablering (Just-In-Time)** , och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om användaren inte redan finns i eKincare skapas en ny efter autentisering.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -229,5 +229,5 @@ När du klickar på eKincare-panelen på åtkomstpanelen bör du loggas in autom
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

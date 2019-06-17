@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff26acc1050a6104525ec44304fd9fee21d6d3cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integrering med Panorama9
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Panorama9 i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Panorama9 från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -239,5 +239,5 @@ När du klickar på panelen Panorama9 i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

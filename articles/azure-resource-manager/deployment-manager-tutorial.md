@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bf21e8cb69091c222b73bb939b3a36caf097c299
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238856"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144163"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Distributionshanteraren för Azure med Resource Manager-mallar (offentlig förhandsversion)
 
-Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. För att använda Deployment Manager måste du skapa två mallar:
+Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. Om du föredrar en snabbare metod, [Distributionshanteraren för Azure-Snabbstart](https://github.com/Azure-Samples/adm-quickstart) skapar konfigurationerna som krävs i din prenumeration och anpassar artefakter för att distribuera ett program i flera regioner. Snabbstarten utför uppgifterna som i den här självstudien.
+
+För att använda Deployment Manager måste du skapa två mallar:
 
 * **En topologimall**: Beskriver de Azure-resurser som utgör dina program och var de ska distribueras.
 * **En distributionsmall**: Beskriver stegen för att distribuera dina program.
@@ -44,7 +46,10 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera den senare versionen
 > * Rensa resurser
 
-Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ytterligare resurser:
+
+* Den [Azure Deployment Manager REST API-referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Självstudie: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 

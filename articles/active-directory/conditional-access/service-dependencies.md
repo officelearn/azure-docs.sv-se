@@ -2,7 +2,7 @@
 title: Vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur villkor används i Azure Active Directory villkorlig åtkomst för att utlösa en princip.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354379"
+ms.locfileid: "67112102"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst? 
 
@@ -79,4 +79,4 @@ I tabellen nedan visar en lista över ytterligare tjänstens beroenden, där kli
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig att implementera villkorlig åtkomst i din miljö kan du läsa avsnittet om att [planera distribution med villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).
+Om du vill lära dig mer om att implementera villkorlig åtkomst i din miljö, se [planera distributionen av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).

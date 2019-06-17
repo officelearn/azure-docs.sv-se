@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60642782"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
@@ -87,7 +87,7 @@ Om du vill anpassa och dela rapporten, skapa en arbetsyta och utför följande s
       ![Hämta Innehållspaketet](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Ange namnet på det lagringskonto som konfigurerades i föregående steg 5 och välj **nästa**.
 
-    ![Ange ett lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Ange lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Med hjälp av autentiseringsmetod ”nyckel”, ange lagringskontots åtkomstnyckel för lagringskontot. Att [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys)går du till ditt lagringskonto i Azure-portalen.
 
      ![Ange storage-konto](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>

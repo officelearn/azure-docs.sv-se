@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419398"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
@@ -140,7 +140,7 @@ Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar ä
 7. Det är rekommenderat att redigera filen ”/ etc/sysconfig/nätverk/dhcp” och ändra den `DHCLIENT_SET_HOSTNAME` parametern för följande:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Viktigt!** I ”/ etc/sudoers”, kommentera ut eller ta bort följande rader om de finns:
+8. **Viktigt:** I ”/ etc/sudoers”, kommentera ut eller ta bort följande rader om de finns:
    
      Som standard targetpw # be om lösenordet för målanvändaren d.v.s. rot alla ALL=(ALL) alla # varning! Använd endast detta tillsammans med ”standardvärden targetpw'!
 9. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas.  Detta är vanligtvis standardinställningen.

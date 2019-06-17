@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 926deea2f9754febb76e8ccc81933a792f3a9dbc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 477ccd87b84d4eb5ac6aa3e0dfcbdd8af6b07b6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Självstudier: Azure Active Directory-integrering med Neota Logic Studio
 
@@ -52,7 +52,7 @@ Om du vill konfigurera integreringen av Neota Logic Studio till Azure AD, som du
 
 **Utför följande steg för att lägga till Neota Logic Studio från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -196,5 +196,5 @@ När du klickar på panelen Neota Logic Studio i åtkomstpanelen, bör det vara 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

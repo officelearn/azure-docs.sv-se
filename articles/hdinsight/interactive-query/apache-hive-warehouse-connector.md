@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056720"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive Warehouse-Anslutningsappen
 
@@ -20,7 +20,7 @@ I Apache Hive Warehouse Connector (programtillägget för hysningsbar Webbinstan
 
 Hive Warehouse-Anslutningsappen kan du dra nytta av de unika funktionerna för Hive och Spark för att skapa kraftfulla program för stordata. Apache Hive erbjuder stöd för transaktioner för databaser som är atomiska åtgärden, konsekvens, isolering och varaktiga (ACID). Mer information om ACID och transaktioner i Hive finns i [Hive transaktioner](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive erbjuder även detaljerad säkerhetskontroller via Apache Ranger och låg latens Analytical Processing finns inte i Apache Spark.
 
-Apache Spark, har en Structured Streaming API som ger strömmande funktioner som inte finns i Apache Hive. Från och med Hortonworks Data Platform (HDP) 3.0, har Apache Spark och Apache Hive separata metastores, vilket kan göra samverkan svårt. Hive Warehouse-Anslutningsappen gör det enklare att använda Spark och Hive. Biblioteket genom hysningsbar Webbinstans läser in data från LLAP daemons till Spark executors parallellt, vilket gör det mer effektiv och skalbar än en standard JDBC-anslutning från Spark till Hive.
+Apache Spark, har en Structured Streaming API som ger strömmande funktioner som inte finns i Apache Hive. Från och med HDInsight 4.0, har Apache Spark 2.3.1 och Apache Hive 3.1.0 separata metastores, vilket kan göra samverkan svårt. Hive Warehouse-Anslutningsappen gör det enklare att använda Spark och Hive. Biblioteket genom hysningsbar Webbinstans läser in data från LLAP daemons till Spark executors parallellt, vilket gör det mer effektiv och skalbar än en standard JDBC-anslutning från Spark till Hive.
 
 ![Arkitektur](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -239,5 +239,5 @@ Följ stegen nedan för att skapa ett exempel på Hive Warehouse-Anslutningsappe
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda interaktiv fråga med HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Använda Interactive Query i HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Exempel på interagera med Hive Warehouse-anslutningen med hjälp av Zeppelin, Livy, spark-submit, och pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

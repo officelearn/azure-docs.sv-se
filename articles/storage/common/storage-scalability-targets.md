@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073734"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-skalbarhets- och prestandamål för storage-konton
 
@@ -43,6 +43,9 @@ När programmet når gränsen för en partition kan hantera din arbetsbelastning
 
 Mer information om mål för skalbarhet och prestanda för Azure Files och Azure File Sync finns [skalbarhets- och prestandamål i Azure Files](../files/storage-files-scale-targets.md).
 
+> [!IMPORTANT]
+> Lagringskontogränser gäller för alla resurser. Skala upp till är max för storage-konton endast möjligt om det finns bara en resurs per lagringskonto.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="premium-files-scale-targets"></a>Premium-filer skala mål
@@ -53,27 +56,7 @@ Exempel: En enda resurs kan uppnå 100 000 IOPS och en enskild fil kan skala upp
 
 #### <a name="premium-file-share-limits"></a>Resurs-gränser för Premium-fil
 
-> [!IMPORTANT]
-> Lagringskontogränser gäller för alla resurser. Skala upp till är max för storage-konton endast möjligt om det finns bara en resurs per lagringskonto.
-
-|Område  |Mål  |
-|---------|---------|
-|Etablerade minstorlek                        |100 giB      |
-|Max etablerad storlek                        |100 TiB      |
-|Minimistorlek öka/minska    |1 GiB      |
-|Baslinjen IOPS    |1 IOPS per GiB upp till 100 000|
-|IOPS bursting    |3 x IOPS per GiB upp till 100 000|
-|Priset för utgående trafik         |60 MiB/s + 0.06 * etablerats GiB        |
-|Ingångshändelser| 40 MiB/s + 0.04 * etablerats GiB |
-|Högsta antalet ögonblicksbilder        |200       |
-
-#### <a name="premium-file-limits"></a>Gränser för Premium-fil
-
-|Område  |Mål  |
-|---------|---------|
-|Storlek                  |1 TiB         |
-|Max IOPS per fil     |5 000         |
-|Samtidiga handtag    |2,000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync skala mål
 

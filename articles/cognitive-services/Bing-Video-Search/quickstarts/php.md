@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb02e569cb764405abc1e69f3ca0c8c3710860ed
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473339"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "67134921"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabbstart: Söka efter videor med REST API för videosökning i Bing och PHP
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 Exempelkoden skrevs för att fungera med PHP 5.6.
 
-Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
+Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -32,7 +32,7 @@ Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.
 
 ## <a name="running-the-application"></a>Köra programmet
 
-[API för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returnerar videoresultat från Bings sökmotor.
+[API för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar videoresultat från Bings sökmotor.
 
 1. Kontrollera att stöd för säker HTTP är aktiverat i `php.ini` enligt beskrivningen i kodkommentaren.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.

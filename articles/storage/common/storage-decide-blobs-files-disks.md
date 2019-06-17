@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969417"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
@@ -37,11 +37,11 @@ I följande tabell jämförs Azure Files med Azure Blobs.
 |-|-|-|  
 |**Attributet**|**Azure Blobs**|**Azure Files**|  
 |Alternativ för hållbarhet|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
-|Hjälpmedel|REST-API:er|REST-API:er<br /><br /> SMB 2.1 och SMB 3.0 (standardfilsystemet API: er)|  
-|Anslutningar|REST API: er, över hela världen|REST API: er – i hela världen<br /><br /> SMB 2.1 – i region<br /><br /> SMB 3.0 -- Worldwide|  
+|Hjälpmedel|REST API:er|REST API:er<br /><br /> SMB 2.1 och SMB 3.0 (standardfilsystemet API: er)|  
+|Anslutning|REST API: er, över hela världen|REST API: er – i hela världen<br /><br /> SMB 2.1 – i region<br /><br /> SMB 3.0 -- Worldwide|  
 |Slutpunkter|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Kataloger|Ostrukturerad namnrymd|SANT katalogobjekt|  
-|Skiftlägeskänslighet i namn|Skiftlägeskänslig|Skiftlägeskänsliga, men bevarar användningsfall|  
+|Skiftlägeskänslighet i namn|Skiftlägeskänsligt|Skiftlägeskänsliga, men bevarar användningsfall|  
 |Kapacitet|Upp till 2 PiB konto gräns |5 TiB-filresurser|  
 |Dataflöde|Upp till 60 MiB/s per blockblob|Upp till 60 MiB/s per resurs|  
 |Objektstorlek|Upp till ungefär 4,75 TiB per blockblob|Upp till 1 TiB per fil|  
@@ -60,7 +60,7 @@ I följande tabell jämförs Azure Files med Azure-diskar.
 |Scope|Exklusivt för en enskild virtuell dator|Delad åtkomst över flera virtuella datorer|  
 |Ögonblicksbilder och kopiera|Ja|Ja|  
 |Konfiguration|Ansluten vid start av den virtuella datorn|Ansluta till efter den virtuella datorn har startats|  
-|Autentisering|Inbyggt|Konfigurera med net use|  
+|Autentisering|Inbyggd|Konfigurera med net use|  
 |Åtkomst med hjälp av REST|Filer i den virtuella Hårddisken kan inte nås|Filer som lagras på en resurs kan nås|  
 |Maxstorlek|32 TiB-disk|5 TiB-filresurser och 1 TiB-fil i resursen|  
 |Maximalt antal IOps|20 000 IOps|1 000 IOps|  

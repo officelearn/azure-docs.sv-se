@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61095468"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
@@ -101,7 +101,7 @@ Mer information finns i [principuttryck](api-management-policy-expressions.md) o
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |cache-sökning|Rotelement.|Ja|
 |variera av rubrik|Starta cachelagring av svar per värde för angivna huvud, till exempel acceptera Accept-Charset Accept-Encoding, acceptera-språk, auktorisering, förväntade, från värden, If-Match.|Nej|
@@ -113,7 +113,7 @@ Mer information finns i [principuttryck](api-management-policy-expressions.md) o
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | allow-private-response-caching | När värdet `true`, tillåter cachelagring av begäranden som innehåller ingen auktoriseringsrubrik.                                                                                                                                                                                                                                                                        | Nej       | false             |
 | cachelagring av typen               | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder en extern Azure Cache för Redis i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
-| downstream-caching-type        | Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.                                                                                                          | Nej       | inga              |
+| downstream-caching-type        | Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.                                                                                                          | Nej       | Ingen              |
 | måste revalidate                | När underordnade cachelagring är aktiverat det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktivet i gateway-svar.                                                                                                                                                                                                                      | Nej       | true              |
 | vary-by-developer              | Ange `true` till cache svar per [prenumerationsnyckel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |         False          |
 | vary-by-developer-groups       | Ange `true` till cache svar per [användargrupp](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |       False            |
@@ -180,7 +180,7 @@ Mer information finns i [principuttryck](api-management-policy-expressions.md) o
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |cache-store|Rotelement.|Ja|
 
@@ -188,7 +188,7 @@ Mer information finns i [principuttryck](api-management-policy-expressions.md) o
 
 | Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| varaktighet         | Time-to-live posternas cachelagrade anges i sekunder.                                                                                                                                                                                                                                                                                                   | Ja      | Gäller inte               |
+| Varaktighet         | Time-to-live posternas cachelagrade anges i sekunder.                                                                                                                                                                                                                                                                                                   | Ja      | Gäller inte               |
 
 ### <a name="usage"></a>Användning
 Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -223,7 +223,7 @@ Mer information och exempel på den här principen kan du se [anpassad cachelagr
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |cache-sökning-value|Rotelement.|Ja|
 
@@ -266,7 +266,7 @@ Mer information och exempel på den här principen kan du se [anpassad cachelagr
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |cache-store-value|Rotelement.|Ja|
 
@@ -275,7 +275,7 @@ Mer information och exempel på den här principen kan du se [anpassad cachelagr
 | Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | cachelagring av typen | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder en extern Azure Cache för Redis i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
-| varaktighet         | Värdet cachelagras för det angivna duration-värde som anges i sekunder.                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte               |
+| Varaktighet         | Värdet cachelagras för det angivna duration-värde som anges i sekunder.                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte               |
 | key              | Cachenyckel värdet lagras.                                                                                                                                                                                                                                                                                                                   | Ja      | Gäller inte               |
 | value            | Värdet som ska cachelagras.                                                                                                                                                                                                                                                                                                                                     | Ja      | Gäller inte               |
 ### <a name="usage"></a>Användning
@@ -305,7 +305,7 @@ Den `cache-remove-value` tar bort ett cachelagrade objekt som identifieras av de
 
 #### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |cache-remove-value|Rotelement.|Ja|
 

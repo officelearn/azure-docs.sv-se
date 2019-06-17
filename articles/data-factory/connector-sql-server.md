@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074050"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Aktuell version](connector-sql-server.md)
 
@@ -146,7 +146,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från/till SQL Server-databas, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
 | tableName |Namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
@@ -179,7 +179,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiviteten till **SqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SqlSource** | Ja |
 | sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. |Nej |
@@ -280,22 +280,22 @@ GO
 
 ### <a name="sql-server-as-sink"></a>SQL Server som mottagare
 
+> [!TIP]
+> Läs mer om stöds skrivning beteenden, konfigurationer och bästa praxis från [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
+
 För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
 | writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är: heltal (antal rader). Som standard Data Factory dynamiskt kan bestämma lämpliga batchstorleken baserat på radstorleken. |Nej |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
 | preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till SQL Server. Det ska bara anropas en gång per kopia som kör. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen, t.ex. att göra upsertar eller transformering med egen affärslogik. <br/><br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
+| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen.<br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 | sqlWriterTableType |Ange ett tabellnamn typ som ska användas i den lagrade proceduren. Kopieringsaktivitet tillhandahåller data som flyttas i en temporär tabell med den här tabellen. Lagrad procedur kod kan sedan sammanfoga data kopieras med befintliga data. |Nej |
 
-> [!TIP]
-> När du kopierar data till SQL Server, läggs kopieringsaktiviteten data till tabellen mottagare som standard. Använd den lagrade proceduren i SqlSink för att utföra en UPSERT eller ytterligare affärslogik. Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-procedure-for-sql-sink).
-
-**Exempel 1: lägga till data**
+**Exempel 1: Lägg till data**
 
 ```json
 "activities":[
@@ -327,7 +327,7 @@ För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten 
 ]
 ```
 
-**Exempel 2: anropar en lagrad procedur vid kopiering för upsert**
+**Exempel 2: anropa en lagrad procedur vid kopiering**
 
 Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -366,80 +366,69 @@ Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-proce
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Identitetskolumner i måldatabasen
+## <a name="best-practice-for-loading-data-into-sql-server"></a>Bästa praxis för inläsning av data i SQL Server
 
-Det här avsnittet innehåller ett exempel som kopierar data från en källtabellen med någon identity-kolumn till en måltabell med en identity-kolumn.
+När du kopierar data till SQL Server kan kräva olika skrivning beteende:
 
-**Källtabellen:**
+- **[Lägg till](#append-data)** : min källdata har bara nya poster;
+- **[Upsert](#upsert-data)** : min källdata har både infogningar och uppdateringar.
+- **[Skriv över](#overwrite-entire-table)** : Jag vill fylla på hela dimensionstabellen varje gång;
+- **[Skriva med anpassad logik](#write-data-with-custom-logic)** : Jag behöver ytterligare bearbetning innan den slutliga infogningen i måltabellen.
+
+Finns i respektive avsnitt om hur du konfigurerar i ADF och bästa praxis.
+
+### <a name="append-data"></a>Lägga till data
+
+Det här är standardinställningen för den här SQL Server-anslutningen för mottagare och ADF gör **massinfogning** att skriva till din tabell effektivt. Du kan helt enkelt konfigurera källa och mottagare i enlighet med detta i kopieringsaktiviteten.
+
+### <a name="upsert-data"></a>Upserta data
+
+**Alternativet jag** (föreslås särskilt när du har stora mängder data att kopiera): den **metod för de flesta högpresterande** göra upsert är följande: 
+
+- Det första utnyttja en [temporära tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) till massinläsning alla poster med hjälp av Kopieringsaktivitet. Eftersom åtgärder mot tillfälliga tabeller inte loggas, du kan läsa in miljontals poster i sekunder.
+- Kör en lagringsprocedur-aktivitet i ADF att tillämpa en [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (eller infoga/uppdatera)-instruktionen och Använd temporära tabellen som källa för att utföra alla uppdaterar eller infogar som en enda transaktion vilket minskar mängden görs och logga åtgärder. Temporär tabell kan trunkeras för att vara redo för nästa cykel för upsert i slutet av aktiviteten lagringsprocedur. 
+
+I Azure Data Factory, till exempel skapa en pipeline med en **Kopieringsaktivitet** sammankedjade med en **lagringsprocedur-aktivitet** om åtgärden lyckades. Tidigare kopierar data från din källagringen till en tillfällig tabell i databasen säg ” **##UpsertTempTable**” som tabellnamnet i datauppsättningen, sedan det senare anropar en lagringsprocedur för att sammanfoga information från den temporära tabellen i måltabellen, och rensa temporära tabellen.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+Definiera en lagringsprocedur med MERGE logik som liknar följande, som refereras till från aktiviteten ovan lagringsprocedur i din databas. Förutsatt att målet **marknadsföring** tabell med tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**, och gör upsert baserat på den **profil-ID** kolumn.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Måltabell:**
+**Alternativ II:** du kan också välja att [anropa lagrade proceduren i kopieringsaktiviteten](#invoking-stored-procedure-for-sql-sink), vid Obs den här metoden körs för varje rad i källtabellen i stället för att utnyttja bulk insert som standard-metoden i kopieringsaktiviteten, alltså plats inte för storskaliga upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Skriv över hela tabellen
 
-Observera att måltabellen har en identitetskolumn.
+Du kan konfigurera **preCopyScript** -egenskapen i kopieringsaktiviteten mottagare, i vilket fall för varje körningen av kopieringsaktiviteten, ADF kör skriptet först kör kopia om du vill infoga data. Om du vill skriva över hela tabellen med den senaste informationen, kan du till exempel ange ett skript för att först ta bort alla poster innan massinläsning nya data från källan.
 
-**Källa dataset JSON-definition**
+### <a name="write-data-with-custom-logic"></a>Skriva data med anpassad logik
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-**Mål dataset JSON-definition**
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-Observera att som din käll- och tabell har olika schema (målet har ytterligare en kolumn med identiteten). I det här scenariot måste du ange **struktur** -egenskapen i datauppsättningsdefinitionen mål som inte innehåller en identity-kolumn.
+Liknande enligt beskrivningen i [Upsert data](#upsert-data) avsnittet när du ska använda ytterligare bearbetning innan sista inmatningen av källdata i tabellen, kan du en) för stor skala in till en tillfällig tabell och sedan anropa en lagrad proceduren eller b) anropar en lagrad procedur vid kopiering.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Anropa lagrade procedur från SQL-mottagare
 
-När du kopierar data till SQL Server-databas, användarspecificerade en lagrad procedur kan konfigureras och anropas med ytterligare parametrar.
+När du kopierar data till SQL Server-databas, kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar.
 
-En lagrad procedur kan användas när inbyggd kopiera mekanismer inte skickar syftet. Den används vanligtvis när upsert (insert + uppdatering) eller extra bearbetning (sammanslagning kolumner, leta upp ytterligare värden, infogning i flera tabeller, etc.) måste göras innan sista inmatningen av källdata i tabellen.
+> [!TIP]
+> Anropa lagrade proceduren bearbetar den data rad för rad i stället för massredigering, vilket inte rekommenderas för storskaliga kopia. Läs mer i [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
+
+Du kan använda en lagrad procedur när inbyggd kopiera mekanismer som inte servar syfte, t.ex. tillämpa ytterligare bearbetning innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är merge kolumner, leta upp ytterligare värden och infogning i mer än en tabell.
 
 I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 

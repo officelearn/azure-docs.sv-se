@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36bffb73b1e04fd37fe05479a684f107b7679e99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Självstudier: Azure Active Directory-integrering med Nexonia
 
@@ -52,7 +52,7 @@ För att konfigurera integrering av Nexonia i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Nexonia från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -196,5 +196,5 @@ När du klickar på panelen Nexonia i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

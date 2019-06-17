@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335342"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage Service med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-amazon-simple-storage-service-connector.md)
 > * [Version 2 (aktuell version)](../connector-amazon-simple-storage-service.md)
 
@@ -63,7 +63,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **AwsAccessKey** att länka ditt Amazon S3-datalager till datafabriken. Följande tabell innehåller beskrivning för JSON-element som är specifika för Amazon S3 (AwsAccessKey) länkad tjänst.
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | accessKeyID |ID för den hemliga åtkomstnyckeln. |string |Ja |
 | secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlighet sträng |Ja |
@@ -92,14 +92,14 @@ Om du vill ange en datauppsättning som representerar indata i Azure Blob storag
 
 Avsnitt som struktur, tillgänglighet och princip är liknande för alla datauppsättningstyper av (till exempel SQL database, Azure-blob och Azure-tabell). Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **AmazonS3** (som innehåller Amazon S3-datamängd) har följande egenskaper:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | bucketName |S3-Bucketnamn. |String |Ja |
 | key |Objektnyckel S3. |String |Nej |
 | prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
 | version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |String |Nej |
-| Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som – är mellan filbaserade (binär kopia) att hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej | |
-| Komprimering | Ange typ och komprimeringsnivå för data. Typerna som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
+| format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som – är mellan filbaserade (binär kopia) att hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej | |
+| compression | Ange typ och komprimeringsnivå för data. Typerna som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 
 
 > [!NOTE]
@@ -173,9 +173,9 @@ Du kan göra detsamma den **prefix** egenskapen för en Amazon S3-datamängd. En
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md). Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principer är tillgängliga för alla typer av aktiviteter. Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten varierar egenskaper beroende på vilka typer av källor och mottagare. När en källa i kopieringsaktiviteten är av typen **FileSystemSource** (som innehåller Amazon S3), följande egenskap är tillgänglig i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| rekursiv |Anger om rekursivt lista S3 objekt i katalogen. |SANT/FALSKT |Nej |
+| recursive |Anger om rekursivt lista S3 objekt i katalogen. |SANT/FALSKT |Nej |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON-exempel: Kopiera data från Amazon S3 till Azure Blob storage
 Detta exempel visar hur du kopierar data från Amazon S3 till Azure Blob storage. Dock datan kan kopieras direkt till [någon mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopieringsaktiviteten i Data Factory.

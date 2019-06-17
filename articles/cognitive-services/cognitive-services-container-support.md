@@ -3,19 +3,19 @@ title: Stöd för containrar
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur Docker-behållare kan få närmare kognitiva tjänster till dina data.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8faa524d7d88f09835d26439b772b8d57c84cc73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122245"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -82,7 +82,7 @@ Dessutom kan vissa behållare stöds i Cognitive Services [ **allt-i-ett erbjuda
 Azure Cognitive Services-behållare är tillgängliga för allmänheten via din Azure-prenumeration och Docker-behållaravbildningar kan hämtas från Microsoft Container Registry eller Docker Hub. Du kan använda den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från lämplig registret.
 
 > [!IMPORTANT]
-> För närvarande måste du slutföra registreringsprocessen för att komma åt följande behållare som du kan fylla i och skicka en enkät med frågor om dig, ditt företag och användningsfall som du vill implementera behållarna. När du har beviljat åtkomst och angett autentiseringsuppgifter kan hämta du sedan behållaravbildningarna för behållarna ansikte och identifiera Text från ett privat behållarregister med Azure Container Registry.
+> För närvarande måste du slutföra registreringsprocessen för att komma åt följande behållare som du kan fylla i och skicka en enkät med frågor om dig, ditt företag och användningsfall som du vill implementera behållarna. När du har beviljat åtkomst och angett autentiseringsuppgifter kan hämta du sedan behållaravbildningarna från ett privat behållarregister med Azure Container Registry.
 > * [Avvikelseidentifiering dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Ansikte](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)

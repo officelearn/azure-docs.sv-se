@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: 819f6ee4ab079361279a567bceeb74c33fe14186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952395"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestandaövervakning med Azure Monitor-loggar
@@ -76,7 +76,7 @@ Du kan hämta och ändra den här mallen om du vill distribuera ett kluster som 
 
 Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-portalen för att välja vilka räknare som du samla in.
 
-1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
+1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>** .
 
 2. Klicka på **Log Analytics**.
 

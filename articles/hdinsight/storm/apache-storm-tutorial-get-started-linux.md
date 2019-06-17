@@ -9,21 +9,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 299e8990d9211eadc33a7e3348ba0364adfafb92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078180"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
 Lär dig hur du använder [Apache Storm](https://storm.apache.org/) i HDInsight med storm starter-exempel.
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
-
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

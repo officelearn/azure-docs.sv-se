@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366270"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
@@ -403,7 +403,7 @@ Om dina data finns i Azure Blob storage, kan du direkt läsa data från Azure st
 
 ![Skärmbild av dialogrutan Lägg till datakälla](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-I Visual Studio kan du läsa data från blob storage, göra vissa datamanipulering, funktionstekniker och den resulterande utdata till Azure Data Lake eller Azure Blob Storage. När du refererar till data i blob storage, använda **wasb: / /**; när du refererar till data i Azure Data Lake, Använd **swbhdfs: / /**
+I Visual Studio kan du läsa data från blob storage, göra vissa datamanipulering, funktionstekniker och den resulterande utdata till Azure Data Lake eller Azure Blob Storage. När du refererar till data i blob storage, använda **wasb: / /** ; när du refererar till data i Azure Data Lake, Använd **swbhdfs: / /**
 
 ![Skärmbild av frågan med posten WASB markerat](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

@@ -12,10 +12,10 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379347"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskapsbas livscykel i QnA Maker
@@ -31,7 +31,7 @@ Slutpunkt för QnA Maker knowledge base (KB) innehåller en bästa matchning sva
 Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Interaktiv testning kan göras i QnA Maker-portalen via den **Test** panelen genom att ange vanliga användarfrågor om och verifiera att svaren som returneras med rätt svar och tillräckligt med förtroendepoäng. 
 
 * **Åtgärda resultat för låga förtroende**: lägga till alternativa frågor. 
-* **När en fråga felaktigt returnerar den [Standardsvar](confidence-score.md#change-default-answer)**: lägga till nya svar på rätt frågan. 
+* **När en fråga felaktigt returnerar den [Standardsvar](confidence-score.md#change-default-answer)** : lägga till nya svar på rätt frågan. 
 
 Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
 

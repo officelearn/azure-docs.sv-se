@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61021006"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
@@ -80,17 +80,17 @@ Exempel: om en proxy har en flödesmall som `/pets/{petId}`, backend-URL: en kan
 #### <a name="additional-request-parameters"></a>Om ytterligare begäranparametrar
 Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
 
-* **{request.method}**: HTTP-metoden som används på den ursprungliga begäran.
-* **{request.headers.\<HeaderName\>}**: En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
-* **{request.querystring.\<ParameterName\>}**: En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.method}** : HTTP-metoden som används på den ursprungliga begäran.
+* **{request.headers.\<HeaderName\>}** : En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.querystring.\<ParameterName\>}** : En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
 
 ### <a name="response-parameters"></a>Referens för backend-svarsparametrar
 
 Svarsparametrar kan användas som en del av ändra svaret till klienten. Följande värden kan användas i konfigurationsvärden:
 
-* **{backend.response.statusCode}**: HTTP-statuskoden som returneras av backend-svaret.
+* **{backend.response.statusCode}** : HTTP-statuskoden som returneras av backend-svaret.
 * **{backend.response.statusReason}** : HTTP-orsaksfras som returneras av backend-svaret.
-* **{backend.response.headers. \<HeaderName\>}**: En rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
+* **{backend.response.headers. \<HeaderName\>}** : En rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
@@ -189,8 +189,8 @@ Proxyservrar läsa alla strängar utanför en JSON-fil, med hjälp av \ som en s
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
 * **backend.request.method**: HTTP-metoden som används för att anropa backend-server.
-* **backend.request.querystring.\<ParameterName\>**: En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
-* **backend.Request.headers. \<HeaderName\>**: En rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
+* **backend.request.querystring.\<ParameterName\>** : En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
+* **backend.Request.headers. \<HeaderName\>** : En rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
 
 Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
 
@@ -222,7 +222,7 @@ Objektet requestOverrides definierar ändringar som görs i ett svar som skickas
 * **response.statusCode**: HTTP-statuskoden ska returneras till klienten.
 * **response.statusReason**: HTTP-orsaksfras som ska returneras till klienten.
 * **Response.body**: Den sträng som innehåller brödtext ska returneras till klienten.
-* **Response.headers. \<HeaderName\>**: En rubrik som kan ställas in för svar till klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
+* **Response.headers. \<HeaderName\>** : En rubrik som kan ställas in för svar till klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
 
 Värden kan referera till programinställningar, parametrar från den ursprungliga klientbegäran och parametrar från backend-svaret.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bee7454942b9214eeb1253339446df370e20fe01
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Självstudier: Azure Active Directory-integrering med Kontiki
 
@@ -79,7 +79,7 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Kontiki, måste du utföra följande byggblock:
 
-| Uppgift | Beskrivning |
+| Aktivitet | Beskrivning |
 | --- | --- |
 | **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
 | **[Konfigurera Kontiki enkel inloggning](#configure-kontiki-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
@@ -143,7 +143,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >**. Till exempel **brittasimon\@contoso.com**.
+    1. I den **användarnamn** anger **brittasimon\@\<din företagsdomän >.\< tillägget >** . Till exempel **brittasimon\@contoso.com**.
 
     1. Välj den **Show lösenord** markerar du kryssrutan. Skriv ned värdet som visas i den **lösenord** box.
 
@@ -193,4 +193,4 @@ Om du vill veta mer kan du granska dessa artiklar:
 
 - [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

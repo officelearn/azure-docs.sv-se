@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1fb9ee12c0373f2d7038417935709caae4a6eb43
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Självstudier: Azure Active Directory-integrering med 8x8 Virtual Office
 
@@ -56,7 +56,7 @@ För att konfigurera integreringen av 8x8 Virtual Office i Azure AD måste du l�
 
 **Utför följande steg för att lägga till 8x8 Virtual Office från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -234,5 +234,5 @@ När du klickar på 8x8 Virtual Office-panelen i åtkomstpanelen bör du automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

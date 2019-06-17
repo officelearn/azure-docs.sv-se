@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578578"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
@@ -49,7 +49,7 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Grundläggande inställningar**
 
-      1. **Namn**: Namnet på data science-server som du skapar.
+      1. **Namn på**: Namnet på data science-server som du skapar.
 
       2. **Användarnamn**: Admin-konto inloggnings-id.
 
@@ -64,7 +64,7 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Inställningar för**: Välj en av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på Geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
    
-   - **Sammanfattning**: Kontrollera att all information du angett är korrekt.
+   - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
 
    - **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
  

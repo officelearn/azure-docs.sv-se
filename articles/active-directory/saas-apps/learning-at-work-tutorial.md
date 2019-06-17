@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd941e2c6d4b830bea6458e74fd27123b25efdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 06dfb8bf39dfa1f31ce5e017bf61cdb083ccb8ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Självstudier: Azure Active Directory-integrering med Learning på arbetet
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Learning arbetar i Azure AD, som du beh�
 
 **Om du vill lägga till Learning arbetar från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,4 +197,4 @@ När du klickar på Learning på panelen för arbete i åtkomstpanelen, bör det
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

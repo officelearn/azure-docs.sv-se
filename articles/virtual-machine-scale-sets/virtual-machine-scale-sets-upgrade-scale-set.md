@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803129"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
 
 Du kan behöva ändra eller uppdatera din skalningsuppsättning för virtuella datorer under hela livscykeln för programmen. De här uppdateringarna kan omfatta uppdatera konfigurationen för skaluppsättningen eller ändra programkonfigurationen. Den här artikeln beskriver hur du ändrar en befintlig skalningsuppsättning med REST API: er, Azure PowerShell eller Azure CLI.
 
-## <a name="fundamental-concepts"></a>Grundläggande begrepp
+## <a name="fundamental-concepts"></a>Grundläggande koncept
 
 ### <a name="the-scale-set-model"></a>Skalningsuppsättningsmodell
 En skalningsuppsättning har en ”skalningsuppsättningsmodell” som samlar in den *önskade* status skalans inställd som helhet. Om du vill fråga modellen för en skalningsuppsättning, kan du använda den 

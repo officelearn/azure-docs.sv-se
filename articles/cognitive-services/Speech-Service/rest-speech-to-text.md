@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072520"
 ---
 # <a name="speech-to-text-rest-api"></a>Tal till text REST-API
 
@@ -164,7 +164,7 @@ Den `RecognitionStatus` fältet får innehålla dessa värden:
 > [!NOTE]
 > Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
 
-Den `detailed` format innehåller samma data som den `simple` format tillsammans med `NBest`, en lista över alternativ tolkningar av samma igenkänningsresultatet. De här resultaten returneras rangordnas från det mest sannolikt minst sannolikt den första posten är samma som den huvudsakliga igenkänningsresultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
+Den `detailed` format innehåller samma data som den `simple` format tillsammans med `NBest`, en lista över alternativ tolkningar av samma igenkänningsresultatet. De här resultaten returneras rangordnas från det mest sannolika att inte troligt. Den första posten är samma som den huvudsakliga igenkänningsresultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
 
 Varje objekt i den `NBest` listan innehåller:
 

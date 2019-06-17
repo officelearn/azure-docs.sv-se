@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 06/11/2019
 ms.author: edjez
-ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 2f2e3d01b02f7c06d69a09374528475301952179
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055505"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Snabbstart: Anpassa innehåll med hjälp avC# 
 
@@ -54,6 +54,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Skapa en ny Visual C#-konsolapp i Visual Studio.
 1. Installera Personalizer klienten bibliotekets NuGet-paket. På menyn, Välj **verktyg**väljer **Nuget package Manager**, sedan **hantera NuGet-paket för lösningen**.
+1. Kontrollera **inkludera förhandsversion**.
 1. Välj den **Bläddra** fliken och i den **Search** skriver `Microsoft.Azure.CognitiveServices.Personalizer`.
 1. Välj **Microsoft.Azure.CognitiveServices.Personalizer** när den visas.
 1. Markera kryssrutan bredvid ditt projektnamn och välj **installera**.

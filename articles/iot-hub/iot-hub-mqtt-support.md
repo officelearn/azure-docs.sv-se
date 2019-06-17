@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442570"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med hjälp av MQTT-protokollet
@@ -216,7 +216,7 @@ Om du vill ta emot meddelanden från IoT Hub, en enhet ska prenumerera med `devi
 
 Enheten får inte några meddelanden från IoT Hub, tills den har slutat prenumerera på dess enhetsspecifik slutpunkt, representeras av den `devices/{device_id}/messages/devicebound/#` avsnittet filter. När en prenumeration har upprättats kan enheten tar emot moln-till-enhet-meddelanden som skickades till den efter tiden för prenumerationen. Om enheten ansluter med **CleanSession** -flaggan inställd på **0**, prenumerationen bevaras mellan olika sessioner. I det här fallet nästa gång enheten ansluter med **CleanSession 0** den tar emot eventuella utestående meddelanden som skickas till den under frånkoppling. Om enheten använder **CleanSession** -flaggan inställd på **1** men det tar inte emot meddelanden från IoT Hub tills den prenumererar på dess enhetsslutpunkt.
 
-IoT-hubb levererar meddelanden med den **ämnesnamn** `devices/{device_id}/messages/devicebound/`, eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelandeegenskaper. `{property_bag}` innehåller url-kodade nyckel/värde-par för meddelandeegenskaper. Endast egenskaper för program och användare inställbar Systemegenskaper (till exempel **messageId** eller **correlationId**) som ingår i egenskapsuppsättningen. System egenskapsnamn har prefixet **$**, programegenskaper använder ursprungliga egenskapsnamnet med inget prefix.
+IoT-hubb levererar meddelanden med den **ämnesnamn** `devices/{device_id}/messages/devicebound/`, eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelandeegenskaper. `{property_bag}` innehåller url-kodade nyckel/värde-par för meddelandeegenskaper. Endast egenskaper för program och användare inställbar Systemegenskaper (till exempel **messageId** eller **correlationId**) som ingår i egenskapsuppsättningen. System egenskapsnamn har prefixet **$** , programegenskaper använder ursprungliga egenskapsnamnet med inget prefix.
 
 När en app för enheter som prenumererar på ett ämne med **QoS 2**, IoT Hub ger högsta QoS nivå 1 i den **SUBACK** paket. Efter det levererar IoT-hubb meddelanden till enheten med hjälp av QoS-1.
 
@@ -277,7 +277,7 @@ De möjliga statuskoder är:
 
 |Status | Beskrivning |
 | ----- | ----------- |
-| 200 | Lyckades |
+| 200 | Klart |
 | 400 | Felaktig begäran. Felaktig JSON |
 | 429 | För många begäranden (begränsad), enligt [IoT Hub-begränsning](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Serverfel |

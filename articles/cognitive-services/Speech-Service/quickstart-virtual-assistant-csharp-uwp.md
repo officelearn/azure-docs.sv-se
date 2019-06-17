@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9d29fdbfc82f221dac3b304dcf9de8c230b4d5e2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056791"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
 
@@ -32,11 +32,11 @@ I den här artikeln ska du utveckla en C# Universal Windows Platform (UWP)-progr
 För den här snabbstarten krävs:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumeration-nyckel för Taltjänster i den **westus2** region. Skapa den här prenumerationen på den [Azure-portalen](https://portal.azure.com).
 * En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
+    > Direct Line-tal (förhandsversion) är för närvarande endast tillgängliga i den **westus2** region.
 
     > [!NOTE]
     > En 30-dagars utvärderingsversion för standardprisnivån som beskrivs i [testa Speech Services kostnadsfritt](get-started.md) är begränsad till **westus** (inte **westus2**) och är därför inte kompatibel med direktanslutning Rad tal. Nivåerna kostnadsfri och standard **westus2** prenumerationer är kompatibla.
@@ -254,9 +254,9 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
 
     var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
     botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");

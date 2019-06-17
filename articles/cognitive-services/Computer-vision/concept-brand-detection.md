@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203048"
 ---
 # <a name="detect-popular-brands-in-images"></a>Identifiera populära varumärken i bilder
@@ -90,7 +90,7 @@ I vissa fall tar varumärke detektor över både fyrkantig logotyp och snygg nam
 }
 ```
 
-## <a name="use-the-api"></a>Använda API: et
+## <a name="use-the-api"></a>Använda API:et
 
 Funktionen för identifiering av varumärke är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. Inkludera `Brands` i den **visualFeatures** frågeparameter. Sedan, när du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"brands"` avsnittet.
 

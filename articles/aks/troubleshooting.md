@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966391"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
@@ -78,7 +78,7 @@ Du kanske får felet eftersom du har ändrat taggar i agentnoder i AKS-klustret.
 Det här felet uppstår när kluster anger ett felaktigt tillstånd av flera skäl. Följ stegen nedan för att lösa dina misslyckades klustertillstånd innan du försöker tidigare misslyckade igen:
 
 1. Tills klustret har inget `failed` tillstånd, `upgrade` och `scale` åtgärder inte lyckas. Vanliga rotorsaker problem och lösningar omfattar:
-    * Skala med **otillräcklig beräkningskvot (CRP)**. För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ dessa [steg för att begära en compute-kvoten öka](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker att skala upp igen utanför som inledande kvotgränser.
+    * Skala med **otillräcklig beräkningskvot (CRP)** . För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ dessa [steg för att begära en compute-kvoten öka](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker att skala upp igen utanför som inledande kvotgränser.
     * Skala ett kluster med avancerade nätverk och **otillräcklig (nätverk) undernätverksresurser**. För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ [dessa steg för att begära en resurskvot öka](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker att skala upp igen utanför som inledande kvotgränser.
 2. När den underliggande orsaken till uppgraderingen skulle misslyckas har lösts måste klustret vara i slutfört läge. När ett lyckat tillstånd har verifierats, gör om den ursprungliga åtgärden.
 

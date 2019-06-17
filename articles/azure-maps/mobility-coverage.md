@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735623"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps Mobility täckning
@@ -90,8 +90,8 @@ Följande tabell innehåller information om täckning för Azure Maps-mobilitets
 | Estland   | Estland * |   
 | Finland   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | Frankrike    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans lins, Lille, Lorient, Lyon, Mac-datorer, Marseille & Provence, Metz, Millau, m-Tyskland-Marsan, Montpellier, Mulhouse, Nancy, Nantes, bra, Nimes,-NORMANDIE, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Inc., visningar</P> | 
-| + Franska Guyana | Cayenne |
-| + Nya Kaledonien | Nouméa  |
+| \+ Franska Guyana | Cayenne |
+| \+ Nya Kaledonien | Nouméa  |
 | Georgien | Tbilisi | 
 | Tyskland | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grekland | <p>Aten, Arta, Amorgos, Chania, Korfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |

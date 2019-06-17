@@ -1,20 +1,20 @@
 ---
-title: Automatisk skalning och zonredundant Application Gateway i Azure
+title: Automatisk skalning och zonredundant Application Gateway v2
 description: Den här artikeln beskriver de Azure-program Standard_v2 och WAF_v2 SKU, som innehåller funktioner för automatisk skalning och zonredundant.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054740"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisk skalning och zonredundant Application Gateway 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
 Application Gateway och Web Application Firewall (WAF) är också tillgängliga under en Standard_v2 och WAF_v2 SKU. V2-SKU ger prestandaförbättringar och lägger till stöd för viktiga nya funktioner som automatisk skalning, redundans och stöd för statiska virtuella IP-adresser. Befintliga funktioner i Standard- och WAF SKU fortfarande användas i den nya v2-SKU, med några undantag som anges i [jämförelse](#differences-with-v1-sku) avsnittet.
 
@@ -71,7 +71,7 @@ Mer information om priser finns i den [prissättningssidan](https://azure.micros
 En Application Gateway Standard_v2 etableras utan automatisk skalning i läget för manuell skalning med fast kapacitet på fem instanser.
 
 Fast pris = 744(hours) * $0.20 = $148.8 <br>
-Kapacitetsenheter = 744 (timmar) 10 Kapacitetsenhet per instans * fem instanser * $0.008 per kapacitet enhetstimme = $297.6
+Kapacitetsenheter = 744 (timmar) * 10 Kapacitetsenhet per instans * 5 instanser * $0.008 per kapacitet enhetstimme = $297.6
 
 Totalt pris = $148.8 + $297.6 = $446.4
 
@@ -85,6 +85,9 @@ Enhetspriset för kapacitet = 744(hours) * Max (25/50 beräkningsenhet för ansl
 
 Totalt pris = $148. 23.81 8 + = $172.61
 
+> [!NOTE]
+> Max-funktionen returnerar det största värdet i ett par med värden.
+
 **Exempel 3**
 
 En Application Gateway WAF_v2 etableras i en månad. Under tiden det tar emot 25 nya SSL-anslutningar/sek, genomsnittlig 8.88 Mbit/s data som överförs och har 80 begäran per sekund. Om vi antar att anslutningarna är kort livslängd och att beräkning enhet beräkning för programmet har stöd för 10 RPS per beräkningsenhet, priset skulle vara:
@@ -94,6 +97,9 @@ Fast pris = 744(hours) * $0.36 = $267.84
 Enhetspriset för kapacitet = 744(hours) * Max (beräkning enhet Max(25/50 for connections/sec, 80/10 WAF RPS) 8.88/2.22 Kapacitetsenhet för dataflöde) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
 Totalt pris = $267.84 + $85.71 = $353.55
+
+> [!NOTE]
+> Max-funktionen returnerar det största värdet i ett par med värden.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Skala Application Gateway och WAF v2
 
@@ -142,11 +148,12 @@ I följande tabell jämförs funktionerna med varje SKU.
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |ILB läge|Detta stöds för närvarande inte. Offentliga och ILB-läget tillsammans stöds.|
 |NetWatcher-integrering|Stöds ej.|
-|Azure Support Center-integrering|Ännu inte tillgänglig.
+|Integrering av Azure Security Center|Ännu inte tillgänglig.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2
 
 Azure PowerShell-skript är tillgänglig i PowerShell-galleriet för att migrera från din v1 Application Gateway/WAF till v2 autoskalning SKU. Det här skriptet hjälper dig att kopiera konfigurationen från v1-gateway. Trafik migreringen är fortfarande ditt ansvar. Mer information finns i [migrera Azure Application Gateway från v1 till v2](migrate-v1-v2.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Direkt Internet-trafik med Azure Application Gateway – Azure-portalen](quick-create-portal.md)

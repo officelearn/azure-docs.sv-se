@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083527"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -88,7 +88,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Logic Apps
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
 * Managed Disks - hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration
-* Hanterad identitet - användartilldelade
 * Media Services
 * Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
@@ -141,6 +140,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * ExpressRoute
 * Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Managed Applications
+* Hanterad identitet - användartilldelade
 * Microsoft Genomics
 * Säkerhet
 * Site Recovery

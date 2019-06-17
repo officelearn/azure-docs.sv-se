@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001097"
 ---
 # <a name="security-attributes-for-api-management"></a>Security attribut för API Management
@@ -41,7 +41,7 @@ Den här artikeln dokumenteras security-attribut som är inbyggda i API Manageme
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG) och Azure Application Gateway (eller andra programinstallation) respektive. |
 | Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-## <a name="detection"></a>Identifiering
+## <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -72,6 +72,6 @@ Den här artikeln dokumenteras security-attribut som är inbyggda i API Manageme
 
 Det här avsnittet beskrivs vanliga säkerhetsproblem som inte påverkar Azure API Management.
 
-| Sårbarhet               | Beskrivning                                                                                                                                                                                                                                                                                                               |
+| Säkerhetsproblem               | Beskrivning                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed är säkerhetsproblem i implementeringen av TLS SessionTicket tillägget finns i vissa F5-produkter. Det gör läckage (”genomsläpplighet”) av upp till 31 byte av data från oinitierad minne. Detta orsakas av TLS-stacken utfyllnad ett sessions-ID som skickades från klienten, med data så att de blir 32 bitar långt. |

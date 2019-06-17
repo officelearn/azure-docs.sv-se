@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28277f61885b574026b19305bef143f09e0ec69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807689"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Extern delning i Office 365 och Azure Active Directory B2B-samarbete
 
@@ -32,7 +32,7 @@ OneDrive/SharePoint Online har en separat inbjudan chef. Stöd för extern delni
 
 - Azure AD B2B-samarbete inbjuden användare kan hämtas från OneDrive/SharePoint Online delning av dialogrutor. OneDrive/SharePoint Online inbjuden användare visas också i Azure AD när de lösa sina inbjudningar.
 
-- Licenskraven skiljer sig åt. För var och en betald Azure AD-licens kan du låta upp till 5 gästanvändare åtkomst till din betalda Azure AD-funktioner. Mer information om licensiering finns [Azure AD B2B-licensiering](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) och [”vad är en extern användare”? i SharePoint Online extern delning översikt](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-is-an-external-user).
+- Licenskraven skiljer sig åt. För var och en betald Azure AD-licens kan du låta upp till 5 gästanvändare åtkomst till din betalda Azure AD-funktioner. Mer information om licensiering finns [Azure AD B2B-licensiering](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) och [”vad är en extern användare”? i SharePoint Online extern delning översikt](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
 För att hantera extern delning i OneDrive/SharePoint Online med Azure AD B2B-samarbete, ställa in OneDrive/SharePoint Online extern delning inställningen för att **Tillåt delning endast med externa användare som redan finns i din organisation Directory**. Användare kan gå till externt delade platser och välj från externa medarbetare som administratören har lagt till. Administratören kan lägga till de externa medarbetarna via API: er för inbjudan i B2B-samarbete.
 

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951306"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
@@ -100,7 +100,7 @@ Det finns många sätt att hantera begäranden om att uppdatera när du kör i s
 
 Hur vill du veta vilka fel är återförsökbart? Detta bestäms av storage-klientbiblioteket. Ett 404-fel (resursen hittades inte) är exempelvis inte återförsökbart eftersom försöker den inte är sannolikt att lyckas. Å andra sidan, är ett 500-fel återförsökbart eftersom det är ett serverfel och det kan vara ett övergående problem. Mer information finns i [öppna källkoden för klassen ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i storage-klientbiblioteket för .NET. (Leta efter metoden ShouldRetry).
 
-### <a name="read-requests"></a>Läsförfrågningar
+### <a name="read-requests"></a>Läsbegäranden
 
 Läsbegäranden kan omdirigeras till sekundär lagring om det finns ett problem med primär lagring. Som beskrivs ovan i [med så småningom konsekvent Data](#using-eventually-consistent-data), det måste vara godkänd för programmet att läsa potentiellt inaktuella data. Om du använder storage-klientbiblioteket åtkomst till RA-GRS-data, kan du ange återförsöksbeteendet av en läsbegäran genom att ange ett värde för den **LocationMode** egenskap enligt en av följande:
 
@@ -204,7 +204,7 @@ I följande tabell visar ett exempel på vad som händer när du uppdaterar info
 | T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas till primär,<br> inte har replikerats än. |
 | T1       |                                                            | Transaktionen A <br> replikeras till<br> Sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |
 | T2       | Transaktionen B:<br>Uppdatera<br> Medarbetaren entitet<br> i primär  |                                | T1                 | Transaktionen B som skrivs till primär,<br> inte har replikerats än.  |
-| T3       | Transaktionen C:<br> Uppdatera <br>administratör<br>rollen entitet i<br>primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
+| T3       | Transaktionen C:<br> Uppdatera <br>administratör<br>rollen entitet i<br>Primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
 | *T4*     |                                                       | Transaktionen C <br>replikeras till<br> Sekundär | T1         | Transaktionen C som replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
 | *T5*     | Läsa entiteter <br>från den sekundära                           |                                  | T1                 | Du får det inaktuella värdet för medarbetare <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Senaste synkroniseringstid fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten datum/tid är efter <br>Senaste synkronisering. |
 | *T6*     |                                                      | Transaktionen B<br> replikeras till<br> Sekundär | T6                 | *T6* – alla transaktioner via C <br>har replikerats, senaste synkroniseringstid<br> har uppdaterats. |

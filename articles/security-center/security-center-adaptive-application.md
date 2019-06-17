@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 4a8a241df38c258dc1747f04c6079d29ee25b3ae
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968855"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
@@ -47,7 +47,7 @@ Anpassningsbara programkontroller hjälper dig att definiera en uppsättning pro
 
 Sidan **Anpassningsbara programkontroller** visas.
 
-![kontroller](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
 Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
@@ -112,7 +112,7 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
 2. Klicka på en grupp att göra ändringar i den **redigera principer för programkontroll** sidan.
 
-   ![Säkerhet](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Under **Skyddsläge** kan du välja mellan följande alternativ:
 
@@ -162,11 +162,11 @@ Azure Security Center kan du definiera en princip för lista över tillåtna på
 1. Klicka på **konfigurerade virtuella datorer och datorer**.
 1. Klicka på de tre punkterna i raden för den virtuella datorn att flytta och klicka på **flytta**. Den **flytta datorn till annan grupp** öppnas.
 
-    ![Säkerhet](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
  1. Markera gruppen för att flytta den virtuella datorn och klickar på **flytta datorn**, och klicka på **spara**.
 
-    ![Säkerhet](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+    ![Skydd](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
  > [!NOTE]
 > Se till att klicka på **spara** när du klickar på **flytta datorn**. Om du inte klickar på **spara**, och sedan datorn inte kommer att flyttas.

@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 403f111882b1bd151b26af56fd614355e7ba88e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/12/2019
+ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065690"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och öppna serverloggar med hjälp av Azure CLI
 Du kan hämta Azure Database for MariaDB serverloggar med hjälp av Azure CLI, Azure kommandoradsverktyget.
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lista loggar för Azure Database for MariaDB-server
-Om du vill visa tillgängliga loggfilerna för din server kör den [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) kommando.
+Om du vill visa tillgängliga långsam fråga loggfilerna för din server kör den [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) kommando.
 
 Du kan visa loggfilerna för server **mydemoserver.mariadb.database.azure.com** under resursgrupp **myresourcegroup**. Dirigera listan över loggfiler till en textfil med namnet **log\_filer\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [serverloggar i Azure Database for MariaDB](concepts-server-logs.md).
+- Lär dig mer om [långsam fråga loggar i Azure Database for MariaDB](concepts-server-logs.md).

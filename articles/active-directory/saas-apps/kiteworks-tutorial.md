@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b1789f0f6441da8a38440fc606a5748d48930a1a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c480babcb88528ef59cc9f1a9a0478e35a7b3fba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Självstudier: Azure Active Directory-integrering med Kiteworks
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Kiteworks i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Kiteworks från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -229,4 +229,4 @@ När du klickar på panelen Kiteworks i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

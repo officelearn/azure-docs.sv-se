@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387058"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
@@ -22,7 +22,7 @@ ms.locfileid: "60387058"
 Lär dig hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Azure CLI. Om du vill se avsnitt om med andra verktyg klickar du på flikväljaren ovan.
 
 
-**Förutsättningar**
+**Krav**
 
 Innan du påbörjar den här självstudien måste du ha följande resurser:
 
@@ -66,7 +66,7 @@ Följande kommando uppdaterar egenskaperna för ett befintligt Data Lake Analyti
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>Lista konton
+### <a name="list-accounts"></a>Lista över konton
 
 Lista över Data Lake Analytics-konton inom en specifik resursgrupp
 

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61488965"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuera din lokala StorSimple-enhet i Government portal
 
 ## <a name="overview"></a>Översikt
-Välkommen till distribution av Microsoft Azure StorSimple-enheten  De här självstudiekurserna om distribution gäller StorSimple 8000-serien som kör uppdatering 3 och senare i Azure Government-portalen. Denna serie självstudier innehåller en checklista för konfiguration, en lista över konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
+Välkommen till distribution av Microsoft Azure StorSimple-enheten De här självstudiekurserna om distribution gäller StorSimple 8000-serien som kör uppdatering 3 och senare i Azure Government-portalen. Denna serie självstudier innehåller en checklista för konfiguration, en lista över konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
 
 Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande inte har utförd ovanstående bör du börja med att vidta [säkerhetsåtgärderna](storsimple-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
 
@@ -69,7 +69,7 @@ Innan du distribuerar din StorSimple-enhet, måste du samla in information för 
 
 [Hämta konfigurationschecklistan för StorSimple-distributionen](https://www.microsoft.com/download/details.aspx?id=49159)
 
-## <a name="deployment-prerequisites"></a>Distributionskrav
+## <a name="deployment-prerequisites"></a>Kraven för distribution
 I följande avsnitt beskrivs konfigurationskraven för StorSimple Device Manager-tjänsten och StorSimple-enheten.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten

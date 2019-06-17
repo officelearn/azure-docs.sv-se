@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2265c4227601c5273f093af9768864a8c7e07b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b46b8644b9ba4f0dc6b0b97215a4a96b60d69c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Självstudie: Azure Active Directory-integrering med Zscaler Internet Access Administrator
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Zscaler Internet Access Administrator till A
 
 **Utför följande steg för att lägga till Zscaler Internet Access Administrator från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -258,4 +258,4 @@ När du klickar på Zscaler Internet Access Administrator-panelen i åtkomstpane
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 758ed2e44718da709acec1379cfc79936c8b7cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444239"
+ms.locfileid: "67083644"
 ---
 # <a name="azure-identity-management-security-overview"></a>Säkerhetsöversikt för Azure identity management
 
- Identitetshantering innebär för autentisering och auktorisering [säkerhetsobjekt](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Det innebär också att kontrollera information om dessa säkerhetsobjekt (identiteter). Säkerhetsobjekt (identiteter) kan omfatta tjänster, program, användare, grupper osv. Microsoft identitets- och hantering av lösningar kan IT-avdelningen skydda åtkomsten till program och resurser i företagets datacenter och i molnet. Detta skydd kan ytterligare rekommendationsnivåer för verifiering, till exempel Multifaktorautentisering och principer för villkorlig åtkomst. Övervaka misstänkt aktivitet via avancerad säkerhet reporting, granskning och aviseringar hjälper till att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) ger enkel inloggning (SSO) till tusentals molnprogramvara som en tjänst (SaaS)-appar och åtkomst till webbappar som du kör lokalt.
+ Identitetshantering innebär för autentisering och auktorisering [säkerhetsobjekt](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Det innebär också att kontrollera information om dessa säkerhetsobjekt (identiteter). Säkerhetsobjekt (identiteter) kan omfatta tjänster, program, användare, grupper osv. Microsoft identitets- och hantering av lösningar kan IT-avdelningen skydda åtkomsten till program och resurser i företagets datacenter och i molnet. Detta skydd kan ytterligare rekommendationsnivåer för verifiering, till exempel principer för Multifaktorautentisering och villkorlig åtkomst. Övervaka misstänkt aktivitet via avancerad säkerhet reporting, granskning och aviseringar hjälper till att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) ger enkel inloggning (SSO) till tusentals molnprogramvara som en tjänst (SaaS)-appar och åtkomst till webbappar som du kör lokalt.
  
 Genom att utnyttja säkerhetsfördelarna med Azure Active Directory (AD Azure), kan du:
 

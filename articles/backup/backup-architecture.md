@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647451"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-arkitektur
@@ -49,8 +49,8 @@ Recovery Services-valv har följande funktioner:
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
 - Du kan hantera valvåtkomst med Azure [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - Du anger hur data i valvet replikeras för redundans:
-    - **Lokalt redundant lagring (LRS)**: Du kan använda LRS för att skydda mot fel i ett datacenter. LRS replikerar data till en lagringsskalningsenhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **GEO-redundant lagring (GRS)**: Du kan använda GRS för att skydda mot regionomfattande avbrott. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
+    - **Lokalt redundant lagring (LRS)** : Du kan använda LRS för att skydda mot fel i ett datacenter. LRS replikerar data till en lagringsskalningsenhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **GEO-redundant lagring (GRS)** : Du kan använda GRS för att skydda mot regionomfattande avbrott. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - Som standard använder Recovery Services-valv GRS. 
 
 ## <a name="backup-agents"></a>Backup-agenter
@@ -178,7 +178,7 @@ Mer information om och vilka ledigt diskutrymme för virtuella datorer finns i f
 
 Du kan säkerhetskopiera virtuella Azure-datorer med premium storage med Azure Backup:
 
-- Under processen med att säkerhetskopiera virtuella datorer med premium storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup -*, i lagringskontot. Storleken på mellanlagringsplatsen är lika med storleken på återställningspunktens ögonblicksbild.
+- Under processen med att säkerhetskopiera virtuella datorer med premium storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup -* , i lagringskontot. Storleken på mellanlagringsplatsen är lika med storleken på återställningspunktens ögonblicksbild.
 - Kontrollera att premium storage-konto har tillräckligt med ledigt utrymme för den tillfälliga mellanlagringsplatsen får platsen. [Läs mer](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Ändra inte mellanlagringsplatsen.
 - När säkerhetskopieringen är klar tas mellanlagringsplatsen bort.
 - Priset för lagringen som används för mellanlagringsplatsen är konsekvent med [priser för premium storage](../virtual-machines/windows/disks-types.md#billing).

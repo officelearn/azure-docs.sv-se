@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c01cb1e7d937c691354270880c1e6be5cd44723
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: eb35982f8004407b51a325bb485f902f51380ba2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Självstudier: Azure Active Directory-integrering med IriusRisk
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av IriusRisk i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till IriusRisk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -197,4 +197,4 @@ När du klickar på panelen IriusRisk i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

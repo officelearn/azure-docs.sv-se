@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108384"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory Application Proxy 
 
@@ -27,7 +27,7 @@ Azure AD Application Proxy är:
 
 - **Enkelt att använda**. Användare kan komma åt dina lokala program på samma sätt som de har åtkomst till O365 och andra SaaS-appar som integreras med Azure AD. Du behöver inte ändra eller uppdatera dina program att arbeta med Application Proxy. 
 
-- **Skydda**. Lokala program kan använda auktoriseringskontroller och säkerhetsanalyser i Azure. Lokala program kan exempelvis använda villkorlig åtkomst och tvåstegsverifiering. Programproxy måste inte du öppna inkommande anslutningar via brandväggen.
+- **Skydda**. Lokala program kan använda auktoriseringskontroller och säkerhetsanalyser i Azure. Till exempel lokala program kan använda villkorlig åtkomst och tvåstegsverifiering verifiering. Programproxy måste inte du öppna inkommande anslutningar via brandväggen.
  
 - **Kostnadseffektiv**. Lokala lösningar kräver normalt att du konfigurerar och underhåller demilitariserad zoner (DMZ-miljöer), edge-servrar eller andra komplexa infrastrukturer. Programproxy körs i molnet, vilket gör det enkelt att använda. Om du vill använda Application Proxy, behöver du inte ändra nätverkets infrastruktur eller installera ytterligare installationer i din lokala miljö.
 

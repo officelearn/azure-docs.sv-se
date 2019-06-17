@@ -12,12 +12,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472357"
+ms.locfileid: "67083914"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera åtkomst vid akutfall i Azure AD
 

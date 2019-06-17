@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: cf40686adcee757db065fa6f68f990ea122b9747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904822"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Självstudier: Azure Active Directory-integrering med OfficeSpace programvara
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av OfficeSpace programvara i Azure AD, som du b
 
 **Utför följande steg för att lägga till OfficeSpace programvara från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -123,7 +123,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med OfficeS
     | Namn | Källattribut|
     | ---------------| --------------- |
     | email | user.mail |
-    | namn | user.displayname |
+    | name | user.displayname |
     | first_name | user.givenname |
     | last_name | user.surname |
 
@@ -257,5 +257,5 @@ När du klickar på panelen OfficeSpace programvara i åtkomstpanelen, bör det 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

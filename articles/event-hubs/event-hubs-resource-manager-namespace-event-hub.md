@@ -12,175 +12,78 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 06/13/2019
 ms.author: shvija
-ms.openlocfilehash: d5dc65dc225d11a996d9b9d3c329151a17321fb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c020a7673fe018565a6f1aeb9f7cb2124024a2c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343502"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118868"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Snabbstart: Skapa en event hub med Azure Resource Manager-mall
+# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Snabbstart: Skapa en händelsehubb med hjälp av en Azure Resource Manager-mall
+
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-I den här snabbstarten skapar du en händelsehubb med en Azure Resource Manager-mall. Du använder en Azure Resource Manager-mall för att skapa ett namnområde av typen [Händelsehubbar](event-hubs-what-is-event-hubs.md), med en händelsehubb och en konsumentgrupp. Artikeln visar hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
+I den här snabbstarten skapar du en händelsehubb med hjälp av en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md). Du distribuerar en Azure Resource Manager-mall för att skapa ett namnområde av typen [Händelsehubbar](event-hubs-what-is-event-hubs.md), med en händelsehubb. Artikeln visar hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
 
-> [!NOTE]
-> Läs den fullständiga mallen, den [Event hub och konsument mall] [ Event Hub and consumer group template] på GitHub. Den här mallen skapas en konsumentgrupp förutom ett händelsehubbnamnområde och en händelsehubb. Om du vill söka efter de senaste mallarna kan du gå till galleriet [Azure-snabbstartsmallar][Azure Quickstart Templates] och söka efter Event Hubs.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+I den här snabbstarten använder du en [befintlig Resource Manager-mall](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json). Du hittar mer mallexempel [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+För att distribuera mallen:
 
-Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Välj **prova** från följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud shell.
 
-Om du vill använda **Azure CLI** att distribuera Resource Manager-mallen [installera Azure CLI]( /cli/azure/install-azure-cli).
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
-## <a name="create-the-resource-manager-template-json"></a>Skapa Resource Manager-mallens JSON
-Skapa en JSON-fil med namnet MyEventHub.json med följande innehåll och spara den till en mapp (till exempel: C:\EventHubsQuickstarts\ResourceManagerTemplate).
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "eventhub-namespace-name": {
-            "type": "String"
-        },
-        "eventhub_name": {
-            "type": "String"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.EventHub/namespaces",
-            "sku": {
-                "name": "Standard",
-                "tier": "Standard",
-                "capacity": 1
-            },
-            "name": "[parameters('eventhub-namespace-name')]",
-            "apiVersion": "2017-04-01",
-            "location": "East US",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "isAutoInflateEnabled": false,
-                "maximumThroughputUnits": 0
-            },
-            "dependsOn": []
-        },
-        {
-            "type": "Microsoft.EventHub/namespaces/eventhubs",
-            "name": "[concat(parameters('eventhub-namespace-name'), '/', parameters('eventhub_name'))]",
-            "apiVersion": "2017-04-01",
-            "location": "East US",
-            "scale": null,
-            "properties": {
-                "messageRetentionInDays": 7,
-                "partitionCount": 1,
-                "status": "Active"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.EventHub/namespaces', parameters('eventhub-namespace-name'))]"
-            ]
-        }
-    ]
-}
-```
-
-## <a name="create-the-parameters-json"></a>Skapa JSON-parametrar
-Skapa en JSON-fil med namnet MyEventHub-Parameters.json som innehåller parametrar för Azure Resource Manager-mallen. 
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-        "eventhub-namespace-name": {
-            "value": "<specify a name for the event hub namespace>"
-        },
-        "eventhub_name": {
-            "value": "<Specify a name for the event hub in the namespace>"
-        }
-  }
-}
-```
-
-
-
-## <a name="use-azure-powershell-to-deploy-the-template"></a>Använda Azure PowerShell för att distribuera mallen
-
-### <a name="sign-in-to-azure"></a>Logga in på Azure
-1. Starta Azure PowerShell
-
-2. Kör följande kommandon för att logga in på Azure:
-
-   ```azurepowershell
-   Login-AzAccount
-   ```
-3. Om du har kan du utfärda följande kommandon för att ange den aktuella prenumerationskontexten:
-
-   ```azurepowershell
-   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Write-Host "Press [ENTER] to continue ..."
    ```
 
-### <a name="provision-resources"></a>Etablera resurser
-Om du vill distribuera/etablera resurser med Azure PowerShell, växla till mappen C:\EventHubsQuickStart\ARM\, kör följande kommandon:
+   Det tar en stund att skapa en händelsehubb.
 
-> [!IMPORTANT]
-> Ange ett namn för Azure-resursgrupp som ett värde för $resourceGroupName innan du kör kommandona. 
+1. Välj **Kopiera** för att kopiera PowerShell-skriptet.
+1. Högerklicka på shell-konsolen och välj sedan **klistra in**.
 
-```azurepowershell
-$resourceGroupName = "<Specify a name for the Azure resource group>"
+## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-# Create an Azure resource group
-New-AzResourceGroup $resourceGroupName -location 'East US'
+Om du vill verifiera distributionen, kan du öppna resursgruppen från den [Azure-portalen](https://portal.azure.com), eller använda följande Azure PowerShell-skript.  Om cloudshell är fortfarande öppen, behöver du inte att kopiera/körs den första raden (Read-Host).
 
-# Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+$namespaceName = "${projectName}ns"
+
+Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="use-azure-cli-to-deploy-the-template"></a>Använd Azure CLI för att distribuera mallen
+## <a name="clean-up-resources"></a>Rensa resurser
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om cloudshell är fortfarande öppen, behöver du inte att kopiera/körs den första raden (Read-Host).
 
-Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lokalt måste du utföra följande steg för att logga in i Azure och ange din aktuella prenumeration:
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
 
-Kör följande kommandon för att logga in på Azure:
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
-```azurecli
-az login
+Write-Host "Press [ENTER] to continue ..."
 ```
-
-Ange den aktuella prenumerationskontexten. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
-
-```azurecli
-az account set --subscription <Name of your Azure subscription>
-``` 
-
-### <a name="provision-resources"></a>Etablera resurser
-Växla till mappen C:\EventHubsQuickStart\ARM\ för att distribuera resurser med Azure CLI, och kör följande kommandon:
-
-> [!IMPORTANT]
-> Ange ett namn för Azure-resursgrupp i gruppen az skapa kommando. .
-
-```azurecli
-# Create an Azure resource group
-az group create --name <YourResourceGroupName> --location eastus
-
-# # Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters
-az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
-```
-
-Grattis! Du har använt Azure Resource Manager-mallen för att skapa ett namnområde för Event Hubs och en händelsehubb i namnområdet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du en Event Hubs-namnrymd och använde exempelprogram för att skicka och ta emot meddelanden från din händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en event hub, se den **skicka och ta emot händelser** Självstudier: 
+I den här artikeln skapade du en Event Hubs-namnrymd och använde exempelprogram för att skicka och ta emot meddelanden från din händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en event hub, se den **skicka och ta emot händelser** Självstudier:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

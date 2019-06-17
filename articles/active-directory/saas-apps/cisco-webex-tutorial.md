@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex-möten
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av Cisco Webex möten i Azure AD, som du behöv
 
 **Utför följande steg för att lägga till Cisco Webex möten från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -261,5 +261,5 @@ När du klickar på Cisco Webex möten på åtkomstpanelen, bör det vara loggas
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

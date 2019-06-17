@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6723adb3fb8987a127eee419c9ac188c7a33d50b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076058"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 När du skapar en SQL Server-dator kan välja du en av flera förkonfigurerade avbildningar från galleriet för virtuella datorer. Följande steg visar hur du väljer du något av SQL Server 2017-avbildningar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ditt konto.
 
 1. Klicka på **Skapa en resurs** i Azure Portal. Fönstret **Nytt** öppnas.
 
@@ -141,10 +141,10 @@ På den **nätverk** konfigurerar alternativ för nätverksfunktioner.
 
 #### <a name="monitoring"></a>Övervakning
 
-På den **övervakning** konfigurerar övervakning och automatisk avstängning. 
+På den **övervakning** konfigurerar övervakning och autoshutdown. 
 
 * Azure aktiverar **Start övervakning** som standard med samma lagringskonto som angetts för den virtuella datorn. Du kan ändra dessa inställningar här, samt hur du aktiverar **OS gästen diagnostik**. 
-* Du kan aktivera **System tilldelade hanterad identitet** och **automatisk avstängning** på den här fliken samt. 
+* Du kan aktivera **System tilldelade hanterad identitet** och **autoshutdown** på den här fliken samt. 
 
 ![Inställningar för SQL VM](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
@@ -188,7 +188,7 @@ I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiv
 
 ### <a name="authentication"></a>Autentisering
 
-Om du kräver SQL Server-autentisering klickar du på **Aktivera** under **SQL-autentisering**.
+Om du kräver SQL Server-autentisering, klickar du på **aktivera** under **SQL-autentisering** på den **SQL Server-inställningar** fliken.
 
 ![SQL Server-autentisering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
@@ -199,13 +199,12 @@ Om du aktiverar SQL Server-autentisering anger du ett **inloggningsnamn** och **
 
 Om du inte aktiverar SQL Server-autentisering kan du använda det lokala administratörskontot på den virtuella datorn för att ansluta till SQL Server-instansen.
 
-![SQL Server-autentisering](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault-integrering
 
-Om du vill lagra säkerhetshemligheter i Azure för kryptering klickar du på **Azure Key Vault-integrering** och klickar sedan på **Aktivera**.
+Om du vill lagra säkerhetshemligheter i Azure för kryptering, Välj **SQL Server-inställningar**, och bläddra ned till **Azure key vault-integrering**. Välj **aktivera** och Fyll i den begärda informationen. 
 
-![Azure Key Vault-integrering](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Azure Key Vault-integrering](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 Följande tabell innehåller de parametrar som krävs för att konfigurera Azure Key Vault-integrering.
 
@@ -220,7 +219,7 @@ Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 
-Under **lagringskonfiguration**väljer **ändra konfiguration** att ange lagringskraven.
+På den **SQL Server-inställningar** fliken, under **lagringskonfiguration**väljer **ändra konfiguration** att ange lagringskraven.
 
 
 > [!NOTE]
@@ -239,7 +238,7 @@ Under **Storage optimerat för** väljer du något av följande alternativ:
 
 ![Lagringskonfiguration för SQL VM](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
-### <a name="sql-server-license"></a>SQL Server-licens
+### <a name="sql-server-license"></a>SQL Server License
 Om du är en kund med Software Assurance kan du använda den [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) att använda din egen SQL Server-licens och spara på resurser. 
 
 ![SQL VM License](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
@@ -264,14 +263,16 @@ När du aktiverar automatisk SQL-säkerhetskopiering kan du konfigurera följand
 * Säkerhetskopiera systemdatabaser
 * Konfigurera schema för säkerhetskopiering
 
-Om du vill kryptera säkerhetskopian klickar du på **Aktivera**. Ange sedan **lösenordet**. Azure skapar ett certifikat för att kryptera säkerhetskopiorna och använder det angivna lösenordet för att skydda certifikatet.
+Om du vill kryptera säkerhetskopian klickar du på **Aktivera**. Ange sedan **lösenordet**. Azure skapar ett certifikat för att kryptera säkerhetskopiorna och använder det angivna lösenordet för att skydda certifikatet. Schemat är som standard automatiskt, men du kan skapa en manuell schema genom att välja **manuell**. 
+
+![Automatiserad säkerhetskopiering för SQL VM](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
 ### <a name="r-services-advanced-analytics"></a>R Services (avancerad analys)
 
-Har du möjlighet att aktivera [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). Det här alternativet kan du använda avancerad analys med SQL Server 2017. Klicka på **Aktivera** i fönstret **SQL Server-inställningar**.
+Har du möjlighet att aktivera [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). Det här alternativet kan du använda avancerad analys med SQL Server 2017. Välj **aktivera** på den **SQL Server-inställningar** fönster.
 
 
 ## <a name="4-review--create"></a>4. Granska + skapa

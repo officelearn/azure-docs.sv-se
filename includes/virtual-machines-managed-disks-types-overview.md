@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133304"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -29,11 +29,11 @@ Följande tabell innehåller en jämförelse av ultra solid-state-enheter (SSD) 
 |Scenario   |I/o-intensiva arbetsbelastningar som SAP HANA, databaser för övre nivå (till exempel SQL, Oracle) och andra transaktion tunga arbetsbelastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, används företagsprogram och utveckling/testning   |Säkerhetskopiering, icke-kritiska, lågfrekvent åtkomst   |
 |Diskstorlek   |65 536 gibibyte (GiB) (förhandsversion)   |32 767 giB    |32 767 giB   |32 767 giB   |
 |Högsta dataflöde   |2 000 MiB/s (förhandsversion)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Max IOPS   |160,000 (förhandsversion)   |20,000   |6,000   |2,000   |
+|Maximalt antal IOPS   |160,000 (förhandsversion)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (förhandsversion)
 
-Azure ultra SSD (förhandsversion) leverera högt dataflöde, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med ultra SSD omfattar möjligheten att ändra dynamiskt prestanda för disken, tillsammans med dina arbetsbelastningar, utan att behöva starta om dina virtuella datorer. Ultra SSD lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar. Ultra SSD kan bara användas som datadiskar. Vi rekommenderar att du använder premium SSD som OS-diskar.
+Azure ultra SSD (förhandsversion) ger hög genomströmning, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med ultra SSD omfattar möjligheten att ändra dynamiskt prestanda för disken, tillsammans med dina arbetsbelastningar, utan att behöva starta om dina virtuella datorer. Ultra SSD lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar. Ultra SSD kan bara användas som datadiskar. Vi rekommenderar att du använder premium SSD som OS-diskar.
 
 ### <a name="performance"></a>Prestanda
 
@@ -73,7 +73,8 @@ I förhandsversionen ultra SSD:
 - Stöds endast på ES/DS v3 virtuella datorer
 - Finns bara tillgängliga i datadiskar och endast stöd för 4k som fysisk sektorstorlek  
 - Kan bara skapas som tomma diskar  
-- För närvarande kan endast distribueras med hjälp av Azure Resource Manager-mallar, CLI och python SDK.
+- För närvarande kan endast distribueras med hjälp av Azure Resource Manager-mallar, CLI, PowerShell och Python SDK.
+- Kan inte distribueras med Azure portal (ännu).
 - Stöder ännu inte diskbilder, VM-avbildningar, tillgänglighetsuppsättningar, VM-skalningsuppsättningar och Azure-diskkryptering.
 - Stöder ännu inte integrering med Azure Backup eller Azure Site Recovery.
 - Precis som med [de flesta förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), den här funktionen ska inte användas för produktionsarbetsbelastningar fram till allmän tillgänglighet (GA).

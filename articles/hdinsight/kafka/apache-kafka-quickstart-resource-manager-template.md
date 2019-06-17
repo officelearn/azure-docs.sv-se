@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: a9ce3d67d0a394e583d7b512f74cbd2d0c61c22f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060586"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Kafka-kluster i Azure HDInsight med hjälp av Resource Manager-mall
 
 [Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -27,9 +27,9 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 >
 > Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En SSH-klient. Stegen i det här dokumentet använder SSH för att ansluta till klustret.
 
@@ -52,7 +52,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
 2. Om du vill skapa Kafka-klustret använder du följande värden:
 
-    | Egenskap  | Värde |
+    | Egenskap | Värde |
     | --- | --- |
     | Prenumeration | Din Azure-prenumeration. |
     | Resursgrupp | Den resursgrupp i vilken klustret har skapats. |

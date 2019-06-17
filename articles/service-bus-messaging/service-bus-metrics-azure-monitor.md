@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921230"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
@@ -38,7 +38,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)**. Om du vill visa mått som filtrerats till i omfånget för entiteten, väljer du entitet och klicka sedan på **mått (förhandsgranskning)**.
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)** . Om du vill visa mått som filtrerats till i omfånget för entiteten, väljer du entitet och klicka sedan på **mått (förhandsgranskning)** .
 
 ![][2]
 
@@ -65,7 +65,7 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 |Lyckade begäranden (förhandsversion)|Antal lyckade begäranden som görs till Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |Fel (förhandsversion)|Antal begäranden som inte bearbetas på grund av ett fel i Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |Användarfel (förhandsversion, se följande avsnitt)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom användningen har överskridits.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom användningen har överskridits.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 
 ### <a name="user-errors"></a>Användarfel
 
@@ -81,16 +81,16 @@ Följande två typer av fel är klassificerade som användarfel:
 | ------------------- | ----------------- |
 |Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Service Bus under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 |Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden som tas emot från Service Bus under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-| Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: Count <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
+| Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
 | ActiveMessages (förhandsversion) | Antal aktiva meddelanden i kö/ämne. <br/><br/> Enhet: Count <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
-| Lettered förlorade meddelanden (förhandsversion) | Antal lettered förlorade meddelanden i kö/ämne. <br/><br/> Enhet: Count <br/> Mängdtyp: Medel <br/>Dimensioner: EntityName |
+| Lettered förlorade meddelanden (förhandsversion) | Antal lettered förlorade meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/>Dimensioner: EntityName |
 | Schemalagda meddelanden (förhandsversion) | Antal schemalagda meddelanden i kö/ämne. <br/><br/> Enhet: Count <br/> Mängdtyp: Medel  <br/> Dimensioner: EntityName |
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Användningsstatistik för resursen
 
@@ -99,8 +99,8 @@ Följande två typer av fel är klassificerade som användarfel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Processoranvändning per namnområde (förhandsversion)|Procent CPU-användning av namnområdet.<br/><br/> Enhet: Percent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
-|Minnesstorleksanvändning per namnområde (förhandsversion)|Procentandel minnesanvändningen för namnområdet.<br/><br/> Enhet: Percent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
+|Processoranvändning per namnområde (förhandsversion)|Procent CPU-användning av namnområdet.<br/><br/> Enhet: Procent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
+|Minnesstorleksanvändning per namnområde (förhandsversion)|Procentandel minnesanvändningen för namnområdet.<br/><br/> Enhet: Procent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

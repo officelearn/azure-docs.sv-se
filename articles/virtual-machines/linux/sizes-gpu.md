@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM-storlekar - GPU | Microsoft Docs
+title: Azure Linux VM-storlekar – Accelerated compute | Microsoft Docs
 description: Visar olika GPU optimerad storlekar för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 8f50f090fe38382b8bc3cb7f669ab4025d36ff76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3c59c73914a78374da0b8d2f9aeb18b9005e00ac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070014"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerad storlekar för virtuella datorer
 

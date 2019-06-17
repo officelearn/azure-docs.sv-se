@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845639"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurera en punkt-till-plats-anslutning med hjälp av certifikatautentisering (klassisk)
@@ -191,8 +191,8 @@ Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, föru
 
 2. Från sidan **Punkt-till-plats-VPN-anslutning** väljer du nedladdningspaketet för rätt klientoperativsystem:
 
-   * För 64-bitarsklienter, väljer du **VPN-klient (64-bitars)**.
-   * För 32-bitarsklienter, väljer du **VPN-klient (32-bitars)**.
+   * För 64-bitarsklienter, väljer du **VPN-klient (64-bitars)** .
+   * För 32-bitarsklienter, väljer du **VPN-klient (32-bitars)** .
 
    ![Hämta konfigurationspaketet för VPN-klienten](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 

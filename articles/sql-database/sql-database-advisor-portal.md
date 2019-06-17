@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420377"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa prestandarekommendationer
@@ -130,13 +130,13 @@ Tillämpa en rekommendation kanske inte omedelbart sker. Portalen innehåller in
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Väntande åtgärder |Tillämpa rekommendation kommandot har tagits emot och är schemalagd för utförande. |
+| Väntande |Tillämpa rekommendation kommandot har tagits emot och är schemalagd för utförande. |
 | Kör |Rekommendationen tillämpas. |
-| Verifierar |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
-| Lyckades |Rekommendationen har tillämpats och har varit mäts fördelar. |
-| Fel |Det uppstod ett fel i samband med tillämpandet av rekommendationen. Detta kan vara ett övergående problem eller eventuellt ett schema ändra i tabellen och skriptet är inte längre giltig. |
-| Återkallande |Rekommendationen tillämpades, men har bedömts vara icke-högpresterande och återställs automatiskt. |
-| Återkallat |Rekommendationen har återställts. |
+| Verifiera |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
+| Klart |Rekommendationen har tillämpats och har varit mäts fördelar. |
+| Fel |Ett fel uppstod under processen med Tillämpandet av rekommendationen. Detta kan vara ett övergående problem eller eventuellt ett schema ändra i tabellen och skriptet är inte längre giltig. |
+| Återgår |Rekommendationen tillämpades, men har bedömts vara icke-högpresterande och återställs automatiskt. |
+| Har återställts |Rekommendationen har återställts. |
 
 Klicka på ett pågående rekommendation från listan över vill se mer information:
 

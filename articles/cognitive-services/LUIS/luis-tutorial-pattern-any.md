@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069254"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Självstudier: Extrahera friformsdata med Pattern.any-entiteten
 
@@ -53,7 +53,7 @@ Yttranden med det egna formulärnamnet ser ut så här:
 |Yttrande|
 |--|
 |Var finns **Begär flytt från medarbetare som är ny i företaget 2018 version 5**?|
-|Vem skapade **”Begär flytt från medarbetare som är ny i företaget 2018 version 5”**?|
+|Vem skapade **”Begär flytt från medarbetare som är ny i företaget 2018 version 5”** ?|
 |Har **Begära flytt från medarbetare som är ny i företagets 2018 version 5** publicerats på franska?|
 
 Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten slutar. Genom att använda en Pattern.any-entitet i ett mönster kan du ange formulärnamnets början och slut, så att LUIS kan extrahera formulärnamnet korrekt.
@@ -64,25 +64,21 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 |Vem skapade {FormName}[?]|
 |Har {FormName} publicerats på franska[?]|
 
-## <a name="import-example-app"></a>Importera exempelappen
-Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+## <a name="import-example-app"></a>Importera en exempelapp
 
-Använd följande steg:
+1. Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. I den [LUIS portal](https://www.luis.ai)på den **Mina appar** sidan, importera JSON till en ny app.
 
-2. Importera JSON-koden till en ny app.
-
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `patt-any`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `patt-any`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="add-example-utterances"></a>Lägga till exempelyttranden 
-Ta bort den förskapade entiteten keyPhrase om det är svårt att skapa och kategorisera entiteten FormName. 
 
 1. Välj **Skapa** från det övre navigeringsfältet, och välj sedan **Avsikter** i det vänstra navigeringsfältet.
 
-2. Välj **FindForm** från listan över avsikter.
+1. Välj **FindForm** från listan över avsikter.
 
-3. Lägg till några exempel på yttranden:
+1. Lägg till några exempel på yttranden:
 
     |Exempel på yttrande|
     |--|
@@ -94,13 +90,13 @@ Ta bort den förskapade entiteten keyPhrase om det är svårt att skapa och kate
     Utan en Pattern.any-entitet skulle det vara svårt för LUIS för att förstå var formulärrubriken slutar på grund av de många varianterna på formulärnamn.
 
 ## <a name="create-a-patternany-entity"></a>Skapa en Pattern.any-entitet
-Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i ett mönster, eftersom mönstret markerar början och slutet av entiteten. Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](luis-concept-patterns.md#explicit-lists). 
+Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i ett mönster, eftersom mönstret markerar början och slutet av entiteten.  
 
 1. Välj **Entiteter** i det vänstra navigeringsfältet.
 
-2. Välj **Skapa ny entitet**, ange namnet `FormName` och välj **Pattern.any** som typ. Välj **Done** (Klar). 
+1. Välj **Skapa ny entitet**, ange namnet `FormName` och välj **Pattern.any** som typ. Välj **Done** (Klar). 
 
-    Du kan inte märka entiteten i avsikten eftersom en Pattern.any-entitet bara är giltig i ett mönster. 
+    Du kan inte etiketten entiteten i ett intent exempel yttranden eftersom en Pattern.any är endast giltig i ett mönster. 
 
     Om du vill att extraherade data även ska omfatta andra entiteter, som antal eller datetimeV2, måste du skapa en sammansatt entitet som innehåller Pattern.any, antalet och datetimeV2.
 
@@ -108,9 +104,9 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 1. Välj **Mönster** i det vänstra navigeringsfönstret.
 
-2. Välj avsikten **FindForm**.
+1. Välj avsikten **FindForm**.
 
-3. Ange följande mallyttranden, som använder den nya entiteten:
+1. Ange följande mallyttranden, som använder den nya entiteten:
 
     |Mallyttranden|
     |--|
@@ -121,8 +117,6 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
     Om du vill ta hänsyn till variationer i formuläret, till exempel enkla citattecken i stället för dubbla eller en punkt i stället för ett frågetecken, skapar du ett nytt mönster för varje variant.
 
-4. Om du har tagit bort entiteten keyPhrase lägger du till den i appen igen. 
-
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av friformsdata
 1. Välj **Testa** från det översta fältet för att öppna testpanelen. 
 
-2. Fyll i följande yttrande: 
+1. Fyll i följande yttrande: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Välj **Granska** under resultatet för att se testresultaten för entitet och avsikt.
+1. Välj **Granska** under resultatet för att se testresultaten för entitet och avsikt.
 
     Entiteten `FormName` hittas först och sedan mönstret, som fastställer avsikten. Om du har ett testresultat där entiteterna inte identifieras och mönstret därmed inte hittas, behöver du lägga till fler exempelyttranden för avsikten (inte mönstret).
 
-4. Stäng testpanelen genom att välja knappen **Testa** i det övre navigeringsfältet.
+1. Stäng testpanelen genom att välja knappen **Testa** i det övre navigeringsfältet.
+
+## <a name="using-an-explicit-list"></a>Med hjälp av ett explicit lista
+
+Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](luis-concept-patterns.md#explicit-lists).
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

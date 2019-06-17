@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b6c203583a082228c2ba1f4c5f6fdb04d059be
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111178"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Mobila appar som anropar webb-API: er – anropa ett webb-API
 
@@ -131,7 +131,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 Om du vill anropa flera gånger för samma API eller om du vill anropa flera API: er, ta hänsyn till följande när du skapar din app:
 
 - **Inkrementell medgivande**: Microsoft identity-plattformen kan appar för att hämta användarens medgivande som krävs i stället alla i början. Varje gång som din app är redo att anropa ett API, bör det begära de omfång som måste användas.
-- **Villkorlig åtkomst**: I vissa fall, kan du få ytterligare villkorlig åtkomstkrav när du gör flera API-begäranden. Detta kan inträffa om den första begäran har inga principer för villkorlig åtkomst tillämpas och din app försöker komma åt tyst ett nytt API som kräver villkorlig åtkomst. För att hantera det här scenariot måste du fånga upp fel från tyst begäranden och vara beredd på att göra en interaktiv begäran.  Mer information finns i [vägledning för villkorlig åtkomst](conditional-access-dev-guide.md).
+- **Villkorlig åtkomst**: I vissa fall, kan du få ytterligare krav för villkorlig åtkomst när du gör flera API-begäranden. Detta kan inträffa om den första begäran har inga principer för villkorlig åtkomst tillämpas och din app försöker komma åt tyst ett nytt API som kräver villkorlig åtkomst. För att hantera det här scenariot måste du fånga upp fel från tyst begäranden och vara beredd på att göra en interaktiv begäran.  Mer information finns i [vägledning för villkorlig åtkomst](conditional-access-dev-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

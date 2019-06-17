@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076918"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -55,7 +55,7 @@ För känsliga program för prestanda, vi rekommenderar att du använder följan
 * **SQL Server Enterprise Edition**: DS3_v2 eller högre
 * **SQL Server Standard- och webb-utgåvor**: DS2_v2 eller högre
 
-[DSv2-serien](../sizes-general.md#dsv2-series) VMs stöd för premium storage, vilket rekommenderas för bästa prestanda. Storlekarna som rekommenderas är här baslinjer, men den faktiska storleken du väljer beror på din arbetsbelastning. Virtuella datorer i DSv2-serien är allmänt virtuella datorer som är bra för en rad olika arbetsbelastningar, medan andra storlekar på datorer som är optimerade för typer av specifika arbetsbelastningar. Till exempel den [M-serien](../sizes-memory.md#m-series) erbjuder högst antal virtuella processorer och minne för de största SQL Server-arbetsbelastningarna. Den [GS-serien](../sizes-memory.md#gs-series) och [DSv2-serien 11-15](../sizes-memory.md#dsv2-series-11-15) är optimerade för stora minneskrav. Båda dessa serien är också tillgängliga i [begränsad core storlekar](../../windows/constrained-vcpu.md), vilket sparar pengar för att få arbetsbelastningar med lägre krav. Den [Ls-serien](../sizes-storage.md) datorer är optimerade för högt diskgenomflöde och I/O. Det är viktigt att tänka på den specifika SQL Server-arbetsbelastningen och koppla den till ditt val av en VM-serie och storlek.
+[DSv2-serien](../sizes-general.md#dsv2-series) VMs stöd för premium storage, vilket rekommenderas för bästa prestanda. Storlekarna som rekommenderas är här baslinjer, men den faktiska storleken du väljer beror på din arbetsbelastning. Virtuella datorer i DSv2-serien är allmänt virtuella datorer som är bra för en rad olika arbetsbelastningar, medan andra storlekar på datorer som är optimerade för typer av specifika arbetsbelastningar. Till exempel den [M-serien](../sizes-memory.md#m-series) erbjuder högst antal virtuella processorer och minne för de största SQL Server-arbetsbelastningarna. Den [GS-serien](../sizes-previous-gen.md#gs-series) och [DSv2-serien 11-15](../sizes-memory.md#dsv2-series-11-15) är optimerade för stora minneskrav. Båda dessa serien är också tillgängliga i [begränsad core storlekar](../../windows/constrained-vcpu.md), vilket sparar pengar för att få arbetsbelastningar med lägre krav. Den [Ls-serien](../sizes-storage.md) datorer är optimerade för högt diskgenomflöde och I/O. Det är viktigt att tänka på den specifika SQL Server-arbetsbelastningen och koppla den till ditt val av en VM-serie och storlek.
 
 ## <a name="storage-guidance"></a>Riktlinjer för Storage
 

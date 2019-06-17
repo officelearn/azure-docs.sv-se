@@ -15,15 +15,15 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60774071"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och lås läget i Azure Service Fabric Reliable Collections
 
-## <a name="transaction"></a>Transaktion
+## <a name="transaction"></a>Transaktionen
 En transaktion är en sekvens med åtgärder som utförs som en enda logisk enhet för arbete.
 En transaktion måste ha följande ACID-egenskaper. (se: https://technet.microsoft.com/library/ms190612)
 * **Atomicitet**: En transaktion måste vara en atomisk enhet för arbete. Med andra ord antingen alla dataändringar utförs eller ingen av dem har utförts.
@@ -75,10 +75,10 @@ Något är ett asymmetriskt lås som används för att förhindra att en gemensa
 
 Lås kompatibilitetsöversikten finns i följande tabell:
 
-| Begär \ beviljas | Ingen | Delad | Uppdatering | Exklusiva |
+| Begär \ beviljas | Ingen | Delad | Uppdatera | Exklusiva |
 | --- |:--- |:--- |:--- |:--- |
 | Delad |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
-| Uppdatering |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
+| Uppdatera |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
 | Exklusiva |Ingen konflikt |Konflikt |Konflikt |Konflikt |
 
 Timeout-argumentet i API: er för tillförlitliga samlingar används för identifiering av dödläge.

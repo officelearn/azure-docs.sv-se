@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372200"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Förstå debiteringar på ditt Microsoft kundavtal faktura
@@ -52,8 +52,8 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
     |Produktfamilj     | Produktkategori som beräkning för virtuella datorer eller databas för Azure SQL-databas|
     |Produkt-sku     | En unik kod som identifierar instansen av din produkt |
     |Mängd     |  Beloppet för transaktion      |
-    |Fakturaavsnitt     | Transaktionen som visas i det här avsnittet av fakturering profilens faktura |
-    |Faktureringsprofil     | Transaktionen som visas i den här fakturering profilen faktura |
+    |Faktura-avsnitt     | Transaktionen som visas i det här avsnittet av fakturering profilens faktura |
+    |Fakturering profil     | Transaktionen som visas i den här fakturering profilen faktura |
 
 5. Sök på faktura-ID för att filtrera transaktioner för fakturan.
 
@@ -141,7 +141,7 @@ Följande steg beskriver hur du stämma av beräkningsrelaterade avgifter för a
 
  | Faktura PDF | Azure-användning och kostnader CSV |
  | --- | --- |
- |Redovisning Avd |InvoiceSectionName |
+ |Redovisning Avd |invoiceSectionName |
  |Avgifter för användning – Microsoft Azure-Plan |productOrderName |
  |Compute |serviceFamily |
 

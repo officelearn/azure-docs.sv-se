@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Självstudier: Azure Active Directory-integrering med UserVoice
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av UserVoice i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till UserVoice från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -146,7 +146,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med UserVoi
    
     ![Redigera användarautentisering](./media/uservoice-tutorial/ic777521.png "redigera användarautentisering")
    
-    a. Klicka på **enkel inloggning (SSO)**.
+    a. Klicka på **enkel inloggning (SSO)** .
  
     b. Klistra in den **inloggnings-URL** värde, som du har kopierat från Azure-portalen till den **SSO Remote inloggning** textrutan.
 
@@ -251,5 +251,5 @@ När du klickar på panelen UserVoice i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

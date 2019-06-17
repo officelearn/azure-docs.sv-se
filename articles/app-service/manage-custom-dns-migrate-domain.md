@@ -17,10 +17,10 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130389"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service

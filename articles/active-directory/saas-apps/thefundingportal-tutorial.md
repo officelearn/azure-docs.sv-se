@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c5f33dc047dcd99a688cf2ad5bbc81e112fb61bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Självstudier: Azure Active Directory-integrering med The finansiering Portal
 
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av The finansiering Portal till Azure AD, s
 
 **Utför följande steg för att lägga till The finansiering portalen från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -226,4 +226,4 @@ När du klickar på det finansiering portalen panelen i åtkomstpanelen, bör de
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

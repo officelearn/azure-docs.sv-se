@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952205"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa användare med RBAC
@@ -44,7 +44,7 @@ RBAC-roller som kan beviljas endast av **ägare** för prenumerationen. Därför
 Azure-portalen när du har loggat in som administratör, Välj ”prenumerationer” och välj den du vill använda.
 ![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumerationen för användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md).
 
-I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** av ”kostnadsfri utvärdering” prenumerationen i AAD-klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook, Live osv) standarddomännamnet för alla andra användare som har lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”**. Avsiktligt bildas syntaxen för den nya domänen genom att sätta ihop användarnamn och namnet på användaren som skapade klienten och att lägga till tillägget **”. onmicrosoft.com”**.
+I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** av ”kostnadsfri utvärdering” prenumerationen i AAD-klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook, Live osv) standarddomännamnet för alla andra användare som har lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”** . Avsiktligt bildas syntaxen för den nya domänen genom att sätta ihop användarnamn och namnet på användaren som skapade klienten och att lägga till tillägget **”. onmicrosoft.com”** .
 Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar den för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns i [lägga till ett anpassat domännamn i katalogen](../active-directory/fundamentals/add-custom-domain.md).
 
 I det här exemplet innehåller katalogen ”standard-klientorganisation Azure” endast användare med domännamnet ”\@alflanigan.onmicrosoft.com”.

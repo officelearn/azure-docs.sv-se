@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335057"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uppgradera en app för att använda det senaste klientbiblioteket för elastiska databaser
@@ -70,7 +70,7 @@ Du kan också skapa ett Visual Studio-program som öppnar din ShardMapManager it
 
 Dessa metoder för metadata uppgraderingar kan användas flera gånger utan att skada. Till exempel om en äldre klientversion skapar oavsiktligt ett fragment när du har uppdaterat, kan du köra uppgraderingen igen över alla shards så att den senaste versionen av metadata finns i hela infrastrukturen.
 
-**Obs!**  Nya versioner av klientbiblioteket publicerade hittills fortsätta att arbeta med tidigare versioner av metadata för Karthanteraren för Azure SQL DB och vice versa.   Men för att dra nytta av några av de nya funktionerna i den senaste klienten, metadata måste uppgraderas.   Observera att metadata uppgraderingar inte påverkar användardata och programspecifik data, endast objekt som skapas och används av Fragmentkartehanteraren.  Och programmen fortsätter att fungera via uppgraderingsordningen som beskrivs ovan.
+**Obs:**  Nya versioner av klientbiblioteket publicerade hittills fortsätta att arbeta med tidigare versioner av metadata för Karthanteraren för Azure SQL DB och vice versa.   Men för att dra nytta av några av de nya funktionerna i den senaste klienten, metadata måste uppgraderas.   Observera att metadata uppgraderingar inte påverkar användardata och programspecifik data, endast objekt som skapas och används av Fragmentkartehanteraren.  Och programmen fortsätter att fungera via uppgraderingsordningen som beskrivs ovan.
 
 ## <a name="elastic-database-client-version-history"></a>Versionshistorik för elastisk databas-klienten
 

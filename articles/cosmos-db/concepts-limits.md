@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969499"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Begränsningar i Azure Cosmos DB
@@ -27,9 +27,9 @@ När du har skapat ett Azure Cosmos-konto i din prenumeration kan du hantera dat
 | Maximal ru: er per databas ([delade etablerade genomflödesläge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det [arkivera en Azure-supportärende](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) eller kontakta oss via [be Cosmos DB](mailto:askcosmosdb@microsoft.com) |
 | Maximal Begäransenheter per partitionsnyckel (logisk) | 10 000 |
 | Högsta lagring över alla objekt per partitionsnyckel (logisk)| 10 GB |
-| Maximalt antal distinkta (logisk) partitionsnycklar | Obegränsad |
-| Maximalt lagringsutrymme per behållare | Obegränsad |
-| Maximalt lagringsutrymme per databas | Obegränsad |
+| Maximalt antal distinkta (logisk) partitionsnycklar | Obegränsat |
+| Maximalt lagringsutrymme per behållare | Obegränsat |
+| Maximalt lagringsutrymme per databas | Obegränsat |
 
 > [!NOTE]
 > Metodtips att hantera arbetsbelastningar som ibland partitionsnycklar som behöver högre gränser för lagring eller dataflöde, se [designa för Partition snabbtangenter](synthetic-partition-keys.md)

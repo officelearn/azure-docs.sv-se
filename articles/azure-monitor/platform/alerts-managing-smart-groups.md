@@ -1,18 +1,18 @@
 ---
 title: Hantera smarta grupper
 description: Hantera smarta grupper som skapats via din aviseringsinstanser
-author: lingliw
+author: anantr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.date: 09/24/2018
+ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713382"
 ---
 # <a name="manage-smart-groups"></a>Hantera smarta grupper
@@ -26,4 +26,5 @@ ms.locfileid: "60713382"
 ![Övervakning](./media/alerts-managing-smart-groups/sg-list.jpg)
 3.  När du klickar på någon Smart grupp öppnas sidan, där du kan se gruppering orsaken, tillsammans med aviseringarna som medlem. Den här aggregeringen låter dig arbeta med en enda smart grupp i stället för att leta efter flera aviseringar.   
 ![Övervakning](./media/alerts-managing-smart-groups/sg-details.jpg)
+
 

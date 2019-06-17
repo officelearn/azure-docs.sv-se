@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1e014bb14b2b5c1ae924f4371e08aa8bf8698f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056497"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -22,9 +22,9 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Punkt-till-plats-VPN kan använda något av följande protokoll:
 
-* **OpenVPN® protokollet**, en SSL/TLS-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS (versioner 11.0 och senare), Windows, Linux och Mac-enheter (OSX-versionerna 10.13 och senare).
+* **OpenVPN® protokollet**, en SSL/TLS-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 för utgående trafik, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS (versioner 11.0 och senare), Windows, Linux och Mac-enheter (OSX-versionerna 10.13 och senare).
 
-* Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
+* Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 för utgående trafik, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 
 * IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 
@@ -86,6 +86,68 @@ Zip-filen innehåller också värdena för vissa viktiga inställningar på Azur
 >Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering.
 >
 
+## <a name="IKE/IPsec policies"></a>Vilka IKE/IPsec-principer är konfigurerade på VPN-gatewayer för P2S?
+
+
+**IKEv2**
+
+|**Cipher** | **Integritet** | **PRF** | **DH-grupp** |
+|---        | ---           | ---       | ---   |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP256 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA384      | SHA384    | GROUP_24 |
+|AES256     |   SHA384      | SHA384    | GROUP_14 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP384 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_24 |
+|AES256     |   SHA256      | SHA256    | GROUP_14 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP384 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_2 |
+
+**IPsec**
+
+|**Cipher** | **Integritet** | **PFS-grupp** |
+|---        | ---           | ---       |
+|GCM_AES256 | GCM_AES256 | GROUP_NONE |
+|GCM_AES256 | GCM_AES256 | GROUP_24 |
+|GCM_AES256 | GCM_AES256 | GROUP_14 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256    | SHA256 | GROUP_NONE |
+| AES256    | SHA256 | GROUP_24 |
+| AES256    | SHA256 | GROUP_14 |
+| AES256    | SHA256 | GROUP_ECP384 |
+| AES256    | SHA256 | GROUP_ECP256 |
+| AES256    | SHA1 | GROUP_NONE |
+
+## <a name="TLS policies"></a>Vilka TLS-principer är konfigurerade på VPN-gatewayer för P2S?
+**TLS**
+
+|**Principer** |
+|---| 
+|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+|TLS_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_RSA_WITH_AES_256_CBC_SHA256 |
+
+
+
+
 ## <a name="configure"></a>Hur konfigurerar jag en P2S-anslutning?
 
 En P2S-konfiguration kräver ett ganska stort antal specifika steg. I följande artiklar innehåller stegen för att vägleder dig genom P2S-konfiguration och länkar för att konfigurera enheter för VPN-klienten:
@@ -96,6 +158,12 @@ En P2S-konfiguration kräver ett ganska stort antal specifika steg. I följande 
 
 * [Konfigurera OpenVPN](vpn-gateway-howto-openvpn.md)
 
+## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>Hur tar jag bort konfigurationen av en P2S-anslutning?
+
+En P2S-konfiguration kan tas bort med az cli och följande kommando: 
+
+`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+ 
 ## <a name="faqcert"></a>Vanliga frågor och svar för Azures interna certifikatautentisering
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]

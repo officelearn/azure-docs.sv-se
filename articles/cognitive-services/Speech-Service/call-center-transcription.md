@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d844f4d2ad77f5b7cc53275a24167e5f2e71b78
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064144"
 ---
 # <a name="speech-services-for-telephony-data"></a>Taltjänster för telefoni data
 
@@ -34,7 +34,7 @@ Nu ska vi se några av tekniken och relaterade funktioner Azure Speech Services 
 
 ## <a name="azure-technology-for-call-centers"></a>Azure-teknik för Call Center
 
-Därutöver funktionella aspekt av Speech Services det primära syftet – vid tillämpning callcentret - är att förbättra kundupplevelsen. Tre tydliga domäner finns i detta avseende fungerar 
+Utöver den funktionella aspekten av Speech Services är det primära syftet – vid tillämpning Callcenter – att förbättra kundupplevelsen. Tre tydliga domäner finns i detta avseende fungerar:
 
 * Efter anrop analytics, det vill säga batch-bearbetning av anropet inspelningar 
 * Analys i realtid bearbetningen av ljudsignalen att extrahera olika insikter eftersom anropet sker (med sentiment som ett framträdande användningsfall) och
@@ -48,7 +48,7 @@ Om domänen är efter anrop eller i realtid, erbjuder Azure en uppsättning moge
 
 ### <a name="speech-to-text-stt"></a>Tal till text (STT) 
 
-[Tal till text](speech-to-text.md) är det mest eftersträvade efter funktion i alla anrop center-lösningar. Eftersom många av de underordnade analytics processerna förlitar sig på transkriberade texten är word Felfrekvens (WER) av stor betydelse. En av de största utmaningarna i anropet center avskrift dagens är bruset som är vanlig i Callcenter (till exempel – andra agenter som talar i bakgrunden), rad olika språk och dialekter samt faktiska telefon signalen låg kvalitet. WER korreleras med hög med hur väl- och språkdata modeller tränas för ett visst språk, så att du kan anpassa modellen lokalt är viktigt. Våra senaste enhetliga version 4.x modeller är lösningen med både avskrift noggrannhet och svarstid. Tränas med tiotals av tusentals timmars akustisk data och miljarder lexikal information enhetliga modeller är de mest korrekta modellerna på marknaden och effektiv samtalsdata center.
+[Tal till text](speech-to-text.md) är det mest eftersträvade efter funktion i alla anrop center-lösningar. Eftersom många av de underordnade analytics processerna förlitar sig på transkriberade texten är word Felfrekvens (WER) av stor betydelse. En av de största utmaningarna i anropet center avskrift dagens är bruset som är vanlig i Callcenter (till exempel andra agenter som talar i bakgrunden), rad olika språk och dialekter samt faktiska telefon signalen låg kvalitet. WER korreleras med hög med hur väl- och språkdata modeller tränas för ett visst språk, så att du kan anpassa modellen lokalt är viktigt. Våra senaste enhetliga version 4.x modeller är lösningen med både avskrift noggrannhet och svarstid. Tränas med tiotals av tusentals timmars akustisk data och miljarder lexikal information enhetliga modeller är de mest korrekta modellerna på marknaden och effektiv samtalsdata center.
 
 ### <a name="sentiment"></a>Sentiment
 Gauging om kunden har en bra upplevelse är en av de viktigaste områdena i talanalys vid tillämpning anrop center utrymme. Vår [Batch avskrift API](batch-transcription.md) erbjuder attitydanalys per uttryck. Du kan aggregera uppsättning värden som erhålls som en del av en avskrift för anropet att fastställa känslan i anropet för dina agenter och kunden.
@@ -62,7 +62,7 @@ Vissa företag experimenterar med tillhandahåller översatta avskrifter från f
 ### <a name="text-to-speech"></a>Text till tal
 [Text till tal](text-to-speech.md) är ett annat viktigt område i implementerar robotar som interagerar med kunderna. Vanliga dina olika val är att kunden talar, rösten transkriberas till text, texten analyseras för avsikter, ett svar är syntetiskt utifrån identifierade avsikt, och sedan en tillgång antingen visas för kunden eller ett syntetiskt voice-svar är genereras. Naturligtvis har allt detta ske snabbt – därför svarstiden är en viktig komponent i framgången för de här systemen. 
 
-Vår svarstiden för slutpunkt till slutpunkt är ganska låg funderar på att de olika tekniker som ingår som [tal till text](speech-to-text.md), [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Text till tal](text-to-speech.md). 
+Vår svarstiden för slutpunkt till slutpunkt är ganska låg funderar på att de olika tekniker som ingår som [tal till text](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Text till tal](text-to-speech.md). 
 
 Vår nya röster är också särskilja från mänskligt tal. Du kan använda ut röster för att ge din robot dess personlighet.
 
@@ -79,10 +79,10 @@ Nu har vi en titt på batch-bearbetning och i realtid pipelines för taligenkän
 För att skriva av stora mängd ljud vi utvecklat den [Batch avskrift API](batch-transcription.md). API: et för Batch avskrift har utarbetats för att transkribera stora mängder ljuddata asynkront. För att transkribera center samtalsdata baseras vår lösning på dessa pelare:
 
 * **Precision**: Vi erbjuder oöverträffade avskrift kvalitet med fjärde generations enhetliga modeller.
-* **Svarstid**: Vi förstår att när du gör bulk avskrifter avskrifter behövs snabbt. Transkription jobb initierats via den [Batch avskrift API](batch-transcription.md) placeras i kö omedelbart, och när jobbet körs det utförs snabbare än i realtid avskrift.
+* **Svarstid**: Vi förstår att när du gör bulk avskrifter avskrifter behövs snabbt. Transkription jobb initierats via den [Batch avskrift API](batch-transcription.md) placeras i kö omedelbart, och när jobbet börjar köras det utförs snabbare än i realtid avskrift.
 * **Säkerhet**: Vi förstår att anrop kan innehålla känsliga data. Känn dig trygg att säkerhet är en av vår högsta prioritet. Vår tjänst har fått ISO, SOC, HIPAA, PCI-certifieringar.
 
-Call Center generera stora mängder ljuddata per dag. Om din verksamhet lagrar telefoni data på en central plats, till exempel Azure Storage, kan du använda den [Batch avskrift API]((batch-transcription.md) för att begära och ta emot avskrifter asynkront.
+Call Center generera stora mängder ljuddata per dag. Om din verksamhet lagrar telefoni data på en central plats, till exempel Azure Storage, kan du använda den [Batch avskrift API](batch-transcription.md) att begära och ta emot avskrifter asynkront.
 
 En typisk lösning använder dessa tjänster:
 
@@ -98,7 +98,7 @@ Internt använder vi ovan tekniker för att stödja Microsofts customer anropar 
 
 Vissa företag krävs för att transkribera konversationer i realtid. I realtid avskrift kan användas för att identifiera nyckelord och utlösa söker efter innehåll och resurser som är relevanta för en konversation, för att övervaka sentiment, förbättra tillgängligheten och ange översättningar för kunder och agenter som inte är inbyggda talare.
 
-För scenarier som kräver i realtid avskrift, bör du använda den [tal SDK](speech-sdk.md). Tal till text är för närvarande tillgängliga i [fler än 20 språk](language-support.md), och SDK är tillgänglig i C++, C#, Java, Python, Node.js och Javascript. Exemplen finns tillgängliga på varje språk på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). De senaste nyheterna och uppdateringarna finns i [viktig](releasenotes.md).
+För scenarier som kräver i realtid avskrift, bör du använda den [tal SDK](speech-sdk.md). Tal till text är för närvarande tillgängliga i [fler än 20 språk](language-support.md), och SDK är tillgänglig i C++, C#, Java, Python, Node.js, Objective-C och JavaScript. Exemplen finns tillgängliga på varje språk på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). De senaste nyheterna och uppdateringarna finns i [viktig](releasenotes.md).
 
 Internt använder vi ovan tekniker för analys i realtid Microsoft kundsamtal när de visar.
 
@@ -110,7 +110,7 @@ Taltjänster kan lätt integreras i en lösning genom att använda antingen den 
 
 Flera IVR eller telefoni serviceprodukter (till exempel Genesys eller AudioCodes) erbjuder integrationsmöjligheter som lätt kan användas för att aktivera inkommande och utgående ljud genomströmning till en Azure-tjänst. En anpassad Azure-tjänst kan i praktiken, ange ett visst gränssnitt för att definiera telefonsamtal sessioner (till exempel anropa Start eller anropa End) och exponera ett WebSocket-API för att ta emot inkommande stream ljud som används med Speech Services. Utgående svar, till exempel konversationen avskrift eller anslutningar med Bot Framework, kan syntetiskt med Microsofts text till tal-tjänst och tillbaka till IVR för uppspelning.
 
-Ett annat scenario är direkt SIP-integrering. En Azure-tjänst som ansluter till en SIP-Server, därför få en inkommande dataström och en utgående-dataström som används för tal till text och text till tal-faser. För att ansluta till är en SIP-Server det kommersiella programvaruerbjudanden, till exempel Ozieki SDK eller [The team anropa och möten API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (för närvarande i beta), som är utformade för att stödja den här typen av scenario för ljud-anrop.
+Ett annat scenario är direkt SIP-integrering. En Azure-tjänst som ansluter till en SIP-Server, därför få en inkommande dataström och en utgående-dataström som används för tal till text och text till tal-faser. För att ansluta till är en SIP-Server det kommersiella programvaruerbjudanden, till exempel Ozeki SDK eller [team som anropar och möten API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (för närvarande i beta), som är utformade för att stödja den här typen av scenario för ljud-anrop.
 
 ## <a name="customize-existing-experiences"></a>Anpassa nuvarande upplevelsen
 

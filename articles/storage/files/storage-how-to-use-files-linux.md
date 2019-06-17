@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125739"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754830"
 
     Stöd för SMB 3.0-kryptering har introducerades i Linux-kernel-version 4.11 och anpassats till äldre kernel-versioner för populära Linux-distributioner. Vid tidpunkten för publiceringen av det här dokumentet stöder de följande distributionerna från Azure-galleriet montering alternativ som angetts i tabellrubriker. 
 
-* **Minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0)
 
-    |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från lokalt och över olika regioner) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från lokalt och över olika regioner) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Om din Linux-distribution inte visas här kan kontrollera du den Linux-kernel-versionen med följande kommando:
+Om din Linux-distribution inte visas här kan kontrollera du den Linux-kernel-versionen med följande kommando:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**Cifs-utils-paketet har installerats.**  
     Cifs-utils-paketet kan installeras med Pakethanteraren på valfri annan Linux-distribution. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754830"
 
     På andra distributioner, använder du lämplig Pakethanteraren eller [kompilera från källan](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Besluta om katalogfil/behörigheterna för den monterade resursen**: I exemplen nedan behörigheten `0777` är används för att ge Läs, Skriv och körbehörighet till alla användare. Du kan ersätta den med andra [chmod behörigheter](https://en.wikipedia.org/wiki/Chmod) efter behov, men det innebär att potentiellt begränsa åtkomsten. Om du använder andra behörigheter, bör du också använda uid och gid för att behålla åtkomst för lokala grupper du väljer.
+* **Besluta om katalogfil/behörigheterna för den monterade resursen**: I exemplen nedan behörigheten `0777` är används för att ge Läs, Skriv och körbehörighet till alla användare. Du kan ersätta den med andra [chmod behörigheter](https://en.wikipedia.org/wiki/Chmod) efter behov, men det innebär att potentiellt begränsa åtkomsten. Om du använder andra behörigheter, bör du också använda uid och gid för att behålla åtkomst för lokala användare och grupper du väljer.
 
 > [!NOTE]
 > Om du inte uttryckligen anger katalog och ett filnamn behörigheten med dir_mode och file_mode standard som till 0755.

@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062477"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Anslutningsarkitektur i Azure Database for MySQL
 Den här artikeln förklarar Azure Database for MySQL anslutningsarkitektur samt hur trafiken dirigeras till din Azure Database for MySQL-instans från klienter både inom och utanför Azure.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
-Via en gateway som ansvarar för inkommande anslutningar till den fysiska platsen för din server i våra upprättas anslutningen till din Azure Database för MySQL-SQL. Följande diagram illustrerar trafikflödet.
+Via en gateway som ansvarar för inkommande anslutningar till den fysiska platsen för din server i våra upprättas anslutningen till din Azure Database för MySQL. Följande diagram illustrerar trafikflödet.
 
 ![Översikt över arkitekturen för anslutning](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 

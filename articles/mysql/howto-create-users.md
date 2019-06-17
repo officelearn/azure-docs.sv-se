@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 4cd2305ed3d7f88f6c3825d8f7cdb5d81f9a0f6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61460192"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure Database for MySQL-server 
@@ -29,7 +29,7 @@ När Azure Database for MySQL-server har skapats kan använda du första använd
 2. Använda administratörskonto och lösenord för att ansluta till databasservern. Använd din önskade klientverktyg, till exempel MySQL Workbench, mysql.exe, HeidiSQL eller andra. 
    Om du är osäker på hur du ansluter kan du läsa [använda MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för platshållarvärdet `new_master_user`. Den här syntaxen ger de listade behörigheter på alla databasscheman (*.*) till användarnamn (new_master_user i det här exemplet). 
+3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för platshållarvärdet `new_master_user`. Den här syntaxen ger de listade behörigheter på alla databasscheman ( *.* ) till användarnamn (new_master_user i det här exemplet). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

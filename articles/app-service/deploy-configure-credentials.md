@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955978"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
@@ -33,7 +33,7 @@ Du kan konfigurera dina autentiseringsuppgifter på användarnivå i alla appar 
 
 Så här konfigurerar du dina autentiseringsuppgifter för användarnivå:
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra menyn klickar du på **Apptjänster** > **&lt;any_app >** > **distribution Center** > **distributionsbehörigheterna**.
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra menyn klickar du på **Apptjänster** >  **&lt;any_app >**  > **distribution Center** > **distributionsbehörigheterna**.
 
     Du måste ha minst en app innan du kan komma åt sidan autentiseringsuppgifter för distribution i portalen. Men med den [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), du kan konfigurera användarnivå autentiseringsuppgifter utan en befintlig app.
 
@@ -63,7 +63,7 @@ Eftersom användarnivå autentiseringsuppgifter är länkade till användaren oc
 ## <a name="appscope"></a>Hämta och återställa appnivå autentiseringsuppgifter
 Hämta autentiseringsuppgifterna som app-nivå:
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra menyn klickar du på **Apptjänster** > **&lt;any_app >** > **distribution Center** > **distributionsbehörigheterna**.
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra menyn klickar du på **Apptjänster** >  **&lt;any_app >**  > **distribution Center** > **distributionsbehörigheterna**.
 
 2. Klicka på **App autentiseringsuppgifter**, och klicka på den **kopia** länk för att kopiera användarnamnet eller lösenordet.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052147"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutna enheter manuellt
 
@@ -139,7 +139,7 @@ Cmdleten `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Använder Active Directory PowerShell-modulen och Azure Active Directory Domain Services-verktyg (Azure AD DS). De här verktygen är beroende av Active Directory-webbtjänster som körs på en domänkontrollant. Active Directory Web Services fungerar på domänkontrollanter som kör Windows Server 2008 R2 och senare.
 * Det stöds endast av MSOnline PowerShell-modulversion 1.1.166.0. Ladda ned modulen via [den här länken](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Om Azure AD DS-verktygen inte är installerade misslyckas `Initialize-ADSyncDomainJoinedComputerSync`. Du kan installera AD DS-verktygen via Serverhanteraren under **Funktioner** > **Verktyg för fjärrserveradministration** > **Rolladministrationsverktyg**.
+* Om AD DS-verktyg inte är installerade, `Initialize-ADSyncDomainJoinedComputerSync` misslyckas. Du kan installera AD DS-verktyg via Server Manager under **funktioner** > **verktyg för fjärrserveradministration** > **Rolladministrationsverktyg**.
 
 För domänkontrollanter som kör Windows Server 2008 eller tidigare versioner använder du följande skript för att skapa tjänstanslutningspunkten. I en konfiguration med flera skogar använder du följande skript för att skapa tjänstanslutningspunkten i varje skog där det finns datorer.
 

@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277001faf988e5d201a65c9e4112263f226b3db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcb1bf4996e381db933eac91135093a101e504bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055975"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
 
 Om du vill uppgradera PhoneFactor-agent v5.x eller senare till Azure Multi-Factor Authentication Server avinstallerar du PhoneFactor-agenten och dess kopplade komponenter först. Sedan kan Multi-Factor Authentication-servern och dess kopplade komponenter installeras.
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>Avinstallera PhoneFactor-agenten
 

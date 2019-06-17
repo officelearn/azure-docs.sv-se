@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282047"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Bonusly för automatisk användaretablering
@@ -47,7 +47,7 @@ Du måste lägga till Bonusly från Azure AD-programgalleriet i listan över han
 
 **Utför följande steg för att lägga till Bonusly från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -55,7 +55,7 @@ Du måste lägga till Bonusly från Azure AD-programgalleriet i listan över han
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60907484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064278"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
+
+> [!NOTE]
+> En delmängd av säkerhetslösningar tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Integrerade Azure-säkerhetslösningar
 Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar i Azure. Fördelarna innefattar:
@@ -31,11 +34,7 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 - **Integrerade identifieringar**: Säkerhetshändelser från partnerlösningar samlas in, aggregeras och visas automatiskt som en del av aviseringarna och incidenterna i Security Center. Dessa händelser kombineras också med identifieringar från andra källor för att tillhandahålla funktioner för avancerad hotidentifiering.
 - **Enhetlig hälsoövervakning och hantering**: Kunder kan använda integrerade hälsohändelser för att få en snabbövervakning av alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
 
-Integrerade säkerhetslösningar omfattar för närvarande följande:
-
-- Brandvägg för webbaserade program ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) och [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) och [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) och [Rapid7](https://www.rapid7.com/products/insightvm/))
+För närvarande integrerade säkerhetslösningar omfattar sårbarhetsbedömning av [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) och [Rapid7](https://www.rapid7.com/products/insightvm/) och Microsoft Application Gateway waf.
 
 > [!NOTE]
 > Security Center installerar inte Microsoft Monitoring Agent på virtuella partnerenheter eftersom de flesta säkerhetsleverantörer inte tillåter att externa agenter körs på deras enhet.
@@ -43,12 +42,7 @@ Integrerade säkerhetslösningar omfattar för närvarande följande:
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Så här integreras säkerhetslösningar
-Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan även ansluta andra datakällor för säkerhet, till exempel:
-
-- Azure AD Identity Protection
-- Datorer som körs lokalt eller i andra moln
-- Säkerhetslösning som stöder Common Event Format (CEF)
-- Microsoft Advanced Threat Analytics
+Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan också ansluta andra datakällor för säkerhet, inklusive datorer som körs lokalt eller i andra moln.
 
 ![Integrerings av partnerlösningar](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -112,76 +106,6 @@ Avsnittet **Lägg till datakällor** innehåller andra tillgängliga datakällor
 
 ![Datakällor](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-### <a name="connect-external-solutions"></a>Ansluta externa lösningar
-
-Förutom att samla in säkerhetsdata från datorerna kan du integrer säkerhetsdata från en mängd andra säkerhetslösningar, däribland alla som stöder Common Event Format (CEF). CEF är ett branschstandardformat ovanpå Syslog-meddelanden som används av många säkerhetsleverantörer för att händelser ska kunna integreras mellan olika plattformar.
-
-I den här snabbstarten får du veta hur du:
-- Ansluter en säkerhetslösning till Security Center med CEF-loggar
-- Verifierar anslutningen med säkerhetslösningen
-
-#### <a name="prerequisites"></a>Nödvändiga komponenter
-Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-
-För att gå igenom den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
-
-Du behöver också en [Linux-dator](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) med en Syslog-tjänst som redan är ansluten till Security Center.
-
-#### <a name="connect-solution-using-cef"></a>Ansluta lösning med CEF
-
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
-2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
-
-    ![Välj security center](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
-
-3. På huvudmenyn i Security Center väljer du **Säkerhetslösningar**.
-4. På sidan Security Solutions, under **Lägg till datakällor (3)** klickar du på **Lägg till** under **Common Event Format**.
-
-    ![Lägg till datakälla](./media/quick-security-solutions/quick-security-solutions-fig2.png)
-
-5. På sidan Common Event Format-loggar expanderar du det andra steget, **Konfigurera Syslog-vidarebefordran så att de begärda loggarna skickas till agenten på UDP-port 25226**, och följer instruktionerna nedan på Linux-datorn:
-
-    ![Konfigurera syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
-
-6. Expandera det tredje steget, **Placera agentkonfigurationsfilen på agentdatorn**, och följ instruktionerna nedan på Linux-datorn:
-
-    ![Agentkonfiguration](./media/quick-security-solutions/quick-security-solutions-fig4.png)
-
-7. Expandera det fjärde steget, **Starta om syslog-daemon och agenten**, och följ instruktionerna nedan på Linux-datorn:
-
-    ![Starta om syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
-
-
-#### <a name="validate-the-connection"></a>Verifiera anslutningen
-
-Innan du fortsätter med stegen nedan måste du vänta tills syslog-enheten börjar rapportera till Security Center. Det kan ta lite tid och varierar beroende på miljöns storlek.
-
-1.  I den vänstra rutan i Security Center-instrumentpanelen klickar du på **Sök**.
-2.  Välj arbetsytan som Syslog-enheten (Linux-dator) är ansluten till.
-3.  Skriv *CommonSecurityLog* och klicka på knappen **Sök**.
-
-I följande exempel visar resultatet av de här stegen: ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
-
-#### <a name="clean-up-resources"></a>Rensa resurser
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
-
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
-3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
-4. Välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
-5. Välj **Spara**.
-
-Om du vill avaktivera automatisk etablering:
-
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj den prenumeration du vill avaktivera automatisk etablering för.
-3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
-4. Välj **Spara**.
-
->[!NOTE]
-> Inaktivering av automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
->
-
 ## <a name="exporting-data-to-a-siem"></a>Exporterar data till en SIEM
 
 Bearbetade händelser som genereras av Azure Security Center publiceras till Azure [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), någon av loggen skriver tillgängliga i Azure Monitor. Azure Monitor erbjuder en konsoliderad pipeline för routning någon av dina övervakade data i ett SIEM-verktyg. Detta görs genom att dessa data till en Händelsehubb där det kan sedan hämtas för direktuppspelning i ett partner-verktyg.
@@ -230,6 +154,5 @@ Här är några Splunk frågor som du kan använda för att hämta aviseringsdat
 Den här artikeln berättade om hur man integrerar partnerlösningar i Security Center. I följande artiklar kan du lära dig mer om Security Center:
 
 * [Övervakning av säkerhetshälsa i Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
-* [Övervaka partnerlösningar med Security Center](security-center-partner-solutions.md). Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om användningen av Security Center.
 * [Azure säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

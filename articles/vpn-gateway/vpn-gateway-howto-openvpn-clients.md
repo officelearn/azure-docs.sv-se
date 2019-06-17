@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989084"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway
@@ -125,7 +125,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
     ```
 12. Gå till inställningar för att ansluta med hjälp av det grafiska Användargränssnittet.
 13. Klicka på **+** att lägga till en ny VPN-anslutning.
-14. Under **lägga till VPN-**, Välj **importera från fil...**
+14. Under **lägga till VPN-** , Välj **importera från fil...**
 15. Bläddra till fil för Konfigurationsprofil och dubbelklicka på eller välj **öppna**.
 16. Klicka på **Lägg till** på den **lägga till VPN-** fönster.
   

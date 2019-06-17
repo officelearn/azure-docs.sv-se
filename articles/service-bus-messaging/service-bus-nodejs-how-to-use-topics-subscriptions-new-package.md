@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 7686014adb989494e6df277de4137b76c3125696
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992140"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Hur du använder Service Bus-ämnen och prenumerationer med Node.js och azure/service bus-paketet
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node.js för operativsystem"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
@@ -87,7 +87,7 @@ Interagera med en Service Bus avsnittet börjar med instansiera den [ServiceBusC
 3. Ange anslutningssträngen och namnet på ditt ämne i koden ovan.
 4. Kör sedan kommandot `node send.js` i Kommandotolken och kör den här filen. 
 
-Gratulerar! Du har skickat meddelanden till en Service Bus-kö.
+Grattis! Du har skickat meddelanden till en Service Bus-kö.
 
 Meddelanden har några standardegenskaper som `label` och `messageId` som du kan ange när du skickar. Om du vill ange anpassade egenskaper kan använda den `userProperties`, vilket är ett json-objekt som kan innehålla nyckel / värde-par med dina egna data.
 
@@ -130,7 +130,7 @@ Interagera med en Service Bus-prenumeration som börjar med instansiera den [Ser
 3. Ange anslutningssträngen och namnen på ditt ämne och en prenumeration i koden ovan.
 4. Kör sedan kommandot `node receiveMessages.js` i Kommandotolken och kör den här filen.
 
-Gratulerar! Du har precis fått meddelanden från en Service Bus-prenumeration.
+Grattis! Du har precis fått meddelanden från en Service Bus-prenumeration.
 
 Den [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) metoden tar en `ReceiveMode` som är en uppräkning med värden [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [reglera dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder den `PeekLock` läge med någon av `complete()`, `abandon()`, `defer()`, eller `deadletter()` metoder på meddelandet.
 

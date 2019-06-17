@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059744"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhetskopiering av systemtillstånd
 
 Den här artikeln beskriver lösningar på problem som kan uppstå när du använder säkerhetskopiering av systemtillstånd.
+
+## <a name="basic-troubleshooting"></a>Grundläggande felsökning
+Vi rekommenderar att du utför den under verifieringen, innan du börjar felsöka säkerhetskopiering av systemtillstånd:
+
+- [Se till att Microsoft Azure Recovery Services MARS-agenten är uppdaterade](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](https://aka.ms/AB-A4dp50)
+- Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Starta om åtgärden och försök igen vid behov
+- [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](https://aka.ms/AB-AA4dwtt)
+- [Kontrollera att inte andra processer eller antivirusprogram stör Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Schemalagd säkerhetskopiering misslyckas, men manuell säkerhetskopiering fungerar](https://aka.ms/ScheduledBackupFailManualWorks)
+- Kontrollera att ditt operativsystem har de senaste uppdateringarna
+- [Se till att enheter som inte stöds och filer med attribut som inte stöds är undantagna från säkerhetskopia](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Kontrollera att **systemklockan** i det skyddade systemet är konfigurerad till rätt tidszon <br>
+- [Kontrollera att servern har minst .NET Framework version 4.5.2 eller senare](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Om du försöker **omregistrera din server** till ett valv: <br>
+  - Kontrollera att agenten är avinstallerad på servern och raderad från portalen <br>
+  - Använd samma lösenfras som användes vid den första registreringen av servern <br>
+- Se till att Azure PowerShell-version 3.7.0 är installerad på både käll- och kopiera datorn innan du påbörjar säkerhetskopieringen offline vid säkerhetskopiering offline
+- [Faktor vid Backup-agenten körs på virtuella Azure-datorer](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>Begränsning
+- Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
+- Säkerhetskopiering av systemtillstånd stöder för närvarande ”lokalt” Windows-servrar, den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
 ## <a name="pre-requisite"></a>Förhandskrav
 

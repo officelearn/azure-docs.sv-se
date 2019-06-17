@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113299"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -53,7 +53,7 @@ Om du har konfigurerat platser till zoner tilldelning i Internet Explorer, måst
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Principer för villkorlig åtkomst för kombinerade registrering
 
-Säkra när och hur användare registrera dig för Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning är nu möjligt med användaråtgärder i principen för villkorlig åtkomst. Den här funktionen för förhandsgranskning är tillgänglig för organisationer som har aktiverat den [kombineras registrering förhandsversion](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan aktiveras i organisationer där de vill att användare registrerar sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrodd nätverksplats under HR-integrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+Säkra när och hur användare registrera dig för Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning är nu möjligt med användaråtgärder i principen för villkorlig åtkomst. Den här funktionen för förhandsgranskning är tillgänglig för organisationer som har aktiverat den [kombineras registrering förhandsversion](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan aktiveras i organisationer där de vill att användare registrerar sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrodd nätverksplats under HR-integrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [vad är platsvillkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
 
@@ -92,4 +92,4 @@ Följande principen gäller för alla markerade användare som försöker regist
 
 [Felsöka kombineras security info registrering](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory?](../conditional-access/location-condition.md)
+[Vad är platsvillkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md)

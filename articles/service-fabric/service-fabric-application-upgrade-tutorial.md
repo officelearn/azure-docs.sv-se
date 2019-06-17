@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615184"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Service Fabric-program självstudier för uppgradering med Visual Studio
@@ -43,7 +43,7 @@ Att välja **publicera** öppnas ett popup-fönster och du kan ange den **målpr
 
 Nu kan du klicka på **publicera** i dialogrutan. Du kan använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet visuella objekt har en webbtjänst som du kan gå till genom att skriva [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) i adressfältet i webbläsaren.  Du bör se 10 flytande visuella objekt som flyttas runt på skärmen.
 
-**Obs!** Om du distribuerar till `Cloud.xml` profil (Azure Service Fabric) programmet ska sedan vara tillgängliga på **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Kontrollera att du har `8081/TCP` konfigurerats i belastningsutjämnaren (hitta belastningsutjämnaren i samma resursgrupp som Service Fabric-instans).
+**Obs!** Om du distribuerar till `Cloud.xml` profil (Azure Service Fabric) programmet ska sedan vara tillgängliga på **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Kontrollera att du har `8081/TCP` konfigurerats i belastningsutjämnaren (hitta belastningsutjämnaren i samma resursgrupp som Service Fabric-instans).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: Uppdatera exemplet visuella objekt
 Du kanske märker att med den version som har distribuerats i steg 1, de visuella objekten inte rotera. Nu ska vi uppgradera det här programmet till en där de visuella objekten också rotera.

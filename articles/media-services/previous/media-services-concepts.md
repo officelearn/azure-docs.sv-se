@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681562"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp 
@@ -61,7 +61,7 @@ För att kunna leverera en krypterad tillgång för lagring, måste du konfigure
 
 **EnvelopeEncryptionProtected** – Använd det här alternativet om du vill skydda (eller överför redan skyddas) HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES). Om du överför HLS som redan har krypterats med AES, måste den har krypterats av Transform Manager.
 
-### <a name="access-policy"></a>Åtkomstpolicy
+### <a name="access-policy"></a>Åtkomstprincip
 En [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definierar behörigheter (till exempel läsa, skriva och lista) och varaktighet för åtkomst till en tillgång. Du skulle vanligtvis skicka ett AccessPolicy-objekt till en positionerare som skulle användas för att komma åt filer i en tillgång.
 
 >[!NOTE]
@@ -159,7 +159,7 @@ Mer information finns i följande artiklar:
 - [Skydda med AES-128](media-services-protect-with-aes128.md)
 - [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>Levererar
+## <a name="delivering"></a>Leverera
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamisk paketering
 När du arbetar med Media Services, rekommenderar vi att koda ditt mezzanine-filer till en med anpassningsbar bithastighet MP4-uppsättningen och sedan konvertera uppsättningen till det önskade formatet med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
@@ -194,7 +194,7 @@ För att ge användare URL: er för progressiv nedladdning måste skapa du förs
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Direktuppspelnings-URL:er
+### <a name="streaming-urls"></a>Strömmande URL: er
 Direktuppspelning av innehåll till klienter. För att ge användare strömmande URL: er måste skapa du först en OnDemandOrigin-positionerare. Skapar lokaliseraren får du grundläggande sökvägen till den tillgång som innehåller det innehåll som du vill spela. Men om du vill kunna strömma innehållet behöver du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till strömmande manifestfilen måste du sammanfoga den lokaliseraren sökvägsvärde och manifestet (filename.ism) filnamn. Lägg sedan till /Manifest och ett lämpligt format (vid behov) till positionerare-sökväg.
 
 Du kan också strömma ditt innehåll över en SSL-anslutning. Om du vill göra detta måste du kontrollera att din strömmande URL: er börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  

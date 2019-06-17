@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65860830"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
@@ -83,7 +83,7 @@ För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta 
 3. Exkludera två kolumner: CustomerAlternateKey och GeographyKey.
    ![Ta bort onödiga kolumner][5]
 
-## <a name="3-build-the-model"></a>3 Skapa modellen
+## <a name="3-build-the-model"></a>3. Skapa modellen
 Vi delar data 80 – 20: 80% för att träna en maskininlärningsmodell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.

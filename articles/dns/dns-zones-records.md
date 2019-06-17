@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712233"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och poster
 
@@ -28,7 +28,7 @@ Den här sidan förklaras nyckelbegreppen för domäner, DNS-zoner och DNS-poste
 
 ## <a name="domain-names"></a>Domännamn
 
-Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ”**.**”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värd för DNS-namnservrar runtom i världen.
+Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värd för DNS-namnservrar runtom i världen.
 
 En domänregistrator är en organisation där du kan köpa ett domännamn, till exempel ”contoso.com”.  Köp ett domännamn ger dig rätt att kontrollera DNS-hierarkin med det, till exempel så att du kan dirigera namnet ”www.contoso.com” till företagets webbplats. Registratorn kan vara värd för domänen i sin egen namnservrarna för din räkning, eller kan du ange alternativa DNS-servrar.
 
@@ -111,7 +111,7 @@ Flera strängar i en DNS-post ska inte förväxlas med flera TXT-poster i en TXT
 
 ## <a name="tags-and-metadata"></a>Taggar och metadata
 
-### <a name="tags"></a>Taggar
+### <a name="tags"></a>Tags
 
 Taggar är en lista över namn / värde-par och används av Azure Resource Manager för att märka resurser.  Azure Resource Manager använder taggar för att aktivera Azure-fakturan filtrerade datavyer och även möjligt att ställa in en princip som taggar krävs. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -134,7 +134,7 @@ På Azure DNS REST API-nivå anges Etags med HTTP-huvuden.  Deras beteende ges i
 | Huvud | Beteende |
 | --- | --- |
 | Ingen |PUT lyckas alltid (inga Etag-kontroller) |
-| IF-match <etag> |PUT lyckas bara om resursen finns och Etag matchar |
+| IF-match \<etag > |PUT lyckas bara om resursen finns och Etag matchar |
 | IF-match * |PUT lyckas bara om resursen finns |
 | IF-none-match * |PUT lyckas bara om resursen inte finns |
 

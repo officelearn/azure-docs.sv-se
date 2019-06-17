@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786122"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
@@ -136,7 +136,7 @@ Nu när datakällorna är tillgängliga i appen kan du lägga till en skärm i d
 
 1. I den **Data** fönstret väljer **sig** i listan.
 
-    ![Välj datakälla](media/functions-powerapps-scenario/select-data-source.png)
+    ![Välja datakälla](media/functions-powerapps-scenario/select-data-source.png)
 
     Datauppsättningen innehåller inte en avbildning, sedan du ändra layouten för att bättre passa för data. 
 

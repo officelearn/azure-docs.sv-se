@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
 ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61467587"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-transformationer med en flytande mallar i Azure Logic Apps
@@ -68,7 +68,7 @@ Innan du kan utföra en flytande omvandling i din logikapp måste definiera du f
 
 4. Välj **Lägg till** och ange följande information på kartan:
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | JsonToJsonTemplate | Namnet på kartan, vilket är ”JsonToJsonTemplate” i det här exemplet | 
    | **Mappningstyp** | **liquid** | Typ för kartan. Du måste välja för JSON till JSON-transformering **flytande**. | 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782080"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera SQL Server på Azure med Azure Backup Server
@@ -64,7 +64,7 @@ Innan du börjar måste du kontrollera att du har [installerad och förberedd Az
     Om **Utöka automatiskt volymerna** alternativet väljs, MABS kan beakta för ökad säkerhetskopieringsvolymen när de produktion växer. Om **Utöka automatiskt volymerna** alternativet inte är markerat, MABS begränsar säkerhetskopieringslagring som används för att datakällorna i skyddsgruppen.
 9. Administratörer får välja att överföra den första säkerhetskopieringen manuellt (av network) för att undvika överbelastning av bandbredd eller via nätverket. De kan också konfigurera tiden då den inledande överföringen kan inträffa. Klicka på **Nästa**.
 
-    ![Inledande replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Inledande Replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
 
     Den första säkerhetskopian kräver överföring av hela datakällan (SQL Server-databas) från produktionsservern (SQL Server-dator) till MABS. Dessa data kan vara stora och överföra data via nätverket kan överstiga bandbredd. Administratörer kan välja att överföra den första säkerhetskopieringen av den anledningen: **Manuellt** (med flyttbara medier) att undvika överbelastning av bandbredd, eller **automatiskt över nätverket** (vid en viss tidpunkt).
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475902"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Korrigera shard-kartproblem med RecoveryManager-klassen
@@ -33,7 +33,7 @@ Termdefinitioner finns [ordlista för verktyg i elastiska databaser](sql-databas
 
 ## <a name="why-use-the-recovery-manager"></a>Varför ska man använda recovery manager
 
-I en databasmiljö för fragmenterade (sharded) finns en klient per databas och många databaser per server. Det kan också finnas många servrar i miljön. Varje databas mappas i fragmentkartan, så att anrop kan dirigeras till rätt server och databas. Databaser spåras enligt en **shardingnyckel**, och varje shard har tilldelats en **viktiga värdeintervallet**. En shardingnyckel kan till exempel representera kundernas namn från ”D” till ”F.” Mappningen av alla shards (även kallat databaser) och deras mappning intervall finns i den **globala fragmentkartan (GSM)**. Varje databas innehåller också en karta över de intervall som finns på den shard som kallas den **lokala fragmentkartan (LSM)**. När en app som ansluter till en shard, cachelagras mappningen med appen för snabb hämtning. LSM används för att verifiera cachelagrade data.
+I en databasmiljö för fragmenterade (sharded) finns en klient per databas och många databaser per server. Det kan också finnas många servrar i miljön. Varje databas mappas i fragmentkartan, så att anrop kan dirigeras till rätt server och databas. Databaser spåras enligt en **shardingnyckel**, och varje shard har tilldelats en **viktiga värdeintervallet**. En shardingnyckel kan till exempel representera kundernas namn från ”D” till ”F.” Mappningen av alla shards (även kallat databaser) och deras mappning intervall finns i den **globala fragmentkartan (GSM)** . Varje databas innehåller också en karta över de intervall som finns på den shard som kallas den **lokala fragmentkartan (LSM)** . När en app som ansluter till en shard, cachelagras mappningen med appen för snabb hämtning. LSM används för att verifiera cachelagrade data.
 
 GSM och LSM kan bli osynkroniserad av följande skäl:
 

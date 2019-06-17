@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738843"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
@@ -31,12 +31,12 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 | Deltagare |Med deltagarrollen kan du hantera allt, men du kan inte ändra andra användares åtkomstbehörighet till ett Automation-konto. |
 | Läsare |Med läsarrollen kan du visa alla resurser i ett Automation-konto men inte göra några ändringar. |
 | Automation-operatör |Rollen Automation-operatör kan du visa runbook-namn och egenskaper att skapa och hantera jobb för alla runbooks i ett Automation-konto. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
-|Automation-jobboperator|Rollen Automation-Jobboperator kan du skapa och hantera jobb för alla runbooks i ett Automation-konto.|
-|Automation Runbook-operator|Rollen Automation Runbook-operatör kan du visa namn och egenskaper för en runbook.|
+|Automation-Jobboperator|Rollen Automation-Jobboperator kan du skapa och hantera jobb för alla runbooks i ett Automation-konto.|
+|Automation Runbook-Operator|Rollen Automation Runbook-operatör kan du visa namn och egenskaper för en runbook.|
 | Log Analytics Contributor | Rollen Log Analytics Contributor kan du läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägg till virtuella datorer, läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure storage, skapa och konfigurera automationskonton, lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser.|
 | Log Analytics Reader | Log Analytics Reader-rollen kan du visa och söka efter alla data samt visa övervakningsinställningar. Detta omfattar visning av konfigurationen av Azure diagnostics på alla Azure-resurser. |
-| Övervakningsdeltagare | Övervakning av deltagarrollen kan du läsa alla övervakningsdata och uppdatera övervakningsinställningarna.|
-| Övervakningsläsare | Med övervakning läsarrollen kan du läsa alla övervakningsdata. |
+| Övervaka deltagare | Övervakning av deltagarrollen kan du läsa alla övervakningsdata och uppdatera övervakningsinställningarna.|
+| Övervaka läsare | Med övervakning läsarrollen kan du läsa alla övervakningsdata. |
 | Administratör för användaråtkomst |Med rollen Administratör för användaråtkomst kan du hantera användaråtkomsten till Azure Automation-konton. |
 
 ## <a name="role-permissions"></a>Rollbehörigheter
@@ -98,7 +98,7 @@ En Automation-operatör kan skapa och hantera jobb och läsa runbook-namn och eg
 |Microsoft.Insights/alertRules/*      | Skapa och hantera aviseringsregler.        |
 |Microsoft.Support/* |Skapa och hantera supportärenden.|
 
-### <a name="automation-job-operator"></a>Automation-jobboperator
+### <a name="automation-job-operator"></a>Automation-Jobboperator
 
 En Automation-Jobboperator roll beviljas på Automation-kontoomfånget. På så sätt kan operatören behörighet att skapa och hantera jobb för alla runbooks i kontot. I följande tabell visas de behörigheter som beviljas för rollen:
 
@@ -116,7 +116,7 @@ En Automation-Jobboperator roll beviljas på Automation-kontoomfånget. På s�
 |Microsoft.Insights/alertRules/*      | Skapa och hantera aviseringsregler.        |
 |Microsoft.Support/* |Skapa och hantera supportärenden.|
 
-### <a name="automation-runbook-operator"></a>Automation Runbook-operator
+### <a name="automation-runbook-operator"></a>Automation Runbook-Operator
 
 En Automation Runbook-operatörsrollen beviljas definitionsområdet Runbook. En Runbook Automation-operatör kan visa runbookens namn och egenskaper.  Den här rollen som kombineras med rollen ”Automation-Jobboperator gör det möjligt för operatorn som ska också skapa och hantera jobb för runbook. I följande tabell visas de behörigheter som beviljas för rollen:
 
@@ -135,7 +135,7 @@ En Log Analytics Contributor kan läsa alla övervakningsdata och redigera över
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|* / läsa|Läsa resurser av alla typer utom hemligheter.|
+|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
 |Microsoft.Automation/automationAccounts/*|Hantera automation-konton.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Skapa och hantera virtuella datorer, tillägg.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lista klassiska lagringskontonycklar.|
@@ -155,20 +155,20 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|* / läsa|Läsa resurser av alla typer utom hemligheter.|
+|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Hantera frågor i Azure Monitor-loggar.|
 |Microsoft.OperationalInsights/workspaces/search/action|Sök Azure Monitor-loggdata.|
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
 |**Inte åtgärder**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Det går inte att läsa in delade åtkomstnycklar.|
 
-### <a name="monitoring-contributor"></a>Övervakningsdeltagare
+### <a name="monitoring-contributor"></a>Övervaka deltagare
 
 Övervaka deltagare kan läsa alla övervakningsdata och uppdatera inställningarna för övervakning. I följande tabell visas de behörigheter som beviljas för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|* / läsa|Läsa resurser av alla typer utom hemligheter.|
+|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
 |Microsoft.AlertsManagement/alerts/*|Hantera aviseringar.|
 |Microsoft.AlertsManagement/alertsSummary/*|Hantera aviseringar instrumentpanelen.|
 |Microsoft.Insights/AlertRules/*|Hantera Varningsregler.|
@@ -188,13 +188,13 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
 |Microsoft.WorkloadMonitor/workloads/*|Hantera arbetsbelastningar.|
 
-### <a name="monitoring-reader"></a>Övervakningsläsare
+### <a name="monitoring-reader"></a>Övervaka läsare
 
 En övervakning läsare kan läsa alla övervakningsdata. I följande tabell visas de behörigheter som beviljas för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|* / läsa|Läsa resurser av alla typer utom hemligheter.|
+|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
 |Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics-arbetsytor.|
 |Microsoft.Support/*|Skapa och hantera supportärenden|
 
@@ -204,7 +204,7 @@ En administratör för användaråtkomst kan hantera användarnas åtkomst till 
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|* / läsa|Läsa alla resurser|
+|\* / läsa|Läsa alla resurser|
 |Microsoft.Authorization/*|Hantera auktorisering|
 |Microsoft.Support/*|Skapa och hantera supportärenden|
 
@@ -263,11 +263,11 @@ Uppdateringshantering når för flera tjänster att tillhandahålla sin tjänst.
 |**Resurs**  |**Roll**  |**Omfång**  |
 |---------|---------|---------|
 |Automation-konto     | Log Analytics Contributor       | Automation-konto        |
-|Automation-konto    | Virtuell datordeltagare        | Resursgruppen för kontot        |
+|Automation-konto    | Virtuell Datordeltagare        | Resursgruppen för kontot        |
 |Log Analytics-arbetsyta     | Log Analytics Contributor| Log Analytics-arbetsyta        |
 |Log Analytics-arbetsyta |Log Analytics Reader| Prenumeration|
 |Lösning     |Log Analytics Contributor         | Lösning|
-|Virtuell dator     | Virtuell datordeltagare        | Virtuell dator        |
+|Virtuell dator     | Virtuell Datordeltagare        | Virtuell dator        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Konfigurera RBAC för ditt Automation-konto
 

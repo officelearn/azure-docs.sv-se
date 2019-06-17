@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964127"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
@@ -30,7 +30,7 @@ Molnmarknadsplatsen ligger i linje med målgrupper och Microsoft-molnprodukter f
 |Lösningen relevans     |Teknisk appar som skapats för eller på Azure|Appar som utnyttjar / utöka D365, Power BI, O365, Azure. (Tillägg eller tillägg klar appar)|
 |Publiceringsalternativ     |Kontakta mig, utvärdering, Transact eller konsulttjänster|Kontakta mig, utvärderingsversion eller konsulttjänster|
 |I övningar      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-Klientappar| 
-|Annat       |En lokal publicering Via Azure Stack|Konsulttjänster för Dynamics och Powerbi|
+|Annat      |En lokal publicering Via Azure Stack|Konsulttjänster för Dynamics och Powerbi|
 
 Service-erbjudanden som är baserade på Microsoft Dynamics 365, Office 365 och Power BI är berättigade att lista på AppSource. Mer information finns i [konsulttjänster för Microsoft AppSource lista riktlinjer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
@@ -71,9 +71,9 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 
 |Berättigade länder/regioner |   |   |   |
 |---------|----------|----------|----------|
-|Australien |Frankrike  |     Mexico          |Spanien       |
+|Australien |Frankrike  |     Mexiko          |Spanien       |
 |Belgien   |Tyskland |     Nederländerna     |Sverige       |
-|Kanada    |Indien   |     Nya Zeeland     |Storbritannien och Nordirland  |
+|Kanada    |Indien   |     Nya Zeeland     |Storbritannien  |
 |Danmark   |Italien   |     Norge          |USA |
 |Finland   |Japan   |     Polen          
 
@@ -100,7 +100,7 @@ Före registrering, du kan börja samla in och förbereda innehållet som hjälp
 |Konfigurera för nya erbjudanden  |
 |---------|
 |Erbjud namn (200 tecken) och en beskrivning (2 000 tecken)    |
-|Kompetenser     |
+|Uppnådda     |
 |Tillgänglighet för land/region     |
 |Varaktigheten för kundengagemang     |
 |Tillämpliga branscher, kategorier och sökord     |
@@ -166,7 +166,7 @@ I partnerportalen i molnet, kan du lägga till formateringen på din registrerin
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>utrymme för rubrik (Ex: ###(space)Agenda/Deliverables)
 * Radbrytning efter rubrik
 * ** = bold 
-* * Kursivera sammanfattning av erbjudandet
+* \* Kursivera sammanfattning av erbjudandet
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280679"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Felsöka problem med Azure Site Recovery-agenten
@@ -26,14 +26,14 @@ Felkod: "151076"
 
  Azure Site Recovery installerar ett tillägg på den virtuella datorn som en del av aktivering av skydd. Något av följande villkor kan förhindra att skydd mot utlöses och jobb misslyckas. Slutför följande felsökningssteg och försök igen:
 
-**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Orsak 2: [Agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Orsak 3: [Site Recovery-tillägget inte går att uppdatera eller läsa in](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Felmeddelande: ”Tidigare site recovery-tilläggsåtgärden tar längre tid än förväntat”.<br>
 Felkod: "150066"<br>
 
-**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Orsak 2: [Agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Orsak 3: [Statusen för Site Recovery-tillägget är felaktig](#the-site-recovery-extension-fails-to-update-or-load)**  
 
@@ -45,7 +45,7 @@ Felkod: "151099"<br>
 Det här felet kan inträffa om Azure-gästagenten på den virtuella datorn inte är i tillståndet klar.
 Du kan kontrollera status för Azure-gästagenten i [Azure-portalen](https://portal.azure.com/). Gå till den virtuella datorn som du vill skydda och kontrollera statusen ”virtuell dator > Inställningar > Egenskaper > agentstatus”. I de flesta fall statusen för agenten bli redo när du startar om den virtuella datorn. Men om omstart är inte ett möjligt alternativ eller om du ändå får problemet, Slutför följande felsökningssteg.
 
-**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Orsak 1: [Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Orsak 2: [Agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 

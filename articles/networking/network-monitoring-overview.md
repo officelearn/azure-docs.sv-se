@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620429"
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
@@ -37,15 +37,15 @@ Nätverket prestanda Övervakare (NPM) är en uppsättning funktioner, som rikta
 
 Övervakare av nätverksprestanda, ExpressRoute-övervakning och övervakning av tjänstens anslutning övervakar funktioner i NPM och beskrivs nedan.
 
-## <a name="performance-monitor"></a>Prestandaövervakaren
+## <a name="performance-monitor"></a>Prestandaövervakning
 
 Övervakare av nätverksprestanda ingår i NPM och är övervakning av nätverk för molnet, hybrid och lokala miljöer. Du kan övervaka nätverksanslutningar i filialkontor och lokalkontor, butiker, Datacenter och moln. Du kan identifiera nätverksproblem innan dina användare börjar klaga. Viktiga fördelar är:
 
-* Övervaka förlust och svarstider i alla olika undernät och ställ in aviseringar
+* Övervaka dataförluster och svarstider i olika undernät och Ställ in aviseringar
 * Övervaka alla sökvägar (inklusive redundanta sökvägar) i nätverket
 * Felsök tillfälliga och point-in-time nätverksproblem som är svåra att replikera
 * Fastställ det specifika segmentet på nätverket som ligger bakom den försämrade prestandan
-* Övervaka nätverkets hälsotillstånd utan behov av SNMP
+* Övervaka hälsotillståndet för nätverket, utan behov av SNMP
 
 ![NPM topologisk karta](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -108,7 +108,7 @@ Trafikanalys förser dig med användbar information som hjälper att du granskar
 Relaterade länkar:
 * [Blogginlägget](https://aka.ms/trafficanalytics), [dokumentation](https://aka.ms/trafficanalyticsdocs), [vanliga frågor och svar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
-## <a name="dns-analytics"></a>DNS Analytics
+## <a name="dns-analytics"></a>DNS-analys
 Den här lösningen bygger för DNS-administratörer och samlar in, analyserar och korrelerar DNS-loggarna för att tillhandahålla säkerhet, åtgärder och prestandarelaterade insikter.  Några av funktionerna är:
 
 * Identifiering av klienter som försöker matcha skadliga domäner
@@ -122,6 +122,6 @@ Den här lösningen bygger för DNS-administratörer och samlar in, analyserar o
 Relaterade länkar:
 * [Blogginlägg](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Dokumentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Diverse
+## <a name="miscellaneous"></a>Övrigt
 
 * [Ny prisnivå](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

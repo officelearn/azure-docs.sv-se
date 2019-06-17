@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221357"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifikation för Azure Media Services fragmenterad MP4 live-inmatning 
@@ -69,7 +69,7 @@ Här följer de detaljerade krav:
 1. Kodaren måste inte använda den `Events()` substantiv enligt beskrivningen i 9.2 in [1] för live-inmatning till Media Services.
 1. Om HTTP POST-begäran avslutas eller tidsgränsen uppnås med en TCP-fel före slutet av strömmen, måste kodaren skicka en ny POST-begäran med hjälp av en ny anslutning och följ föregående kraven. Kodaren måste dessutom skicka om de föregående två MP4-fragment för varje spår i strömmen och återuppta utan introduktion till en avvikelse i media-tidslinje. Skicka om de två sista MP4-fragment för varje spår säkerställer att det finns inga data går förlorade. Med andra ord, om en dataström som innehåller både en ljud och video reda och aktuell POST-begäran misslyckas, måste kodaren återansluta och skicka om de två sista fragment för ljudspår, som tidigare har skickats, och de två sista fragment för videon spåra, som tidigare har skickats, så att det finns inga data går förlorade. Kodaren måste ha en ”vidarebefordra” buffert för media fragment som innehållsuppsättning när anslutningen upprättas.
 
-## <a name="5-timescale"></a>5. Tidsskala
+## <a name="5-timescale"></a>5. Timescale
 [[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beskriver användningen av tidsram för **SmoothStreamingMedia** (avsnittet 2.2.2.1), **StreamElement** (avsnittet 2.2.2.3), **StreamFragmentElement** () Avsnittet 2.2.2.6), och **LiveSMIL** (punkt 2.2.7.3.1). Om värdet för tidsskalan inte är tillgänglig, är standardvärdet används 10 000 000 (10 MHz). Även om formatspecifikationen Smooth Streaming inte blockerar användningen av andra tidsskalan värden, de flesta implementeringar av kodare använda denna standardinställning värde (10 MHz) för att generera Smooth Streaming mata in data. På grund av den [dynamisk paketering för Azure Media](media-services-dynamic-packaging-overview.md) funktion, rekommenderar vi att du använder en 90-KHz tid för video strömmar och 44,1 eller 48.1 KHz för ljudströmmar. Om du använder olika tidsskalan värden för olika dataströmmar, måste stream på servernivå tidsskalan skickas. Mer information finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definitionen av ”stream”

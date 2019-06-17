@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687455"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
@@ -337,7 +337,7 @@ Här följer några fel som kan uppstå när du använder skript som du har utve
 
 Det här problemet uppstår oftast när skriptet har skapats på en Windows-miljö, eftersom CRLF är en gemensam hållning slutar för många textredigerare på Windows.
 
-*Upplösning*: Om det är ett alternativ i textredigerare, Välj Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
+*Lösning*: Om det är ett alternativ i textredigerare, Välj Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
 
 > [!NOTE]  
 > Följande kommandon kan grovt jämföras i att de ska ändra radbrytningar CRLF till LF. Välj en baserat på Verktyg som är tillgängliga på datorn.
@@ -353,7 +353,7 @@ Det här problemet uppstår oftast när skriptet har skapats på en Windows-milj
 
 *Orsak*: Det här felet uppstår när skriptet har sparats som UTF-8 med en Byte (BOM Order Mark).
 
-*Upplösning*: Spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
+*Lösning*: Spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

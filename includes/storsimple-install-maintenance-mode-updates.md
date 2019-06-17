@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171870"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installera uppdateringar av underhållsläge via Windows PowerShell för StorSimple
@@ -20,7 +20,7 @@ ms.locfileid: "66171870"
 4. Du kommer att meddelas om uppdateringar är tillgängliga och oavsett om uppdateringarna är störande eller utan avbrott. Om du vill tillämpa störande uppdateringar, måste du placera enheten i underhållsläge. Se [steg 2: Ange underhållsläge](../articles/storsimple/storsimple-update-device.md#step2) anvisningar.
 5. När enheten är i underhållsläge i Kommandotolken skriver du: `Start-HcsUpdate`
 6. Du uppmanas att bekräfta. När du har bekräftat uppdateringarna kommer att installeras på den styrenhet som du använder för närvarande. När uppdateringarna har installerats startas styrenheten. 
-7. Övervaka statusen för uppdateringar. Typ:
+7. Övervaka statusen för uppdateringar. Ange:
    
     `Get-HcsUpdateStatus`
    

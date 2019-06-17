@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
 ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851144"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
@@ -34,7 +34,7 @@ Azure skapar automatiskt systemvägar och tilldelar vägarna till varje undernä
 
 Varje väg innehåller ett adressprefix och en nästa hopp-typ. När trafik lämnar ett undernät och skickas till en IP-adress inom en vägs adressprefix använder Azure vägen som innehåller prefixet. Läs mer om [hur vägar väljs i Azure](#how-azure-selects-a-route) när flera vägar innehåller samma prefix eller överlappande prefix. När ett virtuellt nätverk skapas skapar Azure automatiskt följande standardsystemvägar för varje undernät inom det virtuella nätverket:
 
-|Source |Adressprefix                                        |Nästa hopptyp  |
+|source |Adressprefix                                        |Nexthop-typ  |
 |-------|---------                                               |---------      |
 |Standard|Unikt för det virtuella nätverket                           |Virtuellt nätverk|
 |Standard|0.0.0.0/0                                               |Internet       |
@@ -58,13 +58,13 @@ Nästa hopptyper som anges i föregående tabell representerar hur Azure diriger
 
 Azure lägger till ytterligare systemstandardvägar för olika Azure-funktioner, men endast om du aktiverar funktionerna. Beroende på funktion lägger Azure till valfria standardvägar till antingen specifika undernät i det virtuella nätverket eller till alla undernät i ett virtuellt nätverk. De ytterligare systemvägar och nästa hopptyper som Azure kan lägga till när du aktiverar olika funktioner är:
 
-|Source                 |Adressprefix                       |Nästa hopptyp|Undernät för virtuellt nätverk som vägen har lagts till i|
+|source                 |Adressprefix                       |Nexthop-typ|Undernät för virtuellt nätverk som vägen har lagts till i|
 |-----                  |----                                   |---------                    |--------|
-|Standard                |Unikt för det virtuella nätverket, till exempel: 10.1.0.0/16|VNet-peering                 |Alla|
+|Standard                |Unikt för det virtuella nätverket, till exempel: 10.1.0.0/16|VNET-peering                 |Alla|
 |Virtuell nätverksgateway|Prefix annonseras lokalt via BGP eller konfigureras i den lokala nätverksgatewayen     |Virtuell nätverksgateway      |Alla|
 |Standard                |Flera                               |VirtualNetworkServiceEndpoint|Endast undernätet en tjänstslutpunkt har aktiverats för.|
 
-* **Peering för virtuella nätverk (VNet)**: När du skapar en virtuell nätverkspeering mellan två virtuella nätverk läggs en väg till för varje adressintervall i adressutrymmet för varje virtuellt nätverk som en peering har skapats för. Läs mer om [virtuell nätverkspeering](virtual-network-peering-overview.md).<br>
+* **Peering för virtuella nätverk (VNet)** : När du skapar en virtuell nätverkspeering mellan två virtuella nätverk läggs en väg till för varje adressintervall i adressutrymmet för varje virtuellt nätverk som en peering har skapats för. Läs mer om [virtuell nätverkspeering](virtual-network-peering-overview.md).<br>
 * **Virtuell nätverksgateway**: En eller flera vägar med *virtuell nätverksgateway* angiven som nästa hopptyp läggs till när en virtuell nätverksgateway läggs till för ett virtuellt nätverk. Källan är också *virtuell nätverksgateway*eftersom gatewayen lägger till vägar till undernätet. Om din lokala nätverksgateway utbyter Border Gateway Protocol-vägar ([BGP](#border-gateway-protocol)) med en virtuell nätverksgateway i Azure läggs en väg till för varje väg som sprids från den lokala nätverksgatewayen. Vi rekommenderar att du sammanfattar lokala vägar till största möjliga adressområden, så att så få antal vägar som möjligt sprids till en virtuell nätverksgateway i Azure. Det finns begränsningar för hur många vägar du kan sprida till en virtuell nätverksgateway i Azure. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
 * **VirtualNetworkServiceEndpoint**: De offentliga IP-adresserna för vissa tjänster läggs till i routningstabellen av Azure när du aktiverar en tjänstslutpunkt för tjänsten. Tjänstslutpunkter aktiveras för enskilda undernät i ett virtuellt nätverk, så att vägen endast läggs till i routningstabellen för ett undernät som en tjänstslutpunkt är aktiverad för. Azure-tjänsters offentliga IP-adresser ändras regelbundet. Azure hanterar adresserna i routningstabellen automatiskt när adresserna ändras. Läs mer om [tjänstslutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md) och för vilka tjänster du kan skapa tjänstslutpunkter.<br>
 
@@ -103,17 +103,17 @@ Du kan inte ange **VNet-peering** eller **VirtualNetworkServiceEndpoint** son n�
 
 Namnet som visas och refereras för nästa hopptyper är olika för Azure-portalen och kommandoradsverktyg och Azure Resource Manager och klassiska distributionsmodeller. I följande tabell visas de namn som används för att referera till varje nästa hopptyp med olika verktyg och [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Nästa hopptyp                   |Azure CLI och PowerShell (Resource Manager) |Azures klassiska CLI och PowerShell (klassisk)|
+|Nexthop-typ                   |Azure CLI och PowerShell (Resource Manager) |Azures klassiska CLI och PowerShell (klassisk)|
 |-------------                   |---------                                       |-----|
 |Virtuell nätverksgateway         |VirtualNetworkGateway                           |VPNGateway|
 |Virtuellt nätverk                 |VNetLocal                                       |VNETLocal (inte tillgängligt i klassiska CLI i asm-läge)|
 |Internet                        |Internet                                        |Internet (inte tillgängligt i klassiska CLI i asm-läge)|
 |Virtuell installation               |VirtualAppliance                                |VirtualAppliance|
 |Ingen                            |Ingen                                            |Null (inte tillgängligt i klassiska CLI i asm-läge)|
-|Virtuell nätverkspeering         |VNet-peering                                    |Saknas|
-|Tjänstslutpunkt för virtuellt nätverk|VirtualNetworkServiceEndpoint                   |Saknas|
+|Virtuell nätverkspeering         |VNET-peering                                    |Inte tillämpligt|
+|Tjänstslutpunkt för virtuellt nätverk|VirtualNetworkServiceEndpoint                   |Inte tillämpligt|
 
-### <a name="border-gateway-protocol"></a>Border Gateway Protocol
+### <a name="border-gateway-protocol"></a>Border gateway protocol
 
 En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i Azure med BGP (Border Gateway Protocol). Användningen av BGP med en virtuell nätverksgateway i Azure beror på den typ du valde när du skapade gatewayen. Om den typ du valt var:
 
@@ -140,7 +140,7 @@ Om flera vägar innehåller samma adressprefix väljer Azure vägtyp utifrån f�
 Till exempel innehåller en routningstabell följande vägar:
 
 
-|Source   |Adressprefix  |Nästa hopptyp           |
+|source   |Adressprefix  |Nexthop-typ           |
 |---------|---------         |-------                 |
 |Standard  | 0.0.0.0/0        |Internet                |
 |Användare     | 0.0.0.0/0        |Virtuell nätverksgateway |
@@ -210,19 +210,19 @@ Pilarna visar trafikflödet.
 
 Routningstabellen för *Subnet1* på bilden innehåller följande vägar:
 
-|ID  |Source |Status  |Adressprefix    |Nästa hopptyp          |IP-adress till nästa hopp|Namn på användardefinierad väg| 
+|ID  |source |Status  |Adressprefix    |Nexthop-typ          |Nästa hopp-IP-adress|Namn på användardefinierad väg| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Standard|Ogiltigt|10.0.0.0/16         |Virtuellt nätverk        |                   |              |
+|1   |Standard|Ogiltig|10.0.0.0/16         |Virtuellt nätverk        |                   |              |
 |2   |Användare   |Aktiv |10.0.0.0/16         |Virtuell installation      |10.0.100.4         |Inom-VNet1  |
 |3   |Användare   |Aktiv |10.0.0.0/24         |Virtuellt nätverk        |                   |Inom-Subnet1|
-|4   |Standard|Ogiltigt|10.1.0.0/16         |VNet-peering           |                   |              |
-|5   |Standard|Ogiltigt|10.2.0.0/16         |VNet-peering           |                   |              |
+|4   |Standard|Ogiltig|10.1.0.0/16         |VNET-peering           |                   |              |
+|5   |Standard|Ogiltig|10.2.0.0/16         |VNET-peering           |                   |              |
 |6   |Användare   |Aktiv |10.1.0.0/16         |Ingen                   |                   |ToVNet2-1-Drop|
 |7   |Användare   |Aktiv |10.2.0.0/16         |Ingen                   |                   |ToVNet2-2-Drop|
-|8   |Standard|Ogiltigt|10.10.0.0/16        |Virtuell nätverksgateway|[X.X.X.X]          |              |
+|8   |Standard|Ogiltig|10.10.0.0/16        |Virtuell nätverksgateway|[X.X.X.X]          |              |
 |9   |Användare   |Aktiv |10.10.0.0/16        |Virtuell installation      |10.0.100.4         |Till lokalt    |
 |10  |Standard|Aktiv |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Standard|Ogiltigt|0.0.0.0/0           |Internet               |                   |              |
+|11  |Standard|Ogiltig|0.0.0.0/0           |Internet               |                   |              |
 |12  |Användare   |Aktiv |0.0.0.0/0           |Virtuell installation      |10.0.100.4         |Standard-NVA   |
 
 En förklaring av varje väg-ID följer:
@@ -244,11 +244,11 @@ En förklaring av varje väg-ID följer:
 
 Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 
-|Source  |Status  |Adressprefix    |Nästa hopptyp             |IP-adress till nästa hopp|
+|source  |Status  |Adressprefix    |Nexthop-typ             |Nästa hopp-IP-adress|
 |------- |-------|------              |-------                   |--------           
 |Standard |Aktiv |10.0.0.0/16         |Virtuellt nätverk           |                   |
-|Standard |Aktiv |10.1.0.0/16         |VNet-peering              |                   |
-|Standard |Aktiv |10.2.0.0/16         |VNet-peering              |                   |
+|Standard |Aktiv |10.1.0.0/16         |VNET-peering              |                   |
+|Standard |Aktiv |10.2.0.0/16         |VNET-peering              |                   |
 |Standard |Aktiv |10.10.0.0/16        |Virtuell nätverksgateway   |[X.X.X.X]          |
 |Standard |Aktiv |0.0.0.0/0           |Internet                  |                   |
 |Standard |Aktiv |10.0.0.0/8          |Ingen                      |                   |

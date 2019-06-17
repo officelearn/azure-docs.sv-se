@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545116"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-plattformen och OAuth 2.0-resurs för resursägarlösenord
@@ -41,7 +41,7 @@ Följande diagram visar ROPC flödet.
 
 ![ROPC flöde](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Begäran om auktorisering
+## <a name="authorization-request"></a>Begäran om godkännande
 
 ROPC flödet är en enskild begäran&mdash;den skickar klienten identifiering och användarens autentiseringsuppgifter till IDP: N och sedan ta emot tokens i utbyte. Klienten måste begära användarens e-postadress (UPN) och lösenord innan du gör det. Omedelbart efter en lyckad begäran bör klienten på ett säkert sätt att släppa användarens autentiseringsuppgifter från minnet. Du måste spara dem aldrig.
 
@@ -64,12 +64,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
-| `grant_type` | Krävs | Måste anges till `password`. |
-| `username` | Krävs | Användarens e-postadress. |
-| `password` | Krävs | Användarens lösenord. |
+| `tenant` | Obligatoriskt | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
+| `grant_type` | Obligatoriskt | Måste anges till `password`. |
+| `username` | Obligatoriskt | Användarens e-postadress. |
+| `password` | Obligatoriskt | Användarens lösenord. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. I en interaktiv flow, måste administratören eller användaren godkänner du dessa scope förbereds i förväg. |
 
 ### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar
@@ -108,7 +108,7 @@ Om användaren inte har angett rätt användarnamn eller lösenord eller om klie
 | `invalid_request` | Begäran konstruerades felaktigt | Beviljandetypen stöds inte på den `/common` eller `/consumers` kontexter för autentisering.  Använd `/organizations` i stället. |
 | `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen är inte inställd på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. ROPC stöds endast för offentliga klientappar. |
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 * Prova att använda ROPC själv med hjälp av den [exempelprogrammet konsolen](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935601"
 ---
-# <a name="concurrency-control"></a>Samtidighetskontroller
+# <a name="concurrency-control"></a>Samtidighetskontroll
 
 För varje anrop till Cloud Partner Portal publicera API: er måste uttryckligen ange vilken samtidighetsstrategi för att använda. Det gick inte att ange den **If-Match** rubrik resulterar i ett felsvar HTTP 400. Vi erbjuder två olika metoder för samtidighetskontroll.
 

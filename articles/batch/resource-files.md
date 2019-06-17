@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
 ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65405645"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
@@ -80,7 +80,7 @@ Genom att använda ett länkat storage-konto kan behöver du inte skapa och konf
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
 
-### <a name="web-endpoint"></a>Web-slutpunkt
+### <a name="web-endpoint"></a>Webbslutpunkt
 
 Data som inte har överförts till Azure Storage kan användas för att skapa resursfiler. Du kan ange en giltig HTTP-URL som innehåller dina indata. URL: en har angetts för Batch-API: et och sedan data används för att skapa en resursfil.
 

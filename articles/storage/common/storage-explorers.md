@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138563"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
@@ -28,11 +28,11 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga blob</th>
+    <th rowspan="2">Bifoga Blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
-    <th rowspan="2">Kostnadsfri</th>
+    <th rowspan="2">Lediga</th>
     <th colspan="4">Plattform</th>
   </tr>
   <tr>
@@ -94,11 +94,11 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga blob</th>
+    <th rowspan="2">Bifoga Blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
-    <th rowspan="2">Kostnadsfri</th>
+    <th rowspan="2">Lediga</th>
     <th colspan="4">Plattform</th>
   </tr>
   <tr>

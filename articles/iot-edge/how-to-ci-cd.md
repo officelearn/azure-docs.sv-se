@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61222057"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
@@ -47,7 +47,7 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
 >
 >Mer information finns i [skapa en build-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Logga in på din Azure DevOps-organisation (**https:\//dev.azure.com/{your organisation} /**) och öppna projektet som innehåller din lagringsplats för IoT Edge-lösning.
+1. Logga in på din Azure DevOps-organisation (**https:\//dev.azure.com/{your organisation} /** ) och öppna projektet som innehåller din lagringsplats för IoT Edge-lösning.
 
    För den här artikeln har vi skapat en databas som heter **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har kod för en modul med namnet **filtermodule**. 
 
@@ -77,7 +77,7 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
     
      ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
 
-5. Din pipeline är förkonfigurerad med ett jobb som heter **agentjobbet 1**. Klicka på plustecknet (**+**) att lägga till tre uppgifter i jobbet: **Azure IoT Edge** två gånger, och **publicera skapa artefakter** när. (Håll muspekaren över namnet på varje uppgift att se den **Lägg till** knappen.)
+5. Din pipeline är förkonfigurerad med ett jobb som heter **agentjobbet 1**. Klicka på plustecknet ( **+** ) att lägga till tre uppgifter i jobbet: **Azure IoT Edge** två gånger, och **publicera skapa artefakter** när. (Håll muspekaren över namnet på varje uppgift att se den **Lägg till** knappen.)
 
    ![Lägg till Azure IoT Edge-aktivitet](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
 
    * **Visningsnamn**: Acceptera standardvärdet **Azure IoT Edge - Build-modulen avbildningar**.
    * **Åtgärd**: Acceptera standardvärdet **skapa modulen avbildningar**. 
-   * **. filen template.json**: Välj ellipsen (**...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
+   * **. filen template.json**: Välj ellipsen ( **...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
    * **Standard-plattformen**: Välj lämplig plattform för dina moduler baserat på målet IoT Edge-enhet. 
    * **Utdata variabler**: Variablerna utdata innehåller en referensnamn som du kan använda för att konfigurera sökvägen till filen där deployment.json filen kommer att genereras. Ange referensnamnet på något egen som **edge**. 
 
@@ -98,7 +98,7 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
    * **Visningsnamn**: Visningsnamnet uppdateras automatiskt när fältet åtgärd ändras. 
    * **Åtgärd**: Använd listrutan för att välja **skicka modulen avbildningar**. 
    * **Behållaren registertyp**: Välj typ av behållarregister som används för att lagra dina avbildningar för modulen. Beroende på vilken typ av registret som du använder, formuläret ändras. Om du väljer **Azure Container Registry**, Använd listrutorna för att välja Azure-prenumeration och namnet på ditt behållarregister. Om du väljer **allmän Behållarregister**väljer **New** att skapa en anslutning för registry-tjänsten. 
-   * **. filen template.json**: Välj ellipsen (**...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
+   * **. filen template.json**: Välj ellipsen ( **...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
    * **Standard-plattformen**: Välj samma plattform som bilderna inbyggd modul.
 
    Om du har flera behållarregister som värd för dina modul-avbildningar, måste du duplicera den här uppgiften, Välj olika behållarregister och använda **kringgå modulen eller modulerna** i avancerade inställningar för att kringgå de avbildningar som inte är för detta specifika register.
@@ -152,7 +152,7 @@ Skapa en ny pipeline och konfigurera sin första steget för kvalitet assurance 
 
 8. I steget QA du bör se en standard **agentjobbet**. Du kan konfigurera information om agent-jobbet, men aktiviteten distribution är skiftlägesokänsligt plattform så att du kan använda antingen **finns VS2017** eller **finns Ubuntu 1604** i den **agentpoolen**(eller andra agent som hanteras av dig själv). 
 
-9. Klicka på plustecknet (**+**) att lägga till en aktivitet. Sök efter och lägga till **Azure IoT Edge**. 
+9. Klicka på plustecknet ( **+** ) att lägga till en aktivitet. Sök efter och lägga till **Azure IoT Edge**. 
 
     ![Lägg till aktiviteter för QA](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -210,7 +210,7 @@ Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för 
 
 3. Välj build-jobb kan du titta på förloppet. Om build pipelinen har slutförts, utlöser en version till **QA** steg. 
 
-    ![Arbetsversionsloggar](./media/how-to-ci-cd/build-logs.png)
+    ![Skapa loggar](./media/how-to-ci-cd/build-logs.png)
 
 4. Distributionen till **QA** steget utlöser en avisering till godkännaren. Kontrollera att modulerna som har distribuerats på enheten eller enheter som du har valt med QA-steg. Gå sedan för att frigöra pipeline och ge godkännande för versionen att gå till PROD steg genom att välja den **PROD** och sedan välja **Godkänn**. 
 

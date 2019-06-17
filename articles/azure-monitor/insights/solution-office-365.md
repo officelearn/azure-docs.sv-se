@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: bwren
 ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357580"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
@@ -25,7 +25,7 @@ ms.locfileid: "66357580"
 
 
 > [!NOTE]
-> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera den [Office 365-anslutning](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) istället för att använda stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösning med en förbättrad konfigurationsupplevelse. Om du vill ansluta Azure AD-loggar den [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md), vilket ger bättre loggdata än Office 365-management-loggar. 
+> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera den [Office 365-anslutning](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) istället för att använda stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösning med en förbättrad konfigurationsupplevelse. Vill du ansluta Azure AD-loggar använder du [anslutningsprogrammet för Azure Sentinel Azure AD](../../sentinel/connect-azure-active-directory.md), som ger bättre loggdata än Office 365-hanteringsloggar. 
 >
 > När du [Sentinel-publicera Azure](../../sentinel/quickstart-onboard.md), ange Log Analytics-arbetsytan som du vill installerad i Office 365-lösning. När du har aktiverat kopplingen lösningen blir tillgängliga i arbetsytan och används likadant som andra övervakningslösningar som du har installerat.
 >
@@ -541,7 +541,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 | Egenskap | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Typ | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Åtgärd | Namnet på användarens eller administratörens aktivitet.  |

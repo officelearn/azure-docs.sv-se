@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832598"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
@@ -53,7 +53,7 @@ Mer information om specifika kvoter, gränser och funktioner som är tillgängli
 
 ### <a name="quota-enforcement"></a>Kvoter
 
-Om en app överskrider den *CPU (kort)*, *CPU (dag)*, eller *bandbredd* kvoten appen stoppas tills kvoten återställs. Alla inkommande begäranden resultera i ett HTTP 403-fel under denna tid.
+Om en app överskrider den *CPU (kort)* , *CPU (dag)* , eller *bandbredd* kvoten appen stoppas tills kvoten återställs. Alla inkommande begäranden resultera i ett HTTP 403-fel under denna tid.
 
 ![403 felmeddelande][http403]
 

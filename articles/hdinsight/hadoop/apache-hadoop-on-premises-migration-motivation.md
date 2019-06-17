@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058559"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
 
@@ -21,7 +21,7 @@ Den här artikeln är den första i en serie på Metodtips för att migrera loka
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Varför ska man migrera till Azure HDInsight
 
-Azure HDInsight är en molndistribution av Hadoop-komponenterna från den [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. HDInsight omfattar de populäraste ramverken med öppen källkod som:
+Azure HDInsight är en molndistribution av Hadoop-komponenter. Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. HDInsight omfattar de populäraste ramverken med öppen källkod som:
 
 - Apache Hadoop
 - Apache Spark
@@ -90,14 +90,13 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 | **Fråga** | **Exempel** | **Svar** |
 |---|---|---|
 |**avsnittet**: **Miljö**|||
-|Typ av kluster-Distribution|Hortonworks, Cloudera, MapR| |
 |Klusterversion för Distribution|HDP 2.6.5, CDH 5.7|
 |Big Data-ekosystemet-komponenter|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Klustertyper|Hadoop, Spark, konfluenta Kafka, Storm, Solr|
 |Antalet kluster|4|
-|Antalet noder för Master|2|
-|Antalet Arbetsnoder|100|
-|Antal Kantnoder| 5|
+|Antalet överordnade noder|2|
+|Antalet arbetsnoder|100|
+|Antal kantnoder| 5|
 |Totalt diskutrymme|100 TB|
 |Master nodkonfiguration|m/y, cpu, disk, osv.|
 |Konfiguration för noder|m/y, cpu, disk, osv.|
@@ -148,7 +147,7 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |Tillväxttakt för data|10% per år||
 |Tillväxttakt för kluster-noder|5% per år
 |**avsnittet**: **Klusteranvändning**|||
-|Den genomsnittliga CPU % använt|60 %||
+|Den genomsnittliga CPU % använt|60%||
 |Genomsnittligt minne-% använt|75%||
 |Använt diskutrymme|75%||
 |Den genomsnittliga nätverk % använt|25 %
@@ -156,7 +155,7 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |Nej. för administratörer|2||
 |Nej. för utvecklare|10||
 |Nej. för slutanvändare|100||
-|Färdigheter|Hadoop, Spark||
+|Kunskaper|Hadoop, Spark||
 |Nej. tillgängliga resurser för migrering arbete|2||
 |**avsnittet**: **Begränsningar**|||
 |Aktuella begränsningar|Svarstiden är hög||
@@ -167,7 +166,7 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |**avsnittet**: **Infrastruktur** |||
 |---|---|---|
 |**Fråga**|**Exempel**|**Svar**|
-| Önskad region|USA, Östra||
+| Önskad Region|USA, Östra||
 |Virtuellt nätverk rekommenderas?|Ja||
 |HA / DR behövs?|Ja||
 |Integrering med andra molntjänster?|ADF, CosmosDB||
@@ -199,7 +198,6 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |Dela metastores mellan olika kluster?|Ja||
 |Bryta arbetsbelastningar?|Ersätt Hive-jobb med Spark-jobb||
 |Använda ADF för datadirigering?|Nej||
-|HDInsight vs Hortonworks Data Platform på IaaS?|HDInsight||
 
 ## <a name="next-steps"></a>Nästa steg
 

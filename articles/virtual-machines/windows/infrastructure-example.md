@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60540410"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exempel-guide för Windows-datorer på Azure-infrastrukturen
@@ -55,8 +55,8 @@ Alla ovanstående följer du dessa namngivningsregler:
 * Adventure Works Cycles använder **[IT arbetsbelastning]-[plats]-[Azure-resurs]** som ett prefix
   * I det här exemplet ”**azos**” (Azure Online Store) är namnet för IT-arbetsbelastning och ”**använder**” (östra USA 2) är platsen
 * Virtuella nätverk använder AZOS-användning – VN **[antal]**
-* Tillgänglighetsuppsättningar använder azos-Använd-som-**[roll]**
-* Namn på virtuella datorer använda azos-Använd-vm -**[vmname]**
+* Tillgänglighetsuppsättningar använder azos-Använd-som- **[roll]**
+* Namn på virtuella datorer använda azos-Använd-vm - **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-prenumerationer och konton
 Adventure Works Cycles använder sin Enterprise-prenumeration med namnet Adventure Works Enterprise-prenumeration för att tillhandahålla faktureringen för den här arbetsbelastningen för IT.

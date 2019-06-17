@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449498"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
@@ -103,7 +103,7 @@ Skapa ett Azure Stream Analytics-jobb för att strömma data från IoT hub till 
 
 1. Välj Data Lake Store-kontot som du skapade i föregående steg och ange mappstrukturen att sända data till arkivet.
 
-1. Ange i fältet datum format **/streaming/ {date} / {time}**. Lämna standarddatumformatet åååå/MM/DD- och tidsformat hh.
+1. Ange i fältet datum format **/streaming/ {date} / {time}** . Lämna standarddatumformatet åååå/MM/DD- och tidsformat hh.
 
     ![Ange mappstruktur](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
@@ -154,7 +154,7 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
 1. Ange anpassad tid att gå tillbaka ett par timmar för att hämta data från när enheten har startats för direktuppspelning.
 
-1. Klicka på **Starta**.
+1. Klicka på **Start**.
 
     ![Välj anpassat datum](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

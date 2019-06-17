@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 25ed9cb624474d5da56d385f4e9c155918ec8eab
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428331"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhetsprinciper som övervakas av Security Center
@@ -79,7 +79,7 @@ Mer om de inbyggda principer som övervakas av Security Center finns i följande
 |\[Förhandsversion]: Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Inaktuella konton som har ägarbehörighet bör tas bort från prenumerationen. Inaktuella konton har blockerats från att logga in.|
 |\[Förhandsversion]: Bör ta bort inaktuella konton från prenumerationen|Inaktuella konton bör tas bort från dina prenumerationer. Inaktuella konton har blockerats från att logga in.|
 |\[Förhandsversion]: Externa konton med ägarbehörigheter som ska tas bort från prenumerationen|Externa konton som har ägarbehörighet ska tas bort från din prenumeration för att förhindra åtkomst av behörigheter.|
-|\[Förhandsversion]: Externa konton med write behörigheter ska tas bort från prenumerationen|Externa konton som har Skriv behörigheter ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
+|\[Förhandsversion]: Externa konton med skrivbehörigheter bör tas bort från prenumerationen|Externa konton som har Skriv behörigheter ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
 |\[Förhandsversion]: Bör ta bort externa konton med läsbehörigheter från prenumerationen|Externa konton som har läsbehörighet ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
 
 

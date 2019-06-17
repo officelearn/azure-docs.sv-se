@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683178"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-satser som kör arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
@@ -45,7 +45,7 @@ Anta exempelvis att du vill att en logikapp som tar olika steg baserat på ett a
 
 1. Det här exemplet lägger till ett switch-instruktionen i slutet din Exempelarbetsflöde. Efter det sista steget, välja **nytt steg**.
 
-   När du vill lägga till ett switch-instruktionen mellan stegen muspekaren på pilen där du vill lägga till switch-instruktionen. Välj den **plustecknet** (**+**) som visas, välj sedan **Lägg till en åtgärd**.
+   När du vill lägga till ett switch-instruktionen mellan stegen muspekaren på pilen där du vill lägga till switch-instruktionen. Välj den **plustecknet** ( **+** ) som visas, välj sedan **Lägg till en åtgärd**.
 
 1. I sökrutan anger du ”byta” som filter. Välj den här åtgärden: **Switch - kontroll**
 

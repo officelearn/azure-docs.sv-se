@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60539187"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
@@ -56,7 +56,7 @@ Kodexempel som demonstrerar användningen av Translator Speech API är tillgäng
 
 Hämta /speech/translate Establishes en session för talöversättning
 
-### <a name="connecting"></a>Ansluter
+### <a name="connecting"></a>Ansluta
 Granska listan över parametrar som anges senare i det här avsnittet innan du ansluter till tjänsten. En exempelbegäran är:
 
 `GET wss://dev.microsofttranslator.com/speech/translate?from=en-US&to=it-IT&features=texttospeech&voice=it-IT-Elsa&api-version=1.0`
@@ -169,11 +169,11 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:---|:---|:---|:---|:---|
 |API-versionen|1.0|Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|DocumentDB   |string|
-|från|(tom)   |Anger språket inkommande tal. Värdet är en av de språk som identifierarna från den `speech` omfång i svaret från språk-API: et.|DocumentDB|string|
+|from|(tom)   |Anger språket inkommande tal. Värdet är en av de språk som identifierarna från den `speech` omfång i svaret från språk-API: et.|DocumentDB|string|
 |till|(tom)|Anger de språk för att översätta den transkriberade texten till. Värdet är en av de språk som identifierarna från den `text` omfång i svaret från språk-API: et.|DocumentDB|string|
 |funktioner|(tom)   |CSV-uppsättning funktioner som markerats av klienten. Tillgängliga funktioner:<ul><li>`TextToSpeech`: Anger att tjänsten måste returnera översatta ljudet från den sista översatta meningen.</li><li>`Partial`: Anger att tjänsten måste returnera mellanliggande resultat när ljudet strömmar till tjänsten.</li><li>`TimingInfo`: Anger att tjänsten måste returnera tidsinformation som är associerade med varje av.</li></ul>Exempelvis kan en klient anger `features=partial,texttospeech` att ta emot ofullständiga resultat och text till tal, men inga tidsinformation. Observera att strömmas alltid slutliga resultaten till klienten.|DocumentDB|string|
 |voice|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|DocumentDB|string|
-|Format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|DocumentDB|string|
+|format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|DocumentDB|string|
 |ProfanityAction    |(tom)    |Anger hur tjänsten ska hantera profanities som identifieras i tal. Giltiga åtgärder är:<ul><li>`NoAction`: Profanities lämnas skick.</li><li>`Marked`: Profanities ersätts med en markör. Se `ProfanityMarker` parametern.</li><li>`Deleted`: Profanities tas bort. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a .".`</li></ul>Standardvärdet är markerat.|DocumentDB|string|
 |ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av ett olämpligt språk XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|DocumentDB|string|
 |Auktorisering|(tom)  |Anger värdet för klientens ägartoken. Använd prefixet `Bearer` följt av värdet för den `access_token` värdet som returneras av token authentication-tjänsten.|sidhuvud   |string|
@@ -187,10 +187,10 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
-|HTTP-statuskod|Orsak|Responsmodell|Rubriker|
+|HTTP-statuskod|Reason|Responsmodell|Rubriker|
 |:--|:--|:--|:--|
 |101    |WebSocket-uppgraderingen.|Modellen exempelvärde <br/> Objekt {}|X-RequestId<br/>Ett värde som identifierar begäran för felsökning.<br/>string|
 |400    |Felaktig begäran. Kontrollera indataparametrarna för att säkerställa att de är giltiga. Objektet response innehåller en detaljerad beskrivning av felet.|||
-|401    |Ej auktoriserad. Kontrollera att autentiseringsuppgifterna är inställda att de är giltiga och att din Azure Data marknaden prenumeration är i gott med en tillgänglig balans.|||
+|401    |Obehörig. Kontrollera att autentiseringsuppgifterna är inställda att de är giltiga och att din Azure Data marknaden prenumeration är i gott med en tillgänglig balans.|||
 |500    |Ett fel uppstod. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|||
 |503    |Servern är inte tillgänglig för tillfället. Försök med förfrågan. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|||

@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412820"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsök en app i Azure App Service med Visual Studio
@@ -684,7 +684,7 @@ Dessutom behöver du inte använder ASP.NET eller `System.Diagnostics` spårning
 Mer information om att analysera webbserverloggar finns i följande resurser:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Ett verktyg för att visa data i webbserverloggar (*.log* filer).
+  Ett verktyg för att visa data i webbserverloggar ( *.log* filer).
 * [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till verktyget Parser för loggar som du kan använda för att analysera webbserverloggar.
 * [Blogginlägg av Robert McMurray om hur du använder LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

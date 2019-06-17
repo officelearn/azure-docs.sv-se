@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167333"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
@@ -251,7 +251,7 @@ I den **auktorisering** avsnittet, innehåller den här raden:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Element | Krävs | Beskrivning | 
+| Element | Obligatoriskt | Beskrivning | 
 | ------- | -------- | ----------- | 
 | type | Ja | Den autentiseringstyp som du vill använda. För grundläggande autentisering, värdet måste vara `Basic`. | 
 | username | Ja | Det användarnamn som du vill använda för autentisering | 

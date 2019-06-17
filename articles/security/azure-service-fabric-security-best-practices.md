@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611526"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric-säkerhetsmetoder
@@ -139,10 +139,10 @@ Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
 -   Certifikatets ämnesnamn måste matcha det domännamn som används för att få åtkomst till din molntjänst.
 
     - Hämta ett anpassat domännamn för åtkomst till din molntjänst.
-    - Begära ett certifikat från en Certifikatutfärdare med ett ämnesnamn som matchar eget domännamn för din tjänst. Exempel: om ditt domännamn är __contoso__**.com**, certifikatet från Certifikatutfärdaren måste ha namnet på certifikatmottagaren **. contoso.com** eller __www__ **. contoso.com**.
+    - Begära ett certifikat från en Certifikatutfärdare med ett ämnesnamn som matchar eget domännamn för din tjänst. Exempel: om ditt domännamn är __contoso__ **.com**, certifikatet från Certifikatutfärdaren måste ha namnet på certifikatmottagaren **. contoso.com** eller __www__ **. contoso.com**.
 
     >[!NOTE]
-    >Du kan inte hämta ett SSL-certifikat från en Certifikatutfärdare för den __cloudapp__**.net** domän.
+    >Du kan inte hämta ett SSL-certifikat från en Certifikatutfärdare för den __cloudapp__ **.net** domän.
 
 -   Certifikatet måste använda minst 2 048-bitarskryptering.
 

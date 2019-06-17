@@ -9,14 +9,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 06/20/2018
-ms.date: 12/31/2018
-ms.author: v-yiso
+ms.date: 06/20/2018
+ms.author: apimpm
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123475"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala automatiskt en Azure API Management-instans  
@@ -84,7 +83,7 @@ Följ stegen nedan för att konfigurera automatisk skalning för en Azure API Ma
     | Varaktighet (i minuter) | 30                | Timespan att ta medelvärdet kapacitet måttet över är specifik för användningsmönster. Ju längre tidsperioden är, desto jämnare reaktionen kommer att – tillfälliga toppar har mindre effekt på skalbarhet beslutet. Men fördröjs så också skalbar utlösaren. |
     | *Åtgärd*              |                   |                                                                                                                                                                                                                                                                                 |
     | Åtgärd             | Öka antal med |                                                                                                                                                                                                                                                                                 |
-    | Antal instanser        | 1                 | Skala ut Azure API Management-instans av 1 enhet.                                                                                                                                                                                                                          |
+    | Instansantal        | 1                 | Skala ut Azure API Management-instans av 1 enhet.                                                                                                                                                                                                                          |
     | Väntetid (minuter)   | 60                | Det tar minst 20 minuter för tjänsten Azure API Management att skala ut. I de flesta fall förhindrar lågfrekvent nedåt i 60 minuter utlösa många skala ta.                                                                                                  |
 
 8. Klicka på **Lägg till** spara regeln.
@@ -111,7 +110,7 @@ Följ stegen nedan för att konfigurera automatisk skalning för en Azure API Ma
     | Varaktighet (i minuter) | 30                | Samma värde som det som används för att skala ut regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Åtgärd*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Åtgärd             | Minska antal med | Motsatt vad användes för att skala ut regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | Antal instanser        | 1                 | Samma värde som det som används för att skala ut regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Instansantal        | 1                 | Samma värde som det som används för att skala ut regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Väntetid (minuter)   | 90                | Skala in bör vara konservativ mer än en skala ut, så lågfrekvent ned period får vara längre.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 11. Klicka på **Lägg till** spara regeln.

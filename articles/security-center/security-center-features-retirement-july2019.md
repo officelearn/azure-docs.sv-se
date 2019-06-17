@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952135"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Tillbakadragning av Security Center-funktioner (juli 2019)
@@ -100,7 +100,7 @@ Vi ska ta bort den **går du till händelser säkerhetskarta** knappen och instr
 
 När du väljer den **går du till händelser säkerhetskarta** knappen du öppnar instrumentpanelen för hotinformation. Vi ska pensionera instrumentpanelen för hotinformation.  
 
-![Instrumentpanelen för hotinformation][11]
+![Instrumentpanelen Hotinformation][11]
 
 När du väljer en arbetsyta för att visa dess instrumentpanel för hotinformation kan öppna du skärmen security aviseringar karta (förhandsgranskning) i Log Analytics. Vi ska pensionera den här skärmen.
 
@@ -164,7 +164,7 @@ Azure Security Center övervakar säkerhetskonfigurationer genom att använda en
 
 Vi ska pensionera den här funktionen för förhandsgranskning. Om du vill återställa din säkerhetskonfigurationer till sina standardvärden för efter datumet för tillbakadragandet kan du göra det via API eller Powershell med hjälp av den [instruktioner](https://aka.ms/ascresetsecurityconfigurations)
 
-![Redigera säkerhetskonfigurationer][17]
+![Redigera säkerhetskonfigurationerna][17]
 
 ### <a name="edit-security-configurations---the-new-experience"></a>Redigera säkerhetskonfigurationerna – den nya upplevelsen
 

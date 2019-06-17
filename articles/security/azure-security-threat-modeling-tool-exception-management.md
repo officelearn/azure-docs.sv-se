@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610700"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Security ram: Hantering av undantag | Åtgärder 
@@ -30,7 +30,7 @@ ms.locfileid: "60610700"
 
 ## <a id="servicedebug"></a>WCF - Ange inte serviceDebug noden i konfigurationsfilen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -54,7 +54,7 @@ Inaktivera felsökningsinformation i tjänsten. Detta kan åstadkommas genom att
 
 ## <a id="servicemetadata"></a>WCF - Ange inte serviceMetadata noden i konfigurationsfilen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -65,7 +65,7 @@ Inaktivera felsökningsinformation i tjänsten. Detta kan åstadkommas genom att
 
 ## <a id="exception"></a>Se till att rätt undantagshantering görs i ASP.NET Web API
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -183,7 +183,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="messages"></a>Visa inte information om säkerhet i felmeddelanden
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -194,7 +194,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="default"></a>Implementera standard sidan för felhantering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -205,7 +205,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="deployment"></a>Ange metod för distribution till fullversion i IIS
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Distribution |  
@@ -216,7 +216,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="fail"></a>Undantag bör inte fungera på ett säkert sätt
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  

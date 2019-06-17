@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544491"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera en lokal datagateway för Azure Logic Apps
@@ -430,7 +430,7 @@ Här följer andra platser där du hittar flera loggar:
 Följ dessa steg för att hitta händelseloggarna för gatewayen:
 
 1. På datorn där gateway-installationen, öppnar den **Loggboken**. 
-2. Expandera **Loggboken (lokal)** > **applikationer och tjänsteloggar**. 
+2. Expandera **Loggboken (lokal)**  > **applikationer och tjänsteloggar**. 
 3. Välj **lokala datagatewaytjänsten**.
 
    ![Visa händelseloggar för gateway](./media/logic-apps-gateway-install/event-viewer.png)

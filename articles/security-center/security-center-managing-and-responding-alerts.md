@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235762"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
 
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
+> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
 >
 >
 
@@ -39,7 +39,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 >
 
 ## <a name="managing-security-alerts"></a>Hantera säkerhetsaviseringar
-Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Nedan beskrivs hur du gör för att se mer information om de olika aviseringarna.
+Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)** . Nedan beskrivs hur du gör för att se mer information om de olika aviseringarna.
 
 1. På instrumentpanelen i Security Center hittar du panelen **Säkerhetsaviseringar**.
 

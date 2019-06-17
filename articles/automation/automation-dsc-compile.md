@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919808"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
@@ -41,7 +41,7 @@ När du har valt en metod för kompilering, Använd följande procedurer för at
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Kompilera en DSC-konfiguration med Azure portal
 
-1. Från ditt Automation-konto klickar du på **tillståndskonfiguration (DSC)**.
+1. Från ditt Automation-konto klickar du på **tillståndskonfiguration (DSC)** .
 1. Klicka på den **konfigurationer** och klicka sedan på på Konfigurationsnamnet ska kompileras.
 1. Klicka på **Kompilera**.
 1. Om konfigurationen har inga parametrar, uppmanas att bekräfta om du vill använda den. Om konfigurationen har parametrar, den **kompilera konfigurationen** öppnas bladet så att du kan ange parametervärden. Se följande [ **grundläggande parametrar** ](#basic-parameters) avsnitt finns mer information om parametrar.

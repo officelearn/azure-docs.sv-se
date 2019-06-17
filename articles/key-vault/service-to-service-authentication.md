@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722468"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET
@@ -177,7 +177,7 @@ Du använder ett certifikat för att logga in på Azure AD:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Ersätt *{AppId}*, *{TenantId}*, och *{Thumbprint}* med värden som skapades i steg 1. Ersätt *{CertificateStore}* med antingen `LocalMachine` eller `CurrentUser`, baserat på din distributionsplan.
+    Ersätt *{AppId}* , *{TenantId}* , och *{Thumbprint}* med värden som skapades i steg 1. Ersätt *{CertificateStore}* med antingen `LocalMachine` eller `CurrentUser`, baserat på din distributionsplan.
 
 4. Kör appen. 
 
@@ -191,7 +191,7 @@ Om du vill logga in med en Azure delad AD hemlig autentiseringsuppgifter:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Ersätt _{AppId}_, _{TenantId}_, och _{ClientSecret}_ med värden som skapades i steg 1.
+    Ersätt _{AppId}_ , _{TenantId}_ , och _{ClientSecret}_ med värden som skapades i steg 1.
 
 3. Kör appen. 
 
@@ -205,7 +205,7 @@ Du kontrollerar processen genom att använda en anslutningssträng som skickas t
 
 Följande alternativ stöds:
 
-| Anslutningen&nbsp;sträng&nbsp;alternativet | Scenario | Kommentarer|
+| Anslutningen&nbsp;sträng&nbsp;alternativet | Scenario | Kommentar|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokal utveckling | AzureServiceTokenProvider använder AzureCli för att hämta token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokal utveckling | AzureServiceTokenProvider använder Visual Studio för att hämta token. |

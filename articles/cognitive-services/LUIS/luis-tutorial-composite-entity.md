@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073693"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
@@ -93,7 +93,7 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
     ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. I **vilken typ av enhet vill du skapa?**, alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
+1. I **vilken typ av enhet vill du skapa?** , alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
 
     ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
 ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822620"
 ---
 # <a name="available-event-hubs-apis"></a>Tillgängliga Event Hubs API: er
@@ -36,7 +36,7 @@ Läs mer om aktuell status för varje runtime-bibliotek, [ytterligare informatio
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | Gäller inte |
 | Java | [Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| Node | [NPM](https://www.npmjs.com/package/azure-event-hubs) | Gäller inte | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
+| Nod | [NPM](https://www.npmjs.com/package/azure-event-hubs) | Gäller inte | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | Gäller inte | Gäller inte | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
 ### <a name="additional-information"></a>Ytterligare information
@@ -45,7 +45,7 @@ Läs mer om aktuell status för varje runtime-bibliotek, [ytterligare informatio
 
 .NET-ekosystem har flera körningar, så det finns flera .NET-bibliotek för Event Hubs. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Mer information om .NET Framework-versioner finns i [ramverksversioner](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
-#### <a name="node"></a>Node
+#### <a name="node"></a>Nod
 
 Den [Node.js-bibliotek](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) är för närvarande i förhandsversion och underhålls som ett sida-projekt av Microsoft-anställda och externa deltagare. Alla bidrag inklusive källkoden är välkomna och kommer att granskas.
 

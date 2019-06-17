@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646715"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services-valv med hjälp av REST API
@@ -27,7 +27,7 @@ Använd följande för att skapa eller uppdatera ett Azure Recovery Services-val
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
-## <a name="create-a-request"></a>Skapa en förfrågan
+## <a name="create-a-request"></a>Skapa en begäran
 
 Att skapa den *PLACERA* begäran, den `{subscription-id}` parametern är obligatorisk. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med den `api-version` parametern. Den här artikeln använder `api-version=2016-06-01`.
 
@@ -36,7 +36,7 @@ Följande huvuden krävs:
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
 | *Content-Type:*  | Krävs. Ange `application/json`. |
-| *Auktorisering:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Mer information om hur du skapar begäran finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -44,13 +44,13 @@ Mer information om hur du skapar begäran finns i [komponenterna i en REST API-b
 
 Följande vanliga definitioner används för att skapa en brödtext i begäran:
 
-|Namn  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Valfritt eTag       |
 |location     |  true       |String         |   Resursplats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifierar unika system-identifieraren för varje Azure-resurs     |
-|tags     |         | Object        |     Resurstaggar    |
+|taggar     |         | Object        |     Resurstaggar    |
 
 Observera att valvnamnet och resursgruppens namn anges i PUT URI. Begärandetexten definierar platsen.
 
@@ -68,7 +68,7 @@ Följande exempel brödtext används för att skapa ett valv i ”USA, västra�
 }
 ```
 
-## <a name="responses"></a>Svar
+## <a name="responses"></a>Responses
 
 Det finns två lyckades för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 

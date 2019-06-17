@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845331"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Använd StorSimple Snapshot Manager-gränssnittet för att hantera säkerhetskopieringsjobb och säkerhetskopieringskatalogen
@@ -340,7 +340,7 @@ I följande tabell beskrivs de nycklar som du kan använda för att navigera Sto
 | Navigering nyckel | Åtgärd |
 |:--- |:--- |
 | NEDPIL |Använd nedåtpilen för att flytta lodrätt till nästa objekt i en meny eller fönstret. |
-| Retur |Tryck på RETUR för att slutföra en åtgärd och sedan fortsätta till nästa steg. Du kan till exempel trycka på RETUR för att välja **nästa**, **OK**, eller **skapa**, och gå sedan till nästa steg i en guide. |
+| Ange |Tryck på RETUR för att slutföra en åtgärd och sedan fortsätta till nästa steg. Du kan till exempel trycka på RETUR för att välja **nästa**, **OK**, eller **skapa**, och gå sedan till nästa steg i en guide. |
 | Esc |Tryck på ESC för att stänga en meny, eller för att avbryta och stänga en sida. |
 | F1 |Tryck på F1 för att visa ett hjälpavsnitt för det aktiva fönstret. |
 | F5 |Tryck på F5 för att uppdatera en nod. |

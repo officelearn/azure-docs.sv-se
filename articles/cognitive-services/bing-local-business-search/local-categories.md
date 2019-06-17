@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796734"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök i kategorier för den lokala företag i Bing
@@ -26,7 +26,7 @@ Lokala företag sökning i Bing kan du söka efter lokala affärsentiteter i oli
 Följande typer definiera huvudkategorierna av search.  Mer än en kategori kan anges med hjälp av en kommaavgränsad lista som tilldelats den `localCategories` parametern.  
 - EatDrink 
 - SeeDo 
-- Butik 
+- Leta 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Parkera 
@@ -66,7 +66,7 @@ Underkategorier skickas på samma sätt som `localCategories`. Underkategorier f
 | MovieTheaters | Museer | Parker |
 | SightseeingTours | TouristInformation | Djurparker |
  
-### <a name="shop"></a>Butik 
+### <a name="shop"></a>Leta 
 |  |  |  |
 | -- | -- | -- |
 | AntiqueStores | Bokhandeln | CDAndRecordStores |

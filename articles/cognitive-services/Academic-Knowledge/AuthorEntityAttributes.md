@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609746"
 ---
 # <a name="author-entity"></a>Redigera entitet
@@ -22,12 +22,12 @@ ms.locfileid: "60609746"
 
 Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Enhets-id                              |Int64      |Lika med
+Id      |Entitets-ID                              |Int64      |Lika med
 AuN     |Författarens normaliserade namn                 |String     |Lika med
-DAuN    |Redigera visningsnamn                    |String     |inga
-Kopia      |Antalet för författare totala källhänvisningar            |Int32      |inga  
-ECC     |Antalet för författare totala uppskattade källhänvisningar  |Int32      |inga
-E       |Utökade metadata (se tabellen ”utökade metadata attribut”)  |String     |inga  
+DAuN    |Redigera visningsnamn                    |String     |Ingen
+CC      |Antalet för författare totala källhänvisningar            |Int32      |Ingen  
+ECC     |Antalet för författare totala uppskattade källhänvisningar  |Int32      |Ingen
+E       |Utökade metadata (se tabellen ”utökade metadata attribut”)  |String     |Ingen  
 
 
 ## <a name="extended-metadata-attributes"></a>Utökade attribut Metadata ##

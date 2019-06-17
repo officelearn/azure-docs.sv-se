@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700472"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
@@ -39,7 +39,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 
 1. Välj **+ skapa en resurs** > **nätverk** > **virtuellt nätverk**.
 2. Ange eller Välj värden för följande inställningar och välj sedan **skapa**:
-   - **Namn**: Namnet måste vara unikt i den [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) att du väljer för att skapa det virtuella nätverket i. Du kan inte ändra namnet när det virtuella nätverket har skapats. Du kan skapa flera virtuella nätverk över tid. Namnge förslag, finns i [namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Följa en namngivningskonvention kan göra det enklare att hantera flera virtuella nätverk.
+   - **Namn på**: Namnet måste vara unikt i den [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) att du väljer för att skapa det virtuella nätverket i. Du kan inte ändra namnet när det virtuella nätverket har skapats. Du kan skapa flera virtuella nätverk över tid. Namnge förslag, finns i [namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Följa en namngivningskonvention kan göra det enklare att hantera flera virtuella nätverk.
    - **Adressutrymme**: Adressutrymmet för ett virtuellt nätverk består av en eller flera inte överlappar adressintervallen som anges i CIDR-notation. Adressintervallet som du definierar kan vara offentlig eller privat (RFC 1918). Om du definierar adressintervallet som offentliga eller privata kan adressintervallet som nås från i det virtuella nätverket från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. Du kan inte lägga till följande-adressintervall:
      - 224.0.0.0/4 (Multicast)
      - 255.255.255.255/32 (Broadcast)
@@ -138,7 +138,7 @@ Alla virtuella datorer som är anslutna till virtuella nätverk registrera med D
 2. Välj det virtuella nätverket som du vill ändra DNS-servrar för i listan med virtuella nätverk.
 3. Välj **DNS-servrar**under **inställningar**.
 4. Välj något av följande alternativ:
-   - **Standard (medföljer Azure)**: Alla resursnamn och privata IP-adresser registreras automatiskt till Azure DNS-servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn för virtuella nätverk. Om du vill matcha namnen för virtuella nätverk, måste du använda en anpassad DNS-server.
+   - **Standard (medföljer Azure)** : Alla resursnamn och privata IP-adresser registreras automatiskt till Azure DNS-servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn för virtuella nätverk. Om du vill matcha namnen för virtuella nätverk, måste du använda en anpassad DNS-server.
    - **Anpassat**: Du kan lägga till en eller flera servrar, upp till Azure gränsen för ett virtuellt nätverk. Läs mer om DNS-serverns gränser i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
    - **Lägga till en adress**: Lägger till servern i listan virtuellt nätverk DNS-servrar. Det här alternativet kan du även registrerar DNS-servern med Azure. Om du redan har registrerat en DNS-server med Azure kan du välja den DNS-servern i listan.
    - **Ta bort en adress**: Markera bredvid den server som du vill ta bort **...** , sedan **ta bort**. Tar bort servern tar bort servern från den här listan över virtuella nätverk. DNS-servern är fortfarande registrerade i Azure för dina virtuella nätverk för att använda.

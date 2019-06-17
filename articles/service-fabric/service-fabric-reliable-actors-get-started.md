@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726390"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
@@ -50,11 +50,11 @@ Projektet som du har skapat visas följande struktur:
 
 Lösningen innehåller tre projekt:
 
-* **Programprojektet (MyApplication)**. Det här projektet paketerar alla tjänster tillsammans för distribution. Den innehåller den *ApplicationManifest.xml* och PowerShell-skript för att hantera programmet.
+* **Programprojektet (MyApplication)** . Det här projektet paketerar alla tjänster tillsammans för distribution. Den innehåller den *ApplicationManifest.xml* och PowerShell-skript för att hantera programmet.
 
-* **Gränssnittsprojektet (HelloWorld.Interfaces)**. Det här projektet innehåller gränssnittsdefinitionen för aktören. Aktörsgränssnitt kan definieras i alla projekt med ett namn.  Gränssnittet definierar aktörskontraktet som delas av aktörsimplementeringen och klienterna som anropar aktören.  Eftersom klienten projekt kan beror på den, är det vanligtvis meningsfullt att definiera den i en sammansättning som är separat från aktörsimplementeringen.
+* **Gränssnittsprojektet (HelloWorld.Interfaces)** . Det här projektet innehåller gränssnittsdefinitionen för aktören. Aktörsgränssnitt kan definieras i alla projekt med ett namn.  Gränssnittet definierar aktörskontraktet som delas av aktörsimplementeringen och klienterna som anropar aktören.  Eftersom klienten projekt kan beror på den, är det vanligtvis meningsfullt att definiera den i en sammansättning som är separat från aktörsimplementeringen.
 
-* **Aktörtjänstprojektet (HelloWorld)**. Det här projektet definierar Service Fabric-tjänst som kommer att vara värd för aktören. Den innehåller implementeringen av aktören, *HelloWorld.cs*. En aktörsimplementeringen är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörsklassen måste även implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
+* **Aktörtjänstprojektet (HelloWorld)** . Det här projektet definierar Service Fabric-tjänst som kommer att vara värd för aktören. Den innehåller implementeringen av aktören, *HelloWorld.cs*. En aktörsimplementeringen är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörsklassen måste även implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
     
     Det här projektet innehåller också *Program.cs*, som registrerar aktören klasser med Service Fabric runtime med `ActorRuntime.RegisterActorAsync<T>()`. Den `HelloWorld` klassen är redan registrerad. Eventuella ytterligare aktören implementeringar som har lagts till i projektet måste också vara registrerade i den `Main()` metoden.
 
@@ -97,7 +97,7 @@ Skapa ett enkelt konsolprogram för att anropa aktörstjänsten.
 
 1. Högerklicka på lösningen i Solution Explorer > **Lägg till** > **nytt projekt...** .
 
-2. Under den **.NET Core** projekttyper, Välj **Konsolapp (.NET Core)**.  Ge projektet namnet *ActorClient*.
+2. Under den **.NET Core** projekttyper, Välj **Konsolapp (.NET Core)** .  Ge projektet namnet *ActorClient*.
     
     ![Lägg till dialogrutan Nytt projekt][6]    
     

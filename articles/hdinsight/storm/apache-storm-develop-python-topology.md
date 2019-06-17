@@ -9,19 +9,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078200"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm-topologier med Python på HDInsight
 
 Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) topologi som använder Python-komponenter. Apache Storm har stöd för flera språk, även så att du kan kombinera komponenter på flera språk i en topologi. Den [som](https://storm.apache.org/releases/current/flux.html) framework (presenteras med Storm 0.10.0) kan du enkelt kan skapa lösningar som använder Python-komponenter.
 
 > [!IMPORTANT]  
-> Informationen i det här dokumentet har testats med Storm på HDInsight 3.6. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Informationen i det här dokumentet har testats med Storm på HDInsight 3.6. 
 
 Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 

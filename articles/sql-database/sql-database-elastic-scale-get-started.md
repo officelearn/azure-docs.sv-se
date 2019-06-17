@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585022"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med elastiska Databasverktyg
@@ -92,7 +92,7 @@ Hämta och kör exemplet genom att följa dessa steg:
 
 5. Experimentera med de olika alternativen om du vill veta mer om funktionerna för klient-biblioteket. Observera de steg som programmet tar i konsolen utdata och passa på att utforska koden i bakgrunden.
    
-    ![Förlopp][4]
+    ![Pågår][4]
 
 Grattis! Du har skapat och kör ditt första delat program med hjälp av verktyg för elastiska databaser i SQL-databas. Använd Visual Studio eller SQL Server Management Studio för att ansluta till din SQL-databas och ta en titt på shards som skapat exemplet. Du ser nya Exempeldatabaser shard och en databas som exemplet har skapats.
 

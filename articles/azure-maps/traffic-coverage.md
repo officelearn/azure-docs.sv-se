@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794019"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps-trafiktäckning
@@ -69,7 +69,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Danmark     |✓         |✓         |
 |Estland     |         | ✓        |
 |Finland     |✓         |✓         |
-|+ Åland-öarna      |✓         |✓         |
+|\+ Åland-öarna      |✓         |✓         |
 |Frankrike     |✓         |✓         |
 |Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
@@ -89,7 +89,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Norge     |✓         |✓         |
 |Polen     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+ Azorerna och Madeira     |✓         |✓         |
+|\+ Azorerna och Madeira     |✓         |✓         |
 |Rumänien     |✓         |✓         |
 |Ryska federationen     |✓         |✓         |
 |San Marino    |✓         |✓         |
@@ -97,8 +97,8 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Slovenien     |✓         |✓         |
 |Spanien     |✓         |✓         |
 |+Andorra     |✓         |✓         |
-|+ Balearerna     |✓         |✓         |
-|+ Kanarieöarna     |✓         |✓         |
+|\+ Balearerna     |✓         |✓         |
+|\+ Kanarieöarna     |✓         |✓         |
 |Sverige     |✓         |✓         |
 |Schweiz     |✓         |✓        |
 |Turkiet     |✓         |✓         |
@@ -106,7 +106,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Storbritannien     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
-|+ Isle of Man     |✓         |✓         |
+|\+ Isle of Man     |✓         |✓         |
 |Vatikanstaten   |✓         |✓         |
 
 

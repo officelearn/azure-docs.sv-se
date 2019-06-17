@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 94c9c3f997143d72262c1ba3d8dbfea90d6f920c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61347729"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
@@ -81,7 +81,7 @@ Det här avsnittet innehåller exempel på inställningar för händelsebaserade
 > [!IMPORTANT]
 > Du behöver ta den `/blobs/` segmentet i sökvägen som visas i följande exempel, när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
 
-| Egenskap  | Exempel | Beskrivning |
+| Egenskap | Exempel | Beskrivning |
 |---|---|---|
 | **Sökväg till BLOB börjar med** | `/containername/` | Tar emot händelser för alla blobar i behållaren. |
 | **Sökväg till BLOB börjar med** | `/containername/blobs/foldername/` | Tar emot händelser för alla blobbar i den `containername` behållare och `foldername` mapp. |

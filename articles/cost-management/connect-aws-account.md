@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002167"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta till en Amazon Web Services-konto
@@ -36,7 +36,7 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 
 1. Öppna Cloudyn-portalen från Azure-portalen eller navigera till [ https://azure.cloudyn.com ](https://azure.cloudyn.com) och logga in.
 2. Klicka på kugghjulet för symbolen och välj sedan **Molnkonton**.
-3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +**.
+3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +** .
 4. I den **Lägg till konto för AWS** dialogrutan, kopiera den **externt ID** och spara värdet för AWS skapa stegen i nästa avsnitt. Externt ID är unikt för ditt konto. I följande bild, exemplet externt ID är _Contoso_ följt av ett tal. Ditt ID skiljer sig åt.  
     ![Externt ID som visas i rutan Lägg till AWS-konto](./media/connect-aws-account/external-id.png)
 
@@ -57,7 +57,7 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 
 1. Öppna Cloudyn-portalen från Azure-portalen eller navigera till https://azure.cloudyn.com/ och logga in.
 2. Klicka på kugghjulet för symbolen och välj sedan **Molnkonton**.
-3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +**.
+3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +** .
 4. I **kontonamn**, Skriv ett namn för kontot.
 5. Bredvid **åtkomsttyp**väljer **IAM rollen**.
 6. I den **rollen ARN** fältet, klistra in värdet som du tidigare kopierade och klicka sedan på **spara**.  
@@ -94,7 +94,7 @@ I följande avsnitt vägleder dig genom att skapa en skrivskyddad användare fö
 
 1. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com/ och logga in.
 2. Klicka på kugghjulet för symbolen och välj sedan **Molnkonton**.
-3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +**.
+3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +** .
 4. För **kontonamn**, ange ett kontonamn.
 5. Bredvid **åtkomsttyp**väljer **IAM användaren**.
 6. I **åtkomstnyckeln**, klistra in den **åtkomst ID-nyckeln** värdet från filen credentials.csv.

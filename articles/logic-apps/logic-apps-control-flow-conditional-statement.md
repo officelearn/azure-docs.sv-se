@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684822"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorssatser som styr arbetsflödesåtgärder i Azure Logic Apps
@@ -39,7 +39,7 @@ Anta exempelvis att du har en logikapp som skickar för många e-postmeddelanden
 
 1. Lägg till ett villkor på den plats som du vill. 
 
-   För att lägga till ett villkor mellan steg flyttar du pekaren över pilen där du vill lägga till villkoret. Välj den **plustecknet** (**+**) som visas, välj sedan **Lägg till en åtgärd**. Exempel:
+   För att lägga till ett villkor mellan steg flyttar du pekaren över pilen där du vill lägga till villkoret. Välj den **plustecknet** ( **+** ) som visas, välj sedan **Lägg till en åtgärd**. Exempel:
 
    ![Lägg till åtgärd mellan steg](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 

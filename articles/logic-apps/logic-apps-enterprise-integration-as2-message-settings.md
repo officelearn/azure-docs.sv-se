@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ead92094b9af1dff56ff68e1ff58a3a4cdd9dca5
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63769458"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referens för inställningar för AS2-meddelande i Azure Logic Apps med Enterprise-Integrationspaket
@@ -26,7 +26,7 @@ Den här referensen beskriver de egenskaper som du kan ange för att ange hur et
 
 ![Välj ”Ta emot inställningarna”](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Åsidosätt meddelandeegenskaper** | Nej | Åsidosätter egenskaperna på inkommande meddelanden med inställningar för enhetsegenskaper. |
 | **Meddelandet ska vara signerat** | Nej | Anger om alla inkommande meddelanden måste vara digitalt signerade. Om du behöver registrera, från den **certifikat** väljer du ett befintligt gäst partner offentliga certifikat för att verifiera signaturen på meddelanden. Om du inte har ett certifikat kan du läsa mer om [certifikat läggs till](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
@@ -45,7 +45,7 @@ Den här referensen beskriver de egenskaper som du kan ange för att ange hur et
 
 ![Välj ”Skicka inställningar”](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Aktivera Meddelandesignering** | Nej | Anger om alla utgående meddelanden måste vara digitalt signerade. Om du behöver registrera, väljer du dessa värden: <p>-Från den **signering algoritmen** väljer du algoritmen som ska användas för att signera meddelanden. <br>-Från den **certifikat** väljer du ett befintligt värd partner privata certifikat för signering av meddelanden. Om du inte har ett certifikat kan du läsa mer om [certifikat läggs till](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Aktivera meddelandekryptering** | Nej | Anger om alla utgående meddelanden måste vara krypterat. Om du kräver kryptering, väljer du de här värdena: <p>-Från den **krypteringsalgoritm** väljer algoritmen gäst partner offentligt certifikat ska användas för kryptering av meddelanden. <br>-Från den **certifikat** väljer du ett befintligt gäst partner privata certifikat för kryptering av utgående meddelanden. Om du inte har ett certifikat kan du läsa mer om [certifikat läggs till](../logic-apps/logic-apps-enterprise-integration-certificates.md). |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131593"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
@@ -38,7 +38,7 @@ Definierar en förinställningen för kodningen.
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Version**<br/><br/> Krävs |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
+| **Version**<br/><br/> Obligatoriskt |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”** . |
 
 ## <a name="Encoding"></a> Kodning
 Innehåller en sekvens av följande element:  
@@ -61,7 +61,7 @@ Innehåller en sekvens av följande element:
 | **TwoPass**<br/><br/> minOccurs="0" |**Xs:Boolean** |För närvarande stöds endast en pass kodning. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**Xs: Time** |Anger fast avståndet mellan IDR bildrutor i antal sekunder. Kallas även GOP-varaktighet. Se **SceneChangeDetection** för att kontrollera om kodaren kan avvika från det här värdet. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> standard = ”false” |**Xs: booleskt** |Om värdet är sant, kodare försöker identifiera scen ändringar i videon och infogar en IDR ram. |
-| **Komplexitet**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**Xs:String** |Styr en kompromiss mellan koda hastigheten och video. Kan vara något av följande värden: **Hastighet**, **belastningsutjämnade**, eller **kvalitet**<br/><br/> Standard: **Belastningsutjämnade** |
+| **Komplexitet**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**Xs:String** |Styr en kompromiss mellan koda hastigheten och video. Kan vara något av följande värden: **Hastighet**, **belastningsutjämnade**, eller **kvalitet**<br/><br/> standard: **Belastningsutjämnade** |
 | **SyncMode**<br/><br/> minOccurs="0" | |Funktionen exponeras i en framtida version. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Samling av utdata video lager. |
 
@@ -135,7 +135,7 @@ Mer information om vilka värden är giltiga för varje profil finns i ”ljud c
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **kanaler**<br/><br/> minOccurs="0" |**Xs: int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> Standard: 2. |
+| **kanaler**<br/><br/> minOccurs="0" |**Xs: int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> standard: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**Xs: int** |Ljud samplingsfrekvensen, anges i Hz. |
 | **Bithastighet**<br/><br/> minOccurs="0" |**Xs: int** |Bithastigheten används när kodning ljudet, anges i kbit/s. |
 
@@ -160,7 +160,7 @@ Ljudcodec|Information
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Filnamn** |**Xs:String** |Namnet på utdatafilen.<br/><br/> Du kan använda makron som beskrivs i följande tabell för att skapa utdata-filnamn. Exempel:<br/><br/> **”Utdata”: [{”FileName” ”: {Basename}*{matchning}*{bithastighet} .mp4”, ”Format”: {”Type”: "MP4Format"       }     }   ]** |
+| **Filnamn** |**Xs:String** |Namnet på utdatafilen.<br/><br/> Du kan använda makron som beskrivs i följande tabell för att skapa utdata-filnamn. Exempel:<br/><br/> **”Utdata”: [{”FileName” ”: {Basename} *{matchning}* {bithastighet} .mp4”, ”Format”: {”Type”: "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Makron
 

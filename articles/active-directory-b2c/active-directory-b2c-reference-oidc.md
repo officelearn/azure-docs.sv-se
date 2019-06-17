@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509210"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webbinloggning med OpenID Connect i Azure Active Directory B2C
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Nej | Den `redirect_uri` -parametern för ditt program, där autentiseringssvar kan skickas och tas emot av ditt program. Det måste exakt matcha en av de `redirect_uri` parametrar som du registrerade i Azure-portalen, förutom att det måste vara URL-kodas. |
 | scope | Ja | En blankstegsavgränsad lista med omfattningar. Den `openid` omfång anger en behörighet att logga in användaren och hämta data om användaren i form av ID-token. Den `offline_access` omfånget är valfritt för webbprogram. Anger det att ditt program behöver en *uppdateringstoken* för utökad åtkomst till resurser. |
 | response_mode | Nej | Den metod som används för att skicka resulterande Auktoriseringskoden tillbaka till programmet. Det kan vara antingen `query`, `form_post`, eller `fragment`.  Den `form_post` Svarsläge rekommenderas för bästa säkerhet. |
-| tillstånd | Nej | Ett värde i begäran som returneras också i token-svaret. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligtvis för att förhindra attacker med förfalskning av begäran. Tillstånd används också för att koda information om användarens status i programmet innan autentiseringsbegäran inträffade, till exempel gruppsidan de befann sig i. |
+| state | Nej | Ett värde i begäran som returneras också i token-svaret. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligtvis för att förhindra attacker med förfalskning av begäran. Tillstånd används också för att koda information om användarens status i programmet innan autentiseringsbegäran inträffade, till exempel gruppsidan de befann sig i. |
 | nonce | Ja | Ett värde i begäran (genereras av programmet) som ingår i den resulterande ID-token som ett anspråk. Programmet kan kontrollera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig unik sträng som kan användas för att fastställa ursprunget för begäran. |
 | p | Ja | Användarflödet som körs. Det är namnet på ett användarflöde som skapas i din Azure AD B2C-klient. Namnet på användarflödet ska börja med `b2c\_1\_`. |
 | fråga | Nej | Typ av interaktion från användaren som krävs. Det enda giltiga värdet just nu är `login`, vilket Tvingar användaren att ange sina autentiseringsuppgifter i begäran. |
@@ -101,7 +101,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | --------- | ----------- |
 | id_token | ID-token som programmet har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. |
 | code | Auktoriseringskod som programmet har begärt, om du har använt `response_type=code+id_token`. Programmet kan använda Auktoriseringskoden för att begära en åtkomsttoken för en målresurs. Auktoriseringskoder vanligtvis upphör att gälla efter cirka 10 minuter. |
-| tillstånd | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Programmet bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Programmet bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 Felsvar kan också skickas till den `redirect_uri` parametern så att programmet kan hantera dem på rätt sätt:
 
@@ -116,7 +116,7 @@ error=access_denied
 | --------- | ----------- |
 | error | En kod som kan användas för att klassificera typerna av fel som uppstår. |
 | error_description | Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
-| tillstånd | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Programmet bör kontrollera att den `state` värden i begäran och svar är identiska. |
+| state | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Programmet bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 ## <a name="validate-the-id-token"></a>Verifiera ID-token
 

@@ -9,17 +9,17 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171976"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Så här skapar du ett klassiskt virtuellt nätverk i Azure portal
 Följ dessa steg om du vill skapa ett klassiskt virtuellt nätverk baserat på föregående scenariot.
 
 1. Navigera till http://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
-2. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**. Observera att den **Välj en distributionsmodell** redan lista visas **klassiska**. 3 Klicka på **skapa** enligt följande bild.
+2. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**. Observera att den **Välj en distributionsmodell** redan lista visas **klassiska**. 3. Klicka på **skapa** enligt följande bild.
    
     ![Skapa VNet i Azure-portalen](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 4. På den **virtuellt nätverk** rutan, skriver du in den **namn** från de VNet och klicka sedan på **adressutrymme**. Konfigurera inställningar för det virtuella nätverket och dess första undernätet din adresser utrymme och klicka sedan på **OK**. Följande bild visar inställningarna för CIDR-block för vårt scenario.

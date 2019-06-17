@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634084"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhetskopieringsmål med Veeam
@@ -260,7 +260,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 | Typ av säkerhetskopiering kvarhållning | Storlek (TiB) | GFS multiplikatorn\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Varje vecka fullständig | 1 | 4  | 4 |
-| Dagliga inkrementella | 0,5 | 20 (cykler lika med antalet veckor per månad) | 12.2 för större kvot |
+| Dagliga inkrementella | 0,5 | 20 (cykler lika med antalet veckor per månad) | 12\.2 för större kvot |
 | Månatliga fullständig | 1 | 12 | 12 |
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |

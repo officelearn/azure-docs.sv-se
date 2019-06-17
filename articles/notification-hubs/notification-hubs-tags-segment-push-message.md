@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457829"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
@@ -35,7 +35,7 @@ Det enda sättet att målet specifikt meddelande registreringar är att associer
 2. **Taggen**: alla registreringar som innehåller den angivna taggen tar emot meddelandet.
 3. **Tagguttryck**: alla registreringar vars uppsättning taggar matchar det angivna uttrycket tar emot meddelandet.
 
-## <a name="tags"></a>Taggar
+## <a name="tags"></a>Tags
 
 En tagg kan vara valfri sträng, upp till 120 tecken, som innehåller alfanumeriska och följande icke-alfanumeriska tecken: '_', ' @', '#', '. ',':', '-'. I följande exempel visar ett program som du kan ta emot popup-meddelanden om specifika musik grupper. I det här scenariot är ett enkelt sätt att dirigera meddelanden till etiketten registreringar med taggar som representerar olika band, som i följande bild:
 

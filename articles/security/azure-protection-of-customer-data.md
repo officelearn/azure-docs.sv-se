@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603145"
 ---
 # <a name="azure-customer-data-protection"></a>Dataskydd för Azure-kund   
@@ -55,9 +55,9 @@ Data kan replikeras inom en vald geografiska område för redundans men kan inte
 
 När du skapar ditt storage-konto, väljer du något av följande replikeringsalternativ:
 
-- **Lokalt redundant lagring (LRS)**: Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte från ett fel på en enskild anläggning.
-- **Zonredundant lagring (ZRS)**: Med zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två till tre anläggningar som ger högre hållbarhet än LRS. Replikeringen sker inom en enda region eller mellan två regioner. ZRS garanterar att dina data skyddas inom en enda region.
-- **GEO-redundant lagring (GRS)**: Geo-redundant lagring är aktiverat för ditt lagringskonto som standard när du skapar det. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger på den primära regionen. Dina data replikeras också tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. I händelse av ett fel i den primära regionen kommer Azure Storage som redundansväxlar till den sekundära regionen. GRS garanterar att dina data är beständiga i två olika områden.
+- **Lokalt redundant lagring (LRS)** : Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte från ett fel på en enskild anläggning.
+- **Zonredundant lagring (ZRS)** : Med zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två till tre anläggningar som ger högre hållbarhet än LRS. Replikeringen sker inom en enda region eller mellan två regioner. ZRS garanterar att dina data skyddas inom en enda region.
+- **GEO-redundant lagring (GRS)** : Geo-redundant lagring är aktiverat för ditt lagringskonto som standard när du skapar det. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger på den primära regionen. Dina data replikeras också tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. I händelse av ett fel i den primära regionen kommer Azure Storage som redundansväxlar till den sekundära regionen. GRS garanterar att dina data är beständiga i två olika områden.
 
 **Datadestruktion**: När kunder ta bort data eller lämna Azure, följer Microsoft strikta standarder för att skriva över lagringsresurser innan deras återanvändning, samt fysiska destruktion av inaktiverade maskinvara. Microsoft utför en fullständig borttagning av data på kundkrav och avtals uppsägning.
 

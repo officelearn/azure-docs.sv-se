@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244939"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
@@ -112,10 +112,10 @@ Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort å
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Auktorisering |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
+| authorization |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
 | Anroparen |E-postadress för den användare som har utfört den åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. |
 | kanaler |En av följande värden: ”Admin”, ”åtgärden” |
-| anspråk |Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
+| claims |Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
 | description |Statisk textbeskrivning av en händelse. |
 | eventDataId |Unik identifierare för en händelse. |
@@ -354,7 +354,7 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 | --- | --- |
 | Anroparen | Alltid Microsoft.Insights/alertRules |
 | kanaler | Alltid ”Admin, åtgärd” |
-| anspråk | JSON-blob med den SPN (service principal name) eller resursen typ av avisering motorn. |
+| claims | JSON-blob med den SPN (service principal name) eller resursen typ av avisering motorn. |
 | correlationId | Ett GUID i formatet för strängen. |
 | description |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
@@ -464,7 +464,7 @@ Den här kategorin innehåller en post för alla händelser relaterade till drif
 | --- | --- |
 | Anroparen | Always Microsoft.Insights/autoscaleSettings |
 | kanaler | Alltid ”Admin, åtgärd” |
-| anspråk | JSON-blob med typen SPN (service principal name) eller resurs av motorn för automatisk skalning. |
+| claims | JSON-blob med typen SPN (service principal name) eller resurs av motorn för automatisk skalning. |
 | correlationId | Ett GUID i formatet för strängen. |
 | description |Statisk textbeskrivning av händelsen automatisk skalning. |
 | eventDataId |Unik identifierare för händelsen automatisk skalning. |
@@ -743,10 +743,10 @@ Den här kategorin innehåller poster för alla gälla åtgärd åtgärder som u
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Auktorisering | Matris med RBAC-egenskaperna för händelsen. Det här är åtgärden och omfånget för begäran som utlöste utvärdering för nya resurser. Åtgärden är ”Microsoft.Resources/checkPolicyCompliance/read” för befintliga resurser. |
+| authorization | Matris med RBAC-egenskaperna för händelsen. Det här är åtgärden och omfånget för begäran som utlöste utvärdering för nya resurser. Åtgärden är ”Microsoft.Resources/checkPolicyCompliance/read” för befintliga resurser. |
 | Anroparen | För nya resurser, den identitet som initierade en distribution. För befintliga resurser, GUID för Microsoft Azure Policy Insights RP. |
 | kanaler | Principhändelser använda ”åtgärden” kanalen. |
-| anspråk | Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
+| claims | Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId | Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
 | description | Det här fältet är tomt efter Principhändelser. |
 | eventDataId | Unik identifierare för en händelse. |

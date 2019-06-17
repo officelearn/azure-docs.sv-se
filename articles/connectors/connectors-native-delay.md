@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297637"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Fördröjning som körs nästa åtgärd i Azure Logic Apps
@@ -53,7 +53,7 @@ Här följer några exempel-metoder för att använda de här åtgärderna:
 
    ![Angiven tid för fördröjningen](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Egenskap  | JSON-namn | Obligatoriskt | Typ | Beskrivning |
+   | Egenskap | JSON-namn | Obligatoriskt | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
    | Count | count | Ja | Integer | Antalet tidsenheter att fördröja |
    | Enhet | Enhet | Ja | String | Tidsenheten, till exempel: `Second`, `Minute`, `Hour`, `Day`, `Week`, eller `Month` |
@@ -79,9 +79,9 @@ Här följer några exempel-metoder för att använda de här åtgärderna:
 
    ![Ange tidsstämpel när du vill sluta fördröjningen](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Egenskap  | JSON-namn | Obligatoriskt | Typ | Beskrivning |
+   | Egenskap | JSON-namn | Obligatoriskt | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Ja | String | Slutdatum och tid för att återuppta arbetsflödet med hjälp av det här formatet: <p>ÅÅÅÅ-MM-: ssZ <p>Till exempel om du vill 18 September 2017 kl 2:00, ange ”2017-09-18T14:00:00Z”. <p>**Obs:** Den här tidsformat måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Du måste lägga till Bokstaven ”Z” i slutet utan blanksteg utan en tidszon. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Tidsstämpel | timestamp | Ja | String | Slutdatum och tid för att återuppta arbetsflödet med hjälp av det här formatet: <p>ÅÅÅÅ-MM-: ssZ <p>Till exempel om du vill 18 September 2017 kl 2:00, ange ”2017-09-18T14:00:00Z”. <p>**Obs:** Den här tidsformat måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Du måste lägga till Bokstaven ”Z” i slutet utan blanksteg utan en tidszon. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Lägg till alla andra åtgärder som du vill köra i arbetsflödet.

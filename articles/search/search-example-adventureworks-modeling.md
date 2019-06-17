@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291916"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exempel: Utforma AdventureWorks inventering databasen för Azure Search
@@ -43,7 +43,7 @@ Hur du löser det här problemet är inte lika enkelt som att flytta målindex t
 
 ## <a name="use-a-collection-data-type"></a>Använd datatypen samling
 
-Den ”rätta metoden” är att använda en sökschema funktion som inte har en direkt parallell i databasmodellen: **Collection(Edm.String)**. En samlingsdatatyp används när du har en lista med enskilda strängar, snarare än en lång sträng (enkelt). Om du har taggar eller nyckelord, använder du en samlingsdatatyp för det här fältet.
+Den ”rätta metoden” är att använda en sökschema funktion som inte har en direkt parallell i databasmodellen: **Collection(Edm.String)** . En samlingsdatatyp används när du har en lista med enskilda strängar, snarare än en lång sträng (enkelt). Om du har taggar eller nyckelord, använder du en samlingsdatatyp för det här fältet.
 
 Genom att definiera flera värden index-fält av **Collection(Edm.String)** för ”färg”, ”storlek” och ”bild” extra information som är sparade för fasettering och filtrering utan förorenande index med dubbla poster. På samma sätt gäller mängdfunktioner för de numeriska fält för produkten kan indexera **minListPrice** i stället för varje enskild produkt **listPrice**.
 

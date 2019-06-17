@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248155"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-usql-activity.md)
 > * [Version 2 (aktuell version)](../transform-data-using-data-lake-analytics.md)
 
@@ -46,9 +46,9 @@ Du skapar en **Azure Data Lake Analytics** compute service till en Azure data fa
 
 Följande tabell innehåller beskrivningar av de allmänna egenskaper som används i JSON-definitionen. Du kan ytterligare välja mellan tjänstens huvudnamn och användarautentisering för autentiseringsuppgifter.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
-| **typ** |Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
+| **type** |Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
 | **accountName** |Azure Data Lake Analytics-kontonamn. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nej |
 | **Prenumerations-ID** |Azure-prenumerations-id |Nej (om inte anges i data factory-prenumeration används). |
@@ -62,7 +62,7 @@ Registrera en entitet för program i Azure Active Directory (Azure AD) för att 
 
 Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
@@ -90,7 +90,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 ### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 Du kan också använda användarautentisering för autentiseringsuppgifter för Data Lake Analytics genom att ange följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
 | **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
@@ -206,9 +206,9 @@ Följande JSON-kodfragmentet definierar en pipeline med en Data Lake Analytics U
 
 I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten. 
 
-| Egenskap             | Beskrivning                              | Krävs                                 |
+| Egenskap            | Beskrivning                              | Krävs                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| typ                | Type-egenskapen måste anges till **DataLakeAnalyticsU SQL**. | Ja                                      |
+| type                | Type-egenskapen måste anges till **DataLakeAnalyticsU SQL**. | Ja                                      |
 | linkedServiceName   | Referens till Azure Data Lake Analytics registrerad som en länkad tjänst i Data Factory | Ja                                      |
 | scriptPath          | Sökvägen till mappen som innehåller U-SQL-skriptet. Filens namn är skiftlägeskänsligt. | Nej (om du använder skriptet)                   |
 | scriptLinkedService | Länkade tjänst som länkar den lagring som innehåller skriptet som data factory | Nej (om du använder skriptet)                   |

@@ -9,10 +9,10 @@ ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156765"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
@@ -40,7 +40,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 2. Välj **Server Explorer** och logga in på ditt Azure-konto. För att skapa webbplatsresurser på ditt konto, måste du vara inloggad.
 
 3. Högerklicka på Visual Studio-lösningen i Visual Studio, peka på **Lägg till** och klicka på **Nytt projekt**.
-4. Expandera **Visual C#**, välj **Webb** och klicka på **ASP.NET-webbprogram**.
+4. Expandera **Visual C#** , välj **Webb** och klicka på **ASP.NET-webbprogram**.
 
 5. I rutan **Namn** skriver du **AppBackend** och väljer sedan **OK**.
 

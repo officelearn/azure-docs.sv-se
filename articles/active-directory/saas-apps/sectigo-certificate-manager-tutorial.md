@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2d7c7cf4972b1ee0a5add3b4611dc4c8655da875
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Självstudier: Azure Active Directory-integrering med Sectigo Certificate Manager
 
@@ -79,7 +79,7 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Sectigo Certifikathanteraren, måste du utföra följande byggblock:
 
-| Uppgift | Beskrivning |
+| Aktivitet | Beskrivning |
 | --- | --- |
 | **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** | Gör det möjligt för användarna att använda den här funktionen. |
 | **[Konfigurera Sectigo Certifikathanteraren enkel inloggning](#configure-sectigo-certificate-manager-single-sign-on)** | Konfigurerar inställningar för enkel inloggning i programmet. |
@@ -212,6 +212,6 @@ Om du vill veta mer kan du granska dessa artiklar:
 
 - [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 

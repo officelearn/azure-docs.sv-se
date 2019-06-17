@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204942"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -189,7 +189,7 @@ De här artiklarna beskriver SAP-distributioner i Azure:
 
 Dessa SAP Notes är relaterade till avsnittet om SAP i Azure:
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och storlek |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -901,7 +901,7 @@ När du konfigurerar ett filresursvittne i kluster inkluderar dessa uppgifter:
 
    _**Bild 30:** Tilldela behörigheter för resursen för klusternamnobjekt_
 
-   Se till att behörigheterna som inkluderar behörighet att ändra data i resursen för klusternamnobjekt (i vårt exempel **pr1-ascs-vir$**).
+   Se till att behörigheterna som inkluderar behörighet att ändra data i resursen för klusternamnobjekt (i vårt exempel **pr1-ascs-vir$** ).
 
 3. Om du vill lägga till klusternamnobjekt i listan, Välj **Lägg till**. Ändra filtret för att söka efter datorobjekt, förutom de som visas i bild 31.
 
@@ -1133,7 +1133,7 @@ Installera SAP med en hög tillgänglighet ASCS/SCS-instans innebär att dessa u
 1. Skapa en DNS-post för det virtuella värdnamnet på ASCS/SCS-instans i Windows DNS-hanteraren.
 
    > [!IMPORTANT]
-   > IP-adressen som du tilldelar till virtuella namnet på ASCS/SCS-instans måste vara samma som IP-adress som tilldelats Azure Load Balancer (**<*SID*> - lb - ascs**).  
+   > IP-adressen som du tilldelar till virtuella namnet på ASCS/SCS-instans måste vara samma som IP-adress som tilldelats Azure Load Balancer ( **<*SID*> - lb - ascs**).  
    >
    >
 
@@ -1335,7 +1335,7 @@ Den **SAP PR1** klustergrupp körs på noden i klustret A. Till exempel på **pr
 
 _**Bild 61:** Hanteraren för redundanskluster: SAP <*SID*> klustergrupp körs på nod A_
 
-I verktyget SIOS DataKeeper hanterings- och kan du se att delad disk-data replikeras synkront i från volymen källenheten S på nod A till volymen målenheten S på klusternod B. Till exempel de replikeras från **pr1-ascs-0 [10.0.0.40]** till **pr1-ascs-1 [10.0.0.41]**.
+I verktyget SIOS DataKeeper hanterings- och kan du se att delad disk-data replikeras synkront i från volymen källenheten S på nod A till volymen målenheten S på klusternod B. Till exempel de replikeras från **pr1-ascs-0 [10.0.0.40]** till **pr1-ascs-1 [10.0.0.41]** .
 
 ![Bild 62: I SIOS DataKeeper replikerar du lokala volymen från klusternoden A till klusternod B][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Bild 62:** I SIOS DataKeeper replikerar du lokala volymen från klusternoden 
 
    _**Bild 63**: I hanteraren för redundanskluster, SAP <*SID*> klustergrupp körs på nod B_
 
-   Den delade disken är nu monterad på klustret noden B. SIOS DataKeeper replikera data från volymen källenhet S på nod B till volymen målenheten S på klusternod A. Till exempel den replikerar från **pr1-ascs-1 [10.0.0.41]** till **pr1-ascs-0 [10.0.0.40]**.
+   Den delade disken är nu monterad på klustret noden B. SIOS DataKeeper replikera data från volymen källenhet S på nod B till volymen målenheten S på klusternod A. Till exempel den replikerar från **pr1-ascs-1 [10.0.0.41]** till **pr1-ascs-0 [10.0.0.40]** .
 
    ![Bild 64: SIOS DataKeeper replikerar den lokala volymen från klusternoden B ska ingå i klustret nod A][sap-ha-guide-figure-5003]
 

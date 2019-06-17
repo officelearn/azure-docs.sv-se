@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698164"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
@@ -167,7 +167,7 @@ Använd följande steg för att hämta information om IoT hub som används av an
 
 1. Hämta Event Hub-kompatibla slutpunkten och Event Hubs-kompatibla slutpunktnamn för din IoT-hubb. Använd någon av följande metoder för att få den här informationen:
 
-   * __Från den [Azure-portalen](https://portal.azure.com/)__, Använd följande steg:
+   * __Från den [Azure-portalen](https://portal.azure.com/)__ , Använd följande steg:
 
      1. Gå till din IoT-hubb och välj __slutpunkter__.
      2. Från __inbyggda slutpunkter__väljer __händelser__.
@@ -180,7 +180,7 @@ Använd följande steg för att hämta information om IoT hub som används av an
         > [!IMPORTANT]  
         > Slutpunktsvärdet från portalen kan innehålla extra text som inte behövs i det här exemplet. Extrahera text som matchar det här mönstret `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, använder du följande kommando:
+   * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , använder du följande kommando:
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -196,13 +196,13 @@ Använd följande steg för att hämta information om IoT hub som används av an
 
 2. Hämta den __delad åtkomstprincip__ och __nyckeln__. Det här exemplet använder den __service__ nyckel. Använd någon av följande metoder för att få den här informationen:
 
-    * __Från den [Azure-portalen](https://portal.azure.com/)__, Använd följande steg:
+    * __Från den [Azure-portalen](https://portal.azure.com/)__ , Använd följande steg:
 
         1. Välj __principer för delad åtkomst__, och välj sedan __service__.
         2. Kopiera den __primärnyckel__ värde.
         3. Kopiera den __anslutningssträng – primärnyckel__ värde.
 
-    * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, använder du följande kommando:
+    * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , använder du följande kommando:
 
         1. Om du vill hämta värdet för primära nyckeln, använder du följande kommando:
 

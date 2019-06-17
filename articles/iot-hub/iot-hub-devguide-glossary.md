@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119817"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
@@ -67,7 +67,7 @@ Varje IoT-hubb innehåller en inbyggd [endpoint](iot-hub-devguide-endpoints.md) 
 ## <a name="cloud-gateway"></a>Molngatewayen
 En molngateway möjliggör anslutningar för enheter som inte kan ansluta direkt till [IoT Hub](#iot-hub). En molngateway ligger i molnet jämfört med en [fältgateway](#field-gateway) som körs lokalt till dina enheter. Ett vanligt användningsfall för en molngateway är att implementera översättning av protokollet för dina enheter.
 
-## <a name="cloud-to-device"></a>Moln till enhet
+## <a name="cloud-to-device"></a>Cloud-to-device
 Refererar till meddelanden som skickas från en IoT hub till en ansluten enhet. Dessa meddelanden är ofta kommandon som instruerar enheten att vidta åtgärder. Mer information finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="configuration"></a>Konfiguration
@@ -93,7 +93,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), desired c
 ## <a name="desired-properties"></a>Önskade egenskaper
 I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), önskade egenskaper är ett underavsnitt enhetstvillingens som används med [rapporterade egenskaper](#reported-properties) att synkronisera enhetskonfiguration eller ett villkor. Önskade egenskaper kan bara ställas in en [serverdelsappen](#back-end-app) och observerats av den [enhetsapp](#device-app).
 
-## <a name="device-to-cloud"></a>Enhet till moln
+## <a name="device-to-cloud"></a>Enhet-till-moln
 Refererar till meddelanden som skickas från en ansluten enhet till [IoT Hub](#iot-hub). Dessa meddelanden kan vara [datapunkt](#data-point-message) eller [interaktiva](#interactive-message) meddelanden. Mer information finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Enhet
@@ -129,7 +129,7 @@ Enhetsetablering är processen att lägga till första [enhetsdata](#device-data
 ## <a name="device-twin"></a>Enhetstvilling
 En [enhetstvillingen](iot-hub-devguide-device-twins.md) är JSON-dokument som lagrar information om enhetstillstånd, till exempel metadata, konfigurationer och villkor. [IoT Hub](#iot-hub) lagrar en enhetstvilling för varje enhet som du etablerar i IoT hub. Enhetstvillingar gör det möjligt att synkronisera [enheten villkor](#device-condition) och serverdelen för konfigurationer mellan enheten och lösningen. Du kan fråga efter enhetstvillingar för att hitta specifika enheter och fråga efter statusen för långvariga åtgärder.
 
-## <a name="direct-method"></a>Direktmetod
+## <a name="direct-method"></a>Direkt metod
 En [direktmetod](iot-hub-devguide-direct-methods.md) är ett sätt som du kan utlösa en metod för att köra på en enhet genom att aktivera en API på IoT hub.
 
 ## <a name="endpoint"></a>Slutpunkt
@@ -138,7 +138,7 @@ En IoT hub exponerar flera [slutpunkter](iot-hub-devguide-endpoints.md) som gör
 ## <a name="event-hubs-service"></a>Event Hubs-tjänsten
 [Händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md) är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund. Tjänsten kan du bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. En jämförelse med tjänsten IoT Hub i [jämförelse av Azure IoT Hub och Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Händelsehubb-kompatibel slutpunkt
+## <a name="event-hub-compatible-endpoint"></a>Event Hubs-kompatibla slutpunkten
 Att läsa [enhet till moln](#device-to-cloud) meddelandena som skickas till din IoT-hubb, du kan ansluta till en slutpunkt på din hubb och använda alla Event Hubs-kompatibla-metoden för att läsa dessa meddelanden. Event Hubs-kompatibla sätt är att med hjälp av den [SDK: er för Event Hubs](../event-hubs/event-hubs-programming-guide.md) och [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Fält-gateway
@@ -220,7 +220,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), rapporter
 ## <a name="retry-policy"></a>Återförsöksprincip
 Du hanterar med hjälp av en återförsöksprincip [tillfälliga fel](/azure/architecture/best-practices/transient-faults) när du ansluter till en tjänst i molnet.
 
-## <a name="routing-rules"></a>Hanteringsregler
+## <a name="routing-rules"></a>Routningsregler
 Du konfigurerar [routningsregler](iot-hub-devguide-messages-read-custom.md) i IoT-hubben att routa enhet-till-moln-meddelanden till en [inbyggd slutpunkt](#built-in-endpoints) eller [anpassade slutpunkter](#custom-endpoints) för bearbetning av lösningens backend-servrar .
 
 ## <a name="sasl-plain"></a>SASL OFORMATERAD
@@ -232,7 +232,7 @@ Du kan använda den [Service REST API](https://docs.microsoft.com/rest/api/iothu
 ## <a name="shared-access-signature"></a>Signatur för delad åtkomst
 Signaturer för delad åtkomst (SAS) är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. SAS-autentisering har två komponenter: en _Policy för delad åtkomst_ och en _signatur för delad åtkomst_ (kallas ofta en token). En enhet använder SAS för att autentisera med en IoT-hubb. [Appar för serverdelar](#back-end-app) också använda SAS för att autentisera med service-slutpunkter i IoT hub. Normalt kan du inkludera det SAS-token i den [anslutningssträngen](#connection-string) att en app använder för att upprätta en anslutning till en IoT-hubb.
 
-## <a name="shared-access-policy"></a>Policy för delad åtkomst
+## <a name="shared-access-policy"></a>Princip för delad åtkomst
 En princip för delad åtkomst definierar behörigheterna för alla som har en giltig [primära eller sekundära nyckeln](#primary-and-secondary-keys) som är associerade med principen. Du kan hantera principer för delad åtkomst och nycklar för hubben i den [portal](#azure-portal).
 
 ## <a name="simulated-device"></a>Simulerad enhet
@@ -247,7 +247,7 @@ En Azure-prenumeration är om fakturering sker. Varje Azure-resurs som du skapar
 ## <a name="system-properties"></a>Systemegenskaper
 I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), Systemegenskaper är skrivskyddade och inkludera information om enhetsanvändning, till exempel senaste aktivitet tid och anslutningen tillstånd.
 
-## <a name="tags"></a>Taggar
+## <a name="tags"></a>Tags
 I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), taggar är enhetsmetadata lagras och hämtas av serverdelen i lösningen i form av ett JSON-dokument. Taggar visas inte för appar på en enhet.
 
 ## <a name="telemetry"></a>Telemetri

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104621"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden till din Android-app
@@ -93,4 +93,4 @@ Nu när du har slutfört den här självstudien, Överväg fortsätter in på n�
 
 <!-- URLs -->
 [Snabbstart för Android]: app-service-mobile-android-get-started.md
-[Lägg till Firebase till din Android-projekt]:https://firebase.google.com/docs/android/setup
+[Lägg till Firebase till din Android-projekt]: https://firebase.google.com/docs/android/setup

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922135"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
@@ -28,18 +28,18 @@ ms.locfileid: "64922135"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -109,7 +109,7 @@ Om du vill distribuera mallen genom att följa dessa steg:
     * **SAP-systemstorlek**: Ange hur många SAP som kommer att ge det nya systemet. Om du inte är säker på hur många SAP kräver att systemet genom att be din SAP-teknikpartner eller systemintegratör.
     * **Systemets tillgänglighet**: Välj **HA**.
     * **Administratören Username, administratörslösenord eller SSH-nyckeln**: En ny användare skapas som kan användas för att logga in på datorn.
-    * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >**. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
+    * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >** . Lämna tomt om du vill skapa ett nytt virtuellt nätverk
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -191,11 +191,11 @@ Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutni
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]**: Steget gäller för alla noder.
-* **[1]**: Steget gäller nod 1.
-* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
-1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)**.
+1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)** .
 
    Vi rekommenderar att du använder LVM för volymer som lagrar data och loggfiler. I följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som används för att skapa två volymer.
 
@@ -352,9 +352,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]**: Steget gäller för alla noder.
-* **[1]**: Steget gäller nod 1.
-* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 
@@ -443,9 +443,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]**: Steget gäller för alla noder.
-* **[1]**: Steget gäller nod 1.
-* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 

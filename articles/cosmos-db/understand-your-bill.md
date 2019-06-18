@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965641"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå fakturan för Azure Cosmos DB
@@ -98,7 +98,7 @@ Vi antar att du har en Azure Cosmos-behållare i västra USA. Behållaren har sk
 |---------|---------|---------|-------|
 |Dataflödesfaktura för containrar i USA, västra      | 10 K RU/sek * 24 * 30    |$0.008 per 100 RU/SEK per timme   |$576|
 |Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien       | 3 * 10K RU/sek * 24 * 30    |$0.008 per 100 RU/SEK per timme  |$1,728|
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
+|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
 |Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0.25/ GB  |$187.50|
 |**Totalt**     |     |  |**$2,554**|
 
@@ -112,7 +112,7 @@ Anta att du skapar en Azure Cosmos-behållare i västra USA. Behållaren har ska
 |---------|---------|---------|-------|
 |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)       | 10 K RU/sek * 24 * 30    |$0.016 per 100 RU/SEK per timme    |$1,152 |
 |Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien (alla regioner är skrivbar)        | (3 + 1) * 10 K RU/sek * 24 * 30    |$0.016 per 100 RU/SEK per timme   |$4,608 |
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
+|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
 |Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0.25/ GB  |$187.50|
 |**Totalt**     |     |  |**$6,010**|
 
@@ -237,7 +237,7 @@ Din totala faktura (utan reserverad kapacitet) skulle vara (förutsatt att 30 da
 |**Region**| **Pris per timme per 100 RU/s**|**Enheter (RU/s)**|**Fakturerat belopp (per timme)**| **Fakturerat belopp (per månad)**|
 |----|----|----|----|----|
 |Östra USA|$0.008 |50 K|$4|$2,880 |
-|Japan, östra|$0.009 |50 K| $4.50 |$3,240 |
+|Östra Japan|$0.009 |50 K| $4.50 |$3,240 |
 |Totalt|||$8.50|$6,120 |
 
 Anta att du har köpt reserverad kapacitet i stället. Du kan köpa reserverad kapacitet för 100 K RU/sek till samma pris $56,064 i ett år (med 20% rabatt) eller $6.40 per timme. Se priser för reserverad kapacitet på den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -251,7 +251,7 @@ Vad du har ett effektivt sätt köpt är en kredit på 8 USD per timme, för 100
 |**Region**| **Pris per timme per 100 RU/s**|**Enheter (RU/s)**| **Fakturerat belopp (per timme)**| **Fakturerat belopp (per månad)**|
 |----|----|----|----|----|
 |Östra USA|$0.008 |50 K|$4|$2,880 |
-|Japan, östra|$0.009 |50 K| $4.50 |$3,240 |
+|Östra Japan|$0.009 |50 K| $4.50 |$3,240 |
 |||Användningsbaserad betalning|$8.50|$6120|
 |Köpt reserverad kapacitet|$0.0064 (20% rabatt) |100 RU/sek eller 8 USD kapacitet förköpta |-$8|-$5,760 |
 |Nettofaktura|||$0.50 |$360 |

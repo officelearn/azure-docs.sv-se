@@ -4,6 +4,8 @@
   items:
     - name: Vad är Azure DNS?
       href: dns-overview.md
+    - name: Vad är Azure Privat DNS?
+      href: private-dns-overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: Skapa anpassade DNS-poster för en webbapp
       href: dns-web-sites-custom-domain.md
     - name: Skapa privat DNS-zon och -post
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Aliasposter för Traffic Manager
       href: tutorial-alias-tm.md
     - name: Aliasposter för offentliga IP-adresser
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: Begrepp
   items:
+    - name: Privat DNS
+      items:
+        - name: Vanliga frågor och svar om Privat DNS
+          href: dns-faq-private.md
+        - name: Privata DNS-scenarier
+          href: private-dns-scenarios.md
     - name: Zoner och poster
       href: dns-zones-records.md
     - name: Aliasposter
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: dns-faq.md
-    - name: Använda privata DNS-zoner
-      href: private-dns-overview.md
-    - name: Privata DNS-scenarier
-      href: private-dns-scenarios.md
     - name: DNS-mått och -aviseringar
       href: dns-alerts-metrics.md
     - name: Omvänt DNS
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Gör så här för att
   items:
-    - name: Skapa privat DNS-zon och -post – Azure CLI
-      href: private-dns-getstarted-cli.md
+    - name: Privat DNS
+      items:
+        - name: Skapa privat zon – CLI
+          href: private-dns-getstarted-cli.md
+        - name: Skapa privat zon – PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: Aliasposter för belastningsutjämnade webbappar
       href: dns-alias-appservice.md
     - name: Hantera DNS-zoner

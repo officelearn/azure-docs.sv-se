@@ -108,9 +108,9 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (t.ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
-| tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
-| commandToExecute (t.ex.) | PowerShell - ExecutionPolicy obegränsad - filen konfigurera-musik-app.ps1 | string |
+| fileUris (t.ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| timestamp (t.ex.) | 123456789 | 32-bitars heltal |
+| commandToExecute (t.ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (t.ex.) | examplestorageacct | string |
 | storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 

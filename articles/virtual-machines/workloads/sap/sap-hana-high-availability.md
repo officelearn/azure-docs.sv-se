@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922293"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
@@ -26,17 +26,17 @@ ms.locfileid: "64922293"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -113,7 +113,7 @@ Om du vill distribuera mallen genom att följa dessa steg:
     - **Systemets tillgänglighet**: Välj **HA**.
     - **Administratörens användarnamn och lösenord för serveradministratören**: En ny användare skapas som kan användas för att logga in på datorn.
     - **Nytt eller befintligt undernät**: Anger om ett nytt virtuellt nätverk och undernät ska skapas eller ett befintligt undernät som används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-    - **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >**.
+    - **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >** .
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -204,11 +204,11 @@ Följ stegen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure]
 ## <a name="install-sap-hana"></a>Installera SAP HANA
 
 Stegen i det här avsnittet använder följande prefix:
-- **[A]**: Steget gäller för alla noder.
-- **[1]**: Steget gäller nod 1.
-- **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+- **[A]** : Steget gäller för alla noder.
+- **[1]** : Steget gäller nod 1.
+- **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
-1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)**.
+1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)** .
 
    Vi rekommenderar att du använder LVM för volymer som lagrar data och loggfiler. I följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som används för att skapa två volymer.
 
@@ -356,9 +356,9 @@ Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prest
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]**: Steget gäller för alla noder.
-* **[1]**: Steget gäller nod 1.
-* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[1]**  Skapa klientdatabasen.
 
@@ -401,9 +401,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]**: Steget gäller för alla noder.
-* **[1]**: Steget gäller nod 1.
-* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[1]**  Skapa nödvändiga användarna.
 

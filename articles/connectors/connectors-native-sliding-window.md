@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299509"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Skapa, schemalägga och kör återkommande uppgifter och arbetsflöden med utlösare för glidande fönster i Azure Logic Apps
@@ -51,7 +51,7 @@ Skillnader mellan den här utlösaren och upprepningsutlösaren eller mer inform
 
    ![Ange intervall och frekvens](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Egenskap  | Obligatoriskt | JSON-namn | Type | Beskrivning |
+   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
    | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på åtkomstfrekvensen. Här är de minsta och största intervall: <p>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Hour”, är upprepningen var sjätte timme. |
    | **Frekvens** | Ja | frequency | String | Tidsenhet för upprepningen: **Andra**, **minut**, eller **timme** |
@@ -62,7 +62,7 @@ Skillnader mellan den här utlösaren och upprepningsutlösaren eller mer inform
    Mer upprepningsalternativ, öppna den **Lägg till ny parameter** lista. 
    Alla alternativ som du väljer visas på utlösaren efter markering.
 
-   | Egenskap  | Obligatoriskt | JSON-namn | Type | Beskrivning |
+   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
    | **fördröjning** | Nej | delay | String | Varaktighet för att fördröja varje upprepning med hjälp av den [tidsangivelse för ISO 8601-datum](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Tidszon** | Nej | Tidszon | String | Gäller endast när du anger en starttid eftersom den här utlösaren inte acceptera [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |

@@ -4,22 +4,22 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2019
-ms.openlocfilehash: c4abc5fa89b48b6fc55637e9ff3b259387d0d410
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4f9300ab1d688e1f5043f5b919e70c5a36c7c0e7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063982"
 ---
-Den här behållaren har följande konfigurationsinställningar:
+Behållaren har följande konfigurationsinställningar:
 
-|Krävs|Inställning|Syfte|
+|Obligatoriskt|Inställning|Syfte|
 |--|--|--|
-|Ja|[ApiKey](#apikey-configuration-setting)|Används för att spåra faktureringsinformation.|
-|Nej|[ApplicationInsights](#applicationinsights-setting)|Du kan lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren.|
+|Ja|[ApiKey](#apikey-configuration-setting)|Spårar faktureringsinformation.|
+|Nej|[ApplicationInsights](#applicationinsights-setting)|Gör det möjligt att lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren.|
 |Ja|[Billing](#billing-configuration-setting)|Anger URI för tjänstresursen på Azure.|
 |Ja|[Eula](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
-|Nej|[Fluentd](#fluentd-settings)|Skriva log och eventuellt måttdata till en Fluentd-server.|
-|Nej|HTTP-Proxy|Konfigurera en HTTP-proxy för utgående förfrågningar.|
+|Nej|[Fluentd](#fluentd-settings)|Loggar och eventuellt måttdata till en Fluentd-server.|
+|Nej|HTTP-Proxy|Konfigurerar en HTTP-proxy för utgående förfrågningar.|
 |Nej|[Loggning](#logging-settings)|Ger ASP.NET Core loggning stöd för din behållare. |
-|Nej|[Mounts](#mount-settings)|Läsa och skriva data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
+|Nej|[Mounts](#mount-settings)|Läser och skriver data från värddatorn till behållaren och behållaren tillbaka till värddatorn.|

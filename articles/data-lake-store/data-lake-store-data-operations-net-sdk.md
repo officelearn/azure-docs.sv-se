@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908068"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
@@ -42,7 +42,7 @@ Anvisningar för hur du utför kontohanteringsåtgärder på Data Lake Storage G
 Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) ger dig en genomgång av processen att skapa filer i arkivet, sammanfoga filer, hämta en fil och ta bort några filer i arkivet. Det här avsnittet av artikeln går igenom de viktigaste delarna av koden.
 
 1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
-2. Välj **Konsolapp (.NET Framework)**, och välj sedan **nästa**.
+2. Välj **Konsolapp (.NET Framework)** , och välj sedan **nästa**.
 3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
 
 4. Lägg till NuGet-paketen i projektet.

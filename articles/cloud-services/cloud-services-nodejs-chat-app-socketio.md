@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433199"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO på en Azure-molntjänst
@@ -113,7 +113,7 @@ När du har sparat ändringarna **server.js**, Använd följande steg för att i
    > 
    > installera om AzureAuthoringTools v 2.7.1 och AzureComputeEmulator v 2.7 – Kontrollera att versionen matchar.
 
-2. Öppna en webbläsare och gå till **http://127.0.0.1**.
+2. Öppna en webbläsare och gå till **http://127.0.0.1** .
 3. När webbläsarfönstret öppnas, ange ett smeknamn och sedan tryck på RETUR.
    Detta kommer att du kan publicera meddelanden som en specifik smeknamn. Om du vill testa funktionen för flera användare öppna ytterligare webbläsarfönster med samma URL och ange olika smeknamn.
    

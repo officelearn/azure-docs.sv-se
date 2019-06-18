@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463029"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -51,7 +51,7 @@ Den här guiden beskriver hur du ställer in Azure connector för SAP-LaMa, skap
 
 Följande SAP-information är relaterade till ämnet för SAP LaMa på Azure:
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [2343511] |Microsoft Azure connector för SAP-landskap Management (LaMa) |
 | [2350235] |SAP-landskap Management 3.0 – Enterprise edition |
@@ -103,7 +103,7 @@ Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som 
 * Lösenord: Tjänstens huvudnamn nyckel/lösenord
 * URL: Behåll standardvärdet https://management.azure.com/
 * Övervakning av intervall (sekunder): Bör vara minst 300
-* Prenumerations-ID: Azure prenumerations-ID
+* Prenumerations-ID: Azure-prenumerations-ID
 * Azure Active Directory klient-ID: ID för Active Directory-klient
 * Proxyvärd: Värdnamnet för proxyservern om SAP LaMa behöver en proxyserver för att ansluta till internet
 * Proxyport: TCP-porten för proxyservern

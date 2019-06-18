@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477152"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använda Azure Storage för SQL Server-säkerhetskopiering och återställning
@@ -51,14 +51,14 @@ Följande Azure-komponenterna används när du säkerhetskopierar till Azure Blo
 | --- | --- |
 | **Lagringskonto** |Lagringskontot är startpunkten för alla lagringstjänster. Om du vill få åtkomst till en Azure Blob Storage-tjänst måste du först skapa ett Azure Storage-konto. Läs mer om Azure Blob storage-tjänsten, [hur du använder Azure Blob Storage-tjänsten](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Behållare** |En behållare grupperar en uppsättning blobar och kan lagra ett obegränsat antal Blobbar. Om du vill skriva en SQL Server säkerhetskopiering till en Azure Blob-tjänst, du måste ha minst Rotbehållare skapas. |
-| **Blob** |En fil av valfri typ och storlek. BLOB-lagring är adresserbara via följande URL-format: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Mer information om Sidblobar finns [Understanding Block- och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |En fil av valfri typ och storlek. BLOB-lagring är adresserbara via följande URL-format: **https://[storage account].blob.core.windows.net/[container]/[blob]** . Mer information om Sidblobar finns [Understanding Block- och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server-komponenter
 Följande SQL Server-komponenter som används när du säkerhetskopierar till Azure Blob storage-tjänsten.
 
 | Komponent | Beskrivning |
 | --- | --- |
-| **URL** |En URL anger en identifierare URI (Uniform Resource) till en unik säkerhetskopia. URL: en används för att ange plats och namn för SQL Server-säkerhetskopia. URL: en måste peka på en faktiska blob, inte bara en behållare. Om blobben som inte finns skapas den. Om en befintlig blob har angetts, inte det går att säkerhetskopiera, såvida inte den > med formatalternativ har angetts. Följande är ett exempel på den URL som du anger i BACKUP-kommandot: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS rekommenderas men krävs inte. |
+| **URL** |En URL anger en identifierare URI (Uniform Resource) till en unik säkerhetskopia. URL: en används för att ange plats och namn för SQL Server-säkerhetskopia. URL: en måste peka på en faktiska blob, inte bara en behållare. Om blobben som inte finns skapas den. Om en befintlig blob har angetts, inte det går att säkerhetskopiera, såvida inte den > med formatalternativ har angetts. Följande är ett exempel på den URL som du anger i BACKUP-kommandot: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS rekommenderas men krävs inte. |
 | **Autentiseringsuppgifter** |Den information som krävs för att ansluta och autentisera till tjänsten Azure Blob storage lagras som en autentiseringsuppgift.  En SQL Server-autentiseringsuppgift måste skapas för SQL Server för att skriva säkerhetskopior till en Azure Blob eller Återställ från den. Mer information finns i [SQL Server-Autentiseringsuppgiften](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
@@ -70,8 +70,8 @@ Följande SQL Server-komponenter som används när du säkerhetskopierar till Az
 1. Skapa ett Azure-konto om du inte redan har ett. Om du utvärderar Azure kan du överväga att den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 2. Gå sedan igenom något av följande självstudier som beskriver hur du skapar ett lagringskonto och utför en återställning.
    
-   * **SQL Server 2014**: [Självstudie: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**: [Självstudie: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2014**: [Självstudier: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Självstudier: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Granska ytterligare dokumentation från och med [SQL Server-säkerhetskopiering och återställning med Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Om du har några problem, läser du igenom avsnittet [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning](https://msdn.microsoft.com/library/jj919149.aspx).

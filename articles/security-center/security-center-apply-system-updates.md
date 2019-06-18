@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095463"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
@@ -56,7 +56,7 @@ I det här exemplet ska vi använda **Compute**.
     - ALLVARLIGHETSGRAD: Visas hur viktig rekommendationen:
 
       - Hög: En sårbarhet i finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
-      - Medel: Icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
+      - Medium: Icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
       - Låg: Ett problem bör åtgärdas, men kräver inte omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
 3. Välj en saknad uppdatering i listan om du vill visa information.
@@ -77,7 +77,7 @@ I det här exemplet ska vi använda **Compute**.
    ![Starta om datorn efter uppdateringarna][6]
 2. Välj **starta om efter systemuppdateringar**. Då öppnas **väntar en omstart för att slutföra systemuppdateringar** bladet som visar en lista över virtuella datorer som du måste starta om för att slutföra tillämpa systemet uppdaterar processen.
 
-   ![Väntar på omstart][7]
+   ![Omstart väntar][7]
 
 Starta om den virtuella datorn från Azure för att slutföra processen.
 

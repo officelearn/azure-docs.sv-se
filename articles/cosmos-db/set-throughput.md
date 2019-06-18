@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389238"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067509"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -87,7 +87,7 @@ Du kan hämta den minsta genomströmningen i en behållare eller en databas via 
 
 När du använder .NET SDK, den [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) metod kan du hämta den minsta genomströmningen i en behållare eller en databas. 
 
-Du kan skala det etablerade dataflödet i en behållare eller en databas när som helst. 
+Du kan skala det etablerade dataflödet i en behållare eller en databas när som helst. När en skalningsåtgärd utförs för att öka genomflödet, kan det ta längre tid på grund av de andra aktiviteterna att etablera resurserna som krävs. Du kan kontrollera status för åtgärden på Azure portal eller via programmering med hjälp av SDK: erna. När du använder .net SDK, kan du hämta status för åtgärden med hjälp av den `DocumentClient.ReadOfferAsync` metoden.
 
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 

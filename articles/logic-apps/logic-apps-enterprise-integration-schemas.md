@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846386"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validera XML med scheman i Azure Logic Apps med Enterprise-Integrationspaket
@@ -118,7 +118,7 @@ Om du vill lägga till större scheman, kan du ladda upp ditt schema till en Azu
 
 1. Gå tillbaka till Azure portal där de **Lägg till Schema** fönstret är öppet. 
    Ange ett namn för din sammansättningen. 
-   Välj **stor fil (större än 2 MB)**. 
+   Välj **stor fil (större än 2 MB)** . 
 
    Den **innehålls-URI** nu visas snarare än **schemat** box.
 

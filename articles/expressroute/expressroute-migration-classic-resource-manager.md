@@ -2,18 +2,18 @@
 title: 'Migrera virtuella nätverk från klassisk till Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
 description: Den här sidan beskriver hur du migrerar ExpressRoute-associerade virtuella nätverk till Resource Manager när du har flyttat din krets.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363860"
+ms.locfileid: "67115416"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute-associerade virtuella nätverk från klassisk till Resource Manager
 
@@ -23,7 +23,7 @@ Den här artikeln förklarar hur du migrerar ExpressRoute-associerade virtuella 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Kontrollera att du har den senaste versionen av Azure PowerShell-moduler. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+* Kontrollera att du har de senaste versionerna av Azure PowerShell-moduler. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Installera PowerShell Service Management-modulen (vilket krävs för den klassiska distributionsmodellen) kan du se [installerar Azure PowerShell Service Management-modulen](/powershell/azure/servicemanagement/install-azure-ps).
 * Se till att du har granskat den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Granska informationen som tillhandahålls under [flytta en ExpressRoute-krets från klassisk till Resource Manager](expressroute-move.md). Se till att du förstår gränser och begränsningar.
 * Kontrollera att kretsen är fullt fungerande i den klassiska distributionsmodellen.

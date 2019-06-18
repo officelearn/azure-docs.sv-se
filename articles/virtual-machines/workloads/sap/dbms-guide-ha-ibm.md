@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689713"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -127,12 +127,12 @@ Om du vill distribuera en IBM Db2-konfiguration, måste du följa dessa steg:
 
 Slutför planeringsprocessen innan du utför distributionen. Planera skapar grunden för att distribuera en konfiguration av Db2 med HADR i Azure. Viktiga element som måste vara en del i att planera för Interimistiska Db2 LUW (databasen del av SAP-miljön) visas i följande tabell:
 
-| Avsnitt | Kort beskrivning |
+| Ämne | Kort beskrivning |
 | --- | --- |
 | Definiera Azure-resursgrupper | Resursgrupper där du distribuerar virtuella datorer, virtuella nätverk, Azure Load Balancer och andra resurser. Kan vara befintliga eller nya. |
 | Virtuellt nätverk / undernätsdefinition | Där virtuella datorer för IBM Db2 och Azure Load Balancer som distribueras. Kan vara befintliga eller nya. |
 | Virtuella datorer som är värd för IBM Db2 LUW | VM-storlek, lagring, nätverk, IP-adress. |
-| Virtuella värdnamn och virtuella IP-Adressen för IBM Db2-databas| Det virtuella IP- eller namnet som används för anslutning av SAP-programservrar. **DB-virt-värdnamnet**, **db-virt-IP-**. |
+| Virtuella värdnamn och virtuella IP-Adressen för IBM Db2-databas| Det virtuella IP- eller namnet som används för anslutning av SAP-programservrar. **DB-virt-värdnamnet**, **db-virt-IP-** . |
 | Att hägna in Azure | Att hägna in Azure eller uppstår hägna in (rekommenderas). Metod för att undvika delad hjärna situationer förhindras. |
 | SBD VM | Uppstår VM-storlek, lagring, nätverk. |
 | Azure Load Balancer | Användning av Basic eller Standard (rekommenderas), avsökningsport för Db2-databas (vår rekommendation 62500) **avsökningsporten**. |
@@ -337,9 +337,9 @@ När du använder Pacemaker för automatisk redundans i händelse av ett nodfel,
 
 Följande objekt har ett prefix med antingen:
 
-- **[A]**: Gäller för alla noder
-- **[1]**: Gäller endast för nod 1 
-- **[2]**: Gäller endast för nod 2
+- **[A]** : Gäller för alla noder
+- **[1]** : Gäller endast för nod 1 
+- **[2]** : Gäller endast för nod 2
 
 **[A]**  Krav för Pacemaker konfiguration:
 1. Stäng av båda databasservrar med användaren db2\<sid > med db2stop.
@@ -595,8 +595,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **CRM-resurs migrera \<res_name > <host>:** Skapar Platsbegränsningar och kan orsaka problem med ett övertagande av
-- **CRM-resurs som är tydligt \<res_name >**: Tar bort Platsbegränsningar
-- **rensning av resurser för CRM \<res_name >**: Tar bort alla fel för resursen
+- **CRM-resurs som är tydligt \<res_name >** : Tar bort Platsbegränsningar
+- **rensning av resurser för CRM \<res_name >** : Tar bort alla fel för resursen
 
 ### <a name="test-the-fencing-agent"></a>Testa att hägna in agenten
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345792"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
@@ -73,12 +73,12 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktiverat, löst |Status för aviseringen baserat på villkor du anger. |
 | Kontext |Y | |I aviseringssammanhanget. |
-| tidsstämpel |Y | |Den tid då aviseringen utlöstes. |
+| timestamp |Y | |Den tid då aviseringen utlöstes. |
 | id |Y | |Varje varningsregeln har ett unikt ID. |
-| namn |Y | |Aviseringens namn. |
+| name |Y | |Aviseringens namn. |
 | description |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått- och. Måttaviseringar baseras på en måttvillkor. Aviseringar baseras på en händelse i aktivitetsloggen. Använd det här värdet om du vill kontrollera om aviseringen är baserad på ett mått eller på en händelse. |
-| villkor |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
+| condition |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
 | MetricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
 | metricUnit |För aviseringar för mått |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För aviseringar för mått | |Det faktiska värdet för det mått som orsakade aviseringen. |
@@ -106,3 +106,4 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 * Lär dig hur du [använder en logikapp för att skicka ett SMS-meddelande via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

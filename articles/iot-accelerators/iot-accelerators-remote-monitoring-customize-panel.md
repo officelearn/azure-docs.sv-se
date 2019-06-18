@@ -3,17 +3,16 @@ title: Lägga till en panel i av lösningen för fjärrövervakning gränssnitt 
 description: Den här artikeln visar hur du lägger till en ny panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/05/2018
-ms.date: 11/26/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447071"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren
@@ -46,6 +45,7 @@ Att komma igång, den **src/genomgången/komponenter/sidor/instrumentpanel/panel
 
 **examplePanel.js**
 
+[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Kopiera den **src/genomgången/komponenter/sidor/instrumentpanel/paneler/examplePanel** mappen till den **src/komponenter/sidor/instrumentpanel/paneler** mapp.
 

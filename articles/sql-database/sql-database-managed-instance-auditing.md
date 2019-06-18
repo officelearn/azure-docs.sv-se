@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702936"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
@@ -83,7 +83,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
             > [!NOTE]
             > Förnya token vid utgången att undvika fel för granskning.
 
-          - Klicka sedan på **Generera signatur för delad åtkomst (SAS)**.
+          - Klicka sedan på **Generera signatur för delad åtkomst (SAS)** .
             
             ![SAS-konfiguration](./media/sql-managed-instance-auditing/7_sas_configure.png)
 

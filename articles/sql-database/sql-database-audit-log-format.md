@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417396"
 ---
 # <a name="sql-database-audit-log-format"></a>Loggformatet för SQL Database-granskning
@@ -70,12 +70,12 @@ Granskningshändelser skrivs till Log Analytics-arbetsyta som definierats under 
 | response_rows | response_rows_d | Antalet rader som returneras i resultatet | bigint | int |
 | schema_name | schema_name_s | Schemat kontexten där åtgärden utfördes. NULL för granskningar som uppstår utanför ett schema | sysname | string |
 | Gäller inte | securable_class_type_s | Skyddsbara objekt som mappar till class_type granskas | Gäller inte | string |
-| sequence_group_id | sequence_group_id_g | Unik identifierare | Varbinary | GUID |
+| sequence_group_id | sequence_group_id_g | Unik identifierare | varbinary | GUID |
 | sequence_number | sequence_number_d | Spårar sekvens med poster inom en enda granskningspost som var för stor för att få plats i skrivbuffert för granskningar | int | int |
 | server_instance_name | server_instance_name_s | Namnet på den server-instansen där granskningen inträffade | sysname | string |
 | server_principal_id | server_principal_id_d | ID för inloggningskontext där åtgärden utförs | int | int |
 | server_principal_name | server_principal_name_s | Aktuella inloggningen | sysname | string |
-| server_principal_sid | server_principal_sid_s | Aktuella inloggningen SID | Varbinary | string |
+| server_principal_sid | server_principal_sid_s | Aktuella inloggningen SID | varbinary | string |
 | session_id | session_id_d | ID för den session där händelsen inträffade | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Tjänstens huvudnamn för session | sysname | string |
 | Instruktionen | statement_s | T-SQL-instruktionen som har gjorts (i förekommande fall) | nvarchar(4000) | string |
@@ -84,7 +84,7 @@ Granskningshändelser skrivs till Log Analytics-arbetsyta som definierats under 
 | target_database_principal_name | target_database_principal_name_s | Målanvändaren för åtgärden. NULL om ej tillämpligt | string | string |
 | target_server_principal_id | target_server_principal_id_d | Tjänstens huvudnamn som DENY-GRANT/REVOKE-åtgärden utförs på. Returnerar 0 om ej tillämpligt | int | int |
 | target_server_principal_name | target_server_principal_name_s | Mål-inloggningen för åtgärden. NULL om ej tillämpligt | sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | SID för mål-inloggning. NULL om ej tillämpligt | Varbinary | string |
+| target_server_principal_sid | target_server_principal_sid_s | SID för mål-inloggning. NULL om ej tillämpligt | varbinary | string |
 | transaction_id | transaction_id_d | Endast SQL Server (från och med 2016) - 0 för Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Användardefinierad händelse-id skickas som ett argument för sp_audit_write. NULL för systemhändelser (standard) och inte är noll för en användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Användardefinierad information som skickas som ett argument för sp_audit_write. NULL för systemhändelser (standard) och inte är noll för en användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |

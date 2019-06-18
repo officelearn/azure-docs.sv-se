@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071663"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -187,6 +187,33 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Ärende: Du ser ett 500 och 404-fel i loggfilen direkt efter integreringen
 Det här är ett känt problem som uppstår vid första överföring av Linux-data till Log Analytics-arbetsytan. Detta påverkar inte data som skickas eller service-upplevelse.
+
+
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>Ärende: Du ser omiagent med 100% CPU
+
+### <a name="probable-causes"></a>Troliga orsaker
+En regression i nss pem-paketet [v1.0.3 5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) orsakade allvarliga prestandaproblem, som vi har sett mycket hamna i Redhat/Centos 7.x distributioner. Om du vill veta mer om det här problemet kan du kontrollera följande dokumentation: Bugg [1667121 prestanda regression i libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+
+Prestanda-relaterad buggar inte inträffar hela tiden och de är mycket svårt att återskapa. Om du upplever sådana problem med omiagent bör du använda skriptet-omiHighCPUDiagnostics.sh som samlar in stackspårning av omiagent när överskrider ett visst tröskelvärde.
+
+1. Ladda ned skriptet <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. Kör diagnostik i 24 timmar med 30% CPU-tröskelvärdet <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. Anropsstack skickas i omiagent_trace-filen om du märker många Curl och NSS funktionsanrop, Följ stegen nedan.
+
+### <a name="resolution-step-by-step"></a>Upplösning (steg för steg)
+
+1. Uppgradera nss pem-paket till [v1.0.3 5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+`sudo yum upgrade nss-pem`
+
+2. Om nss pem inte är tillgänglig för uppgradering (huvudsakligen sker på Centos), nedgradera curl till 7.29.0-46. Om du av misstag du kör ”yum update”, curl kommer att uppgraderas till 7.29.0-51 och problemet sker igen. <br/>
+`sudo yum downgrade curl libcurl`
+
+3. Starta om OMI: <br/>
+`sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Ärende: Du ser inte några data i Azure portal
 

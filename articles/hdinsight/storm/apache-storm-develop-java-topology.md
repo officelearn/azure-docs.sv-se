@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078230"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa ett Apache Storm-topologi i Java
 
-Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](https://storm.apache.org/). Här kan skapa du en Storm-topologi som implementerar ett word-count-program. Du använder [Apache Maven](https://maven.apache.org/) att bygga och paketera projektet. Sedan kan du lära dig hur du definierar en topologi med hjälp av den [Apache Storm som](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](https://storm.apache.org/). Här kan skapa du en Storm-topologi som implementerar ett word-count-program. Du använder [Apache Maven](https://maven.apache.org/) att bygga och paketera projektet. Sedan kan du lära dig hur du definierar en topologi med hjälp av den [Apache Storm som](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 När du har slutfört stegen i det här dokumentet, kan du distribuera topologin till Apache Storm på HDInsight.
 
@@ -621,7 +621,7 @@ Det finns ett 5-sekundersintervall intervall mellan utsläpp av ord och antal. D
 
 ## <a name="convert-the-topology-to-flux"></a>Konvertera topologin till som
 
-[Som](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) är ett nytt ramverk tillgänglig med Storm 0.10.0 och högre, där du kan avgränsa konfigurationen från implementering. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en topologi standarddefinition med ditt projekt eller använda en fristående fil när du skickar in topologin. När du skickar in topologin till Storm, kan du använda miljövariabler eller konfigurationsfiler för att fylla i värden i topologidefinitionen YAML.
+[Som](https://storm.apache.org/releases/2.0.0/flux.html) är ett nytt ramverk tillgänglig med Storm 0.10.0 och högre, där du kan avgränsa konfigurationen från implementering. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en topologi standarddefinition med ditt projekt eller använda en fristående fil när du skickar in topologin. När du skickar in topologin till Storm, kan du använda miljövariabler eller konfigurationsfiler för att fylla i värden i topologidefinitionen YAML.
 
 YAML-fil som definierar vilka komponenter som ska användas för topologin och data kan flöda mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen eller du kan använda en extern YAML-fil.
 

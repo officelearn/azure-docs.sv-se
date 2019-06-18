@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8652dab5db8bbd59982cb1dda727698868df23c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057745"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155704"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudier: Konfigurera en miljö för machine learning på IoT Edge
 
@@ -61,7 +61,7 @@ Katalogen DevVM innehåller de filer som behövs för att skapa en Azure virtuel
 1. Öppna Powershell som administratör och navigera till katalogen där du hämtade koden. Vi kommer att referera till rotkatalogen för din källa som `<srcdir>`.
 
     ```powershell
-    cd \<srcdir\>\IoTEdgeAndMlSample\DevVM
+    cd <srcdir>\IoTEdgeAndMlSample\DevVM
     ```
 
 2. Kör följande kommando för att tillåta körning av skript. Välj **Ja till alla** när du tillfrågas.
@@ -141,7 +141,7 @@ Nu när du har anslutit till utvecklingsdator kan du lägga till vissa användba
 3. Kör skriptet.
 
     ```powershell
-    .\\Enable-CodeExtensions.ps1
+    .\Enable-CodeExtensions.ps1
     ```
 
 4. Skriptet körs under ett par minuter installera VS code-tillägg:

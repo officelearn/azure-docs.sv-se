@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827280"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Bildlagring för behållare i Azure Container Registry
@@ -34,12 +34,12 @@ För scenarier som kräver ytterligare trygghet för hög tillgänglighet kan du
 
 I följande tabell beskrivs behållare avbildningen och lagringsgränser för Azure-behållarregister.
 
-| Resurs | Gräns |
+| Resource | Gräns |
 | -------- | :---- |
 | Centrallager | Obegränsad |
 | Avbildningar | Obegränsad |
 | Lager | Obegränsad |
-| Taggar | Obegränsad|
+| Tags | Obegränsad|
 | Storage | 5 TB |
 
 Mycket stort antal databaser och taggar kan påverka prestanda för ditt register. Regelbundet ta bort oanvända databaser, taggar och bilder som en del av din rutinen för underhåll av registret. Ta bort registret resurser som databaser, avbildningar och taggar *kan* återställas efter borttagningen. Läs mer om att ta bort Registerresurser [ta bort avbildningar i Azure Container Registry](container-registry-delete.md).

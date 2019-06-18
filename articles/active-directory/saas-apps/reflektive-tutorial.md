@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8d7b6fee973379516e7dbf58b27cfafe1e1edc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Självstudier: Azure Active Directory-integrering med Reflektive
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Reflektive i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Reflektive från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Reflekt
 
 ### <a name="configure-reflektive-single-sign-on"></a>Konfigurera Reflektive Single Sign-On
 
-Att konfigurera enkel inloggning på **Reflektive** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Reflektive supportteamet](mailto:https://support@reflektive.com/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på **Reflektive** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Reflektive supportteamet](mailto: https://support@reflektive.com/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -192,7 +192,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-reflektive-test-user"></a>Skapa Reflektive testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Reflektive. Arbeta med [Reflektive supportteamet](mailto:https://support@reflektive.com/) att lägga till användare i Reflektive-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Reflektive. Arbeta med [Reflektive supportteamet](mailto: https://support@reflektive.com/) att lägga till användare i Reflektive-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -206,5 +206,5 @@ När du klickar på panelen Reflektive i åtkomstpanelen, bör det vara loggas i
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

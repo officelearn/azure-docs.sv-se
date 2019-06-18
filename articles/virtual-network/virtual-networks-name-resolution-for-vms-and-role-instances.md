@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411362"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
@@ -43,8 +43,8 @@ Typ av namnmatchning som du använder beror på hur dina resurser behöver kommu
 | Namnet lösningen från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se namnmatchning med hjälp av DNS-servern. |Endast FQDN |
 | Upplösning på lokal dator- och tjänstnamn från virtuella datorer eller rollinstanser i Azure. |Kundhanterad DNS-servrar (den lokala domänkontrollanten, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med zonöverföringar, till exempel). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Lösning av Azure värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Saknas |
-| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Saknas|
+| Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
+| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
 
 ## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namnmatchning
 
@@ -88,15 +88,15 @@ Standard Windows DNS-klienten har en inbyggd DNS-cache. Vissa Linux-distribution
 
 Det finns ett antal olika DNS-cachen paket som är tillgängliga (till exempel dnsmasq). Här är hur du installerar dnsmasq på de vanligaste distributionerna:
 
-* **Ubuntu (använder resolvconf)**:
+* **Ubuntu (använder resolvconf)** :
   * Installera paketet dnsmasq med `sudo apt-get install dnsmasq`.
-* **SUSE (använder netconf)**:
+* **SUSE (använder netconf)** :
   * Installera paketet dnsmasq med `sudo zypper install dnsmasq`.
   * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`. 
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`. 
   * Redigera **/etc/sysconfig/network/config**, och ändra *NETCONFIG_DNS_FORWARDER = ””* till *dnsmasq*.
   * Uppdatera resolv.conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matchning.
-* **CentOS (använder NetworkManager)**:
+* **CentOS (använder NetworkManager)** :
   * Installera paketet dnsmasq med `sudo yum install dnsmasq`.
   * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`.
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`.
@@ -154,7 +154,7 @@ Vidarebefordran av DNS kan du även gör DNS-matchning mellan virtuella nätverk
 
 ![Diagram över DNS mellan virtuella nätverk](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-När du använder Azure-tillhandahållen namnmatchning, Azure DHCP Dynamic Host Configuration Protocol () innehåller en intern DNS-suffix (**. internal.cloudapp.net**) till varje virtuell dator. Detta suffix kan matcha värdnamn eftersom namnet värdposter finns i den **internal.cloudapp.net** zon. När du använder en egen lösning för name resolution anges suffixet till virtuella datorer eftersom den stör andra DNS-arkitekturer (t.ex. domänanslutna scenarier). I stället Azure tillhandahåller en icke-fungerande platshållare (*reddog.microsoft.com*).
+När du använder Azure-tillhandahållen namnmatchning, Azure DHCP Dynamic Host Configuration Protocol () innehåller en intern DNS-suffix ( **. internal.cloudapp.net**) till varje virtuell dator. Detta suffix kan matcha värdnamn eftersom namnet värdposter finns i den **internal.cloudapp.net** zon. När du använder en egen lösning för name resolution anges suffixet till virtuella datorer eftersom den stör andra DNS-arkitekturer (t.ex. domänanslutna scenarier). I stället Azure tillhandahåller en icke-fungerande platshållare (*reddog.microsoft.com*).
 
 Om det behövs kan bestämma du interna DNS-suffixet med hjälp av PowerShell eller API: et.
 
@@ -173,7 +173,7 @@ Om vidarebefordran av frågor till Azure inte passar dina behov, bör du ange en
 > 
 > 
 
-### <a name="web-apps"></a>Webbprogram
+### <a name="web-apps"></a>Webbappar
 Anta att du behöver utföra namnmatchning från ditt program skapas med hjälp av App Service är länkad till ett virtuellt nätverk för virtuella datorer i samma virtuella nätverk. Förutom att konfigurera en anpassad DNS-server som har en DNS-vidarebefordrare som vidarebefordrar frågor till Azure (virtuell IP-adressen 168.63.129.16), utför följande steg:
 1. Aktivera virtual network-integration för din webbapp, om inte redan har gjort, enligt beskrivningen i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. I Azure-portalen för App Service-plan som är värd för webbapp väljer **synkronisera nätverk** under **nätverk**, **virtuell nätverksintegrering**.

@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545198"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten
@@ -67,9 +67,9 @@ Behörigheter i Azure AD har ett antal egenskaper som hjälper användare, admin
 | `IsEnabled` | Anger om den här behörigheten är tillgänglig för användning. | true |
 | `Type` | Anger om den här behörigheten kräver ett godkännande av användaren eller administratören. | Användare |
 | `AdminConsentDescription` | En beskrivning som visas för administratörer vid administratörsmedgivanden | Tillåter att appen läser e-post i användarnas postlådor. |
-| `AdminConsentDisplayName` | Ett eget namn som visas för administratörer vid administratörsmedgivanden. | Läs användar-e-post |
+| `AdminConsentDisplayName` | Ett eget namn som visas för administratörer vid administratörsmedgivanden. | Läsa användarnas e-post |
 | `UserConsentDescription` | En beskrivning som visas för användarna vid ett användargodkännande. |  Tillåter att appen läser e-post i din postlåda. |
-| `UserConsentDisplayName` | Ett eget namn som visas för användare vid ett användargodkännande. | Läs din e-post |
+| `UserConsentDisplayName` | Ett eget namn som visas för användare vid ett användargodkännande. | Läsa din e-post |
 | `Value` | Den sträng som används för att identifiera behörigheten vid OAuth 2.0-auktorisering av flöden. `Value` kan även kombineras med app-ID:ts URI-sträng för att bilda ett fullständigt behörighetsnamn. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Typer av godkännande
@@ -86,7 +86,7 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
   
 * **Administratörsmedgivande** – Krävs när din app behöver ha åtkomst till vissa högpriviligierade behörigheter. Administratörsmedgivande säkerställer att administratörer har vissa ytterligare kontroller innan de godkänner appar, eller att användare får åtkomst till högprivilegierade data från organisationen. [Mer information om hur du ger ett administratörsmedgivande](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>Regelverk
+## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="client-best-practices"></a>Metodtips för klienter
 

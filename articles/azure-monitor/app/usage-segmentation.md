@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372299"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelser analys i Application Insights
@@ -58,7 +58,7 @@ Dela en länk till en användare, sessioner eller händelser-rapporterna. Klicka
 
 Dela en kopia av data i en användare, sessioner eller händelser; klickar du på **resursen** i verktygsfältet, klicka på den **Word ikonen** att skapa ett Word-dokument med data. Alternativt klickar du på den **Word ikonen** ovanför huvudsakliga diagrammet.
 
-## <a name="meet-your-users"></a>Träffa dina användare
+## <a name="meet-your-users"></a>Uppfyll dina användare
 
 Den **uppfyller användarnas** visar information om fem exempelanvändare som matchas av den aktuella frågan. Överväger och utforska beteenden för enskilda användare, förutom aggregeringar, kan ge insikter om hur personer faktiskt använder din app.
 

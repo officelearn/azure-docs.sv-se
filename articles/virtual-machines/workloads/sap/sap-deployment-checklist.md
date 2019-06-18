@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236885"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
@@ -157,7 +157,7 @@ Piloten kan köras före eller parallellt till projektet planering och förbered
    3.  Se till att alla resurser som ska krypteras är krypterad. Definiera och köra processer för att säkerhetskopiera certifikat, lagra, och kommer åt certifikaten och återställa de krypterade entiteterna. 
    4.  Använd [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) och/eller för OS-diskar där möjligt från ett operativsystem stöder synvinkel
    5.  Kontrollera att inte för många nivåer av kryptering har använts. Gör den begränsade klokt att använda Azure Disk encryption och viktigaste sedan någon av metoderna DBMS Transparent databaskryptering på
-6. Testning av prestanda
+6. Prestandatestning
    1.  Jämför översta 10 online-rapporter för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
    2.  Jämför översta 10 batch-jobb för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
    3.  I SAP baserat på SAP-spårning och mätning av faktisk användning, jämför dataöverföringar via gränssnitt i SAP-system. Fokusera på gränssnitt där du vet att överföringen kommer nu mellan olika platser, som kommer från en lokal plats till Azure 
@@ -183,7 +183,7 @@ I det här steget förutsätter vi att när du har en lyckad pilot eller PoC kan
 11. Utföra alla andra kontroller som anges i fasen Proof of concept innan du tillämpar arbetsbelastning
 12. När det gäller arbetsbelastning, registrera de resurser som används för dessa system i Azure och jämför med de poster som du fick från din gamla plattform. Justera VM-storlek för framtida distributioner om du ser att du har större skillnader. Tänk på att vid downsizing, lagring och nätverksbandbredd för en virtuell dator kommer att minska samt:
     1.  [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-    2.  [Storlekar för Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    2.  [Storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Arbeta i kopieringsfunktionalitet system och processer. Målet är att göra det lättare för dig att kopiera en utvecklingssystem eller ett testsystem, så som projektet team kan få nya system snabbt. Överväg att [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) som ett verktyg som utför sådana uppgifter.
 14. Optimera och få fram din grupps Azure rollbaserad åtkomst, behörigheter och processer för att se till att du har en åtskillnad mellan använts på ena sidan. Å andra sidan som du vill ha alla team som är aktiverade för att utföra sina uppgifter i Azure-infrastrukturen.
 15. Övning, testa och dokumentet hög tillgänglighet och katastrofåterställning återställningsproceduren för att aktivera din personal att utföra dessa uppgifter. Identifiera brister och anpassa nya Azure-funktioner som du integrerar i dina distributioner

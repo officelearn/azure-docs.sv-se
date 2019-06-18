@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60728057"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
@@ -39,14 +39,14 @@ Som standard förhindrar en tom security konfigurationsavsnittet replikeringssä
 > På Linux-noder vara certifikat PEM-formaterade. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurerar du certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Avsnittsnamn
+### <a name="section-name"></a>Namn på avsnittet
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Replikator konfiguration
 Replikator konfigurationer konfigurera replikatorn som ansvarar för att göra aktören Tillståndsprovider tillståndet mycket pålitlig.
 Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera replikatorn.
 
-### <a name="section-name"></a>Avsnittsnamn
+### <a name="section-name"></a>Namn på avsnittet
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Konfigurationsnamn
@@ -63,7 +63,7 @@ Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräc
 Store-konfigurationer för att konfigurera det lokala arkivet som ska användas för att bevara tillstånd som håller på att replikeras.
 Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera det lokala arkivet.
 
-### <a name="section-name"></a>Avsnittsnamn
+### <a name="section-name"></a>Namn på avsnittet
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Konfigurationsnamn

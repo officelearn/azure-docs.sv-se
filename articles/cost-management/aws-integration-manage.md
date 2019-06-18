@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870319"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS kostnader och användning i Azure
@@ -75,7 +75,7 @@ Det här området innehåller en aggregerad vy över alla AWS länkade konton so
 
 I följande tabell beskrivs dimensioner som är tillgängliga för gruppen och filtrera efter i kostnadsanalys.
 
-| Dimension | Amazon akt rubrik | Omfattningar | Kommentarer |
+| Dimension | Amazon akt rubrik | Omfattningar | Kommentar |
 | --- | --- | --- | --- |
 | Tillgänglighetszon | lineitem/AvailabilityZone | Alla |   |
 | Location | produkt/Region | Alla |   |
@@ -83,16 +83,16 @@ I följande tabell beskrivs dimensioner som är tillgängliga för gruppen och f
 | Mätarkategori | lineItem/ProductCode | Alla |   |
 | Mätarunderkategori | lineitem/UsageType | Alla |   |
 | Åtgärd | lineItem/Operation | Alla |   |
-| Resurs | lineItem/ResourceId | Alla |   |
+| Resource | lineItem/ResourceId | Alla |   |
 | Resurstyp | produkt/instanceType | Alla | Om produkt/instanceType är null används lineItem/UsageType. |
 | ResourceGuid | Gäller inte | Alla | Azure mätaren GUID. |
 | Tjänstnamn | produkt/ProductName | Alla | Om produkt/ProductName är null används lineItem/ProductCode. |
 | Tjänstenivå |   |   |   |
 | Prenumerations-ID:t | lineItem/UsageAccountId | Konsoliderad grupp för kontot och hantering |   |
 | Prenumerationsnamn | Gäller inte | Konsoliderad grupp för kontot och hantering | Kontonamn samlas in med hjälp av API för AWS-organisation. |
-| Tagga | resourceTags/\* | Alla | Den _användare:_ prefix tas bort från en användardefinierad taggar om du vill tillåta molnöverskridande taggar. Den _aws:_ prefix lämnas intakt. |
-| Faktureringskonto-ID | bill/PayerAccountId | Hanteringsgrupp |   |
-| Faktureringskontonamn | Gäller inte | Hanteringsgrupp | Kontonamn samlas in med hjälp av API för AWS-organisation. |
+| Tagg | resourceTags/\* | Alla | Den _användare:_ prefix tas bort från en användardefinierad taggar om du vill tillåta molnöverskridande taggar. Den _aws:_ prefix lämnas intakt. |
+| Fakturering konto-ID | bill/PayerAccountId | Hanteringsgrupp |   |
+| Kontonamn för fakturering | Gäller inte | Hanteringsgrupp | Kontonamn samlas in med hjälp av API för AWS-organisation. |
 | Leverantör | Gäller inte | Hanteringsgrupp | AWS eller Azure. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>Ange budgetar på AWS-omfång

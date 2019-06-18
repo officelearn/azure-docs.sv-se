@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919171"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
@@ -46,9 +46,9 @@ Förutom dessa tre konton som används för att köra Azure AD Connect, måste d
 
 - **Azure AD globala administratörskonto**: används för att skapa konto för Azure AD-koppling och konfigurera Azure AD.
 
-- **SQL-SA-kontot (valfritt)**: används för att skapa ADSync-databas när du använder den fullständiga versionen av SQL Server.  Den här SQL-servern kan vara lokal eller fjärransluten till Azure AD Connect-installationen.  Det här kontot kan vara samma konto som företagsadministratör.  Distribuera databasen nu utförs out of band av SQL-administratören och installeras sedan av Azure AD Connect-administratören med databasägarrättigheter.  Information om den här finns [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md)
+- **SQL-SA-kontot (valfritt)** : används för att skapa ADSync-databas när du använder den fullständiga versionen av SQL Server.  Den här SQL-servern kan vara lokal eller fjärransluten till Azure AD Connect-installationen.  Det här kontot kan vara samma konto som företagsadministratör.  Distribuera databasen nu utförs out of band av SQL-administratören och installeras sedan av Azure AD Connect-administratören med databasägarrättigheter.  Information om den här finns [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md)
 
-## <a name="installing-azure-ad-connect"></a>Installerar Azure AD Connect
+## <a name="installing-azure-ad-connect"></a>Installera Azure AD Connect
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
 
 * I inställningarna för Express-guiden kräver fler privilegier.  Det här är så att den kan konfigurera din konfiguration enkelt, utan att behöva skapa användare eller konfigurera behörigheter.
@@ -80,7 +80,7 @@ AD DS-anslutningskontot för läsning och skrivning till Windows Server AD och h
 | Läs/Skriv alla egenskaper iNetOrgPerson |Import- och Exchange-hybrid |
 | Gruppen för Läs/Skriv alla egenskaper |Import- och Exchange-hybrid |
 | Läs/Skriv alla egenskaper kontakta |Import- och Exchange-hybrid |
-| Återställa lösenord |Förberedelser för att aktivera tillbakaskrivning av lösenord |
+| Återställ lösenord |Förberedelser för att aktivera tillbakaskrivning av lösenord |
 
 ### <a name="express-installation-wizard-summary"></a>Snabbinstallation guiden sammanfattning
 
@@ -146,7 +146,7 @@ När du uppgraderar från en version av Azure AD Connect till en ny version, beh
 >Från och med version 1.1.484, introducerade Azure AD Connect en regression bugg som kräver sysadmin-behörighet för att uppgradera SQL-databasen.  Det här problemet korrigeras i bygger 1.1.647.  Om du uppgraderar till den här bygger behöver du sysadmin-behörighet.  Dbo-behörigheter är inte tillräckliga.  Om du försöker uppgradera Azure AD Connect utan sysadmin-behörighet, så misslyckas uppgraderingen och Azure AD Connect kommer inte längre att fungera korrekt efteråt.  Microsoft är medvetna om detta och arbetar med för att åtgärda detta.
 
 
-| Huvudkonto | Behörigheter som krävs | Används för |
+| Huvudnamn | Behörigheter som krävs | Används för |
 | --- | --- | --- |
 | Användaren som kör installationsguiden |Administratör för den lokala servern |Uppdatera binärfiler. |
 | Användaren som kör installationsguiden |Medlem i ADSyncAdmins |Göra ändringar i Synkroniseringsregler och annan konfiguration. |
@@ -154,7 +154,7 @@ När du uppgraderar från en version av Azure AD Connect till en ny version, beh
 
 ## <a name="more-about-the-created-accounts"></a>Mer om kontona
 ### <a name="ad-ds-connector-account"></a>AD DS-anslutningskontot
-Om du använder standardinställningarna skapas ett konto i Active Directory som används för synkronisering. Skapade kontot finns i rotdomänen i skogen i behållaren användare och har namnet med prefixet **MSOL_**. Kontot har skapats med ett långt komplexa lösenord som inte upphör att gälla. Om du har en lösenordsprincip i din domän, se till att långa och komplexa lösenord ska tillåtas för det här kontot.
+Om du använder standardinställningarna skapas ett konto i Active Directory som används för synkronisering. Skapade kontot finns i rotdomänen i skogen i behållaren användare och har namnet med prefixet **MSOL_** . Kontot har skapats med ett långt komplexa lösenord som inte upphör att gälla. Om du har en lösenordsprincip i din domän, se till att långa och komplexa lösenord ska tillåtas för det här kontot.
 
 ![AD-konto](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
@@ -248,7 +248,7 @@ Läs mer om hur du hanterar eller återställa lösenordet för Azure AD-anslutn
 ## <a name="related-documentation"></a>Relaterad dokumentation
 Om du inte Läs i dokumentationen om [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md), i följande tabell innehåller länkar till närliggande ämnen.
 
-|Avsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|

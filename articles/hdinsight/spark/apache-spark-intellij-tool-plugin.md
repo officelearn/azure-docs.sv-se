@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066445"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -183,7 +183,7 @@ Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari hanteras använd
         |Användarnamn| Ange klusteranvändarnamn, standardvärdet är administratör.|
         |Lösenord| Ange lösenordet för användarnamnet.|
     
-        ![länka dialogrutan för Hdinsight-kluster](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![länka dialogrutan för HdInsight-kluster](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy-tjänsten**  
   
@@ -457,12 +457,12 @@ Om klustret är upptagen, kan du få felet nedan.
 
 ![Intellij får fel när klustret upptagen](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## <a name="feedback-and-known-issues"></a>Feedback och kända problem
+## <a name="known-issues"></a>Kända problem
+
 För närvarande stöds visa Spark utdata direkt inte.
 
-Om du har förslag eller feedback, eller om du stöter på problem när du använder det här plugin-programmet, maila hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>Nästa steg
+
 * [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
@@ -482,7 +482,6 @@ Om du har förslag eller feedback, eller om du stöter på problem när du anvä
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Felsöka Apache Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Felsöka Apache Spark-program via fjärranslutning via SSH med hjälp av Azure Toolkit för IntelliJ](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Använda HDInsight-verktygen i Azure Toolkit för Eclipse för att skapa Apache Spark-program](apache-spark-eclipse-tool-plugin.md)
 * [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)

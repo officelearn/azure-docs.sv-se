@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424762"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Vidta åtgärder med en Automation-Runbook från en Log Analytics log search-resultat
@@ -38,7 +38,7 @@ Om du vill vidta åtgärder för en händelse och starta en runbook från sökre
 
 1. I Azure-portalen klickar du på **alla tjänster** och välj **Log Analytics**.  
 2. Välj Log Analytics-arbetsytan.
-3. På arbetsytan, Välj **loggar (klassisk)**.  
+3. På arbetsytan, Välj **loggar (klassisk)** .  
 4. På sidan Log Search utför en loggsökning.  
 5. Från loggsökningen, klickar du på ellipsen till vänster om något av fälten och från popup-fönstret väljer **vidta åtgärder för**.<br><br> ![Välj vidta åtgärder från sökresultat](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Välj **kör en runbook** och välj en runbook ska köras.  Du kan välja valfri runbook i Automation-kontot som är länkad till Log Analytics-arbetsytan.  Observera följande:

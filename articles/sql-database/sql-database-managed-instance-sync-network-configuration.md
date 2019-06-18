@@ -7,17 +7,16 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: digimobile
-origin.date: 12/13/2018
-ms.date: 04/29/2019
+manager: craigg
+ms.date: 12/13/2018
 ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61314728"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Synkronisera nätverkskonfiguration för Azure App Service-värdplan
@@ -30,7 +29,7 @@ Det gör du genom att följa dessa steg:
 
 1. Gå till web apps App Service-plan.
 
-   ![apptjänstplan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
+   ![App service-plan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Klicka på **nätverk** och klicka sedan på **Klicka här för att hantera**.
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
 ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107082"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Host.JSON-referens för Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Välj versionen av Azure Functions-runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -163,7 +163,7 @@ Konfigurationsinställningar för [Övervakare för hälsa för värd](https://g
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktiverad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
@@ -210,7 +210,7 @@ Kontroller som filtrering för loggar som skrivits av en [ILogger objekt](functi
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |categoryFilter|Saknas|Anger du filtrerar efter kategori| 
 |defaultLevel|Information|För alla kategorier som angetts i den `categoryLevels` kan skicka loggar på den här nivån och senare till Application Insights.| 
@@ -232,7 +232,7 @@ Konfigurationsinställningar för [Storage-kö-utlösare och bindningar](functio
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Maximalt intervall i millisekunder mellan kön avsöker.| 
 |visibilityTimeout|0|Det går inte att tidsintervall mellan försök vid bearbetning av ett meddelande.| 
@@ -254,7 +254,7 @@ Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. | 
 |prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
@@ -276,7 +276,7 @@ Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns 
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktionen på Lås används för. Låsen den automatiska förnyelsen.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnare Lås används för.| 
@@ -299,7 +299,7 @@ Konfigurationsinställningar för loggar som du skapar med hjälp av en `TraceWr
 }
 ```
 
-|Egenskap   |Standard | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |consoleLevel|info|Spårningsnivån för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
 |fileLoggingMode|debugOnly|Spårningsnivån för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 

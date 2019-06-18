@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334627"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Realtidsstatistik i Microsoft Azure CDN
@@ -43,7 +43,7 @@ I följande diagram är tillgängliga:
     ![CDN-profilbladet hantera knappen](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-3. Hovra över den **Analytics** och sedan hovra över den **statistik i realtid** utfällbar meny.  Klicka på **LOB-HTTP-**.
+3. Hovra över den **Analytics** och sedan hovra över den **statistik i realtid** utfällbar meny.  Klicka på **LOB-HTTP-** .
    
     ![CDN-hanteringsportalen](./media/cdn-real-time-stats/cdn-premium-portal.png)
    

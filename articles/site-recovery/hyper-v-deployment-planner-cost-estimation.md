@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947238"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
@@ -125,7 +125,7 @@ Så här lägger du till virtuella datorer manuellt:
 
     i. **Azure Hybrid-förmån**
 
-1. Du kan använda samma värde för alla virtuella datorer i tabellen genom att välja **Använd för alla**, för kolumnerna **Antal DR-tester under ett år**, **Varaktighet för varje DR-test (dagar)**, **Dataredundans** och **Azure Hybrid-förmån**.
+1. Du kan använda samma värde för alla virtuella datorer i tabellen genom att välja **Använd för alla**, för kolumnerna **Antal DR-tester under ett år**, **Varaktighet för varje DR-test (dagar)** , **Dataredundans** och **Azure Hybrid-förmån**.
 
 1. Välj alternativet Re-calculate cost (Beräkna kostnaden på nytt) om du vill uppdatera kostnaden.
 
@@ -133,9 +133,9 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Antalet virtuella datorer**: Hur många virtuella datorer som matchar konfigurationen. Du kan uppdatera antalet befintliga virtuella datorer om virtuella datorer med liknande konfiguration inte är profilerade men är skyddade.
 
-**IaaS-storlek (rekommendation)**: VM-rollstorleken på de kompatibla virtuella datorer som verktyget rekommenderar. 
+**IaaS-storlek (rekommendation)** : VM-rollstorleken på de kompatibla virtuella datorer som verktyget rekommenderar. 
 
-**IaaS-storlek (dina val)**: Som standard är storleken samma som den rekommenderade storleken. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
+**IaaS-storlek (dina val)** : Som standard är storleken samma som den rekommenderade storleken. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
 
 **Lagringstyp**: Typ av lagring som används av den virtuella datorn. Det här är antingen Standard eller Premium.
 
@@ -143,7 +143,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Antal DR-tester under ett år**: Antal gånger som du utför DR-tester under ett år. Standardvärdet är fyra gånger per år. Antalet kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange det nya värdet i den övre raden och välj **Använd för alla**. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test. 
 
-**Varaktighet för varje DR-test (dagar)**: Varaktigheten för varje DR-test. Standardvärdet är sju dagar var 90:e dag enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Perioden kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange ett nytt värde i den övre raden och välj **Använd för alla**. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
+**Varaktighet för varje DR-test (dagar)** : Varaktigheten för varje DR-test. Standardvärdet är sju dagar var 90:e dag enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Perioden kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange ett nytt värde i den övre raden och välj **Använd för alla**. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
  
 **OS-typ**: Typ av operativsystem (OS) för den virtuella datorn. Det är antingen Windows eller Linux. Om OS-typen är Windows kan du använda Azure Hybrid-förmånen för den virtuella datorn. 
 
@@ -155,7 +155,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Replikeringskostnad för stabilt tillstånd**: Lagringskostnaden för replikering.
 
-**Total kostnad för DR-test (Genomsnittlig)**: Beräknings- och kostnaden för DR-test.
+**Total kostnad för DR-test (Genomsnittlig)** : Beräknings- och kostnaden för DR-test.
 
 **Licenskostnaden för Azure Site Recovery**: Site Recovery-licensen kostnad.
 

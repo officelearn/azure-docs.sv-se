@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541151"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67122224"
 ---
 * Om du använder Azure SQL Database, följer du anvisningarna under [Anslut till Azure SQL Database](#connect-azure-sql-db). 
 
@@ -45,11 +45,11 @@ ms.locfileid: "60541151"
    <br>
    Asterisker (*) anger nödvändiga värden.
 
-   | Egenskap  | Värde | Information | 
+   | Egenskap | Värde | Information | 
    |----------|-------|---------| 
    | Anslutningsnamn | <*my-sql-connection*> | Namn för anslutningen | 
    | SQL Server-namn | <*my-sql-server*> | Namn för din SQL-server |
-   | SQL Database-namn | <*my-sql-database*>  | Namn för din SQL-databas | 
+   | SQL-databasnamn | <*my-sql-database*>  | Namn för din SQL-databas | 
    | Användarnamn | <*my-sql-username*> | Användarnamnet för åtkomst till din databas |
    | Lösenord | <*my-sql-password*> | Lösenord för att komma åt din databas | 
    |||| 
@@ -96,12 +96,12 @@ Innan du kan välja din gateway, kontrollerar du att du redan [ställa in din da
    <br>
    Asterisker (*) anger nödvändiga värden.
 
-   | Egenskap  | Värde | Information | 
+   | Egenskap | Värde | Information | 
    |----------|-------|---------| 
    | Ansluta via en lokal gateway | Välj det här alternativet först inställningar för SQL Server. | | 
    | Anslutningsnamn | <*my-sql-connection*> | Namn för anslutningen | 
    | SQL Server-namn | <*my-sql-server*> | Namn för din SQL-server |
-   | SQL Database-namn | <*my-sql-database*>  | Namn för din SQL-databas |
+   | SQL-databasnamn | <*my-sql-database*>  | Namn för din SQL-databas |
    | Användarnamn | <*my-sql-username*> | Användarnamnet för åtkomst till din databas |
    | Lösenord | <*my-sql-password*> | Lösenord för att komma åt din databas | 
    | Autentiseringstyp | Windows- eller Basic | Valfritt: Den autentiseringstyp som används av SQLServer | 

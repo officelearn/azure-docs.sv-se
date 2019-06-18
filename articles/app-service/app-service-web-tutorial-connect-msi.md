@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dd84f9b3b68d7a34903241caed7f1f93e685fb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 548cd3de6d2eff9f2077ca66b66d5c60aa84f7e2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138975"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154221"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -77,13 +77,22 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Bevilja databasåtkomst till identiteten
 
-Nu ger du databasåtkomst till appens hanterade identitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>*.
+Nu ger du databasåtkomst till appens hanterade identitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>* .
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
 Den hanterade identiteten har nu åtkomst till din Azure SQL Database-server.
+
+> [!IMPORTANT]
+> För enkelhetens skull konfigurerar det här steget du Azure AD hanteras identiteten som administratör för SQL-databas. Metoden har följande begränsningar:
+>
+> - Appens administrativ åtkomst följer inte rekommenderade säkerhetsmetoder.
+> - Eftersom den hanterade identitet är app som är specifika, kan du inte använda samma hanterad identitet för att ansluta till SQL-databas från en annan app.
+> - Den hanterade identitet kan inte logga in till SQL-databasen interaktivt, så det går inte att bevilja åtkomst till hanterade identiteter efter ytterligare appar. 
+>
+> Om du vill förbättra säkerheten och administrera Azure AD-konton i SQL-databas, följer du stegen i [ge lägsta möjliga behörighetsnivå till identiteten](#grant-minimal-privileges-to-identity).
 
 ## <a name="modify-connection-string"></a>Ändra anslutningssträngen
 

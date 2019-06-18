@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950095"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Uppgifter för gruppchef i ett team för datavetenskapsprojekt
@@ -86,7 +86,7 @@ När du har loggat in klickar du på **Skapa nytt konto** i det övre högra hö
 Fyll i information för Azure DevOps-tjänster som du vill skapa i den **skapa ditt konto** guiden med följande värden:
 
 - **Serveradress**: Ersätt *mysamplegroup* med dina egna *servernamn*. URL: en för din server ska vara: *https://\<servername\>. visualstudio.com*.
-- **Hantera kod med:** Välj  **_Git_**.
+- **Hantera kod med:** Välj  **_Git_** .
 - **Namn:** Ange *GroupCommon*.
 - **Organisera arbete med hjälp av:** Välj *flexibel*.
 - **Vara värd för dina projekt i:** Välj en geoplats. I det här exemplet väljer vi *södra centrala USA*.

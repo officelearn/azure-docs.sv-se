@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836917"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
@@ -29,7 +29,7 @@ Hämta och ta bort volymen resurser.
 |Kommando|Beskrivning|
 | --- | --- |
 | delete | Tar bort volymresursen. |
-| lista | Visar en lista över alla resurser som volym. |
+| list | Visar en lista över alla resurser som volym. |
 | visa | Hämtar volymresursen med det angivna namnet. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl nät volym delete

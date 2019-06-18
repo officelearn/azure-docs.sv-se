@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209405"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure skisser
@@ -107,7 +107,7 @@ En Resource Manager-mall-artefakt med ID _myTemplateArtifact_ som innehåller f�
 
 Några exempel på hämtning av data från den _myTemplateArtifact_ exempel är:
 
-| Uttryck | Typ | Värde |
+| uttryck | Typ | Värde |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | ”första” |
@@ -200,7 +200,7 @@ Använd sedan _principalIds_ som argument för `parameters()` i en skissartefakt
 }
 ```
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>ResourceGroup
 
 `resourceGroup()`
 

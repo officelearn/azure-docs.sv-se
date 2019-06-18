@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: barclayn
 ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467729"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
@@ -69,17 +69,17 @@ Från och med mars-2019 sent är dedikerad HSM tillgänglig i 14 regioner visas 
 * Östra USA
 * USA, östra 2
 * Västra USA
-* USA, södra centrala
+* Södra centrala USA
 * Sydostasien
-* Asien, östra
+* Östasien
 * Norra Europa
-* Europa, västra
-* Södra Storbritannien
-* Västra Storbritannien
-* Kanada, centrala
-* Kanada, östra
-* Australien, östra
-* Australien, sydöstra
+* Västra Europa
+* Storbritannien, södra
+* Storbritannien, västra
+* Centrala Kanada
+* Östra Kanada
+* Östra Australien
+* Sydöstra Australien
 
 ## <a name="interoperability"></a>Samverkan
 

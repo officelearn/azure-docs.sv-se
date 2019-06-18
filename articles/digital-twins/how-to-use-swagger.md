@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116439"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -112,7 +112,7 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
 
     ![Azure AD app-registreringar Lägg till api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. Konfigurera applikationsmanifestet för att tillåta implicit OAuth 2.0-flöde. Klicka på **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
+4. Konfigurera applikationsmanifestet för att tillåta implicit OAuth 2.0-flöde. Välj **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
 
     ![Azure AD implicit flöde](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
 
 När du har slutfört registreringen för Azure Active Directory:
 
-6. Klicka på den **auktorisera** knappen på din swagger-sidan.
+6. Välj den **auktorisera** knappen på din swagger-sidan.
 
-    [![Klicka på Swagger auktorisera knappen](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Välj Swagger auktorisera knappen](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. Klistra in program-ID i den **client_id** fält.
 

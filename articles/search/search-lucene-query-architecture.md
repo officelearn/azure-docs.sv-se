@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797489"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hur Fullständig textsökning fungerar i Azure Search
@@ -253,7 +253,7 @@ Det är vanligt, men är inget krav att använda samma analysverktyg för sökni
 
 Tillbaka till vårt exempel för den **rubrik** fält, vägar i inverterad indexet ser ut så här:
 
-| Period | Listan över standarddokument |
+| Term | Listan över standarddokument |
 |------|---------------|
 | atman | 1 |
 | stranden | 2 |
@@ -267,14 +267,14 @@ I rubrikfältet endast *hotell* dyker upp i två dokument: 1, 3.
 
 För den **beskrivning** fält, indexet är följande:
 
-| Period | Listan över standarddokument |
+| Term | Listan över standarddokument |
 |------|---------------|
 | AIR | 3
 | och | 4
 | stranden | 1
 | villkor | 3
 | nöjd | 3
-| avstånd | 1
+| distance | 1
 | island | 2
 | kauaʻi | 2
 | finns | 2
@@ -288,10 +288,10 @@ För den **beskrivning** fält, indexet är följande:
 | land | 2
 | stora | 1
 | den | 1, 2
-| i | 1
-| visa | 1, 2, 3
+| till | 1
+| vy | 1, 2, 3
 | walking | 1
-| med  | 3
+| med | 3
 
 
 **Matchar frågetermen mot indexerade ord**

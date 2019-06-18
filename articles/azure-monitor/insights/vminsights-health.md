@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130457"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälsotillståndet för virtuella datorer i Azure
@@ -98,9 +98,9 @@ Hälsotillstånden som definierats för en virtuell dator beskrivs i följande t
 |Ikon |Hälsotillstånd |Betydelse |
 |-----|-------------|---------------|
 | |Felfri |Hälsotillståndet är felfri om det är inom de definierade hälsovillkoren, som anger inga problem hittades för den virtuella datorn och den fungerar som krävs. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Kritiska |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Varning! |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. Med en överordnad samlad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
-| |Inte tillgängligt |Hälsotillståndet är *okänd* när den kan inte beräknas av flera skäl. Se följande fotnot <sup>1</sup> för ytterligare information och möjliga lösningar för att lösa dem. |
+| |Kritiskt |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. Med en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
+| |Varning |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. Med en överordnad samlad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
+| |Okänt |Hälsotillståndet är *okänd* när den kan inte beräknas av flera skäl. Se följande fotnot <sup>1</sup> för ytterligare information och möjliga lösningar för att lösa dem. |
 
 <sup>1</sup> the okänd hälsotillstånd beror på följande problem:
 
@@ -120,7 +120,7 @@ Vid åtkomst till hälsotillstånd från en Azure virtuell dator som kör Window
 
 ### <a name="aggregate-virtual-machine-perspective"></a>Sammanställd VM perspektiv
 
-Om du vill visa insamling av hälsotillstånd för alla dina virtuella datorer i en resursgrupp från listan över navigeringsfönstret i portalen, Välj **Azure Monitor** och välj sedan **virtuella datorer (förhandsversion)**.  
+Om du vill visa insamling av hälsotillstånd för alla dina virtuella datorer i en resursgrupp från listan över navigeringsfönstret i portalen, Välj **Azure Monitor** och välj sedan **virtuella datorer (förhandsversion)** .  
 
 ![VM-Insights övervakningsvyn från Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
@@ -187,7 +187,7 @@ Tillståndet för en health-villkor definieras av något av fyra tillstånd – 
 
 Sidan för Health-diagnostik har tre huvudområden:
 
-* Komponentmodell 
+* Komponentmodellen 
 * Hälsovillkor
 * Tillståndsändringar 
 
@@ -239,7 +239,7 @@ De tre kolumnerna är sammankopplade med varandra. När du väljer en identifier
 
 ![Exempel på att välja övervakade instans och resultat](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-I exemplet ovan, när du väljer **Disk – 1 D:**, Health-villkor trädet är filtrerats till **Disk - 1 D:**. Den **tillståndsändring** kolumnen visar tillståndsändringen baserat på tillgängligheten för **Disk – 1 D:**. 
+I exemplet ovan, när du väljer **Disk – 1 D:** , Health-villkor trädet är filtrerats till **Disk - 1 D:** . Den **tillståndsändring** kolumnen visar tillståndsändringen baserat på tillgängligheten för **Disk – 1 D:** . 
 
 Om du vill se det uppdaterade hälsotillståndet, kan du uppdatera sidan diagnostik för hälsa genom att klicka på den **uppdatera** länk.  Om det finns en uppdatering till villkoret hälsotillstånd hälsotillstånd baserat på fördefinierade avsökningsintervallet, kan du undvika att vänta på den här uppgiften och återspeglar det senaste hälsotillståndet.  Den **kriterier hälsotillstånd** är ett filter så att du kan begränsa resultatet baserat på valda hälsotillståndet - *felfri*, *varning*, *kritisk*, *Okänd*, och *alla*.  Den **senaste uppdaterade** tid i det övre högra hörnet representerar den senaste gången när sidan diagnostik för hälsotillstånd har uppdaterats.  
 

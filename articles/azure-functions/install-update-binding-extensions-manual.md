@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035766"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Manuellt installera eller uppdatera tillägg av Azure Functions-bindning från portalen
@@ -30,7 +30,7 @@ Använd följande steg för att manuellt installera eller uppdatera tillägg fr�
 
 1. I den [Azure-portalen](https://portal.azure.com), leta upp din funktionsapp och markera den. Välj den **översikt** fliken och markera **stoppa**.  Stoppas funktionsappen låser upp filer så att ändringar kan göras.
 
-1. Välj den **plattformsfunktioner** fliken och under **utvecklingsverktyg** Välj **avancerade verktyg (Kudu)**. Kudu-slutpunkten (`https://<APP_NAME>.scm.azurewebsites.net/`) öppnas i ett nytt fönster.
+1. Välj den **plattformsfunktioner** fliken och under **utvecklingsverktyg** Välj **avancerade verktyg (Kudu)** . Kudu-slutpunkten (`https://<APP_NAME>.scm.azurewebsites.net/`) öppnas i ett nytt fönster.
 
 1. I fönstret Kudu väljer **Felsökningskonsolen** > **CMD**.  
 

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561344"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
@@ -199,7 +199,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 
 9. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du alla följande inställningar för att se till att de tidigare inställningarna inte återställs. De principer som måste vara markerad är följande:
     
-    | Mål                                     | Princip                                                                                                                                                       | Value                                                                                    |
+    | Mål                                     | Princip                                                                                                                                                       | Värde                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP har aktiverats                           | Datorkonfiguration\Principer\Windows Settings\Administrative Templates\Components\Remote för fjärrskrivbordssession\Anslutningar         | Tillåt användare att ansluta via en fjärranslutning med hjälp av fjärrskrivbord                                  |
     | NLA Grupprincip                         | Settings\Administrative Templates\Components\Remote för skrivbordssession fjärrskrivbordssession\Säkerhet                                                    | Kräv användaren autentisering för fjärranslutningar med autentisering på nätverksnivå |
@@ -233,7 +233,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
    ``` 
 5. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du följande inställningar för att se till att de tidigare inställningarna inte återställs. AD-principer som måste vara markerad är följande:
 
-    | Mål                                 | Princip                                                                                                                                                  | Value                                   |
+    | Mål                                 | Princip                                                                                                                                                  | Värde                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Aktivera Windows-brandväggen-profiler | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Skydda alla nätverksanslutningar         |
     | Aktiverar du RDP                           | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Tillåt inkommande undantag för fjärrskrivbord |
@@ -339,7 +339,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Konfigurationen som är bäst är att **har korrigeringsnivån för datorn senast**. Om det inte är möjligt, kontrollerar du att följande uppdateringar är installerade:
 
-| Komponent               | Binary         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10, version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
+| Komponent               | Binär         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10, version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

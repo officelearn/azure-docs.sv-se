@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873922"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare MSAL.js
@@ -43,7 +43,7 @@ Det beror på att Internet Explorer inte stöder JavaScript löften internt.
 Distribuera ditt program till produktion (till exempel i Azure Web apps) normalt fungerar bra, under förutsättning att användaren har accepterat popup-fönster. Vi har testat den med Internet Explorer 11.
 
 ### <a name="running-locally"></a>Kör programmet lokalt
-Om du vill köra och felsöka lokalt ditt program som körs i Internet Explorer, måste du vara medveten om följande överväganden (förutsätter att du vill köra programmet när *http://localhost:1234*):
+Om du vill köra och felsöka lokalt ditt program som körs i Internet Explorer, måste du vara medveten om följande överväganden (förutsätter att du vill köra programmet när *http://localhost:1234* ):
 
 - Internet Explorer har en säkerhetsmekanism med namnet ”skyddat läge”, vilket förhindrar att MSAL.js fungerar korrekt. Bland problem när du loggar in, på sidan kan omdirigeras till http://localhost:1234/null.
 
@@ -51,7 +51,7 @@ Om du vill köra och felsöka lokalt ditt program som körs i Internet Explorer,
 
     1. Klicka på Internet Explorer **verktyg** (kugghjulsikonen).
     1. Välj **Internetalternativ** och sedan den **Security** fliken.
-    1. Klicka på den **Internet** zon och avmarkera **Aktivera skyddat läge (kräver omstart av Internet Explorer)**. En varning om att datorn inte längre är skyddad. Klicka på **OK**.
+    1. Klicka på den **Internet** zon och avmarkera **Aktivera skyddat läge (kräver omstart av Internet Explorer)** . En varning om att datorn inte längre är skyddad. Klicka på **OK**.
     1. Starta om Internet Explorer.
     1. Köra och felsöka programmet.
 

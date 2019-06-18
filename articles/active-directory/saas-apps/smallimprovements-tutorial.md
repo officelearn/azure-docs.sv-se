@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudier: Azure Active Directory-integrering med små förbättringar
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av små förbättringar i Azure AD, som du beh�
 
 **Utför följande steg för att lägga till små förbättringar från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -229,7 +229,7 @@ Om du vill aktivera Azure AD-användare att logga in på små förbättringar, m
 
     b. Ange den **efternamn** för användare som **Simon**.
 
-    c. Ange den **e-post** för användare som **brittasimon@contoso.com**.
+    c. Ange den **e-post** för användare som **brittasimon@contoso.com** .
 
     d. Du kan också välja att ange personligt meddelande i den **skicka e-postmeddelande** box. Om du inte vill skicka meddelandet, avmarkerar du den här kryssrutan.
 
@@ -247,4 +247,4 @@ När du klickar på panelen små förbättringar i åtkomstpanelen, bör det var
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

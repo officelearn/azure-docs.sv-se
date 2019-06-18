@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779549"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
@@ -37,7 +37,7 @@ Slutpunkten är tillgänglig på en välkänd icke-dirigerbara IP-adress (`169.2
 
 Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Inte alla API-versionen kan finnas i alla Azure-regioner.
 
-Regioner                                        | Tillgänglighet?                                 | Versioner som stöds
+Regions                                        | Tillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
@@ -107,8 +107,8 @@ I följande tabell är en referens för andra dataformat som kan ha stöd för A
 API | Standardformat för Data | Andra format
 --------|---------------------|--------------
 /Instance | JSON | text
-/scheduledevents | JSON | inga
-/ godkänd av | JSON | inga
+/scheduledevents | JSON | Ingen
+/ godkänd av | JSON | Ingen
 
 Ange det begärda formatet som en frågesträngsparameter i begäran för att komma åt en icke-standard svarsformat. Exempel:
 
@@ -132,7 +132,7 @@ HTTP-statuskod | Reason
 ----------------|-------
 200 OK |
 400 Felaktig förfrågan | Saknas `Metadata: true` rubrik eller saknar formatet när du frågar efter en lövnod
-404 Kunde ej hittas | Det begärda elementet finns inte
+404 Hittades inte | Det begärda elementet finns inte
 405 Metoden tillåts inte | Endast `GET` och `POST` stöds
 429 för många begäranden | API: et stöder för närvarande upp till 5 frågor per sekund
 500 tjänstfel     | Försök igen om en stund
@@ -344,7 +344,7 @@ Data | Beskrivning | Version introducerades
 -----|-------------|-----------------------
 godkänd av | Se [godkänd av Data](#attested-data) | 2018-10-01
 identity | Hanterade identiteter för Azure-resurser. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instans | Se [API-instans](#instance-api) | 2017-04-02
+instance | Se [API-instans](#instance-api) | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Instans API
@@ -358,16 +358,16 @@ Data | Beskrivning | Version introducerades
 azEnvironment | Azure-miljön där Virtuellt datorn körs i | 2018-10-01
 customData | Se [anpassade Data](#custom-data) | 2019-02-01
 location | Azure-Region den virtuella datorn körs i | 2017-04-02
-namn | Namnet på den virtuella datorn | 2017-04-02
+name | Namnet på den virtuella datorn | 2017-04-02
 erbjudande | Ger information om den Virtuella datoravbildningen och är endast tillgänglig för avbildningar som distribueras från Azures avbildningsgalleri | 2017-04-02
 osType | Linux eller Windows | 2017-04-02
 placementGroupId | [Placeringsgrupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för VM-skalningsuppsättning | 2017-08-01
 plan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och publisher för en virtuell dator om dess en Azure Marketplace-avbildning | 2018-04-02
 platformUpdateDomain |  [Uppdateringsdomän](manage-availability.md) Virtuellt datorn körs | 2017-04-02
 platformFaultDomain | [Feldomän](manage-availability.md) Virtuellt datorn körs | 2017-04-02
-provider | Leverantör av den virtuella datorn | 2018-10-01
+Providern | Leverantör av den virtuella datorn | 2018-10-01
 publicKeys | [Samling med offentliga nycklar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) tilldelats den virtuella datorn och sökvägar | 2018-04-02
-utgivare | Utgivaren av den Virtuella datoravbildningen | 2017-04-02
+publisher | Utgivaren av den Virtuella datoravbildningen | 2017-04-02
 resourceGroupName | [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 sku | Specifika SKU för VM-avbildning | 2017-04-02
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
@@ -619,7 +619,7 @@ När du har hämtat signaturen ovan kan du kontrollera att signaturen är från 
 > [!NOTE]
 > Certifikatet för offentliga moln och nationellt moln är olika.
 
- Regioner | Certifikat
+ Regions | Certifikat
 ---------|-----------------
 [Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -687,7 +687,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Anpassade data
+### <a name="custom-data"></a>Anpassade Data
 Instance Metadata Service gör möjligheten för den virtuella datorn ska ha åtkomst till sina egna data. Binära data måste vara mindre än 64 KB och har angetts för den virtuella datorn i base64-kodat format.
 
 Azure anpassade data kan infogas till den virtuella datorn via REST API: er, PowerShell-Cmdlets, Azure kommandoradsgränssnitt (CLI) eller en ARM-mall.
@@ -723,7 +723,7 @@ My custom data.
 Språk | Exempel
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Gå till  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -735,7 +735,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 1. Jag får felet `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
    * Instance Metadata Service kräver rubriken `Metadata: true` som ska skickas i begäran. Skicka den här rubriken i REST-anrop ger åtkomst till Instance Metadata Service.

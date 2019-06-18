@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 86efbaa053e087885f0dbfea24000781d41ac5d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057717"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155626"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudier: Konfigurera en IoT Edge-enhet
 
@@ -35,7 +35,7 @@ I det här avsnittet ska skapa vi självsignerade certifikat med hjälp av en Do
 2. Öppna Kommandotolken och kör följande kommando för att skapa en katalog på den virtuella datorn.
 
     ```cmd
-    mkdir C:\edgecertificates
+    mkdir c:\edgeCertificates
     ```
 
 3. Starta **Docker för Windows** från Windows Start-menyn.
@@ -56,22 +56,20 @@ I det här avsnittet ska skapa vi självsignerade certifikat med hjälp av en Do
 9. Kör behållaren createcertificates i terminalfönstret för Visual Studio Code.
 
     ```cmd
-    docker run --name createcertificates --rm -v
-    C:\edgeCertificates:/edgeCertificates createcertificates
-    /edgeCertificates
+    docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker efterfrågar åtkomst till den **C:\\**  enhet. Välj **dela den**.
+10. Docker efterfrågar åtkomst till den **c:\\**  enhet. Välj **dela den**.
 
 11. Ange dina autentiseringsuppgifter när du tillfrågas.
 
-12. En gång i behållaren har slutförts kör, Sök efter följande filer i **c:\\edgecertificates**:
+12. En gång i behållaren har slutförts kör, Sök efter följande filer i **c:\\edgeCertificates**:
 
-    * C:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
-    * C:\\edgeCertificates\\private\\new-edge-device.key.pem
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\private\\new-edge-device.key.pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault
 
@@ -86,8 +84,7 @@ Att lagra vårt certifikat på ett säkert sätt och för att göra dem åtkomli
 3. Ladda upp certifikat till Key Vault på din utvecklingsdator. Ersätt **\<subscriptionId\>** och **\<keyvaultname\>** med information om dina resurser.
 
     ```powershell
-    C:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1
-    -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
+    c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
 4. Om du uppmanas logga in på Azure.
@@ -145,7 +142,7 @@ Kör skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
 1. Öppna ett PowerShell-fönster och navigera till den **EdgeVM** directory.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\EdgeVM”
+    cd c:\source\IoTEdgeAndMlSample\EdgeVM
     ```
 
 2. Kör skriptet för att skapa den virtuella datorn.
@@ -210,7 +207,7 @@ Tidigare i den här artikeln ska överföra vi certifikat till Key Vault för at
 1. ASet Azure-prenumerationen som du vill använda för Azure CLI-kommandon.
 
     ```bash
-    az account set --subscription <subscription id>
+    az account set --subscription <subscriptionId>
     ```
 
 1. Skapa en katalog på den virtuella datorn för certifikaten.

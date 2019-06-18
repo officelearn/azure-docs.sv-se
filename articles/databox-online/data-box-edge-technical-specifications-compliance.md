@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755142"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
@@ -86,7 +86,7 @@ Det här avsnittet listas de specifikationer som rör hölje-miljö, till exempe
 
 |     Hölje         |     Omgivande temperaturintervall     |     Omgivande relativ fuktighet     |     Den maximala dagg punkt     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    I drift        |    10°C - 35°C (50°F - 86°F)         |    10 – 80% vid icke-förenklas.         |    29°C (84°F)            |
+|    Operativa        |    10°C - 35°C (50°F - 86°F)         |    10 – 80% vid icke-förenklas.         |    29°C (84°F)            |
 |    Kan inte användas    |    40 ° C till 65 ° C (40 ° F - 149 ° F)     |    5-95% vid icke-förenklas.          |    33°C (91°F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luftflödet, höjd, chocka, vibrationer, orientering, säkerhet och EMC

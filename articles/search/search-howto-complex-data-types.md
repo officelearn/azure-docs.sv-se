@@ -8,20 +8,22 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 10400b0342fbe8667b22fea82c6446713d019e0d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 61f2094449995e26c3d321aaf35deb3d60ff250c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056586"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Hur komplexa datatyper i Azure Search
 
-Externa datauppsättningar som används för att fylla ett Azure Search-index ibland omfattar hierarkisk eller kapslad underordnade strukturer. Exemplen kan inkludera flera platser och telefonnummer för en enda kund, flera färger och storlekar för en enda SKU flera författare till en enda bok, och så vidare. Modellering villkor, du kan se dessa strukturer kallas *komplexa datatyper*, *sammansatt datatyper*, *sammansatta datatyper*, eller *sammanställd datatyper*. I Azure Search i den här artikeln är en komplex typ ett fält som innehåller underordnade objekt (underordnade fält) som kan vara enkla eller komplexa. Detta liknar en strukturerad datatyp i ett programmeringsspråk. Komplexa fält kan vara enkel fält, som representerar ett enda objekt i dokumentet eller en samling som representerar en matris med objekt
+Externa datauppsättningar som används för att fylla ett Azure Search-index kan finnas i olika former. Ibland innehåller de hierarkisk eller kapslad underordnade strukturer. Exemplen kan inkludera flera adresser för en enda kund, flera färger och storlekar för en enda SKU flera författare till en enda bok, och så vidare. Modellering villkor, du kan se dessa strukturer kallas *komplexa*, *sammansatt*, *sammansatta*, eller *sammanställd* datatyper. Termen som använder Azure Search för det här konceptet är **komplex typ**. I Azure Search komplexa typer modelleras med **komplexa fält**. Ett komplext fält är ett fält som innehåller underordnade (underordnade fält) som kan vara av olika datatyper, inklusive andra komplexa typer. Detta fungerar på liknande sätt som strukturerade datatyper i ett programmeringsspråk.
 
-Azure Search har inbyggt stöd för komplexa typer och samlingar. Tillsammans kan dessa typer du modellera nästan alla kapslad JSON-strukturen i ett Azure Search-index. I tidigare versioner av Azure Search API: er endast förenklas raden anger kunde importeras. I den senaste versionen kan ditt index nu bättre motsvara källdata. Med andra ord om dina källdata har komplexa typer, kan ditt index ha komplexa typer också.
+Komplexa fält representerar ett enskilt objekt i dokumentet eller en matris med objekt, beroende på datatypen. Fält av typen `Edm.ComplexType` representerar enstaka objekt, medan fält av typen `Collection(Edm.ComplexType)` representerar matriser av objekt.
+
+Azure Search har inbyggt stöd för komplexa typer och samlingar. Dessa typer kan du modellera nästan alla JSON-strukturen i ett Azure Search-index. I tidigare versioner av Azure Search API: er endast förenklas raden anger kunde importeras. I den senaste versionen kan ditt index nu bättre motsvara källdata. Med andra ord om dina källdata har komplexa typer, kan ditt index ha komplexa typer också.
 
 För att komma igång, rekommenderar vi den [Hotels datauppsättning](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), du kan läsa in i den **dataimport** guiden i Azure-portalen. Guiden identifierar komplexa typer i källan och föreslår ett indexschema baserat på identifierade strukturer.
 
@@ -75,7 +77,7 @@ Indexers are a different story. When defining an indexer, in particular one used
 {
   "name": "hotels",
   "fields": [
-    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true  },
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true },
     { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
     { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
     { "name": "Address", "type": "Edm.ComplexType",
@@ -108,57 +110,59 @@ Observera att inom en komplex typ varje underordnade fält har en typ och kan ha
 
 ### <a name="data-updates"></a>Datauppdateringar
 
-Uppdatering av befintliga dokument i ett index med åtgärden för att ladda upp fungerar på samma sätt för komplexa och enkelt fält – alla fält har ersatts. Dock fungerar merge (eller mergeOrUpload när tillämpas på ett befintligt dokument) inte samma mellan alla fält. Mer specifikt har merge inte möjlighet att koppla element i en samling. Det här gäller för samlingar av primitiva typer, samt komplexa samlingar. Om du vill uppdatera en samling behöver du att hämta fullständig insamling-värdet gör ändringar, och sedan inkludera den nya samlingen i indexet API-begäran.
-
+Uppdatering av befintliga dokument i ett index med det `upload` åtgärden fungerar på samma sätt för komplexa och enkelt fält – alla fält har ersatts. Dock `merge` (eller `mergeOrUpload` när tillämpas på ett befintligt dokument) fungerar inte samma mellan alla fält. Mer specifikt `merge` stöder inte koppla samman element i en samling. Den här begränsningen finns för samlingar av primitiva typer och komplexa samlingar. Om du vill uppdatera en samling behöver du att hämta fullständig insamling-värdet gör ändringar och sedan inkludera den nya samlingen i indexet API-begäran.
 
 ## <a name="searching-complex-fields"></a>Söka komplexa fält
 
-Formaliafri sökuttryck fungerar som förväntat med komplexa typer. Om det matchar något sökbara fält eller underordnade fält var som helst i ett dokument, är en matchning med själva dokumentet. 
+Formaliafri sökuttryck fungerar som förväntat med komplexa typer. Om det matchar något sökbara fält eller underordnade fält var som helst i ett dokument, är en matchning med själva dokumentet.
 
 Frågor få mer nyanserade när du har flera villkor och operatörer och vissa termer har fältnamnen som anges, precis som du kan göra med den [Lucene syntax](query-lucene-syntax.md). Exempelvis kan den här frågan försöker matcha två villkor, ”Portland” och ”OR” mot två underordnade fält i adressfältet:
 
-```json
-search=Address/City:Portland AND Address/State:OR
-```
+    search=Address/City:Portland AND Address/State:OR
 
-Frågor så här är uncorrelated för textsökning (till skillnad från filter, där frågor via underordnade fält av en komplex samling kan korreleras med hjälp av någon eller alla, liknande en korrelerad underfråga i SQL). Det innebär att dokument som innehåller ”Portland, Maine” samt ”Portland, Oregon” och andra städer i Oregon returneras Lucene frågan ovan. Det beror på att varje villkor utvärderas mot alla värden för det angivna fältet i hela dokumentet, så det finns inga begreppet en ”underordnad dokumentet”. 
-
- 
+Frågor som det här är *uncorrelated* för fulltextsökning, till skillnad från filter. I filter, frågor via underordnade fält av en komplex samling kopplas ihop med intervallet variabler i [ `any` eller `all` ](search-query-odata-collection-operators.md). Lucene-frågan ovan returnerar dokument som innehåller både ”Portland, Maine” och ”Portland, Oregon”, tillsammans med andra städer i Oregon. Detta inträffar eftersom varje villkor gäller för alla värden i dess fält i hela dokumentet, så det ingen finns av ett ”aktuella underordnade dokument”. Mer information om detta finns i [förstå OData samling filter i Azure Search](search-query-understand-collection-filters.md).
 
 ## <a name="selecting-complex-fields"></a>Välja komplexa fält
 
 Den `$select` används för att välja vilka fält som returneras i sökresultaten. För att använda den här parametern för att välja specifika underordnade fält på ett fält i komplexa måste innehålla fälten överordnade och underordnade avgränsade med ett snedstreck (`/`).
 
-```json
-$select=HotelName, Address/City, Rooms/BaseRate
-```
+    $select=HotelName, Address/City, Rooms/BaseRate
 
-Fält måste markeras som hämtningsbara i indexet om du vill ha dem i sökresultaten. Endast fält som är markerade som hämtningsbara kan användas i en `$select` instruktionen. 
-
+Fält måste markeras som hämtningsbara i indexet om du vill ha dem i sökresultaten. Endast fält som är markerade som hämtningsbara kan användas i en `$select` instruktionen.
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filter, aspekten och sortera komplexa fält
 
-Samma [OData sökvägssyntaxen](query-odata-filter-orderby-syntax.md) används för att filtrera och fielded sökningar kan också användas för aspekter, sortering och välja fält i en sökbegäran. För komplexa typer tillämpas reglerna som styr vilka underordnade fält kan markeras som kan sorteras eller fasettbara. 
+Samma [OData sökvägssyntaxen](query-odata-filter-orderby-syntax.md) används för att filtrera och fielded sökningar kan också användas för aspekter, sortering och välja fält i en sökbegäran. För komplexa typer tillämpas reglerna som styr vilka underordnade fält kan markeras som kan sorteras eller fasettbara. Mer information om dessa regler finns i den [Create Index-API-referens](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
 
-### <a name="faceting-sub-fields"></a>Fasettering underordnade fält 
+### <a name="faceting-sub-fields"></a>Fasettering underordnade fält
 
-Alla underordnade fält kan markeras som fasettbar om det inte är av typen `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)`. 
+Alla underordnade fält kan markeras som fasettbar om det inte är av typen `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)`.
 
-När antalet dokument som returneras för aspektbaserad navigeringsstruktur är antalen i förhållande till det överordnade dokumentet (ett hotell) inte att kapslade dokument inom en komplex samling (rum). Anta exempelvis att ett hotell har 20 rum av typen ”suite”. Beroende av den här aspekten parametern `facet=Rooms/Type`, antalet aspekten tas en för det överordnade dokumentet (hotell) och inte mellanliggande underordnade dokument (rum). 
+Antalet dokument som returneras i resultatet aspekten beräknas för det överordnade dokumentet (ett hotell) inte underordnade dokumenten i en komplex samling (rum). Anta exempelvis att ett hotell har 20 rum av typen ”suite”. Beroende av den här aspekten parametern `facet=Rooms/Type`, antalet aspekten blir en för hotell, inte 20 för lokalerna.
 
 ### <a name="sorting-complex-fields"></a>Sortera komplexa fält
 
-Sorteringsåtgärder gäller dokument (hotell) och inte underordnade dokument (rum). När du har en komplex typ-samling, till exempel rum, är det viktigt att tänka på att du inte kan sortera rum alls. I själva verket kan du sortera efter en samling. 
+Sorteringsåtgärder gäller dokument (hotell) och inte underordnade dokument (rum). När du har en komplex typ-samling, till exempel rum, är det viktigt att tänka på att du inte kan sortera rum alls. I själva verket kan du sortera efter en samling.
 
-Sorteringsåtgärder fungerar om fälten är enkelvärdesattribut, om som en enkel fältreferens eller som ett underordnade fält i en komplex typ. Till exempel `$orderby=Address/ZipCode` komplex typ är sorterbar eftersom det är endast ett postnummer per hotell. 
+Sorteringsåtgärder fungerar när fält har ett enda värde per dokument, om fältet är en enkel fältreferens eller ett underordnade fält i en komplex typ. Till exempel `Address/City` får vara sorterbar eftersom det finns bara en adress per hotell, så `$orderby=Address/City` sorteras hotels efter ort.
 
-Omformulera reglerna kring sortering i ett indexfält måste vara markerad som Filtrerbart och sorterbart som ska användas i en `$orderby` instruktionen. 
+### <a name="filtering-on-complex-fields"></a>Filtrering på komplexa fält
+
+Du kan referera till underordnade fält i ett komplext fält i ett filteruttryck. Använd samma [OData sökvägssyntaxen](query-odata-filter-orderby-syntax.md) som används för aspekter, sortering och välja fält. Exempelvis returnerar följande filter alla hotell i Kanada:
+
+    $filter=Address/Country eq 'Canada'
+
+Om du vill filtrera på en komplex samling fält, kan du använda en **lambda-uttrycket** med den [ `any` och `all` operatörer](search-query-odata-collection-operators.md). I så fall den **intervallet variabeln** av lambda-uttrycket är ett objekt med underordnade fält. Du kan referera till de underordnade fält med OData-syntax för standard-sökväg. Exempelvis returnerar följande filter alla hotell med minst en deluxe plats och alla icke-hälsan rum:
+
+    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+
+Som med översta enkel fält, enkel underordnade fält av komplexa fält kan bara ingå i filter om de har den **filtrerbara** attributet inställt på `true` i indexdefinitionen. Mer information finns i den [Create Index-API-referens](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
 
 ## <a name="next-steps"></a>Nästa steg
 
- Prova den [Hotels datauppsättning](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) i den **dataimport** guiden. Du måste Cosmos DB-anslutningsinformationen som angavs i viktigt att komma åt data. 
- 
- Med den informationen till hands är första steget i guiden att skapa en ny Azure Cosmos DB-datakälla. Ytterligare på i guiden när du kommer till indexsidan mål du kommer att se ett index med komplexa typer. Skapa och läsa in det här indexet och sedan köra frågor för att förstå den nya strukturen.
+Prova den [Hotels datauppsättning](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) i den **dataimport** guiden. Du måste Cosmos DB-anslutningsinformationen som angavs i viktigt att komma åt data.
+
+Med den informationen till hands är första steget i guiden att skapa en ny Azure Cosmos DB-datakälla. Ytterligare ser på i guiden när du kommer till indexsidan target du ett index med komplexa typer. Skapa och läsa in det här indexet och sedan köra frågor för att förstå den nya strukturen.
 
 > [!div class="nextstepaction"]
 > [Snabbstart: hanteringsportalens guide för import, indexering och frågor](search-get-started-portal.md)

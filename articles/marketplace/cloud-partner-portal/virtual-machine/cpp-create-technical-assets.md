@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938417"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska resurser till en virtuell dator
 
 Det här avsnittet visar hur du skapar och konfigurerar de tekniska resurserna till en virtuell dator (VM) för Azure Marketplace.  En virtuell dator innehåller två komponenter: lösning virtuell hårddisk (VHD) och valfria associerade datadiskar.  
 
-- *Virtuella hårddiskar (VHD)*, som innehåller operativsystemet och din lösning som du distribuerar i ditt Azure Marketplace-erbjudande. Processen med att förbereda den virtuella Hårddisken som skiljer sig beroende på om det är en Linux-baserade, Windows-baserad eller en anpassad-baserad virtuell dator.
+- *Virtuella hårddiskar (VHD)* , som innehåller operativsystemet och din lösning som du distribuerar i ditt Azure Marketplace-erbjudande. Processen med att förbereda den virtuella Hårddisken som skiljer sig beroende på om det är en Linux-baserade, Windows-baserad eller en anpassad-baserad virtuell dator.
 - *Datadiskar* representerar dedikerad, beständig lagring för en virtuell dator. Gör *inte* använder lösningen VHD (till exempel den `C:` enhet) för lagring av beständig information.
 
 En datoravbildning av virtuell innehåller en operativsystemdisk och noll eller flera datadiskar. En VHD krävs per disk. Även tomma datadiskar kräver en virtuell Hårddisk som ska skapas.
@@ -52,9 +52,9 @@ Vi rekommenderar dessutom att lägga till följande verktyg i utvecklingsmiljön
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Anknytning: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Anknytning: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Anknytning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Tillägg: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Tillägg: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Tillägg: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Vi rekommenderar också granska de tillgängliga verktyg i den [Azure-utvecklarverktyg](https://azure.microsoft.com/tools/) sidan och, om du använder Visual Studio i [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824022"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory Kopieringsaktivitet
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-db2-connector.md)
 > * [Version 2 (aktuell version)](../connector-db2.md)
 
@@ -79,9 +79,9 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="db2-linked-service-properties"></a>DB2 länkade tjänstegenskaper
 I följande tabell visas de JSON-egenskaper som är specifika för en DB2-länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
-| **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
+| **type** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **server** |Namnet på DB2-servern. |Ja |
 | **database** |Namnet på DB2-databas. |Ja |
 | **schema** |Namnet på schemat i DB2-databas. Den här egenskapen är skiftlägeskänsligt. |Nej |
@@ -95,7 +95,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **RelationalTable**, vilket inkluderar DB2-datauppsättningen har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsligt. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
@@ -104,9 +104,9 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera k
 
 För Kopieringsaktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| **Fråga** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
+| **query** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 
 > [!NOTE]
 > Schema och tabellnamn är skiftlägeskänsliga. I frågeuttryck, omsluta egenskapsnamn med hjälp av ”” (dubbla citattecken).
@@ -319,16 +319,16 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | Numeric |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
 | Binär |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Bild |String |
+| Graphic |String |
 | VarGraphic |String |
 | LongVarGraphic |String |
 | Clob |String |
@@ -345,9 +345,9 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | Numeric |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Om du vill lära dig mer om att mappa kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

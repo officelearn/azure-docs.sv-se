@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudie: Azure Active Directory-integrering med TargetProcess
 
@@ -54,7 +54,7 @@ Om du vill konfigurera integreringen av TargetProcess i Azure AD, måste du läg
 
 **Utför följande steg för att lägga till TargetProcess från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -141,7 +141,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
 4. I menyn längst upp klickar du på **Konfiguration**.
 
-    ![Inställningar](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Konfiguration](./media/target-process-tutorial/tutorial_target_process_05.png)
 
 5. Klicka på **inställningar** fliken.
 
@@ -235,4 +235,4 @@ När du klickar på TargetProcess i åtkomstpanelen bör du bli automatiskt inlo
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

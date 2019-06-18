@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656713"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
@@ -97,12 +97,12 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Issues`|Insamling av [problemet](api-management-template-data-model-reference.md#Issue) entiteter.|Problem som är synliga för den aktuella användaren.|  
 |`Paging`|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
-|`IsAuthenticated`|boolesk|Om den aktuella användaren är inloggad på developer-portalen.|  
-|`CanReportIssues`|boolesk|Om den aktuella användaren har behörighet att skicka in ett ärende.|  
+|`IsAuthenticated`|boolean|Om den aktuella användaren är inloggad på developer-portalen.|  
+|`CanReportIssues`|boolean|Om den aktuella användaren har behörighet att skicka in ett ärende.|  
 |`Search`|string|Den här egenskapen är inaktuell och ska inte användas.|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  

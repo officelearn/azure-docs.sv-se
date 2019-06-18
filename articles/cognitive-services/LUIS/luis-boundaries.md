@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154559"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
@@ -28,7 +28,7 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 
 |Område|Gräns|
 |--|:--|
-| [Appnamn][luis-get-started-create-app] | * Standardvärdet max |
+| [Appnamn][luis-get-started-create-app] | \* Standardvärdet max |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
 | Externa enheter | ingen gräns |
@@ -47,7 +47,7 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 | [Versioner](luis-concept-version.md)| ingen gräns |
 | [Versionsnamn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
 
-* Standard tecknet max är 50 tecken. 
+\* Standard tecknet max är 50 tecken. 
 
 <a name="intent-and-entity-naming"></a>
 
@@ -72,11 +72,11 @@ Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slut
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
 |Language Understanding redigering/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
-|Språkförståelse [prenumeration] [ pricing] - F0 - kostnadsfri nivå |ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
-|Språkförståelse [prenumeration] [ pricing] - S0 - Basic-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
-|Cognitive Service [prenumeration] [ pricing] - S0 - Standard-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Språkförståelse [prenumeration] [ pricing] - F0 - kostnadsfri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|Språkförståelse [prenumeration] [ pricing] - S0 - Basic-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Cognitive Service [prenumeration] [ pricing] - S0 - Standard-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
 |[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
-|Tal-integrering|Ogiltig|5.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
+|Tal-integrering|Ogiltig|5\.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 
 ## <a name="keyboard-controls"></a>Keyboard kontroller
 

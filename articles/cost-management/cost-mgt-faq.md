@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002016"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
@@ -118,7 +118,7 @@ Om du vill lägga till ytterligare CSP-konton i en entitet, Välj **MSP åtkomst
 
 Du kan ha flera Azure-konton med hjälp av olika valutor. Kostnad-rapporter i Cloudyn visa men inte mer än en valutatyp per rapport.
 
-Om du har flera prenumerationer med hjälp av olika valutor, en överordnad enhet och dess underordnade entitet valutor visas i USD **$**. Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitetshierarki. Alla dina prenumerationer som är ordnade i en entitet kan med andra ord ska använda samma valuta.
+Om du har flera prenumerationer med hjälp av olika valutor, en överordnad enhet och dess underordnade entitet valutor visas i USD **$** . Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitetshierarki. Alla dina prenumerationer som är ordnade i en entitet kan med andra ord ska använda samma valuta.
 
 Cloudyn identifierar din Enterprise Agreement-prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn bara visar USD **$** för CSP och Azure web-direct-konton.
 

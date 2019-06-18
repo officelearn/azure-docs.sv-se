@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – kräva multifaktorautentisering (MFA) för specifika appar med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
+title: Snabbstart – kräva multifaktorautentisering (MFA) för specifika appar med Azure Active Directory villkorlig åtkomst | Microsoft Docs
 description: I den här snabbstarten får du lära dig hur du kan koppla din autentiseringskrav för typ av används molnapp med villkorlig åtkomst i Azure Active Directory (AD Azure).
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5ab513034d6e2946dcb31f3a31dbf86f14873e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db191587f02fa8fa8934cac7a001ea31c233cbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112757"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst
 
 För att förenkla inloggning för dina användare kan vilja du att de kan logga in på dina appar i molnet med ett användarnamn och ett lösenord. Men har många miljöer minst ett fåtal program som det är lämpligt att kräva en starkare form av verifiering för kontot, till exempel multifaktorautentisering (MFA). Det kan vara, för exempel Sant för åtkomst till organisationens e-postsystem eller HR-appar. I Azure Active Directory (AD Azure), kan du göra det här målet med en princip för villkorlig åtkomst.
 
-Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md) som kräver multifaktorautentisering för ett valt moln-app i din miljö.
+Den här snabbstarten visar hur du konfigurerar en [Azure AD villkorlig åtkomstprincip](../active-directory-conditional-access-azure-portal.md) som kräver multifaktorautentisering för ett valt moln-app i din miljö.
 
 ![Exempelprincip för villkorlig åtkomst i Azure portal](./media/app-based-mfa/32.png)
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att slutföra scenariot i den här snabbstarten behöver du:
 
-- **Åtkomst till en Azure AD Premium-versionen** -villkorlig åtkomst i Azure AD är en Azure AD Premium-funktion.
+- **Åtkomst till en Azure AD Premium-versionen** – Azure AD villkorlig åtkomst är en Azure AD Premium-funktion.
 
 - **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
@@ -49,7 +49,7 @@ Målet med det här steget är att få en bild av inloggning utan en princip fö
 
 ## <a name="create-your-conditional-access-policy"></a>Skapa principer för villkorlig åtkomst
 
-Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs. Scenariot i den här snabbstarten använder:
+Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkomst. Scenariot i den här snabbstarten använder:
 
 - Azure-portalen som platshållare för en molnapp som kräver MFA. 
 - Exempelanvändaren att testa principen för villkorlig åtkomst.  
@@ -62,11 +62,11 @@ Ange i din princip:
 | Molnappar | Microsoft Azure Management |
 | Bevilja åtkomst | Kräv multifaktorautentisering |
 
-![Expanderad princip för villkorlig åtkomst](./media/app-based-mfa/31.png)
+![Utökade princip för villkorlig åtkomst](./media/app-based-mfa/31.png)
 
 **Konfigurera principer för villkorlig åtkomst:**
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 
 1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
@@ -138,7 +138,7 @@ Ange i din princip:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
 Initiera vad om utvärderingsverktyg för principen, Ställ in:
 
@@ -156,7 +156,7 @@ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
 
 1. På den [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn längst upp på sidan klickar du på **vad händer om**.  
 
-   ![What If](./media/app-based-mfa/14.png)
+   ![Tänk om](./media/app-based-mfa/14.png)
 
 1. Klicka på **användare**väljer **Isabella Simonsen**, och klicka sedan på **Välj**.
 
@@ -178,7 +178,7 @@ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
 
 1. Klicka på **vad händer om**.
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
 I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst för att säkerställa att den fungerar som förväntat.
 

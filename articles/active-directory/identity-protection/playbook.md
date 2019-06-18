@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294386"
+ms.locfileid: "67108833"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection spelbok
 
@@ -135,7 +135,7 @@ Mer information finns i [Så här konfigurerar du principen för användarrisk](
 6. Utöka användare risken för ett testkonto av, till exempel simulera en av riskhändelser några gånger.
 7. Vänta några minuter och sedan kontrollera att användarnivå för dina användare är Medium. Annars kan du simulera mer riskhändelser för användaren.
 8. Som **framtvinga princip**väljer **på**.
-9. Nu kan du testa riskbaserad villkorlig åtkomst genom att logga in med hjälp av en användare med en upphöjd risknivå.
+9. Nu kan du testa användare riskbaserad villkorlig åtkomst genom att logga in med hjälp av en användare med en upphöjd risknivå.
     
     
 

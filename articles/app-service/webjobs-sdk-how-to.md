@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831800"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
@@ -78,7 +78,7 @@ Eftersom version 3. *x* använder standardkonfigurationen för .NET Core API: er
 
 Du kan köra värden i utvecklingsläge att effektivisera lokal utveckling. Här är några av de inställningar som ändras när du kör i utvecklingsläge:
 
-| Egenskap  | Inställningen för utveckling |
+| Egenskap | Inställningen för utveckling |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Maximera loggutdata. |
 | `Queues.MaxPollingInterval`  | Ett lågt värde så kö metoder utlöses omedelbart.  |
@@ -836,11 +836,11 @@ Varje log som skapats av en `ILogger` -instansen har en associerad `Category` oc
 |LogLevel    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsökning       | 1 |
+|Felsöka       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritisk    | 5 |
+|Kritiskt    | 5 |
 |Ingen        | 6 |
 
 Du kan filtrera varje kategori till en viss oberoende [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Exempel: du kan se alla loggar för blob utlösare men endast bearbeta `Error` och högre för allt annat.

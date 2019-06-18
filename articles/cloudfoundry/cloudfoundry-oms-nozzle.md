@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199405"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics Nozzle för Cloud Foundry systemövervakning
@@ -220,7 +220,7 @@ Om du vill skala upp Nozzle, använder du appar Manager eller CF CLI för att ö
 Loggregator skickar en **LGR** loggmeddelande som visar problem med hur loggning. Du kan övervaka aviseringen för att avgöra om loggregator måste skalas upp.
 Om du vill skala upp loggregator, öka den Doppler buffertstorleken eller lägga till ytterligare Doppler server-instanser i CF manifestet. Mer information finns i [riktlinjer för att skala loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Uppdatering
+## <a name="update"></a>Uppdatera
 
 Om du vill uppdatera Nozzle med en nyare version, ladda ned den nya versionen Nozzle, följer du stegen i det föregående avsnittet ”distribuera Nozzle” och push-programmet igen.
 

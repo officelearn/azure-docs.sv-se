@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059374"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster tillhandahåller Apache Hadoop på en välbekant miljö för Linux, som körs i Azure-molnet. För de flesta saker, bör det fungera precis som andra Hadoop på Linux-installation. Det här dokumentet anropar specifika skillnader som du bör känna till.
-
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -55,7 +52,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten, och sed
 
 ## <a name="remote-access-to-services"></a>Fjärråtkomst till tjänster
 
-* **Ambari (webb)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (webb)**  - https://CLUSTERNAME.azurehdinsight.net
 
     Autentisera med hjälp av kluster-administratörsanvändare och lösenord och logga sedan in på Ambari.
 
@@ -66,14 +63,14 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten, och sed
     >
     > Om du vill använda den fullständiga funktionaliteten hos Ambari-webbgränssnittet, använda en SSH-tunnel för proxy webbtrafik till klustrets huvudnod. Se [använda SSH-tunnlar till Apache Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Autentisera med klustret administratörsanvändare och lösenord.
     >
     > Autentisering är klartext - alltid använda HTTPS för att säkerställa att anslutningen är säker.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Autentisera med klustret administratörsanvändare och lösenord.
@@ -87,7 +84,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten, och sed
 
 Mer information finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-## <a name="file-locations"></a>Filplatser
+## <a name="file-locations"></a>Sökvägar
 
 Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här katalogen innehåller följande undermappar:
 
@@ -288,7 +285,6 @@ Om du vill använda en annan version av en komponent att ladda upp den version s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Migrera från Windows-baserade HDInsight till Linux-baserade](hdinsight-migrate-from-windows-to-linux.md)
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
 * [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)

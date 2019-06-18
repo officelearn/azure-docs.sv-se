@@ -2,18 +2,18 @@
 title: 'Krav - ExpressRoute-routning: Azure | Microsoft Docs'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: ganesr
+ms.date: 06/12/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd5f01c915c658903e87a91992753065c59dfa63
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054264"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -154,47 +154,53 @@ Se sidan [ExpressRoute-partners och peeringplatser](expressroute-locations.md) f
 
 Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera anslutningar ger dig betydande fördelar med hög tillgänglighet tack vare den geografiska redundansen. I fall där du har flera ExpressRoute-kretsar, får du samma uppsättning prefix som annonseras från Microsoft på Microsoft-peering och offentlig peeringsökvägar. Det innebär att du har flera sökvägar från ditt nätverk till Microsoft. Detta kan eventuellt medföra att icke-optimala beslut om routning tas i nätverket. Därmed kan du få icke-optimala anslutningsupplevelser till andra tjänster. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till användare](expressroute-optimize-routing.md).
 
-| **Microsoft Azure-region** | **Regionala BGP-community** | **Storage BGP-community** | **SQL-BGP-community** | 
-| --- | --- | --- | --- |
+| **Microsoft Azure-region** | **Regionala BGP-community** | **Storage BGP-community** | **SQL-BGP-community** | **Cosmos DB-BGP-community** |
+| --- | --- | --- | --- | --- |
 | **Nordamerika** | |
-| Östra USA | 12076:51004 | 12076:52004 | 12076:53004 |
-| USA, östra 2 | 12076:51005 | 12076:52005 | 12076:53005 |
-| Västra USA | 12076:51006 | 12076:52006 | 12076:53006 |
-| Västra USA 2 | 12076:51026 | 12076:52026 | 12076:53026 |
-| Västra centrala USA | 12076:51027 | 12076:52027 | 12076:53027 |
-| Norra centrala USA | 12076:51007 | 12076:52007 | 12076:53007 |
-| Södra centrala USA | 12076:51008 | 12076:52008 | 12076:53008 |
-| Centrala USA | 12076:51009 | 12076:52009 | 12076:53009 |
-| Centrala Kanada | 12076:51020 | 12076:52020 | 12076:53020 |
-| Östra Kanada | 12076:51021 | 12076:52021 | 12076:53021 |
+| Östra USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| USA, östra 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
+| Västra USA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
+| Västra USA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| Västra centrala USA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| Norra centrala USA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
+| Södra centrala USA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| Centrala USA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Centrala Kanada | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
+| Östra Kanada | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **Sydamerika** | |
-| Södra Brasilien | 12076:51014 | 12076:52014 | 12076:53014 |
+| Södra Brasilien | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Norra Europa | 12076:51003 | 12076:52003 | 12076:53003 |
-| Västra Europa | 12076:51002 | 12076:52002 | 12076:53002 |
-| Storbritannien, södra | 12076:51024 | 12076:52024 | 12076:53024 |
-| Storbritannien, västra | 12076:51025 | 12076:52025 | 12076:53025 |
-| Frankrike, centrala | 12076:51030 | 12076:52030 | 12076:53030 |
-| Frankrike, södra | 12076:51031 | 12076:52031 | 12076:53031 |
+| Norra Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Västra Europa | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Storbritannien, södra | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
+| Storbritannien, västra | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
+| Frankrike, centrala | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
+| Frankrike, södra | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Asien och stillahavsområdet** | |
-| Östasien | 12076:51010 | 12076:52010 | 12076:53010 |
-| Sydostasien | 12076:51011 | 12076:52011 | 12076:53011 |
+| Östasien | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Sydostasien | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japan** | |
-| Östra Japan | 12076:51012 | 12076:52012 | 12076:53012 |
-| Västra Japan | 12076:51013 | 12076:52013 | 12076:53013 |
+| Östra Japan | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
+| Västra Japan | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australien** | |
-| Östra Australien | 12076:51015 | 12076:52015 | 12076:53015 |
-| Sydöstra Australien | 12076:51016 | 12076:52016 | 12076:53016 |
+| Östra Australien | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| Sydöstra Australien | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Australiensiska myndigheter** | |
-| Australien, centrala | 12076:51032 | 12076:52032 | 12076:53032 |
-| Australien, centrala 2 | 12076:51033 | 12076:52033 | 12076:53033 |
+| Australien, centrala | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
+| Australien, centrala 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
 | **Indien** | |
-| Södra Indien | 12076:51019 | 12076:52019 | 12076:53019 |
-| Västra Indien | 12076:51018 | 12076:52018 | 12076:53018 |
-| Centrala Indien | 12076:51017 | 12076:52017 | 12076:53017 |
+| Södra Indien | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
+| Västra Indien | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
+| Centrala Indien | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Korea** | |
-| Sydkorea, södra | 12076:51028 | 12076:52028 | 12076:53028 |
-| Sydkorea, centrala | 12076:51029 | 12076:52029 | 12076:53029 |
+| Sydkorea, södra | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Sydkorea, centrala | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| **Sydafrika**| |
+| Sydafrika, norra | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Sydafrika, västra | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| **UAE**| |
+| Förenade Arabemiraten, norra | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Förenade Arabemiraten, centrala | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde. 
@@ -215,7 +221,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | Azure Global Services * | 12076:5050 |
 | Andra Office 365 Online-tjänster | 12076:5100 |
 
-* Azure Global Services innehåller endast Azure DevOps just nu.
+\* Azure Global Services innehåller endast Azure DevOps just nu.
 
 
 > [!NOTE]

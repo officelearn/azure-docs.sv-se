@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128706"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funktioner för matris och objekt för Azure Resource Manager-mallar
@@ -49,7 +49,7 @@ Om du vill ha en matris med strängvärden avgränsat med ett värde, se [dela](
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>matris
+## <a name="array"></a>array
 `array(convertToArray)`
 
 Konverterar värdet till en matris.
@@ -199,7 +199,7 @@ Utdata från föregående exempel med standardvärdena är:
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Matris | [1] |
-| emptyOutput | Bool | True |
+| emptyOutput | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -402,12 +402,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
-| stringFalse | Bool | Falskt |
-| objectTrue | Bool | True |
-| objectFalse | Bool | Falskt |
-| arrayTrue | Bool | True |
-| arrayFalse | Bool | Falskt |
+| stringTrue | Booleskt | True |
+| stringFalse | Booleskt | False |
+| objectTrue | Booleskt | True |
+| objectFalse | Booleskt | False |
+| arrayTrue | Booleskt | True |
+| arrayFalse | Booleskt | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -564,9 +564,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Booleskt | True |
+| objectEmpty | Booleskt | True |
+| stringEmpty | Booleskt | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -630,7 +630,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | String | ett |
+| arrayOutput | String | en |
 | stringOutput | String | O |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -864,7 +864,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="length" />
 
-## <a name="length"></a>Längd
+## <a name="length"></a>length
 `length(arg1)`
 
 Returnerar antalet element i en matris eller tecken i en sträng.
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>min.
 `min(arg1)`
 
 Returnerar det minsta värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
@@ -1139,7 +1139,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>hoppa över
+## <a name="skip"></a>Hoppa över
 `skip(originalValue, numberToSkip)`
 
 Returnerar en matris med alla element efter det angivna värdet i matrisen eller returnerar en sträng där alla tecken efter det angivna värdet i strängen.

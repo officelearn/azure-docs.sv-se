@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718041"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
@@ -411,7 +411,7 @@ day=03
 
 I följande tabell sammanfattas var och en av egenskaperna och anger var du hittar värden för din egen miljö.
 
-| Egenskap  | Värdekälla |
+| Egenskap | Värdekälla |
 | --- | --- |
 | nameNode | Den fullständiga sökvägen till Azure Storage-behållare som är kopplad till ditt HDInsight-kluster. |
 | jobTracker | För interna värdnamnet till din aktiva klustret YARN gå noden. På startsidan Ambari Välj YARN från listan över tjänster och välj sedan aktiv Resource Manager. Värdnamnet URI visas överst på sidan. Lägga till porten 8050. |
@@ -604,7 +604,7 @@ sqlDatabaseTableName=dailyflights
 
 Endast nya egenskaper som presenteras i det här `job.properties` filen är:
 
-| Egenskap  | Värdekälla |
+| Egenskap | Värdekälla |
 | --- | --- |
 | oozie.coord.application.path | Platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
 | hiveDailyTableNamePrefix | Prefixet som används för att dynamiskt skapa tabellnamnet på mellanlagringstabellen. |

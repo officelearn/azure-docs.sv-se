@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165515"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
@@ -74,7 +74,7 @@ SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmilj
 För att kunna ansluta till databasmotorn från en annan dator måste du skapa minst en SQL Server-autentiseringsinloggning.
 
 1. I Object Explorer i SQL Server Management Studio expanderar du mappen för den serverinstans som du vill skapa den nya inloggningen i.
-2. Högerklicka på mappen **Säkerhet**, peka på **Nytt** och välj **Inloggning...**.
+2. Högerklicka på mappen **Säkerhet**, peka på **Nytt** och välj **Inloggning...** .
    
     ![Ny inloggning](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. På sidan **Allmänt** i dialogrutan **Inloggning – ny** anger du namnet på den nya användaren i rutan **Inloggningsnamn**.

@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107625"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitet rapport 
 
@@ -133,8 +133,8 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |52004|Användaren har inte gett medgivande för åtkomst till LinkedIn-resurser. |
 |53000|För en princip för villkorsstyrd åtkomst krävs en kompatibel enhet, och enheten är inte kompatibel. Låt användare registrera sina enheter med en godkänd MDM-provider som Intune.|
 |53001|För en princip för villkorsstyrd åtkomst krävs en domänansluten enhet, och enheten är inte domänansluten. Att användaren använder en domän har anslutit enheten.|
-|53002|Programmet som används är inte ett godkänt program för villkorlig åtkomst. Användaren måste använda en av apparna i listan över godkända program för att få åtkomst.|
-|53003|Åtkomsten har blockerats på grund av principer för villkorsstyrd åtkomst.|
+|53002|Program som används är inte ett godkända program för villkorlig åtkomst. Användaren måste använda en av apparna i listan över godkända program för att få åtkomst.|
+|53003|Åtkomst har blockerats på grund av principer för villkorlig åtkomst.|
 |53004|Användaren måste slutföra registreringen för multifaktorautentisering innan personen får åtkomst till innehållet. Användaren bör registrera sig för multifaktorautentisering.|
 |65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Send en auktoriseringsbegäran till din klientadministratör för att appens: Y för resursen: Z.|
 |65004|Användaren nekade samtycke till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|

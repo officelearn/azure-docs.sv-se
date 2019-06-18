@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597087"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
@@ -25,7 +25,7 @@ Den här artikeln beskrivs viktiga överväganden för distribution av Azure Fil
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync-terminologi
 Det är viktigt att du förstår termer som innan du hämtar in information om att planera för distribution av Azure File Sync.
 
-### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
+### <a name="storage-sync-service"></a>Storage Sync-tjänsten
 Storage Sync-tjänsten är översta Azure-resursen för Azure File Sync. Tjänst för Lagringssynkronisering resursen är en peer för resursen för lagringskonton och på samma sätt kan bara distribueras till Azure-resursgrupper. En resurs med distinkta på toppnivå från resursen för lagringskonton är nödvändigt eftersom Storage Sync-tjänsten kan skapa synkroniseringsrelationer med flera storage-konton via flera synkroniseringsgrupper. En prenumeration kan ha flera resurser som Storage Sync-tjänsten har distribuerats.
 
 ### <a name="sync-group"></a>Synkroniseringsgrupp
@@ -150,7 +150,7 @@ Så här visar resultatet i CSV:
 
 ### <a name="files-skipped"></a>Filer som hoppades över
 
-| Fil/mapp | OBS |
+| Fil/mapp | Obs! |
 |-|-|
 | Desktop.ini | Filen som är specifika för system |
 | ethumbs.DB$ | Temporär fil för miniatyrbilder |
@@ -178,9 +178,9 @@ För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync
 ### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
 Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)** : Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Replication (DFS-R)**: Eftersom DFS-R- och Azure File Sync är båda replikeringslösningar, i de flesta fall rekommenderar vi att ersätta DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R- och Azure File Sync tillsammans:
+**DFS Replication (DFS-R)** : Eftersom DFS-R- och Azure File Sync är båda replikeringslösningar, i de flesta fall rekommenderar vi att ersätta DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R- och Azure File Sync tillsammans:
 
 - Du migrerar från en DFS-R-distribution till en Azure File Sync-distribution. Mer information finns i [migrera en distribution av DFS Replication (DFS-R) till Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Alla lokala servrar som behöver en kopia av filinformationen kan anslutas direkt till internet.
@@ -235,34 +235,34 @@ Azure File Sync är tillgänglig i följande regioner:
 
 | Region | Plats för datacenter |
 |--------|---------------------|
-| Australien, östra | New South Wales |
-| Australien, sydöstra | Victoria |
-| Brasilien, södra | Sao Paolo tillstånd |
-| Kanada, centrala | Toronto |
-| Kanada, östra | Quebec City |
+| Östra Australien | New South Wales |
+| Sydöstra Australien | Victoria |
+| Södra Brasilien | Sao Paolo tillstånd |
+| Centrala Kanada | Toronto |
+| Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
-| Asien, östra | Hongkong SAR |
+| Östasien | Hongkong SAR |
 | Östra USA | Virginia |
 | USA, östra 2 | Virginia |
-| Sydkorea, centrala| Söul |
-| Sydkorea, södra| Pusan |
-| Japan, östra | Tokyo, Saitama |
-| Japan, västra | Osaka |
-| USA, norra centrala | Illinois |
-| Europa, norra | Irland |
-| USA, södra centrala | Texas |
-| Indien, södra | Chennai |
+| Sydkorea, centrala| Seoul |
+| Sydkorea, södra| Busan |
+| Östra Japan | Tokyo, Saitama |
+| Västra Japan | Osaka |
+| Norra centrala USA | Illinois |
+| Norra Europa | Irland |
+| Södra centrala USA | Texas |
+| Södra Indien | Chennai |
 | Sydostasien | Singapore |
-| Södra Storbritannien | London |
-| Västra Storbritannien | Cardiff |
+| Storbritannien, södra | London |
+| Storbritannien, västra | Cardiff |
 | USA-förvaltad region Arizona (förhandsversion) | Arizona |
 | USA Gov Texas (förhandsversion) | Texas |
 | Virginia (USA-förvaltad region) (förhandsversion) | Virginia |
-| Europa, västra | Nederländerna |
-| USA, västra centrala  | Wyoming |
-| USA, västra | Kalifornien |
-| USA, västra 2 | Washington |
+| Västra Europa | Nederländerna |
+| Västra centrala USA | Wyoming |
+| Västra USA | Kalifornien |
+| Västra USA 2 | Washington |
 
 Azure File Sync stöder synkronisering endast med en Azure-filresurs som finns i samma region som Storage Sync-tjänsten.
 
@@ -279,34 +279,34 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Australien, östra      | Australien, sydöstra|
-| Australien, sydöstra | Australien, östra     |
-| Brasilien, södra        | USA, södra centrala   |
-| Kanada, centrala      | Kanada, östra        |
-| Kanada, östra         | Kanada, centrala     |
-| Indien, centrala       | Indien, södra        |
+| Östra Australien      | Sydöstra Australien|
+| Sydöstra Australien | Östra Australien     |
+| Södra Brasilien        | Södra centrala USA   |
+| Centrala Kanada      | Östra Kanada        |
+| Östra Kanada         | Centrala Kanada     |
+| Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
-| Asien, östra           | Sydostasien     |
-| Östra USA             | USA, västra            |
+| Östasien           | Sydostasien     |
+| Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
-| Japan, östra          | Japan, västra         |
-| Japan, västra          | Japan, östra         |
+| Östra Japan          | Västra Japan         |
+| Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Europa, norra        | Europa, västra        |
-| USA, norra centrala    | USA, södra centrala   |
-| USA, södra centrala    | USA, norra centrala   |
-| Indien, södra         | Indien, centrala      |
-| Sydostasien      | Asien, östra          |
-| Södra Storbritannien            | Västra Storbritannien            |
-| Västra Storbritannien             | Södra Storbritannien           |
-| US Gov, Arizona      | US Gov, Texas       |
+| Norra Europa        | Västra Europa        |
+| Norra centrala USA    | Södra centrala USA   |
+| Södra centrala USA    | Norra centrala USA   |
+| Södra Indien         | Indien, centrala      |
+| Sydostasien      | Östasien          |
+| Storbritannien, södra            | Storbritannien, västra            |
+| Storbritannien, västra             | Storbritannien, södra           |
+| Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | US Gov, Iowa         | Virginia (USA-förvaltad region)    |
-| USA-förvaltad region Virgini      | US Gov, Texas       |
-| Europa, västra         | Europa, norra       |
-| USA, västra centrala      | USA, västra 2          |
-| USA, västra             | Östra USA            |
-| USA, västra 2           | USA, västra centrala     |
+| USA-förvaltad region Virgini      | Texas (USA-förvaltad region)       |
+| Västra Europa         | Norra Europa       |
+| Västra centrala USA     | Västra USA 2          |
+| Västra USA             | Östra USA            |
+| Västra USA 2           | Västra centrala USA    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811701"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med hjälp av Python
@@ -24,8 +24,8 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 ## <a name="supported-python-versions"></a>Python-versioner som stöds
 
 * Använda en 64-bitars version av Python.
-* Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)**. 
-* Många utvecklare tycker att det är praktiskt att använda den  **[Anaconda Python-distribution](https://www.anaconda.com/download/)**.  
+* Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)** . 
+* Många utvecklare tycker att det är praktiskt att använda den  **[Anaconda Python-distribution](https://www.anaconda.com/download/)** .  
 * Den här artikeln skrevs med hjälp av Python version 3.6 från standard Python-distribution
 
 ## <a name="install-azure-python-sdk"></a>Installera Azure Python SDK

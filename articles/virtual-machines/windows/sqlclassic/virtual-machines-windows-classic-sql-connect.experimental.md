@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108451"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (Klassisk distribution)
@@ -58,7 +58,7 @@ I det här scenariot kan du ansluta med hjälp av den virtuella datorn **namn** 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Anslut till SQLServer via Internet
 Om du vill ansluta till din SQL Server database engine från Internet, måste du skapa en virtuell dator-slutpunkten för inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
 
-För att ansluta via internet, måste du använda den Virtuella datorns DNS-namn och portnummer för VM-slutpunkt (konfigureras senare i den här artikeln). För att hitta DNS-namnet, gå till Azure-portalen och välj **virtuella datorer (klassiska)**. Välj sedan den virtuella datorn. Den **DNS-namnet** visas i den **översikt** avsnittet.
+För att ansluta via internet, måste du använda den Virtuella datorns DNS-namn och portnummer för VM-slutpunkt (konfigureras senare i den här artikeln). För att hitta DNS-namnet, gå till Azure-portalen och välj **virtuella datorer (klassiska)** . Välj sedan den virtuella datorn. Den **DNS-namnet** visas i den **översikt** avsnittet.
 
 Anta exempelvis att en klassisk virtuell dator med namnet **mysqlvm** med DNS-namnet **mysqlvm7777.cloudapp.net** och en VM-slutpunkten för **57500**. Förutsatt att korrekt konfigurerade anslutningar, följande anslutningssträng kunde användas för åtkomst till den virtuella datorn från var som helst på internet:
 

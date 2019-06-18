@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072381"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabbstart: Kör exempelappen tal Devices SDK på Android
 
@@ -37,7 +37,7 @@ Innan du börjar använda SDK: N för tal enheter, måste du:
 
 * Att hämta en [prenumerationsnyckel för Azure för Speech Services](get-started.md)
 
-* Om du planerar att använda konversationen avskrift måste du använda en [cirkulär mikrofon enheten](get-speech-devices-sdk.md) och tjänsten är för närvarande endast tillgänglig för ”en-US” och ”zh-CN” i regioner, ”centralus” och ”asienöstra”. Du måste ha en tal-nyckel i någon av dessa regioner för att använda konversationen avskrift.
+* Om du planerar att använda konversationen avskrift måste du använda en [cirkulär mikrofon enheten](get-speech-devices-sdk.md) och den här funktionen är för närvarande endast tillgänglig för ”en-US” och ”zh-CN” i regioner, ”centralus” och ”asienöstra”. Du måste ha en tal-nyckel i någon av dessa regioner för att använda konversationen avskrift.
 
 * Om du planerar att använda Speech Services för att identifiera avsikter (eller åtgärder) från användaren yttranden, behöver du en [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) prenumeration. Läs mer om LUIS- och taligenkänning i [känna igen tal avsikter med LUIS kan C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 

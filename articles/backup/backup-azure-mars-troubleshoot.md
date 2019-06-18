@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 2c2ed46ed6e4a5d6663387777d3425d18b50500e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060214"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -41,9 +41,29 @@ Vi rekommenderar att du utför den under verifieringen, innan du börjar felsök
 
 ## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts
 
-| Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
-| ---     | ---     | ---    |
-| **Fel** </br> *Ogiltiga valvautentiseringsuppgifter har angetts. Filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med återställningstjänsten. (ID: 34513)* | <ul><li> Autentiseringsuppgifterna för valvet är ogiltiga (det vill säga de laddades ned mer än 48 timmar innan registrering).<li>MARS-agenten kan inte ladda ned filer till Windows Temp-katalog. <li>Valvautentiseringsuppgifterna finns på en nätverksplats. <li>TLS 1.0 är inaktiverat<li> En konfigurerad proxyserver blockerar anslutningen. <br> |  <ul><li>Ladda ned nya valvautentiseringsuppgifter. (**Obs**: Om flera valv credential filerna har hämtats tidigare är endast den senaste hämta filen giltig inom 48 timmar.) <li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå**, och Bläddra tills du ser att hämta filen. Välj sedan **aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li> Matcha datum och tid med din dator.<li>Om du får ett felmeddelande om att filhämtningar inte tillåts, är det troligt att det finns ett stort antal filer i C:/Windows/Temp-katalogen.<li>Gå till C:/Windows/Temp och kontrollera om det finns fler än 60 000 eller 65 000 filer med tillägget .tmp. Om det finns tar du bort dessa filer.<li>Kontrollera att du har .NET framework 4.6.2 eller senare installerat. <li>Om du har inaktiverat TLS 1.0 på grund av PCI-efterlevnad, referera till denna [felsökningssida](https://support.microsoft.com/help/4022913). <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning: <ul><li>CBengine.exe<li>CSC.exe, som är relaterade till .NET Framework. Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET Framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+**Felmeddelande**: Ogiltiga valvautentiseringsuppgifter har angetts. Filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med återställningstjänsten. (ID: 34513)
+
+| Orsak | Rekommenderad åtgärd |
+| ---     | ---    |
+| **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvet credential filer kan vara skadad eller kan ha gått ut (d.v.s. hämtas mer än 48 timmar innan registrering)| Ladda ned en ny autentiseringsuppgift från Recovery Services-valv i Azure Portal (se *steg 6* under [ **hämta MARS-agenten** ](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) avsnittet) och utföra den nedan: <ul><li> Om du har redan installerats och registrerats av Microsoft Azure Backup Agent, öppna Microsoft Azure Backup Agent MMC-konsolen och välj **registrera Server** från åtgärdsfönstret för att slutföra registreringen med den nyligen hämtade autentiseringsuppgifter <br/> <li> Om den nya installationen misslyckades försök sedan installera om med de nya autentiseringsuppgifter</ul> **Obs!** Om flera valv credential filerna har hämtats tidigare är endast den senaste hämta filen giltig inom 48 timmar. Vi rekommenderar därför att hämta ny ny valvautentiseringsfil.
+| **En proxyserver eller brandvägg blockerar <br/>eller <br/>Ingen Internetanslutning** <br/><br/> Om din dator eller proxyservern har begränsad tillgång till Internet utan att visa en lista över de nödvändiga webbadresserna misslyckas registreringen.| Lös problemet genom att utföra den nedan:<br/> <ul><li> Ditt IT-team för att säkerställa att systemet är ansluten till Internet<li> Om du inte har proxyserver, kontrollera proxyalternativet är avmarkerat när du registrerar agenten, kontrollera proxy-inställningar stegen [här](#verifying-proxy-settings-for-windows)<li> Om du har en brandvägg/proxyserver har fungerar med ditt nätverksteam och se till att nedan URL: er och IP-adress för åtkomst<br/> <br> **URL: er**<br> - *www.msftncsi.com* <br>-  *.Microsoft.com* <br> -  *.WindowsAzure.com* <br>-  *.microsoftonline.com* <br>-  *.windows.net* <br>**IP-adress**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>Försök att registrera igen när du har slutfört ovanstående felsökningsstegen
+| **Ett antivirusprogram hindrar** | Om du har ett antivirusprogram installerat på servern kan du sedan lägga till nödvändiga undantagsregler för följande filer från virusgenomsökning: <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> Temporära mappen standardplatsen är *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Bin-mappen på *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### <a name="additional-recommendations"></a>Ytterligare rekommendationer
+- Gå till *C:/Windows/Temp* och kontrollera om det finns fler än 60 000 eller 65 000 filer med tillägget .tmp. Om det finns tar du bort dessa filer
+- Se till att datorns datum och tid matchar med lokala tidszon
+- Se till att den [följande](backup-configure-vault.md#verify-internet-access) webbplatser läggs till i IE betrodda platser
+
+### <a name="verifying-proxy-settings-for-windows"></a>Kontrollera proxy-inställningar för Windows
+
+- Ladda ned **psexec** från [här](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- Kör det här `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` från en upphöjd kommandotolk:
+- Nu öppnas *Internet Explorer* fönster
+- Gå till *verktyg* -> *Internetalternativ* -> *anslutningar* -> *LAN-inställningar*
+- Kontrollera proxy-inställningar för *System* konto
+- Om ingen proxy har konfigurerats och proxyinformationen tillhandahålls, ta bort information
+-   Om proxyservern har konfigurerats och information om proxy är felaktiga, ser du till *Proxy IP* och *port* information är korrekt
+- Stäng *Internet Explorer*
 
 ## <a name="unable-to-download-vault-credential-file"></a>Det går inte att hämta valvautentiseringsfilen
 
@@ -85,34 +105,31 @@ Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om 
 
 - Kontrollera status för onlinesäkerhetskopiering anges **aktivera**. Kontrollera statusen utför den nedan:
 
-  - Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**.
-    - Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**.
+  - Öppna **Schemaläggaren** och expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**.
   - Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken.
-  - Kontrollera om status är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan och klicka på **OK**.
+  - Kontrollera om status är inställd på **aktiverad**. Om den inte är väljer **redigera** > **aktiverad** markerar du kryssrutan och klicka på **OK**.
 
-- Se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **gruppen lokala administratörer** på servern. Kontrollera användarkontot, gå till den **Allmänt** fliken och markera den **säkerhetsalternativ**.
+- Se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **gruppen lokala administratörer** på servern. Kontrollera användarkontot, gå till den **Allmänt** fliken och markera den **Security** alternativ.
 
-- Se om PowerShell 3.0 eller senare är installerat på servern. Kör följande kommando för att kontrollera PowerShell-version och kontrollera att den *större* versionsnumret är lika med eller större än 3.
+- Se till att PowerShell 3.0 eller senare är installerat på servern. Kör följande kommando för att kontrollera PowerShell-version och kontrollera att den *större* versionsnumret är lika med eller större än 3.
 
   `$PSVersionTable.PSVersion`
 
-- Se om följande sökväg är en del av den *PSMODULEPATH* miljövariabeln.
+- Se till att följande sökväg är en del av den *PSMODULEPATH* miljövariabeln
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Om PowerShell-körningsprincipen för *LocalMachine* är har angetts till begränsad PowerShell-cmdlet som utlöser åtgärden misslyckas. Kör följande kommandon i upphöjt läge, att kontrollera och ställa in körningsprincipen till antingen *Unrestricted* eller *RemoteSigned*.
+- Om PowerShell-körningsprincipen för *LocalMachine* är har angetts till begränsad PowerShell-cmdlet som utlöser åtgärden misslyckas. Kör följande kommandon i upphöjt läge, att kontrollera och ställa in körningsprincipen till antingen *Unrestricted* eller *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Se till att servern har startats om efter installationen backup-agenten
+- Se till att det finns ingen saknas eller är skadad **PowerShell** modulen **MSonlineBackup**. Om det finns några saknas eller är skadad fil, för att lösa det här problemet utför den nedan:
 
-- Se till att det finns ingen saknas eller är skadad **PowerShell** modulen **MSonlineBackup**. Om det finns en saknas eller är skadad fil, för att lösa problemet utför den nedan:
-
-  - Från en annan dator (Windows 2008 R2) med MARS-agenten fungerar korrekt, kopiera mappen MSOnlineBackup från *(C:\Program Files\Microsoft Azure Recovery Services-Agent\bin\Modules)* sökväg.
+  - Från valfri dator med MARS-agenten som fungerar korrekt, kopiera mappen MSOnlineBackup från *(C:\Program Files\Microsoft Azure Recovery Services-Agent\bin\Modules)* sökväg.
   - Klistra in det i problematiska dator i samma sökväg *(C:\Program Files\Microsoft Azure Recovery Services-Agent\bin\Modules)* .
-  - Om **MSOnlineBackup** mappen är redan finns på datorn, klistra in/Ersätt innehållsfilerna i den.
+  - Om **MSOnlineBackup** mappen är redan gjord på datorn, klistra in eller ersätta innehållsfilerna i den.
 
 
 > [!TIP]

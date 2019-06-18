@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511143"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -599,9 +599,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Måste anges till `signalRConnectionInfo`.|
-|**riktning**|| Måste anges till `in`.|
-|**Namn**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
+|**type**|| Måste anges till `signalRConnectionInfo`.|
+|**direction**|| Måste anges till `in`.|
+|**name**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
 |**hubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
 |**Användar-ID**|**Användar-ID**| Valfritt: Värdet för användaridentifierare anspråk som ska anges i viktiga åtkomsttoken. |
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den appinställning som innehåller anslutningssträngen SignalR Service (standardvärdet är ”AzureSignalRConnectionString”) |
@@ -612,9 +612,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Måste anges till `signalR`.|
-|**riktning**|| Måste anges till `out`.|
-|**Namn**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
+|**type**|| Måste anges till `signalR`.|
+|**direction**|| Måste anges till `out`.|
+|**name**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
 |**hubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den appinställning som innehåller anslutningssträngen SignalR Service (standardvärdet är ”AzureSignalRConnectionString”) |
 
@@ -626,4 +626,4 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 > [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions-utvecklingen och konfiguration med Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Azure Functions-utveckling och -konfiguration med Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)

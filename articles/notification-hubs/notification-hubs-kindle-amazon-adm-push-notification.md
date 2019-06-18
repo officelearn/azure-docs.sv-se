@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/29/2019
 ms.author: jowargo
-ms.openlocfilehash: edd0e12460e07cfd2990cc43a9056ed06b84fb1d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abc77ad4d06dc719ee1a89cd8fcf29d42d96b483
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927020"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147662"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kom igång med Notification Hubs för Kindle-appar
 
@@ -58,24 +58,35 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
     5. Välj **Spara**.
 
         ![Den nya appen Skicka sida](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  Högst upp, växla till den **Mobile annonser** fliken och gör följande: 
+2.  Högst upp, växla till den **Apptjänster** fliken.
+
+    ![Fliken för App-tjänster](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. På den **Apptjänster** , rulla nedåt och sedan **visa Mobile annonser** i den **Mobile annonser** avsnittet. Du ser den **Mobile annonser** sida i en ny flik i webbläsaren. 
+
+    ![Mobile annonser avsnittet - Visa Mobile Ads-länk](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
+1. På den **Mobile annonser** gör du följande steg: 
     1. Ange om din app dirigeras främst i barn under 13. Den här självstudien väljer **nr**.
-    2. Välj **Skicka**. 
+    1. Välj **skicka**. 
 
         ![Mobile Ads-sidan](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
     3. Kopiera den **programnyckel** från den **Mobile annonser** sidan. 
 
         ![Programnyckel](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  Välj **appar och tjänster** på överst menyn och välj ditt program i listan. 
+3.  Växla till fliken för den webbläsare som har den **Apptjänster** fliken öppen och gör följande:
+    1. Bläddra till den **enhetsmeddelanden** avsnittet.     
+    1. Expandera **Välj befintlig säkerhetsprofil eller skapa en ny**, och välj sedan **skapa säkerhetsprofil**. 
 
-    ![Välj din app från listan](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. Växla till den **enhetsmeddelanden** fliken och följ de här stegen: 
-    1. Välj **skapa en ny säkerhetsprofil**.
-    2. Ange en **namn** för din säkerhetsprofil. 
-    3. Ange **beskrivning** för din säkerhetsprofil. 
-    4. Välj **Spara**. 
-    5. Välj **visa säkerhetsprofil** på resultatsidan. 
-5. Nu på den **säkerhetsprofil** gör du följande steg: 
+        ![Skapa profil knappen](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. Ange en **namn** för din säkerhetsprofil. 
+    2. Ange **beskrivning** för din säkerhetsprofil. 
+    3. Välj **Spara**. 
+
+        ![Spara profilen security](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. Välj **aktivera enhetsmeddelanden** att aktivera meddelanden på den här säkerhetsprofil mellan enheter. 
+
+        ![Aktivera enhetsmeddelanden](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. Välj **visa säkerhetsprofil** på resultatsidan. 
+1. Nu på den **säkerhetsprofil** gör du följande steg: 
     1. Växla till den **webbinställningar** fliken och kopiera den **klient-ID** och **Klienthemlighet** värdet för senare användning. 
 
         ![Hämta klient-ID och hemlighet](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
@@ -314,6 +325,36 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## <a name="create-an-adm-object"></a>Skapa ett ADM-objekt
+1 i den `MainActivity.java` Lägg till följande importuttryck:
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+2. Lägg till följande kod i slutet av `OnCreate`-metoden:
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## <a name="add-your-api-key-to-your-app"></a>Lägg till API-nyckeln i din app
 1. Följ dessa steg för att lägga till en mapp med tillgångar i projektet. 

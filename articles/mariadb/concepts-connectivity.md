@@ -8,10 +8,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61042224"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Hantering av tillfälliga anslutningsfel för Azure Database for MariaDB
@@ -46,4 +46,4 @@ Se till att testa logik för omprövning. Prova till exempel att köra din kod v
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka problem med anslutningen till Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
+* [Felsöka anslutningsproblem till Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)

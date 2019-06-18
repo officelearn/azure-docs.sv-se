@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065655"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Så här konfigurerar du Azure-databas för MariaDB-Data i replikering
 
-I den här artikeln får du lära dig hur du ställer in Data i replikering i tjänsten Azure Database for MariaDB genom att konfigurera master och replik-servrar. Data i replikering kan du synkronisera data från en huvudserver MariaDB som körs lokalt, i virtuella datorer eller som andra molnleverantörer värd till en replik i tjänsten Azure Database for MariaDB-databastjänster. 
+I den här artikeln får du lära dig hur du ställer in Data i replikering i tjänsten Azure Database for MariaDB genom att konfigurera master och replik-servrar. Data i replikering kan du synkronisera data från en huvudserver MariaDB som körs lokalt, i virtuella datorer eller som andra molnleverantörer värd till en replik i tjänsten Azure Database for MariaDB-databastjänster. Vi rekommenderat att du konfigurerar replikering i data med [globala transaktions-ID](https://mariadb.com/kb/en/library/gtid/) när din huvudservern version är 10.2 eller senare.
 
 Den här artikeln förutsätter att du har minst tidigare erfarenhet med MariaDB-servrar och databaser.
 
@@ -116,7 +116,16 @@ Följande steg förbereder och konfigurera MariaDB-servern körs lokalt, i en vi
    Resultatet bör vara som här. Se till att notera namnet på binära filen eftersom den används i senare steg.
 
    ![Resultat för Master-Status](./media/howto-data-in-replication/masterstatus.png)
+   
+6. Hämta GTID position (valfritt, krävs för replikering med GTID)
+
+   Kör funktionen [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) kommando för att hämta GTID positionen för överensstämmelse binlog filnamn och förskjutning.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>Dumpa och Återställ huvudserver
 
 1. Dumpa alla databaser från huvudserver
@@ -142,10 +151,16 @@ Följande steg förbereder och konfigurera MariaDB-servern körs lokalt, i en vi
 
    Alla Data i replikering funktioner utförs av lagrade procedurer. Du kan hitta alla procedurer i [Data i replikerade lagrade procedurer](reference-data-in-stored-procedures.md). De lagrade procedurerna kan köras i MySQL-gränssnitt eller MySQL Workbench.
 
-   Länka två servrar och starta replikering, logga in på målservern för repliken i Azure DB för MariaDB-tjänsten och ange den externa instansen huvudservern. Detta görs med hjälp av den `mysql.az_replication_change_master` lagrade proceduren på Azure-databas för MariaDB-server.
+   Länka två servrar och starta replikering, logga in på målservern för repliken i Azure DB för MariaDB-tjänsten och ange den externa instansen huvudservern. Detta görs med hjälp av den `mysql.az_replication_change_master` eller `mysql.az_replication_change_master_with_gtid` lagrade proceduren på Azure-databas för MariaDB-server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   eller
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: värdnamn för domänens huvudserver
@@ -153,6 +168,7 @@ Följande steg förbereder och konfigurera MariaDB-servern körs lokalt, i en vi
    - master_password: lösenordet för huvudservern
    - master_log_file: binära loggfilens namn från att köras `show master status`
    - master_log_pos: binär logg position från att köras `show master status`
+   - master_gtid_pos: GTID position från att köras `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA-certifikat kontext. Om du inte använder SSL skicka tom sträng.
        - Det rekommenderas att skicka den här parametern i som en variabel. Se följande exempel för mer information.
 
@@ -199,6 +215,10 @@ Följande steg förbereder och konfigurera MariaDB-servern körs lokalt, i en vi
 
    Om tillståndet för `Slave_IO_Running` och `Slave_SQL_Running` är ”yes” och värdet för `Seconds_Behind_Master` är ”0”, replikeringen fungerar. `Seconds_Behind_Master` Anger hur sent repliken är. Om värdet är ”0”, betyder det att repliken bearbetar uppdateringar. 
 
+4. Uppdatera motsvara servervariabler att göra data i replikering mer säker (behövs endast för replikering utan GTID)
+    
+    På grund av begränsning till MariaDB inbyggd replikering, måste du installera [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) och [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabler på replikering utan GTID scenario. Vi recommand du kontrollera din underordnad server `sync_master_info` och `sync_relay_log_info` variabler och ändra dem ot `1` om du vill se till att data i replikeringen är stabil.
+    
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 
 ### <a name="stop-replication"></a>Stoppa replikering

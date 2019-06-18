@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069403"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155543"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -156,7 +156,7 @@ Det kan ta lite tid för den nya anpassa domänen visas i appens **anpassade dom
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> En **inte skyddar** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -240,7 +240,7 @@ Det kan ta lite tid för den nya anpassa domänen visas i appens **anpassade dom
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> En **inte skyddar** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 

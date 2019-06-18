@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681378"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67135319"
 ---
 ### <a name="open-the-publish-wizard"></a>Öppna Publiceringsguiden
 
@@ -45,7 +45,7 @@ I den **konfigurera som är värd för Plan** dialogrutan använder de här inst
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
 | Location | Västra USA | Datacenter som är värd för webbappen. |
-| Storlek | Kostnadsfri | Den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör tillgängliga värdfunktioner. |
+| Storlek | Lediga | Den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör tillgängliga värdfunktioner. |
 
 Välj **OK**.
 

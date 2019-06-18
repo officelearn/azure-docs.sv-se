@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935116"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Skapa Dynamics 365 för Operations erbjuder via Cloud Partner portal
@@ -41,7 +41,7 @@ Det finns fyra huvudsakliga formulär för att skapa en Dynamics 365 för åtgä
 
 Erbjudandet inställningar formuläret är en grundläggande och ange inställningar för erbjudandet. Olika fält beskrivs nedan.
 
-### <a name="offer-id"></a>ID för erbjudande
+### <a name="offer-id"></a>Erbjudande-ID
 
 Det här är en unik identifierare för erbjudandet i en utgivarprofil för. Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett bindestreck och kan ha högst 50 tecken. Det här fältet är låst när ett erbjudande lanseras.
 

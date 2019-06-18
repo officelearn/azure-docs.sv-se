@@ -128,7 +128,7 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
    | Slutpunkten svarsfältet rubrik | Typ | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segmentstorleken i byte |
-   | **Plats** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
+   | **Location** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
    ||||
 
 3. Logikappen skapar och skickar Uppföljnings HTTP KORRIGERA meddelanden – var och en med den här informationen:

@@ -41,10 +41,10 @@ Network Watcher-Agent-tillägget kan konfigureras för följande Linux-distribut
 | Ubuntu | 12+ |
 | Debian | 7 och 8 |
 | Red Hat | 6 och 7 |
-| Oracle Linux | 6.8 + och 7 |
+| Oracle Linux | 6.8+ och 7 |
 | SUSE Linux Enterprise Server | 11 och 12 |
 | OpenSUSE Leap | 42.3+ |
-| CentOS | 6.5 + och 7 |
+| CentOS | 6.5+ och 7 |
 | CoreOS | 899.17.0+ |
 
 

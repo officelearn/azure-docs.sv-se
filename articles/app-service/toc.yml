@@ -70,14 +70,17 @@
     - name: OS-funktioner
       href: operating-system-functionality.md
     - name: Säkerhet
-      href: overview-security.md
       items:
+        - name: Rekommendationer
+          href: security-recommendations.md
         - name: Autentisering och auktorisering
           href: overview-authentication-authorization.md
         - name: Uppdatering av operativsystem och körning
           href: overview-patch-os-runtime.md
         - name: Säkerhetsattribut
           href: app-service-security-attributes.md
+        - name: Säkerhetsöversikt
+          href: overview-security.md
     - name: Nätverksfunktioner
       href: networking-features.md
     - name: Inkommande och utgående IP-adresser

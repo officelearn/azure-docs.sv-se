@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851431"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
@@ -41,7 +41,7 @@ Ett NYCKELFÄRDIGT sätt att presentera flera inloggning providers för dina anv
 
 Först i den **autentisering / auktorisering** i Azure-portalen kan konfigurera var och en för den identitetsprovider som du vill aktivera.
 
-I **åtgärd att vidta när begäran inte har autentiserats**väljer **Tillåt anonyma förfrågningar (ingen åtgärd)**.
+I **åtgärd att vidta när begäran inte har autentiserats**väljer **Tillåt anonyma förfrågningar (ingen åtgärd)** .
 
 På sidan logga in eller navigeringsfältet, eller någon annan plats för din app kan lägga till en inloggning länk var och en av de leverantörer som du har aktiverat (`/.auth/login/<provider>`). Exempel:
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 
 Token formatet varierar något beroende providern. Se tabellen nedan för mer information:
 
-| Providern värde | Krävs i begärandetexten | Kommentarer |
+| Providern värde | Krävs i begärandetexten | Kommentar |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | Den `expires_in` egenskapen är valfri. <br/>När du begär en token från Live-tjänsterna, begär alltid den `wl.basic` omfång. |
@@ -186,7 +186,7 @@ När din provider åtkomst-token (inte den [sessionstoken](#extend-session-token
 - **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](configure-authentication-provider-microsoft.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
-    2. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
+    2. I den vänstra webbläsaren, navigerar du till **prenumerationer** >  ** _\<prenumeration\_namn_**   >  **resourceGroups** >  _ **\<resource\_grupp\_namn >** _   >  **providers** > **Microsoft.Web** > **platser** >  _ **\<app \_namn >** _ > **config** > **authsettings**. 
     3. Klicka på **Redigera**.
     4. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Både Account och Azure Active Directory kan du logga in från flera domäner. Exempelvis kan Account _outlook.com_, _live.com_, och _hotmail.com_ konton. Azure Active Directory kan valfritt antal anpassade domäner för konton loggar in. Det här beteendet kan vara oönskade för en intern app som du inte vill att vem som helst med en _outlook.com_ kontot till åtkomst. Följ dessa steg om du vill begränsa domännamnet konton som loggar in.
 
-I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser**  >    _**\<app\_namn >**_ > **config** > **authsettings**. 
+I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** >  ** _\< prenumeration\_ namn_**   >  **resourceGroups** >  _ **\< resource\_ grupp\_ namn >** _   >  **providers** > **Microsoft.Web** > **platser**  >    _ **\< app\_ namn >** _ > **config** > **authsettings**. 
 
 Klicka på **redigera**, ändra egenskapen följande och klickar sedan på **placera**. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill.
 

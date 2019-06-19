@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9cca4cd113115a1acf676b46cc65dc4ed7021fa
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144074"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190511"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -189,10 +189,10 @@ Automatiska verifieringen tar vanligtvis några timmar. Öppna ett supportärend
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
-Om CNAME-posten för slutpunkten inte finns längre eller om den innehåller cdnverify-underdomänen följer du instruktionerna i det här steget.
-
 >[!NOTE]
->E-postvalidering av ägande av anpassad domän är för närvarande inte tillgänglig för **Azure CDN från Akamai**-profiler. Den här funktionen är för närvarande planerad inför framtiden. 
+>E-postvalidering av ägande av anpassad domän är för närvarande inte tillgänglig för **Azure CDN från Akamai**-profiler. Om du använder **Azure CDN från Akamai**, din anpassade domän måste mappas till din cdn-slutpunkten med en CNAME-post som angetts ovan.  Den här funktionen är för närvarande planerad inför framtiden. 
+
+Om CNAME-posten innehåller cdnverify-underdomänen, följer du instruktionerna i det här steget.
 
 När du har skickat en begäran att aktivera HTTPS på din domän så verifierar DigiCert-Certifikatutfärdaren ägarskapet för din domän genom att kontakta registranten enligt domänens [WHOIS](http://whois.domaintools.com/) registrantinformation. Kontakten sker via e-postadressen (som standard) eller telefonnumret som står i WHOIS-registreringen. Du måste slutföra domänverifieringen för att HTTPS ska aktiveras på din anpassade domän. Du har sex arbetsdagar på dig att godkänna domänen. Begäranden som inte godkänns inom sex arbetsdagar avbryts automatiskt. 
 

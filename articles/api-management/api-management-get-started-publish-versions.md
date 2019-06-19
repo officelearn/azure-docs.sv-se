@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127454"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203693"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicera flera versioner av ditt API 
 
@@ -46,7 +46,7 @@ I den här guiden får du lära dig att:
 ![Snabbmenyn för API – lägg till version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. Välj **Demo Conference API** från listan över API.
-2. Välj snabbmenyn (**...** ) bredvid.
+2. Välj snabbmenyn ( **...** ) bredvid.
 3. Välj **+ Lägg till version**.
 
 > [!TIP]

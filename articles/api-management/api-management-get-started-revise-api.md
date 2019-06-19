@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107235"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203614"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
 När ditt API är klart och börjar användas av utvecklare, måste du så småningom göra ändringar för det API:et och samtidigt se till att du inte stör anropen till API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
 4. Välj **+ Lägg till revision**
 
     > [!TIP]
-    > Du kan också välja **Lägg till revision** i snabbmenyn (**...**) för API:et.
+    > Du kan också välja **Lägg till revision** i snabbmenyn ( **...** ) för API:et.
 
 5. Ange en beskrivning för din nya revision så att du kommer ihåg vad den ska användas för.
 6. Välj **Skapa**
@@ -82,7 +82,7 @@ I den här guiden får du lära dig att:
 
     ![Revisionsmenyn på revisionsskärmen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Öppna snabbmenyn (**...**) för **revision 2**.
+2. Öppna snabbmenyn ( **...** ) för **revision 2**.
 3. Välj **Make Current** (Gör aktuell).
 4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning för din ändring som utvecklare kan se, till exempel: **Testning av revisioner. Ny ”teståtgärd” tillagd.**
 5. Nu är **Revision 2** aktuell.

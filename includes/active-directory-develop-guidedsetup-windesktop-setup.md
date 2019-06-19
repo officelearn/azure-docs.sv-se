@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121640"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187518"
 ---
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
@@ -34,8 +34,8 @@ Det program som du skapar med den här guiden visar en knapp som används för a
 Skapa ditt program genom att göra följande:
 
 1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio.
-2. Under **mallar**väljer **Visual C#**.
-3. Välj **WPF-App (.NET Framework)**, beroende på vilken version av Visual Studio-version som du använder.
+2. Under **mallar**väljer **Visual C#** .
+3. Välj **WPF-App (.NET Framework)** , beroende på vilken version av Visual Studio-version som du använder.
 
 ## <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet
 

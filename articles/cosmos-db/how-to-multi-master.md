@@ -1,21 +1,21 @@
 ---
 title: Så här konfigurerar du flera original i Azure Cosmos DB
 description: Lär dig hur du konfigurerar multimaster i dina program i Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: mjbrown
+ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244753"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204790"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera multimaster i dina program som använder Azure Cosmos DB
 
-Om du vill använda funktionen flera huvudservrar i ditt program, måste du aktivera skrivningar flera regioner och konfigurera funktionen med flera värdar i Azure Cosmos DB. Om du vill konfigurera flera värdar, ange den region där programmet har distribuerats.
+Om du vill använda funktionen flera huvudservrar i ditt program, måste du aktivera skrivningar flera regioner och konfigurera funktionen med flera värdar i Azure Cosmos DB. Skicka namnet på regionen där programmet har distribuerats till egenskapen SetCurrentLocation om du vill konfigurera flera värdar. Detta automatiskt fyller egenskapen PreferredLocations baserat på geo-närhet från platsen som har skickats in. Om en ny region senare läggs till kontot, programmet behöver inte uppdateras eller omdistribueras och identifierar automatiskt regionen närmare kommer automatisk-startsidan in det görs en regional händelse.
 
 ## <a id="netv2"></a>.NET SDK v2
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a034e7dc06defd701b58ec283ee161f5557c075d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095453"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164157"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Självstudier: Integrera Oracle Cloud-konsolen för infrastruktur med Azure Active Directory
 
@@ -92,7 +92,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
       > [!NOTE]
       > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
-      I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: ` https://console.<REGIONNAME>.oraclecloud.com/`
+      I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Oracle Cloud-konsolen Infrastrukturklienten supportteamet](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

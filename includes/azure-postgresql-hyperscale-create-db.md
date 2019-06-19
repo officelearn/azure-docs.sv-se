@@ -9,11 +9,11 @@ ms.date: 05/14/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154498"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187586"
 ---
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -64,7 +64,7 @@ Azure Database för PostgreSQL – hyperskala (Citus) (förhandsgranskning)-tjä
 
 När du skapar din Azure Database for PostgreSQL-server, en standarddatabas med namnet **citus** har skapats. För att ansluta till din databasserver, behöver du en anslutningssträng och lösenordet för serveradministratören.
 
-1. Hämta anslutningssträngen. I gruppsidan klickar du på den **anslutningssträngar** menyalternativ. (Det är **inställningar**.) Hitta den sträng som markerats  **C++ (libpq)**. Det ska vara i formatet:
+1. Hämta anslutningssträngen. I gruppsidan klickar du på den **anslutningssträngar** menyalternativ. (Det är **inställningar**.) Hitta den sträng som markerats  **C++ (libpq)** . Det ska vara i formatet:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require

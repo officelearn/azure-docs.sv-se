@@ -1,36 +1,36 @@
 ---
-title: Skapa Windows Virtual Desktop förhandsversion tjänstens huvudnamn och rolltilldelningar med PowerShell - Azure
-description: Hur du skapar tjänstens huvudnamn och tilldela roller med PowerShell i förhandsversion för virtuella skrivbord i Windows.
+title: Skapa Windows Virtual Desktop förhandsversion tjänstens huvudnamn och rolltilldelningar med hjälp av PowerShell - Azure
+description: Hur du skapar tjänstens huvudnamn och tilldela roller med hjälp av PowerShell i förhandsversion för virtuella skrivbord i Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523321"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206666"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med hjälp av PowerShell
 
 Tjänstens huvudnamn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett visst syfte. I Windows Virtual Desktop förhandsversion, kan du skapa en tjänst huvudnamn till:
 
-- Automatisera hanteringsuppgifter för specifika virtuella Windows-skrivbordet
-- Använd som autentiseringsuppgifter i stället för MFA-krävs användare när du kör en Windows Virtual Desktop Azure Resource Manager-mall
+- Automatisera hanteringsuppgifter för specifika virtuella Windows-skrivbordet.
+- Använd som autentiseringsuppgifter i stället för MFA-krävs användare när du kör en Azure Resource Manager-mall för virtuella Windows-skrivbordet.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett huvudnamn för tjänsten i Azure Active Directory
-> * Skapa en rolltilldelning i virtuella Windows-skrivbordet
-> * Logga in på virtuella Windows-skrivbordet med tjänstens huvudnamn
+> * Skapa ett huvudnamn för tjänsten i Azure Active Directory.
+> * Skapa en rolltilldelning i virtuella Windows-skrivbordet.
+> * Logga in på virtuella Windows-skrivbordet genom att använda tjänstens huvudnamn.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, behöver du göra tre saker:
+Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, måste du göra tre saker:
 
 1. Installera modulen AzureAD. Kör PowerShell som administratör och kör följande cmdlet för att installera modulen:
 
@@ -48,7 +48,7 @@ Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, behöver du göra
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Skapa ett huvudnamn för tjänsten i Azure Active Directory
 
-När du har uppfyllt kraven i din PowerShell-session, kör du följande PowerShell-cmdletar för att skapa flera innehavare tjänstens huvudnamn i Azure.
+När du har uppfyllt kraven i din PowerShell-session, kör du följande PowerShell-cmdletar för att skapa en multitenant-tjänst tjänstobjekt i Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -72,18 +72,18 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Logga in med tjänstens huvudnamn
 
-När du har skapat en rolltilldelning för tjänsten huvudnamn, bör du nu se att tjänstens huvudnamn kan logga in på virtuella Windows-skrivbordet genom att köra följande cmdlet:
+När du skapar en rolltilldelning för tjänsten huvudnamn kan du kontrollera att tjänstens huvudnamn kan logga in på virtuella Windows-skrivbordet genom att köra följande cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-När du har loggat in, kontrollera att allt fungerar genom att testa några Windows Virtual Desktop PowerShell-cmdlets med tjänstens huvudnamn.
+När du har loggat in måste du kontrollera att allt fungerar genom att testa några Windows Virtual Desktop PowerShell-cmdlets med tjänstens huvudnamn.
 
 ## <a name="view-your-credentials-in-powershell"></a>Visa dina inloggningsuppgifter i PowerShell
 
-Innan du avslutar din PowerShell-session kan du visa dina autentiseringsuppgifter och Skriv ned dem för framtida bruk. Lösenordet är särskilt viktigt eftersom du kan inte hämta det när du stänger det här PowerShell-session.
+Innan du avslutar din PowerShell-session kan visa dina autentiseringsuppgifter och Skriv ned dem för framtida bruk. Lösenordet är särskilt viktigt eftersom du kan inte hämta det när du stänger det här PowerShell-session.
 
 Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som du behöver köra för att få dem:
 
@@ -93,7 +93,7 @@ Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som 
     $svcPrincipalCreds.Value
     ```
 
-- Klientorganisations-ID:
+- Klient-ID:
 
     ```powershell
     $aadContext.TenantId.Guid
@@ -107,7 +107,7 @@ Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tjänstens huvudnamn och tilldelats en roll i din klient för virtuella Windows-skrivbordet, kan du använda den för att skapa en pool med värden. Om du vill veta mer om värden pooler kan du fortsätta till självstudien för att skapa en pool med värden i virtuella Windows-skrivbordet.
+När du har skapat tjänstens huvudnamn och tilldelats en roll i din klient för virtuella Windows-skrivbordet, kan du använda det för att skapa en pool med värden. Om du vill veta mer om värden pooler kan du fortsätta till självstudien för att skapa en pool med värden i virtuella Windows-skrivbordet.
 
  > [!div class="nextstepaction"]
  > [Virtuella Windows-skrivbordet värd pool självstudien](./create-host-pools-azure-marketplace.md)

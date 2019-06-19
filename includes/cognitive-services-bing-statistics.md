@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124740"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187626"
 ---
 Bing statistik tillhandahåller analyser för API: er för Bing-sökresultat. Analytics innehåller samtalsvolym, övre frågesträngar, geografisk fördelning och mycket mer. Om du vill aktivera Bing statistik i din sökning i Bing betald prenumeration, navigera till din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), Välj din betalda prenumeration och klicka på Aktivera Bing statistik. Om du aktiverar Bing statistik ökar din prenumerationstakt något (se [priser](https://aka.ms/bingstatisticspricing)).
 

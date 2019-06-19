@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137351"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187819"
 ---
 Du kan komma åt konsolen loggar som genereras från i behållaren. Först aktiverar loggning genom att köra följande kommando i Cloud Shell:
 

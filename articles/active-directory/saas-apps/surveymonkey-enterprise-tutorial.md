@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55438e2a853094bc26b3cb672687733f206f104
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089590"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Självstudier: Azure Active Directory-integrering med SurveyMonkey Enterprise
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SurveyM
 
     ![SurveyMonkey Enterprise domän och URL: er med enkel inloggning för information](common/both-signonurl.png)
 
-    I rutan **Inloggnings-URL** anger du en URL: ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    I rutan **Inloggnings-URL** anger du en URL: `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 

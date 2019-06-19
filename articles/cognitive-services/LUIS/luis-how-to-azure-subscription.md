@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198652"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204149"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
 
-Du behöver inte skapa prenumerationsnycklar om du vill använda dina kostnadsfria första 1000 endpoint-frågor. När dessa endpoint-frågor används kan skapa en Azure-resurs i den [Azure-portalen](https://portal.azure.com), sedan tilldela den här resursen till en LUIS-app i den [LUIS portal](https://www.luis.ai).
-
-Om du får en _slut på kvot för_ fel i form av ett HTTP 403 eller 429, måste du skapa en nyckel och tilldela den till din app. 
+När du börjar använda Språkförståelse (LUIS) behöver du inte skapa prenumerationsnycklar. Du får 1000 endpoint frågor att. 
 
 Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). Produktionssystem, använda en [betald](https://aka.ms/luis-price-tier) nivå. Använd inte den [redigering nyckeln](luis-concept-keys.md#authoring-key) för slutpunkten frågor i produktion.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Skapa körningsresurser för förutsägelse slutpunkten i Azure portal
 
-Lär dig mer med den [skapa en app](get-started-portal-build-app.md) Snabbstart.
+Du skapar den [förutsägelse slutpunktsresurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) i Azure-portalen. Den här resursen bör endast användas för slutpunkt-förutsägelsefrågor. Använd inte den här resursen för redigering ändringar till appen.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ Lär dig mer med den [skapa en app](get-started-portal-build-app.md) Snabbstart.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Tilldela Resursnyckeln LUIS-app i LUIS-portalen
 
-Lär dig mer med den [distribution](get-started-portal-deploy-app.md) Snabbstart.
+Varje gång du skapar en ny resurs för LUIS kan du behöva [tilldelar resursen LUIS-app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). När den är tilldelad, behöver du inte göra det här steget igen om du inte skapar en ny resurs. Du kan skapa en ny resurs att utöka regionerna som din app eller för ett högre antal förutsägelsefrågor.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera til
     ![Kontrollera din betalning LUIS-nivå](./media/luis-usage-tiers/updated.png)
 1. Kom ihåg att [tilldela den här slutpunktsnyckeln](#assign-endpoint-key) på den **publicera** sidan och använda det på alla endpoint-frågor. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Hur du löser ut av kvoten fel när nyckeln överskrider prisnivå nivå användning
-Varje nivå kan endpoint förfrågningar till ditt Understanding Intelligent Service-konto med ett specifikt intervall. Om antalet begäranden som är högre än den tillåtna av ditt avgiftsbelagda konto per minut eller per månad, begäranden får ett HTTP-fel för ”429: För många förfrågningar ”.
+## <a name="fix-http-status-code-403-and-429"></a>Åtgärda HTTP-statuskod 403 och 429
 
-Varje nivå kan ackumulerande begäranden per månad. Om förfrågningarna är högre än den tillåtna begäranden får ett HTTP-fel för ”403: tillåts inte”.  
+Du får fel 403 och 429 statuskoder när du överskrider transaktioner per sekund eller transaktioner per månad för din prisnivå.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>När du får en statuskod för HTTP 403-fel
+
+När du använder alla dessa kostnadsfria 1000 endpoint frågor eller du överskrider din prisnivå transaktioner månadskvot, får du en statuskod för HTTP 403-fel. 
+
+Om du vill åtgärda det här felet, måste du antingen [ändra din prisnivå](luis-how-to-azure-subscription.md#change-pricing-tier) till en högre nivå eller [skapa en ny resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) och [tilldela den till din app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Lösningar för det här felet är:
+
+* I den [Azure-portalen](https://portal.azure.com), på ditt språk förstå resurs, på den **resurshantering -> prisnivå**, ändra din prisnivå till en högre nivå för TPS. Du behöver inte göra något i Language Understanding-portalen om resursen har redan tilldelats en Luis-app.
+*  Om din användning som överskrider den högsta prisnivån, lägger du till fler Language Understanding-resurser med en belastningsutjämnare framför dem. Den [Språkförståelse behållare](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>När du får en statuskod för HTTP 429-fel
+
+Den här statuskod returneras när dina transaktioner per sekund överskrider din prisnivå.  
+
+Lösningar är:
+
+* Du kan [öka din prisnivå](#change-pricing-tier), om du inte är på högsta nivå.
+* Om din användning som överskrider den högsta prisnivån, lägger du till fler Language Understanding-resurser med en belastningsutjämnare framför dem. Den [Språkförståelse behållare](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
+* Du kan hantera din klientbegäranden för program med en [återförsöksprincip](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) du implementera själv när du får den här statuskoden. 
 
 ## <a name="viewing-summary-usage"></a>Visa sammanfattning av användning
 Du kan visa information om LUIS användning i Azure. Den **översikt** visar senaste sammanfattningsinformation inklusive anrop och fel. Om du gör en LUIS-slutpunktsförfrågan, sedan omedelbart titta på den **översiktssidan**, vänta fem minuter för användningen visas.

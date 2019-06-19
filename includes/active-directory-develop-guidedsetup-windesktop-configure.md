@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187519"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -40,11 +40,11 @@ Du registrerar programmet och lägger till programregistreringsinformationen i d
 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
 1. Välj **ny registrering**.
    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `Win-App-calling-MsGraph`.
-   - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
+   - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
    - Välj **Registrera** för att skapa programmet.
 1. I listan över sidor för appen väljer du **Autentisering**.
    1. I den **omdirigerings-URI: er** avsnittet i listan över omdirigerings-URI: er:
-   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)**.
+   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)** .
    1. Ange `urn:ietf:wg:oauth:2.0:oob` i den **OMDIRIGERINGS-URI** kolumn.
 1. Välj **Spara**.
 1. Gå till Visual Studio, öppna den *App.xaml.cs* filen och Ersätt sedan `Enter_the_Application_Id_here` med program-ID som du just registrerade och kopieras.

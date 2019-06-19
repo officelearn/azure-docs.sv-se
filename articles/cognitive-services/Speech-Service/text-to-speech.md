@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/14/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072422"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204890"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
@@ -26,13 +25,13 @@ Text till tal tekniken kan skapare av innehåll kan interagera med användarna p
 
 ### <a name="standard-voices"></a>Standard röster
 
-Standard röster skapas med hjälp av statistiska parametrisk syntes och/eller sammanfogning syntes tekniker. Dessa röster är mycket begripligt och ljud ganska naturlig. Du kan enkelt aktivera dina program att tala i mer än 45 språk, med ett brett utbud av röstalternativ för. Dessa röster ger hög uttal noggrannhet, inklusive stöd för förkortningar, förkortning expanderar, datum/tid-tolkningar, polyphones med mera. Använd standard ton för att förbättra tillgängligheten för dina program och tjänster genom att tillåta användare att interagera med innehållet hörbart.
+Standard röster skapas med hjälp av statistiska parametrisk syntes och/eller sammanfogning syntes tekniker. Dessa röster är mycket begripligt och ljud naturligt. Du kan enkelt aktivera dina program att tala i mer än 45 språk, med ett brett utbud av röstalternativ för. Dessa röster ger hög uttal noggrannhet, inklusive stöd för förkortningar, förkortning expanderar, datum/tid-tolkningar, polyphones med mera. Använd standard ton för att förbättra tillgängligheten för dina program och tjänster genom att tillåta användare att interagera med innehållet hörbart.
 
 ### <a name="neural-voices"></a>Neural röster
 
-Neural röster använda djupa neurala nätverk för att övervinna gränserna för traditionella text till tal-system i matchar mönster av stress och intonation i talat språk och i synthesizing enheter av tal i en dator röst. Standard text till tal uppdelad prosody i separata språklig analys och akustiska förutsägelse steg som regleras av oberoende modeller. Som kan resultera i muffled, buzzy röst syntes. Vår neural funktion gör prosody prognoser och röst syntes samtidigt, vilket innebär att en mer flytande och naturligt standardrösttyper röst.
+Neural röster använda djupa neurala nätverk för att övervinna gränserna för traditionella text till tal-system i matchar mönster av stress och intonation i talat språk och i synthesizing enheter av tal i en dator röst. Standard text till tal uppdelad prosody i separata språklig analys och akustiska förutsägelse steg som regleras av oberoende modeller, vilket kan resultera i muffled röst syntes. Vår neural funktion gör prosody prognoser och röst syntes samtidigt, vilket innebär att en mer flytande och naturligt standardrösttyper röst.
 
-Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska neural röster avsevärt lyssnande utmattning när du interagerar med AI-system. 
+Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska neural röster avsevärt lyssnande utmattning när du interagerar med AI-system.
 
 Få en neural stöder olika format, till exempel neutrala och trevligare. Exempel: röst Jessa (en-US) kan prata cheerfully, som är optimerad för varm, glada konversationen. Du kan justera voice-utdata som ton försäljningsargument, och snabbare med hjälp av [tal syntes Markup Language](speech-synthesis-markup.md). En fullständig lista över tillgängliga röster Se [språk som stöds](language-support.md#text-to-speech).
 
@@ -41,6 +40,26 @@ Mer information om fördelarna med att få en neural finns [Microsofts nya neura
 ### <a name="custom-voices"></a>Anpassade röster
 
 Röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke. För att skapa din anpassad rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda den här anpassad rösttyp för att syntetisera tal. Mer information finns i [anpassade röster](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+
+Tal syntes Markup Language (SSML) är en XML-baserade märkspråk som ger utvecklare möjlighet att ange hur indatatext konverteras till syntetiskt tal med hjälp av tjänsten text till tal. Jämfört med oformaterad text, hjälper SSML utvecklare att finjustera motivation uttal, talar hastighet, volym och flera av text till tal-utdata. Normal skiljetecken, till exempel pausar efter en tid eller med rätt intonation vid en mening som slutar med ett frågetecken hanteras automatiskt.
+
+Alla Textinmatningar som skickas till tjänsten text till tal måste vara strukturerade som SSML. Mer information finns i [tal syntes Markup Language](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Priser Obs!
+
+När du använder tjänsten text till tal, debiteras du för varje tecken som konverteras till tal, inklusive skiljetecken. Även om själva SSML dokumentet inte är fakturerbara räknas valfria element som används för att justera hur texten omvandlas till tal, som fonem och försäljningsargument, som fakturerbara tecken. Här är en lista över vad som fakturerbara:
+
+* Texten som skickas till tjänsten text till tal i SSML brödtexten i begäran
+* Alla markeringar i textfältet i begärandetexten i SSML-format, förutom för `<speak>` och `<voice>` taggar
+* Bokstäver, skiljetecken, blanksteg, tabbar, markup och alla blanksteg
+* Varje kodpunkten som definierats i Unicode
+
+Detaljerad information finns i [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Varje kinesiska, japanska och koreanska språk tecken räknas som två tecken för fakturering.
 
 ## <a name="core-features"></a>Kärnfunktioner
 

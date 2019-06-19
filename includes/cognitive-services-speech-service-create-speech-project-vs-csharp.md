@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
 ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145506"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187636"
 ---
 1. Starta Visual Studio 2017.
 
@@ -19,7 +19,7 @@ ms.locfileid: "66145506"
 
    ![Aktivera .NET-skrivbordsutveckling](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Nu ska vi skapa ett projekt. På menyraden väljer du **Arkiv > Nytt > Projekt**. När dialogrutan visas expanderar du **Installerade > Visual C# > Windows Desktop** i den vänstra rutan och väljer **Konsolapp (.NET Framework)**. Namnge projektet *helloworld*.
+1. Nu ska vi skapa ett projekt. På menyraden väljer du **Arkiv > Nytt > Projekt**. När dialogrutan visas expanderar du **Installerade > Visual C# > Windows Desktop** i den vänstra rutan och väljer **Konsolapp (.NET Framework)** . Namnge projektet *helloworld*.
 
     ![Skapa Visual C#-konsolapp (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Skapa Visual C#-konsolapp (.NET Framework)")
 
@@ -37,7 +37,7 @@ ms.locfileid: "66145506"
 
     När paketet har installerats visas en bekräftelse i Package Manager-konsolen.
 
-1. Nästa steg är att skapa en plattformskonfiguration som matchar arkitekturen på den dator som du använder för att skapa och köra konsolprogrammet. På menyraden väljer du **Skapa** > **Configuration Manager...**.
+1. Nästa steg är att skapa en plattformskonfiguration som matchar arkitekturen på den dator som du använder för att skapa och köra konsolprogrammet. På menyraden väljer du **Skapa** > **Configuration Manager...** .
 
     ![Starta Configuration Manager](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Starta Configuration Manager")
 

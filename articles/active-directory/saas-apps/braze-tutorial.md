@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 670319eb3fb79742d2946f5fc45ca8904e8c1dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105965"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Självstudier: Azure Active Directory-integrering med Braze
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
 
     ![Braze domän och URL: er enkel inloggning för information](common/both-replyurl.png)
 
-    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.braze.com/auth/saml/callback `
+    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 

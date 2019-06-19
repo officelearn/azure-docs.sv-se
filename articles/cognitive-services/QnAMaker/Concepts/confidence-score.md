@@ -3,20 +3,20 @@ title: Förtroendepoäng – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792752"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165141"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -46,7 +46,7 @@ Följande tabell visar vanliga förtroende som är associerade för ett visst po
 |0|Ingen matchning, så att svaret inte returneras.|”Hur mycket tjänsten kostar”|
 
 ## <a name="choose-a-score-threshold"></a>Välj ett poäng tröskelvärde
-Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB skiljer sig, och har olika typer av ord, avsikter och mål-rekommenderar vi du testa och välj tröskelvärdet som bäst passar dig. Tröskelvärdet är som standard till 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB-artiklar, är **50**.
+Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB är annorlunda och har olika typer av ord, avsikter och mål-rekommenderar vi du testa och välj tröskelvärdet passar som bäst dig. Tröskelvärdet är som standard till 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB-artiklar, är **50**.
 
 När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täckning och justera tröskeln för ditt baserat på dina krav.
 
@@ -56,6 +56,12 @@ När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täck
 
 > [!NOTE]
 > Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrollera QnA Service-version [här](https://www.qnamaker.ai/UserSettings), och se hur du kan få de senaste uppdateringarna [här](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Angiven tröskel 
+
+Ange tröskelvärdet resultat som en egenskap för den [GenerateAnswer API JSON-texten](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Det innebär att du ställa in den för varje anrop till GenerateAnswer. 
+
+I bot framework, ange att resultatet som en del av alternativ för objektet med [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) eller [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Förbättra förtroende-poäng
 För att förbättra förtroendepoäng för ett visst svar till en användarfråga, du kan lägga till användarfrågan kunskapsbasen som en annan fråga på det svaret. Du kan också använda skiftlägeskänsliga [word förändras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) att lägga till synonymer i nyckelord i din Kunskapsbas.

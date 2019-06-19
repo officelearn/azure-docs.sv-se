@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 704a1193eb47f9346900c6c8a003122c30c8ab44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417322"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203977"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
 
@@ -31,7 +31,14 @@ Om du har innehåll som uttrycks i ett språk som används mindre ofta kan förs
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, extrahering av diskussionsämne och igenkänning av namngivna entiteter
 
-För attitydanalys, extrahering av diskussionsämne och entitetsidentifiering är listan över språk som stöds mer selektiv analysatorer är förfinade för språklig reglerna för ytterligare språk.
+För attitydanalys, extrahering av diskussionsämne och entitetsidentifiering är listan över språk som stöds mer selektiv analysatorer är förfinade för språklig reglerna för ytterligare språk. Stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) begränsas till följande språk: 
+* Svenska
+* Chinese-Simplified
+* Franska
+* Tyska
+* Spanska
+
+Endast den `Person`, `Location` och `Organization` namngivna entiteter returneras för andra språk.
 
 ## <a name="language-list-and-status"></a>Språklista och status
 
@@ -64,7 +71,7 @@ Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allm�
 
 \* Språk som stöds finns i förhandsversion
 
-\*\* Med namnet Entitetsidentifiering och [entitetslänkning](how-tos/text-analytics-how-to-entity-linking.md) finns både för det här språket.    
+\*\* [Med namnet Entitetsidentifiering](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [entitetslänkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) finns både för det här språket.    
 
 ## <a name="see-also"></a>Se också
 

@@ -9,15 +9,15 @@ ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
 ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153710"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188006"
 ---
 1. Logga in på [Azure Portal](http://portal.azure.com).
 
-1. Välj **Skapa en resurs** i fönstret till vänster. Sök efter **digital twins** och välj **Digital Twins (förhandsversion)**. Välj **Skapa** för att starta distributionsprocessen.
+1. Välj **Skapa en resurs** i fönstret till vänster. Sök efter **digital twins** och välj **Digital Twins (förhandsversion)** . Välj **Skapa** för att starta distributionsprocessen.
 
    ![Val för att skapa en ny Digital Twins-instans](./media/create-digital-twins-portal/create-digital-twins.png)
 

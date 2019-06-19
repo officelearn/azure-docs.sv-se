@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a57ab6e8f742cb44425ef703986e61529672264
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102225"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Självstudier: Azure Active Directory-integrering med Fuse
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Fuse:
 
     ![Information om enkel inloggning för Fuse-domän och -URL:er](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<tenant name>.fusionuniversal.com/`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://{tenantname}.fuseuniversal.com/`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Fuse-klientsupportteamet](mailto:support@fusion-universal.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925307"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206049"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudier: Använda datakopieringstjänsten för att kopiera data till Azure Data Box (förhandsversion)
 
@@ -59,7 +59,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
-    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan.        |
+    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter, behöver de explicita säkerhetsbehörigheter. Högerklicka på mappen, Välj **egenskaper** och välj sedan **Security**. Detta bör lägga till den lokala administratören i den **Security** fliken.       |
     |**Lösenord**                       |Lösenord för åtkomst till datakällan.           |
     |**Mållagringskonto**    |Välj mållagringskonto för uppladdning av data från listan.         |
     |**Måltyp**       |Välj mållagringstyp från listan: **Blockblob**, **Sidblob** eller **Azure Files**.        |

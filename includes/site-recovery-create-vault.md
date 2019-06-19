@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116052"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187754"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
 2. Klicka på **skapa en resurs** > **övervakning + hantering** > **Backup och Site Recovery**.

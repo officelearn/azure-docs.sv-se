@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en nyhetssökning – SDK för nyhetssökning i Bing för Python'
+title: 'Snabbstart: Utföra en API för nyhetssökning med Bing News Search SDK för Python'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att söka efter nyheter med SDK för nyhetssökning i Bing för Python och bearbeta svaret.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e9a24084e025723febf854fad7ba83db55d1f824
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13c500359c185d36a2e89914a1c112ee2e82cbc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798608"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206111"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för Python
 

@@ -111,8 +111,16 @@
           items:
             - name: Hantera via Azure Portal
               href: data-box-portal-ui-admin.md
-            - name: Felsöka problem med Data Box Disk
-              href: data-box-disk-troubleshoot.md
+            - name: Felsöka
+              items:
+                - name: Upplåsningsproblem
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Datakopieringsproblem
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Verifieringsproblem
+                  href: data-box-disk-troubleshoot.md
+                - name: Uppladdningsproblem
+                  href: data-box-disk-troubleshoot-upload.md
             - name: Kontakta supporten
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box – tung

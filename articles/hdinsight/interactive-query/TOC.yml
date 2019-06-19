@@ -2,11 +2,8 @@
   href: /azure/hdinsight
 - name: Översikt
   items:
-    - name: Apache Hadoop-komponenter på HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: Vad är Interaktiv fråga i HDInsight?
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Snabbstarter
   items:
@@ -14,8 +11,6 @@
       href: ./hdinsight-connect-hive-zeppelin.md
 - name: Kom igång
   items:
-    - name: Börja med interaktiv fråga
-      href: ./apache-interactive-query-get-started.md
     - name: Installera HDInsight-appar
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

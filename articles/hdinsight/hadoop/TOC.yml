@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Översikt
   items:
-    - name: Om Apache Hadoop på HDInsight
+    - name: Vad är Apache Hadoop i HDInsight?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Apache Hadoop-arkitektur i HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Apache Hadoop-komponenter på HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Snabbstarter
   items:
     - name: Skapa Apache Hadoop-kluster – portalen
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Skapa Apache Hadoop-kluster – Resource Manager-mall
+    - name: Skapa Apache Hadoop-kluster – mall
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Självstudier
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Begrepp
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Apache Hadoop-arkitektur i HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Apache Hadoop-komponenter i HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Kapacitetsplanering för kluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Windows-kluster
       items:
-        - name: Migrera Windows-kluster till Linux-kluster
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Migrera .NET-lösningar till Linux-kluster
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

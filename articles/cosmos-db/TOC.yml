@@ -145,6 +145,12 @@
             - name: Indexeringsprinciper
               displayName: 'consistent, none'
               href: index-policy.md
+        - name: Datatyper
+          items:
+            - name: DateTime
+              href: working-with-dates.md
+            - name: Geospatial
+              href: geospatial.md
         - name: Time to live
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -164,7 +170,11 @@
           displayName: change feed
           href: change-feed-functions.md
     - name: Inbyggd analys med Apache Spark
-      href: spark-api-introduction.md
+      items:
+        - name: Introduktion
+          href: spark-api-introduction.md
+        - name: Lambda-arkitektur
+          href: lambda-architecture.md
     - name: Programmering på serversidan
       items:
         - name: 'Lagrade procedurer, utlösare och UDF:er'
@@ -480,8 +490,16 @@
           href: bootstrap-kubernetes-cluster.md
 - name: Instruktionsguider
   items:
-    - name: Hantera ett Azure Cosmos-konto
+    - name: Arbeta med ett Azure Cosmos-konto
       href: how-to-manage-database-account.md
+    - name: Arbeta med Azure Cosmos DB-resurser
+      items:
+        - name: Använda PowerShell
+          href: manage-with-powershell.md
+        - name: Använda Azure CLI
+          href: manage-with-cli.md
+        - name: Använda Resource Manager-mallar
+          href: manage-sql-with-resource-manager.md
     - name: Global distribution
       items:
         - name: Konfigurera flera original
@@ -506,6 +524,12 @@
           href: find-request-unit-charge.md
     - name: Arbeta med containrar och objekt
       items:
+        - name: Arbeta med Cosmos DB-data
+          items:
+            - name: Arbeta med data med hjälp av Azure Storage Explorer
+              href: storage-explorer.md
+            - name: Arbeta med data med hjälp av Azure Cosmos Explorer
+              href: data-explorer.md
         - name: Skapa en container
           href: how-to-create-container.md
         - name: Skapa en container med en stor partitionsnyckel
@@ -520,10 +544,6 @@
         - name: Ställ in TTL (Time To Live)
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
-        - name: Arbeta med data med hjälp av Azure Storage Explorer
-          href: storage-explorer.md
-        - name: Arbeta med data med hjälp av Azure Cosmos Explorer
-          href: data-explorer.md
         - name: Hantera indexeringsprinciper
           href: how-to-manage-indexing-policy.md
         - name: Definiera unika nycklar
@@ -531,14 +551,48 @@
         - name: Exempel på SQL-underfråga
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md
+    - name: Bästa praxis
+      items:
+        - name: Prestandatips
+          items:
+            - name: Hämta mått för frågekörning
+              displayName: 'query profile, profile'
+              href: profile-sql-api-query.md
+            - name: Justera prestanda för frågor
+              href: sql-api-query-metrics.md
+            - name: Prestandatips för .NET SDK
+              href: performance-tips.md
+            - name: Prestandatips för Java SDK
+              href: performance-tips-java.md
+            - name: Prestandatips för Async Java SDK
+              href: performance-tips-async-java.md
+            - name: Prestandatest – exempelapp
+              href: performance-testing.md
+        - name: Kostnadseffektiva läsningar och skrivningar
+          href: key-value-store-cost.md
+    - name: Felsöka
+      items:
+        - name: Felsöka Java Async SDK
+          href: troubleshoot-java-async-sdk.md
+        - name: Felsöka .NET SDK
+          href: troubleshoot-dot-net-sdk.md
     - name: Ändringsflöde
       items:
+        - name: Azure Cosmos DB-utlösarloggar
+          href: how-to-configure-cosmos-db-trigger-logs.md
         - name: Anslutningsprincip för Azure Cosmos DB-utlösare
           href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Flera Azure Cosmos DB-utlösare
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Felsöka Azure Cosmos DB-utlösare
           href: troubleshoot-changefeed-functions.md
+    - name: Inbyggd analys med Apache Spark
+      items:
+        - name: Azure Databricks Spark-anslutningsapp
+          href: spark-connector.md
+        - name: Direktuppspelning med Apache Kafka och Cosmos DB
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
     - name: Programmering på serversidan
       items:
         - name: 'Skriva lagrade procedurer, utlösare och UDF:er'
@@ -557,18 +611,12 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Skydda Azure Cosmos-nycklar med Key Vault
           href: access-secrets-from-keyvault.md
+        - name: Certifikatbaserad autentisering med Azure Active Directory
+          href: certificate-based-authentication.md
     - name: Företagsberedskap
       items:
         - name: Återställa data från en säkerhetskopia
           href: how-to-backup-and-restore.md
-    - name: Hantera Azure Cosmos DB-resurser
-      items:
-        - name: Hantera med hjälp av PowerShell
-          href: manage-with-powershell.md
-        - name: Hantera med hjälp av Azure CLI
-          href: manage-with-cli.md
-        - name: Hantera med Resource Manager-mallar
-          href: manage-sql-with-resource-manager.md
     - name: Loggning
       items:
         - name: Diagnostikloggning
@@ -592,30 +640,6 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Konfigurera pipeline för Azure DevOps CI/CD
       href: tutorial-setup-ci-cd.md
-    - name: Datatyper
-      items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Geospatial
-          href: geospatial.md
-    - name: Bästa praxis
-      items:
-        - name: Prestandatips
-          items:
-            - name: Hämta mått för frågekörning
-              href: profile-sql-api-query.md
-            - name: Justera prestanda för frågor
-              href: sql-api-query-metrics.md
-            - name: Prestandatips för .NET SDK
-              href: performance-tips.md
-            - name: Prestandatips för Java SDK
-              href: performance-tips-java.md
-            - name: Prestandatips för Async Java SDK
-              href: performance-tips-async-java.md
-            - name: Prestandatest – exempelapp
-              href: performance-testing.md
-        - name: Kostnadseffektiva läsningar och skrivningar
-          href: key-value-store-cost.md
     - name: Visualisera Cosmos DB-data
       items:
         - name: Använda Power BI
@@ -651,13 +675,6 @@
         - name: Använd Spring Boot Starter
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           maintainContext: true
-        - name: Lambda-arkitektur
-          href: lambda-architecture.md
-        - name: Azure Databricks (Spark-anslutningsapp)
-          href: spark-connector.md
-        - name: Spark och Kafka
-          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-          maintainContext: true
         - name: ODBC-drivrutin
           href: odbc-driver.md
     - name: Massexecutor-bibliotek
@@ -668,12 +685,6 @@
           href: bulk-executor-dot-net.md
         - name: Massexecutor – Java-bibliotek
           href: bulk-executor-java.md
-    - name: Felsöka
-      items:
-        - name: Felsöka Java Async SDK
-          href: troubleshoot-java-async-sdk.md
-        - name: Felsöka .NET SDK
-          href: troubleshoot-dot-net-sdk.md
 - name: Referens
   items:
     - name: .NET

@@ -115,12 +115,8 @@
       href: visualizations.md
     - name: Partnerintegrering
       href: platform/partners.md
-    - name: Övergång till OMS-portalen
-      items:
-        - name: Översikt
-          href: platform/oms-portal-transition.md
-        - name: Vanliga frågor
-          href: platform/oms-portal-faq.md
+    - name: Utfasning av OMS-portalen
+      href: platform/oms-portal-transition.md
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
         - name: Log Analytics
@@ -249,6 +245,8 @@
               items:
                 - name: Log Analytics-tillägg för virtuella datorer
                   href: platform/vmext-troubleshoot.md
+                - name: Windows-agenten för Log Analytics
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Log Analytics-agent för Linux
                   href: platform/agent-linux-troubleshoot.md
         - name: Agentdatakällor
@@ -985,6 +983,8 @@
           href: app/nuget.md
         - name: Plattformssupport
           href: app/platforms.md
+        - name: Åsidosättning av slutpunkter
+          href: app/custom-endpoints.md
     - name: Application Insights-datamodell
       items:
         - name: Översikt

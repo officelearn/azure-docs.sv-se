@@ -4,6 +4,11 @@
   items:
     - name: Vad är Apache Storm i HDInsight?
       href: apache-storm-overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa Apache Storm-topologi i HDInsight
+      href: ./apache-storm-quickstart.md
 - name: Kom igång
   items:
     - name: Skapa ett Apache Storm-kluster

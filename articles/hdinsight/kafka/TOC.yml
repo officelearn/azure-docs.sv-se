@@ -7,11 +7,11 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett Apache Kafka-kluster – portalen
+    - name: Skapa Apache Kafka-kluster – portal
       href: apache-kafka-get-started.md
-    - name: Skapa ett Apache Kafka-kluster – PowerShell
+    - name: Skapa Apache Kafka-kluster – PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: Skapa ett Apache Kafka-kluster – Resource Manager-mall
+    - name: Skapa Apache Kafka-kluster – mall
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Självstudier

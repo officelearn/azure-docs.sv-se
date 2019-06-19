@@ -66,8 +66,8 @@ Content-Type | program/ssml + xml | Inkommande innehållstyp.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bitars-mono-text till tal <br> **2.** raw-16 khz-16-bitars-mono-pcm <br>**3.** ljud-16 khz – 16 kbit/s-mono-siren <br> **4.** riff-16 khz – 16 kbit/s-mono-siren <br> **5.** riff-16 khz-16-bitars-mono-pcm <br> **6.** ljud-16 khz-128kbitrate-mono-mp3 <br> **7.** ljud-16 khz-64kbitrate-mono-mp3 <br> **8.** ljud-16 khz-32kbitrate-mono-mp3 | Ljudformatet utdata.
 X-Search-AppId | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
 X-Search-ClientID | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar en programinstans för varje installation.
-Användaragent | Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
-Auktorisering | Autentiseringstoken |  Se den <a href="#Subscription">auktoriseringstoken</a> avsnittet.
+User-Agent | Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
+Authorization | Autentiseringstoken |  Se den <a href="#Subscription">auktoriseringstoken</a> avsnittet.
 
 ### <a name="InputParam"></a>Indataparametrar
 

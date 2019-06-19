@@ -37,9 +37,9 @@ Det här tillägget har stöd för följande operativsystem:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 (upp till version 1803)| Kärna |
-| Windows Server 2016 | Kärna |
-| Windows Server 2012R2 | Kärna |
+| Windows 10 (upp till version 1803)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 

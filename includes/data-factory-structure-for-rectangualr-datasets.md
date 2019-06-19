@@ -18,7 +18,7 @@ Varje kolumn innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på kolumnen. |Ja |
+| name |Namnet på kolumnen. |Ja |
 | type |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |
 | culture |.NET baserade språkmiljö som ska användas när typ har angetts och .NET-typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
 | format |Formatera strängen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |

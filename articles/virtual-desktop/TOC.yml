@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Skala sessionsvärdar automatiskt
       href: set-up-scaling-script.md
+    - name: Anpassa feed för Windows Virtual Desktop-användare
+      href: customize-feed-for-virtual-desktop-users.md
     - name: Anpassa RDP-egenskaper
       href: customize-rdp-properties.md
 - name: Begrepp

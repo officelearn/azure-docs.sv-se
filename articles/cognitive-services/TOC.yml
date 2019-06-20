@@ -7,8 +7,28 @@
       href: Welcome.md
     - name: Stöd för språk
       href: language-support.md
+- name: Stöd för containrar
+  items:
     - name: Stöd för containrar
       href: cognitive-services-container-support.md
+    - name: Containerinstruktioner
+      items:
+        - name: Containeråteranvändning
+          href: ./containers/container-reuse-recipe.md
+        - name: Distribuera till Azure Container Instances
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Distribuera till Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Distribuera med Docker Compose
+          href: ./containers/docker-compose-recipe.md
+    - name: Andra containertjänster
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Snabbstarter
   items:
     - name: Skapa ett konto

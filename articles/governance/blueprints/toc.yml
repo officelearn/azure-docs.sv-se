@@ -49,6 +49,11 @@
         - name: Distributionssteg
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: OFFICIELLT FÖR STORBRITANNIEN
+      items:
+        - name: Kontrollmappning
+          displayName: 'standards, uk official'
+          href: ./samples/ukofficial/control-mapping.md
 - name: Begrepp
   items:
     - name: Livscykeln för en skiss

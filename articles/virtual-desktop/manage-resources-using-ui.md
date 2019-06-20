@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 3635cd422e4c7a064d3317401b734f3bc6ccb6c6
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 4db9e6eaf2d7f7630d3d412d5519d97f8beca3ad
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136451"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272832"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Självstudier: Distribuera ett hanteringsverktyg
 
@@ -62,9 +62,29 @@ Nedan visas hur du ange parametrar för att konfigurera verktyget:
 - Använd dina AAD-autentiseringsuppgifter med MFA inaktiveras för att logga in på Azure. Se [vad du behöver att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
 - Använd ett unikt namn för det program som ska registreras i Azure Active Directory för hanteringsverktyg; till exempel Apr3UX.
 
-## <a name="use-the-management-tool"></a>Använd hanteringsverktyget för
+## <a name="provide-consent-for-the-management-tool"></a>Ge medgivande för hanteringsverktyget
 
 När du har GitHub Azure Resource Manager mallen är klar, hittar du en resursgrupp som innehåller två apptjänster tillsammans med en app service-plan i Azure-portalen.
+
+Innan du har loggat in och Använd hanteringsverktyget behöver du ge medgivande för det nya Azure Active Directory-programmet som är associerad med verktyget management. Genom att tillhandahålla medgivande, tillåter du att hanteringsverktyg att göra virtuellt skrivbord i Windows management-anrop för den användare som är inloggad i verktyget.
+
+För att fastställa vilken användare som du kan använda om du vill logga in till verktyget går du till din [inställningssidan för Azure Active Directory-användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och anteckna värdet för **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar**.
+
+- Om värdet anges till **Ja**, du kan logga in med ett användarkonto i Azure Active Directory och ge medgivande för den användaren. Men om du loggar in till hanteringsverktyget med en annan användare senare, måste du utföra samma medgivande igen.
+- Om värdet anges till **nr**, måste du logga in med en Global administratör i Azure Active Directory och ange administratörens godkännande för alla användare i katalogen. Du kommer inte 
+
+
+Följ dessa instruktioner för att ge medgivande till verktyget när du har bestämt vilken användare som du använder för att ge medgivande:
+
+1. Gå till dina Azure-resurser, Välj den Azure App Services-resursen med det namn du angav i mallen (till exempel Apr3UX) och gå till den URL som är associerade med den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Logga in med rätt Azure Active Directory-konto.
+3. Om du autentiseras med en Global administratör, kan du nu välja kryssrutan för att **ge samtycke åt din organisation**. Välj **acceptera** att ge medgivande.
+
+Nu då kommer du till hanteringsverktyget.
+
+## <a name="use-the-management-tool"></a>Använd hanteringsverktyget för
+
+När du har angett ditt medgivande för organisationen eller för en viss användare, kan du komma åt verktyget management när som helst.
 
 Följ dessa instruktioner för att starta verktyget:
 

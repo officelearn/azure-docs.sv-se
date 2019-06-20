@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132224"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187140"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
@@ -43,9 +43,9 @@ Den här artikeln förutsätter att du skapar en ny funktionsapp.
 
     När du trycker på RETUR, skapas följande Azure-resurser i din prenumeration:
 
-    * **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)**: Innehåller alla de skapa Azure-resurserna. Namnet är baserad på din funktionsappens namn.
-    * **[Storage-konto](../articles/storage/common/storage-quickstart-create-account.md)**: Ett standard Storage-konto har skapats med ett unikt namn som baseras på din funktionsappens namn.
-    * **[Värdplan](../articles/azure-functions/functions-scale.md)**: En förbrukningsplan har skapats i regionen USA, västra som värd för din funktionsapp utan server.
+    * **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** : Innehåller alla de skapa Azure-resurserna. Namnet är baserad på din funktionsappens namn.
+    * **[Storage-konto](../articles/storage/common/storage-quickstart-create-account.md)** : Ett standard Storage-konto har skapats med ett unikt namn som baseras på din funktionsappens namn.
+    * **[Värdplan](../articles/azure-functions/functions-scale.md)** : En förbrukningsplan har skapats i regionen USA, västra som värd för din funktionsapp utan server.
     * **Funktionsapp**: Projektet distribueras till och körs i den nya funktionsappen.
 
     Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. Välj **visa utdata** i det här meddelandet att visa skapande och distributionsresultat, inklusive Azure-resurser som du skapade.

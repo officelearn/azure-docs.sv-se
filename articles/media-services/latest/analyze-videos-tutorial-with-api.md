@@ -1,5 +1,5 @@
 ---
-title: Analysera videor med Media Services med .NET – Azure | Microsoft Docs
+title: Analysera videor med Azure Media Services | Microsoft Docs
 description: Följ stegen i den här självstudien för att analysera videor med Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415635"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273885"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Självstudier: Analysera videor med Media Services v3 med .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Självstudier: Analysera videoklipp med Media Services v3
+
+> [!NOTE]
+> Även om i självstudiekursen använder vi den [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exempel de allmänna stegen är desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), eller andra stöds [SDK: er](media-services-apis-overview.md#sdks) .
 
 Den här självstudien visar hur du analyserar videor med Azure Media Services. Det finns många scenarier där du kanske vill veta mer om inspelat video- eller ljudinnehåll. Organisationer kan till exempel för att uppnå högre kundnöjdhet köra tal-till-text-bearbetning och konvertera inspelningar från kundtjänst till en sökbar katalog med index och instrumentpaneler. Det blir då lättare att få fler insikter om verksamheten, till exempel en lista med vanliga klagomål, källor till sådana klagomål och annan användbar information.
 
 I den här självstudiekursen lär du dig att:    
-
+ 
 > [!div class="checklist"]
 > * Ladda ned exempelappen som beskrivs i avsnittet
 > * Granska koden som analyserar den angivna videon

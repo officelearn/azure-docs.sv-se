@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427936"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271721"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Självstudier: Ansluta och ansluta till din Azure Data Box tung (förhandsversion)
 
@@ -79,7 +79,7 @@ Vidta följande åtgärder för att kabelanslut din enhet.
 Gör följande på en av noderna i enheten, till kabel för nätverket.
 
 1. Använd en CAT 6 RJ-45 nätverkskabel (blå kabel i bilden) för att ansluta värddatorn till 1 Gbit/s-hanteringsporten.
-2. Använd en Twinax QSFP +-kopparkabel-kabel (svart kablar i bilden) för att ansluta till minst en 40-Gbit/s (helst över 1 Gbit/s) nätverksgränssnitt för data. Om med en 10 Gbit/s-växel med en Twinax SFP +-kopparkabel kabel med en QSFP + till SFP + kort (QSA-adapter) för att ansluta 40 nätverksgränssnittet Gbit/s för data.
+2. Använd en QSFP + kabel (fiber eller koppar) för att ansluta till minst en 40-Gbit/s (helst över 1 Gbit/s) nätverksgränssnitt för data. Om du använder en 10 Gbit/s-växel, använda en SFP +-kabel med en QSFP + till SFP + kort (QSA-adapter) för att ansluta 40 Gbit/s-nätverksgränssnitt för data.
 
     ![Data Box tung portar kabelansluten](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

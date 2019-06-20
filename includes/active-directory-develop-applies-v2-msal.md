@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: celested
 ms.custom: include file
-ms.openlocfilehash: d4eec27286d704926cef6c7a85b24d357c05838c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8daf73f07a09ee91260981ef42482f966d7a84c6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121900"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272669"
 ---
 |   |
 |---|
-| **Gäller för:**<br><ul><li>Microsoft identity-plattformen slutpunkt<li>Microsoft Authentication Library (MSAL) </ul><br>Använd Azure AD v1.0 slutpunkten och Azure AD Authentication Library (ADAL) för en allmän tillgänglighet (GA)-biblioteket. Mer information finns i [Om v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
+| **Gäller för:**<br><ul><li>Microsoft identity-plattformen slutpunkt<li>Microsoft Authentication Library (MSAL) </ul><br>Använd Azure Active Directory (Azure AD) v1.0 slutpunkt och Azure AD Authentication Library (ADAL) för en allmän tillgänglighet (GA)-biblioteket. Mer information finns i [Om v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
 |   |

@@ -8,11 +8,11 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187711"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Skapa en Azure SignalR Service-instans
 
@@ -31,9 +31,9 @@ Din app ansluter till en SignalR Service-instans i Azure.
     | **Resursnamn** | Globalt unikt namn | Namn som identifierar din nya SignalR Service-instans. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya SignalR Service-instansen har skapats i. | 
     | **[Resursgrupp](../../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgruppen som SignalR Service-instansen ska skapas i. | 
-    | **Plats** | USA, västra | Välj en [region](https://azure.microsoft.com/regions/) nära dig. |
-    | **prisnivå** | Kostnadsfritt | Prova Azure SignalR Service kostnadsfritt. |
-    | **Antal enheter** |  Saknas | Antal enheter anger hur många anslutningar som SignalR Service-instansen kan acceptera. Det kan bara konfigureras på Standard-nivån. |
+    | **Location** | Västra USA | Välj en [region](https://azure.microsoft.com/regions/) nära dig. |
+    | **prisnivå** | Lediga | Prova Azure SignalR Service kostnadsfritt. |
+    | **Antal enheter** |  Inte tillämpligt | Antal enheter anger hur många anslutningar som SignalR Service-instansen kan acceptera. Det kan bara konfigureras på Standard-nivån. |
 
     ![Skapa SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

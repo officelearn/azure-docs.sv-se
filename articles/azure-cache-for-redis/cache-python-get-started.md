@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a0ca2adebe662c72eb476e800e17092ddbba34a0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873003"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275605"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabbstart: Använda Azure Cache for Redis med Python
 
@@ -66,6 +66,9 @@ True
 >>> r.get('foo')
 b'bar'
 ```
+
+> [!IMPORTANT]
+> Redis är version 3.0 eller högre, SSL-certifikatkontroll tillämpas. ssl_ca_certs måste anges explicit när du ansluter till Redis. När det gäller RH Linux ssl_ca_certs finns i den ”/ etc/pki/tls/certs/ca-bundle.crt” certifikat-modulen.
 
 ## <a name="create-a-python-script"></a>Skapa ett Python-skript
 
@@ -113,9 +116,9 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
-![Radera](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
 

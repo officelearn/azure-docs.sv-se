@@ -7,16 +7,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154504"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147424"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabbstart: Skapa en chattrum med ASP.NET och SignalR Service
 
-Azure SignalR Service baseras på [SignalR för ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), vilket är **inte** 100% kompatibel med ASP.NET SignalR. Azure SignalR Service implementerats nytt ASP.NET SignalR data protocol baserat på senaste ASP.NET Core-technoledges. När du använder Azure SignalR Service för ASP.NET SignalR kan vissa ASP.NET SignalR-funktioner stöds inte längre, till exempel Azure SignalR titta inte meddelanden när klienten återansluter. Alltid ramens transport- och JSONP är dessutom inte support. Vissa ändringar i koden och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR program fungerar med SignalR Service. 
+Azure SignalR Service baseras på [SignalR för ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), vilket är **inte** 100% kompatibel med ASP.NET SignalR. Azure SignalR Service implementerats nytt ASP.NET SignalR data protocol baserat på de senaste ASP.NET Core-teknikerna. När du använder Azure SignalR Service för ASP.NET SignalR kan vissa ASP.NET SignalR-funktioner stöds inte längre, till exempel Azure SignalR titta inte meddelanden när klienten återansluter. Alltid ramens transport- och JSONP är dessutom inte support. Vissa ändringar i koden och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR program fungerar med SignalR Service. 
 
 Referera till den [version skillnader doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) för en fullständig lista över funktionsjämförelse mellan ASP.NET SignalR och ASP.NET Core SignalR.
 
@@ -107,7 +107,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
    
 ![Ta bort](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

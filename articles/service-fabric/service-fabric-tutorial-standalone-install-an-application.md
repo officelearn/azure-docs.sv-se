@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 58daa53dba8f18c3f73253008fe687ba8b0d0839
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302425"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274075"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Självstudier: Distribuera ett program på din fristående Service Fabric-kluster
 
@@ -61,7 +61,7 @@ När programmet har laddats ned kan du distribuera det till ett kluster direkt f
 
 4. Högerklicka på programprojektet `Voting` i Solution Explorer och välj **Publicera**
 
-5. Välj listrutan för **Anslutningsslutpunkt** och ange det offentliga DNS-namnet på en av noderna i klustret.  Till exempel, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. Välj listrutan för **Anslutningsslutpunkt** och ange det offentliga DNS-namnet på en av noderna i klustret.  Till exempel `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Observera att i Azure, ett fullständigt kvalificerat domännamn (FQDN) inte är angivet automatiskt, men kan enkelt [anges i översikt över VM-sidan.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
 
 6. Öppna en webbläsare och ange klusteradressen (anslutningsslutpunkten – den här appen distribuerar på port 8080, till exempel ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

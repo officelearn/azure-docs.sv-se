@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237851"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273055"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights-miljö (förhandsversion)
 
@@ -29,9 +29,12 @@ I den här guiden får du lära dig att:
 * Utföra grundläggande analys av data.
 * Definiera en typ av och hierarki för tidsseriemodell och associera dem med dina instanser.
 
+>[!TIP]
+> [IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators) tillhandahåller företagsklass förkonfigurerade lösningar som du kan använda för att påskynda utvecklingen av anpassade IoT-lösningar.
+
 ## <a name="create-a-device-simulation"></a>Skapa en enhetssimulering
 
-I det här avsnittet skapar du tre simulerade enheter som skickar data till en instans av Azure IoT Hub.
+I det här avsnittet skapar du tre simulerade enheter som skickar data till en Azure IoT Hub-instans.
 
 1. Gå till [Sidan för Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators). Sidan visar flera fördefinierade exempel. Logga in med ditt Azure-konto. Välj sedan **Enhetssimulering**.
 
@@ -43,58 +46,18 @@ I det här avsnittet skapar du tre simulerade enheter som skickar data till en i
 
     | Parameter | Åtgärd |
     | --- | --- |
-    | **Namn på lösning** | Ange ett unikt värde för en ny resursgrupp. Angivna Azure-resurser skapas och tilldelas till resursgruppen. |
-    | **Prenumeration** | Välj den prenumeration som du använde för att skapa en Time Series Insights-miljö. |
-    | **Region** | Välj den region som du använde för att skapa en Time Series Insights-miljö. |
-    | **Distribuera valfria Azure-resurser** | Lämna den **IoT Hub** kryssrutan är markerad. De simulerade enheterna använder IoT Hub för att ansluta och strömma data. |
+    | **Distributionsnamn** | Ange ett unikt värde för en ny resursgrupp. Angivna Azure-resurser skapas och tilldelas till resursgruppen. |
+    | **Azure-prenumeration** | Välj den prenumeration som du använde för att skapa en Time Series Insights-miljö. |
+    | **Azure-plats** | Välj den region som du använde för att skapa en Time Series Insights-miljö. |
+    | **Distributionsalternativ** | Välj **etablera nya IoT-hubben**. |
  
-    Välj **skapa lösning**. Vänta 10–15 minuter för att din lösning ska distribueras.
+    Välj **skapa lösning**. Det kan ta upp till 20 minuter för lösningen att slutföra distributionen.
 
     [![Skapa Enhetssimulering lösningssida](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. I instrumentpanelen solution accelerator väljer **starta**:
-
-    [![Starta enheten simulering lösningen](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. Du omdirigeras till sidan **Enhetssimulering för Microsoft Azure IoT**. I det övre högra hörnet på sidan Välj **nya simulering**.
-
-    [![Sida för Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. I den **inställningar** fönstret, ange följande parametrar:
-
-    | Parameter | Åtgärd |
-    | --- | --- |
-    | **Namn** | Ange ett unikt namn för en simulator. |
-    | **Beskrivning** | Ange en definition. |
-    | **Simuleringens varaktighet** | Ange till **Kör på obestämd tid**. |
-    | **Enhetsmodell** | **Namn på**: Ange **Kylaggregat**. <br />**Mängd**: Ange **3**. |
-    | **Mål-IoT Hub** | Ange till **Använd i förväg etablerad IoT Hub**. |
-
-    [![Parametrar för att konfigurera](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    Välj **starta simulering**.
-
-    Observera informationen som visas för instrumentpanelen för simulering enheten **aktiva enheter** och **meddelanden per sekund**.
-
-    [![Instrumentpanelen för Azure IoT-simulering](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>Lista över egenskaper för enhetssimulering
-
-Innan du skapar en Azure Time Series Insights-miljö, behöver du namnen på din IoT-hubb, prenumerationen och resursgruppen.
-
-1. Gå till instrumentpanelen för lösningen accelerator. Logga in med samma konto för Azure-prenumeration. Hitta enhetssimulering som du skapade i föregående avsnitt.
-
-1. Välj din enhetssimulator och välj sedan **starta**. I simulatorn solution accelerator Enhetsfönstret till höger väljer du den **Azure-hanteringsportalen** alternativet.
-
-    [![Simulatorn listor](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. Anteckna namnen på den IoT hub, prenumerationen och resursgruppen.
-
-    [![Azure portal simulator instrumentpanelen enhetsinformation](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>Skapa en Time Series Insights-miljö (förhandsversion) med PAYG (betala per användning)
 
-I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights-miljö (förhandsversion) med hjälp av [Azure-portalen](https://portal.azure.com/).
+Det här avsnittet beskrivs hur du skapar en förhandsversion av Azure Time Series Insights-miljö och ansluter den till IoT-hubb som skapats av IoT Solution Accelerator med hjälp av den [Azure-portalen](https://portal.azure.com/).
 
 1. Logga in på Azure-portalen med ditt prenumerationskonto.
 
@@ -109,7 +72,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights-miljö
     | **Miljönamn** | Ange ett unikt namn för förhandsversionen av Azure Time Series Insights-miljö. |
     | **Prenumeration** | Anger du prenumerationen där du vill skapa förhandsversion av Azure Time Series Insights-miljö. Ett bra tips är att använda samma prenumeration som resten av IoT-resurser som skapas av enhetssimulatorn. |
     | **Resursgrupp** | Välj en befintlig resursgrupp eller skapa en ny resursgrupp för resursen för förhandsversionen av Azure Time Series Insights-miljö. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resursgrupp som de andra IoT-resurser som skapas av enhetssimulatorn. |
-    | **Plats** | Välj en datacenterregion för förhandsversionen av Azure Time Series Insights-miljön. Om du vill undvika kostnader för extra bandbredd och latens, är det bäst att skapa en förhandsversion av Azure Time Series Insights-miljö i samma region som andra IoT-resurser. |
+    | **Location** | Välj en datacenterregion för förhandsversionen av Azure Time Series Insights-miljön. Det är bäst att skapa en förhandsversion av Azure Time Series Insights-miljö i samma region som andra IoT-resurser för att undvika ytterligare fördröjning. |
     | **Nivå** |  Välj **PAYG** (*användningsbaserad*). Det här är SKU för Azure Time Series Insights-produkten (förhandsversion). |
     | **Egenskaps-ID** | Ange ett värde som unikt identifierar din time series-instans. Du har angett i den **egenskaps-ID** box kan inte ändras. Du kan inte ändra den senare. Den här självstudien anger **iothub-anslutning-enhet-id**. Läs mer om Time Series-ID i [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md). |
     | **Lagringskontonamn** | Ange ett globalt unikt namn för ett nytt lagringskonto att skapa. |
@@ -129,7 +92,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights-miljö
    | **Prenumeration** | Välj den prenumeration som du använde för enhetssimulatorn. |
    | **IoT-hubbnamn** | Välj namnet på det IoT-hubb som du skapade för enhetssimulatorn. |
    | **Åtkomstprincip för IoT-hubb** | Välj **iothubowner**. |
-   | **Konsumentgrupp för IoT-hubb** | Välj **Ny**, ange ett unikt namn och välj sedan **Lägg till**. Konsumentgruppen måste vara ett unikt värde i förhandsversionen av Azure Time Series Insights. |
+   | **IoT Hub-konsumentgrupp** | Välj **Ny**, ange ett unikt namn och välj sedan **Lägg till**. Konsumentgruppen måste vara ett unikt värde i förhandsversionen av Azure Time Series Insights. |
    | **Egenskap för tidsstämpel** | Det här värdet används för att identifiera den **tidsstämpel** -egenskapen i inkommande telemetridata. Den här självstudien lämnar du rutan tom. Den här simulatorn använder den inkommande tidsstämpeln från IoT Hub som är standardinställningen för Time Series Insights. |
 
    Välj **Granska + skapa**.
@@ -159,6 +122,34 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights-miljö
       [![Angivna autentiseringsuppgifter](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    Om dina autentiseringsuppgifter inte visas i listan måste du ge dig själv behörighet att komma åt miljön. Läs [Bevilja åtkomst till data](./time-series-insights-data-access.md) om du vill veta mer om hur du anger behörigheter.
+
+## <a name="stream-data-into-your-environment"></a>Stream-data i din miljö
+
+1. Gå tillbaka till den [Azure IoT-Lösningsacceleratorer sidan](https://www.azureiotsolutions.com/Accelerators). Leta upp din lösning i solution accelerator instrumentpanelen. Välj **starta**:
+
+    [![Starta enheten simulering lösningen](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. Du omdirigeras till sidan **Enhetssimulering för Microsoft Azure IoT**. I det övre högra hörnet på sidan Välj **nya simulering**.
+
+    [![Sida för Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. I den **inställningar** fönstret, ange följande parametrar:
+
+    | Parameter | Åtgärd |
+    | --- | --- |
+    | **Namn** | Ange ett unikt namn för en simulator. |
+    | **Beskrivning** | Ange en definition. |
+    | **Simuleringens varaktighet** | Ange till **Kör på obestämd tid**. |
+    | **Enhetsmodell** | **Namn på**: Ange **Kylaggregat**. <br />**Mängd**: Ange **3**. |
+    | **Mål-IoT Hub** | Ange till **Använd i förväg etablerad IoT Hub**. |
+
+    [![Parametrar för att konfigurera](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    Välj **starta simulering**.
+
+    Observera informationen som visas för instrumentpanelen för simulering enheten **aktiva enheter** och **meddelanden per sekund**.
+
+    [![Instrumentpanelen för Azure IoT-simulering](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>Analysera data i din miljö
 

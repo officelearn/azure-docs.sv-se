@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704123"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135195"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Snabbstart: Skapa en Unity HoloLens-app som använder Azure Spatial ankare
 
-I den här snabbstarten skapar du en Unity HoloLens-app som använder [Azure Spatial ankare](../overview.md). Spatial fästpunkter är en plattformsoberoende developer-tjänst som hjälper dig att skapa Mixad verklighet upplevelser med objekt som kvarstår befann i enheter över tid. När du är klar har du en HoloLens-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
+I den här snabbstarten ska du skapa en Unity HoloLens-app som använder [Azure Spatial ankare](../overview.md). Spatial fästpunkter är en plattformsoberoende developer-tjänst som hjälper dig att skapa Mixad verklighet upplevelser med objekt som kvarstår befann i enheter över tid. När du är klar har du en HoloLens-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 
@@ -34,18 +34,18 @@ Du lär dig följande:
 För att slutföra den här snabbstarten behöver du:
 
 
-- Behöver du en Windows-dator där <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> eller senare och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> eller senare är installerat. Visual Studio-installationen måste innehålla den **Universal Windows Platform-utveckling** arbetsbelastning. Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
+- Behöver du en Windows-dator där <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> eller senare och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> eller senare är installerat. Visual Studio-installationen måste innehålla den **Universal Windows Platform-utveckling** arbetsbelastning. Installera <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
 - Du behöver en HoloLens enhet där [utvecklarläget](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. [Uppdatering för Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (även kallat RS5) måste vara installerad på enheten. Om du vill uppdatera till den senaste versionen på HoloLens, öppna den **inställningar** app, gå till **uppdatering och säkerhet**, och välj sedan **söka efter uppdateringar**.
 - På din app, måste du aktivera den **SpatialPerception** kapaciteten. Den här inställningen finns under **Versionsinställningar** > **Player-inställningar** > **publiceringsinställningarna**  >   **Funktioner**.
 - På din app, måste du aktivera **virtuella verklighet stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns under **Versionsinställningar** > **Player-inställningar** > **XR inställningar**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Öppna exempelprojektet i Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Ladda ned och öppna exempelprojektet Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Öppna projektet i mappen Unity i Unity.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
@@ -53,7 +53,7 @@ I avsnittet **Plattform** väljer du **Universell Windows-plattform**. Ändra de
 
 Välj **Switch Platform** (Växla plattform) för att ändra plattformen till **Universell Windows-plattform**. Unity bli du ombedd att installera komponenter för UWP-supporten om de saknas.
 
-   ![Unity Versionsinställningar fönster](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity Versionsinställningar fönster](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Stäng fönstret **Build Settings** (Bygginställningar).
 

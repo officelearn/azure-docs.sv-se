@@ -19,29 +19,19 @@
         - name: Med Node.js
           href: stream-files-nodejs-quickstart.md
     - name: Koda uppladdade filer och strömma video
-      items:
-        - name: Med .NET
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: Strömma live
-      items:
-        - name: Med .NET
-          href: stream-live-tutorial-with-api.md
-          displayName: 'Live Events, Live Outputs, ingest'
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: Analysera din video
-      items:
-        - name: Med .NET
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: Kryptera dynamiskt med AES-128
-      items:
-        - name: Med .NET
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: Kryptera dynamiskt med DRM
-      items:
-        - name: Med .NET
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: Begrepp
   items:
     - name: Översikt

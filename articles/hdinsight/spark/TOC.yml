@@ -20,8 +20,6 @@
   items:
     - name: Köra frågor på ett Apache Spark-kluster
       href: apache-spark-load-data-run-query.md
-    - name: Använda VSCode för att köra Apache Spark-frågor
-      href: ../hdinsight-for-vscode.md
     - name: Använda IntelliJ för att köra Apache Spark-frågor
       href: apache-spark-intellij-tool-plugin.md
     - name: Analysera data med BI-verktyg
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Skapa en Apache Spark-app i IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Använda VSCode för att köra Apache Spark-frågor
+      href: ../hdinsight-for-vscode.md
     - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
       href: ../hdinsight-cluster-availability.md
 - name: Exempel

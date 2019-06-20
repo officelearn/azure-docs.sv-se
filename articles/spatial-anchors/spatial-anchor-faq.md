@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304193"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273309"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors följer [villkoren i serviceavtalet för Azure](https://go
 Datum för allmän tillgänglighet (GA) tillkännages snart.
 
 **F: Finns det några kapacitetsbegränsningar?**
- 
+
 **S**: Ja, det förekommer kapacitetsbegränsningar.  Vi förväntar oss inte att du uppnår dem vid typisk utveckling och testning av program. För produktionsdistributioner kan vi ge stöd till våra kunders krav för hög skala. [Kontakta oss](mailto:azuremrs@microsoft.com) om du vill diskutera det. Under den här förhandsversionsfasen har vi ännu inte publicerat vår struktur för nivåer och prissättning, men vi planerar att göra det snart.
 
 **F: I vilka regioner finns Azure Spatial Anchors tillgängligt?**
@@ -125,3 +125,7 @@ Kom igång med [utveckling här](index.yml).
 **F: Fungerar det med Xamarin?**
 
 **S:** Ja. Vi tillhandahåller inte någon Xamarin-SDK, men vi förväntar oss att utvecklare kan använda Azure Spatial Anchors i sina Xamarin-appar genom att integrera med Azure Spatial Anchors API.
+
+**F: Vilka portar och protokoll använder Spatial fästpunkter för Azure?**
+
+**S:** Azure Spatial ankare kommunicerar via TCP-port 443 med en krypterad-protokollet. För autentisering, använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), som kommunicerar med hjälp av HTTPS via port 443.

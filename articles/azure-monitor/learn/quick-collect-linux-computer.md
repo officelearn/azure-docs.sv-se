@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539612"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147288"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Linux-datorer i en hybridmiljö
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation. Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation. Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](quick-collect-azurevm.md).  
 
-Om du vill förstå konfigurationen som stöds, så granska [de Linux-operativsystem som stöds](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) och [nätverkets brandväggskonfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Innan du fortsätter bör du läsa Log Analytics-agenten [översikt](../platform/log-analytics-agent.md) artikeln om du vill förstå vilka konfigurationer stöds, den [Linux-operativsystem som stöds](../platform/log-analytics-agent.md#supported-linux-operating-systems) och [ nätverkskonfiguration för brandväggen](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -107,7 +107,7 @@ Exempel: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics kan samla in händelser från Linux Syslog och prestandaräknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats.  Följ dessa steg om du vill konfigurera insamling av händelser från Linux Syslog och flera vanliga prestandaräknare till att börja med.  
 
 1. Välj **Syslog**.  
-2. Du kan lägga till en händelselogg genom att skriva namnet på loggen. Skriv **Syslog** och klicka sedan på plustecknet **+**.  
+2. Du kan lägga till en händelselogg genom att skriva namnet på loggen. Skriv **Syslog** och klicka sedan på plustecknet **+** .  
 3. Avmarkera allvarlighetsgraderna **Info**, **Meddelande** och **Felsök** i tabellen. 
 4. Klicka på **Spara** överst på sidan för att spara konfigurationen.
 5. Välj **Linux-prestandadata** för att aktivera insamling av prestandaräknare på en Linux-dator. 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 412efac3742acf7ad1cdc3d08f9d90c4d39bad3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: aec85b16ab0357b28a564f75509e147e5555137b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205053"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux-Ruby-app för Azure App Service
 
@@ -141,7 +141,7 @@ Den här inställningen som enbart gör dock Rails-servern att starta i utveckli
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secretkeybase-manually"></a>Ange secret_key_base manuellt
+### <a name="set-secret_key_base-manually"></a> Ange secret_key_base manuellt
 
 Att använda din egen `secret_key_base` värde i stället för att låta App Service Generera en åt dig genom att ange den `SECRET_KEY_BASE` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med värdet som du vill. Exempel:
 

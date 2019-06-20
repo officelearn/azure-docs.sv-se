@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342433"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155572"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
@@ -27,7 +27,7 @@ Azure-funktionsappar använder Azure App Service-infrastrukturen. I det här avs
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-När du skapar en funktionsapp måste du ange ett giltigt **appnamn**. Namnet kan endast innehålla bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
+När du skapar en funktionsapp måste du ange ett giltigt **appnamn**. Namnet kan endast innehålla bokstäver, siffror och bindestreck. Understreck ( **_** ) är inte tillåtna.
 
 Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Namnet på ditt lagringskonto måste vara unikt i Azure. 
 
@@ -52,4 +52,7 @@ Mer information om lagringskontotyper finns i [introduktionen till Azure Storage
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Medan Azure-portalen gör det enkelt att skapa och prova Functions, rekommenderar vi [lokal utveckling](functions-develop-local.md). När du har skapat en funktionsapp i portalen, måste du fortfarande lägga till en funktion. 
+
+> [!div class="nextstepaction"]
+> [Lägg till en HTTP-utlöst funktion](functions-create-first-azure-function.md#create-function)

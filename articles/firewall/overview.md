@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/5/2019
+ms.date: 6/20/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753733"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272645"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
-Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg som en tjänst med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet. 
+Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg som en tjänst med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet.
 
 ![Översikt över brandväggar](media/overview/firewall-threat.png)
 
@@ -31,6 +31,21 @@ Azure Firewall erbjuder följande funktioner:
 ### <a name="built-in-high-availability"></a>Inbyggd hög tillgänglighet
 
 Hög tillgänglighet är inbyggd i, så att det krävs några ytterligare belastningsutjämnare och du behöver konfigurera något.
+
+### <a name="availability-zones-public-preview"></a>Tillgänglighetszoner (förhandsversion)
+
+Azure-brandväggen kan konfigureras vid distribution till sträcker sig över flera Tillgänglighetszoner för ökad tillgänglighet. Med Availability Zones ökar tillgängligheten till din till 99,99% garanterad drifttid. Mer information finns i Azure-brandväggen [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). 99,99% garanterad drifttid serviceavtal (SLA) erbjuds när två eller fler Tillgänglighetszoner har markerats.
+
+Du kan även associera Azure-brandväggen till en viss zon för närhet orsaker, med hjälp av det tjänsten standard enligt serviceavtalet 99,95%.
+
+Det finns ingen extra kostnad för en brandvägg som distribueras i en Tillgänglighetszon. Det finns dock ytterligare kostnader för överföring av inkommande och utgående data som är associerade med Tillgänglighetszoner. Mer information finns i [prisinformation för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+Tillgänglighetszoner i Azure-brandväggen är tillgängliga i regioner som har stöd för Tillgänglighetszoner. Mer information finns i [vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
+
+> [!NOTE]
+> Availability Zones kan endast konfigureras under distributionen. Du kan inte konfigurera en befintlig Brandvägg för att inkludera Tillgänglighetszoner.
+
+Läs mer om Tillgänglighetszoner [vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md)
 
 ### <a name="unrestricted-cloud-scalability"></a>Obegränsad molnskalbarhet
 
@@ -64,6 +79,18 @@ Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till
 
 Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts (Destination Network Address Translation) och filtreras till de privata IP-adresserna på dina virtuella nätverk.
 
+### <a name="multiple-public-ips-public-preview"></a>Flera offentliga IP-adresser (offentlig förhandsversion)
+
+Du kan associera flera offentliga IP-adresser (upp till 600) med brandväggen.
+
+På så sätt kan följande scenarier:
+
+- **DNAT** – du kan översätta flera instanser av standard-port till backend-servrar. Du kan till exempel översätta TCP-port 3389 (RDP) för båda IP-adresser om du har två offentliga IP-adresser.
+- **SNAT** -ytterligare portar som är tillgängliga för utgående SNAT-anslutningar, minskar risken för SNAT portöverbelastning. För tillfället väljer Azure brandvägg slumpmässigt offentliga IP-källadressen för en anslutning. Om du har någon underordnad filtrering i nätverket, måste du tillåta alla offentliga IP-adresser som är associerade med din brandvägg.
+
+> [!NOTE]
+> Den offentliga förhandsversionen, om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg kanske befintliga inkommande anslutningar med hjälp av DNAT regler inte fungerar i 40-120 sekunder.
+
 ### <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
 Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
@@ -82,7 +109,11 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Portintervall i nätverk och regler|Portar som är begränsade till 64 000 eftersom höga portar är reserverade för hantering och diagnostiska sökningar. |Vi arbetar för att minska den här begränsningen.|
 |Threat intelligence aviseringar kan hämta maskeras|Nätverksregler med mål 80/443 för utgående filtrering masker hot intelligence aviseringar när konfigurerad för att aviseringen läge.|Skapa utgående filtrering för 80/443 med hjälp av regler för program. Eller ändra threat intelligence läge till **Avisera och neka**.|
 |Azure-brandväggen använder Azure DNS för att matcha|Azure-brandväggen löser FQDN: er endast med Azure DNS. En anpassad DNS-server stöds inte. Det finns ingen inverkan på DNS-matchning i andra undernät.|Vi arbetar för att minska den här begränsningen.|
-|Azure brandväggen SNAT DNAT fungerar inte för privata IP-mål|Support för Azure brandväggen SNAT/DNAT är begränsad till Internet utgående/inkommande. SNAT/DNAT fungerar inte för närvarande för privata IP-mål. Till exempel eker att ekrar.|Det är en översikten för en kommande uppdatering.
+|Azure brandväggen SNAT DNAT fungerar inte för privata IP-mål|Support för Azure brandväggen SNAT/DNAT är begränsad till Internet utgående/inkommande. SNAT/DNAT fungerar inte för närvarande för privata IP-mål. Till exempel eker att ekrar.|Det här är en aktuell begränsning.|
+|Det går inte att ta bort första offentlig IP-adress|Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.|Det här är avsiktligt.|
+|Om du lägger till eller ta bort en offentlig IP-adress, fungerar inte DNAT reglerna tillfälligt.| Om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg fungerar inte befintliga inkommande anslutningar med hjälp av DNAT regler i 40-120 sekunder.|Det här är en begränsning i den offentliga förhandsversionen för den här funktionen.|
+|Med Availability zones kan endast konfigureras under distributionen.|Med Availability zones kan endast konfigureras under distributionen. Du kan inte konfigurera Tillgänglighetszoner när en brandvägg som har distribuerats.|Det här är avsiktligt.|
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal](tutorial-firewall-deploy-portal.md)

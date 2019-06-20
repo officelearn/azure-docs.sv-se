@@ -34,10 +34,6 @@
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
             - name: Skicka push-meddelanden till specifika användare
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Baidu
-      items:
-        - name: Skicka push-meddelanden med hjälp av Baidu Cloud Push
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
         - name: Skicka push-meddelanden till iOS-appar
@@ -143,6 +139,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: Felsökning av utelämnade meddelanden
       href: notification-hubs-push-notification-fixer.md
+    - name: Skicka push-meddelanden med hjälp av Baidu Cloud Push
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: Referens
   items:
     - name: .NET

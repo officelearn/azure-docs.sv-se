@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 2368d097cc0bfe82d0b869c3c8eb48760cc41616
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807508"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275109"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
-Azure Maps är en samling geospatiala tjänster som ersätts med nya mappningsdata, vilket ger exakt geografisk kontext till webb- och mobilprogram. Azure Maps består av REST API: er för rendering **Maps** i flera format och satellit bilder **sökning** för adresser, platser och Orienteringspunkter runt om i världen; **Routning** point-to-point, multipoint, multipoint optimering, isochrone, nyttofordon, trafik som påverkas och matrisen routning; visa branschledande trafikflöde och incidenter **Mobility** tjänster som begär offentlig överföring, bikeshare, scooter resurs och bil dela information för att planera rutter att använda alternativa lägen för transport och realtidsdata; upprätta användarens plats via **Geoplats**; och konvertera plats för att **tidszoner**, samt, hämtar du tid på en plats. Dessutom erbjuder Azure Maps-tjänster för **Geofencing**, karta **Data** storage – som är värd för platsinformation i Azure och **Spatial Operations** att ange plats Intelligence genom geospatial analys. Azure Maps-tjänsterna är tillgängliga direkt som REST API:er eller genom **Web SDK** eller **Android SDK**. Med de här verktygen kan utvecklarna snabbt ta fram och skala lösningar som integrerar platsinformation i dina Azure-lösningar inifrån Azure-molnet. Registrera dig för ditt kostnadsfria [Azure Maps-konto](https://azure.microsoft.com/services/azure-maps/) i dag och sätt igång med utvecklingen!
+Azure Maps är en samling med geospatiala tjänster, underbyggd av nyaste mappningsdata tillgängliga tillhandahålla korrekta geografisk kontext till webb- och mobilprogram. Azure Maps består av REST API: er för rendering **Maps** i flera format och satellit bilder **sökning** för adresser, platser och Orienteringspunkter runt om i världen; **Routning** point-to-point, multipoint, multipoint optimering, isochrone, nyttofordon, trafik som påverkas och matrisen routning; visa branschledande trafikflöde och incidenter **Mobility** tjänster som begär offentlig överföring, bikeshare, scooter resurs och bil dela information för att planera rutter att använda alternativa lägen för transport och realtidsdata; upprätta användarens plats via **Geoplats**; och konvertera plats för att **tidszoner**, samt, hämtar du tid på en plats. Dessutom erbjuder Azure Maps-tjänster för **Geofencing**, karta **Data** storage – som är värd för platsinformation i Azure och **Spatial Operations** att ange plats Intelligence genom geospatial analys. Azure Maps-tjänsterna är tillgängliga direkt som REST API:er eller genom **Web SDK** eller **Android SDK**. Med de här verktygen kan utvecklarna snabbt ta fram och skala lösningar som integrerar platsinformation i dina Azure-lösningar inifrån Azure-molnet. Registrera dig för ditt kostnadsfria [Azure Maps-konto](https://azure.microsoft.com/services/azure-maps/) i dag och sätt igång med utvecklingen!
 
 I följande video beskriver vi Azure Maps mer ingående:
 
@@ -151,12 +151,12 @@ Kontrollera att platsen för din aktuella IP-adress som inte är i något av de 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om de nya funktionerna i Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Ruttmatris, isokroner, IP-sökning med mera](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
 Prova att använda en exempelapp med Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Skapa en webbapp](quick-demo-map-app.md)
+
+Håll dig uppdaterad på Azure Maps: 
+
+> [!div class="nextstepaction"]
+> [Azure Maps-bloggen](https://azure.microsoft.com/blog/topics/azure-maps/)

@@ -1,6 +1,6 @@
 ---
-title: Ladda upp, koda och strömma med Azure Media Services v3 med .NET | Microsoft Docs
-description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon och strömma ditt innehåll med Media Services v3 med .NET.
+title: Ladda upp, koda och strömma med Azure Media Services v3 | Microsoft Docs
+description: Följ stegen i den här självstudien för att ladda upp en fil och koda videon och strömma ditt innehåll med Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149149"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273236"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Självstudier: Ladda upp, koda och strömma videor med .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Självstudier: Ladda upp, koda och strömma videor
+
+> [!NOTE]
+> Även om i självstudiekursen använder vi den [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exempel de allmänna stegen är desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), eller andra stöds [SDK: er](media-services-apis-overview.md#sdks) .
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md). Den här självstudiekursen laddar upp en lokal videofil och kodar den överförda filen. Du kan också koda innehåll som du gör tillgänglita via en HTTPS-URL. Mer information finns i [Skapa jobbindata från en HTTP(s)-URL](job-input-from-http-how-to.md).
 

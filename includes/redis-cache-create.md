@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132835"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187149"
 ---
 1. Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com). Välj sedan **Skapa en resurs** > **Databaser** > **Azure Cache for Redis**.
 
@@ -26,7 +26,7 @@ ms.locfileid: "66132835"
     | **DNS-namn** | Globalt unikt namn | Cachenamnet. Det måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och tecknet `-`. Cachenamnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.  | 
     | **Prenumeration** | Din prenumeration | Den prenumeration där den här nya Azure Cache for Redis-instansen skapas. | 
     | **Resursgrupp** |  *TestResources* | Namnet på den nya resursgrupp där du vill skapa ditt cacheminne. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen tar du bort alla resurser som är associerade med appen. | 
-    | **Plats** | Östra USA | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som använder ditt cacheminne. |
+    | **Location** | Östra USA | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som använder ditt cacheminne. |
     | **[Prisnivå](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Fäst vid instrumentpanelen** |  Vald | Fäst det nya cacheminnet på din instrumentpanel så att det är enkelt att hitta det. |
 

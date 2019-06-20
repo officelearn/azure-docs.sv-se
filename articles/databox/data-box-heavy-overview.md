@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991693"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271754"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (förhandsversion)
 
@@ -62,14 +62,14 @@ Data Box tung enheten har följande funktioner i den här versionen.
 
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
-| Vikt                                                  | ~ 500 lbs.                |
-| Mått                                              | Bredd: 26 tum höjd: 28 tum längd: 48 tum |
+| Vikt                                                  | ~ 500 lbs. <br>Enheten på låsning hjul för transport|
+| Dimensioner                                              | Bredd: 26 tum höjd: 28 tum längd: 48 tum |
 | Rackutrymme                                              | Det går inte att vara rackmonterade|
-| Kablar som krävs                                         | 4 X förankrad 120 V/10 A strömkablar (NEMA 5 till 15) ingår <br> Enheten har stöd för upp till 240 V power och har C-13 power behållare <br> Använda nätverkskablarna som är kompatibel med [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Power                                                    | 4 inbyggda power anger enheter (PSUs) delas mellan båda enheten noder|
+| Kablar som krävs                                         | 4 förankrad 120 V / 10 A power sladdar (NEMA 5 till 15) ingår <br> Enheten har stöd för upp till 240 V power och har C-13 power behållare <br> Använda nätverkskablarna som är kompatibel med [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Power                                                    | 4 inbyggda power anger enheter (PSUs) delas mellan båda enheten noder <br> 1 200 w vanliga strömförbrukningen|
 | Lagringskapacitet                                        | ~ 1-PB raw, 70 diskar på 14 TB <br> 770 TB användbar kapacitet|
-|Antal noder                                          | 2 oberoende noder per enhet (500 TB som är varje) |
-| Nätverksgränssnitt per nod                             | 4 nätverksgränssnitt per nod <br> MGMT, DATA3 <ul><li> 2 x 1 GbE-gränssnitt </li><li> MGMT för hantering, inte konfigureras av användaren, används för den första installationen </li><li> DATA3 är ett gränssnitt för användarangiven data, DHCP Dynamic Host Configuration Protocol () som standard</li><li>1 GbE-nätverksgränssnitt kan också konfigureras som 10 GbE-gränssnitt</li></ul>Fil1 fil2-gränssnitt <ul><li>2 x 40 GbE-gränssnitt </li><li> DHCP som standard eller statisk, konfigurerbara data användargränssnitt</li>|
+| Antal noder                                          | 2 oberoende noder per enhet (500 TB som är varje) |
+| Nätverksgränssnitt per nod                             | 4 nätverksgränssnitt per nod <br><br> MGMT, DATA3 <ul><li> 2 x 1 GbE-gränssnitt </li><li> MGMT är för hantering och den första konfigurationen, inte konfigureras av användaren </li><li> DATA3 är användarangiven och Dynamic Host Configuration Protocol (DHCP) som standard</li><li>1 GbE-nätverksgränssnitt kan också konfigureras som 10 GbE-gränssnitt</li></ul>Fil1 fil2-gränssnitt <ul><li>2 x 40 GbE-gränssnitt </li><li> Användaren kan konfigureras för DHCP (standard) eller statisk</li></ul>|
 
 
 ## <a name="components"></a>Komponenter

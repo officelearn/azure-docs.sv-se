@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895087"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155654"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -44,12 +44,12 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 * ascii  
 * bigint  
 * blob  
-* boolesk  
+* boolean  
 * räknare  
 * datum  
 * decimal  
 * double  
-* flyt  
+* float  
 * frusen  
 * inet  
 * int  
@@ -58,7 +58,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 * smallint  
 * text  
 * time  
-* tidsstämpel  
+* timestamp  
 * timeuuid  
 * tinyint  
 * tuppel  
@@ -74,6 +74,8 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 
 * Token  
+* Mängdfunktioner
+  * Min, max, avg, count
 * Blobkonverteringsfunktioner 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
   * toDate(timestamp)  
   * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Begränsningar för Cassandra-frågespråket
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mappning av konsekvens 
 
-Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder. Alla skrivåtgärder, oavsett kontokonsekvens, skrivs alltid med serviceavtal för skrivprestanda.
+Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.  Konsekvens mappningen beskrivs [här [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Behörighets- och rollhantering
 
-Azure Cosmos DB stöder rollbaserad åtkomstkontroll (RBAC) och läs- och skrivbara lösenord/nycklar som kan hämtas via [Azure-portalen](https://portal.azure.com). Azure Cosmos DB stöder ännu inte användare och roller för dataplansaktiviteter. 
+Azure Cosmos DB stöder rollbaserad åtkomstkontroll (RBAC) för etablering, roterar nycklar, visar mått och läs-och skrivbara och skrivskyddade lösenord/nycklar som kan köpas genom den [Azure-portalen](https://portal.azure.com). Azure Cosmos DB stöder ännu inte användare och roller för CRUD-aktiviteter. 
 
 ## <a name="planned-support"></a>Planerad support 
 * Regionnamn i kommandot create keyspace ignoreras för närvarande. Distribution av data implementeras i underliggande Cosmos DB-plattform och exponeras visa portalen eller PowerShell för kontot. 

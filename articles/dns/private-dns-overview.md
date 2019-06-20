@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: a8548b4972d5853f09630ae3e9ded05ed6fee32b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076391"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147567"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
 
@@ -64,21 +64,11 @@ Azure DNS tillhandahåller följande funktioner:
 
 Azure DNS har följande begränsningar:
 
-* Endast ett virtuellt registreringsnätverk tillåts per privat zon.
-* Upp till 10 lösningar tillåts virtuella nätverk per privat zon. Den här gränsen tas bort när den här funktionen blir allmänt tillgänglig.
-* Ett specifikt virtuellt nätverk kan länkas till endast en privat zon som ett virtuellt nätverk för registrering.
-* Ett specifikt virtuellt nätverk kan länkas till upp till 10 privata zoner som ett virtuellt nätverk för matchning. Den här gränsen tas bort när den här funktionen blir allmänt tillgänglig.
-* Om du anger ett virtuellt nätverk för registrering är DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte kan visas eller hämtas från Azure Powershell och Azure CLI-API: er. VM-poster verkligen har registrerats och löser har.
-* Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
-* Omvänd DNS för en privat IP-adress som inte är registrerade i den privata zonen (t.ex, en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk för lösning till ett privat zon) returnerar *internal.cloudapp.net* som DNS-suffix. Detta suffix är dock inte matchas.
-* Det virtuella nätverket måste vara helt tom första gången du länkar den till en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket kan dock sedan vara tomma för att framtida länka som en registrering eller matchning virtuellt nätverk till andra privata zoner.
-* Villkorlig vidarebefordran stöds för närvarande inte (till exempel för att aktivera matchning mellan Azure och OnPrem-nätverk). Information om hur kunderna kan få det här scenariot via andra metoder finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Ett specifikt virtuellt nätverk kan länkas till endast en privat zon som om automatisk registrering av VM-DNS-poster är aktiverat. Du kan dock länka flera virtuella nätverk till en enda DNS-zon.
 * Omvänd DNS fungerar endast för privat IP-adressutrymme i länkade virtuella nätverk
 * Omvänd DNS för en privat IP-adress för ett virtuellt nätverk som är länkade returnerar ”internal.cloudapp.net” som standard-suffixet för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon med autoregistrering aktiverat omvänd DNS för en privat IP-adress som returnerar 2 fullständiga domännamn, en med standard suffixet *internal.cloudapp.net* och en annan med suffixet privat zon.
-* Villkorlig vidarebefordran stöds inte. Till exempel för att aktivera matchning mellan Azure och lokala nätverk. Lär dig hur du kan aktivera det här scenariot med andra metoder. Se [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Villkorlig vidarebefordran är inte stöds för tillfället. Att aktivera matchning mellan Azure och lokala nätverk. Se [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-
-
 ## <a name="pricing"></a>Prissättning
 
 Information om priser finns i [priser för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953369"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147918"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
@@ -126,10 +126,10 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Skickat     | Beställningen har skickats. Du bör få beställningen inom en till två dagar.        |
 |Levererade     | Beställningen har levererats till adressen som angetts i ordern.        |
 |Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azure-datacentret laddas data automatiskt upp till Azure.         |
-|Mottagning     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
+|Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
-|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i **Översikt**. Mer information finns i [Hämta diagnostikloggar](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska felloggarna för överföring med hjälp av sökvägen som anges i den **översikt**. Mer information går du till [Download uppladdning felloggar](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern.     |
 
 

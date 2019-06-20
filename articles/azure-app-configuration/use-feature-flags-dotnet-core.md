@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144007"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274144"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudier: Använd funktionen flaggor i en ASP.NET Core-app
 
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>Åtgärder för domänkontrollant
 
-I MVC-kontrollanter, använder du den `Feature` attributet kontroll om hela kontrollantklassen eller en specifik åtgärd är aktiverat. Följande `HomeController` kontrollenheten kräver `FeatureA` vara *på* innan något kontrollantklassen innehåller kan köras:
+I MVC-kontrollanter, använder du den `FeatureGate` attributet kontroll om hela kontrollantklassen eller en specifik åtgärd är aktiverat. Följande `HomeController` kontrollenheten kräver `FeatureA` vara *på* innan något kontrollantklassen innehåller kan köras:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 Följande `Index` -åtgärden kräver `FeatureA` vara *på* innan du kan använda:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ I MVC-vyer, kan du använda en `<feature>` taggen för att återge innehåll bas
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+Att visa alternativa innehåll om kraven inte uppfylls på `negate` attributet kan användas.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+Funktionen `<feature>` tagg kan också användas för att visa innehåll om några eller alla funktioner i en lista som är aktiverade.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

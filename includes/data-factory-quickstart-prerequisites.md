@@ -9,11 +9,11 @@ ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119335"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187814"
 ---
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -60,7 +60,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azu
    ![Lägga till containerknapp](media/data-factory-quickstart-prerequisites/add-container-button.png)    
 3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**. 
 
-   ![Ange containernamnet](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
+   ![Ange namn på container](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Välj **adftutorial** i listan med containrar. 
 
    ![Välja containern](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383422"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274169"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -51,7 +51,7 @@ Om du vill hämta nyheter från en specifik domän använder du frågeoperatorn 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Nedan visas svaret på den tidigare frågan. Som en del av [användnings- och visningskraven](../useanddisplayrequirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
+I följande JSON-exempel visas svaret på den föregående frågan. Som en del av [användnings- och visningskraven](../useanddisplayrequirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
 
 ```json
 {
@@ -107,7 +107,7 @@ Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den 
 
 ## <a name="get-todays-top-news"></a>Hämta dagens viktigaste nyheter
 
-Om du vill hämta dagens viktigaste nyhetsartiklar gör du på samma sätt som när du frågar efter allmänna nyheter förutom att du inte ställer in parametern `q`.
+För att få dagens översta nyhetsartiklar, du kan skicka samma allmänna nyheter förfrågan som tidigare och lämna den `q` parameter har angetts.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Svaret med de viktigaste nyheterna är nästan samma som för allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att du tillskriver artikeln med `provider`.
+Svaret för att få senaste är nästan samma sätt som det för att få allmän nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda den `provider` fältet till attributet i artikeln.
 
 ## <a name="get-news-by-category"></a>Hämta nyheter efter kategori
 

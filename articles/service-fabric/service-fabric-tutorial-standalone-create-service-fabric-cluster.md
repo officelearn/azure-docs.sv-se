@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f978087a935bcf6ac78760fee5842573eb3a326e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717976"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274110"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudier: Installera och skapa Service Fabric-kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudiekursen, skapa ett fristående kluster som finns på AWS- eller Azure och installera ett program till den.
 
 Den här självstudien är del två i en serie. Självstudien vägleder dig genom stegen för att skapa ett fristående Service Fabric-kluster.
 
@@ -37,7 +37,7 @@ I del två i serien lär du dig hur du:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Ladda ned Service Fabric för Windows Server-paketet
 
-Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  När det har laddats ned, kopierar du det via RDP-anslutningen till din EC2-instans och klistrar in det på skrivbordet.
+Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  Kopiera den via RDP-anslutning till den virtuella datorn när den har laddat ned och klistra in den på skrivbordet.
 
 Välj zip-filen, öppna snabbmenyn och välj **Extrahera alla** > **Extrahera**.  När du extraherar filerna skapas en mapp på skrivbordet med samma namn som zip-filen.
 

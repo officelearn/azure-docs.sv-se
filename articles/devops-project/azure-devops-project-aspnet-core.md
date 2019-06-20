@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556092"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275482"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects
 
@@ -42,19 +42,15 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
     ![Startar kontinuerlig leverans](_img/azure-devops-project-aspnet-core/fullbrowser.png)
 
-## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
+## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogrammet och en Azure-tjänst
 
-1. Välj .NET-exempelprogrammet. .NET-exempel innehåller antingen ASP.NET-ramverket med öppen källkod eller det plattformsoberoende .NET Core-ramverket.
+1. Välj **.NET**-exempelprogrammet. .NET-exempel innehåller antingen ASP.NET-ramverket med öppen källkod eller det plattformsoberoende .NET Core-ramverket.
 
     ![.NET-ramverk](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Välj .NET Core-programramverket.  
-    Det här exemplet är ett ASP.NET Core MVC-program.
+2. Det här exemplet är ett ASP.NET Core MVC-program. Välj den **.NET Core** programramverk, välj sedan **nästa**.    
     
-2. Välj **Nästa**.  
-    Web App på Windows är det distributionsmål som är standard.  Du kan alternativt välja Web App on Linux eller Web App for Containers.  Det programramverk som du valde tidigare avgör vilken typ av distributionsmål som finns tillgängliga för Azure-tjänsten här.  
-    
-3. Låt standardinställningen för tjänsten vara och välj **Nästa**.
+3. Välj **Windows Web App** som ett distribution-mål, Välj **nästa**. Du kan alternativt välja andra Azure-tjänster för din distribution. Application framework, som du valde tidigare avser vilken typ av Azure-tjänsten distribution mål tillgänglig här.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 

@@ -9,11 +9,11 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128227"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187713"
 ---
 1. Om du vill skapa en Azure SignalR Service-resurs, loggar du först in den [Azure-portalen](https://portal.azure.com). I den övre vänstra sidan, väljer **+ skapa en resurs**. I den **Sök på Marketplace** text anger **SignalR Service**.
 
@@ -28,7 +28,7 @@ ms.locfileid: "66128227"
     | Resursgrupp | Skapa en resursgrupp med namnet *SignalRTestResources*| Välj eller skapa en resursgrupp för SignalR-resursen. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Hantera Azure-resurser med hjälp av resursgrupper](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *Östra USA* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Du får bästa prestanda om du skapar resursen i samma region som de andra komponenterna i appen. |
     | Prisnivå | *Kostnadsfri* | För närvarande **kostnadsfri** och **Standard** alternativ är tillgängliga. |
-    | Fäst på instrumentpanelen | ✔ | Välj den här rutan ha fästas på instrumentpanelen så att det är lättare att hitta resursen. |
+    | Fäst vid instrumentpanelen | ✔ | Välj den här rutan ha fästas på instrumentpanelen så att det är lättare att hitta resursen. |
 
 4. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
 

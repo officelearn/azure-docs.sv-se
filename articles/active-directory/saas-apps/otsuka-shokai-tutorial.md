@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5e667151f0148468e9eda8189c0f249b402b56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095279"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274189"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Självstudier: Integrera Otsuka Shokai med Azure Active Directory
 
@@ -29,7 +29,6 @@ I de här självstudierna lär du dig att integrera Otsuka Shokai med Azure Acti
 
 * Styr i Azure AD som har åtkomst till Otsuka Shokai.
 * Ge dina användare att automatiskt inloggad till Otsuka Shokai med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
 
 Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -112,17 +111,15 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     g. Klicka på **Spara**.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och spara den på din anteckningar .
-
-   ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
-
-1. På den **konfigurera Otsuka Shokai** avsnittet, kopiera den lämpliga URL: er efter behov.
-
-   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>Configure Otsuka Shokai
 
-Att konfigurera enkel inloggning på **Otsuka Shokai** sida, som du behöver skicka den **Appfederationsmetadata** till [Otsuka Shokai supportteamet](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. När du ansluter till kundens min sida från SSO-app, guiden SSO inställningen startar.
+
+2. Om Otsuka-ID: T inte är registrerad, fortsätter du till ny Otsuka-ID-registrering.   Om du har registrerat Otsuka-ID, fortsätter du till inställningen länkning.
+
+3. Gå vidare till slutet och när den översta skärmen visas när du loggar in till kundens min sida, inställningar för enkel inloggning har slutförts.
+
+4. Nästa gång du ansluter till kundens min sida från SSO-app när skärmen vägledning öppnas visas den översta skärmen när du loggar in till kundens min sida.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -156,7 +153,7 @@ I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggnin
 
 ### <a name="create-otsuka-shokai-test-user"></a>Skapa Otsuka Shokai testanvändare
 
-I det här avsnittet skapar du en användare som kallas B.Simon i Otsuka Shokai. Arbeta med [Otsuka Shokai supportteamet](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) att lägga till användare i Otsuka Shokai-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Ny registrering för SaaS-kontot ska utföras på den första åtkomsten till Otsuka Shokai. Dessutom kan kommer vi även associera Azure AD-konto och SaaS-konto vid tidpunkten för skapandet av ny.
 
 ### <a name="test-sso"></a>Testa enkel inloggning
 

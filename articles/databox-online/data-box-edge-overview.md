@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e1870093dc89856e093267172418e9c7330c479
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 438e25a72361866acd449024b6e7e8c06ed6c9c7
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080568"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144221"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge är en AI-aktiverad edge-beräkningsenhet med funktioner fö
     - Dela in de data som behövs för djupare analys i molnet i delmängder och överföra dem.
     - Analysera och reagera på IoT-händelser. 
 
-- **Inference Azure Machine Learning** – med Data Box Edge kan du köra ML-modeller (Machine Learning) för att få snabba resultat som kan användas innan data skickas till molnet. En fullständig uppsättning data kan överföras om du vill fortsätta att träna och förbättra dina ML-modeller. Läs mer om hur du använder Azure ML-maskinvara snabbare modeller på Databox Edge-enhet i [distribuera Azure ML maskinvara accelerated modeller på Databox Edge](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inference Azure Machine Learning** – med Data Box Edge kan du köra ML-modeller (Machine Learning) för att få snabba resultat som kan användas innan data skickas till molnet. En fullständig uppsättning data kan överföras om du vill fortsätta att träna och förbättra dina ML-modeller. Läs mer om hur du använder Azure ML-maskinvara snabbare modeller på Databox Edge-enhet i [distribuera Azure ML maskinvara accelerated modeller på Databox Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Överföra data över nätverket till Azure** – använd Data Box Edge för att snabbt och enkelt överföra data till Azure för att möjliggöra ytterligare beräkning och analys eller i arkiveringssyfte. 
 

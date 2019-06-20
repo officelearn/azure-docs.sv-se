@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fe2f9531c7dc5ab5bde0fb5669fa448d1113a2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099327"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164939"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Självstudier: Integrera JOBHUB med Azure Active Directory
 
@@ -78,7 +78,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** anger värdena för följande fält:  I textrutan Inloggnings-URL** skriver du in en URL med följande mönster: `https://pasona.jobhub.jp/saml/init`
+1. På den **SAML grundkonfiguration** anger värdena för följande fält:  I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://pasona.jobhub.jp/saml/init`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [JOBHUB klienten supportteamet](mailto:platform@pasonagroup.co.jp) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -145,9 +145,9 @@ När du väljer panelen JOBHUB i åtkomstpanelen, bör det vara loggas in automa
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

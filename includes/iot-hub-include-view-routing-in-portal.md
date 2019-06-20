@@ -1,8 +1,20 @@
 ---
-Rubrik: inkludera Filbeskrivning: inkludera fil författare: robinsh ms.service: iot-hub-tjänster: iot-hub ms.topic: inkludera ms.date: 03/05/2019 ms.author: robinsh ms.custom: inkludera fil
-<!-- this is the bit that tells the customer how to view the routing info they just set up -->
+title: ta med fil
+description: ta med fil
+author: robinsh
+ms.service: iot-hub
+services: iot-hub
+ms.topic: include
+ms.date: 03/05/2019
+ms.author: robinsh
+ms.custom: include file
+ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235457"
 ---
-
 Nu när dina slutpunkter och meddelandevägar har konfigurerats kan visa du deras konfiguration i portalen. Logga in på den [Azure-portalen](https://portal.azure.com) och gå till **resursgrupper**. Därefter väljer du din resursgrupp och välj sedan din hubb (hubbnamnet börjar med `ContosoTestHub` i den här självstudien). Du ser fönstret IoT Hub.
 
 ![Skärmen för IoT Hub-egenskaper](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)

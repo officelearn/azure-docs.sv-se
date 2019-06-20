@@ -104,7 +104,7 @@ Att ange parametrar är inte obligatoriskt. Standard tillämpas.
 | `CommitMode`     | Enum  | Anger om objekt genomförs i batchar eller bara när du är klar. Inkludera lägen: standard transaktioner partialBatch.  |  transaktionell       |
 | `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som ska köras bearbetningskommandon parallellt. Det här värdet i linje med egenskapen MaxParallelism som kan ställas in i TMSL [Sekvensera kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
 | `RetryCount`     | Int   | Anger hur många gånger som åtgärden kommer att försöka igen innan åtgärden misslyckas.      |     0    |
-| `Objects`        | Matris | En matris med objekt som ska bearbetas. Varje objekt innehåller: ”tabell” vid bearbetning av hela tabellen eller ”tabell” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts, uppdateras hela modellen. |   Bearbeta hela modellen      |
+| `Objects`        | Array | En matris med objekt som ska bearbetas. Varje objekt innehåller: ”tabell” vid bearbetning av hela tabellen eller ”tabell” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts, uppdateras hela modellen. |   Bearbeta hela modellen      |
 
 CommitMode är lika med partialBatch. Den används när du gör en inledande inläsningen av stora datauppsättningar kan ta timmar. Om uppdateringen misslyckas efter att transaktionen har en eller flera batchar har bekräftats batchar förblir allokerade (den återställer inte har bekräftats batchar).
 

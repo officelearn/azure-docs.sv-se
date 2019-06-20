@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989084"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147246"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway
 
@@ -26,7 +26,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 
 ## <a name="windows"></a>Windows-klienter
 
-1. Hämta och installera klienten OpenVPN från officiellt [OpenVPN webbplats](https://openvpn.net/index.php/open-source/downloads.html).
+1. Hämta och installera OpenVPN klienten (version 2.4 eller senare) från officiellt [OpenVPN webbplats](https://openvpn.net/index.php/open-source/downloads.html).
 2. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken för punkt-till-plats-konfiguration i Azure-portalen eller ”New-AzVpnClientConfiguration” i PowerShell.
 3. Packa upp profilen. Därefter öppnar den *vpnconfig.ovpn* konfigurationsfilen från mappen OpenVPN med anteckningar.
 4. [Exportera](vpn-gateway-certificates-point-to-site.md#clientexport) P2S klientcertifikatet du skapat och överfört till din P2S-konfiguration på gatewayen.
@@ -61,7 +61,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 
 ## <a name="mac"></a>Mac-klienter
 
-1. Ladda ned och installera en OpenVPN-klient, till exempel [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Ladda ned och installera en OpenVPN-klient, till exempel [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken punkt-till-plats-konfiguration i Azure-portalen eller genom att använda ”New-AzVpnClientConfiguration” i PowerShell.
 3. Packa upp profilen. Öppna konfigurationsfilen vpnconfig.ovpn från mappen OpenVPN i anteckningar.
 4. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Se [exportera den offentliga nyckeln](vpn-gateway-certificates-point-to-site.md#cer) information om hur du exporterar ett certifikat för att få den kodade offentliga nyckeln.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362279"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700453"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägg till ett VMM-skript i en återställningsplan
 
@@ -45,7 +45,7 @@ Du kan använda PowerShell-skript i dina återställningsplaner. För att vara t
   
   1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure plats Recovery\Registration**.
 
-  1. Ändra värdet för **ScriptLibraryPath** till  **\\\libserver2.contoso.com\share\\**. Ange fullständig FQDN. Ge behörighet till plats där. Det här är rotnoden i resursen. Om du vill söka efter rotnoden i VMM, går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
+  1. Ändra värdet för **ScriptLibraryPath** till  **\\\libserver2.contoso.com\share\\** . Ange fullständig FQDN. Ge behörighet till plats där. Det här är rotnoden i resursen. Om du vill söka efter rotnoden i VMM, går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
 
   1. Testa skriptet genom att använda ett konto som har samma nivå av användarrättigheter som VMM-tjänstkontot. Med hjälp av dessa användarrättigheter verifierar som fristående testade skript som körs på samma sätt som de körs i återställningsplaner. På VMM-servern ställer du in körningsprincipen att kringgå på följande sätt:
 

@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153930"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165726"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics-mått (klassisk)
 
@@ -90,18 +90,27 @@ Cmdletar som styr Lagringsmått använder följande parametrar:
 * **Tjänsten**: Samlar in mätvärden, till exempel ingående/utgående trafik, tillgänglighet, svarstid och procentuellt antal lyckade sökningar, som sammanställs för blob, kö, tabell och Filtjänster.
 * **ServiceAndApi**: Samlar in samma uppsättning mått för varje lagringsåtgärd i API: et för Azure Storage-tjänsten utöver Service-mått.
 
-Till exempel växlar följande kommando på minutmått för blob service i ditt storage-kontot med kvarhållning tidsperiod som angetts till fem dagar:  
+Till exempel växlar följande kommando på minutmått för blob service i ditt storage-konto med kvarhållning tidsperiod som angetts till fem dagar: 
+
+> [!NOTE]
+> Det här kommandot förutsätter att du har loggat in din Azure-prenumeration med hjälp av den `Connect-AzAccount` kommando.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Ersätt den `<resource-group-name>` platshållarvärdet med namnet på resursgruppen.
+
+* Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
+
+
 
 Följande kommando hämtar de aktuella per timme mått nivå och kvarhållning dagarna för blob service i standardkontot för lagring:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Information om hur du konfigurerar finns Azure PowerShell-cmdletar för att arbeta med din Azure-prenumeration och hur du väljer standardkontot för lagring att använda, i: [Hur du installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

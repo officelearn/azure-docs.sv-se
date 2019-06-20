@@ -3,15 +3,15 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/18/2018
-ms.openlocfilehash: 606734726539397c0be0bc01afb3dbfac08b3a2b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/18/2019
+ms.openlocfilehash: 16ee9ae9a4eec6b38c57b984b3acb75479b437e6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277469"
 ---
-Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Innan du fortsätter behöver du den åtkomstnyckel som tillhandahållits när du startade en prenumeration på S9-prisnivån, såsom visas i [Cognitive Services priser – API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Innan du fortsätter måste den åtkomstnyckel som tillhandahållits när du har startat en prenumeration på S9-prisnivån enligt [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 Så här startar du en prenumeration på Azure-portalen:
 1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114509"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150490"
 ---
 I följande tabell beskrivs standardgränser för Azure general-purpose v1, v2 och Blob storage-konton. Den *ingående* gränsen syftar på alla data från förfrågningar som skickas till ett lagringskonto. Den *utgående* gränsen syftar på alla data från svar som tas emot från ett lagringskonto.
 
@@ -32,15 +32,15 @@ I följande tabell beskrivs standardgränser för Azure general-purpose v1, v2 o
 <sup>1</sup>azure Standard Storage-konton har högre gränser för inkommande begäran. Om du vill begära en ökning av gränser för ingress, kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy) alternativ inkluderar:
-* **RA-GRS**: Läsåtkomst till geografiskt redundant lagring. Om RA-GRS aktiveras är utgående mål för den sekundära platsen samma som för den primära platsen.
-* **GRS**: GEO-redundant lagring. 
-* **ZRS**: Zonredundant lagring.
-* **LRS**: Lokalt redundant lagring. 
+- **RA-GRS**: Läsåtkomst till geografiskt redundant lagring. Om RA-GRS aktiveras är utgående mål för den sekundära platsen samma som för den primära platsen.
+- **GRS**: GEO-redundant lagring.
+- **ZRS**: Zonredundant lagring.
+- **LRS**: Lokalt redundant lagring.
 
 > [!NOTE]
 > Vi rekommenderar att du använder ett gpv2-lagringskonto för de flesta scenarier. Du kan enkelt uppgradera general-purpose v1- eller ett Azure Blob storage-konto till ett gpv2-konto utan avbrott och utan att behöva kopiera data.
 >
-> Mer information om Azure Storage-konton finns i [lagringskontoöversikten](../articles/storage/common/storage-account-overview.md). 
+> Mer information om Azure Storage-konton finns i [lagringskontoöversikten](../articles/storage/common/storage-account-overview.md).
 
 Om programmets behov överstiger det för skalbarhetsmål för ett enda lagringskonto, kan du skapa ditt program att använda flera lagringskonton. Du kan sedan partitionera dina dataobjekt över dessa lagringskonton. Information om Volympriser finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
 

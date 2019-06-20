@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733649"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164841"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C med hjälp av en anpassad princip
 
@@ -255,7 +255,7 @@ Därefter uppdatera filen för förlitande part som initierar användarresa som 
     ```
 
 5. På den **anpassade principer** sidan i din Azure AD B2C-klient väljer **ladda upp principen**.
-6. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *TrustFrameworkExtensions.xml* fil.
+6. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *ROPC_Auth.xml* fil.
 7. Klicka på **Överför**.
 
 ## <a name="test-the-policy"></a>Testa principen

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122583"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273373"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor för översikt över virtuella datorer (förhandsversion)
 
@@ -42,10 +42,10 @@ Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följa
 - Västra centrala USA
 - USA, västra 2<sup>1</sup>
 - Östra USA
-- Kanada, centrala<sup>1</sup>
-- Storbritannien, södra<sup>1</sup>
+- Centrala Kanada
+- Storbritannien, södra
 - Västra Europa
-- Sydostasien<sup>1</sup>
+- Sydostasien
 
 <sup>1</sup> den här regionen för tillfället stöder inte funktionen Health i Azure Monitor för virtuella datorer.
 
@@ -90,6 +90,10 @@ I följande tabell visas de Windows- och Linux-operativsystem som har stöd för
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> the prestanda funktion i Azure Monitor för virtuella datorer är tillgängliga från Azure Monitor. Det är inte tillgängliga direkt från den vänstra rutan i Azure VM.
+
+>[!NOTE]
+>Funktionen Health i Azure Monitor för virtuella datorer stöder inte [kapslad virtualisering](../../virtual-machines/windows/nested-virtualization.md) i en Azure VM.
+>
 
 >[!NOTE]
 >I Linux-operativsystem:

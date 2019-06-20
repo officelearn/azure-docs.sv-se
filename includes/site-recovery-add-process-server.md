@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66169935"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187048"
 ---
 1. Starta Azure Site Recovery UnifiedSetup.exe
 2. I **Before you begin** (Innan du börjar) väljer du **Add additional process servers to scale out deployment** (Lägg till ytterligare processervrar till utskalningsdistribution).

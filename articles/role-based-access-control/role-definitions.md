@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074011"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275040"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 
@@ -52,7 +52,8 @@ Den `{action}` delen av en sträng med åtgärden anger vilken typ av åtgärder
 | ------------------- | ------------------- |
 | `*` | Jokertecknet ger åtkomst till alla åtgärder som matchar strängen. |
 | `read` | Aktiverar läsåtgärder (GET). |
-| `write` | Aktiverar skrivåtgärder (PUT, POST och korrigering). |
+| `write` | Aktiverar skrivåtgärder (PUT eller PATCH). |
+| `action` | Gör det möjligt för anpassade åtgärder som att starta om virtuella datorer (POST). |
 | `delete` | Aktiverar borttagningsåtgärder (ta bort). |
 
 Här är den [deltagare](built-in-roles.md#contributor) rolldefinition i JSON-format. Jokertecknet (`*`) åtgärden under `Actions` betyder att det huvudkonto som tilldelats den här rollen kan utföra alla åtgärder eller med andra ord, den kan hantera allt. Detta omfattar åtgärder som definierats i framtiden, som Azure lägger till nya resurstyper. Åtgärder under `NotActions` subtraheras från `Actions`. I fall med den [deltagare](built-in-roles.md#contributor) roll, `NotActions` tar bort den här rollen möjlighet att hantera åtkomst till resurser och också tilldela åtkomst till resurser.
@@ -79,7 +80,7 @@ Här är den [deltagare](built-in-roles.md#contributor) rolldefinition i JSON-fo
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Åtgärder för hantering och data (förhandsversion)
+## <a name="management-and-data-operations"></a>Åtgärder för hantering och data
 
 Rollbaserad åtkomstkontroll för hanteringsåtgärder har angetts i den `Actions` och `NotActions` egenskaperna för en rolldefinition. Här följer några exempel på åtgärder i Azure:
 
@@ -89,7 +90,7 @@ Rollbaserad åtkomstkontroll för hanteringsåtgärder har angetts i den `Action
 
 Hanteringsåtkomst ärvs inte till dina data. Den här separationen förhindrar roller med jokertecken (`*`) från har obegränsad åtkomst till dina data. Exempel: om en användare har en [läsare](built-in-roles.md#reader) rollen på en prenumeration kan de visa storage-konto, men de kan inte visa underliggande data som standard.
 
-Tidigare användes inte rollbaserad åtkomstkontroll för dataåtgärder. Auktorisering för dataåtgärder varierar över resursprovidrar. Samma rollbaserad auktoriseringsmodellen för åtkomstkontroll används för hanteringsåtgärder har utökats till dataåtgärder (för närvarande i förhandsversion).
+Tidigare användes inte rollbaserad åtkomstkontroll för dataåtgärder. Auktorisering för dataåtgärder varierar över resursprovidrar. Samma rollbaserad auktoriseringsmodellen för åtkomstkontroll används för hanteringsåtgärder har utökats till dataåtgärder.
 
 Egenskaper för nya data har lagts till definitionsstruktur roll för att stödja åtgärder. Dataåtgärder anges i den `DataActions` och `NotDataActions` egenskaper. Genom att lägga till dessa egenskaper för data, underhålls avgränsningen mellan hanterings- och data. Detta förhindrar aktuella rolltilldelningar med jokertecken (`*`) från plötsligt att ha åtkomst till data. Här följer några dataåtgärder som kan anges i `DataActions` och `NotDataActions`:
 
@@ -169,11 +170,7 @@ Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av v
 
 Om du vill visa och använda dataåtgärderna i REST-API, måste du ställa in den **api-versionen** parametern till följande version eller senare:
 
-- 2018-01-01-preview
-
-Azure-portalen tillåter även användare att söka efter och hantera innehållet i köer och Blob förhandsgranskningsupplevelsen för behållare via Azure AD. Att visa och hantera innehållet i en kö eller Blob-behållare klickar du på den **utforska data med hjälp av Azure AD-preview** för lagringskontot Översikt.
-
-![Utforska köer och Blob-behållare med hjälp av Azure AD-förhandsversion](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Åtgärder
 
@@ -195,7 +192,7 @@ Den `NotActions` behörighet anger vilka hanteringsåtgärder som är undantagna
 > Om en användare har tilldelats en roll som inte omfattar en åtgärd i `NotActions`, och har tilldelats en andra roll som ger åtkomst till samma åtgärd som användaren har tillåtelse att utföra åtgärden. `NotActions` är inte en neka-regeln – det är bara ett praktiskt sätt att skapa en uppsättning tillåtna åtgärder när specifika åtgärder som ska undantas.
 >
 
-## <a name="dataactions-preview"></a>dataActions (förhandsversion)
+## <a name="dataactions"></a>DataActions
 
 Den `DataActions` behörighet anger dataåtgärder som gör att rollen som ska utföras för dina data inom objektet. Till exempel om en användare har läs-åtkomst för blob-data till ett lagringskonto, kan de läsa blobbar i det lagringskontot. Här följer några exempel på åtgärder som kan användas i `DataActions`.
 
@@ -206,7 +203,7 @@ Den `DataActions` behörighet anger dataåtgärder som gör att rollen som ska u
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Returnerar ett meddelande. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Returnerar ett meddelande eller resultatet av att skriva eller ta bort ett meddelande. |
 
-## <a name="notdataactions-preview"></a>notDataActions (förhandsversion)
+## <a name="notdataactions"></a>NotDataActions
 
 Den `NotDataActions` behörighet anger de åtgärder som är undantagna från den tillåtna `DataActions`. Åtkomst har beviljats av en roll (gällande behörigheter) beräknas genom att subtrahera den `NotDataActions` åtgärder från den `DataActions` åtgärder. Varje resursprovider ger dess respektive API: er för att utföra dataåtgärder.
 

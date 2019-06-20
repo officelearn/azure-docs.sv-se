@@ -1,24 +1,24 @@
 ---
-title: Skapa och använda anpassade regler för Azure Web Application Firewall (WAF)
-description: Den här artikeln innehåller information om hur du skapar anpassade regler för Web Application Firewall (WAF) i Azure Application Gateway.
+title: Skapa och använda anpassade regler för Azure Web Application Firewall (WAF) v2
+description: Den här artikeln innehåller information om hur du skapar anpassade regler för v2 för Web Application Firewall (WAF) i Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689038"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164675"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Skapa och använda anpassade regler i brandväggen för webbaserade program
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Skapa och använda anpassade regler i brandväggen för webbaserade program v2
 
-Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Det här skyddet tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). I vissa fall kan behöva du skapa dina egna anpassade regler för att uppfylla dina specifika behov. Läs mer om anpassade regler för WAF [anpassad web application regler översikt över brandväggen för](custom-waf-rules-overview.md).
+Azure Application Gateway Web Application Firewall (WAF) v2 ger skydd för webbprogram. Det här skyddet tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). I vissa fall kan behöva du skapa dina egna anpassade regler för att uppfylla dina specifika behov. Läs mer om anpassade regler för WAF [anpassad web application regler översikt över brandväggen för](custom-waf-rules-overview.md).
 
-Den här artikeln beskrivs några exempel på anpassade regler som du kan skapa och använda med WAF. Läs hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell i [konfigurera brandväggen för webbaserade program anpassade regler med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
+Den här artikeln beskrivs några exempel på anpassade regler som du kan skapa och använda med WAF v2. Läs hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell i [konfigurera brandväggen för webbaserade program anpassade regler med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Om din application gateway inte använder WAF-nivån, visas möjlighet att uppgradera application gateway WAF-nivån i den högra rutan.

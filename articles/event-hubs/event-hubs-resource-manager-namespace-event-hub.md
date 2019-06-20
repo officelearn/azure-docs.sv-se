@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 06/14/2019
 ms.author: shvija
-ms.openlocfilehash: c020a7673fe018565a6f1aeb9f7cb2124024a2c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 007e016672f8548956b37b961805183a504d6bf0
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118868"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154081"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Snabbstart: Skapa en händelsehubb med hjälp av en Azure Resource Manager-mall
 
@@ -83,7 +83,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du en Event Hubs-namnrymd och använde exempelprogram för att skicka och ta emot meddelanden från din händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en event hub, se den **skicka och ta emot händelser** Självstudier:
+I den här artikeln har skapat du ett namnområde för Event Hubs och en händelsehubb i namnområdet. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en event hub, se den **skicka och ta emot händelser** Självstudier:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

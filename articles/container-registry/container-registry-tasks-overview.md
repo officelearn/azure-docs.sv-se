@@ -1,22 +1,22 @@
 ---
-title: Automatisera framework uppdatering med Azure Container Registry (aktiviteter ACR) av operativsystem och
-description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som ger säker, automatiserad behållare bild build och korrigeringar i molnet.
+title: Automatisera bygge och korrigeringar behållaravbildningar med Azure Container Registry (aktiviteter ACR)
+description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som ger säker, automatiserad behållare bild build, hantering och korrigeringar i molnet.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977205"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147987"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisera framework uppdatering med ACR uppgifter av operativsystem och
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållare avbildningar och underhåll med ACR-uppgifter
 
-Behållare för nya nivåer av virtualisering, isolera program- och developer-beroenden från infrastrukturen och operativa krav. Vad är kvar, men är behovet av att hantera hur den här programvirtualisering är uppdaterad.
+Behållare för nya nivåer av virtualisering, isolera program- och developer-beroenden från infrastrukturen och operativa krav. Vad är kvar, men är behovet av att hantera hur den här programvirtualisering hanteras och uppdaterad under hela livscykeln för behållaren.
 
 ## <a name="what-is-acr-tasks"></a>Vad är ACR uppgifter?
 
@@ -46,8 +46,7 @@ I följande tabell visas några exempel på platser som stöds kontext för ACR 
 | Lokala filsystem | Filer i en katalog i det lokala filsystemet. | `/home/user/projects/myapp` |
 | GitHub huvudgrenen | Filer i huvudservern (eller andra standard)-grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub-gren | Viss förgrening av en GitHub-lagringsplatsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub PR | Pull-begäran i en GitHub-lagringsplats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| GitHub-undermapp | Filer i en undermapp i en GitHub-lagringsplatsen. Exemplet visar en kombination av pull-begäran och undermappen-specifikationen. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| GitHub-undermapp | Filer i en undermapp i en GitHub-lagringsplatsen. Exemplet visar en kombination av en gren och undermappen specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Remote tarball | Filer i en komprimerad fil på en fjärransluten webbserver. | `http://remoteserver/myapp.tar.gz` |
 
 ACR uppgifter är utformad som en primitiv behållare livscykel. Till exempel integrera ACR uppgifter i din CI/CD-lösning. Genom att köra [az-inloggning] [ az-login] med en [tjänstens huvudnamn][az-login-service-principal], CI/CD-lösning kan sedan utfärdar [az acr skapa] [ az-acr-build] kommandon för att sätta igång bild versioner.
@@ -65,7 +64,7 @@ Lär dig hur du utlöser versioner på källan kodgenomförande i den andra sjä
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisera framework uppdatering av operativsystem och
 
-Kraften i ACR uppgifter att verkligen förbättra container build arbetsflödet kommer från dess förmåga att identifiera en uppdatering av en basavbildning. När uppdaterade basavbildningen skickas till registret, skapa ACR uppgifter automatiskt alla programavbildningar som baseras på den.
+Kraften i ACR uppgifter att verkligen förbättra container build arbetsflödet kommer från dess förmåga att identifiera en uppdatering av en basavbildning. När den uppdaterade basavbildningen skickas till ditt register, eller en basavbildning uppdateras i en offentlig repo som i Docker Hub, skapa ACR uppgifter automatiskt alla programavbildningar som baseras på den.
 
 Behållaravbildningar i stora drag kan kategoriseras i *grundläggande* avbildningar och *program* bilder. Din Källavbildningen inkluderar vanligtvis operativsystem och programramverk som ditt program har skapats, tillsammans med andra anpassningar. Dessa Källavbildningen är vanligtvis baserade på offentliga överordnade avbildningar, till exempel: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], eller [Node.js ][base-node]. Flera av dina programavbildningar kan dela en gemensam basavbildning.
 
@@ -76,7 +75,7 @@ Eftersom ACR uppgifter identifierar dynamiskt basavbildningen beroenden när den
 Lär dig mer om framework uppdatering i den tredje självstudien i ACR uppgifter av operativsystem och [automatisera bild bygger på grundläggande uppdateringar med Azure Container Registry uppgifter](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Basavbildningen uppdaterar utlösaren versioner bara om både bas- och program-avbildningar finns i samma Azure container registry eller basen finns i en offentlig Docker Hub-lagringsplats.
+> För närvarande uppdaterar basavbildningen utlösaren versioner bara om både bas- och program-avbildningar finns i samma Azure container registry eller basen finns i en offentlig Docker Hub eller Microsoft Container Registry-lagringsplats.
 
 ## <a name="multi-step-tasks"></a>Uppgifter i flera steg
 

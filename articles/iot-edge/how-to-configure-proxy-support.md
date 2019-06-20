@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34a94a1b9c38070f5c9de22d9a9e4f24183a876c
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730152"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151009"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -52,7 +52,7 @@ Innan du utför stegen i den här artikeln som du behöver veta din proxy-URL.
 
 Proxy-URL: er ta följande format: **protokollet**://**proxy_host**:**proxy_port**.
 
-* Den **protokollet** är antingen HTTP eller HTTPS. Docker-daemon kan använda antingen protokollet, beroende på dina inställningar för behållarregister, men IoT Edge-daemon och runtime behållare bör alltid använda HTTPS.
+* Den **protokollet** är antingen HTTP eller HTTPS. Docker-daemon kan använda antingen protokollet, beroende på dina inställningar för behållarregister, men IoT Edge-daemon och runtime behållare bör alltid använder HTTP för att ansluta till proxyservern.
 
 * Den **proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering, kan du ange dina autentiseringsuppgifter som en del av proxy-värden med följande format: **användaren**:**lösenord**\@**proxy_host** .
 
@@ -250,7 +250,7 @@ Med miljövariabler som ingår, din modulen definition bör se ut som i följand
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",

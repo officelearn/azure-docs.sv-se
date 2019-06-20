@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157276"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187205"
 ---
 Varje klientdator som du ansluter till ett virtuellt nätverk med punkt-till-plats-anslutning måste ha ett klientcertifikat installerat. Du kan generera det från rotcertifikatet och installera det på varje klientdator. Om du inte installerar ett giltigt klientcertifikat misslyckas autentiseringen när klienten försöker ansluta till det virtuella nätverket.
 

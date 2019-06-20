@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967953"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190842"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -44,7 +44,7 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Konfigurera en lokal IR på en Azure virtuell dator med hjälp av en Azure Resource Manager-mall (automatiskt)
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Konfigurera en lokal IR på en Azure virtuell dator med hjälp av en Azure Resource Manager-mall 
 Du kan automatisera lokal IR-installationen på virtuella Azure-datorer med hjälp av [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Den här mallen innehåller ett enkelt sätt att ha en fullt fungerande lokal IR i Azure-nätverk med hög tillgänglighet och skalbarhet (förutsatt att du ställer in antalet noder 2 eller högre).
 
 ## <a name="command-flow-and-data-flow"></a>Kommandot flödet och dataflöde
@@ -86,6 +86,7 @@ Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-i
 
 - Konfigurera ett energischema på värddatorn för den lokala integreringskörningen så att datorn inte försättas i viloläge. Om värddatorn i viloläge, kopplas lokal integration runtime från.
 - Säkerhetskopiera autentiseringsuppgifter som är associerade med den lokala integreringskörningen regelbundet.
+- Konfigurera åtgärder för att automatisera lokal IR kan du läsa [under avsnitt](#automation-support-for-self-hosted-ir-function).  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installera och registrera lokal IR från Download Center
 
@@ -109,6 +110,45 @@ Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-i
     b. Alternativt kan du välja **Show autentiseringsnyckeln** att se nyckeltexten.
 
     c. Välj **Registrera**.
+
+## <a name="automation-support-for-self-hosted-ir-function"></a>Automatiseringsstöd för funktionen IR med egen värd
+
+
+> [!NOTE]
+> Om du planerar att konfigurera lokal IR på en Azure-dator och vill automatisera installationen med hjälp av Azure Resource Manager-mallar, se [avsnittet](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+Du kan använda kommandoraden för att konfigurera eller hantera en befintlig lokal IR. Detta kan användas för särskilt för att automatisera installationen, registrering av lokala IR-noder. 
+
+**Dmgcmd.exe** ingår i egenhanterad installationen, normalt finns: C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ mapp. Det har stöd för olika parametrar och kan anropas via kommandotolken med hjälp av batch-skript för automatisering. 
+
+*Syntax:* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Information (parametrar / egenskapen):* 
+
+| Egenskap                                                    | Beskrivning                                                  | Krävs |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Registrera noden för Integration Runtime (lokal installation) med den angivna nyckeln för autentisering | Nej       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet och/eller om du aktiverar inställningen av autentiseringsuppgifter direkt mot en lokal IR (utan att gå via ADF-service) med hjälp av  **Ny AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet från en fjärrdator i samma nätverk. | Nej       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till aktuell nod när noden körs i behållare | Nej       |
+| DisableRemoteAccess                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation av flera noder. Alternativet ny -**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell-cmdlet fungerar fortfarande även när fjärråtkomst har inaktiverats så länge som den körs på samma dator som installationens IR-nod. | Nej       |
+| Nyckeln ”`<AuthenticationKey>`”                                 | Skriv över / uppdatera en tidigare autentiseringsnyckeln. Var försiktig eftersom detta kan resultera i din tidigare lokal IR av noderna går offline, om nyckeln är av en ny integreringskörning. | Nej       |
+| GenerateBackupFile ”`<filePath>`” ”`<password>`”            | Generera säkerhetskopian för den aktuella noden, den säkerhetskopiera filen Inkluderar autentiseringsuppgifterna för noden nyckeln och data store | Nej       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Återställa noden från en säkerhetskopia                          | Nej       |
+| Starta om                                                     | Starta om värdtjänsten för Integration Runtime (lokal installation)   | Nej       |
+| Start                                                       | Starta värdtjänsten för Integration Runtime (lokal installation)     | Nej       |
+| Stoppa                                                        | Stoppa uppdateringstjänsten för Integration Runtime (lokal installation)        | Nej       |
+| StartUpgradeService                                         | Starta uppdateringstjänsten för Integration Runtime (lokal installation)       | Nej       |
+| StopUpgradeService                                          | Stoppa uppdateringstjänsten för Integration Runtime (lokal installation)        | Nej       |
+| TurnOnAutoUpdate                                            | Integration Runtime (lokal installation) automatisk uppdatering        | Nej       |
+| TurnOffAutoUpdate                                           | Stänga av Integration Runtime (lokal installation) automatisk uppdatering       | Nej       |
+| SwitchServiceAccount ”< domän\användare >” [”password”]           | Ange att DIAHostService ska köras som ett nytt konto. Använd ett tomt lösenord (””) för systemkonton eller virtuella konton | Nej       |
+| Loglevel `<logLevel>`                                       | Ange ETW-loggningsnivå (av, fel, utförlig eller allt). Vanligtvis används av Microsoft-supporten när du felsöker. | Nej       |
+
+   
 
 
 ## <a name="high-availability-and-scalability"></a>Hög tillgänglighet och skalbarhet
@@ -341,7 +381,7 @@ Om du använder en brandvägg från tredje part, kan du manuellt öppna port 806
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, kan du använda metoder än programmet ange autentiseringsuppgifter för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda den **New AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111649"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187321"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-resurser från Azures klassiska distributionsmodell till Azure Resource Manager-stacken.

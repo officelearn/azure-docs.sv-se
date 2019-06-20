@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058168"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190153"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-haveriberedskap
 
@@ -62,6 +62,17 @@ Installationen är följande-
 2. Etablera en ***sekundära*** Service Bus Premium-Namespace i en region *skiljer sig från där det primära namnområdet har etablerats*. Detta hjälper att tillåta felisolering i olika datacenterregioner.
 
 3. Skapa länkning av lagringspooler mellan primärt namnområde och sekundära namnområdet för att hämta den ***alias***.
+
+    >[!NOTE] 
+    > Om du har [migrerade namnområdet för Azure Service Bus Standard till Azure Service Bus Premium](service-bus-migrate-standard-premium.md), måste du använda redan existerande alias (dvs. Service Bus Standard namnområde anslutningssträngen) för att skapa haveriberedskap konfigurationen via den **PS/CLI** eller **REST API**.
+    >
+    >
+    > Det beror på att under migreringen, Azure Service Bus Standard anslutning sträng/DNS-namnet på ditt namnområde själva blir ett alias till ditt Azure Service Bus Premium-namnområde.
+    >
+    > Ditt klientprogram måste använda detta alias (dvs. Azure Service Bus Standard namnområde anslutningssträngen) för att ansluta till Premium-namnområde där disaster recovery kopplingen har ställts in.
+    >
+    > Om du använder portalen för att konfigurera katastrofberedskapskonfigurationen, abstrahera portalen villkor för från dig.
+
 
 4. Använd den ***alias*** hämtades i steg 3 att ansluta dina klientprogram att Geo-DR aktiverat primärt namnområde. Aliaset pekar till en början på det primära namnområdet.
 

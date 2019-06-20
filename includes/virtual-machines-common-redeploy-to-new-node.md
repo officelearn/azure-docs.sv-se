@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160292"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187348"
 ---
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 1. Välj den virtuella datorn som du vill distribuera om, och välj sedan den *omdistribuera* knappen i den *inställningar* bladet. Du kan behöva rulla ned för att se den **Support och felsökning** avsnitt som innehåller knappen ”distribuera om, som i följande exempel:

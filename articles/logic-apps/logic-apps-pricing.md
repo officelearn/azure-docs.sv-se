@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075065"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190688"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -53,7 +53,7 @@ Mer specifik prisinformation finns i [Azure Logic Apps-priser](https://azure.mic
 
 ## <a name="connectors"></a>Anslutningar
 
-Azure Logic Apps-anslutningsprogram att logic app åtkomst till appar, tjänster och system i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions), eller båda. Kopplingar klassificeras som Standard eller Enterprise. En översikt om dessa anslutningsappar finns i [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md). Följande avsnitt innehåller mer information om hur faktureringen för utlösare och åtgärder fungerar.
+Azure Logic Apps-anslutningsprogram att logic app åtkomst till appar, tjänster och system i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions), eller båda. Kopplingar klassificeras som Standard eller Enterprise. En översikt om dessa anslutningsappar finns i [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga anslutningsappar är tillgängliga för REST API: er som du vill använda i dina logic apps kan du skapa [anpassade anslutningsappar](https://docs.microsoft.com/connectors/custom-connectors), vilket är bara omslutningar kring de REST API: er. Anpassade anslutningar debiteras som Standard kopplingar. Följande avsnitt innehåller mer information om hur faktureringen för utlösare och åtgärder fungerar.
 
 <a name="triggers"></a>
 

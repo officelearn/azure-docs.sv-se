@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112429"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204638"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Baslinjeprincip: Kräva MFA för administratörer
 
@@ -71,6 +71,9 @@ Att aktivera den här principen och skydda dina administratörer:
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
 1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.
+
+> [!WARNING]
+> Det uppstod ett alternativ **aktivera principen automatiskt i framtiden** när den här principen fanns i en förhandsversion. Vi har tagit bort det här alternativet för att minimera plötsliga användarna påverkas. Om du har valt det här alternativet när det inte fanns **Använd inte principen** automatiskt nu markerade. Om de vill använda den här baslinjeprincip, se stegen ovan för att aktivera den.
 
 ## <a name="next-steps"></a>Nästa steg
 

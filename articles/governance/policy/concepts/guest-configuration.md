@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979516"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137430"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -114,7 +114,8 @@ Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten
 Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **Audit** principdefinitioner måste finnas.
+> Den **DeployIfNotExists** princip krävs för den **Audit** princip för att returnera resultat.
+> Utan den **DeployIfNotExists**, **Audit** princip visar ”0 av 0” resurser som status.
 
 Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **Audit** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 

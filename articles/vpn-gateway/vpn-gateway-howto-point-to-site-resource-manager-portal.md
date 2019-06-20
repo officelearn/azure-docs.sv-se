@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157375"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203067"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure Portal
 
@@ -98,7 +98,7 @@ Klientens adresspool är ett intervall med privata IP-adresser som du anger. Kli
 2. Klicka på **Konfigurera nu** för att öppna konfigurationssidan.
 
    ![Konfigurera nu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Validera och spara inställningen genom att klicka på **Spara**.
+3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Minsta nätmask är 29 bitars för aktiv/passiv och 28 bitars för aktiv/aktiv-konfiguration. Validera och spara inställningen genom att klicka på **Spara**.
 
    ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

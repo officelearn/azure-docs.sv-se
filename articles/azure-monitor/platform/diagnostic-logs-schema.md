@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789324"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155298"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -55,7 +55,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 | Azure Batch |[Azure Batch Diagnostisk loggning](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database för MySQL-diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL-diagnostikloggar](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Cognitive Services | Schemat är inte tillgänglig. |
+| Cognitive Services | [Diagnostisk loggning för Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Content Delivery Network | [Azure diagnostikloggar för CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB-loggning](../../cosmos-db/logging.md) |
 | Data Factory | [Övervaka Datafabriker med hjälp av Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 * [Stream resursdiagnostikloggar till **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

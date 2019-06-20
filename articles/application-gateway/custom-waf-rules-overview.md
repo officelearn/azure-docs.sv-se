@@ -1,22 +1,22 @@
 ---
-title: Azure Web Application Firewall (WAF) och anpassade regler
-description: Den här artikeln innehåller en översikt över brandväggen för webbaserade program (WAF) anpassade regler i Azure Application Gateway.
+title: Azure Web Application Firewall (WAF) v2 anpassade regler
+description: Den här artikeln innehåller en översikt över Web Application Firewall (WAF) v2 anpassade regler i Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752025"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164668"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Anpassade regler för brandväggen för webbaserade program
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Anpassade regler för brandväggen för webbaserade program v2
 
-Azure Application Gateway brandväggen för webbaserade program (WAF) levereras med en förkonfigurerad, hanterad plattform regeluppsättning som ger skydd från många olika typer av attacker. Dessa attacker är mellan webbplatser, SQL-inmatning och andra. Om du är en WAF-administratör kan du skriva egen regeluppsättning att utöka den grundläggande regeln (CRS) regler. Reglerna kan blockera eller tillåta begärda trafik baserat på matchar villkoren.
+Azure Application Gateway Web Application Firewall (WAF) v2 levereras med en förkonfigurerad, hanterad plattform regeluppsättning som ger skydd från många olika typer av attacker. Dessa attacker är mellan webbplatser, SQL-inmatning och andra. Om du är en WAF-administratör kan du skriva egen regeluppsättning att utöka den grundläggande regeln (CRS) regler. Reglerna kan blockera eller tillåta begärda trafik baserat på matchar villkoren.
 
 Anpassade regler kan du skapa dina egna regler som utvärderas för varje begäran som skickas via WAF. Dessa regler har högre prioritet än resten av reglerna i hanterade regeluppsättning. Anpassade regler innehåller ett regelnamn, regelprioritet och en matris med matchande villkor. Om dessa villkor är uppfyllda, åtgärd en (för att tillåta eller blockera).
 

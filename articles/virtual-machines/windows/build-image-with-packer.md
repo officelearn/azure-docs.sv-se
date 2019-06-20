@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 81dbd8082d5a7ab473cc0cbe5fcb6e564fbd750c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7210f80ab1a475c944390e56647177218c896221
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951145"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202920"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -35,7 +35,7 @@ När du skapar skapar Packer tillfällig Azure-resurser som den bygger den Virtu
 Skapa en resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurepowershell
-$rgName = "mypackerGroup"
+$rgName = "myResourceGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -91,7 +91,7 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myPackerGroup",
+    "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",

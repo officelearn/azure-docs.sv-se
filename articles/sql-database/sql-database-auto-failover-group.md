@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522857"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190712"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -42,7 +42,10 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Redundansgruppen (DIMMA)**
 
-  Redundansgruppen är en grupp med databaser som hanteras av en enda SQL Database-server eller i en hanterad instans som kan ha redundans som en enhet till en annan region om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen. När du skapade för hanterade instanser, en redundansgrupp innehåller alla användardatabaser i instansen och därför bara en redundansgrupp kan konfigureras på en instans.
+  Redundansgruppen är en namngiven grupp med databaser som hanteras av en enda SQL Database-server eller i en hanterad instans som kan ha redundans som en enhet till en annan region om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen. När du skapade för hanterade instanser, en redundansgrupp innehåller alla användardatabaser i instansen och därför bara en redundansgrupp kan konfigureras på en instans.
+  
+  > [!IMPORTANT]
+  > Namnet på redundansgruppen måste vara globalt unikt inom den `.database.windows.net` domän.
 
 - **SQL Database-servrar**
 

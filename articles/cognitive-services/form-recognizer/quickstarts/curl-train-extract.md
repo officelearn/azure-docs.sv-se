@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: aed18cd33078d6af65e749cf9dd4950087b6b72c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b5f3b77e3af719d0e3b37ac196b1691ce659e5e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063897"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271449"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -36,7 +36,7 @@ När du har beviljats åtkomst till att använda formatet igenkännande, får du
 |--|--|
 | **Namn** | Ett beskrivande namn för din resurs. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyNameFormRecognizer*. |
 | **Prenumeration** | Välj den Azure-prenumeration som har beviljats åtkomst. |
-| **Plats** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
+| **Location** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
 | **prisnivå** | Kostnaden för din resurs beror på prisnivå som du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
 
@@ -63,40 +63,59 @@ Du får en `200 (Success)` svar med följande JSON-utdata:
 
 ```json
 {
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
+  "parameters": {
+    "Endpoint": "{Endpoint}",
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": "{API key}",
+    "body": {},
+    "trainRequest": {
+      "source": "/input/data",
+      "sourceFilter": {
+        "prefix": "",
+        "includeSubFolders": false
+      }
     }
-  ],
-  "errors": []
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
+        "trainingDocuments": [
+          {
+            "documentName": "0.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "1.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "2.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "3.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "4.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          }
+        ],
+        "errors": []
+      }
+    }
+  }
 }
 ```
 

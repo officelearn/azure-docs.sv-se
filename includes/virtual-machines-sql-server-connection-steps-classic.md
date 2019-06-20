@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165495"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187287"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Bestämma DNS-namnet på en virtuell dator
 För att kunna ansluta till SQL Server-databasmotorn från en annan dator måste du känna till DNS-namnet (Domain Name System) för den virtuella datorn. (Detta är det namn som används för att identifiera den virtuella datorn på Internet. Du kan använda IP-adressen, men IP-adress kan ändras när Azure flyttar resurser för redundans eller underhåll. DNS-namnet är stabilt eftersom det kan omdirigeras till en ny IP-adress.)  

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233198"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206037"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -60,7 +60,10 @@ Azure Blob-anslutningsapp stöd för följande autentiseringstyper av, se inform
 - [Hanterade identiteter för autentisering av Azure-resurser](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning och Azure SQL Data Warehouse PolyBase laddning stöder bara nyckelautentisering för Azure Blob storage-konto.
+>När du använder PolyBase för att läsa in data till SQL Data Warehouse, om din käll- eller mellanlagring för Blob storage har konfigurerats med slutpunkt för virtuellt nätverk kan du använda hanterad identitetsautentisering som krävs av PolyBase och Använd lokal Integration Runtime med version 3,18 eller senare. Se den [hanterade identitetsautentisering](#managed-identity) avsnittet med mer konfigurationskraven.
+
+>[!NOTE]
+>HDInsights och Azure Machine Learning-aktiviteter har endast stöd för Azure Blob storage-konto, nyckelautentisering.
 
 ### <a name="account-key-authentication"></a>Konto-nyckelautentisering
 
@@ -272,6 +275,9 @@ Referera till [autentisera åtkomsten till Azure Storage med Azure Active Direct
 
     - **Som källa**, i Access (IAM) genom att ge minst **Storage Blob Data-läsare** roll.
     - **Som mottagare**, i Access (IAM) genom att ge minst **Storage Blob Data-deltagare** roll.
+
+>[!IMPORTANT]
+>Om du använder PolyBase för att läsa in data från Blob (som källa eller som mellanlagring) i SQL Data Warehouse, när du använder hanterade identitetsautentisering för Blob, se till att du även följa steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) till 1) registrera din SQL-databas Server med Azure Active Directory (Azure AD) och 2) deltagarrollen Storage Blob Data till SQL Database-servern; resten hanteras av Data Factory. Om din Blob storage är konfigurerad med en Azure Virtual Network-slutpunkt, för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.
 
 De här egenskaperna har stöd för en Azure Blob storage-länkad tjänst:
 

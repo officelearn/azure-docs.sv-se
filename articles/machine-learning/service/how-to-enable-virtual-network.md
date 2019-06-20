@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356184"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165336"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferens i Azure-nätverk
 
@@ -35,9 +35,13 @@ Det här dokumentet förutsätter att du är bekant med virtuella Azure-nätverk
 ## <a name="storage-account-for-your-workspace"></a>Storage-konto för din arbetsyta
 
 > [!IMPORTANT]
-> Du kan placera det lagringskonto som är kopplad till Azure Machine Learning-tjänstens arbetsyta bakom det virtuella nätverket bara när du gör experimentering. Inferens kräver obegränsad åtkomst till lagringskontot. Om du är osäker på om du har ändrat dessa inställningar eller inte, se __ändra standardregel för åtkomst av nätverket__ i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security). Använd steg för att tillåta åtkomst från alla nätverk under inferens eller modellera bedömning.
+> Den __standard storage-konto__ för Azure Machine Learning service kan placeras i ett virtuellt nätverk __bara när du gör experimentering__.
+>
+> För __icke-standard storage-konton för experimentering__, eller om du använder ett lagringskonto för __inferens__, måste du ha __obegränsad åtkomst till lagringskontot__.
+> 
+> Om du är osäker på om du har ändrat dessa inställningar eller inte, se __ändra standardregel för åtkomst av nätverket__ i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security). Använd steg för att tillåta åtkomst från alla nätverk under inferens eller modellera bedömning.
 
-Om du vill använda funktioner för Azure Machine Learning-experimentering med Azure Storage bakom ett virtuellt nätverk, följer du stegen nedan:
+Azure Storage-kontot för arbetsytan i ett virtuellt nätverk, Använd följande steg för att använda plats:
 
 1. Skapa en beräkning för experimentering t.ex. Machine Learning Compute bakom ett virtuellt nätverk eller koppla en beräkning för experimentering till arbetsytan t.ex. HDInsight-kluster eller den virtuella datorn. Mer information finns i [beräkning av Använd Machine Learning](#use-machine-learning-compute) och [använder en virtuell dator eller ett HDInsight-kluster](#use-a-virtual-machine-or-hdinsight-cluster) avsnitt i det här dokumentet
 2. Gå till det lagringsutrymme som är anslutet till arbetsytan. ![Bild av Azure-portalen som visar Azure Storage som är kopplat till arbetsytan Azure Machine Learning-tjänsten](./media/how-to-enable-virtual-network/workspace-storage.png)

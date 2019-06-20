@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727047"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144120"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -64,6 +64,10 @@ Azure Functions tidsgränsen ut efter 230 sekunder oavsett den `functionTimeout`
 
 Mer information om varaktiga funktioner i [i den här artikeln](../azure-functions/durable/durable-functions-overview.md). Du kan ställa in en aktivitet för Azure-funktion för att anropa funktionen varaktiga som returnerar ett svar med en annan URI som [det här exemplet](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Eftersom `statusQueryGetUri` returnerar HTTP-Status 202 när funktionen körs, du kan söka status för funktionen med hjälp av en webbaktivitet. Helt enkelt ställa in en webbaktivitet med den `url` fältet inställt på `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. När funktionen varaktiga är klar blir resultatet av funktionen utdata för Web-aktivitet.
 
+
+## <a name="sample"></a>Exempel
+
+Du hittar ett exempel på en Datafabrik som använder en Azure-funktion för att extrahera innehållet i tar-filen [här](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Nästa steg
 

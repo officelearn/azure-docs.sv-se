@@ -1,10 +1,10 @@
 ---
-title: Skydda Azure SQL-tjänst och data i Azure Security Center | Microsoft Docs
+title: Skydda Azure-data- och tjänster i Azure Security Center | Microsoft Docs
 description: Det här dokumentet behandlar rekommendationer i Azure Security Center som hjälper dig att skydda dina data och Azure SQL-tjänst och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -12,48 +12,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 06/19/2019
 ms.author: monhaber
-ms.openlocfilehash: bbba5f380fddb4fdec43a7414e59778135c4e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ac0e4ebaafb8b0c9c79e885cecbefc5a65c1823
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428307"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275296"
 ---
-# <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
-Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
+# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Skydda Azure-data- och tjänster i Azure Security Center
+Det här avsnittet visar hur du visar och implementera säkerhetsrekommendationer för data- och lagringsresurser. Azure Security Center att hitta följande rekommendationer när du analyserar säkerhetstillståndet hos dina Azure-resurser.
+
+## <a name="view-your-data-security-information"></a>Visa din säkerhetsinformation för data
+
+1. I den **Resource security hygien** klickar du på **Data- och lagringsresurser**.
+
+   ![Data- och lagringsresurser](./media/security-center-monitoring/click-data.png)
+
+    Den **datasäkerhet** öppnas med rekommendationer för dataresurser.
+
+     ![Dataresurser](./media/security-center-monitoring/sql-overview.png)
+
+Från den här sidan kan du:
+
+* Klicka på den **översikt** fliken listar alla data resurser rekommendationerna för att åtgärdas. 
+* Klicka på varje flik och visa rekommendationer efter resurstyp.
+
+    > [!NOTE]
+    > Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 
-### <a name="monitor-data-security"></a>Övervaka datasäkerhet
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Åtgärda en rekommendation på en Dataresurs
 
-När du klickar på **Datasäkerhet** i avsnittet **Skydd** öppnas **Dataresurser** med rekommendationer för SQL och lagring. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+1. Från någon av flikarna resurs, klickar du på en resurs. Informationssidan öppnas lista över rekommendationerna för att åtgärdas.
 
-![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+    ![Resursinformation](./media/security-center-monitoring/sql-recommendations.png)
 
-Under **SQL-rekommendationer**, kan du klicka på valfri rekommendation och få mer information om ytterligare åtgärder för att lösa ett problem. Följande exempel visar den expanderade rekommendationen **Databasgranskning och hotidentifiering på SQL-databaser**.
+2. Klicka på en rekommendation. Rekommendationssidan öppnas och visar den **åtgärdssteg** du implementerar rekommendationen.
 
-![Information om en SQL-rekommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+   ![Åtgärdssteg](./media/security-center-monitoring/remediate1.png)
 
-Under **Aktivera granskning på SQL-databaser** visas följande information:
+3. Klicka på **vidta åtgärder**. Inställningssidan resurs visas.
 
-* en lista med SQL-databaser
-* vilken server de ligger på
-* information om huruvida inställningen har ärvts från servern eller om den är unik för databasen
-* aktuell status
-* problemets allvarlighetsgrad
+    ![Aktivera rekommendationen](./media/security-center-monitoring/remediate2.png)
 
-När du klickar på databasen för att utföra rekommendationen öppnas **Granskning och hotidentifiering** som på följande skärmbild.
-
-![Granskning och hotidentifiering](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
+4. Följ den **reparationssteg** och klicka på **spara**.
 
 ## <a name="data-and-storage-recommendations"></a>Data- och lagringsrekommendationer
 
 |Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
 |----|----|----|----|
-|Lagringskonto|20|Säker överföring till storage-konton måste vara aktiverat|Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
+|Lagringskonto|20|Säker överföring till storage-konton måste vara aktiverat|Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |Redis|20|Endast säkra anslutningar till Redis-cachen ska aktiveras|Aktivera endast anslutningar via SSL till Azure Cache för Redis. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |SQL|15|Transparent datakryptering på SQL-databaser ska aktiveras|Aktivera transparent datakryptering att skydda data i vila och uppfyller efterlevnadskrav.|
 |SQL|15|SQL server-granskning ska aktiveras|Aktivera granskning för Azure SQL-servrar. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.)|
@@ -65,13 +75,13 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |Lagringskonto|1|Storage-konton som ska migreras till nya Azure Resource Manager-resurser|Använda den nya Azure Resource Manager v2 för storage-konton för att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, och Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
 
 ## <a name="see-also"></a>Se också
-Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
+Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper, finns i följande avsnitt:
 
 * [Skydda virtuella datorer i Azure Security Center](security-center-virtual-machine-recommendations.md)
 * [Skydda program i Azure Security Center](security-center-application-recommendations.md)
 * [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 
-I följande avsnitt kan du lära dig mer om Security Center:
+Om du vill veta mer om Security Center finns i följande avsnitt:
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.

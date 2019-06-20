@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160961"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187757"
 ---
 Jobbet producerar en JSON-utdata-fil som innehåller metadata om identifierade och spårade ansikten. Metadata innehåller koordinater som anger platsen för ansikten, samt ett face ID-nummer som indikerar spårningen av den individen. Face ID-nummer är lätt att återställa under omständigheter när främre ansiktet förloras eller överlappas i RAM, vilket resulterar i vissa personer komma tilldelats flera ID: N.
 

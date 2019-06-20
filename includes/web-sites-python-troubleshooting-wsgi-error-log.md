@@ -9,11 +9,11 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137036"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187947"
 ---
 Om Python påträffar ett fel när ditt program, returneras en enkel felsida (t.ex.) ”Sidan kan inte visas eftersom ett internt serverfel har inträffat”.).
 

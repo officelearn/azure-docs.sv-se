@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117248"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187357"
 ---
 Azure CLI kan du skapa och hantera dina Azure-resurser på macOS, Linux och Windows. Den här artikeln beskriver några av de vanligaste kommandon för att skapa och hantera virtuella datorer (VM).
 

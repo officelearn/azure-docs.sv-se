@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: d82e3d37c5927640d349304559be548743c34fc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5979f8523aad95152378a2e7fabbe9fd8571e09
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076226"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154090"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
@@ -37,7 +37,7 @@ En dataström är en obundna sekvens av händelser över tid. Stream Analytics-j
 Läs mer om inmatningar av strömmande data [Stream data som indata till Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Referensindata
-Stream Analytics har även stöd för indata som kallas *referensdata*. Referensdata är antingen helt statisk eller ändras långsamt. Det är vanligt att utföra korrelation och sökningar. Du kan till exempel att ansluta till data i strömindata data till data i referensdata, mycket som du utför en SQL-koppling för att leta upp statiska värden. Azure Blob storage är för närvarande endast stöds Indatakällan för referensdata. Källa för referensdatablobar har en gräns på upp till 300 MB i storlek, beroende på frågekomplexiteten och tilldelas enheter för strömning.
+Stream Analytics har även stöd för indata som kallas *referensdata*. Referensdata är antingen helt statisk eller ändras långsamt. Det är vanligt att utföra korrelation och sökningar. Du kan till exempel att ansluta till data i strömindata data till data i referensdata, mycket som du utför en SQL-koppling för att leta upp statiska värden. Azure Blob storage och Azure SQL Database stöds för närvarande som källa för referensdata. Källa för referensdatablobar har en gräns på upp till 300 MB i storlek, beroende på frågekomplexiteten och tilldelas enheter för strömning.
 
 Läs mer om inmatningar av referensdata, [använda referensdata för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)
 

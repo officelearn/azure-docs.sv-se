@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140090"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187844"
 ---
 I det här avsnittet ska uppdatera du koden i projektet backend-befintliga Mobile Apps för att skicka ett push-meddelande varje gång ett nytt objekt läggs. Den här processen baseras på den [mall](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, vilket gör det möjligt för plattformsoberoende push-meddelanden. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får alla klientplattformar.
 

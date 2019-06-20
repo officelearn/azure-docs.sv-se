@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234355"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137760"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använda Azure virtuella datorer för datavetenskap
 
@@ -56,6 +56,17 @@ Att bevara paritet av sökvägar med den **kostnadsfria Compute** nivå, du kan 
 ![Avsluta-knappen i Azure-anteckningsböcker](media/shutdown.png)
 
 När ett projekt körs på en virtuell dator, filerna är monterade på rotkatalogen för Jupyter-server (den katalog som visas i JupyterHub), ersätter standardfiler för Azure-anteckningsböcker. När du stänger en virtuell dator med hjälp av den **avstängning** knappen i anteckningsboken Användargränssnittet för Azure-anteckningsböcker återställer standardfiler som.
+
+![Avsluta-knappen i Azure-anteckningsböcker](media/shutdown.png)
+
+## <a name="create-new-dsvm-users"></a>Skapa nya DSVM-användare
+
+Om flera användare delar en DSVM, kan du undvika att blockera varandra genom att skapa och använda en DSVM-användare för varje användare av bärbara datorer:
+
+1. På den [Azure-portalen](https://portal.azure.com), navigera till den virtuella datorn.
+1. Under **Support och felsökning** i den vänstra marginalen väljer **Återställ lösenord**.
+1. Ange ett nytt användarnamn och lösenord och välj **uppdatering**. (Befintliga användarnamn påverkas inte.)
+1. Upprepa det föregående steget för alla ytterligare användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

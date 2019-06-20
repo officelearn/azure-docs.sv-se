@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851144"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202860"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -39,7 +39,6 @@ Varje väg innehåller ett adressprefix och en nästa hopp-typ. När trafik läm
 |Standard|Unikt för det virtuella nätverket                           |Virtuellt nätverk|
 |Standard|0.0.0.0/0                                               |Internet       |
 |Standard|10.0.0.0/8                                              |Ingen           |
-|Standard|172.16.0.0/12                                           |Ingen           |
 |Standard|192.168.0.0/16                                          |Ingen           |
 |Standard|100.64.0.0/10                                           |Ingen           |
 
@@ -49,7 +48,7 @@ Nästa hopptyper som anges i föregående tabell representerar hur Azure diriger
 * **Internet**: Dirigerar trafik som anges av adressprefixet till Internet. Systemstandardvägen anger adressprefixet 0.0.0.0/0. Om du inte åsidosätter Azures standardvägar dirigerar Azure trafik för alla adresser som inte har angetts av ett adressintervall inom ett virtuellt nätverk till Internet, med ett undantag. Om måladressen är någon av Azures tjänster dirigerar Azure trafiken direkt till tjänsten via Azures stamnätverk i stället för att dirigera trafiken till Internet. Trafik mellan Azure-tjänster sker inte via Internet, oavsett vilken Azure-region det virtuella nätverket finns i eller vilken Azure-region en instans av Azure-tjänsten har distribuerats i. Du kan åsidosätta Azures standardsystemväg för adressprefixet 0.0.0.0/0 med en [anpassad väg](#custom-routes).<br>
 * **Ingen**: Trafik som dirigeras till den nästa hopptypen **None** (Ingen) tas bort istället för att dirigeras utanför undernätet. Azure skapar automatiskt standardvägar för följande adressprefix:<br>
 
-    * **10.0.0.0/8, 172.16.0.0/12 och 192.168.0.0/16**: Reserverat för privat användning i RFC 1918.<br>
+    * **10.0.0.0/8 och 192.168.0.0/16**: Reserverat för privat användning i RFC 1918.<br>
     * **100.64.0.0/10**: Reserverad i RFC 6598.
 
     Om du tilldelar några av de föregående adressintervallerna inom adressutrymmet för ett virtuellt nätverk ändrar Azure automatiskt nästa hopptyp för vägen från **None** (Ingen) till **Virtuellt nätverk**. Om du tilldelar ett adressintervall till ett virtuellt nätverks adressområde som inkluderar, men inte är detsamma som, något av de fyra reserverade adressprefixen, tar Azure bort prefixets väg och lägger till vägen för adressprefixet du la till, med **Virtuellt nätverk** som nästa hopptyp.
@@ -253,10 +252,9 @@ Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 |Standard |Aktiv |0.0.0.0/0           |Internet                  |                   |
 |Standard |Aktiv |10.0.0.0/8          |Ingen                      |                   |
 |Standard |Aktiv |100.64.0.0/10       |Ingen                      |                   |
-|Standard |Aktiv |172.16.0.0/12       |Ingen                      |                   |
 |Standard |Aktiv |192.168.0.0/16      |Ingen                      |                   |
 
-Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adressprefixen 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 och 100.64.0.0/10 från routningstabellen för *Subnet1* när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till i *Subnet1*.  
+Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adressprefixen 10.0.0.0/8, 192.168.0.0/16 och 100.64.0.0/10 från den *Subnet1* routningstabellen när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till *Subnet1*.  
 
 ## <a name="next-steps"></a>Nästa steg
 

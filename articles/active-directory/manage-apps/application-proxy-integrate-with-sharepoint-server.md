@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473774"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164103"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -129,7 +129,7 @@ Nu när du har konfigurerat KCD, är du redo att konfigurera Azure AD-programpro
    1. På programsidan i portalen väljer **enkel inloggning**.
    2. Enkel inloggningsläge, Välj **integrerad Windows-autentisering**.
    3. Intern program-SPN inställd på värdet som du angav tidigare. I det här exemplet som skulle vara **HTTP/SharePoint**.
-   4. I ”delegerad inloggningsidentitet”, väljer **lokala SAM-kontonamn**.
+   4. I ”delegerad inloggningsidentitet”, väljer du det lämpligaste alternativet för konfigurationen av Active Directory-skog. Till exempel om du har en enda AD-domän i skogen, väljer **lokala SAM-kontonamn** (som visas nedan), men om användarna inte är i samma domän som SharePoint och välj sedan App Proxy anslutningstjänstservrarna  **Den lokala användarens huvudnamn** (visas inte).
 
    ![Konfigurera integrerad Windows-autentisering för enkel inloggning](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

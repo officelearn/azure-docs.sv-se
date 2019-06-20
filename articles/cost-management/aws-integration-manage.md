@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870319"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275705"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS kostnader och användning i Azure
 
@@ -129,6 +129,8 @@ Du kan använda följande felsökningsinformation för att lösa vanliga problem
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>Ingen behörighet till den länkade AWS-konton
 
+**Felkod:** _Obehörig_
+
 Det finns två sätt att få behörighet att komma åt AWS länkade konton kostnader:
 
 - Få åtkomst till den hanteringsgrupp som har länkade till AWS-konton.
@@ -136,7 +138,11 @@ Det finns två sätt att få behörighet att komma åt AWS länkade konton kostn
 
 Som standard är AWS connector skapare ägare av alla objekt som skapats för anslutningen. Inklusive AWS länkat konsoliderade konto och AWS konto.
 
+Du behöver minst en roll med deltagarbehörighet för att kunna verifiera inställningarna för koppling, läsare kan inte Kontrollera anslutningsinställningarna
+
 ### <a name="collection-failed-with-assumerole"></a>Samlingen misslyckades med AssumeRole
+
+**Felkod:** _FailedToAssumeRole_
 
 Detta fel innebär att Cost Management är det går inte att anropa API: et för AWS AssumeRole. Det här problemet kan inträffa på grund av ett problem med rolldefinitionen. Kontrollera att följande villkor är uppfyllda:
 
@@ -147,11 +153,23 @@ Detta fel innebär att Cost Management är det går inte att anropa API: et för
 
 ### <a name="collection-failed-with-access-denied"></a>Samlingen misslyckades med åtkomst nekad
 
-Det här felmeddelandet innebär att Cost Management är inte kan komma åt akt filer som lagras i en Amazon S3-bucket. Se till att principen AWS JSON kopplade till rollen liknar exemplet som visas längst ned på den [skapar en roll och principen i AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) avsnittet.
+- **Felkod:** _AccessDeniedReportDefinitions_ 
+- **Felkod:** _AccessDeniedListReports_ 
+- **Felkod:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>Connector-fel med FailedToFindReport
+Det här felet meddelanden innebär att Cost Management är inte kan komma åt akt filer som lagras i en Amazon S3-bucket. Se till att principen AWS JSON kopplade till rollen liknar exemplet som visas längst ned på den [skapar en roll och principen i AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) avsnittet.
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Samlingen misslyckades eftersom vi ingen hittade kostnad och användningsrapporter
+
+**Felkod:** _FailedToFindReport_
 
 Det här felet innebär att kostnadshantering det går inte att hitta rapporten kostnader och användning som definierades i kopplingen. Kontrollera att den inte bort och att principen AWS JSON kopplade till rollen liknar exemplet som visas längst ned på den [skapar en roll och principen i AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) avsnittet.
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Det går inte att skapa eller verifiera anslutningen på grund av matchningsfel för kostnader och användningsrapporten definitioner
+
+**Felkod:** _ReportIsNotValid_
+
+Det här felet relaterar till definitionen av AWS-kostnaderna och användningsrapporter, vi kräva specifika inställningar för den här rapporten, se kraven i [skapar kostnader och användning i AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>Nästa steg
 

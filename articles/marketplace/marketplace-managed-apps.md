@@ -2,18 +2,18 @@
 title: Erbjudande om Azure-program-hanterat program publicera Guide
 description: Den här artikeln beskrivs kraven för att publicera ett hanterat program på Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937804"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154937"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure-program: Erbjudande om hanterat program publicera Guide
 
@@ -32,9 +32,8 @@ Använda Azure-appen: hanterade erbjudande apptyp när följande villkor krävs:
 
 |Krav |Information  |
 |---------|---------|
-|Distribueras till en kunds Azure-prenumeration | Hanterade appar måste distribueras i kundens prenumeration och kan hanteras av en 3 part | 
-|Fakturering och mätning    |  Resurserna som ska etableras i kundens Azure-prenumeration. Betala per användning (betalning per användning) virtuella datorer ska ingå i en transaktion med kunden via Microsoft, faktureras via kundens Azure-prenumeration (betalning per användning) 
-När det gäller bring-your-own-license, medan Microsoft att debitera infrastrukturkostnaderna för kundprenumeration ska du transact dina programvarulicenser avgifter för kunden direkt        |
+|Distribueras till en kunds Azure-prenumeration | Hanterade appar måste distribueras i kundens prenumeration och kan hanteras av en tredje part. | 
+|Fakturering och mätning    |  Resurserna som ska etableras i kundens Azure-prenumeration. Betala per användning (betalning per användning) virtuella datorer ska ingå i en transaktion med kunden via Microsoft, faktureras via kundens Azure-prenumeration (betalning per användning). <br> När det gäller bring-your-own-license, medan Microsoft att debitera infrastrukturkostnader som tillkommer i kundens prenumeration, kommer du transact dina programvarulicenser avgifter för kunden direkt.        |
 |Azure-kompatibel virtuell hårddisk (VHD)    |   Virtuella datorer måste vara baserade på Windows eller Linux.<ul> <ul> <li>Mer information om hur du skapar en Linux-VHD finns [Linux-distributioner på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Läs mer om hur du skapar en virtuell Windows-Hårddisk [skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
@@ -50,4 +49,4 @@ Om du inte redan gjort det,
 
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.

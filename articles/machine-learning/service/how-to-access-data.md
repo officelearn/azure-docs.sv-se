@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239032"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269300"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 
@@ -59,7 +59,19 @@ ds = ws.get_default_datastore()
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>Registrera ditt eget datalager med arbetsytan
 
-Om du har befintliga Azure Storage kan registrera du den som ett datalager på din arbetsyta.   Alla register-metoder som finns på den [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formatet register_azure_ *. 
+Om du har befintliga Azure Storage kan registrera du den som ett datalager på din arbetsyta. 
+
+<a name="store"></a>
+
+####  <a name="storage-guidance"></a>Riktlinjer för Storage
+
+Vi rekommenderar att blob storage och blob-datalager. Standard- och premium storage är tillgängliga för blobar. Även om dyrare, vi föreslår premium-lagring på grund av snabbare dataflödeshastighet som kan förbättra uppdateringshastigheten utbildning körs, particlularly om du tränar mot en stor datauppsättning. Se den [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) för storage-konto kostnadsinformation.
+
+>[!NOTE]
+> Azure Machine Learning-tjänsten har stöd för andra typer av datalager, vilket kan vara användbart för specifika scenarier. Exempel: du behöver träna med hjälp av data som lagras i en databas kan du använda AzureSQLDatabaseDatastore eller AzurePostgreSqlDatastore. Se [den här tabellen](#matrix) för typerna av tillgängliga datalagring.
+
+#### <a name="register-your-datastore"></a>Registrera ditt datalager
+Alla register-metoder som finns på den [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formatet register_azure_ *.
 
 I följande exempel visar att registrera en Azure Blob-behållare eller en Azure-filresurs som ett datalager.
 
@@ -178,6 +190,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Alla `ds` eller `ds.path` objekt som motsvarar en Miljövariabelns namn i formatet `"$AZUREML_DATAREFERENCE_XXXX"` vars värde representerar sökvägen till monteringspunkten/Hämtningsmappen i beräkningen som mål. Datastore-sökväg i beräkningen som mål kanske inte är samma som körningssökvägen för utbildning-skriptet.
 
+<a name="matrix"></a>
 ### <a name="training-compute-and-datastore-matrix"></a>Utbildning beräknings- och datalager matris
 
 I följande matrisen visas de tillgängliga data åtkomst överallt-funktionerna för olika utbildning beräkningsmål och datastore-scenarier. Läs mer om den [utbildning beräkningsmål för Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -194,7 +207,7 @@ I följande matrisen visas de tillgängliga data åtkomst överallt-funktionerna
 | Azure DataLake Analytics       |Gäller inte                                           |Gäller inte                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |Gäller inte                                                                         |
 
 > [!NOTE]
-> Det kan finnas scenarier som iterativ mycket stora mängder dataprocesser körs snabbare med [`as_download()`] i stället för [`as_mount()`]; detta kan verifieras experimentellt.
+> Det kan finnas scenarier som iterativ mycket stora mängder dataprocesser körs snabbare med `as_download()` i stället för `as_mount()`; detta kan verifieras experimentellt.
 
 ### <a name="examples"></a>Exempel 
 

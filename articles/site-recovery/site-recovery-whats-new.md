@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418381"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272863"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten uppdateras och förbättras kontinuerligt. Som hjälper dig att hålla dig uppdaterad, den här artikeln innehåller information om de senaste versioner, nya funktioner och nytt innehåll. Den här sidan uppdateras regelbundet.
 
 Om du har förslag på funktioner för Site Recovery kan vi vill gärna [höra dina synpunkter](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="updates-june-2019"></a>Uppdateringar (juni 2019)
+
+### <a name="update-rollup-37"></a>Samlad uppdatering 37
+
+[Uppdatera samlad 37](https://support.microsoft.com/help/4508614/) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar av Site Recovery-agenter och leverantörer (som beskrivs i samlade)
+**Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
+
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**GPT-partitioner** | Från Update Rollup 37 och senare (Mobility service version 9.25.5241.1), upp till fem GPT stöds-partitioner i UEFI. Före den här uppdateringen har fyra stöds.
+
+
+
+## <a name="updates-may-2019"></a>Uppdateringar (maj 2019)
+
+### <a name="update-rollup-36"></a>Samlad uppdatering 36
+
+[Uppdatera samlad 36](https://support.microsoft.com/help/4503156) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade)
+**Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade)
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
+
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Replikera tillagda diskar** | Aktivera replikering för datadiskar som lagts till i en Azure-dator som redan är aktiverad för haveriberedskap. [Läs mer](azure-to-azure-enable-replication-added-disk.md).
+**Automatiska uppdateringar** | När du konfigurerar automatiska uppdateringar för mobilitetstjänsttillägget som körs på virtuella Azure-datorer aktiverad för katastrofåterställning, kan du nu välja ett befintligt automation-konto att använda, istället för att använda standardkonto som skapas av Site Recovery. [Läs mer](azure-to-azure-autoupdate.md).
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
+
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Bearbeta serverövervakning** | För haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar, övervaka och felsöka problem med process server med förbättrad server health rapporter och aviseringar. [Läs mer](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>Uppdateringar (mars 2019)
@@ -32,8 +87,9 @@ Om du har förslag på funktioner för Site Recovery kan vi vill gärna [höra d
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade)
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
-Nya funktioner i uppdateringen.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
+
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -63,8 +119,8 @@ Nya funktioner i uppdateringen.
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning 
-Nya funktioner i uppdateringen.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning 
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -73,8 +129,8 @@ Nya funktioner i uppdateringen.
 **Lagringsdirigering** | Du kan konfigurera haveriberedskap för appar som körs på Virtuella Azure-appar med hjälp av [Lagringsdirigering](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) för hög tillgänglighet.  Med hjälp av Lagringsdirigering (S2D) tillsammans med Site Recovery ger heltäckande skydd för Azure VM-arbetsbelastningar. S2D kan du vara värd för ett gästkluster i Azure. Detta är särskilt användbart när en virtuell dator är värd för en kritiska program, till exempel SAP ASCS layer, SQL Server eller skalbar filserver.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
-Nya funktioner i uppdateringen.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Haveriberedskap för VMware/fysisk server
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -83,6 +139,7 @@ Nya funktioner i uppdateringen.
 
 
 ## <a name="updates-january-2019"></a>Uppdateringar (januari 2019)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>Accelererat nätverk (Azure virtuella datorer)
 
@@ -99,16 +156,19 @@ Accelererat nätverk aktivera i/o-virtualisering (SR-IOV) till en virtuell dator
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade).
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
 
-Nya funktioner i uppdateringen.
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
 **Linux-support** | Stöd har lagts till för Red Hat-arbetsstation 6/7 och nya kernel-versioner för Ubuntu, Debian och SUSE.
 **Lagringsdirigering** | Site Recovery stöder virtuella Azure-datorer med hjälp av Lagringsdirigering (S2D).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replikering för VMware-datorer/fysiska servrar 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Haveriberedskap för VMware-datorer/fysiska servrar
+
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
+ 
 **Funktion** | **Detaljer**
 --- | ---
 **Linux-support** | Stöd har lagts till för 7.6 för Red Hat Enterprise Linux, Red Hat-arbetsstation 6/7, Oracle Linux 6.10/7.6 och nya kernel-versioner för Ubuntu, Debian och SUSE.
@@ -123,9 +183,8 @@ Nya funktioner i uppdateringen.
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade).
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replikering för VMware-datorer/fysiska servrar 
-Nya funktioner i uppdateringen.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>Replikering för VMware-datorer/fysiska servrar 
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 **Funktion** | **Detaljer**
 --- | ---
 **Linux-support** | Stöd har lagts till för Oracle Linux 6.8 och 6,9/7.0 och för UEK5 kernel.
@@ -135,8 +194,8 @@ Nya funktioner i uppdateringen.
 **Redundans** | Förbättrad redundanstiden för virtuella VMware-datorer där storvsc och vsbus inte startdrivrutiner.
 **Stöd för UEFI** | Virtuella Azure-datorer stöder inte starttyp UEFI. Nu kan du migrera lokala fysiska servrar med UEFI till Azure med Site Recovery. Site Recovery migrerar servern genom att konvertera starttyp till BIOS innan migreringen. Site Recovery tidigare stöd för den här konverteringen för virtuella datorer bara. Support är tillgänglig för fysiska servrar som kör Windows Server 2012 eller senare.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
-Nya funktioner i uppdateringen.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -176,8 +235,8 @@ Disaster Recovery på Azure virtuella datorer medför VM licensieringskostnadern
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade).
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
-Nya funktioner i uppdateringen.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM-katastrofåterställning
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -208,8 +267,8 @@ Nya funktioner i uppdateringen.
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade).
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
-#### <a name="azure-vms-disaster-recovery"></a>Haveriberedskap för Azure virtuella datorer 
-Nya funktioner i uppdateringen.
+### <a name="azure-vms-disaster-recovery"></a>Haveriberedskap för Azure virtuella datorer 
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -217,8 +276,8 @@ Nya funktioner i uppdateringen.
 **Cloud-support** | Stöd för haveriberedskap för virtuella Azure-datorer i molnet för Tyskland.
 **Haveriberedskap mellan prenumerationer** | Stöd för replikering av virtuella Azure-datorer i en region till en annan region i en annan prenumeration inom samma Azure Active Directory-klientorganisation. [Läs mer](https://aka.ms/cross-sub-blog).
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Haveriberedskap för virtuella VMware-datorer/fysiska servern 
-Nya funktioner i uppdateringen.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Haveriberedskap för virtuella VMware-datorer/fysiska servern 
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -237,17 +296,17 @@ Nya funktioner i uppdateringen.
 **Leverantörer och agenter** | En uppdatering av Site Recovery-agenter och leverantörer (som beskrivs i samlade).
 **Problemet korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (som beskrivs i samlade).
 
-#### <a name="azure-vms-disaster-recovery"></a>Haveriberedskap för Azure virtuella datorer 
+### <a name="azure-vms-disaster-recovery"></a>Haveriberedskap för Azure virtuella datorer 
 
-Nya funktioner i uppdateringen.
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
 **Linux-support** | Stöd för Red Hat Enterprise Linux 7.5.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Haveriberedskap för virtuella VMware-datorer/fysiska servern 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Haveriberedskap för virtuella VMware-datorer/fysiska servern 
 
-Nya funktioner i uppdateringen.
+Funktioner har lagts till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---

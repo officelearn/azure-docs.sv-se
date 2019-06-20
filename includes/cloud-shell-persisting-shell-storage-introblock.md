@@ -5,11 +5,11 @@ ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
 ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125203"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187681"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Spara filer i Azure Cloud Shell
 Cloudshell använder Azure File storage för att spara filer mellan sessioner. På första start uppmanas Cloud Shell du att associera en ny eller befintlig filresurs för att spara filer mellan sessioner.

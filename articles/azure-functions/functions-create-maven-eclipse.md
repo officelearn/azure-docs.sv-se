@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341447"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154608"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Skapa din första funktion med Java och Eclipse 
 
@@ -43,15 +43,15 @@ Vi rekommenderar starkt att även installera [Azure Functions Core Tools version
 
 ## <a name="create-a-functions-project"></a>Skapa ett funktionsprojekt
 
-1. I Eclipse väljer den **filen** menyn och välj sedan **projekt**. 
-1. Öppna den **Java-projekt** mapp i den **nytt projekt** och välj **Maven-projekt**och välj sedan **nästa**.
+1. I Eclipse väljer den **filen** menyn och välj sedan **New -&gt; Maven-projekt**. 
 1. Acceptera standardinställningarna i den **nytt Maven-projekt** dialog och välj **nästa**.
 1. Välj **lägga till Archetype** och lägga till poster för den [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype grupp-ID: com.microsoft.azure
     - Archetype artefakt-ID: azure-functions-archetype
-    - Version: Använd den senaste versionen från [centralt](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Version: Använd senaste version **1.22 enligt** från [centralt](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven skapa](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Klicka på **OK** och ange information om aktuella project och så småningom **Slutför**.
+1. Klicka på **OK** och klicka sedan på **nästa** att ange värden som följande ögonblicksbilden (. Använd en annan appName än **fabrikam-funktion-20170920120101928**), och Så småningom **Slutför**.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som utgörs av utlösande HTTP-begäran.
 
@@ -68,7 +68,7 @@ Avsluta körningen på konsolfönstret när du är klar testa din funktion. Enda
 
 ### <a name="debug-the-function-in-eclipse"></a>Felsöka funktionen i Eclipse
 
-I din **kör som** konfiguration som angetts i föregående steg, ändra `azure-functions:run` till `mvn azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta appen i felsökningsläge.
+I din **kör som** konfiguration som angetts i föregående steg, ändra `azure-functions:run` till `azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta appen i felsökningsläge.
 
 Välj den **kör** menyn och öppna **felsöka konfigurationer**. Välj **fjärranslutna Java-program** och skapa en ny. Namnge din konfiguration och Fyll i inställningarna. Porten bör överensstämma med debug-port som öppnas av funktionen värden, vilket som standard är `5005`. Efter installationen klickar du på `Debug` att starta felsökningen.
 

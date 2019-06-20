@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204483"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190447"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Anslut data från Azure Active Directory
 
@@ -34,6 +34,8 @@ Azure Sentinel kan du samla in data från [Azure Active Directory](../active-dir
 - Om du vill exportera inloggningsdata från Active Directory, måste du ha en Azure AD P1 eller P2-licens.
 
 - Användare med globala administratören eller säkerhetsadministratören administratörsbehörighet på den klient som du vill strömma loggar från.
+
+- Du måste ha behörighet att komma åt diagnostikloggar för Azure AD för att kunna se anslutningsstatus. 
 
 
 ## <a name="connect-to-azure-ad"></a>Anslut till Azure AD

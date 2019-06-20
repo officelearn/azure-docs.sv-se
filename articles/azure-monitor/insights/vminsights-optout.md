@@ -1,6 +1,6 @@
 ---
-title: Hur du inaktiverar övervakning med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
-description: Den här artikeln beskrivs hur du kan sluta övervaka dina virtuella datorer med Azure Monitor för virtuella datorer.
+title: Inaktivera övervakning i Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
+description: Den här artikeln beskriver hur du stoppar övervakningen av dina virtuella datorer i Azure Monitor för virtuella datorer.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522125"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155693"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Så här inaktiverar du övervaka dina virtuella datorer med Azure Monitor för virtuella datorer (förhandsversion)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Inaktivera övervakning av dina virtuella datorer i Azure Monitor för virtuella datorer (förhandsversion)
 
-Om du väljer du inte längre vill övervaka dem med Azure Monitor för virtuella datorer när du aktiverar övervakning av dina virtuella datorer, kan du inaktivera övervakning. Den här artikeln visar hur du gör detta för en eller flera virtuella datorer.  
+När du aktiverar övervakning av dina virtuella datorer (VM), kan du senare välja att inaktivera övervakning i Azure Monitor för virtuella datorer. Den här artikeln visar hur du inaktiverar övervakning för en eller flera virtuella datorer.  
 
-För närvarande stöder inte Azure Monitor för virtuella datorer selektivt inaktivering av övervakning av dina virtuella datorer. Om Log Analytics-arbetsytan är konfigurerad för att stödja den här lösningen och andra lösningar, såväl som att samla in andra övervakningsdata, är det viktigt att du förstår påverkan och metoder som beskrivs nedan innan du fortsätter.
+Azure Monitor för virtuella datorer stöd inte för närvarande för selektiv inaktivering av VM-övervakning. Log Analytics-arbetsytan stöder Azure Monitor för virtuella datorer och andra lösningar. Det kan också samla in andra övervakningsdata. Om Log Analytics-arbetsytan ger de här tjänsterna, måste du förstå effekten och metoder för att inaktivera övervakning innan du börjar.
 
 Azure Monitor för virtuella datorer är beroende av att leverera sin erfarenhet av följande komponenter:
 
-* En Log Analytics-arbetsyta som lagrar övervakningsdata som samlas in från virtuella datorer och andra källor.
-* Insamling av prestandaräknare som ställts in på arbetsytan som uppdaterar övervakningskonfigurationen på alla virtuella datorer är anslutna till arbetsytan.
-* Två övervakningslösningar som ställts in på arbetsytan - **InfrastructureInsights** och **ServiceMap**, som uppdatering övervakningskonfigurationen på alla virtuella datorer är anslutna till arbetsytan.
-* Två Azure VM-tillägg, den **MicrosoftMonitoringAgent** och **DependencyAgent**, som samlar in och skickar data till arbetsytan.
+* En Log Analytics-arbetsyta, som lagrar övervakningsdata från virtuella datorer och andra källor.
+* En samling med prestandaräknare som ställts in på arbetsytan. Samlingen uppdaterar konfigurationen av övervakningen på alla virtuella datorer är anslutna till arbetsytan.
+* `InfrastructureInsights` och `ServiceMap`, som övervakar lösningar som ställts in på arbetsytan. Dessa lösningar uppdatera konfigurationen av övervakningen på alla virtuella datorer är anslutna till arbetsytan.
+* `MicrosoftMonitoringAgent` och `DependencyAgent`, som är Azure VM-tillägg. De här tilläggen samla in och skicka data till arbetsytan.
 
-Tänk på följande när du förbereder att inaktivera övervakning av dina virtuella datorer med Azure Monitor för virtuella datorer:
+När du förbereder att inaktivera övervakning av dina virtuella datorer ha detta i åtanke:
 
-* Om du utvärderar med en enda virtuell dator och du har accepterat förvalda standard Log Analytics-arbetsytan, kan du inaktivera övervakning genom att avinstallera beroendeagenten från den virtuella datorn och kopplar från Log Analytics-agenten från den här arbetsytan. Den här metoden är lämplig om du avser att använda den virtuella datorn i andra syften och bestämma senare att återansluta till en annan arbetsyta.
-* Om du använder Log Analytics-arbetsytan för att stödja andra övervaknings-lösningar och insamling av data från andra källor, kan du ta bort Azure Monitor för virtuella datorer lösningskomponenter från arbetsytan utan avbrott eller påverkan på din arbetsyta.  
-
->[!NOTE]
-> När du tar bort komponenter från din arbetsyta som du kan fortsätta att visa hälsotillståndet från dina virtuella datorer i Azure; mer specifikt kartan data om prestanda och när du navigerar till någon av vyerna i portalen. Data kommer så småningom inte att visas i vyn prestanda och kartan efter en stund; men hälsovyn fortsätter att visa hälsostatus för dina virtuella datorer. Den **Prova nu** alternativet blir tillgängliga från den valda Azure-VM så att du kan återaktivera övervakning i framtiden.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>Slutföra borttagningen av Azure Monitor för virtuella datorer
-
-Följande steg beskriver hur du tar bort Azure Monitor för virtuella datorer om du fortfarande behöver Log Analytics-arbetsytan. Du kommer att ta bort den **InfrastructureInsights** och **ServiceMap** lösningar från arbetsytan.  
+* Om du med en enda virtuell dator och använda Log Analytics-arbetsytan förvalda standard, kan du inaktivera övervakning genom att avinstallera beroendeagenten från den virtuella datorn och kopplar från Log Analytics-agenten från den här arbetsytan. Den här metoden är lämplig om du planerar att använda den virtuella datorn för andra ändamål och bestämma senare att återansluta till en annan arbetsyta.
+* Om du har valt en redan befintliga Log Analytics-arbetsyta som har stöd för andra lösningar för övervakning och insamling av data från andra källor kan du ta bort komponenter från arbetsytan utan att avbryta eller påverka din arbetsyta.  
 
 >[!NOTE]
->Om du använde Tjänstkartan övervakningslösning innan du aktiverar Azure Monitor för virtuella datorer och du fortfarande använder den, ta inte bort lösningen som beskrivs i steg 6 nedan.  
+> När du tar bort komponenter från din arbetsyta kan du fortsätter att se hälsotillståndet från dina virtuella datorer i Azure; mer specifikt kan du se prestanda och mappa data när du går till någon av vyerna i portalen. Data kommer så småningom inte att visas i den **prestanda** och **kartan** vyer. Men **hälsotillstånd** vyn kommer att fortsätta att visa hälsostatus för dina virtuella datorer. Den **Prova nu** alternativet blir tillgängliga från den valda virtuella Azure-datorn så du kan aktivera övervakning i framtiden.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Ta bort Azure Monitor för virtuella datorer
+
+Om du fortfarande behöver Log Analytics-arbetsytan, Följ dessa steg för att helt ta bort Azure Monitor för virtuella datorer. Tar du bort den `InfrastructureInsights` och `ServiceMap` lösningar från arbetsytan.  
+
+>[!NOTE]
+>Om du använde Tjänstkartan övervakningslösning innan du har aktiverat Azure Monitor för virtuella datorer och du fortfarande använder den kan inte ta bort lösningen som beskrivs i det sista steget i följande procedur.  
 >
 
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du Log Analytics. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-3. I listan med Log Analytics-arbetsytor, Välj den arbetsyta som du har valt när onboarding Azure Monitor för virtuella datorer.
-4. I den vänstra rutan, Välj **lösningar**.  
-5. Välj i listan över lösningar, **InfrastructureInsights (namn på arbetsyta)** , och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
-6. I listan med lösningar, Välj **ServiceMap (namn på arbetsyta)** , och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan över förslag baserat på dina indata. Välj **Log Analytics**.
+3. I listan med Log Analytics-arbetsytor, Välj arbetsytan du valde när du har aktiverat Azure Monitor för virtuella datorer.
+4. Till vänster, Välj **lösningar**.  
+5. Välj i listan över lösningar, **InfrastructureInsights (namn på arbetsyta)** . På den **översikt** för lösningen väljer **ta bort**. När du uppmanas att bekräfta, Välj **Ja**.  
+6. Välj i listan över lösningar, **ServiceMap (namn på arbetsyta)** . På den **översikt** för lösningen väljer **ta bort**. När du uppmanas att bekräfta, Välj **Ja**.  
 
-Om innan onboarding Azure Monitor för virtuella datorer, inte var [insamling av prestandaräknare aktiverat](vminsights-enable-overview.md#performance-counters-enabled) för Windows eller Linux-baserade virtuella datorer i din arbetsyta, måste du inaktivera dessa regler genom att följa stegen som beskrivs [här](../platform/data-sources-performance-counters.md#configuring-performance-counters) för Windows och Linux.
+Innan du har aktiverat Azure Monitor för virtuella datorer, om du inte gjort [samla in prestandaräknare](vminsights-enable-overview.md#performance-counters-enabled) för Windows- eller Linux-baserade virtuella datorer i din arbetsyta [inaktivera dessa regler](../platform/data-sources-performance-counters.md#configuring-performance-counters) för Windows och Linux.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Inaktivera övervakning för en Azure-dator och behålla arbetsyta  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>Inaktivera övervakning och hålla arbetsytan  
 
-Följande steg beskriver hur du inaktiverar övervakning för en virtuell dator som har aktiverats för att utvärdera Azure Monitor för virtuella datorer, men Log Analytics-arbetsyta krävs fortfarande till stöd för övervakning från andra källor. Om det är en Azure-dator kan ska du ta bort beroendeagenten VM-tillägget och Log Analytics-agenten VM-tillägg för Windows och Linux direkt från den virtuella datorn. 
+Om Log Analytics-arbetsytan fortfarande behöver stöd för övervakning från andra källor, följa dessa steg för att inaktivera övervakning på den virtuella datorn som du använde för att utvärdera Azure Monitor för virtuella datorer. För virtuella Azure-datorer tar du bort beroendeagenten VM-tillägget och Log Analytics-agenten VM-tillägg för Windows eller Linux direkt från den virtuella datorn. 
 
 >[!NOTE]
->Om den virtuella datorn hanteras av Azure Automation för att samordna processer, hantera konfiguration, hantera uppdateringar eller hanteras av Azure Security Center för hantering och hotidentifiering, den Log Analytics-agenten inte ska tas bort. Annars kan förhindrar du dessa tjänster och lösningar för proaktiv hantering av den virtuella datorn. 
+>Inte ta bort Log Analytics-agenten om: 
+>
+> * Azure Automation hanterar den virtuella datorn att samordna processer eller hantera konfigurationen eller uppdateringar. 
+> * Azure Security Center hanterar den virtuella datorn för säkerhet och hotidentifiering. 
+>
+> Om du tar bort Log Analytics-agenten, förhindras dessa tjänster och lösningar från proaktiv hantering av den virtuella datorn. 
 
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. I Azure-portalen väljer du **virtuella datorer**. 
 3. Välj en virtuell dator i listan. 
-4. I den vänstra rutan, Välj **tillägg** på den **tillägg** väljer **DependencyAgent**.
-5. På sidan tillägget egenskaper **avinstallera**.
-6. På den **tillägg** väljer **MicrosoftMonitoringAgent** och klickar på egenskapssidan tillägget **avinstallera**.  
+4. Till vänster, Välj **tillägg**. På den **tillägg** väljer **DependencyAgent**.
+5. På sidan tillägget egenskaper väljer **avinstallera**.
+6. På den **tillägg** väljer **MicrosoftMonitoringAgent**. På sidan tillägget egenskaper väljer **avinstallera**.  

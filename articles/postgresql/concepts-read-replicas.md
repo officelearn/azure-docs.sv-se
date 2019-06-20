@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734655"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147932"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database för PostgreSQL – enskild Server
 
@@ -122,6 +122,9 @@ En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När e
 PostgreSQL kräver värdet för den `max_connections` parametern på den skrivskyddade repliken ska vara större än eller lika med värdet master, annars repliken inte startar. Azure Database för PostgreSQL, den `max_connections` parametervärdet är baserat på SKU. Mer information finns i [begränsningar i Azure Database for PostgreSQL](concepts-limits.md). 
 
 Om du försöker uppdatera server-värden, men inte följa gränserna, felmeddelande ett.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL kräver](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) värdet för den `max_prepared_transactions` parametern på den skrivskyddade repliken ska vara större än eller lika med värdet master, annars repliken inte startar. Om du vill ändra `max_prepared_transactions` i bakgrunden först ändra den på replikerna.
 
 ### <a name="stopped-replicas"></a>Stoppad repliker
 Om du stoppar replikering mellan en huvudserver och en skrivskyddad replik startar om repliken för att tillämpa ändringen. Stoppad repliken blir en fristående server som accepterar både läsningar och skrivningar. Den fristående servern kan inte göras i en replik igen.

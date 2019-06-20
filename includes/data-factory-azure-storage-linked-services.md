@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146921"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187811"
 ---
 ### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
 Den **länkad Azure Storage-tjänst** kan du länka ett Azure storage-konto till en Azure-datafabrik med hjälp av den **kontonyckel**, vilket möjliggör data factory med global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage-länkade tjänst.

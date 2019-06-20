@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996525"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273075"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 Datakälla för anpassade loggar i Azure Monitor kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.
@@ -35,11 +35,7 @@ Loggfiler ska samlas in måste matcha följande kriterier.
 - Loggfilen måste använda ASCII- eller UTF-8-kodning.  Andra format, till exempel UTF-16 stöds inte.
 
 >[!NOTE]
->Om det finns dubblettvärden i loggfilen, samlar dem i Azure Monitor.  Resultatet av frågan kommer dock inkonsekvent där filterresultaten visar fler händelser än resultatantal.  Det är viktigt att du verifierar loggen för att fastställa om det program som skapar den som orsakar problemet och åtgärda detta om möjligt innan du skapar den anpassade loggen samling definitionen.  
->
-  
->[!NOTE]
-> Om ditt program skapar en ny loggfil skapas varje dag eller när den når en viss storlek, identifierar Log Analytics-agenten för Linux inte dem förrän den startas. Detta är eftersom agenten endast räknar upp och börjar övervakning för mönster med de angivna loggarna vid start och därför måste du planera runt den genom att automatisera omstarten av agenten.  Den här begränsningen finns inte med Log Analytics-agenten för Windows.  
+> Om det finns dubblettvärden i loggfilen, samlar dem i Azure Monitor. Resultatet av frågan kommer dock inkonsekvent där filterresultaten visar fler händelser än resultatantal. Det är viktigt att du verifierar loggen för att fastställa om det program som skapar den som orsakar problemet och åtgärda detta om möjligt innan du skapar den anpassade loggen samling definitionen.  
 >
 
 >[!NOTE]

@@ -7,17 +7,17 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c945f39218f9099d5c304739ca9b567ab9b3325
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480816"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164697"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning
-Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du kan använda en Machine Learning sentiment analysmodell från Cortana Intelligence Gallery att analysera textdata och avgöra sentimentresultatet i realtid. Med Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa krångla för att skapa en sentiment analysmodell.
+# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning Studio (förhandsversion)
+Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning Studio. Du kan använda en Machine Learning sentiment analysmodell från Cortana Intelligence Gallery att analysera textdata och avgöra sentimentresultatet i realtid. Med Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa krångla för att skapa en sentiment analysmodell.
 
 Du kan använda vad du lär dig från den här artikeln att scenarier som följande:
 
@@ -45,7 +45,7 @@ Se till att du har följande innan du börjar:
 På en hög nivå för att slutföra de uppgifter som visas i den här artikeln får göra du följande:
 
 1. Skapa ett Azure storage-konto och ett blob storage-behållare och överför en CSV-formaterad indatafilen till behållaren.
-3. Lägg till en sentiment analysmodell från Cortana Intelligence-galleriet till din Azure Machine Learning-arbetsyta och distribuera den här modellen som en webbtjänst i Machine Learning-arbetsytan.
+3. Lägg till en sentiment analysmodell från Cortana Intelligence-galleriet till din Azure Machine Learning Studio-arbetsyta och distribuera den här modellen som en webbtjänst i Machine Learning-arbetsytan.
 5. Skapa ett Stream Analytics-jobb som anropar den här webbtjänsten som en funktion för att kunna fastställa sentiment för texten som indata.
 6. Starta Stream Analytics-jobbet och kontrollera utdata.
 

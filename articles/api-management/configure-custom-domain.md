@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141292"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274970"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
@@ -49,7 +49,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
    + **SCM** (standardvärdet är: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > Du kan uppdatera alla slutpunkter eller några av dem. Ofta, kunder uppdatera **Proxy** (den här URL: en används för att anropa API exponeras via API Management) och **Portal** (utvecklarportalen URL: en). **Hantering av** och **SCM** slutpunkter används internt av APIM-kunder och därmed tilldelas mindre ofta ett anpassat domännamn.
+     > Du kan uppdatera alla slutpunkter eller några av dem. Ofta, kunder uppdatera **Proxy** (den här URL: en används för att anropa API exponeras via API Management) och **Portal** (utvecklarportalen URL: en). **Hantering av** och **SCM** slutpunkter används internt av APIM-kunder och därmed tilldelas mindre ofta ett anpassat domännamn. I de flesta fall kan du ange bara ett enda anpassat domännamn för en viss slutpunkt. Men den **Premium** nivån stöder att flera värdnamn för den **Proxy** slutpunkt.  
 
 1. Välj den slutpunkt som du vill uppdatera. 
 1. I fönstret till höger klickar du på **anpassad**.

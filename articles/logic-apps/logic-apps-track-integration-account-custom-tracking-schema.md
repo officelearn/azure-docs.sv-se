@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067900"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203045"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Skapa anpassade spårningsscheman som övervakar arbetsflöden för slutpunkt till slutpunkt i Azure Logic Apps
 
@@ -56,22 +56,22 @@ Den här artikeln innehåller anpassad kod som du kan använda i lagren utanför
 }
 ```
 
-| Egenskap | Typ | Beskrivning |
-| --- | --- | --- |
-| sourceType |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **anpassade**. (Obligatorisk) |
-| source |   | Om typ av datakälla är **Microsoft.Logic/workflows**, information om källdatorn måste följa det här schemat. Om typ av datakälla är **anpassade**, schemat är en JToken. (Obligatorisk) |
-| systemId | String | Logic app system-ID. (Obligatorisk) |
-| runId | String | Logikappskörningen ID. (Obligatorisk) |
-| operationName | String | Namnet på åtgärden (till exempel åtgärd eller utlösare). (Obligatorisk) |
-| repeatItemScopeName | String | Upprepa objektnamn om åtgärden finns i en `foreach` / `until` loop. (Obligatorisk) |
-| repeatItemIndex | Integer | Om åtgärden finns i en `foreach` / `until` loop. Anger det upprepade objekt indexet. (Obligatorisk) |
-| trackingId | String | Spårnings-ID för att knyta samman meddelanden. (Valfritt) |
-| correlationId | String | Korrelations-ID, att korrelera meddelanden. (Valfritt) |
-| clientRequestId | String | Klienten kan fylla i den för att korrelera meddelanden. (Valfritt) |
-| eventLevel |   | Nivån på händelsen. (Obligatorisk) |
-| eventTime |   | Tid för händelse, i UTC-format åååå-MM-DDTHH:MM:SS.00000Z. (Obligatorisk) |
-| recordType |   | Typ av bevisade framgångar. Tillåtna värde är **anpassade**. (Obligatorisk) |
-| record |   | Anpassad posttyp. Formatet är JToken. (Obligatorisk) |
+| Egenskap | Obligatoriskt | Typ | Beskrivning |
+| --- | --- | --- | --- |
+| sourceType | Ja |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **anpassade**. |
+| source | Ja |   | Om typ av datakälla är **Microsoft.Logic/workflows**, information om källdatorn måste följa det här schemat. Om typ av datakälla är **anpassade**, schemat är en JToken. |
+| systemId | Ja | String | Logic app system-ID. |
+| runId | Ja | String | Logikappskörningen ID. |
+| operationName | Ja | String | Namnet på åtgärden (till exempel åtgärd eller utlösare). |
+| repeatItemScopeName | Ja | String | Upprepa objektnamn om åtgärden finns i en `foreach` / `until` loop. |
+| repeatItemIndex | Ja | Integer | Om åtgärden finns i en `foreach` / `until` loop. Anger det upprepade objekt indexet. |
+| trackingId | Nej | String | Spårnings-ID för att knyta samman meddelanden. |
+| correlationId | Nej | String | Korrelations-ID, att korrelera meddelanden. |
+| clientRequestId | Nej | String | Klienten kan fylla i den för att korrelera meddelanden. |
+| eventLevel | Ja |   | Nivån på händelsen. |
+| eventTime | Ja |   | Tid för händelse, i UTC-format åååå-MM-DDTHH:MM:SS.00000Z. |
+| recordType | Ja |   | Typ av bevisade framgångar. Tillåtna värde är **anpassade**. |
+| record | Ja |   | Anpassad posttyp. Formatet är JToken. |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B-protokollet-spårningsscheman

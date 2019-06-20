@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063757"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274298"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database för PostgreSQL – enskild Server
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
@@ -38,6 +38,8 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Byte|Fördröjning i byte mellan huvudservern och de flesta släpar repliken. Detta mått är tillgängliga på den överordnade servern.|
+|pg_replica_log_delay_in_seconds|Repliken fördröjning|Sekunder|Tid sedan den senaste återupprepas transaktion. Detta mått är tillgängliga för replikservrar.|
 
 ## <a name="server-logs"></a>Serverloggar
 Du kan aktivera loggning på servern. Dessa loggar finns också tillgängliga via Azure-diagnostikloggar i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md), Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.

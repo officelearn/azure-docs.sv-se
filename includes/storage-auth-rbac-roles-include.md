@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115597"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187017"
 ---
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till blob och kö med hjälp av Azure AD och OAuth:
 

@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067175"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274772"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Anpassa konfigurationsparametrar för server för Azure Database för PostgreSQL – enskild Server med Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
@@ -50,4 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 Det här kommandot återställer den **log\_min\_meddelanden** konfiguration till standardvärdet **varning**. Mer information om konfiguration och tillåtna värden finns i dokumentationen för PostgreSQL på [serverkonfiguration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Nästa steg
+- [Lär dig att starta om en server](howto-restart-server-cli.md)
 - Om du vill konfigurera och komma åt loggar, se [serverloggar i Azure Database för PostgreSQL](concepts-server-logs.md)

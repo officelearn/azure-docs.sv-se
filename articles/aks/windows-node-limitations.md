@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475399"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203678"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för nodpooler för Windows Server och arbetsbelastningar för program i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver några begränsningar och OS-koncept för Windows Se
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Begränsningar för Windows Server i Kubernetes
 
-Windows Server-behållare måste köras på en Windows-baserade behållarvärd. Om du vill köra Windows Server-behållare i AKS kan du [skapar en pool för noden som kör Windows Server] [ windows-node-cli] som gästoperativsystemet. Fönstret serverstöd noden poolen innehåller vissa begränsningar som ingår i den överordnade Windows-servern i Kubernetes-projektet. Dessa begränsningar är inte specifik för AKS. Läs mer om den här överordnade stöd för Windows Server i Kubernetes [Windows Server-behållare i Kubernetes begränsningar][upstream-limitations].
+Windows Server-behållare måste köras på en Windows-baserade behållarvärd. Om du vill köra Windows Server-behållare i AKS kan du [skapar en pool för noden som kör Windows Server] [ windows-node-cli] som gästoperativsystemet. Fönstret serverstöd noden poolen innehåller vissa begränsningar som ingår i den överordnade Windows-servern i Kubernetes-projektet. Dessa begränsningar är inte specifik för AKS. Läs mer om den här överordnade stöd för Windows Server i Kubernetes [Windows Server-behållare i Kubernetes begränsningar](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 Följande överordnade begränsningar för Windows Server-behållare i Kubernetes är relevanta för AKS:
 

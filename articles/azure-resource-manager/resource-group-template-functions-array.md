@@ -58,7 +58,7 @@ Konverterar värdet till en matris.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |int, string, matris, eller ett objekt |Värdet att konvertera till en matris. |
+| convertToArray |Ja |int, string, array eller object |Värdet att konvertera till en matris. |
 
 ### <a name="return-value"></a>Returvärde
 

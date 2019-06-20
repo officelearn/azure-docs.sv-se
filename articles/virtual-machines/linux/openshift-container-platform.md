@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411567"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuera OpenShift Container Platform i Azure
@@ -66,7 +66,7 @@ I följande exempel visas en parameterfil som heter azuredeploy.parameters.json 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -249,7 +249,7 @@ Olika versioner kan ha olika parametrar, så kontrollera de nödvändiga paramet
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Parameters.JSON förklarad
 
-| Egenskap  | Beskrivning | Giltiga alternativ | Standardvärde |
+| Egenskap | Beskrivning | Giltiga alternativ | Standardvärde |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL: en för artefakter (json, skript osv.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Distribuera resurser till Azure-region |  |  |
@@ -282,12 +282,12 @@ Olika versioner kan ha olika parametrar, så kontrollera de nödvändiga paramet
 | `keyVaultName` | Namnet på det Nyckelvalv som du skapade |  |  |
 | `enableAzure` | Aktivera Azure-molnet Provider | true <br> false | true |
 | `aadClientId` | Azure Active Directory klient-ID även känt som program-ID för tjänstens huvudnamn |  |  |
-| `domainName` | Namnet på det anpassade domännamnet (om tillämpligt). Inställt på ”none” om det inte distribuera fullständigt privata klustret |  | inga |
-| `masterClusterDnsType` | Domäntyp för OpenShift webbkonsolen. ”standard” använder DNS-etikett för master infra offentlig IP-adress. ”anpassade” kan du definiera egna namn | standard <br> anpassad | standard |
+| `domainName` | Namnet på det anpassade domännamnet (om tillämpligt). Inställt på ”none” om det inte distribuera fullständigt privata klustret |  | Ingen |
+| `masterClusterDnsType` | Domäntyp för OpenShift webbkonsolen. ”standard” använder DNS-etikett för master infra offentlig IP-adress. ”anpassade” kan du definiera egna namn | standard <br> Anpassad | standard |
 | `masterClusterDns` | Det DNS-namnet du använder för att få åtkomst till webbkonsolen för OpenShift om du har valt 'custom' för `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Om inställd nipio, `routingSubDomain` använder nip.io.  Använda ”anpassad” om du har en egen domän som du vill använda för Routning | nipio <br> anpassad | nipio |
+| `routingSubDomainType` | Om inställd nipio, `routingSubDomain` använder nip.io.  Använda ”anpassad” om du har en egen domän som du vill använda för Routning | nipio <br> Anpassad | nipio |
 | `routingSubDomain` | Jokertecken DNS-namn som du vill använda för routning om du har valt 'custom' för `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Välj om du vill använda ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk | befintliga <br> Nytt | Nytt |
+| `virtualNetworkNewOrExisting` | Välj om du vill använda ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk | befintliga <br> nytt | nytt |
 | `virtualNetworkResourceGroupName` | Namnet på resursgruppen för det nya virtuella nätverket om du har valt ”nytt” för `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | Namnet på det nya virtuella nätverket för att skapa om du har valt ”nytt” för `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Adressprefix för det nya virtuella nätverket |  | 10.0.0.0/14 |
@@ -301,16 +301,16 @@ Olika versioner kan ha olika parametrar, så kontrollera de nödvändiga paramet
 | `existingInfraSubnetReference` | Fullständig referens till befintliga undernätet för infrastruktur noder. Behövs inte om du skapar nya vNet / undernät |  |  |
 | `existingCnsSubnetReference` | Fullständig referens till befintliga undernät för CNS noder. Behövs inte om du skapar nya vNet / undernät |  |  |
 | `existingNodeSubnetReference` | Fullständig referens till befintligt undernät för beräkningsnoder. Behövs inte om du skapar nya vNet / undernät |  |  |
-| `masterClusterType` | Ange om klustret använder privata eller offentliga överordnade noder. Om du väljer privat exponeras de överordnade noderna inte till Internet via en offentlig IP-adress. I stället använder den privata IP-Adressen som anges i den `masterPrivateClusterIp` | offentlig <br> privat | offentlig |
+| `masterClusterType` | Ange om klustret använder privata eller offentliga överordnade noder. Om du väljer privat exponeras de överordnade noderna inte till Internet via en offentlig IP-adress. I stället använder den privata IP-Adressen som anges i den `masterPrivateClusterIp` | Offentlig <br> privat | Offentlig |
 | `masterPrivateClusterIp` | Om privat överordnade noder har valts, måste sedan en privat IP-adress anges för användning av den interna belastningsutjämnaren för överordnade noder. Den här statisk IP-adress måste vara i CIDR-block för master-undernät och inte redan används. Om offentliga överordnade noder har valts, det här värdet används inte men fortfarande måste anges |  | 10.1.0.200 |
-| `routerClusterType` | Ange om klustret använder privat eller offentlig infra noder. Om du väljer privat den infra noder inte exponeras till Internet via en offentlig IP-adress. I stället använder den privata IP-Adressen som anges i den `routerPrivateClusterIp` | offentlig <br> privat | offentlig |
+| `routerClusterType` | Ange om klustret använder privat eller offentlig infra noder. Om du väljer privat den infra noder inte exponeras till Internet via en offentlig IP-adress. I stället använder den privata IP-Adressen som anges i den `routerPrivateClusterIp` | Offentlig <br> privat | Offentlig |
 | `routerPrivateClusterIp` | Om privat infra noder har valts och sedan en privat IP-adress måste anges för använda genom att den interna belastningsutjämnaren för infra noder. Den här statisk IP-adress måste vara i CIDR-block för master-undernät och inte redan används. Om offentliga infra noder har valts, det här värdet används inte men fortfarande måste anges |  | 10.2.0.200 |
-| `routingCertType` | Använda anpassade certifikat för routningsdomän eller det självsignerade certifikatet för standard - följer du anvisningarna i **anpassade certifikat** avsnittet | selfsigned <br> anpassad | selfsigned |
-| `masterCertType` | Använda anpassade certifikat för domänen eller det självsignerade certifikatet för standard - följer du anvisningarna i **anpassade certifikat** avsnittet | selfsigned <br> anpassad | selfsigned |
+| `routingCertType` | Använda anpassade certifikat för routningsdomän eller det självsignerade certifikatet för standard - följer du anvisningarna i **anpassade certifikat** avsnittet | selfsigned <br> Anpassad | selfsigned |
+| `masterCertType` | Använda anpassade certifikat för domänen eller det självsignerade certifikatet för standard - följer du anvisningarna i **anpassade certifikat** avsnittet | selfsigned <br> Anpassad | selfsigned |
 
 <br>
 
-### <a name="deploy-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
+### <a name="deploy-using-azure-cli"></a>Distribuera med Azure CLI
 
 > [!NOTE] 
 > Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan kontrollera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-version, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).

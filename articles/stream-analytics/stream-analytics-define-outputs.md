@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455712"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164455"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -247,8 +247,7 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure Cosmos DB-utda
 | Konto-ID | Namn eller slutpunkten URI: N för Azure Cosmos DB-kontot. |
 | Kontonyckel | Den delade åtkomstnyckeln för Azure Cosmos DB-kontot. |
 | Databas | Namnet på Azure Cosmos DB-databasen. |
-| Samlingsnamnsmönster | Namnet på samlingen eller ett mönster för samlingar som ska användas. <br />Du kan skapa samlingsnamnsformatet med hjälp av valfritt {partition}-token, där partitionerna börjar från 0. Två exempel:  <br /><ul><li> _MyCollection_: En samling som heter ”MyCollection” måste finnas.</li>  <li> _MyCollection{partition}_ : Baserat på partitioneringskolumnen.</li></ul> Partitionering kolumnen samlingarna måste vara uppfyllda: ”MyCollection0”, ”MyCollection1”, ”MyCollection2”, och så vidare. |
-| Partitionsnyckeln | Valfri. Du behöver detta endast om du använder en token för {partition} i din samlingsnamnsmönstret.<br /> Partitionsnyckeln är namnet på fältet i utdatahändelserna som används för att specificera nyckeln för att partionera utdata över samlingarna.<br /> Du kan använda valfri godtycklig utdatakolumnen för enskild samling utdata. Ett exempel är PartitionId. |
+| Samlingsnamn | Namnet på samlingen i Azure Cosmos DB. Azure Cosmos DB obegränsade behållare är den rekommenderade metoden för att partitionera dina data, som Azure Cosmos DB automatiskt skalar partitioner baserat på din arbetsbelastning. |
 | Dokument-id |Valfri. Namnet på fältet i utdatahändelserna som används för att ange den primära nyckeln för vilka insert eller uppdateringsåtgärder baseras.
 
 ## <a name="azure-functions"></a>Azure Functions

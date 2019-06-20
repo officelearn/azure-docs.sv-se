@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751977"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146319"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Samla in loggdata med Log Analytics-agenten
 
 Azure Log Analytics-agenten, tidigare kallade Microsoft Monitoring Agent (MMA) eller OMS Linux-agenten har utvecklats specifikt för omfattande hantering mellan lokala datorer, datorer som övervakas av [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), och virtuella datorer i ett moln. Windows och Linux-agenter koppla till en Azure Monitor och lagra insamlade loggdata från olika källor i Log Analytics-arbetsytan, samt alla unika loggar eller mått som definieras i en lösning för övervakning. 
 
@@ -34,11 +34,11 @@ Innan du analysera och agera på insamlade data, måste du först installera och
 
 Agenten för Linux och Windows kommunicerar utgående trafik till Azure Monitor-tjänsten via TCP-port 443 och om datorn ansluter via en brandvägg eller proxy server kommunicerar via Internet, granska kraven nedan för att förstå nätverkskonfigurationen krävs. Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet, du kan ställa in en [Log Analytics gateway](gateway.md) och sedan konfigurera agenten för att ansluta via gatewayen till Azure Monitor-loggar. Agenten kan sedan ta emot konfigurationsinformation och skicka data som samlas in beroende på vilka data samlingsregler och övervakningslösningar som du har aktiverat i din arbetsyta. 
 
-Om du övervakar en dator med System Center Operations Manager 2012 R2 eller senare, kan det vara multihomed med Azure Monitor-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande att övervakas av [Operations Manager](../../azure-monitor/platform/om-agents.md). Med Linux-datorer med inte agenten tjänstkomponenten hälsotillstånd som Windows-agenten, och information som samlas in och bearbetas av en hanteringsserver för dess räkning. Eftersom Linux-datorer finns på olika sätt övervakas med Operations Manager, de inte ta emot configuration eller samla in data direkt och vidarebefordra via hanteringsgruppen som har ett Windows-agenthanterade system. Därför kan stöds det här scenariot inte med Linux-datorer som rapporterar till Operations Manager.  
+Om du övervakar en dator med System Center Operations Manager 2012 R2 eller senare, kan det vara multihomed med Azure Monitor-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande att övervakas av [Operations Manager](../../azure-monitor/platform/om-agents.md). Med Linux-datorer med inte agenten tjänstkomponenten hälsotillstånd som Windows-agenten, och information som samlas in och bearbetas av en hanteringsserver för dess räkning. Eftersom Linux-datorer finns på olika sätt övervakas med Operations Manager, de inte ta emot configuration eller samla in data direkt och vidarebefordra via hanteringsgruppen som har ett Windows-agenthanterade system. Därför kan det här scenariot stöds inte med Linux-datorer som rapporterar till Operations Manager och du måste konfigurera Linux-datorn att [rapporterar till en Operations Manager-hanteringsgrupp](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) och Log Analytics-arbetsytan i två steg.
 
 Windows-agent kan rapportera upp till fyra Log Analytics-arbetsytor, medan Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
 
-Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor, Azure Automation för att vara värd för Hybrid Runbook worker-roll och andra tjänster som stöder också [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/automation-update-management.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor, Azure Automation för att vara värd för Hybrid Runbook worker-roll och andra tjänster som stöder också [ändringsspårning](../../automation/change-tracking.md), [uppdateringshantering](../../automation/automation-update-management.md), och [Azure Security Center](../../security-center/security-center-intro.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:

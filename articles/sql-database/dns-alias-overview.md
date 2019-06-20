@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160793"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275195"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -49,7 +49,7 @@ Senare när det nya systemet slutar live i produktionen kan du uppdatera egenska
 
 ### <a name="cross-region-support"></a>Stöd för över flera regioner
 
-En katastrofåterställning kan flytta din SQL Database-server till en annan geografisk region. För ett system med hjälp av ett DNS-alias kan behovet av att hitta och uppdatera alla anslutningssträngarna för alla klienter undvikas. I stället kan du uppdatera ett alias för att referera till den nya SQL Database-server som nu är värd för databasen.
+En katastrofåterställning kan flytta din SQL Database-server till en annan geografisk region. För ett system som har använt ett DNS-alias kan kan behovet av att hitta och uppdatera alla anslutningssträngarna för alla klienter undvikas. I stället kan du uppdatera ett alias för att referera till den nya SQL Database-server som nu är värd för databasen.
 
 ## <a name="properties-of-a-dns-alias"></a>Egenskaperna för en DNS-alias
 
@@ -67,13 +67,6 @@ Följande egenskaper gäller för varje DNS-alias för din SQL Database-server:
 Både REST API: er och PowerShell-cmdlets är tillgängliga för att programmässigt hantera dina DNS-alias.
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>REST API: er för att hantera dina DNS-alias
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 Dokumentation för REST-API: er finns nära följande webbplats:
 
@@ -111,7 +104,7 @@ För närvarande kan har en DNS alias följande begränsningar:
 - *Fördröjning på upp till 2 minuter:* Det tar upp till 2 minuter för en DNS-alias uppdateras eller tas bort.
   - Oavsett eventuell fördröjning av kort stoppar aliaset omedelbart refererar klientanslutningar till den gamla servern.
 - *DNS-sökning:* För tillfället endast auktoritativa sätt att kontrollera vilken server som en viss DNS alias refererar till är genom att utföra en [DNS-sökning](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tabellgranskning stöds inte](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Du kan inte använda en DNS-alias på en Azure SQL Database-server som har *tabellgranskning* aktiverats för en databas.
+- _Tabellgranskning stöds inte:_ Du kan inte använda en DNS-alias på en Azure SQL Database-server som har *tabellgranskning* aktiverats för en databas.
   - Tabellgranskning är inaktuell.
   - Vi rekommenderar att du flyttar till [Blobbgranskning](sql-database-auditing.md).
 

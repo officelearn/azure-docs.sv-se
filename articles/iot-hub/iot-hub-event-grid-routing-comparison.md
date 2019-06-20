@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252681"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274938"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Jämför meddelanderoutning och Event Grid för IoT Hub
 
@@ -64,7 +64,7 @@ Meddelanderoutning i IoT Hub och IoT Hub-integrering med Event Grid kan du utfö
 
    IoT Hub meddelanderoutning stöder begränsat antal unika slutpunkter och typer av slutpunkter, men du kan skapa anslutningar för att omdirigera data och händelser till ytterligare slutpunkter. En fullständig lista över slutpunkter som stöds finns i tabellen i föregående avsnitt. 
 
-   IoT Hub-integrering med Event Grid stöder 500 slutpunkter per IoT Hub och en större mängd typer av slutpunkter. Den kan integreras naively med Azure Functions, Logic Apps, lagring och Service Bus-köer och fungerar även med webhooks för att utöka skickar data utanför ekosystemet för Azure-tjänst och till program från tredje part.
+   IoT Hub-integrering med Event Grid stöder 500 slutpunkter per IoT Hub och en större mängd typer av slutpunkter. Den kan integreras internt med Azure Functions, Logic Apps, lagring och Service Bus-köer och fungerar även med webhooks för att utöka skickar data utanför ekosystemet för Azure-tjänst och till program från tredje part.
 
 * **Spelar det någon roll om dina data tas emot i ordning?**
 

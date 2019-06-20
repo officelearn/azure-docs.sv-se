@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387517"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269211"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -154,6 +154,7 @@ Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av
 | 400075| Språk-par och kategori kombinationen är inte giltig.|
 | 400077| Den tillåtna storleken har överskridits. Visa [begärandebegränsningar](../request-limits.md).|
 | 400079| Den anpassade system som begärdes för översättning av från och till språk finns inte.|
+| 400080| Transkriberingsspråk finns inte stöd för språk eller skript.|
 | 401000| Begäran har inte behörighet eftersom autentiseringsuppgifterna är saknas eller är ogiltig.|
 | 401015| ”De angivna autentiseringsuppgifterna är för API för taligenkänning. Den här begäran kräver autentiseringsuppgifter för Text-API. Använd en prenumeration på Translator Text API ”.|
 | 403000| Åtgärden tillåts inte.|

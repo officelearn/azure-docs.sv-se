@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f00a530cb4e62ae83dea349c949e8f2ddc43c0c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059287"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203034"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -171,7 +171,7 @@ Automatiserad ML är också tillgängligt i andra Microsoft-lösningar som:
 |Integreringar|Beskrivning|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Val av automatisk modell och utbildning i .NET-appar med Visual Studio och Visual Studio Code med ML.NET automatiserad ML (förhandsversion).|
-|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt.|
+|[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Skala ut dina automatiserade ML utbildning jobb på Spark i HDInsight-kluster parallellt.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Anropa maskininlärningsmodeller direkt i Power BI (förhandsversion).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Skapa nya machine learning-modeller över dina data i SQL Server 2019 big data-kluster.|
 

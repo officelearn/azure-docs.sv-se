@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070374"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272237"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database managed instance resursbegränsningar
 
@@ -105,7 +105,7 @@ I följande tabell visas de regionala standardgränserna för stöds prenumerati
 
 \* När du planerar distributionen bör du överväga att att en kritisk Business (BC) virtuell kärna (på grund av har lagts till redundans) använder 4 x mer kapacitet än en allmänt syfte (GP) virtuell kärna. Så för dina beräkningar, 1 GP vCore = 1 vCore-enhet och BC 1 vCore = 4 vCore-enheter. Sammanfatta vCore-enheter för att förenkla din förbrukning analys mot standardgränserna över alla undernät i den region där hanterade instanser har distribuerats och jämföra resultaten med enhet instansgränser för prenumerationstyp. **Maxantal vCore enheter** gränsen gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät, förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **max antal vCore enheter**.
 
-** Större undernät och vCore gränser är tillgängliga i följande regioner: Östra Australien, östra USA, östra USA 2, Nordeuropa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
+\*\* Större undernät och vCore gränser är tillgängliga i följande regioner: Östra Australien, östra USA, östra USA 2, Nordeuropa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Hämta en större kvot för SQL-hanterad instans
 

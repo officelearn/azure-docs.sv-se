@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683989"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275065"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i din Azure-användning och avgifter
 
@@ -72,6 +72,7 @@ invoiceSection | MCA | Se InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Unik identifierare för EA-avdelningen eller MCA faktura avsnittet.
 InvoiceSectionName | EA, MCA | Namnet på EA-avdelningen eller MCA faktura avsnittet.
 IsAzureCreditEligible | EA, MCA | Anger om tillägget är berättigade att betalas för användning av Azure-krediter (värden: True, False).
+IsEstimated | Alla | Anger om faktureringsperioden är stängd/underkänts. Användningsdata kan ändra under hela faktureringsperioden tills fakturan genereras. Dessa poster är markerade som ”uppskattade”.
 Location | EA, MCA | Plats för datacenter där resursen körs.
 MeterCategory | Alla | Namnet på klassificeringskategori för mätaren. Till exempel *molntjänster* och *nätverk*.
 MeterId | Alla | Den unika identifieraren för mätaren.

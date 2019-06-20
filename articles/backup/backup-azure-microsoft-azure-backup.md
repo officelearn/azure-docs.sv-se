@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098870"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204420"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -42,19 +42,18 @@ Azure Backup Server ärver programmering av mycket av den arbetsbelastning säke
 Det första steget mot Azure Backup Server konfigurera och komma igång är att ställa in en Windows-Server. Servern kan vara i Azure eller lokalt.
 
 ### <a name="using-a-server-in-azure"></a>Med en server i Azure
-När du väljer en server för att köra Azure Backup Server, bör du börja med en galleri-bild av Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter eller Windows Server 2019 Datacenter. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den server-datorn (VM) ska se ut: Standard a2 med två kärnor och 3,5 GB RAM-minne.
+När du väljer en server för att köra Azure Backup Server, bör du börja med en galleri-bild av Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter eller Windows Server 2019 Datacenter. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den server-datorn (VM) ska se ut: Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
 
 Skydda arbetsbelastningar med Azure Backup Server har många nyanser. I artikeln [Install DPM as Azure-datorer](https://technet.microsoft.com/library/jj852163.aspx), bidrar till att klargöra dessa olika delarna. Läs den här artikeln helt innan du distribuerar datorn.
 
 ### <a name="using-an-on-premises-server"></a>Med hjälp av en lokal server
-Om du inte vill köra grundläggande server i Azure kan du köra servern på en Hyper-V-dator, en VMware VM eller en fysisk värd. Rekommenderade minimikraven för servermaskinvaran är två kärnor och 4 GB RAM-minne. Operativsystem som stöds finns i följande tabell:
+Om du inte vill köra grundläggande server i Azure kan du köra servern på en Hyper-V-dator, en VMware VM eller en fysisk värd. Rekommenderade minimikraven för servermaskinvaran är två kärnor och 8 GB RAM-minne. Operativsystem som stöds finns i följande tabell:
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64-bitars |Standard, Datacenter, Essentials (MABS V3 och senare) |
 | Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS V2 och senare) |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
-| Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
 | Windows Storage Server 2012 och senaste Service Pack |64-bitars |Standard, Workgroup |
 
@@ -142,7 +141,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 När du har laddat ned alla filer, klickar du på **MicrosoftAzureBackupInstaller.exe**. Detta startar den **installationsguiden för Microsoft Azure Backup** att extrahera installationsfiler till en plats som angetts av dig. Fortsätt genom guiden och klicka på den **extrahera** för att starta extraheringsprocessen.
 
 > [!WARNING]
-> Minst 4GB ledigt utrymme krävs för att extrahera installationsfilerna.
+> Minst 4 GB ledigt utrymme krävs för att extrahera installationsfilerna.
 >
 >
 
@@ -206,7 +205,7 @@ När extraheringsprocessen slutförts, markerar kryssrutan Starta nyligen extrah
 
     Nästa steg är att konfigurera Microsoft Azure Recovery Services-agenten. Som en del av konfigurationen kommer du behöva ange dina valvautentiseringsuppgifter för att registrera datorn till recovery services-valvet. Du kan också ange en lösenfras för att kryptera/dekryptera data som skickas mellan Azure och ditt lokala nätverk. Du kan automatiskt generera en lösenfras eller ange minst 16 tecken-lösenfrasen. Fortsätta med guiden förrän agenten har konfigurerats.
 
-    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup Server PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. När registreringen av Microsoft Azure Backup server har slutförts, fortsätter övergripande installationsguiden med installationen och konfigurationen av SQL Server och Azure Backup Server-komponenter. Azure Backup Server-komponenterna installeras när komponenten SQL Server-installationen har slutförts.
 
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -262,7 +261,7 @@ Här följer stegen om du behöver flytta MABS till en ny server, samtidigt som 
 9. Återställ DPMDB från SQL
 10. Från kommandoraden för administratör på den nya servern cd till Microsoft Azure Backup installerar du platsen och bin-mappen
 
-    Sökväg till exempel: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Sökväg till exempel: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Till Azure backup, kör DPMSYNC-SYNC
 
@@ -285,7 +284,7 @@ När du vet för Azure anslutningen och den Azure-prenumerationen kan kan du anv
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från förlust av anslutning
-Om du har en brandvägg eller en proxy som hindrar åtkomst till Azure måste du godkänna följande domän-adresser i brandväggen/proxy-profil:
+Om du har en brandvägg eller en proxy som hindrar åtkomst till Azure kan måste du tillåta följande domän-adresser i brandväggen/proxy-profil:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -307,7 +306,7 @@ Använd följande procedurer för att uppgradera MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Uppgradera från MABS V2 till V3
 
 > [!NOTE]
-> 
+>
 > MABS V2 är inte ett krav för att installera MABS V3. Du kan dock uppgradera till MABS V3 endast från MABS V2.
 
 Använd följande steg för att uppgradera MABS:
@@ -317,15 +316,15 @@ Använd följande steg för att uppgradera MABS:
 2. Uppgradera din server. Stegen är liknande [installation](#install-and-upgrade-azure-backup-server). Men för SQL-inställningar får du ett alternativ för att uppgradera SQL-instansen till SQL 2017 eller använda en egen instans av SQLServer 2017.
 
    > [!NOTE]
-   > 
+   >
    > Avsluta inte medan SQL-instansen håller på att uppgraderas, avslutar avinstalleras SQL reporting-instansen och därför försöker uppgradera igen MABS misslyckas.
 
    Viktiga saker att tänka på:
 
    > [!IMPORTANT]
-   > 
+   >
    >  Som en del av SQL 2017 uppgraderingen kan vi säkerhetskopiera krypteringsnycklarna SQL och avinstallera reporting services. Efter uppgraderingen av SQL server reporting service(14.0.6827.4788) installeras & krypteringsnycklar har återställts.
-   > 
+   >
    > När du konfigurerar SQL 2017 manuellt, referera till *SSRS-konfiguration med SQL 2017* avsnittet under installationsanvisningar.
 
 3. Uppdatera skyddsagenter på de skyddade servrarna.
@@ -333,7 +332,7 @@ Använd följande steg för att uppgradera MABS:
 5. Du kan börja skydda dina data nu. Om du uppgraderar till Modern Backup Storage, samtidigt som du skyddar, kan du också välja de volymer som du vill lagra säkerhetskopior i och söka efter under etablerade utrymme. [Läs mer](backup-mabs-add-storage.md).
 
 > [!NOTE]
-> 
+>
 > Om du uppgraderar från MABS V1 till V2, kontrollera att ditt operativsystem är Windows Server 2016 eller Windows Server 2012 R2. Om du vill dra nytta av nya funktioner som System Center 2016 Data Protection Manager Modern Backup Storage, måste du installera Backup Server V2 på Windows Server 2016. Innan du uppgraderar till eller installera Backup Server V2, Läs om de [installationskrav](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) gäller för MABS.
 
 ## <a name="troubleshooting"></a>Felsökning

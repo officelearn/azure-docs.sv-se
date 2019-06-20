@@ -1,22 +1,22 @@
 ---
 title: Autentiseringsmetoder - Azure Active Directory
-description: Vilka autentiseringsmetoder är tillgängliga i Azure AD för MFA och SSPR
+description: Autentiseringsmetoder som är tillgängliga i Azure AD för MFA och SSPR
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119371"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164828"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -180,7 +180,9 @@ När du har åtgärdat eventuella fel administratören kan aktivera varje nyckel
 
 Användare kan ha en kombination av upp till fem OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
 
-## <a name="mobile-phone"></a>Mobiltelefon
+## <a name="phone-options"></a>Telefonalternativ
+
+### <a name="mobile-phone"></a>Mobiltelefon
 
 Det finns två alternativ för användare med mobiltelefoner.
 
@@ -193,18 +195,18 @@ För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode Pho
 >
 > Återställning av lösenord har inte stöd för anknytningsnummer. Även i formatet + 1 4255551234 X 12345 tas tillägg bort innan de görs.
 
-### <a name="text-message"></a>Textmeddelande
+#### <a name="text-message"></a>Textmeddelande
 
 Ett SMS har skickats till mobiltelefonnumret som innehåller en Verifieringskod. Ange verifieringskoden som angetts i gränssnittet logga in för att fortsätta.
 
-### <a name="phone-call"></a>Telefonsamtal
+#### <a name="phone-call"></a>Telefonsamtal
 
 Ett automatiserat röstsamtal upprättas till det telefonnummer som du anger. Besvara samtalet och tryck på # tangenten för att autentisera
 
 > [!IMPORTANT]
 > Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
-## <a name="office-phone"></a>Arbetstelefon
+### <a name="office-phone"></a>Arbetstelefon
 
 Ett automatiserat röstsamtal upprättas till det telefonnummer som du anger. Besvara samtalet och trycka på #-tangenten för att autentisera.
 
@@ -219,6 +221,25 @@ Telefonattributet office hanteras av din administratör.
 > Det måste finnas ett blanksteg mellan landskoden och telefonnumret.
 >
 > Återställning av lösenord har inte stöd för anknytningsnummer. Även i formatet + 1 4255551234 X 12345 tas tillägg bort innan de görs.
+
+### <a name="troubleshooting-phone-options"></a>Phone felsökningsalternativ
+
+Vanliga problem som rör autentiseringsmetoder som använder ett telefonnummer:
+
+* Blockerade Uppringarens ID på en enskild enhet
+   * Felsöka enhet
+* Felaktigt telefonnummer, felaktig landskod, hemtelefonnummer jämfört med telefonnummer till arbetet
+   * Felsöka användarobjektet och konfigurerade autentiseringsmetoder. Se till att rätt telefonnummer registreras.
+* Fel PIN-kod angiven
+   * Bekräfta att användaren har använt rätt PIN-kod som registrerad i Azure MFA-servern.
+* Anrop som vidarebefordras till röstmeddelanden
+   * Se till att användaren har phone aktiverat och att tjänsten är tillgänglig i sitt område eller använda alternativ metod.
+* Användaren har blockerats
+   * Låt administratören avblockera användare i Azure-portalen.
+* SMS prenumererar inte på enheten
+   * Låt användare ändra metoder eller aktivera SMS på enheten.
+* Felaktiga Kostnadsuppföljning av providers (inga telefonindata har identifierats saknas DTMF-toner problem, blockerade Uppringarens ID på flera enheter eller blockeras SMS på flera enheter)
+   * Microsoft använder flera leverantörer för Kostnadsuppföljning av för att dirigera telefonsamtal och SMS-meddelanden för autentisering. Om du ser något av dessa frågor har en användare försöka använda metoden minst 5 gånger under 5 minuter och har användarens information är tillgänglig när du kontaktar Microsoft support.
 
 ## <a name="app-passwords"></a>Applösenord
 

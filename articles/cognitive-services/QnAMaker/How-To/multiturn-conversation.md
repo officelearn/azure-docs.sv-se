@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7c7d7c480068b754413fd2309a2251d1e3855106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075173"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271946"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljning uppmanas du för att skapa flera varv en konversation
 
@@ -229,7 +229,7 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
@@ -254,7 +254,8 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
                         "qna": null,
                         "displayText": "Create a Windows Account"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -268,14 +269,15 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -289,14 +291,21 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]
 }
 ```
 
-Den `prompts` matris innehåller texten i den `displayText` egenskapen och `qnaId` värdet så att du kan visa dessa frågor som de nästa visas konversationen flödet skicka det valda värdet för QnA Maker i följande begäran. 
+Den `promptsToAdd` matris innehåller texten i den `displayText` egenskapen och `qnaId` värdet så att du kan visa dessa frågor som de nästa visas konversationen flödet skicka det valda värdet för QnA Maker i följande begäran. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## <a name="json-request-to-return-non-initial-answer-and-follow-up-prompts"></a>JSON-begäran för att returnera icke första svar och fråga om uppföljning
 
@@ -336,7 +345,8 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         },
         {
@@ -350,14 +360,15 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -371,7 +382,8 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]

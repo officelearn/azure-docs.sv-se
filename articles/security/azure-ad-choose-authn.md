@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119312"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274274"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -101,7 +101,7 @@ Information om beslut frågor:
 * **Överväganden**. För närvarande tillämpa inte synkronisering av lösenordshash omedelbart ändringar i lokala konto tillstånd. I så fall kan har en användare åtkomst till molnappar tills kontot användartillstånd synkroniseras till Azure AD. Organisationer kan vilja kringgå den här begränsningen genom att köra en ny synkroniseringscykel när administratörer massuppdateringar till en lokal användare konto tillstånd. Ett exempel inaktivera konton.
 
 > [!NOTE]
-> Lösenordet har upphört att gälla och kontot utelåst tillstånd för närvarande inte är synkroniserad med Azure AD med Azure AD Connect. 
+> Lösenordet har upphört att gälla och kontot utelåst tillstånd för närvarande inte är synkroniserad med Azure AD med Azure AD Connect. När du ändrar en användares lösenord och ange den *användaren måste byta lösenord vid nästa inloggning* flagga lösenordshashen kommer inte att synkroniseras till Azure AD med Azure AD Connect tills användaren ändrar sitt lösenord.
 
 Referera till [implementera synkronisering av lösenordshash](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) distributionsanvisningar.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648422"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155315"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -76,7 +76,7 @@ Det här avsnittet beskrivs arbetsflödet för säkerhetskopiering offline så a
    Beskrivning av indata är följande:
 
     * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
-    * **Azure Resource Manager-Lagringskonto**: Namnet på lagringskontot för Resource Manager typ i alla Azure-prenumerationer.
+    * **Azure Resource Manager-Lagringskonto**: Namnet på Resource Manager typen av lagringskonto (generell användning v1 eller generell användning v2) i alla Azure-prenumeration.
     * **Azure-lagringsbehållare**: Namnet på målblobben för lagring i Azure Storage-konto där dina säkerhetskopierade data har importerats innan den kopieras till Recovery Services-valvet.
     * **Azure-prenumerations-ID**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
     * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure. 

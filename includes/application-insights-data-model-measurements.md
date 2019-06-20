@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131011"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187101"
 ---
 Samling med anpassade mått. Använd den här samlingen i rapport med namnet mätning som är associerade med objektet telemetri. Vanliga användningsområden är:
 - storleken på Beroendetelemetri nyttolast

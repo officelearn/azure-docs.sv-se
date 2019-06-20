@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791435"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275586"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -79,7 +79,7 @@ Azure SQL Database hyperskala-nivån är nu tillgänglig i de regioner som anges
 
 Ja. Mer information och gränser för hur många storskaliga databaser per logisk server, finns i [SQL Database-resursgränser för enkel och delade databaser på en logisk server](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Vad är prestandaegenskap för en storskalig databas
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Vad är prestandaegenskaperna för en storskalig databas
 
 SQL Database hyperskala arkitekturen ger hög prestanda och dataflöde stöd för stora databasstorlekar. 
 
@@ -94,7 +94,7 @@ SQL Database hyperskala ger snabb skalbarhet på begäran för din arbetsbelastn
 
   Med storskaliga får du också möjlighet att etablera en eller flera extra beräkningsnoder som du kan använda för att hantera din läsbegäranden. Det innebär att du kan använda dessa extra beräkningsnoder som skrivskyddade noder för att avlasta Läs arbetsbelastningen från den primära databearbetning. Förutom är skrivskyddad, dessa noder också fungera som hot standby-i händelse av en växling vid fel över från primärt.
 
-  Etablering av var och en av dessa ytterligare compute-noder kan göras i konstant tid och är en online-åtgärd. Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den `ApplicationIntent` argumentet i anslutningssträngen till `read_only`. Alla anslutningar som markerats med `read-only` dirigeras automatiskt till en ytterligare skrivskyddad compute-noder.
+  Etablering av var och en av dessa ytterligare compute-noder kan göras i konstant tid och är en online-åtgärd. Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den `ApplicationIntent` argumentet i anslutningssträngen till `readonly`. Alla anslutningar som markerats med `readonly` dirigeras automatiskt till en ytterligare skrivskyddad compute-noder.
 
 ## <a name="deep-dive-questions"></a>Djupdykning frågor
 
@@ -140,7 +140,7 @@ Nej.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Hur många lässkala repliker stöds
 
-Hyperskala-databaser skapas med en lässkala replik (två repliker totalt) som standard. Du kan skala antalet skrivskyddade repliker mellan 0 och 4 med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+Hyperskala-databaser skapas med en lässkala replik (två repliker totalt) som standard. Du kan skala antalet skrivskyddade repliker mellan 0 och 4 med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>För hög tillgänglighet, jag behöver för att etablera ytterligare beräkningsnoder
 
@@ -361,7 +361,7 @@ Vi kan skapa 2 repliker för storskaliga databaser som standard. Om du vill just
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Hur ansluter jag till de här sekundära compute-noder
 
-Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den `ApplicationIntent` argumentet i anslutningssträngen till `read_only`. Alla anslutningar som markerats med `read-only` dirigeras automatiskt till en ytterligare skrivskyddad compute-noder.  
+Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den `ApplicationIntent` argumentet i anslutningssträngen till `readonly`. Alla anslutningar som markerats med `readonly` dirigeras automatiskt till en ytterligare skrivskyddad compute-noder.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Jag kan skapa en särskild slutpunkt för lässkala repliken
 

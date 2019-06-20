@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118278"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165988"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
 
@@ -34,7 +34,7 @@ Neka tilldelningar skapas och hanteras av Azure för att skydda resurser. Till e
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>Jämför rolltilldelningar och neka tilldelningar
 
-Neka tilldelningar följer ett liknande mönster som neka tilldelningar, men även ha några skillnader.
+Neka tilldelningar följer ett liknande mönster som rolltilldelningar, men även ha några skillnader.
 
 | Funktion | Rolltilldelning | Neka tilldelning |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ Neka tilldelningar följer ett liknande mönster som neka tilldelningar, men äv
  En neka-tilldelning har följande egenskaper:
 
 > [!div class="mx-tableFixed"]
-> | Egenskap | Obligatoriskt | Typ | Beskrivning |
+> | Egenskap | Krävs | Typ | Beskrivning |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Ja | String | Visningsnamnet för neka tilldelningen. Namn måste vara unikt för ett givet omfång. |
 > | `Description` | Nej | String | Beskrivning av neka tilldelningen. |

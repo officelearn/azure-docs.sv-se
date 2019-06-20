@@ -8,108 +8,108 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e727398e1b7bfa406166574ab40320c68dac5709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358535"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165821"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor och svar om VMware-lösning genom CloudSimple
 
-Vanliga frågor och svar om VMware-lösning genom CloudSimple som hjälper dig att förstå tjänsten och hur du använder den.  Frågor och svar är ordnade i följande kategorier.
+Vanliga frågor och svar om Azure VMware-lösning genom CloudSimple som hjälper dig att förstå tjänsten och hur du använder den. Frågor och svar är ordnade i följande kategorier:
 
-* CloudSimple Service
+* CloudSimple service
 * Anslutning
 * Nätverk
 * Säkerhet
 * Compute
 * Storage
 * VMware
-* Azure Integration
-  
-## <a name="cloudsimple-service"></a>CloudSimple Service
+* Integrering med Azure
+ 
+## <a name="cloudsimple-service"></a>CloudSimple service
 
-**Vad är VMware-lösning genom CloudSimple?**
+**Vad är Azure VMware-lösning genom CloudSimple?**
 
-**VMware-lösning genom CloudSimple** transformerar och utökar VMware-arbetsbelastningar till privat, dedikerad moln i Azure på bara några minuter. Vi hand tar om etablering, hantering av infrastrukturen och samordna arbetsbelastningar mellan lokala och Azure. Eftersom dina appar körs exakt de samma lokalt och i Azure, dra nytta av elasticiteten och tjänster med molnet utan komplexitet genom att utforma dina appar. CloudSimple sänker den totala ägandekostnaden med en förbrukningsmodell i molnet som tillhandahåller på begäran etablering, betala som du-växer och optimering av kapacitet.  Se [vad är VMware-lösning på Azure via CloudSimple](cloudsimple-vmware-solutions-overview.md) för funktioner, fördelar och scenarier.
+Azure VMware-lösning av CloudSimple transformerar och utökar VMware-arbetsbelastningar till privat, dedikerad moln i Azure på bara några minuter. Lösningen etableras, hanterar infrastrukturen och samordnar arbetsbelastningar mellan lokala och Azure. Eftersom dina appar körs exakt de samma lokalt och i Azure, dra nytta av elasticiteten och tjänster med molnet utan komplexitet genom att utforma dina appar. CloudSimple sänker den totala ägandekostnaden med en förbrukningsmodell i molnet som tillhandahåller på begäran etablering, betala som du-växer och optimering av kapacitet. Funktioner, fördelar och scenarier finns i [vad är Azure VMware-lösning genom CloudSimple?](cloudsimple-vmware-solutions-overview.md).
 
-**Vad är ett CloudSimple privat moln?**
+**Vad är ett privat moln CloudSimple?**
 
-Du etablerar ett privat, dedikerad moln som består av databehandling med höga prestanda, lagring och nätverk miljö som har distribuerats på Microsoft Azure-infrastrukturen (maskin- och datacenter-utrymme) i Azure-platser.  Privat moln är en inbyggd VMware-plattform 'as-a-service ”. I VMware villkor innehåller varje privata moln exakt en instans av vCenter-servern. VCenter-servern hanterar flera ESXi-noder i ett eller flera vSphere-kluster, tillsammans med motsvarande virtuella SAN (vSAN)-lagring. En CloudSimple Service kan innehålla flera privata moln i Azure-prenumerationen.  Läs mer om privata moln, [privat moln översikt](cloudsimple-private-cloud.md).
+Du etablerar ett privat, dedikerad moln som består av en beräknings-, lagrings- och nätverksmiljö som distribueras på Microsoft Azure-infrastrukturen (maskin- och datacenter-utrymme) i Azure-platser. Det privata molnet är en inbyggd VMware-plattform som en tjänst. I VMware villkor innehåller varje privata moln exakt en instans av vCenter-servern. VCenter-servern hanterar flera ESXi-noder i ett eller flera vSphere-kluster, tillsammans med motsvarande virtuellt SAN-lagring. En CloudSimple-tjänst kan innehålla flera privata moln i Azure-prenumerationen. Läs mer om privata moln, [optimeras översikt](cloudsimple-private-cloud.md).
 
-**Var finns CloudSimple service?**
+**Var finns CloudSimple tjänsten?**
 
 CloudSimple är tillgängligt i regionerna USA, östra och USA, västra.
 
 **Hur aktiverar jag min prenumeration på CloudSimple?**
 
-Du kan kontakta din Microsoft-kontorepresentant på [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com) att aktivera prenumerationen för CloudSimple-tjänsten. Ange ditt prenumerations-ID för e-postmeddelandet som du vill köra tjänsten CloudSimple.  
+Kontakta din Microsoft-kontorepresentant på [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com) att aktivera prenumerationen för tjänsten CloudSimple. Ange ditt prenumerations-ID för e-postmeddelandet som du vill köra tjänsten CloudSimple. 
 
 **Hur kommer jag åt CloudSimple portal?**
 
-Du kan komma åt CloudSimple portalen från Azure-portalen.  Se [åtkomst till VMware-lösning genom CloudSimple portalen från Azure-portalen](https://docs.azure.cloudsimple.com/access-cloudsimple-portal) nedan för information om hur du använder CloudSimple-portalen. 
+Du har åtkomst till CloudSimple-portalen från Azure-portalen. Information om hur du kommer åt portalen CloudSimple finns [åtkomst till VMware-lösningen av CloudSimple portalen från Azure portal](https://docs.azure.cloudsimple.com/access-cloudsimple-portal).
 
 **Hur ökar jag kapaciteten för ett privat moln?**
 
-Du köper noder från Azure-portalen och utöka ditt privata moln från CloudSimple-portalen.  Du kan expandera ditt privata moln genom att lägga till ytterligare noder i befintligt vSphere-kluster eller genom att skapa nya vSphere-klustret.  Se [expandera ett CloudSimple privat moln](https://docs.azure.cloudsimple.com/expand-private-cloud) artikel för proceduren.
+Du etablera noder från Azure-portalen och utöka ditt privata moln från CloudSimple-portalen. Du kan expandera ditt privata moln genom att lägga till noder i ett befintligt vSphere-kluster eller skapa ett nytt vSphere-kluster. Information om proceduren finns i [expandera ett privat moln CloudSimple](https://docs.azure.cloudsimple.com/expand-private-cloud).
 
 **Vad händer med mitt privata moln under Underhåll?**
 
-CloudSimple innehåller periodiska aviseringar dagar före schemalagt underhåll.  Underhåll sker i ett avbrottsfria sätt att kontrollera tillgängligheten för ditt privata moln.  Underhåll kan vara av följande typer:
+CloudSimple ger periodiska aviseringar dagar innan schemalagt underhåll. Underhåll sker i en avbrottsfri sätt att kontrollera tillgängligheten för ditt privata moln. Underhåll kan vara av följande typer:
 
-1. **CloudSimple infrastruktur:**  CloudSimple infrastruktur är utformad för att ha hög tillgänglighet.  Under Underhåll säkerställs anslutning och tillgängligheten för ditt privata moln genom att uppdatera redundanta komponenter en i taget utan påverkas.  Du har åtkomst till ditt vCenter-privat moln, alla virtuella datorer, internet-anslutning från ditt privata moln och anslutningar till lokala eller Azure.
-2. **CloudSimple Portal:** Under Underhåll kanske inte vissa funktioner i CloudSimple portal tillgänglig eller är inaktiverad.  Meddelande om Underhåll innehåller information om vad du kan göra på portalen.
+- **CloudSimple infrastruktur**: CloudSimple-infrastruktur är utformad för att ha hög tillgänglighet. Under Underhåll säkerställs anslutning och tillgängligheten för ditt privata moln genom att uppdatera redundanta komponenter en i taget utan påverkas. Du har åtkomst till ditt privata moln vCenter, alla virtuella datorer, internet-anslutning från ditt privata moln och anslutningar till lokala eller Azure.
+- **CloudSimple portal**: Under underhåll, vissa funktioner i CloudSimple portal kan inte nås eller kan vara inaktiverade. Meddelande om Underhåll innehåller information om vad du kan göra på portalen.
 
 ## <a name="connectivity"></a>Anslutning
 
-**Vilka anslutningsalternativ har jag till CloudSimple region nätverk?**
+**Vilka anslutningsalternativ har jag till nätverket CloudSimple region?**
 
-CloudSimple tillhandahåller tre olika anslutningsalternativ för att ansluta till nätverket CloudSimple region.  Alla tre kan användas tillsammans.
+CloudSimple tillhandahåller tre olika anslutningsalternativ för att ansluta till nätverket CloudSimple region. Alla tre alternativ kan användas tillsammans:
 
-1. ExpressRoute-anslutning från ditt lokala datacenter till CloudSimple region nätverk – privat anslutning med hög hastighet med låg latens säker bryggning lokala ExpressRoute-kretsen med din CloudSimple ExpressRoute-krets med Global räckvidd. Se [Anslut från en lokal plats till CloudSimple med hjälp av ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection) artikeln för att konfigurera anslutningen.
-2. ExpressRoute-anslutning från Azure-nätverk till nätverket CloudSimple region - privat anslutning med hög hastighet med låg latens säker bryggning ditt virtuella nätverk på Azure med CloudSimple ExpressRoute-kretsen med hjälp av virtuella nätverksgatewayer.  Se [ansluta miljön CloudSimple privat moln till Azure-nätverket med hjälp av ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection) artikeln för att konfigurera anslutningen.
-3. Plats-till-plats VPN-anslutning från ditt lokala datacenter till nätverket CloudSimple region - virtuella privata nätverk från din lokala VPN-enhet till din CloudSimple privat moln-region.  Se [konfigurera VPN-anslutning mellan ditt lokala nätverk och CloudSimple privat moln] artikeln för att konfigurera VPN-anslutning.
+- Azure ExpressRoute-anslutning från ditt lokala datacenter till CloudSimple region nätverk: En hög hastighet med låg latens säker privat anslutning som överbryggar lokala ExpressRoute-kretsen med CloudSimple ExpressRoute-kretsen med Global räckvidd. Om du vill konfigurera anslutningen, se [Anslut från en lokal plats till CloudSimple genom att använda ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection).
+- ExpressRoute-anslutning från Azure-nätverk till nätverket CloudSimple region: En hög hastighet och låg latens säker privat anslutning som förenar det virtuella nätverket på Azure med CloudSimple ExpressRoute-kretsen med hjälp av virtuella nätverksgatewayer. Om du vill konfigurera anslutningen, se [ansluta miljön CloudSimple privat moln till Azure-nätverk med hjälp av ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection).
+- Plats-till-plats VPN-anslutning från ditt lokala datacenter till nätverket CloudSimple region: En virtuella privata nätverk från din lokala VPN-enhet till din region för CloudSimple privat moln. Om du vill konfigurera anslutningen, se [konfigurera en VPN-anslutning mellan ditt lokala nätverk och optimeras för CloudSimple](https://docs.azure.cloudsimple.com/set-up-vpn).
 
 **Hur ansluter jag till ett privat moln?**
 
-Du kan visa information om ditt privata moln i CloudSimple-portalen. För att ansluta till vCenter som motsvarar ditt privata moln, se till att nätverksanslutningen är etablerad med plats-till-plats, punkt-till-plats eller ExpressRoute. Starta sedan CloudSimple portalen från Azure-portalen och klicka på *starta vSphere-klienten* på startsidan eller sidan privat moln.
+Du kan visa information om ditt privata moln i CloudSimple-portalen. Kontrollera att nätverket finns en anslutning via plats-till-plats, punkt-till-plats eller ExpressRoute för att ansluta till vCenter som motsvarar ditt privata moln. Starta sedan CloudSimple portalen från Azure-portalen. Välj **starta vSphere-klienten** på startsidan eller sidan privat moln.
 
-**Vad är fördelen med ExpressRoute-krets?**
+**Vad är fördelen med en ExpressRoute-krets?**
 
-Azure ExpressRoute-krets tillhandahåller snabba svarstider säker anslutning.  CloudSimple ger en dedikerad ExpressRoute-krets per region per kund.  Med den här kretsen kan upprätta du säker anslutning från lokala och/eller din Azure-prenumeration.
+En Azure ExpressRoute-krets ger en snabb och låg latens säker anslutning. CloudSimple ger en dedikerad ExpressRoute-krets per region per kund. Med den här kretsen kan upprätta du säker anslutning från lokala platser och din Azure-prenumeration.
 
-**Vad är network-kostnaderna för att ansluta till och från CloudSimple. Alla kostnader för utgående trafik till och från CloudSimple till Azure? I olika regioner?**
+**Vad är nätverkskostnader att ansluta till och från CloudSimple? Finns det några kostnader för utgående trafik till och från CloudSimple till Azure? Finns det några kostnader för utgående trafik mellan regioner?**
 
-Det är kostnadsfritt för alla utgående nätverkstrafik.  Azure standardtaxa gäller för all utgående trafik från ditt virtuella nätverk eller från den lokala ExpressRoute-krets.
+Det finns ingen kostnad för utgående nätverkstrafik. Azure standardtaxa gäller för all utgående trafik från ditt virtuella nätverk eller från en lokal ExpressRoute-krets.
 
 ## <a name="networking"></a>Nätverk
 
-**Vilka funktioner är tillgängliga för Mina privat moln?**
+**Vilka funktioner är tillgängliga för Mina privata molnet?**
 
-Du kan etablera virtuella lokala nätverk (och deras undernät), tabeller, i brandväggen och tilldela offentliga IP-adresser och mappa till en virtuell dator som körs i ditt privata moln.  Mer information finns i [VLAN/undernät översikt](cloudsimple-vlans-subnets.md), [översikt över brandväggen tabeller](cloudsimple-firewall-tables.md), och [översikt över offentliga IP-adress](cloudsimple-public-ip-address.md) artiklar.
+Du kan etablera virtuella lokala nätverk och deras undernät och brandväggen tabeller. Du kan tilldela offentliga IP-adresser och mappa till en virtuell dator som körs i ditt privata moln. Mer information finns i [VLAN och undernät översikt](cloudsimple-vlans-subnets.md), [översikt över brandväggen för tabeller](cloudsimple-firewall-tables.md), och [översikt över offentliga IP-adress](cloudsimple-public-ip-address.md).
 
 **Hur ställer jag in olika undernät för mitt program i min privat moln?**
 
-Du kan skapa virtuella lokala nätverk i ditt privata moln från CloudSimple-portalen.  När du skapar VLAN kan du skapa en distribuerad portgrupp på ditt privata moln-vCenter med VLAN och skapa virtuella datorer som är anslutna till gruppen distribuerade port.  Du kan aktivera brandväggen tabell för VLAN/undernät och definiera brandväggsregler för att säkra nätverkstrafik.
+Du kan skapa virtuella lokala nätverk i ditt privata moln från CloudSimple-portalen. När du har skapat VLAN du skapar en distribuerad portgrupp på privat moln-vCenter med hjälp av VLAN och skapa virtuella datorer som är anslutna till gruppen distribuerade port. Du kan aktivera en tabell med brandväggen för virtuellt lokalt nätverk eller undernät och definiera brandväggsregler för att säkra nätverkstrafik.
 
-**Vilka brandväggsinställningar är tillgängliga för Mina privat moln?**
+**Vilka brandväggsinställningar är tillgängliga för Mina privata moln?**
 
-Du kan konfigurera regler för Nord-sydlig och öst-väst-trafik.  Reglerna har definierats i en tabell i brandväggen.  Tabellen brandväggen kan kopplas till VLAN(s) i ditt privata moln.  Se [konfigurera brandväggen tabeller och regler för privata moln](https://docs.azure.cloudsimple.com/firewall) artikeln för att ställa in proceduren.
+Du kan konfigurera regler för Nord-sydlig och öst-väst-trafik. Reglerna har definierats i en tabell i brandväggen. Tabellen brandväggen kan kopplas till VLAN-nätverk i ditt privata moln. Under installationen, se [ställa in brandväggen tabeller och regler för privata moln](https://docs.azure.cloudsimple.com/firewall).
 
-**Kan jag tilldela offentliga IP-adresser för virtuella datorer i min privat moln-miljö?**
+**Kan jag tilldela offentliga IP-adresser för virtuella datorer i mitt privata molnmiljö?**
 
-Du kan enkelt allokera en ny offentlig IP-adress och koppla den till en privat IP-adressen för den virtuella datorn eller en installation i CloudSimple-portalen.  Du kan också skapa nya brandväggsregler eller Använd befintliga brandväggsregler för att tillåta trafik från specifika portar och/eller specifik uppsättning IP-adresser i portalen. Se [tilldela offentliga IP-adresser för privat molnmiljö](https://docs.azure.cloudsimple.com/public-ips) för att ställa in proceduren.
+Du kan enkelt allokera en ny offentlig IP-adress och koppla den till en privat IP-adressen för den virtuella datorn eller en installation i CloudSimple-portalen. Du kan också skapa nya brandväggsregler eller Använd befintliga brandväggsregler för att tillåta trafik från specifika portar och specifika uppsättningar med IP-adresser i portalen. Under installationen, se [tilldela offentliga IP-adresser för en privat molnmiljö](https://docs.azure.cloudsimple.com/public-ips).
 
 ## <a name="security"></a>Säkerhet
 
 **Vilka är Mina säkerhetsalternativ på CloudSimple?**
 
-CloudSimple privat moln innehåller följande säkerhetsfunktioner för att skydda din miljö för privat moln:
+Ett privat moln CloudSimple innehåller följande säkerhetsfunktioner för att skydda din miljö för privat moln:
 
-1. **Data för kryptering av vilande data**: Du kan kryptera data i vila som finns på virtuellt SAN-lagring i ditt privata moln. virtuellt SAN-nätverk stöder externa nyckelhantering server, som kan distribueras i din Azure vNet eller en lokal miljö.  Se [konfigurera virtuellt SAN-kryptering för din CloudSimple privat moln](https://docs.azure.cloudsimple.com/vsan-encryption) för mer information.
-2. **Nätverkssäkerhet**: Styra flödet i nätverkstrafiken från/till ditt privata moln från Internet, lokalt och i undernäten i ditt privata moln med hjälp av brandväggsregler.
-3. **Säkra privata anslutningar**: Säkra privata anslutningar mellan ditt lokala nätverk och din Azure-prenumeration.
+- **Data kryptering av vilande data:** Du kan kryptera data i vila som finns på virtuellt SAN-lagring i ditt privata moln. virtuellt SAN-nätverk har stöd för en extern nyckelhantering-server som kan distribueras i Azure virtuella nätverk eller den lokala miljön. Mer information finns i [konfigurera virtuellt SAN-kryptering för ditt privata moln CloudSimple](https://docs.azure.cloudsimple.com/vsan-encryption).
+- **Nätverkssäkerhet:** Styra flödet i nätverkstrafiken från och till ditt privata moln från internet, lokalt och i undernäten i ditt privata moln med hjälp av brandväggsregler.
+- **Säker och privat anslutning:** Säker och privat anslutning mellan ditt lokala nätverk och din Azure-prenumeration.
 
 ## <a name="compute"></a>Compute
 
@@ -117,60 +117,60 @@ CloudSimple privat moln innehåller följande säkerhetsfunktioner för att skyd
 
 CloudSimple erbjuder två värdtyper:
 
-* **CS28 nod:** CPU:2 x 2,2 GHz, totalt antal 28 kärnor 48 HT.  RAM: 256 GB.  Lagring: 1 600 GB NVMe Cache, 5760 GB Data (All-Flash). Nätverk: 2x25Gbe NIC
-* **CS36 nod:** CPU 2 x 2.3 GHz, totalt antal 36 kärnor, 72 HT.  RAM: 512 GB.  Lagring: 3200 GB NVMe Cache 11,520 GB Data (All-Flash).  Nätverk: 2x25Gbe NIC
+* **CS28 noden**: CPU:2 x 2,2 GHz, totalt antal 28 kärnor 48 HT. RAM: 256 GB. Lagring: 1 600 GB NVMe Cache, 5760 GB Data (All-Flash). Nätverk: 2x25Gbe nätverkskort.
+* **CS36 noden**: CPU 2 x 2.3 GHz, totalt antal 36 kärnor 72 HT. RAM: 512 GB. Lagring: 3200 GB NVMe Cache 11,520 GB Data (All-Flash). Nätverk: 2x25Gbe nätverkskort.
 
-**Hur hanteras eventuella maskinvarufel?**
+**Hur hanteras maskinvarufel?**
 
-Alla CloudSimple infrastruktur övervakas kontinuerligt av CloudSimple-plattformen och vår tjänst-driftteam.  Om ett maskinvarufel identifieras får en ny nod läggs till i ditt privata moln och misslyckade noden tas bort för att säkerställa hög tillgänglighet för privat moln.
+Alla CloudSimple infrastruktur övervakas kontinuerligt av CloudSimple-plattformen och dess åtgärder serviceteam. Om ett maskinvarufel upptäcks, läggs en ny nod till ditt privata moln. Misslyckade noden tas bort om du vill garantera hög tillgänglighet för ditt privata moln.
 
 ## <a name="storage"></a>Storage
 
 **Vilken typ av lagring stöds på ett privat moln?**
 
-CloudSimple erbjuder **All-flash VMware virtuellt SAN-lagring** med varje privat moln.  Varje vSphere skapas med sin egen virtuellt SAN-datalager.  Se [komponenter för privata moln VMware - virtuellt SAN-lagring](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage) nedan för mer information.
+CloudSimple erbjuder **All-flash VMware virtuellt SAN-lagring** med varje privata moln. Varje vSphere skapas med sin egen virtuellt SAN-datalager. Mer information finns i [komponenter för privata moln VMware - virtuellt SAN-lagring](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
 
 **Är kryptering av data som stöds?**
-Ja.  Du kan konfigurera virtuellt SAN-lagring i ditt privata moln du använder en key management server (KMS) som är distribueras lokalt eller på Azure för kryptering av data som lagras på virtuellt SAN-nätverk
+Ja. Du kan konfigurera virtuellt SAN-lagring i ditt privata moln du använder en key management server (KMS), som är distribueras lokalt eller på Azure för kryptering av data som lagras på virtuellt SAN-nätverk.
 
 **Hur hanteras felaktiga diskar?**
 
-CloudSimple övervakning övervakar kontinuerligt alla maskinvarukomponenter för privat moln.  Om eventuella diskfel upptäcks eller en disk har identifierats som misslyckas (baserat på heuristik), läggs automatiskt en ny nod i privat moln.  Noden med inte fungerar eller disken tas bort från det privata molnet.
+CloudSimple övervakning övervakar kontinuerligt alla maskinvarukomponenter i det privata molnet. Om diskfel upptäcks eller en disk har identifierats som misslyckas utifrån heuristik, läggs automatiskt en ny nod i det privata molnet. Noden med en disk som inte fungerar eller tas bort från det privata molnet.
 
 ## <a name="vmware"></a>VMware
 
-**Hur utför jag storskaliga uppladdning/migrera program och data från en lokal plats?**
+**Hur utför jag storskaliga överföring och migrering av program och data från en lokal plats?**
 
-CloudSimple får inbyggda VMware vSphere-lösning.  Alla verktyg som används för migrering av bulk data kan användas med CloudSimple privat moln.  Några av de tillgängliga alternativen är:
+CloudSimple är en inbyggd VMware vSphere-lösning. Alla verktyg som används för migrering av bulk data kan användas med ett privat moln CloudSimple. Några av de tillgängliga alternativen är:
 
-1. VMware HCX för bulk-migrering av data.
-2. Kalla migrering av data med hjälp av Storage vMotion från en lokal plats till CloudSimple.
+- VMware HCX för bulk-migrering av data.
+- Kalla migrering av data med hjälp av Storage vMotion från en lokal plats till CloudSimple.
 
 **Kan jag installera någon VMware-verktyg?**
 
-CloudSimple får inbyggda VMware vSphere-lösning.  Alla verktyg som används för att hantera vSphere-miljön på plats kan användas på CloudSimple.  CloudSimple har stöd för Bring-Your-Own-License (BYOL)-modell för att installera VMware-verktyg.
+CloudSimple är en inbyggd VMware vSphere-lösning. Alla verktyg som används för att hantera en vSphere-miljö på plats kan användas på CloudSimple. CloudSimple har stöd för en modell för bring-your-own-license (BYOL) för att installera VMware-verktyg.
 
 **Hur hanteras uppdateringar och uppgraderingar?**
 
-CloudSimple hanterar och uppdaterar alla infrastrukturkomponenter för privat moln i en sömlös avbrottsfria sätt.  Alla uppdateringen eller säkerhetskorrigeringen som publicerats av VMware eller infrastruktur leverantörer schemaläggs för uppdatering så snart den är kvalificerad av CloudSimple.
+CloudSimple hanterar och uppdaterar alla infrastrukturkomponenter för ditt privata moln i en sömlös oavbruten sätt. Alla uppdateringen eller säkerhetskorrigeringen som publicerats av VMware eller infrastruktur leverantörer har schemalagts för uppdatering så snart den är kvalificerad av CloudSimple.
 
-CloudSimple utför inte uppgraderingar och uppdateringar av program installerade på privat moln.
+CloudSimple utföra inte uppgraderingar och uppdateringar av program installerade på det privata molnet.
 
-## <a name="azure-integration"></a>Azure Integration
+## <a name="azure-integration"></a>Integrering med Azure
 
 **Vilka Azure-tjänster stöds?**
 
-CloudSimple ger Azure ExpressRoute-anslutning till din prenumeration på Azure.  Alla tjänster som körs i din prenumeration har en nätverksanslutning till ditt privata moln och kan ansluta till ditt privata moln.  Exempel:
+CloudSimple ger Azure ExpressRoute-anslutning till din prenumeration på Azure. Alla tjänster som körs i din prenumeration har nätverksanslutning till ditt privata moln och kan ansluta till ditt privata moln. Exempel:
 
-1. **Azure Active Directory** som en som identitetskälla för CloudSimple vCenter
-2. **Azure storage** för att lagra säkerhetskopior, bilder och andra data från ditt privata moln
-3. **Hybridprogram** – du kan skapa programarkitektur som sträcker sig över offentliga och privata moln.  Du kan till exempel skapa webservers i Azure som har åtkomst till program och databasservrar på CloudSimple privat moln.
-4. **Med Azure monitor** och **Azure security center** -arbetsbelastningar som körs på VMware kan använda dem för loggning, prestandamått och säkerhetshantering.
+- **Azure Active Directory**: Använd Azure Active Directory som en som identitetskälla för din CloudSimple vCenter.
+- **Azure Storage**: Använd lagring för att lagra säkerhetskopior, bilder och andra data från ditt privata moln.
+- **Hybridprogram**: Du kan skapa programarkitektur som sträcker sig över offentliga och privata moln. Exempel: du kan skapa webbservrar i Azure som åtkomst till program och databasservrar på ett privat moln CloudSimple.
+- **Azure Monitor** och **Azure Security Center**: Arbetsbelastning som körs på VMware kan du använda Övervakare och Security Center för loggning, prestandamått och säkerhetshantering.
 
 **Hur mappar jag mina klienter för VMware till Azure?**
 
-CloudSimple ger unika möjlighet att hantera dina virtuella VMware-datorer i privata moln från Azure-portalen.  En vCenter-resurspool (konfigureras med önskad resursbegränsningar) kan mappas till din prenumeration av den globala administratören.  
+CloudSimple ger unika möjlighet att hantera dina virtuella VMware-datorer i ett privat moln från Azure-portalen. En vCenter-resurspool konfigurerad med resursbegränsningar som du vill kan mappas till din prenumeration av den globala administratören. 
 
 **Vilka licensiering fördelar får jag med Azure?**
 
-Du kan använda CloudSimple, för att utnyttja Azure Hybrid-förmånen för användning och spara upp till 90% för licenser bevara investeringen i Microsoft Licenses sänka den totala Ägandekostnaden jämfört med andra moln. Dessutom får du utökat säkerhetsuppdateringar för Windows Server 2008 och Microsoft SQL Server 2008.  Håll nere kostnaderna med Bring Your Own licenser (BYOL) till molnet för vanliga appar som Veeam, Zerto och andra.  
+Med CloudSimple, kan du dra nytta av Azure Hybrid-förmånen och spara upp till 90 procent på licenser för att bevara investeringen i Microsoft-licenser och sänka den totala ägandekostnaden jämfört med andra moln. Du får även utökat säkerhetsuppdateringar för Windows Server 2008 och Microsoft SQL Server 2008. Håll nere kostnaderna med BYOL till molnet för vanliga appar som Veeam, Zerto och andra. 

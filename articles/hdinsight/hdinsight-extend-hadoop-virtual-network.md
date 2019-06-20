@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055405"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163664"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -211,13 +211,13 @@ Använd följande steg för att ansluta till Apache Ambari och andra webbsidor v
 
 ## <a id="networktraffic"></a> Kontrollera nätverkstrafik
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Kontrollera inkommande trafik till HDInsight-kluster
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Tekniker för att styra inkommande och utgående trafik till HDInsight-kluster
 
 Nätverkstrafik i en Azure-nätverk kan kontrolleras med hjälp av följande metoder:
 
 * **Nätverkssäkerhetsgrupper** (NSG) du kan filtrera inkommande och utgående trafik till nätverket. Mer information finns i den [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
-* **Virtuella nätverksinstallationer** replikera funktionerna på enheter som brandväggar och routrar. Mer information finns i den [nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances) dokumentet.
+* **Virtuella nätverksinstallationer** (NVA) kan användas med utgående trafik. Nva: erna replikera funktionerna på enheter som brandväggar och routrar.  Mer information finns i den [nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances) dokumentet.
 
 HDInsight kräver obegränsad åtkomst till HDInsight-hälsa och management services både inkommande och utgående trafik från det virtuella nätverket som en hanterad tjänst. När du använder NSG: er, måste du se till att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
 

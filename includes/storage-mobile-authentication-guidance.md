@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158585"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187022"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Konfigurera programmet för att få åtkomst till Azure Storage
 Det finns två sätt att autentisera ditt program för att få åtkomst till lagringstjänster:

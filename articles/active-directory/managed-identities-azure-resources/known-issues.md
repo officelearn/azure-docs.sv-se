@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950470"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147118"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -84,8 +84,8 @@ Nej. Hanterade identiteter stöder för närvarande inte mellan directory scenar
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Vilka Azure RBAC-behörigheter krävs för att hanterade identiteter på en resurs? 
 
-- Systemtilldelade hanterad identitet: Du måste skriva över resursen. Exempel: Microsoft.Compute/virtualMachines/write eller den här åtgärden ingår i resursen specifika inbyggda roller som [virtuell Datordeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Användartilldelade hanterad identitet: Du måste skriva över resursen. Exempel: Microsoft.Compute/virtualMachines/write . Förutom [hanterade Identitetsoperatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelning över hanterad identitet. 
+- Systemtilldelade hanterad identitet: Du måste skriva över resursen. För exampl måste Microsoft.Compute/virtualMachines/write för virtuella datorer. Den här åtgärden ingår i resursen specifika inbyggda roller som [virtuell Datordeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Användartilldelade hanterad identitet: Du måste skriva över resursen. Du kan till exempel behöver Microsoft.Compute/virtualMachines/write för virtuella datorer. Förutom [hanterade Identitetsoperatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelning över hanterad identitet.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur du starta om de hanterade identiteterna för tillägget för Azure-resurser
 På Windows och vissa versioner av Linux om tillägget slutar kan följande cmdlet användas för att starta om den manuellt:

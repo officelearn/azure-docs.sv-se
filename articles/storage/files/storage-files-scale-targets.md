@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078152"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150446"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 
@@ -45,7 +45,13 @@ Exempel: En enda resurs kan uppnå 100 000 IOPS och en enskild fil kan skala upp
 Premium-filresurser har etablerats i ett särskilt lagringskonto med namnet **filestorage (förhandsversion)** . Det här kontot har något annorlunda skala mål än lagringskontot som används för standard-filresurser. Mål för storage-konto skala, finns i tabellen i den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) avsnittet.
 
 > [!IMPORTANT]
-> Lagringskontogränser gäller för alla resurser. Skala upp till är max för storage-konton endast möjligt om det finns bara en resurs per lagringskonto.
+> Lagringskontogränser gäller för alla resurser. Skala upp till är max för FileStorage konton endast möjligt om det finns bara en resurs per FileStorage konto.
+
+### <a name="file-share-and-file-scale-targets"></a>Filresursen och filen skala mål
+
+> [!NOTE]
+> Standard filresurser som är större än 5 TiB är i förhandsversion och har vissa begränsningar.
+> En lista av begränsningar och kom igång med förhandsversionen av dessa större filstorlekar för resursen finns i den [Standard filresurser](storage-files-planning.md#standard-file-shares) avsnitt av Planeringsguiden.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620289"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275174"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Storleksgränser för Web application firewall begäran och undantagslistor
 
@@ -35,16 +35,16 @@ WAF erbjuder även en konfigurerbar ratten om du vill aktivera begäran brödtex
 
 WAF-undantagslistor kan du utelämna vissa begärandeattribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogas token som används för autentisering eller lösenorden. Attribut är felbenägna innehåller specialtecken som kan utlösa en falsk positiv identifiering från WAF-regler. När ett attribut har lagts till i undantagslistan för WAF, anses det är inte av någon konfigurerad och aktiv WAF-regel. Undantagslistor är globala omfång.
 
-Följande attribut kan läggas till undantagslistor:
+Följande attribut kan läggas till undantagslistor. Värdena för din valda fält utvärderas inte mot WAF-regler. Undantaget visas remove granskning av fältets värde.
 
 * Begärandehuvuden
 * Begäran om Cookies
-* Begäran attributnamn (argument)
+* Begäran attributnamn (argument) kan läggas till som ett undantag-element som:
 
-   * Flera delar formulärdata
-   * XML
-   * JSON
-   * URL: en fråga argument
+   * Formulärfältnamn
+   * XML-entitet
+   * JSON-entitet
+   * URL: en fråga sträng argument
 
 Du kan ange en exakt begärandehuvudet, brödtext, cookie eller fråga strängmatchning för attributet.  Eller alternativt kan du ange delmatchningar. Undantaget är alltid på ett fält med rubriken, aldrig på dess värde. Undantagsregler är globala omfång och gäller för alla sidor och alla regler.
 

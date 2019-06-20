@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9208ceeb760bba97c12b23a1b6e5bdff7efc9020
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048589"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274832"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -33,7 +33,11 @@ Mer specifikt stöder den här anslutningen för Azure SQL Database Managed Inst
 - Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
 - Som en mottagare, lägga till data till en måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte nu. 
+>[!NOTE]
+>Azure SQL Database Managed Instance **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** stöds inte nu av den här anslutningen. Du kan använda för att arbeta runt [allmän ODBC-anslutningsprogram](connector-odbc.md) och ODBC-drivrutinen via lokal Integration Runtime. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) med ODBC-drivrutinen nedladdning och anslutningen sträng konfigurationer.
+
+>[!NOTE]
+>Tjänstens huvudnamn och hanterade identitetsautentiseringar stöds för närvarande inte av denna koppling och för att aktivera strax efter. För tillfället till lösning kan välja du Azure SQL Database-anslutningen och manuellt ange server för din hanterade instans.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -57,7 +61,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 | connectionString |Den här egenskapen anger connectionString information som behövs för att ansluta till den hanterade instansen med SQL-autentisering. Mer information finns i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja. |
 | connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om din hanterade instans har offentlig slutpunkt och Tillåt ADF om du vill komma åt). Om den inte anges används standard Azure Integration Runtime. |Ja. |
 
-**Exempel 1: Använda SQL-autentisering**
+**Exempel 1: Använd SQL-autentisering** standardporten är 1433. Om du använder SQL Managed Instance med offentlig slutpunkt kan du uttryckligen ange port 3342.
 
 ```json
 {
@@ -67,7 +71,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -78,7 +82,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 }
 ```
 
-**Exempel 2: Använda SQL-autentisering med lösenord i Azure Key Vault**
+**Exempel 2: Använd SQL-autentisering med lösenord i Azure Key Vault** standardporten är 1433. Om du använder SQL Managed Instance med offentlig slutpunkt kan du uttryckligen ange port 3342.
 
 ```json
 {
@@ -88,7 +92,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187217"
 ---
 När du genererar ett klientcertifikat behöver installeras den automatiskt på den dator som du använde för att skapa den. Om du vill installera klientcertifikatet på en annan klientdator måste du exportera det klientcertifikat som du skapade.
 

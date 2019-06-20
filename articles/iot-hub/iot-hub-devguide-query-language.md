@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442170"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137718"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
-IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar](iot-hub-devguide-device-twins.md) och [jobb](iot-hub-devguide-jobs.md), och [meddelanderoutning](iot-hub-devguide-messages-d2c.md). Den här artikeln beskriver vi:
+IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar](iot-hub-devguide-device-twins.md), [modultvillingar](iot-hub-devguide-module-twins.md), [jobb](iot-hub-devguide-jobs.md), och [meddelanderoutning](iot-hub-devguide-messages-d2c.md). Den här artikeln beskriver vi:
 
 * En introduktion till de viktigaste funktionerna i frågespråket IoT Hub och
 * Detaljerad beskrivning av språket. Mer information om frågespråk för meddelanderoutning finns [frågor i meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta info
 
 ## <a name="device-and-module-twin-queries"></a>Enheten och modulen twin frågor
 
-[Enhetstvillingar](iot-hub-devguide-device-twins.md) och modultvillingar kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT Hub kan du fråga enhetstvillingar och modultvillingar som ett enda JSON-dokument som innehåller alla twin information.
+[Enhetstvillingar](iot-hub-devguide-device-twins.md) och [modultvillingar](iot-hub-devguide-module-twins.md) kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT Hub kan du fråga enhetstvillingar och modultvillingar som ett enda JSON-dokument som innehåller alla twin information.
 
 Anta exempelvis att din IoT hub-enhetstvillingar har följande struktur (modultvilling skulle vara liknande bara med en ytterligare moduleId):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Modulen twin frågor
 
-Frågekörning på modultvillingar liknar frågekörning på enhetstvillingar, men använder en annan samling/namnrymd, dvs. i stället för ”från enheter” kan du fråga device.modules:
+Frågekörning på modultvillingar liknar frågekörning på enhetstvillingar, men använder en annan samling/namnrymd; i stället för från **enheter**, du fråga från **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ För närvarande frågar på **devices.jobs** har inte stöd för:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en IoT Hub-fråga
 
-Varje IoT Hub-fråga består av väljer och från satser med valfritt var och en GROUP BY-satser. Varje fråga som körs på en samling av JSON-dokument, till exempel enhetstvillingar. FROM-satsen anger dokumentsamling itereras på (**enheter** eller **devices.jobs**). Sedan tillämpas filtret i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som angetts i GROUP BY-satsen. En rad skapas för varje grupp som angetts i SELECT-satsen.
+Varje IoT Hub-fråga består av väljer och från satser med valfritt var och en GROUP BY-satser. Varje fråga som körs på en samling av JSON-dokument, till exempel enhetstvillingar. FROM-satsen anger dokumentsamling itereras på (**enheter**, **devices.modules**, eller **devices.jobs**). Sedan tillämpas filtret i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som angetts i GROUP BY-satsen. En rad skapas för varje grupp som angetts i SELECT-satsen.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM-satsen
 
-Den **från < from_specification >** satsen kan anta att bara två värden: **FRÅN enheter** att fråga enhetstvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
+Den **från < from_specification >** satsen kan anta att bara tre värden: **FRÅN enheter** att fråga enhetstvillingar, **från devices.modules** att fråga modultvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
 
 
 ## <a name="where-clause"></a>WHERE-satsen

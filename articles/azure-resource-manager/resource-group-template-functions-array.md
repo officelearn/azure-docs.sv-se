@@ -16,7 +16,7 @@ ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128706"
@@ -136,8 +136,8 @@ Returnerar första icke-null-värdet från parametrarna. Tomma strängar, tomma 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int, string, matris, eller ett objekt |Första värdet som ska testas för null. |
-| ytterligare argument |Nej |int, string, matris, eller ett objekt |Ytterligare värden som ska testas för null. |
+| arg1 |Ja |int, string, array eller object |Första värdet som ska testas för null. |
+| ytterligare argument |Nej |int, string, array eller object |Ytterligare värden som ska testas för null. |
 
 ### <a name="return-value"></a>Returvärde
 

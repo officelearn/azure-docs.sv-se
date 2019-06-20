@@ -1,20 +1,20 @@
 ---
-title: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package – Azure
-description: Lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
+title: Självstudie – konfigurera principer för Apache Kafka i HDInsight med Enterprise Security Package - Azure
+description: Självstudie – Lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/18/2019
+ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730248"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274345"
 ---
-# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales*`- och `marketingspend`-ämnen.
 
@@ -62,7 +62,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
-   |Avsnitt   |  sales* |
+   |Ämne   |  sales* |
    |Välj användare  |  sales_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -83,7 +83,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
-   |Avsnitt   |  marketingspend |
+   |Ämne   |  marketingspend |
    |Välj användare  |  marketing_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -117,7 +117,7 @@ Så här skapar du de två avsnitten `salesevents` och `marketingspend`:
    ```
 
    > [!Note]  
-   > Innan du fortsätter kan du behöva konfigurera din distributionsmiljö, om du inte redan har gjort det. Du behöver komponenter som Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i [installationsinstruktionerna](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   > Innan du fortsätter kan du behöva konfigurera din distributionsmiljö, om du inte redan har gjort det. Du behöver komponenter som Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i [Installationsinstruktioner](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
    
 1. Ladda ned [exemplen på Apache Kafka-domänansluten producent/konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 

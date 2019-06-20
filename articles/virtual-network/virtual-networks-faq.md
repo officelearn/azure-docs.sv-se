@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497114"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154499"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -382,13 +382,17 @@ Tjänstslutpunkter lägga till en systemväg som åsidosätter BGP-vägar och ge
 NSG: er måste tillåta utgående anslutning för att nå Azure-tjänsten. Om dina NSG: er har öppnats till all utgående Internettrafik, bör tjänstens slutpunkt trafik fungera. Du kan också begränsa den utgående trafiken till IP-adresser med enbart tjänsttaggarna-tjänsten.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Vilka behörigheter behöver jag konfigurera tjänstslutpunkter?
-Tjänstslutpunkter kan konfigureras i ett virtuellt nätverk oberoende av en användare med skrivbehörighet för det virtuella nätverket. För att kunna skydda Azure-tjänstresurser i ett virtuellt nätverk måste behörigheten **Microsoft.Network/JoinServicetoaSubnet** för undernäten läggas till för användaren. Den här behörigheten ingår i den inbyggda tjänst-administratörsrollen som standard och kan ändras genom att skapa anpassade roller. Läs mer om inbyggda roller och tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Tjänstslutpunkter kan konfigureras i ett virtuellt nätverk oberoende av en användare med skrivbehörighet för det virtuella nätverket. Om du vill skydda Azure-tjänstresurser i ett virtuellt nätverk, måste användaren ha behörighet **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** för undernäten läggas till. Den här behörigheten ingår i den inbyggda tjänst-administratörsrollen som standard och kan ändras genom att skapa anpassade roller. Läs mer om inbyggda roller och tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Kan jag filtrera trafik i virtuella nätverk till Azure-tjänster, så att endast specifika azure-tjänstresurser, över tjänstslutpunkter för virtuellt nätverk? 
 
 Tjänstslutpunktsprinciper för virtuellt nätverk (VNet) kan du filtrera trafik i virtuella nätverk till Azure-tjänster, så att endast specifika Azure-tjänstresurser över Tjänsteslutpunkter. Slutpunkt-principerna förser dig med detaljerad åtkomstkontroll från den virtuella nätverkstrafiken till Azure-tjänster. Du kan läsa mer om tjänstslutpunktsprinciper [här](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) som har stöd för tjänstslutpunkter i virtuella nätverk?
+
+Azure Active Directory (Azure AD) har inte stöd för tjänstslutpunkter internt. Fullständig lista över Azure-tjänster som stöder VNet-tjänstslutpunkter kan ses [här](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observera att ”Microsoft.AzureActiveDirectory” taggen visas under tjänster som stöder tjänstslutpunkter används för att stödja tjänstslutpunkter till ADLS Gen 1. För ADLS Gen 1, virtual network-integration för Azure Data Lake Storage Gen1 använder slutpunktssäkerhet för virtuellt nätverk service mellan ditt virtuella nätverk och Azure Active Directory (AD Azure) att skapa ytterligare säkerhetsanspråk åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. Läs mer om [Azure Data Lake Store Gen 1 VNet-integrering] (.. /data-Lake-Store/data-Lake-Store-Network-Security.MD?TOC=%2fazure%2fvirtual-Network%2ftoc.JSON
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Finns det några begränsningar på hur många VNet-tjänstslutpunkter som jag kan ställa in från mitt virtuella nätverk?
 Det finns ingen gräns för totalt antal VNet-tjänstslutpunkter i ett virtuellt nätverk. För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finnas begränsningar av antalet undernät för att skydda resursen. I följande tabell visas några exempel begränsningar: 
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204654"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Datorprogram som anropar webb-API:er
 
@@ -53,7 +53,7 @@ Du skriver ett skrivbordsprogram och du vill logga in användare i ditt program 
 
   ![Skrivbordsprogram](media/scenarios/desktop-app.svg)
 
-- Om du skriver en bärbar kommandoradsverktyget - förmodligen ett .NET Core-program som körs på Linux eller Mac – du kommer inte att kunna använda varken den interaktiv autentiseringen (även .NET Core inte tillhandahåller en [webbläsare](https://aka.ms/msal-net-uses-web-browser)), eller integrerad Windows-autentisering. Det är i så fall det bästa alternativet att använda kodflöde för enheten. Det här flödet används också för program utan en webbläsare, till exempel iOT-program
+- Om du skriver en bärbar kommandoradsverktyget - förmodligen ett .NET Core-program som körs på Linux eller Mac – du kommer inte att kunna använda interaktiv autentisering (även .NET Core inte tillhandahåller en [webbläsare](https://aka.ms/msal-net-uses-web-browser)), eller integrerad Windows-autentisering. Det är i så fall det bästa alternativet att använda kodflöde för enheten. Det här flödet används också för program utan en webbläsare, till exempel IoT-program
 
   ![Browserless program](media/scenarios/device-code-flow-app.svg)
 

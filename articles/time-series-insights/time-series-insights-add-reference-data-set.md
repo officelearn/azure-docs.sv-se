@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ab80279fae9dacdf7462b6c9d8208e0a56ca0877
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235056"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164989"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 
@@ -36,7 +36,7 @@ Referensdata är inte ansluten retroaktivt. Endast nuvarande och framtida inkomm
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Leta upp din befintliga Time Series Insights-miljö. Klicka på **alla resurser** på menyn på vänster sida av Azure-portalen. Välj Time Series Insights-miljö.
+1. Leta upp din befintliga Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure-portalen. Välj Time Series Insights-miljö.
 
 1. Välj den **översikt** sidan. Leta upp den **Webbadressen för Time Series Insights explorer** och öppna länken.  
 
@@ -76,7 +76,7 @@ Referensdata är inte ansluten retroaktivt. Endast nuvarande och framtida inkomm
 
 1. Byt namn på kolumnrubrikerna om det behövs. Nyckelkolumnsnamn krävs för att ansluta till motsvarande egenskap i din händelsekälla. Se till att referens data nyckelkolumnnamnen matchar exakt med händelsenamnet till dina inkommande data, inklusive skiftlägeskänslighet. De icke-nyckelkolumn namn används för att utöka den inkommande data med motsvarande referens datavärdena.
 
-1. Klicka på **lägger till en rad** eller **lägga till en kolumn** att lägga till flera referens datavärden efter behov.
+1. Välj **lägger till en rad** eller **lägga till en kolumn** att lägga till flera referens datavärden efter behov.
 
 1. Skriv ett värde i den **Filtrera rader...**  fält för att granska specifika rader efter behov. Filtret är användbart för att granska data, men tillämpas inte när du överför data.
 

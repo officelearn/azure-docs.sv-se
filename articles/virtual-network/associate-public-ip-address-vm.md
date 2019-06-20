@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64691988"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associera en offentlig IP-adress till en virtuell dator
@@ -43,7 +43,7 @@ Du kan använda den [Azure-portalen](#azure-portal), Azure [kommandoradsgränssn
    > [!NOTE]
    > Offentliga IP-adresser är kopplade till IP-konfigurationer för ett nätverksgränssnitt. Nätverksgränssnittet har en IP-konfiguration på föregående bild. Om nätverksgränssnittet har haft flera IP-konfigurationer, de skulle visas i listan och väljer du den IP-konfiguration som du vill associera den offentliga IP-adressen till.
 
-5. Välj **aktiverad**och välj sedan **IP-adress (*konfigurera nödvändiga inställningar*)**. Välj en befintlig offentlig IP-adress, som automatiskt stänger den **Välj offentlig IP-adress** box. Om du inte har någon tillgänglig offentliga IP-adresser i listan, måste du skapa en. Läs hur genom att läsa [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Välj **spara**, enligt bilden som följer och stäng sedan rutan för IP-konfiguration.
+5. Välj **aktiverad**och välj sedan **IP-adress (*konfigurera nödvändiga inställningar*)** . Välj en befintlig offentlig IP-adress, som automatiskt stänger den **Välj offentlig IP-adress** box. Om du inte har någon tillgänglig offentliga IP-adresser i listan, måste du skapa en. Läs hur genom att läsa [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Välj **spara**, enligt bilden som följer och stäng sedan rutan för IP-konfiguration.
 
    ![Aktivera offentlig IP-adress](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

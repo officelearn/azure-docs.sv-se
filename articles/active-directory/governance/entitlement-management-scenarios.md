@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473082"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190353"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Vanliga scenarier i Azure AD rättigheten hantering (förhandsversion)
 
@@ -124,4 +124,4 @@ Det finns flera sätt att du kan konfigurera hantering av rätt för din organis
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: Skapa ditt första åtkomst-paket](entitlement-management-access-package-first.md)
-- [Redigera och hantera ett befintligt åtkomstpaket](entitlement-management-access-package-edit.md)
+- [Delegera uppgifter](entitlement-management-delegate.md)

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297097"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274011"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -45,7 +45,7 @@ Det finns två alternativ för att ansluta virtuella nätverk:
 Peering alternativet är det bättre eftersom peering använder Microsoft-stamnätverk så ur anslutningen finns det någon märkbar skillnad i fördröjning mellan virtuella datorer i peerkopplade virtuella nätverket och i samma virtuella nätverk. VNet-peering är begränsad till nätverk i samma region.  
 
 > [!IMPORTANT]
-> VNet-peering scenario för Managed Instance är begränsad till nätverk i samma region på grund av [begränsningarna för Global Vnet-peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> VNet-peering scenario för Managed Instance är begränsad till nätverk i samma region på grund av [begränsningarna för Global Vnet-peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även avsnittet relevanta i den [Azure virtuellt nätverk vanliga frågor och svar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) nedan för mer information. 
 
 ## <a name="connect-an-on-premises-application"></a>Ansluta ett lokalt program
 

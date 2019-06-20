@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921285"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155141"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -51,11 +51,9 @@ I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-dato
 >
 >Om du använder ExpressRoute och du har en standardväg publiceras kan du se [virtuella Azure-datorn misslyckas med att aktivera via ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Steg 1 konfigurera lämplig Konfigurationsnyckel för KMS-klient (för Windows Server 2016 och Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Steg 1 konfigurera lämplig Konfigurationsnyckel för KMS-klient
 
-För den virtuella datorn som har skapats från en anpassad avbildning av Windows Server 2016 eller Windows Server 2012 R2, måste du konfigurera lämplig Konfigurationsnyckel för KMS-klienten för den virtuella datorn.
-
-Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använder funktionen aktivering för Automation-virtuella datorer (AVMA) stöds endast av Windows Server 2016 och Windows Server 2012 R2.
+För den virtuella datorn som har skapats från en anpassad avbildning, måste du konfigurera lämplig Konfigurationsnyckel för KMS-klienten för den virtuella datorn.
 
 1. Kör **/ Slmgr.vbs/dlv** i en upphöjd kommandotolk. Kontrollera värdet på beskrivning i utdata och sedan avgör om den har skapats från detaljhandeln (detaljhandel channel) eller volym (VOLUME_KMSCLIENT) licens media:
   

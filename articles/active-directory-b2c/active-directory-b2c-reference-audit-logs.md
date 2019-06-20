@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509643"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205352"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) genererar granskningsloggar som inneh�
 
 > [!IMPORTANT]
 > Granskningsloggar behålls endast i sju dagar. Planera att hämta och lagra dina loggar med någon av metoderna nedan om du behöver en längre period.
+
+> [!NOTE]
+> Du kan inte se användarinloggningar för enskilda Azure AD B2C-program under den **användare** delen av den **Azure Active Directory** eller **Azure AD B2C** blad. Inloggningar det visar användaraktivitet, men det går inte att korreleras tillbaka till B2C-programmet som användaren har loggat in till. Du måste använda granskningsloggarna för det som beskrivs ytterligare i den här artikeln.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i kategorin B2C på granskningsloggar
 Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktiviteter:
@@ -41,6 +45,18 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 
 ## <a name="example-activity"></a>Exemplet på aktivitet
 Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsprovider: ![Granskningsloggar – exempel](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+Informationspanel aktivitet innehåller följande relevant information:
+
+|Section|Fält|Beskrivning|
+|-------|-----|-----------|
+| Aktivitet | Namn | Vilka aktiviteten ägde rum. Till exempel ”utfärda ett id_token för programmet” (vilket avslutar den faktiska användare logga in). |
+| Initierad av (aktör) | ObjectId | Den **objekt-ID** till B2C-programmet som användaren loggar in till (den här identifieraren visas inte i Azure Portal men den är tillgänglig via Graph API till exempel). |
+| Initierad av (aktör) | SPN | Den **program-ID** till B2C-programmet som användaren loggar in till. |
+| Mål | ObjectId | Den **objekt-ID** för den användare som loggar in. |
+| Ytterligare information | TenantId | Den **klient-ID** för Azure AD B2C-klient. |
+| Ytterligare information | `PolicyId` | Den **princip-ID** av användarflöde (principen) som används för att logga in användaren. |
+| Ytterligare information | ApplicationId | Den **program-ID** till B2C-programmet som användaren loggar in till. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
 1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du är i din B2C-katalog.
@@ -62,6 +78,9 @@ Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 - Använd den **datumintervall** listrutan för att filtrera datumintervallet för de aktiviteter som visas
 - Om du klickar på en specifik rad i listan över visas en sammanhangsberoende rutan till höger ytterligare attribut som är associerat med aktiviteten
 - Klicka på **hämta** att hämta aktiviteterna som en csv-fil
+
+> [!NOTE]
+> Du kan också se granskningsloggarna genom att gå till **Azure AD B2C** snarare än **Azure Active Directory** i fältet Favoriter till vänster. Under **aktiviteter**, klicka på **granskningsloggar**, där du hittar samma loggar med liknande filtreringsfunktioner.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
 Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

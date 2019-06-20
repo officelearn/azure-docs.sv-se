@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112299"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164782"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret i Azure Active Directory villkorlig åtkomst? 
 
@@ -56,7 +56,10 @@ En namngiven plats har följande komponenter:
 - **Länder/regioner** – det här alternativet kan du välja en eller flera land eller region för att definiera en namngiven plats.
 - **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land eller region. Det här alternativet kan du välja om dessa IP-adresser ska ingå i den namngivna platsen. Använd den här inställningen när principen med hjälp av den namngivna platsen ska gälla för okända platser.
 
-Antalet namngivna platser som du kan konfigurera begränsas av storleken på det relaterade objektet i Azure AD. Organisationer kan konfigurera upp till 90 namngivna platser, var och en konfigurerad med upp till 1200 IP-intervall.
+Antalet namngivna platser som du kan konfigurera begränsas av storleken på det relaterade objektet i Azure AD. Du kan konfigurera platser baserat på följande begränsningar:
+
+- En namnet plats med upp till 1200 IP-intervall.
+- Högst 90 namngivna platser med en IP-adressintervall som är tilldelade till var och en av dem.
 
 Princip för villkorlig åtkomst gäller för IPv4 och IPv6-trafik. För närvarande namngivna platser tillåter inte IPv6-intervall som ska konfigureras. Den här begränsningen gör följande situationer:
 

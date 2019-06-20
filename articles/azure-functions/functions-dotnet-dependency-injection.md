@@ -10,19 +10,21 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.author: jehollan, cshoe
+ms.openlocfilehash: 9f932bf92cb3871af7f0eb294ac15dec82cdc8ba
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693260"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274241"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroendeinmatning i .NET Azure Functions
 
 Azure Functions har stöd för beroende inmatning (DI) programvara designmönstret, vilket är en teknik för att uppnå [invertering-kontroll (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
 
 Azure Functions bygger på Beroendeinmatning för ASP.NET Core-funktioner. Är medvetna om olika tjänster, livslängd och designmönster för [ASP.NET Core beroendeinmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) innan du använder DI funktioner i en Azure-funktioner appen rekommenderas.
+
+Stöd för beroendeinmatning börjar med Azure Functions 2.x.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -32,13 +34,22 @@ Innan du kan använda beroendeinmatning, måste du installera följande NuGet-pa
 
 - [Microsoft.NET.Sdk.Functions-paketet](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
 
+- Valfritt: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) krävs endast för att registrera HttpClient vid start
+
 ## <a name="register-services"></a>Registrera tjänster
 
 Du kan skapa en metod för att konfigurera och lägga till komponenter för att registrera tjänster genom en `IFunctionsHostBuilder` instans.  Värden för Azure Functions skapar en instans av `IFunctionsHostBuilder` och skickar dem direkt i din metod.
 
-Om du vill registrera metoden lägger du till den `FunctionsStartup` sammansättningen attribut som anger namnet på används under starten.
+Om du vill registrera metoden lägger du till den `FunctionsStartup` sammansättningen attribut som anger namnet på används under starten. Även kod refererar till en förhandsversion av [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) på Nuget.
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -62,6 +73,16 @@ namespace MyNamespace
 ASP.NET Core använder konstruktorn inmatning för att tillgängliggöra dina beroenden till din funktion. I följande exempel visas hur `IMyService` och `HttpClient` beroenden är införs i en HTTP-utlöst funktion.
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger

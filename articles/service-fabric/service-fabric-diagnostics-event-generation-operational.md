@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65788603"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
@@ -44,8 +44,8 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Uppgradera | En uppgradering av klustret har startats | CM | Information |
 | 29628 | ClusterUpgradeCompleted | Uppgradera | En uppgradering av klustret har slutförts | CM | Information | 
-| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En uppgradering av klustret har startats för att återställa  | CM | Varning! | 
-| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En uppgradering av klustret har slutförts återtagning | CM | Varning! | 
+| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En uppgradering av klustret har startats för att återställa  | CM | Varning | 
+| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En uppgradering av klustret har slutförts återtagning | CM | Varning | 
 | 29631 | ClusterUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av klustret | CM | Information | 
 
 ## <a name="node-events"></a>Noden händelser
@@ -73,7 +73,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | Ett nytt program har skapats | CM | Information | 
 | 29625 | ApplicationDeleted | LifeCycle | Ett befintligt program har tagits bort | CM | Information | 
-| 23083 | ApplicationProcessExited | LifeCycle | En process i ett program har avslutats | Värd | Information | 
+| 23083 | ApplicationProcessExited | LifeCycle | En process i ett program har avslutats | Som är värd för | Information | 
 
 **Uppgradera programhändelser**
 
@@ -83,8 +83,8 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Uppgradera | En uppgradering av programmet har startats | CM | Information | 
 | 29622 | ApplicationUpgradeCompleted | Uppgradera | En uppgradering av programmet har slutförts | CM | Information | 
-| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En uppgradering av programmet har startats för att återställa |CM | Varning! | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En uppgradering av programmet har slutförts återtagning | CM | Varning! | 
+| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En uppgradering av programmet har startats för att återställa |CM | Varning | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En uppgradering av programmet har slutförts återtagning | CM | Varning | 
 | 29626 | ApplicationUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av programmet | CM | Information | 
 
 ## <a name="service-events"></a>Tjänsten-händelser
@@ -128,15 +128,15 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 | 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primära repliken har initierat en partiell kopia | TReplicator | Information |
 | 16831 | BuildIdleReplicaStarted | LifeCycle | Primära repliken har startats för att skapa inaktiv replik | Replikering | Information |
 | 16832 | BuildIdleReplicaCompleted | LifeCycle | Primära repliken har byggt färdigt inaktiv replik | Replikering | Information |
-| 16833 | BuildIdleReplicaFailed | LifeCycle | Primära repliken har misslyckats med att skapa inaktiv replik | Replikering | Varning! |
-| 16834 | PrimaryReplicationQueueFull | Hälsa | Primära repliken Replikeringskön är full | Replikering | Varning! |
-| 16835 | PrimaryReplicationQueueWarning | Hälsa | Primära repliken Replikeringskön är nästan full | Replikering | Varning! |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primära repliken har misslyckats med att skapa inaktiv replik | Replikering | Varning |
+| 16834 | PrimaryReplicationQueueFull | Hälsa | Primära repliken Replikeringskön är full | Replikering | Varning |
+| 16835 | PrimaryReplicationQueueWarning | Hälsa | Primära repliken Replikeringskön är nästan full | Replikering | Varning |
 | 16836 | PrimaryReplicationQueueWarningMitigated | Hälsa | Primära repliken Replikeringskön är OK | Replikering | Information |
-| 16837 | SecondaryReplicationQueueFull | Hälsa | Sekundär replik Replikeringskön är full | Replikering | Varning! |
-| 16838 | SecondaryReplicationQueueWarning | Hälsa | Sekundär replik Replikeringskön är nästan full | Replikering | Varning! |
+| 16837 | SecondaryReplicationQueueFull | Hälsa | Sekundär replik Replikeringskön är full | Replikering | Varning |
+| 16838 | SecondaryReplicationQueueWarning | Hälsa | Sekundär replik Replikeringskön är nästan full | Replikering | Varning |
 | 16839 | SecondaryReplicationQueueWarningMitigated | Hälsa | Sekundär replik Replikeringskön är OK | Replikering | Information |
-| 16840 | PrimaryFaultedSlowSecondary | Hälsa | Primära repliken fel har uppstått en långsam sekundär replik | Replikering | Varning! |
-| 16841 | ReplicatorFaulted | Hälsa | Repliken har stött på fel | Replikering | Varning! |
+| 16840 | PrimaryFaultedSlowSecondary | Hälsa | Primära repliken fel har uppstått en långsam sekundär replik | Replikering | Varning |
+| 16841 | ReplicatorFaulted | Hälsa | Repliken har stött på fel | Replikering | Varning |
 
 ## <a name="container-events"></a>Behållarhändelser
 
@@ -144,9 +144,9 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 | EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | En behållare har startats | Värd | Information | 1 |
-| 23075 | ContainerDeactivated | En behållare har stoppats | Värd | Information | 1 |
-| 23082 | ContainerExited | En behållare har avslutats - Kontrollera flaggan UnexpectedTermination | Värd | Information | 1 |
+| 23074 | ContainerActivated | En behållare har startats | Som är värd för | Information | 1 |
+| 23075 | ContainerDeactivated | En behållare har stoppats | Som är värd för | Information | 1 |
+| 23082 | ContainerExited | En behållare har avslutats - Kontrollera flaggan UnexpectedTermination | Som är värd för | Information | 1 |
 
 ## <a name="health-reports"></a>Hälsorapporter
 
@@ -269,8 +269,8 @@ Här är en omfattande lista över händelser som tillhandahålls av Service Fab
 | 29629 | ClusterUpgradeRollback | CM | Information |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Information |
 | 29631 | ClusterUpgradeDomainComplete | CM | Information |
-| 23074 | ContainerActivated | Värd | Information |
-| 23075 | ContainerDeactivated | Värd | Information |
+| 23074 | ContainerActivated | Som är värd för | Information |
+| 23075 | ContainerDeactivated | Som är värd för | Information |
 | 29620 | ApplicationCreated | CM | Information |
 | 29621 | ApplicationUpgradeStart | CM | Information |
 | 29622 | ApplicationUpgradeComplete | CM | Information |

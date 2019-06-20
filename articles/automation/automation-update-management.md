@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075502"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205027"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -39,7 +39,7 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 
 Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation.
 
-När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering.  För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
+När ett paket släpps, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering. För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
 
 När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Monitor-loggar. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
 

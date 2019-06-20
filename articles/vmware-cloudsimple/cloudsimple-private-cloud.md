@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577052"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165748"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple privat moln-översikt
 
@@ -63,7 +63,7 @@ Användarna använder stack via native VMware-verktyg, bland annat:
 
 Du kan distribuera dedikerade noder i Azure-platser. Du kan sedan hantera dem med Azure och CloudSimple. Ett privat moln består av en eller flera vSphere-kluster och varje kluster innehåller 3 till 16 noder.
 
-Du kan skapa ett privat moln med köpt noder:
+Du kan skapa ett privat moln med hjälp av etablerade noder:
 
 * Betala per användning-noder
 * Reserverade, dedikerade noder

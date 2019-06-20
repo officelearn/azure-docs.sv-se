@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140155"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187843"
 ---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Konfigurera iOS-projekt i Xamarin Studio
 1. Öppna i Xamarin.Studio, **Info.plist**, och uppdatera den **paketidentifieraren** med paket-ID som du skapade tidigare med din nya app-ID.

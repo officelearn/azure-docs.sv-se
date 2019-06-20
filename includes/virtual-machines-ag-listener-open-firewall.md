@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165389"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187289"
 ---
 I det här steget ska du skapa en brandväggsregel för att öppna avsökningsporten för slutpunkten för Utjämning av nätverksbelastning (enligt vad som anges tidigare 59999) och en annan regel för att öppna porten för tillgänglighetsgruppens lyssnare. Eftersom du har skapat den belastningsutjämnade slutpunkten på de virtuella datorerna som innehåller tillgänglighetsgrupprepliker måste du öppna avsökningsporten och lyssningsport på respektive virtuella datorer.
 

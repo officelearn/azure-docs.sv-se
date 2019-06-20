@@ -9,11 +9,11 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d635c7bdc6602c662ea6b91aad7e3f7a5e726547
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64696694"
 ---
 # <a name="common-parameters-and-headers"></a>Vanliga parametrar och sidhuvuden
@@ -41,8 +41,8 @@ Tjänsten använder HTTP-statuskoder för att ange lyckad eller misslyckad. Dess
 
 |Elementnamn | Typ | Beskrivning |
 |---|---|---|
-| Kod | string | Typ av fel som inträffat.|
-| meddelande | string | En beskrivning av vad som orsakade felet. |
+| code | string | Typ av fel som inträffat.|
+| message | string | En beskrivning av vad som orsakade felet. |
 
 
 

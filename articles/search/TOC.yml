@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: Självstudier
   items:
+    - name: Skapa din första app
+      items:
+        - name: 1 – Grundläggande söksida
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 – Lägg till sidindelning av resultat
+          href: tutorial-csharp-paging.md
+        - name: 3 – Lägg till förifyllning
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: Indexera Azure SQL Database
       href: search-indexer-tutorial.md
     - name: Indexera Azure JSON-blobar

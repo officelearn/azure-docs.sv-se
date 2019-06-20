@@ -40,6 +40,8 @@
               href: connect-azure-atp.md
             - name: Ansluta till Azure Security Center
               href: connect-azure-security-center.md
+            - name: Ansluta domännamnserver
+              href: connect-dns.md
             - name: Ansluta Microsoft-brandväggen för webbaserade program
               href: connect-microsoft-waf.md
             - name: Ansluta till Windows-brandvägg

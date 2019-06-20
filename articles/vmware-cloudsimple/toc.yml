@@ -10,7 +10,7 @@
     - name: Snabbstart
       expanded: true
       items:
-        - name: Initiera och köpa kapacitet
+        - name: Initiera och etablera kapacitet
           href: quickstart-create-cloudsimple-service.md
         - name: Konfigurera privat molnmiljö
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Hantera noder
           items:
-            - name: Köpa noder
+            - name: Etablera noder
               href: create-nodes.md
         - name: Hantera resurser för privata moln
           items:

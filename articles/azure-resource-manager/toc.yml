@@ -124,9 +124,10 @@
               href: resource-manager-powershell-sas-token.md
         - name: Distribuera till flera resursgrupper eller prenumerationer
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Kontinuerlig integrering med Azure DevOps Services
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: VS-projekt med pipelines
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: Exportera mall
       href: export-template-portal.md
     - name: Hantera

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa ett Scala Maven-program för Spark i Azure HDInsight med hjälp av IntelliJ'
-description: Skapa ett Spark-program som skrivits i Scala med Apache Maven som build-system och en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.
+description: Självstudie – skapa ett Spark-program som skrivits i Scala med Apache Maven som build-system och en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/28/2019
-ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cf1ada88cda77091e303e67b9652b9c6a372e2d1
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304011"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295379"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -75,7 +75,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 6. I fönstret **Nytt projekt** anger du följande information:  
 
-  	|  Egenskap    | Beskrivning   |  
+  	|  Egenskap   | Beskrivning   |  
   	| ----- | ----- |  
   	|Projektnamn| Ange ett namn.|  
   	|Projektplats| Ange önskad plats för att spara projektet.|

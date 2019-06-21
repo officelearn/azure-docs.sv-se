@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e983a3f8e29108bd642fd23d5afcb564065d9fc1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409772"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203898"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -524,7 +524,7 @@ Microsoft Azure Virtual Machines använder olika lagringstyper. När du implemen
 
 Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator har distribuerats. Allt innehåll på dessa enheter kommer att rensas vid omstart av en virtuell dator. Det är därför en tanke på att data och log/gör om-filer med databaser under inga omständigheter finns på dessa icke bestående enheter. Det kan finnas undantag för några av databaserna, om enheterna icke bestående skulle kunna vara lämplig för tempdb och temp registerutrymmen. Men Undvik att använda dessa enheter för virtuella datorer i A-serien eftersom dessa icke bestående enheter är begränsade i dataflöde med den Virtuella datorserien. Mer information finns i artikeln [förstå den temporära enheten på Windows-datorer i Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > Enhet D:\ i en Azure VM är en icke bestående enhet som backas upp av vissa lokala diskar på Azure compute-nod. Det innebär att ändringar som görs till innehållet på D:\ enheten går förlorad när den virtuella datorn startas om eftersom den är icke-beständig. Genom att ”ändringar”, till exempel filer lagras, kataloger som skapas, program som har installerats, osv.
@@ -535,7 +535,7 @@ Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator 
 > 
 > 
 
-- - -
+---
 
 Microsoft Azure Storage tillhandahåller bestående lagring och vanliga skyddsnivåer och redundans som visas på SAN-lagring. Diskar baserat på Azure Storage är virtuell hårddisk (VHD) finns i Azure Storage-tjänster. Den lokala OS-disken (Windows C:\, Linux/dev/sda1) lagras på Azure Storage och ytterligare volymer/diskar som monterats till den virtuella datorn lagras där för.
 
@@ -835,7 +835,7 @@ Du planerar att flytta ett särskilt SAP-system från en lokal plats till Azure.
 
 På grund av angivna korrigeringsfilen av din OS- eller DBMS-version måste kan de angivna avbildningarna i Azure Marketplace inte motsvarar dina behov. Därför kan du behöva skapa en virtuell dator med din egen privata OS/DBMS VM-avbildning, som kan användas flera gånger efteråt. För att förbereda en privat avbildning för duplicering, har följande objekt för att anses vara:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Läs mer här: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Windows-inställningarna (t.ex. Windows-SID och värdnamn) måste vara sådant/generaliserad på den lokala virtuella datorn via kommandot sysprep.
@@ -847,7 +847,7 @@ På grund av angivna korrigeringsfilen av din OS- eller DBMS-version måste kan 
 >
 >
 
-- - -
+---
 Om du redan har installerat SAP-innehåll i den lokala virtuella datorn (särskilt för nivå 2-system), kan du anpassa inställningar för SAP-system när distributionen av virtuella Azure-datorer via instansen Byt namn på proceduren som stöds av SAP Software etablering Manager (SAP Observera [1619720]). Se kapitel [förberedelse för att distribuera en virtuell dator med en kundspecifika avbildning för SAP] [ planning-guide-5.2.2] och [ladda upp en VHD från en lokal plats till Azure] [ planning-guide-5.3.2]i det här dokumentet för steg för förberedelse av lokala och överföring av en generaliserad virtuell dator till Azure. Läs kapitel [Scenario 2: Distribuera en virtuell dator med en anpassad avbildning för SAP] [ deployment-guide-3.3] i den [Distributionsguide] [ deployment-guide] detaljerade anvisningar för att distribuera sådana en avbildning i Azure.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Distribuera en virtuell dator från Azure Marketplace
@@ -870,7 +870,7 @@ Kraven när du förbereder din egen Azure VM-disken är:
 * Lägg till en annan lokalt konto med administratörsbehörighet som kan användas av Microsoft-supporten eller som kan tilldelas som kontext för tjänster och program att köras tills den virtuella datorn har distribuerats och lämpligare användare kan användas.
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > I det här scenariot krävs ingen generalisering (sysprep) för den virtuella datorn för att överföra och distribuera den virtuella datorn på Azure.
@@ -884,7 +884,7 @@ Kraven när du förbereder din egen Azure VM-disken är:
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Förberedelser för att distribuera en virtuell dator med en kundspecifika avbildning för SAP
 
 VHD-filer som innehåller en generaliserad OS lagras i behållare på Azure Storage-konton eller som hanteras diskavbildningar. Du kan distribuera en ny virtuell dator från en sådan avbildning genom att referera till VHD- eller hanterad Disk-avbildning som en källa i din distribution mallfiler enligt kapitel [Scenario 2: Distribuera en virtuell dator med en anpassad avbildning för SAP] [ deployment-guide-3.3] av den [Distributionsguide][deployment-guide].
@@ -897,7 +897,7 @@ Kraven när du förbereder din egen Azure VM-avbildning är:
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 * Om bilden innehåller en installation av SAP NetWeaver och namnbyte av värdnamnet från det ursprungliga namnet distributionspunkten Azure troligtvis, rekommenderar vi att du kopiera de senaste versionerna av SAP Software etablering Manager DVD till mallen. Detta kan du enkelt använda SAP tillhandahålls rename-funktionen för att anpassa ändrade värdnamnet och/eller ändra SID för SAP-system i distribuerade avbildningen så fort en ny kopia har startats.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Kontrollera att enheten D:\ inte är används Set disk automount för anslutna diskar som beskrivs i kapitlet [inställningen automount för anslutna diskar] [ planning-guide-5.5.3] i det här dokumentet.
@@ -908,14 +908,14 @@ Kraven när du förbereder din egen Azure VM-avbildning är:
 >
 >
 
-- - -
+---
 * SAP-Gränssnittet (för administrativa och konfigurera syften) kan vara förinstallerade i en sådan mall.
 * Annan programvara som krävs för att köra de virtuella datorerna har i lokala scenarier kan installeras så länge som den här programvaran kan arbeta med det nya namnet på den virtuella datorn.
 
 Om den virtuella datorn är tillräckligt beredd att vara Allmänt och så småningom oberoende av konton/användare inte är tillgängliga i det aktuella Azure distributionsscenariot, utförs det sista steget förberedelse för att generalisera sådana en bild.
 
 ##### <a name="generalizing-a-vm"></a>Generalisera en virtuell dator
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Det sista steget är att logga in på en virtuell dator med ett administratörskonto. Öppna ett kommandofönster i Windows som *administratör*. Gå till %windir%\windows\system32\sysprep och köra sysprep.exe.
@@ -928,7 +928,7 @@ Om den virtuella datorn är tillräckligt beredd att vara Allmänt och så smån
 >
 >
 
-- - -
+---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Överföring av virtuella datorer och virtuella hårddiskar mellan en lokal plats till Azure
 Eftersom det inte går att ladda upp avbildningar av Virtuella datorer och diskar till Azure via Azure portal, behöver du använda Azure PowerShell-cmdletar eller CLI. En annan möjlighet är att använda verktyget ”AzCopy”. Verktyget kan kopiera virtuella hårddiskar mellan lokala och Azure (i båda riktningarna). Det kan också kopiera virtuella hårddiskar mellan Azure-regioner. Kontakta [den här dokumentationen] [ storage-use-azcopy] om hämtning och användning av AzCopy.
 
@@ -1188,7 +1188,7 @@ Vi är hanteringen av strukturen för en virtuell dator och de associera diskarn
 ![För referenskonfiguration av virtuell Azure IaaS-dator för SAP][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Med många kunder såg vi konfigurationer där, till exempel SAP och DBMS binärfiler inte har installerats på enhet c:\ där Operativsystemet installerades. Det fanns olika orsaker till detta, men när vi gick tillbaka till roten, det var vanligtvis att enheterna har liten och OS-uppgraderingar behövs ytterligare utrymme 10 – 15 år sedan. Båda villkoren gäller inte dessa dagar för ofta längre. Idag kan c:\ enheten mappas i stort diskar eller virtuella datorer. För att skydda distributioner enkel i deras struktur, rekommenderar vi att du följa följande mönster för distribution för SAP NetWeaver-system i Azure
@@ -1214,14 +1214,14 @@ sudo service waagent restart
 
 Läs SAP-kommentar [1597355] för mer information om rekommenderade växling filstorlek
 
-- - -
+---
 Antalet diskar som används för DBMS datafiler och vilken typ av dessa diskar finns på Azure-lagring beror på IOPS-krav och svarstid krävs. Exakta kvoter beskrivs i [i den här artikeln (Linux)] [ virtual-machines-sizes-linux] och [i den här artikeln (Windows)][virtual-machines-sizes-windows].
 
 Upplevelse av SAP-distributioner under de senaste två åren undervisats oss vissa lektioner som kan sammanfattas som:
 
 * IOPS-trafik till olika filer är inte alltid samma eftersom befintliga kundsystem kan ha annorlunda storlek datafiler som representerar sina SAP-databaserna. Därmed visade den sig vara bättre för att använda en RAID-konfiguration över flera diskar för att placera datafilerna LUN högg utanför de. Det fanns situationer, särskilt i Azure där en IOPS-hastighet når kvoten för en enskild disk mot DBMS-transaktionsloggen för standardlagring. I sådana situationer bör du använda Premium Storage eller också sammanställa flera standardlagring stripe-diskar med en programuppdateringsplats.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Prestandametodtips för SQL Server i Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
@@ -1234,7 +1234,7 @@ Upplevelse av SAP-distributioner under de senaste två åren undervisats oss vis
 >
 >
 
-- - -
+---
 * Premium Storage visar betydande bättre prestanda, särskilt för kritiska transaction log skrivningar. För SAP-scenarier som förväntas leverera produktionsliknande prestanda, rekommenderas att använda VM-serien som kan använda Azure Premium Storage.
 
 Tänk på att disken som innehåller Operativsystemet, och vi rekommenderar om binärfilerna för SAP och databasen (grundläggande VM), är inte längre begränsad till 127GB. Det kan nu ha upp till 1TB i storlek. Det bör vara tillräckligt med utrymme för att hålla alla nödvändig fil, inklusive till exempel SAP batch-jobbloggar.
@@ -1255,7 +1255,7 @@ Därefter måste du bestämma om du vill skapa en ny och tom disk eller om du vi
 
 **VIKTIGT!** Du **inte** vill använda värd cachelagring med Azure standardlagring. Inställningen värden bör du lämna standardinställningen på Ingen. Med Azure Premium Storage, bör du aktivera cachelagring av Läs om i/o-egenskap är främst läsa samma sätt som vanliga i/o-trafik mot databasen datafiler. Om databasen transaktionsloggfilen rekommenderas ingen cachelagring.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Hur du ansluter en datadisk i Azure portal][virtual-machines-linux-attach-disk-portal]
@@ -1268,7 +1268,7 @@ Därefter måste du bestämma om du vill skapa en ny och tom disk eller om du vi
 >
 >
 
-- - -
+---
 Om den nya disken är en tom disk kan behöva du formatera disken samt. För formatering, särskilt för DBMS data och loggfiler på samma som för bare metal-distributioner av DBMS gäller rekommendationer.
 
 Som redan nämnts i kapitlet [The Microsoft Azure VM konceptet][planning-guide-3.2], ett Azure Storage-konto tillhandahåller inte oändlig resurser när det gäller i/o-volym, IOPS och datavolym. Vanligtvis som DBMS virtuella datorer påverkas mest av detta. Det kan vara bäst att använda ett separat Lagringskonto för varje virtuell dator om du har några hög i/o-volym virtuella datorer för att distribuera för att hålla sig inom gränsen på volymen för Azure Storage-konto. I annat fall måste du se hur du kan balansera dessa virtuella datorer mellan olika lagringskonton utan nått gränsen för varje enskild Storage-konto. Mer information finns i avsnittet den [DBMS Distributionsguide][dbms-guide]. Du bör också tänka dessa begränsningar på för ren SAP-programmet server-datorer eller andra virtuella datorer som så småningom kan kräva ytterligare virtuella hårddiskar. Dessa begränsningar gäller inte om du använder hanterade diskar. Om du tänker använda Premium Storage rekommenderar vi använder hanterade diskar.
@@ -1278,7 +1278,7 @@ Ett annat ämne som är relevanta för Storage-konton är om de virtuella hårdd
 Azure Geo-replikering fungerar lokalt på varje virtuell Hårddisk på en virtuell dator och replikerar inte IOs i kronologisk ordning över flera virtuella hårddiskar i en virtuell dator. Därför kan replikeras den virtuella Hårddisken som representerar den grundläggande virtuell datorn, samt de ytterligare virtuella hårddiskar anslutna till den virtuella datorn oberoende av varandra. Det innebär att det finns ingen synkronisering mellan ändringarna i de olika virtuella hårddiskarna. Det faktum att replikeras IOs oberoende av den ordning som de är skrivna innebär att geo-replikering är inte av värdet för databasservrar som har sina databaser fördelas på flera virtuella hårddiskar. Förutom för DBMS finnas det också andra program där processer skriva eller manipulera data i olika virtuella hårddiskar och där det är viktigt att hålla ordning på ändringar. Om det är ett krav bör det inte att aktivera geo-replikering i Azure. Beroende på om du behöver eller vill geo-replikering för en uppsättning virtuella datorer, men inte för en annan uppsättning, du kan redan kategorisera virtuella datorer och deras relaterade virtuella hårddiskar i olika Lagringskonton som har geo-replikering aktiverad eller inaktiverad.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Ange automount för anslutna diskar
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > För virtuella datorer som skapas från egna avbildningar eller diskar, är det nödvändigt att kontrollera och eventuellt ange parametern automount. Den här parametern gör att den virtuella datorn efter en omstart eller omdistribution i Azure för att montera enheter anslutna/monterad igen automatiskt.
@@ -1300,7 +1300,7 @@ Azure Geo-replikering fungerar lokalt på varje virtuell Hårddisk på en virtue
 >
 >
 
-- - -
+---
 ### <a name="final-deployment"></a>Slutlig distribution
 
 Sista distributionen och specifika stegen, särskilt för distribution av SAP utökad övervakning, finns i den [Distributionsguide][deployment-guide].
@@ -1328,7 +1328,7 @@ Den här artikeln som beskriver information till det här avsnittet finns på: <
 
 Det kan vara nödvändigt att konfigurera brandväggen på dina virtuella datorer som tillåter inkommande trafik till din SAP-system.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Windows-brandväggen i en distribuerad virtuell Azure-dator är aktiverad som standard. Nu måste du tillåta SAP-Port som ska öppnas, annars SAP-Gränssnittet kan inte ansluta.
@@ -1352,7 +1352,7 @@ Det kan vara nödvändigt att konfigurera brandväggen på dina virtuella datore
 >
 >
 
-- - -
+---
 #### <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
 SAP-Gränssnittet kan inte anslutas direkt till någon av SAP-instanser (port 32xx) som körs, men först ansluter via den port som öppnas till SAP-meddelande serverprocessen (port 36xx). Tidigare användes samma port av meddelandeservern för den interna kommunikationen till programinstanserna. Om du vill förhindra att den lokala programservrar oavsiktligt kommunicerar med en message server i Azure, kan intern kommunikationsportar ändras. Vi rekommenderar starkt att ändra den interna kommunikationen mellan SAP-meddelandeservern och dess instanser av programmet till ett annat portnummer på system som har varit klonas från lokala system, t.ex en klon av utveckling för projektet testning osv. Detta kan göras med profil:
@@ -1655,7 +1655,7 @@ Microsoft har lagt till många fler VM-typer som skiljer sig åt i antal virtuel
 
 Att konfigurera en lokal TCP/IP-baserat nätverksskrivare i en Azure VM är den totala samma som i företagets nätverk, förutsatt att du har en VPN plats-till-plats-tunneln eller ExpressRoute-anslutning upprättas.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Gör så här:
@@ -1674,7 +1674,7 @@ Att konfigurera en lokal TCP/IP-baserat nätverksskrivare i en Azure VM är den 
 >
 >
 
-- - -
+---
 ![Nätverket utskrift][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Värdbaserad skrivare över SMB (delad skrivare) i scenariot för flera platser
@@ -1690,7 +1690,7 @@ Skrivarresursen identifieras med ett unikt namn i nätverket:
 
 Anvisningar:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Dela en lokal skrivare.
@@ -1706,19 +1706,19 @@ Anvisningar:
 >
 >
 
-- - -
+---
 ##### <a name="usb-printer-printer-forwarding"></a>USB-skrivare (vidarebefordran skrivare)
 
 Remote Desktop Services förmåga att ge användare åtkomst till sina enheter för lokal skrivare i en fjärrsession är inte tillgänglig i Azure.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Mer information om utskrift med Windows finns här: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
-- - -
+---
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integrering av SAP Azure-system i korrigering och transportsystem (Proportionerlig) på flera platser
 
 SAP ändrings- och Transport System (Proportionerlig) måste konfigureras för att exportera och importera transport begäran över system i miljön. Vi förutsätter att utveckling instanser av ett SAP-system (utveckling) finns i Azure medan kvalitetssäkring (kvalitetskontroll) och produktiva system (PRD) finns på plats. Vi förutsätter dessutom att det finns en central transport-katalog.

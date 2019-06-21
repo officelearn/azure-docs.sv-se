@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236887"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204462"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -34,9 +34,9 @@ I den här artikeln får du lära dig hur du:
 Innan du säkerhetskopierar en SQL Server-databas kan du kontrollera följande kriterier:
 
 1. Identifiera eller skapa en [Recovery Services-valv](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) i samma region eller språk som den virtuella datorn som är värd för SQL Server-instansen.
-2. Kontrollera den [VM behörighet](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) att säkerhetskopiera SQL-databaser.
-3. Kontrollera att den virtuella datorn har [nätverksanslutningar](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Se till att SQL Server-databaserna följer den [databasen riktlinjerna för namngivning för Azure Backup](#database-naming-guidelines-for-azure-backup).
+2. Kontrollera att den virtuella datorn har [nätverksanslutningar](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+3. Se till att SQL Server-databaserna följer den [databasen riktlinjerna för namngivning för Azure Backup](#database-naming-guidelines-for-azure-backup).
+4. Specifikt för SQL 2008 och 2008 R2, [Lägg till registernyckeln](#add-registry-key-to-enable-registration) att registrera servern. Det här steget kommer att krävs inte när funktionen blir allmänt tillgänglig.
 5. Kontrollera att det inte finns några andra lösningar för säkerhetskopiering har aktiverats för databasen. Inaktivera alla andra säkerhetskopior i SQL Server innan du säkerhetskopierar databasen.
 
 > [!NOTE]
@@ -79,16 +79,6 @@ Använd tjänsttaggar för NSG | Enklare att hantera som ändras automatiskt sl�
 Använd Azure brandväggen FQDN taggar | Enklare att hantera eftersom nödvändiga FQDN: er hanteras automatiskt | Kan endast användas med Azure-brandvägg
 Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagringen URL: er tillåts <br/><br/> Enskild punkt för internet-åtkomst till virtuella datorer <br/><br/> Inte kan komma att ändras för Azure-IP-adress | Ytterligare kostnader för att köra en virtuell dator med proxyprogrammet
 
-### <a name="set-vm-permissions"></a>Ange VM-behörigheter
-
-När du konfigurerar en säkerhetskopia för en SQL Server-databas, gör Azure Backup följande:
-
-- Lägger till tillägget AzureBackupWindowsWorkload.
-- Skapar ett NT SERVICE\AzureWLBackupPluginSvc-konto för att identifiera databaser på den virtuella datorn. Det här kontot används för en säkerhetskopia och återställa och kräver SQL sysadmin-behörighet.
-- Identifierar databaser som körs på en virtuell dator, Azure Backup använder kontot NT AUTHORITY\SYSTEM. Det här kontot måste vara en offentlig logga in på SQL.
-
-Om du inte skapade SQL Server-VM på Azure Marketplace, kan det hända att ett UserErrorSQLNoSysadminMembership-fel. Mer information finns i avsnittet funktionen överväganden och begränsningar finns i [om SQL Server-säkerhetskopiering i Azure virtuella datorer](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Databasen riktlinjerna för namngivning för Azure Backup
 
 Undvik att använda följande element i databasnamn:
@@ -101,6 +91,22 @@ Undvik att använda följande element i databasnamn:
 
 Alias är tillgänglig för tecken som inte stöds, men vi rekommenderar att du inte dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) (Så här fungerar datamodellen för Table Storage).
 
+### <a name="add-registry-key-to-enable-registration"></a>Lägg till registernyckeln för att aktivera registrering
+
+1. Öppna Regedit
+2. Skapa katalog registersökväg: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (du måste skapa 'Key' TestHook under WorkloadBackup som i sin tur måste skapas under Microsoft).
+3. Skapa nytt strängvärde under katalogsökväg registret med namn för anslutningssträngen **AzureBackupEnableWin2K8R2SP1** och värde: **SANT**
+
+    ![RegEdit för att aktivera registrering](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+Du kan också automatisera det här steget genom att köra .reg-filen med följande kommando:
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -141,7 +147,7 @@ Så här att identifiera databaser som körs på en virtuell dator:
     - Azure Backup skapas tjänstkontot NT Service\AzureWLBackupPluginSvc på den virtuella datorn.
       - Alla åtgärder för säkerhetskopiering och återställning använder tjänstkontot.
       - NT Service\AzureWLBackupPluginSvc krävs SQL sysadmin-behörighet. Alla SQL Server-datorer som skapats i Marketplace medföljer SqlIaaSExtension installerad. Tillägget AzureBackupWindowsWorkload använder SQLIaaSExtension att automatiskt få behörigheterna som krävs.
-    - Om du inte har skapat den virtuella datorn från Marketplace, den virtuella datorn har inte SqlIaaSExtension installerad och Identifieringsåtgärden misslyckas med felmeddelandet UserErrorSQLNoSysAdminMembership. Om du vill åtgärda problemet genom att följa den [instruktioner](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - Om du inte har skapat den virtuella datorn från Marketplace, eller om du använder SQL 2008 och 2008 R2, den virtuella datorn kanske inte har SqlIaaSExtension installerad och Identifieringsåtgärden misslyckas med felmeddelandet UserErrorSQLNoSysAdminMembership. För att åtgärda problemet följer du instruktionerna under [Virtuella behörigheter](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743041"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150983"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+## <a name="june-2019-guest-os"></a>Juni 2019 gäst-OS
+
+>[!NOTE]
+>Juni gäst-OS är för närvarande att distribueras till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i juni. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gästoperativsystem | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10 Security   |  6.8  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 Security   |  5.32  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows-säkerhet   |  4.67  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows-säkerhet   |  3.74  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4503269]  |  Windows-säkerhet   |  2.87  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4494174]  |  Microcode Update   |  6.8  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4494175]  |  Microcode Update   |  5.32  |  Den 3 juni 2019  |
+|  Rel 19-06   |  [4503308]  |  Flash   |  3.74, 4.67, 5.32, 6.8  |  Den 11 juni 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  Den 13 juni 2019  |
+|  Gäller inte  |  [4499164]  |  Ej May-19 säkerhet  |  2.87  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495606]  |  May-19 .NET 3.5 ej säkerhet  |  2.87  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495596]  |  May-19 .NET 4.5 ej säkerhet  |  2.87  |  20 maj 2019  |
+|  Gäller inte  |  [4499171]  |  Ej May-19 säkerhet  |  3.74  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495602]  |  May-19 .NET 3.5 ej säkerhet  |  3.74  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495594]  |  May-19 .NET 4.x ej säkerhet  |  4.67  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4499151]  |  Ej May-19 säkerhet  |  4.67  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495608]  |  May-19 .NET 3.5 ej säkerhet  |  4.67  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495592]  |  May-19 .NET 4.5.2 ej säkerhet  |  4.67  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495610]  |  May ’19 .NET 4.8 Cumulative  |  6.8  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4495618]  |  May-19 .NET 4.8 kumulativa  |  6.8  |  Den 14 maj 2019  |
+|  Gäller inte  |  [4501226]  |  DST tidszon uppdateringar för Marocko och Palestinska myndigheten  |  2.87, 3.74, 4.67  |  Den 23 maj 2019  |
+|  Gäller inte  |  [4490128]  |  DST tidszon uppdateringar för São Tomé och Príncipe och Qyzylorda  |  2.87, 3.74, 4.67  |  17 april 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>Maj 2019 gäst-OS
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gästoperativsystem | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  Den 14 maj 2019  |
-|  Rel 19-05   |  [4505050]  |  Kan insamling av Internet Explorer   |  2,86, 3.73, 4.66  |  18 maj 2019  |
+|  Rel 19-05   |  [4498206]  |  Kan insamling av Internet Explorer   |  2.86, 3.73, 4.66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4505050]  |  Kan insamling av Internet Explorer   |  2.86, 3.73, 4.66  |  18 maj 2019  |
 |  Rel 19-05   |  [4497932]  |  Blinkar Update   |  3.73, 4.66, 5.31  |  Den 14 maj 2019  |
 |  Rel 19-05   |  [4499175]  |  Kan insamling av säkerhet   |  2.86  |  Den 14 maj 2019  |
 |  Rel 19-05   |  [4495612]  |  May Security Rollup .NET 3.5   |  2.86  |  Den 14 maj 2019  |

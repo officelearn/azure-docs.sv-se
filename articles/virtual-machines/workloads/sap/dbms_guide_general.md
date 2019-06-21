@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836130"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202943"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ Placeringen av databasfilerna och logg-och gör om och vilken typ av Azure-lagri
 Balansera antalet IOPS som behövs för databasfilerna över ett antal virtuella hårddiskar som angivits, om dina krav på IOPS överskrider vad en enda virtuell Hårddisk kan ge. Det enklaste sättet att fördela belastningen IOPS över diskar är att skapa en programvara stripe över olika diskar. Placera sedan ett antal datafiler SAP DBMS på LUN högg utanför programvara stripe. antalet diskar i stripe drivs av IOPs krav, behov för disk och volym krav.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Vi rekommenderar att du använder Windows-lagringsutrymmen för att skapa stripe-uppsättningar på flera virtuella Azure-hårddiskar. Använd minst Windows Server 2012 R2 eller Windows Server 2016.
@@ -164,7 +164,7 @@ Balansera antalet IOPS som behövs för databasfilerna över ett antal virtuella
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Eftersom Azure Storage behåller tre avbildningar av virtuella hårddiskar, vara inte det klokt att konfigurera en redundans när du stripe. Du behöver bara konfigurera striping så att I/o är fördelade över de olika virtuella hårddiskarna.
@@ -230,7 +230,7 @@ Virtuella Azure-datorer erbjuder ickebeständig diskar när en virtuell dator ha
 
 Mer information finns i [förstå den temporära enheten på Windows virtuella datorer i Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Enhet D i en Azure VM är en och ej beständig enhet som backas upp av vissa lokala diskar på Azure compute-nod. Eftersom den är och ej beständig, ändringar av innehållet på enhet D går förlorade när den virtuella datorn startas om. Ändringar är filer som har lagrats, kataloger som har skapats och som har installerats.
@@ -241,7 +241,7 @@ Mer information finns i [förstå den temporära enheten på Windows virtuella d
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ För att ytterligare minska Nätverksfördröjningen mellan virtuella Azure-dato
 > Inte alla typer av virtuella datorer stöder Accelererat nätverk. Föregående artikel visar en lista över de typer av virtuella datorer som har stöd för Accelererat nätverk.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Läs hur du distribuerar virtuella datorer med Accelererat nätverk för Windows i [skapa en Windows-dator med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ För att ytterligare minska Nätverksfördröjningen mellan virtuella Azure-dato
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > När det gäller SUSE, Red Hat och Oracle Linux stöds Accelererat nätverk med nya versioner. Äldre versioner som SLES 12 SP2 eller RHEL 7.2 stöder inte Azure Accelerated Networking.

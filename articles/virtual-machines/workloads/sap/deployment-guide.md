@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154116"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203921"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -534,7 +534,7 @@ Följ samma riktlinjer och verktyg för att installera SAP-program på den virtu
 Eftersom olika versioner av ett operativsystem eller DBMS har olika krav, kan de avbildningar som du hittar i Azure Marketplace inte uppfyller dina behov. Du kan i stället vill skapa en virtuell dator genom att använda din egen OS/DBMS VM-avbildning, vilka du kan distribuera igen senare.
 Du kan använda olika steg för att skapa en privat avbildning för Linux än om du vill skapa en för Windows.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > För att förbereda en Windows-avbildning som du kan använda för att distribuera flera virtuella datorer, vara Windows-inställningar (t.ex. Windows-SID och värdnamn) sådant eller generaliserad på den lokala virtuella datorn. Du kan använda [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) att göra detta.
@@ -545,7 +545,7 @@ Du kan använda olika steg för att skapa en privat avbildning för Linux än om
 >
 >
 
-- - -
+---
 Du kan förbereda och skapa en anpassad avbildning och sedan använda den för att skapa flera nya virtuella datorer. Detta beskrivs i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]. Ställa in innehållet i databasen med hjälp av SAP Software etablering Manager för att installera en ny SAP-system (återställer en säkerhetskopia av databasen från en disk som är kopplad till den virtuella datorn) eller genom att återställa en säkerhetskopia av databasen direkt från Azure storage, om din DBMS stöder den. Mer information finns i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide]. Om du redan har installerat ett SAP-system på den lokala virtuella datorn (särskilt för tvålagers-system), kan du anpassa SAP-systeminställningar efter distributionen av den virtuella Azure-datorn med hjälp av proceduren för Byt namn på System som stöds av SAP Software etablering Manager (SAP Observera [1619720]). Annars kan installera du SAP-program när du har distribuerat Azure VM.
 
 I följande flödesschema visas de SAP-specifika stegen för att distribuera en virtuell dator från en anpassad avbildning:
@@ -674,7 +674,7 @@ I det här scenariot VM-agenten är **inte** automatiskt installerade under dist
 
 Mer information om Azure VM-agenten finns i följande resurser.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Översikt över Azure VM-agenten][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ Mer information om Azure VM-agenten finns i följande resurser.
 >
 >
 
-- - -
+---
 
 Flödesschemat visar stegen för att flytta en lokal virtuell dator med hjälp av en icke-generaliserad Azure-VHD:
 

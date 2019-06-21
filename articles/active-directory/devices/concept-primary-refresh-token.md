@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563ec5969a77dd01506270c3e864e00639a56eb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110711"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190262"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdatera Token?
 
@@ -63,6 +63,9 @@ PRT utfärdas under autentisering av användare på en Windows 10-enhet i två s
    * Att lägga till ett konto från **inställningar** > **konton** > **åtkomst till arbete eller skola** > **Connect**
 
 I dessa scenarier är plugin-programmet Azure AD WAM primära utfärdaren av PRT eftersom Windows-inloggning inte sker med det här Azure AD-kontot.
+
+> [!NOTE]
+> 3 leverantörer behöver stöd för WS-Trust-protokollet för att aktivera PRT utfärdande på Windows 10-enheter. Utan WS-Trust, PRT inte kan utfärdas till användare på Hybrid Azure AD-ansluten eller Azure AD-anslutna enheter
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Vad är livslängden för en PRT?
 

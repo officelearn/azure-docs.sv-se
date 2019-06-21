@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074298"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144401"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -150,7 +150,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |PartitionPrefix|sträng, standardvärdet är ”--”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Det går inte att vara en tom sträng.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md).|
 |PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md). |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |

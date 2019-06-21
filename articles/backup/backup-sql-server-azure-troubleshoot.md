@@ -6,14 +6,14 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ed30a35f30d1b6b9fdcd43110ed93618a10dbc3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306958"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204198"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -25,8 +25,7 @@ Om du vill visa funktionen överväganden finns i artikeln [om SQL Server-säker
 
 ## <a name="sql-server-permissions"></a>SQL Server-behörigheter
 
-Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBackupWindowsWorkload** tillägget måste vara installerad på den virtuella datorn. Om du får felet, **UserErrorSQLNoSysadminMembership**, betyder det SQL-instansen inte har behörighet för säkerhetskopiering. Om du vill åtgärda det här felet följer du stegen i [ange behörigheter för virtuella datorer inte finns i marketplace med SQL](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBackupWindowsWorkload** tillägget måste vara installerad på den virtuella datorn. Om du får felet, **UserErrorSQLNoSysadminMembership**, betyder det SQL-instansen inte har behörighet för säkerhetskopiering. Om du vill åtgärda det här felet följer du stegen i [ange behörigheter för virtuella datorer inte finns i marketplace med SQL](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="backup-type-unsupported"></a>Typ av säkerhetskopiering stöds inte
 

@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156309"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187997"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Hämta en Azure Resource Manager-token
 Azure Active Directory måste autentisera alla uppgifter som du kan utföra på resurser med hjälp av Azure Resource Manager. Det här exemplet använder lösenordsautentisering, andra metoder finns [autentisering av Azure Resource Manager begär][lnk-authenticate-arm].

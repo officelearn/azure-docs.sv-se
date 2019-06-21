@@ -17,12 +17,12 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204505"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
@@ -77,7 +77,7 @@ För att belastningsutjämna hanteringsaktiviteter runt implementeringen Identit
 
 Mer information finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 
-## <a name="detection"></a>Identifiering
+## <a name="detection"></a>Detection (Identifiering)
 
 ### <a name="vulnerabilities"></a>Sårbarheter
 

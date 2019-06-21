@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755387"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302249"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Så här schemalägger du indexerare för Azure Search
 En indexerare körs vanligtvis en gång, omedelbart när den har skapats. Du kan köra den igen på begäran med hjälp av portalen, REST API eller .NET SDK. Du kan också konfigurera en indexerare för att köras med jämna mellanrum enligt ett schema.
@@ -43,6 +43,9 @@ Vi tar ett exempel för att göra detta mer konkret. Anta att vi konfigurera en 
 * Den första körningen av indexeraren startar vid eller runt 1 juni 2019 8:00:00 UTC. Anta att den här körningen tar 20 minuter (eller när som helst mindre än 1 timme).
 * Den andra körningen startar vid eller runt den 1 juni 2019 9:00:00 UTC. Anta att den här körningen tar 70: e minut – mer än en timme – och det går inte att slutföra fram till kl. 10:10 UTC.
 * Tredje körningen är schemalagd att starta 10:00:00 UTC, men då föregående körning fortfarande körs. Det schemalagda körning sedan hoppas över. Nästa körning av indexeraren startar inte förrän 11:00:00 UTC.
+
+> [!NOTE]
+> Om en indexerare anges till ett visst schema men upprepade gånger misslyckas på samma dokument om och om igen varje gång den körs, indexeraren börjar gör som körs på ett längre intervall (upp till högst minst en gång var 24: e timme) tills den har förloppet aga i.  Om du tror att du har åtgärdat problemet som orsakade indexerare för att ha fastnat vid en viss punkt till vad du kan utföra en på begäran-körning av indexerare, och om det har blir pågår indexeraren återgår till dess uppsättning schemaintervallet igen.
 
 <a name="portal"></a>
 

@@ -1,26 +1,26 @@
 ---
-title: Konfigurera anpassade regler i brandväggen för webbaserade program med Azure PowerShell
-description: Lär dig hur du konfigurerar WAF anpassade regler med hjälp av Azure PowerShell
+title: Konfigurera brandväggen för webbaserade program v2 anpassade regler med hjälp av Azure PowerShell
+description: Lär dig hur du konfigurerar WAF v2 anpassade regler med hjälp av Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743065"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164737"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Konfigurera brandväggen för webbaserade program med en anpassad regel med hjälp av Azure PowerShell
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Konfigurera brandväggen för webbaserade program v2 med en anpassad regel med hjälp av Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Anpassade regler kan du skapa dina egna regler som utvärderas för varje begäran som skickas via Web Application Firewall (WAF). Dessa regler har högre prioritet än resten av reglerna i hanterade regeluppsättning. Anpassade regler har en åtgärd (för att tillåta eller blockera), ett matchningsvillkor och en operatör att tillåta fullständig anpassning.
+Anpassade regler kan du skapa dina egna regler som utvärderas för varje begäran som skickas via Web Application Firewall (WAF) v2. Dessa regler har högre prioritet än resten av reglerna i hanterade regeluppsättning. Anpassade regler har en åtgärd (för att tillåta eller blockera), ett matchningsvillkor och en operatör att tillåta fullständig anpassning.
 
-Den här artikeln skapar en Application Gateway WAF som använder en anpassad regel. Anpassad regel som blockerar trafik om huvudet för begäran innehåller användaragent *evilbot*.
+Den här artikeln skapar en Application Gateway WAF-v2 som använder en anpassad regel. Anpassad regel som blockerar trafik om huvudet för begäran innehåller användaragent *evilbot*.
 
 Du hittar fler exempel på Anpassad regel i [skapa och använda anpassade brandväggsregler för webbaserade program](create-custom-waf-rules.md)
 

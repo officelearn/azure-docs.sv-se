@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596939"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274171"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärd typer i Definitionsspråk för arbetsflödet för Azure Logic Apps
 
@@ -338,7 +338,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 
 För att fungera bra med din logikapp måste slutpunkten följer ett mönster för utlösare eller kontrakt och känna igen de här egenskaperna:  
   
-| Svar | Obligatoriskt | Beskrivning | 
+| Svar | Krävs | Beskrivning | 
 |----------|----------|-------------| 
 | Statuskod | Ja | Den ”200 OK”-statuskod: startar en körning. Alla andra statuskod Påbörja inte en körning. | 
 | Rubrik för återförsök | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen | 
@@ -2624,7 +2624,7 @@ Dock förfrågningar har en tidsgräns som begränsar, vilket för långvariga �
 
 ### <a name="run-in-high-throughput-mode"></a>Kör i läget för hög genomströmning
 
-För en enkel logikapp-körningen, antalet åtgärder som utförs var femte minut har en [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Att höja gränsen till den [maximala](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) möjliga, ange den `operationOptions` egenskap `OptimizedForHighThroughput`. Den här inställningen placerar logikappen i ”dataflöden” läge. 
+För en enda logikappsdefinitionen antalet åtgärder som utförs var femte minut har en [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Att höja gränsen till den [maximala](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) möjliga, ange den `operationOptions` egenskap `OptimizedForHighThroughput`. Den här inställningen placerar logikappen i ”dataflöden” läge. 
 
 > [!NOTE]
 > Högt dataflöde läge finns i förhandsversion. Du kan även distribuera en arbetsbelastning i mer än en logikapp efter behov.

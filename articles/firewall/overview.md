@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/20/2019
+ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272645"
+ms.locfileid: "67304570"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -73,7 +73,7 @@ Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avise
 
 ### <a name="outbound-snat-support"></a>Stöd för utgående SNAT
 
-Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till den offentliga Azure Firewall-IP-adressen (Source Network Address Translation). Du kan identifiera och tillåta trafik som kommer från ditt virtuella nätverk till fjärranslutna Internetmål.
+Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till den offentliga Azure Firewall-IP-adressen (Source Network Address Translation). Du kan identifiera och tillåta trafik som kommer från ditt virtuella nätverk till fjärranslutna Internetmål. Azure-brandväggen inte SNAT när mål-IP är en privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Om din organisation använder en offentlig IP-adressintervall för privata nätverk, kommer Azure brandvägg SNAT trafik till en brandvägg privata IP-adresser i AzureFirewallSubnet.
 
 ### <a name="inbound-dnat-support"></a>Stöd för inkommande DNAT
 

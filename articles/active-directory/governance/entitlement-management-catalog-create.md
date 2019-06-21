@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541622"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190244"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Skapa och hantera en katalog i Azure AD rättigheten hantering (förhandsversion)
 
@@ -60,9 +60,9 @@ En katalog är en behållare för resurser och åtkomst-paket. Du skapar en kata
 
 ## <a name="add-resources-to-a-catalog"></a>Lägg till resurser till en katalog
 
-Resurserna som måste finnas i en katalog med resurser i ett paket för åtkomst. Vilka typer av resurser som du kan lägga till är grupper, program och SharePoint Online-platser.
+Resurserna som måste finnas i en katalog med resurser i ett paket för åtkomst. Vilka typer av resurser som du kan lägga till är grupper, program och SharePoint Online-platser. Grupperna som kan vara cloud skapade Office 365-grupper eller molnet – skapat Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD-företagsprogram, inklusive både SaaS-program och dina egna program federerat till Azure AD. Platserna kan vara SharePoint Online-platser eller SharePoint Online-webbplatssamlingar.
 
-**Nödvändiga roll:** Användaradministratör eller katalogen ägare
+**Nödvändiga roll:** Se [krävs roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. I Azure-portalen klickar du på **Azure Active Directory** och klicka sedan på **Identitetsstyrning**.
 
@@ -74,9 +74,7 @@ Resurserna som måste finnas i en katalog med resurser i ett paket för åtkomst
 
 1. Klicka på en resurstyp: **Grupper**, **program**, eller **SharePoint-webbplatser**.
 
-    Om du är en katalog-skapare kan du lägga till alla Office 365-grupp eller Azure AD-säkerhetsgruppen som du äger till din katalog. Om det finns en grupp som du vill tilldela till användare, men du inte äger gruppen, behöver du ha Användaradministratör Lägg till den i din katalog.
-
-    Om du är en katalog-skapare kan du lägga till alla Azure AD-företagsprogram som du äger, inklusive både SaaS-program och dina egna program federerat till Azure AD till din katalog. Om det finns ett program som du vill tilldela användare till men inte äger, behöver du ha en användare lägger till programmet till din katalog. När programmet är en del av katalogen kan välja du någon av programmets roller i ett paket för åtkomst.
+    Om du inte ser en resurs som du vill lägga till eller om det inte går att lägga till en resurs, kontrollera att du har de nödvändiga Azure AD directory-rollen och rätt roll. Du kan behöva ha någon med nödvändiga roller lägga till resursen i din katalog. Mer information finns i [krävs roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Välj en eller flera resurser av typen som du vill lägga till i katalogen.
 
@@ -88,7 +86,7 @@ Resurserna som måste finnas i en katalog med resurser i ett paket för åtkomst
 
 Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en katalog om den inte används i den katalogen åtkomst-paket.
 
-**Nödvändiga roll:** Användaradministratör eller katalogen ägare
+**Nödvändiga roll:** Se [krävs roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. I Azure-portalen klickar du på **Azure Active Directory** och klicka sedan på **Identitetsstyrning**.
 
@@ -99,22 +97,6 @@ Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en k
 1. Välj de resurser som du vill ta bort.
 
 1. Klicka på **ta bort** (eller klicka på ellipsen ( **...** ) och klicka sedan på **ta bort resursen**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Lägg till katalogen ägare eller få åtkomst till pakethanterare
-
-Om du vill delegera hanteringen av katalogen eller åtkomst-paket i katalogen kan du lägga till katalogen ägare eller komma åt pakethanterare. Den skapar en katalog blir den första katalog-ägaren.
-
-**Nödvändiga roll:** Användaradministratör eller katalogen ägare
-
-1. I Azure-portalen klickar du på **Azure Active Directory** och klicka sedan på **Identitetsstyrning**.
-
-1. I den vänstra menyn klickar du på **kataloger** och öppna sedan den katalog som du vill lägga till administratörer.
-
-1. I den vänstra menyn klickar du på **roller och administratörer**.
-
-1. Klicka på **lägga till ägare** eller **Lägg till åtkomst pakethanterare** välja medlemmar för dessa roller.
-
-1. Klicka på **Välj** att lägga till dessa medlemmar.
 
 ## <a name="edit-a-catalog"></a>Redigera en katalog
 
@@ -148,4 +130,5 @@ Du kan ta bort en katalog, men endast om den inte har någon åtkomst-paket.
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Lägg till en katalog-skapare](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Skapa och hantera ett åtkomst-paket](entitlement-management-access-package-create.md)

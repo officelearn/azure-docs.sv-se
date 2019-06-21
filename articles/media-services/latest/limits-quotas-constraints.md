@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824461"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293446"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kvoter och begränsningar i Azure Media Services v3
 
@@ -44,6 +44,7 @@ Den här artikeln beskrivs kvoter och begränsningar i Azure Media Services v3.
 | Transformeringar per Media Services-konto | 100 (fast)|
 | Unikt Streaming positionerare som är associerad med en tillgång i taget | 100<sup>(6)</sup> (fast) |
 | Alternativ per innehåll viktiga princip |30 | 
+| Licenser per månad för var och en av DRM-typer på Media Services-nyckeln för video-on-demand per konto|1,000,000|
 
 <sup>1</sup> den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller i Media Services baserat på de storlekar som används av tjänsten. Storleksgränsen gäller för de filer som du laddar upp och de filer som skapats på grund av Media Services-bearbetning (kodning eller analysera). Om källfilen är större än 260 GB, misslyckas sannolikt ditt jobb. 
 

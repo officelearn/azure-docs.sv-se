@@ -6,15 +6,15 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
-ms.topic: overview
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: bdff74be8578bb862974479b3151b0d922f00dd9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064002"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296239"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera formuläret Igenkännande behållare
 
@@ -77,7 +77,7 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Obligatoriskt| `Input` | String | Inkommande monterings-mål. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obligatoriskt| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Krävs| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
 

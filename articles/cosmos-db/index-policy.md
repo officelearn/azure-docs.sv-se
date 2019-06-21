@@ -4,20 +4,23 @@ description: Lär dig mer om att konfigurera och ändra standard indexeringspoli
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431175"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163727"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
 I Azure Cosmos DB har en indexeringsprincip som bestämmer hur behållarens objekt ska indexeras i behållare. Standard indexeringspolicy för nyligen skapade behållare index varje egenskap för varje artikel, tillämpa intervallet index för en sträng eller en siffra, och spatialindex för alla GeoJSON-objekt i Skriv punkt. På så sätt kan du få hög frågeprestanda utan att behöva tänka indexering och indexhantering förskott.
 
 I vissa situationer kan du åsidosätta detta automatiskt så att den bättre passar dina behov. Du kan anpassa indexeringsprincip för en behållare genom att ange dess *indexering läge*, och inkludera eller exkludera *egenskapen sökvägar*.
+
+> [!NOTE]
+> Metoden för att uppdatera indexering principer som beskrivs i den här artikeln gäller bara för Azure Cosmos DB SQL (kärna) API.
 
 ## <a name="indexing-mode"></a>Indexering läge
 

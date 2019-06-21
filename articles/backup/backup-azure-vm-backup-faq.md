@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966314"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296175"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor: Säkerhetskopiera virtuella Azure-datorer
 
@@ -89,6 +89,9 @@ Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com
 Azure Backup kan inte säkerhetskopiera disken WA-aktiverade men kan undanta den från en säkerhetskopia. Säkerhetskopian Ange inte dock databaskonsekvens eftersom informationen på WA-aktiverade inte har säkerhetskopierats. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemdisken, och säkerhetskopiering av diskar som inte är WA-aktiverade.
 
 Vi använder privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett Återställningspunktmål på 15 minuter. Den bygger på ett liknande sätt till SQL DB-säkerhetskopiering och använder gränssnittet backInt för lösningar från tredje part som certifierats av SAP HANA. Om du vill kan du maila `AskAzureBackupTeam@microsoft.com` med ämnet **registrera dig för privat förhandsgranskning för säkerhetskopiering av SAP HANA på Azure virtuella datorer i**.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Vad är den längsta tillåtna fördröjningen som jag kan förvänta sig i starttid för säkerhetskopiering från den schemalagda tiden för säkerhetskopiering som jag har angett i min princip för säkerhetskopiering av virtuell dator?
+Den schemalagda säkerhetskopieringen aktiveras inom två timmar efter den schemalagda tiden för säkerhetskopiering. För t.ex. Om 100 virtuella datorer har starttid för säkerhetskopiering schemalagd vid 02:00:00, sedan har av högst 4:00 am alla 100VMs säkerhetskopieringsjobb pågår. Om schemalagda säkerhetskopieringar har pausats på grund av avbrott och återupptas/göras kan säkerhetskopiering starta utanför det här schemalagda 2 hr-fönstret.
 
 
 ## <a name="restore"></a>Återställ

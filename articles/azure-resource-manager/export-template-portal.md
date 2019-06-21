@@ -4,20 +4,22 @@ description: Använd Azure-portalen för att exportera en Azure Resource Manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515391"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296309"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Enkel och flera resurs export till mallen i Azure-portalen
 
 Du kan exportera en mall från befintliga resurser för att hjälpa med att skapa Azure Resource Manager-mallar. Den exporterade mallen hjälper dig att förstå JSON-syntax och egenskaper som distribuerar dina resurser. Börja med den exporterade mallen för att automatisera framtida distributioner, och modifiera den efter ditt scenario.
 
 Resource Manager kan du välja en eller flera resurser för att exportera till en mall. Du kan fokusera på exakt de resurser du behöver i mallen.
+
+Den här artikeln visar hur du exporterar mallar via portalen. Du kan också använda [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Välj rätt Exportalternativet
 
@@ -114,7 +116,7 @@ Du kan exportera den mall som användes för att distribuera befintliga resurser
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs Azure Resource Manager i [översikt över Azure Resource Manager](./resource-group-overview.md).
+- Lär dig hur du exporterar mallar med [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - Läs Resource Manager-mallens syntax i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](./resource-group-authoring-templates.md).
 - Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).
 - Mallscheman för Azure Resource Manager-finns [mallreferensen](/azure/templates/).

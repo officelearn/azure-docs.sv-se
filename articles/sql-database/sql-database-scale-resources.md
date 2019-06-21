@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743112"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147702"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiskt skala databasresurser med minimal avbrottstid
 
@@ -41,7 +41,7 @@ Azure SQL Database erbjuder den [DTU-baserade inköpsmodellen](sql-database-serv
 Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på tjänstnivån Basic, Standard- eller generell användning och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst på Premium- eller affärskritiska tjänstnivån att uppfylla ne EDS i lösningen. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 > [!NOTE]
-> Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott.
+> Dynamisk skalbarhet skiljer sig från autoskalning. Automatisk skalning är när en tjänst skalas automatiskt baserat på kriterier, medan dynamisk skalbarhet möjliggör manuell skalning med minimal avbrottstid.
 
 Enkla Azure SQL-databaser stöder manuell dynamisk skalbarhet, men inte Autoskala. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov.
 Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en Azure SQL-databas. Mer information finns i [Använd PowerShell till att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-powershell.md).

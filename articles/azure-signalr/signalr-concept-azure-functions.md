@@ -6,16 +6,19 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401889"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275089"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Skapa appar i realtid med Azure Functions och Azure SignalR Service
 
 Eftersom Azure SignalR Service och Azure Functions båda är fullständigt hanterade, mycket skalbara tjänster som gör att du kan fokusera på att bygga program i stället för att hantera infrastrukturen är det vanligt att använda de två tjänsterna tillsammans för att tillhandahålla realtidskommunikation i en [serverlös](https://azure.microsoft.com/solutions/serverless/) miljö.
+
+> [!NOTE]
+> Lär dig att använda SignalR och Azure Functions i de interaktiva självstudierna [aktiverat Automatiska uppdateringar i ett webbprogram med Azure Functions och SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrera realtidskommunikation med Azure-tjänster
 
@@ -63,9 +66,10 @@ SignalR Service gör att du kan skicka broadcast-meddelanden till alla klienter 
 
 I den här artikeln fick du en översikt över hur du använder Azure Functions med SignalR Service för att aktivera en mängd olika scenarier med serverlösa realtidsmeddelanden.
 
-Fullständig information om hur du använder Azure Functions och SignalR Service tillsammans finns i följande guide.
+Fullständig information om hur du använder Azure Functions och SignalR Service tillsammans finns i följande resurser:
 
 * [Med SignalR Service och Azure Functions-utvecklingen](signalr-concept-serverless-development-config.md)
+* [Aktivera automatiska uppdateringar i ett webbprogram med Azure Functions och SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Följ någon av de här snabbstarterna om du vill veta mer.
 

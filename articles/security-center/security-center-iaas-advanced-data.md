@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400141"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154819"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Avancerad säkerhet för SQL-servrar på IaaS
-Avancerad säkerhet för SQL-servrar på Azure Virtual Machines är en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den innehåller för närvarande funktioner för lyfta upp och åtgärda säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Avancerad säkerhet för SQL-servrar på Azure Virtual Machines (offentlig förhandsversion)
+Avancerad säkerhet för SQL-servrar på Azure Virtual Machines är en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den för närvarande (i allmänt tillgänglig förhandsversion) innehåller funktioner för lyfta upp och åtgärda säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas. 
 
 Den här säkerhetsuppdateringen erbjudande för Azure virtuella datorer SQL-servrar är baserad på samma grundläggande teknik som används i den [avancerade datasäkerhet för Azure SQL Database-paketet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
@@ -36,7 +36,7 @@ Avancerade datasäkerhet tillhandahåller en uppsättning avancerade säkerhetsf
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Kom igång med avancerad säkerhet för Data för SQL på Azure Virtual Machines
 
-Följande steg hjälper dig igång med avancerad säkerhet för Data för SQL på Azure Virtual Machines.
+Följande steg hjälper dig igång med avancerad säkerhet för Data för SQL på offentlig förhandsversion av Azure virtuella datorer.
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Konfigurera avancerade datasäkerhet för SQL på Azure Virtual Machines
 
@@ -145,7 +145,7 @@ Du kan visa dina Vulnerability assessment resultat och rapporter direkt från Lo
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avancerat skydd för SQL-servrar på virtuella Azure-datorer aviseringar
 Aviseringarna genereras av onormala och potentiellt skadliga försök att komma åt eller utnyttja SQL-servrar. Dessa händelser kan utlösa följande aviseringar:
 
-### <a name="anomalous-access-pattern-alerts"></a>Avvikande åtkomst mönstret aviseringar
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Avvikande åtkomst mönstret aviseringar (stöds i offentlig förhandsversion)
 
 * **Åtkomst från ovanlig plats:** Den här aviseringen utlöses när det finns en ändring i åtkomstmönstret till SQLServer, där någon har loggat in till SQLServer från en ovanlig geografisk plats. Möjliga orsaker:
      * En angripare eller f.d. skadliga utsträckning har åtkomst till din SQL-Server.

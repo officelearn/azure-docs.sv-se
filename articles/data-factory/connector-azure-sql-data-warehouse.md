@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427889"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206075"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -426,7 +426,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Konto-nyckelautentisering, hanterad identitetsautentisering |
 
     >[!IMPORTANT]
-    >Om din Azure-lagring är konfigurerad med VNet-tjänstslutpunkt, måste du använda hanterade identitetsautentisering. Referera till [effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Om din Azure-lagring är konfigurerad med VNet-tjänstslutpunkt, måste du använda hanterade identitetsautentisering - avser [effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig konfigurationerna som krävs i Data Factory från [Azure Blob - hanterad identitetsautentisering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2 - hanterad identitetsautentisering](connector-azure-data-lake-storage.md#managed-identity) avsnittet respektive.
 
 2. Den **källdataformatet** är av **Parquet**, **ORC**, eller **avgränsad text**, med följande konfigurationer:
 
@@ -537,12 +537,12 @@ Om dina källdata är i text-format eller andra icke-PolyBase kompatibel lagrar 
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-Lösningen är att avmarkera ”**Använd förvald**” alternativet (som FALSKT) i Kopiera aktivitet mottagare -> PolyBase Principtyp. ”[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+Lösningen är att avmarkera ”**Använd förvald**” PolyBase-Inställningar -> Alternativ (som FALSKT) i Kopiera aktivitet mottagare. ”[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )” är en inbyggd PolyBase-konfiguration som anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen. 
 
 **Andra**
 
-Ju fler problem som knonw PolyBase, finns i [felsökning av Azure SQL Data Warehouse PolyBase-inläsning](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Mer kända PolyBase problem finns i [felsökning av Azure SQL Data Warehouse PolyBase-inläsning](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklass
 

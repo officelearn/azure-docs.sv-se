@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068417"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190480"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 
@@ -32,7 +32,7 @@ Enhet för distribution för Azure functions är funktionsappen. Det innebär at
 
 ## <a name="requirements-for-continuous-deployment"></a>Krav för kontinuerlig distribution
 
-Din katalogstruktur för kontinuerlig distribution ska lyckas måste vara kompatibel följande grundläggande mappstrukturen som förväntar sig att Azure Functions:
+Directory-struktur måste vara kompatibel med följande grundläggande mappstrukturen som förväntar sig att Azure Functions för kontinuerlig distribution ska lyckas:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Använd den här proceduren för att konfigurera kontinuerlig distribution för 
 
     ![Öppna deployment center](./media/functions-continuous-deployment/platform-features.png)
 
-2. På den **Deployment Center**väljer **GitHub** för **källkontroll** > **auktorisera**.
+2. I den **Deployment Center**väljer **GitHub**, och välj sedan **auktorisera**. Om du har redan behörighet GitHub, väljer du **Fortsätt**. 
 
     ![Distributionscenter](./media/functions-continuous-deployment/github.png)
 
-3. Välj **auktorisera AzureAppService** > **fortsätta**.
+3. I GitHub, väljer **auktorisera AzureAppService**. 
 
     ![Auktorisering](./media/functions-continuous-deployment/authorize.png)
+    
+    I Azure-portalen **Deployment Center**väljer **Fortsätt**.
 
 4. Välj något av följande build-providers:
 

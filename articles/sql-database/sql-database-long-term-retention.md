@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696648"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190552"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
 
@@ -59,8 +59,8 @@ W = 12 veckor (84 dagar), M = 12 månader (365 dagar), Y = 10 år (3650 dagar), 
 
 Om du ändrar principen ovan och W = 0 (ingen veckovisa säkerhetskopior), intervall som uppsättning säkerhetskopior kommer att ändras som visas i tabellen ovan efter de markerade datum. Lagringsutrymmet som krävs för att dessa säkerhetskopior skulle minska därefter. 
 
-> [!NOTE]
-> Tidsinställningen för de enskilda LTR-säkerhetskopiorna styrs av Azure SQL Database. Du kan inte manuellt skapa en säkerhetskopia av LTR eller styra tidsinställningen för säkerhetskopian skapades.
+> [!IMPORTANT]
+> Tidsinställningen för de enskilda LTR-säkerhetskopiorna styrs av Azure SQL Database. Du kan inte manuellt skapa en säkerhetskopia av LTR eller styra tidsinställningen för säkerhetskopian skapades. När du har konfigurerat en LTR-princip, kan det ta upp till 7 dagar innan den första säkerhetskopian för LTR visas på listan över tillgängliga säkerhetskopior.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>GEO-replikering och långsiktig kvarhållning av säkerhetskopior

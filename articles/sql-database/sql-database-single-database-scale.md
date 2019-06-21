@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074266"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206737"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
@@ -56,7 +56,7 @@ Tjänsten ändrades till nivå eller beräkna storleken på en enskild databas f
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Svarstiden för att ändra tjänst-nivå eller skalas om beräkningsstorleken
 
-Fördröjning för att ändra tjänstnivå eller skala om beräkningsstorleken för en enkel databas eller elastisk pool är parameteriserat på följande sätt:
+Den uppskattade svarstiden ändra tjänstnivån eller skala om beräkningsstorleken för en enkel databas eller elastisk pool är parameteriserat på följande sätt:
 
 |Tjänstenivå|Grundläggande enkel databas</br>Standard (S0-S1)|Grundläggande elastisk pool</br>Standard (S2-S12), </br>I hyperskala </br>Allmänt syfte enkel databas eller elastisk pool|Premium- eller affärskritiska enkel databas eller elastisk pool|
 |:---|:---|:---|:---|

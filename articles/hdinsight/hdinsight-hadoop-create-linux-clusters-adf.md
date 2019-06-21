@@ -1,18 +1,18 @@
 ---
 title: 'Självstudier: Skapa på begäran Apache Hadoop-kluster i Azure HDInsight med Data Factory '
-description: Lär dig hur du skapar på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory.
+description: Självstudie – Lär dig hur du skapar på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 937cb9ba2d9ce63ba36805bc7a946e8ee6e18cf3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: 64f016ac0fa572cb8cf8504902108cffae267cec
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275445"
+ms.locfileid: "67293286"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

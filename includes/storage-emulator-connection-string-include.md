@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114675"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187547"
 ---
 Storage-emulatorn stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med delad nyckel. Kontot och nyckeln är de enda delad nyckel-autentiseringsuppgifter som tillåts för användning med storage-emulatorn. De är:
 

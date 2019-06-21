@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd2552cdfde19995413f4665f04c41c295304d50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e070b80f86cb6c8b1d9e7575e19022b5cb08f340
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082604"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165560"
 ---
 # <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera Keras modeller i hög skala med Azure Machine Learning-tjänsten
 
@@ -27,12 +27,20 @@ Om du utvecklar en modell för Keras från grunden eller du behöver en befintli
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- En Azure-prenumeration. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
-- [Installera Azure Machine Learning SDK för Python](setup-create-workspace.md#sdk)
-- [Skapa en konfigurationsfil för arbetsyta](setup-create-workspace.md#write-a-configuration-file)
-- [Ladda ned skriptet exempelfilerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` och `utils.py`
+Kör den här koden på något av dessa miljöer:
 
-Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) i den här guiden på sidan med GitHub kodexempel. Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
+ - Azure Machine Learning Notebook VM - inga nedladdningar eller installeras
+
+     - Slutför den [molnbaserade notebook Snabbstart](quickstart-run-cloud-notebook.md) att skapa en dedikerad anteckningsboksserver förinstallerade med SDK: N och exempellagringsplatsen.
+    - I mappen samples på notebook-server kan du hitta en slutförd och utökade anteckningsbok genom att navigera till den här katalogen: **How-to-till-användning – azureml > utbildning med deep learning > train-hyperparameter-tune-deploy-with-keras** mappen. 
+ 
+ - En egen Jupyter Notebook-server
+
+     - [Installera Azure Machine Learning SDK för Python](setup-create-workspace.md#sdk)
+    - [Skapa en konfigurationsfil för arbetsyta](setup-create-workspace.md#write-a-configuration-file)
+    - [Ladda ned skriptet exempelfilerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` och `utils.py`
+     
+    Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) i den här guiden på sidan med kodexempel på GitHub. Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
@@ -105,12 +113,24 @@ Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nå
     shutil.copy('./utils.py', script_folder)
     ```
 
-## <a name="get-the-default-compute-target"></a>Hämta beräkningsmål standard
+## <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 
-Varje arbetsyta som levereras med två, standard beräkningsmål: ett gpu-baserad beräkningsmål och ett mål för cpu-baserad beräkning. Standard-beräkningsmål har automatisk skalning 0, vilket innebär att de inte allokeras förrän du använder den. Vinna det här exemplet, använder beräkningsmål för standard-GPU.
+Skapa ett beräkningsmål för TensorFlow jobbet ska köras på. I det här exemplet skapar du ett GPU-aktiverade Azure Machine Learning-beräkningskluster.
 
 ```Python
-compute_target = ws.get_default_compute_target(type="GPU")
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 Mer information om beräkningsmål finns i den [vad är ett beräkningsmål](concept-compute-target.md) artikeln.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6841caf94ec9712ff85e420e4378f8c9572e586b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419398"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202960"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -99,7 +99,7 @@ Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar ä
         # logout
 16. Klicka på **åtgärd -> Stäng ned** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
 
-- - -
+---
 ## <a name="prepare-opensuse-131"></a>Förbereda openSUSE 13,1 +
 1. I den mittersta rutan av Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Connect** att öppna fönstret för den virtuella datorn.

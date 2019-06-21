@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059679"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275735"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -29,7 +29,7 @@ En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-z
 
 ## <a name="capabilities"></a>Funktioner
 
-- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-postuppsättning är automatiskt om den offentliga IP-adressen ändras eller har tagits bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
+- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-posten set ändringar automatiskt om den offentliga IP-adressen ändras eller tas bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
 
 - **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA eller CNAME-post och använda alias poster för att peka på en Traffic Manager-profil. Det är särskilt användbart när du vill dirigera trafik på en basdomänen som traditionella CNAME-poster inte stöds för en zonens apex. Anta exempelvis att Traffic Manager-profilen är myprofile.trafficmanager.net och företag DNS-zonen contoso.com. Du kan skapa ett alias postuppsättningen av typen A/AAAA för contoso.com (basdomänen) och pekar på myprofile.trafficmanager.net.
 - **Peka på en Azure Content Delivery Network (CDN) slutpunkt**. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN.

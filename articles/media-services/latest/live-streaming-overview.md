@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556228"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295668"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
 Den här artikeln ger en översikt och riktlinjerna för direktsänd strömning med Media Services och länkar till andra relevanta artiklar.
-
+ 
 > [!NOTE]
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
@@ -49,27 +49,27 @@ Dynamisk filtrering används för att styra antalet spår, format, olika bithast
 
 ## <a name="live-event-types"></a>Live händelsetyper
 
-En direktsänd händelse kan vara något av två typer: direkt och live encoding. Mer information om liveströmning i Media Services v3 finns [Live-händelser och Live utdata](live-events-outputs-concept.md).
+[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. En direktsänd händelse kan vara något av två typer: direkt och live encoding. Mer information om liveströmning i Media Services v3 finns [Live-händelser och Live utdata](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Direkt
 
 ![direkt](./media/live-streaming/pass-through.svg)
 
-När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. Sådana en direkt direktsänd händelse är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. 
+När du använder direkt **direktsänd händelse**, du förlita dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka att som bidraget feed på Live-händelsen (med RTMP eller fragmenterad MP4 indataprotokollet). Live-händelsen har sedan via inkommande videon upp direkt till dynamisk Paketeraren (slutpunkt för direktuppspelning) utan någon ytterligare transkodning. Sådana en direkt direktsänd händelse är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![livekodning](./media/live-streaming/live-encoding.svg)
 
-När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Livehändelsen kodar den inkommande strömmen med enkel bithastighet till [videoström med flera bithastigheter](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) och gör den tillgänglig för leverans till uppspelningsenheter via protokoll såsom MPEG-DASH, HLS och Smooth Streaming. 
+När du använder molnet encoding med Media Services kan du konfigurera din lokala livekodare för att skicka en enkel bithastighet video som bidraget feed (upp till 32Mbps sammanställd) på Live-händelsen (med RTMP eller fragmenterad MP4 indataprotokollet). Direktsänd händelse omkodar den inkommande, enkel bithastigheten, strömma till [flera bithastigheter videoflöden](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) på olika lösningar för att förbättra leverans och gör dem tillgängliga för leverans till uppspelningsenheter via branschens standardprotokoll t.ex. MPEG-DASH, Apple HTTP Live Streaming (HLS) och Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Live-arbetsflöde
 
 För att förstå live direktuppspelning arbetsflödet i Media Services v3, du måste först läsa och förstå följande begrepp: 
 
-- [Slutpunkter för direktuppspelning API](streaming-endpoint-concept.md)
-- [Live-händelser och Live utdata-API](live-events-outputs-concept.md)
-- [Strömmande positionerare API](streaming-locators-concept.md)
+- [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
+- [Livehändelser och liveutdata](live-events-outputs-concept.md)
+- [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg
 
@@ -79,7 +79,7 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
 5. Skapa en ny **tillgången** objekt.
 6. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.<br/>Den **Live utdata** arkiverar dataströmmen till den **tillgången**.
-7. Skapa en **Strömningspositionerare** med inbyggt **Streaming princip** typer.<br/>Om du vill kryptera ditt innehåll, granska [Content protection översikt](content-protection-overview.md).
+7. Skapa en **Strömningspositionerare** med den [inbyggda Streaming principtyper](streaming-policy-concept.md)
 8. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda (dessa är deterministisk).
 9. Hämta värdnamnet för den **Strömningsslutpunkt** (ursprungliga) som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värdnamnet i steg 9 för att hämta den fullständiga URL: en.

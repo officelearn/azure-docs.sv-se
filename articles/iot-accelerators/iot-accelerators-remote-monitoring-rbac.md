@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443132"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203172"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
@@ -91,11 +91,11 @@ Följande steg beskriver hur du lägger till en roll till ett program i Azure Ac
 
 1. Hitta den **appregistrering** för din lösning i Azure-portalen. Programnamnet är namnet på lösningen för fjärrövervakning. Visningsnamn för lösningen och program finns i följande skärmbild **contoso rm4**.
 
-    ![Appregistrering](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Appregistrering](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Välj ditt program och klicka sedan på **Manifest**. Du kan se de två befintliga [approller](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) definierats för programmet:
 
-    ![Visa manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Visa manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Redigera manifest för att lägga till en roll med namnet **ManageDevices** som visas i följande kodavsnitt. Du behöver en unik sträng, till exempel ett GUID för nytt roll-ID. Du kan generera ett nytt GUID med en tjänst som den [Online GUID-Generator](https://www.guidgenerator.com/):
 

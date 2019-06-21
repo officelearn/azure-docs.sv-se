@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55a2b7b690c40ab21a59f93aaba0ab5add5faa98
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542415"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203004"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbered en virtuell Oracle Linux-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -107,7 +107,7 @@ Du måste slutföra specifika konfigurationssteg i operativsystemet för den vir
         # logout
 14. Klicka på **åtgärd -> Stäng ned** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
 
-- - -
+---
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Ändringar i Oracle Linux 7**
 

@@ -1,48 +1,57 @@
 ---
-title: Konfigurera en anslutningssträng för Azure Storage | Microsoft Docs
-description: Konfigurera en anslutningssträng för ett Azure storage-konto. En anslutningssträng innehåller den information som behövs för att bevilja åtkomst till ett lagringskonto från ditt program under körning.
+title: Konfigurera en anslutningssträng för Azure Storage
+description: Konfigurera en anslutningssträng för ett Azure storage-konto. En anslutningssträng innehåller den information som behövs för att bevilja åtkomst till ett lagringskonto från ditt program under körning med delad nyckel auktorisering.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c83b382f8aca3d8fda1c0de4785c51f3f3b1fc5
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65874120"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302539"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
-En anslutningssträng innehåller autentiseringsinformation som krävs för ditt program för att komma åt data i ett Azure Storage-konto vid körning. Du kan konfigurera anslutningssträngar för att:
+En anslutningssträng innehåller autentiseringsinformation som krävs för ditt program för att komma åt data i ett Azure Storage-konto under körning med delad nyckel auktorisering. Du kan konfigurera anslutningssträngar för att:
 
 * Anslut till Azure storage-emulatorn.
 * Åtkomst till ett lagringskonto i Azure.
 * Åtkomst till resurserna i Azure via en signatur för delad åtkomst (SAS).
 
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="storing-your-connection-string"></a>Lagra din anslutningssträng
+## <a name="view-and-copy-a-connection-string"></a>Visa och kopiera en anslutningssträng
+
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+
+## <a name="store-a-connection-string"></a>Store en anslutningssträng
+
 Programmet behöver för att få åtkomst till anslutningssträngen vid körning för att godkänna begäranden som görs till Azure Storage. Har du flera alternativ för att lagra anslutningssträngen:
 
+* Du kan lagra anslutningssträngen i en miljövariabel.
 * Ett program som körs på skrivbordet eller på en enhet kan lagra anslutningssträngen i en **app.config** eller **web.config** fil. Lägg till anslutningssträng till den **AppSettings** avsnitt i dessa filer.
 * Ett program som körs i en Azure-molntjänst kan lagra anslutningssträngen i den [Azure schema (.cscfg) för tjänstkonfigurationsfilen](https://msdn.microsoft.com/library/ee758710.aspx). Lägg till anslutningssträng till den **ConfigurationSettings** avsnittet i tjänstekonfigurationsfilen.
-* Du kan använda anslutningssträngen direkt i din kod. Vi rekommenderar dock att du lagrar anslutningssträngen i en konfigurationsfil i de flesta fall.
 
 Lagra anslutningssträngen i en konfigurationsfil gör det enkelt att uppdatera anslutningssträngen för att växla mellan lagringsemulatorn och ett Azure storage-konto i molnet. Du behöver bara redigera anslutningssträngen så att den pekar till målmiljön.
 
 Du kan använda den [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) att komma åt din anslutningssträngen vid körningstillfället oavsett var ditt program körs.
 
-## <a name="create-a-connection-string-for-the-storage-emulator"></a>Skapa en anslutningssträng för storage-emulatorn
+## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Konfigurera en anslutningssträng för storage-emulatorn
+
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Läs mer om storage-emulatorn [använder Azure storage-emulatorn för utveckling och testning](storage-use-emulator.md).
 
-## <a name="create-a-connection-string-for-an-azure-storage-account"></a>Skapa en anslutningssträng för ett Azure storage-konto
+## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Konfigurera en anslutningssträng för ett Azure storage-konto
+
 Använd följande format för att skapa en anslutningssträng för Azure storage-kontot. Ange om du vill ansluta till storage-konto via HTTPS (rekommenderas) eller HTTP, Ersätt `myAccountName` med namnet på ditt lagringskonto och Ersätt `myAccountKey` med din åtkomstnyckel:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
@@ -58,9 +67,11 @@ Anslutningssträngen kan till exempel se ut ungefär som:
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Skapa en anslutningssträng med hjälp av en signatur för delad åtkomst
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>Skapa en anslutningssträng för en explicit storage-slutpunkt
+
 Du kan ange explicita tjänstslutpunkter i anslutningssträngen istället för att använda standard-slutpunkter. Om du vill skapa en anslutningssträng som anger en explicit slutpunkt, anger du fullständiga tjänst-slutpunkt för varje tjänst, inklusive protokollspecifikation (HTTPS (rekommenderas) eller HTTP) i följande format:
 
 ```
@@ -107,6 +118,7 @@ Om du har mappat en slutpunkt för lagring till en anpassad domän och utelämna
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Skapa en anslutningssträng med slutpunktssuffixet
+
 Om du vill skapa en anslutningssträng för en lagringstjänst i regioner eller instanser med olika endpoint suffix, till exempel för Azure Kina 21Vianet eller Azure Government kan du använda följande formatet för anslutningssträngen. Ange om du vill ansluta till storage-konto via HTTPS (rekommenderas) eller HTTP, Ersätt `myAccountName` med namnet på ditt lagringskonto, Ersätt `myAccountKey` med din åtkomstnyckel och Ersätt `mySuffix` med URI-suffix:
 
 ```
@@ -126,9 +138,11 @@ EndpointSuffix=core.chinacloudapi.cn;
 ```
 
 ## <a name="parsing-a-connection-string"></a>Parsning av en anslutningssträng
+
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Använd Azure storage-emulatorn för utveckling och testning](storage-use-emulator.md)
 * [Azure Storage-Utforskare](storage-explorers.md)
 * [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md)

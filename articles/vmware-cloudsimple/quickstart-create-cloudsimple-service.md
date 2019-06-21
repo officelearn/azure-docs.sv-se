@@ -1,6 +1,6 @@
 ---
 title: Azure VMware-lösning av CloudSimple Quickstart – skapa tjänst
-description: Lär dig hur du skapar tjänsten CloudSimple, köpa noder och reservera noder
+description: Lär dig hur du skapar tjänsten CloudSimple etablera noder och reservera noder
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577577"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164225"
 ---
 # <a name="quickstart---create-service"></a>Snabbstart – skapa tjänst
 
@@ -21,7 +21,7 @@ Kom igång genom att skapa Azure VMware-lösning genom CloudSimple i Azure-porta
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware-lösning genom CloudSimple - tjänstöversikt
 
-Tjänsten CloudSimple kan du använda Azure VMware-lösning genom CloudSimple.  Skapandet av tjänsten kan du köpa noder, Reservera noder och skapar privata moln.  Du lägger till tjänsten CloudSimple i varje Azure-region där CloudSimple-tjänsten är tillgänglig.  Tjänsten definierar edge-nätverk med Azure VMware-lösning genom CloudSimple.  Det här Microsoft edge-nätverket används för tjänster som omfattar VPN och ExpressRoute Internet-anslutning till dina privata moln.
+Tjänsten CloudSimple kan du använda Azure VMware-lösning genom CloudSimple.  Skapa tjänsten gör det möjligt att etablera noder, Reservera noder och skapar privata moln.  Du lägger till tjänsten CloudSimple i varje Azure-region där CloudSimple-tjänsten är tillgänglig.  Tjänsten definierar edge-nätverk med Azure VMware-lösning genom CloudSimple.  Det här Microsoft edge-nätverket används för tjänster som omfattar VPN och ExpressRoute Internet-anslutning till dina privata moln.
 
 Om du vill lägga till tjänsten CloudSimple, måste du skapa ett gateway-undernät. Gateway-undernätet används när du skapar edge-nätverket och kräver en/28 CIDR-block. Adressutrymme för gateway-undernätet måste vara unikt. Det får inte överlappa med några av dina lokala nätverksadressutrymmen eller Azure virtuella nätverkets adressutrymme.
 
@@ -47,9 +47,6 @@ Följ stegen nedan för att aktivera resursprovidern för CloudSimple-tjänsten.
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
->[!NOTE]
-> CloudSimple tjänsten måste aktiveras på din prenumeration. Om din prenumeration har inte aktiverats, får du ett fel vid försök att skapa tjänsten.  Följ stegen i [aktivera CloudSimple service](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) artikeln om du vill aktivera tjänsten.
-
 1. Välj **Alla tjänster**.
 2. Sök efter **CloudSimple Service**.
 
@@ -71,7 +68,7 @@ Följ stegen nedan för att aktivera resursprovidern för CloudSimple-tjänsten.
 
 Tjänsten skapas och läggs till i listan över tjänster.
 
-## <a name="purchase-nodes"></a>Köpa noder
+## <a name="provision-nodes"></a>Etablera noder
 
 Om du vill konfigurera betala-som-du gå kapacitet för en CloudSimple privat molnmiljö först etablera noder i Azure-portalen.
 
@@ -85,7 +82,7 @@ Om du vill konfigurera betala-som-du gå kapacitet för en CloudSimple privat mo
 
     ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
 
-5. Välj den prenumeration där du vill köpa CloudSimple noder.
+5. Välj den prenumeration där du vill etablera CloudSimple noder.
 6. Välj resursgrupp för noderna. Lägg till en ny resursgrupp genom att klicka på **Skapa ny**.
 7. Ange prefix för att identifiera noderna.
 8. Välj plats för nod-resurser.

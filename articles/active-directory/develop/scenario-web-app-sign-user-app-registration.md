@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074552"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150234"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Webbapp som loggar in användare - appregistrering
 
@@ -48,14 +48,14 @@ Om du navigerar till den här länken kan du skapa bootstrap skapandet av ditt w
 1. Om ditt konto får du tillgång till fler än en klient, Välj ditt konto i det övre högra hörnet och ange din portal-session med önskade Azure AD-klient.
 1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och välj sedan **appregistreringar** > **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   - Välj kontotyperna som stöds för ditt program (se [stöds kontotyper](./v2-supported-account-types.md))
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-WebApp`.
-   - I **svars-URL**, lägga till svars-URL för din app, till exempel `https://localhost:44321/`, och välj **registrera**.
+   1. Välj kontotyperna som stöds för ditt program (se [stöds kontotyper](./v2-supported-account-types.md))
+   1. I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-WebApp`.
+   1. I **omdirigerings-URI**lägger du till typ av program och URI-mål som ska ta emot returnerade tokensvar efter autentisering. Till exempel `https://localhost:44321/`.  Välj **Registrera**.
 1. Välj menyn **Autentisering** och lägg sedan till följande information:
-- I **Svars-URL** lägger du till `https://localhost:44321/signin-oidc` och markerar **Registrera**.
-- I den **avancerade inställningar** anger **utloggnings-URL** till `https://localhost:44321/signout-oidc`.
-- Under **Implicit beviljande** kontrollerar du **ID-token**.
-- Välj **Spara**.
+   1. I **svars-URL**, lägga till `https://localhost:44321/signin-oidc`.
+   1. I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.
+   1. Under **Implicit beviljande** kontrollerar du **ID-token**.
+   1. Välj **Spara**.
 
 ### <a name="register-an-app-using-powershell"></a>Registrera en app med hjälp av PowerShell
 

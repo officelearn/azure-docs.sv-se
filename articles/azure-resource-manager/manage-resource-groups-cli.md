@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c50a96b2598b89d5072a9441162d198163156c8d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550554"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296277"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure CLI
 
@@ -142,7 +139,7 @@ az group export --name $resourceGroupName
 
 Skriptet visar mallen på konsolen.  Kopiera JSON och spara som en fil.
 
-Mer information finns i [Export resursgrupp](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+Mer information finns i [enstaka och flera resurs export till mallen i Azure-portalen](./export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resursgrupper
 

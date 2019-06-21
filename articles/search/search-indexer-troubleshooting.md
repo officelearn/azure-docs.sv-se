@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539296"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147532"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsökning av vanliga problem med indexerare i Azure Search
 
@@ -35,14 +35,11 @@ Azure Storage tillhandahåller en konfigurerbar brandvägg. Brandväggen är ina
 
 Det finns inga specifika meddelanden när en brandvägg har aktiverats. Normalt brandväggen fel ut `The remote server returned an error: (403) Forbidden`.
 
-Du kan kontrollera att brandväggen är aktiverad i den [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Om brandväggen är aktiverad, har du två alternativ för att komma runt problemet:
+Du kan kontrollera att brandväggen är aktiverad i den [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Den enda stödda lösningen är att inaktivera brandväggen genom att välja att tillåta åtkomst från [”alla nätverk”](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Inaktivera brandväggen genom att välja att tillåta åtkomst från [”alla nätverk”](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [Lägga till ett undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) för IP-adressen för din söktjänst. För att hitta den här IP-adress, använder du följande kommando:
+Om indexeraren inte har en ansluten kompetens du _kan_ försöker [lägga till ett undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) för IP-adresserna för din söktjänst. Det här scenariot stöds inte och är inte säkert att fungera.
 
-`nslookup <service name>.search.windows.net`
-
-Undantag fungerar inte för [kognitiv sökning](cognitive-search-concept-intro.md). Den enda lösningen är att inaktivera brandväggen.
+Du hittar IP-adressen för din söktjänst genom att skicka pingsignaler dess FQDN (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793627"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165974"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
@@ -401,5 +401,5 @@ Titta på [djupdykning i Azure Search](https://channel9.msdn.com/Events/TechEd/E
 För mer information om designprinciper för aspektbaserad navigering rekommenderar vi följande länkar:
 
 * [Designmönster: Aspektbaserad navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Klientdelen frågor när du implementerar Aspektbaserad sökning – del 1 ](https://articles.uie.com/faceted_search2/)
+* [Klientdelen frågor när du implementerar Aspektbaserad sökning – del 1](https://articles.uie.com/faceted_search2/)
 

@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3c2ed7f2914374ac94783511f2992ae5755967
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907249"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302351"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -23,7 +23,10 @@ En signatur för delad åtkomst (SAS) ger dig ett sätt att bevilja begränsad �
 Fler kodexempel med hjälp av SAS utöver de som presenteras här, se [komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) och andra exempel som är tillgängliga i den [kodexempel för Azure](https://azure.microsoft.com/documentation/samples/?service=storage) biblioteket. Du kan ladda ned exempelprogrammen och kör dem, eller bläddra i koden på GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>Vad är en signatur för delad åtkomst?
+
 En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Med en SAS kan kan du ge klienterna åtkomst till resurser i ditt storage-konto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
+
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -35,6 +38,7 @@ En SAS ger dig detaljerad kontroll över typ av åtkomst som du har gett till kl
 * Det protokoll som du ska ta emot SAS Azure Storage. Du kan använda den här valfria parametern för att begränsa åtkomsten till klienter som använder HTTPS.
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>När ska du använda en signatur för delad åtkomst?
+
 Du kan använda en SAS när du vill ge åtkomst till resurser i ditt storage-konto till alla klienter som inte har åtkomstnycklarna för ditt lagringskonto. Ditt lagringskonto innehåller både en primär och sekundär åtkomstnyckel, som båda ha administrativ åtkomst till ditt konto och alla resurser i den. Exponera något av de här nycklarna öppnas ditt konto så att risken för skadliga eller oaktsamhet. Signaturer för delad åtkomst är en säker alternativ som tillåter klienter att läsa, skriva och ta bort data i ditt lagringskonto enligt de behörigheter som du uttryckligen har gett, och utan behov av en kontonyckel.
 
 Ett vanligt scenario där en SAS är användbart är en tjänst där användare läsa och skriva sina egna data till ditt lagringskonto. Det finns två vanliga designmönster i ett scenario där ett lagringskonto lagrar användardata:
@@ -56,12 +60,14 @@ Dessutom behöver du använder en SAS för att bevilja åtkomst till objektet i 
 * När du kopierar en blob till en fil eller en fil till en blob måste du använda en SAS för att bevilja åtkomst till källobjektet, även om käll- och objekt som finns på samma lagringskonto.
 
 ## <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
+
 Du kan skapa två typer av signaturer för delad åtkomst:
 
 * **Service SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [konstruera en SAS för tjänst](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) detaljerad information om hur du skapar SAS-token för tjänsten.
 * **SAS-konto.** Konto SAS delegerar åtkomst till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst-SAS är också tillgängliga via en konto-SAS. Med kontot med delad Åtkomstsignatur, kan du dessutom delegera åtkomst till åtgärder som gäller för en viss tjänst, till exempel **Get/Set-tjänstegenskaper** och **få statistik för tjänsten**. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobcontainrar, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Se [konstruera en konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx) detaljerad information om hur du skapar kontot SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>Så här fungerar en signatur för delad åtkomst
+
 En signatur för delad åtkomst är en signerad URI som pekar på en eller flera storage-resurser och innehåller en token som innehåller en särskild uppsättning Frågeparametrar. Token anger hur resurserna som kan användas av klienten. En av frågeparametrar, signatur, skapas från SAS-parametrarna och signerad med kontonyckeln. Den här signaturen används av Azure Storage för att auktorisera åtkomst till storage-resurs.
 
 Här är ett exempel på en SAS-URI som visar resurs-URI och SAS-token:
@@ -73,9 +79,11 @@ SAS-token är en sträng som du genererar på den *klienten* sida (se den [SAS e
 När en klient innehåller en SAS-URI till Azure Storage som en del av en begäran, kontrollerar tjänsten SAS-parametrarna och signaturen för att kontrollera att den är giltig för att autentisera begäran. Om tjänsten verifierar att signaturen är giltig och begäran har behörighet. Annars avvisas begäran med felkoden 403 (förbjudet).
 
 ## <a name="shared-access-signature-parameters"></a>Parametrar för signaturer för delad åtkomst
+
 SAS-konto och tjänsten SAS-token innehåller vissa vanliga parametrar och även vidta några parametrar som skiljer sig.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parametrar som är gemensamma för kontot med delad Åtkomstsignatur och service SAS-token
+
 * **API-versionen** en valfri parameter som anger storage service-version du använder för att utföra begäran.
 * **Tjänstversionen** en obligatorisk parameter som anger storage service-version du använder för att auktorisera begäran.
 * **Starttid.** Detta är den tid då SAS blir giltigt. Starttiden för signatur för delad åtkomst är valfritt. Om en starttid utelämnas är SAS omedelbart verksam. Starttiden måste anges i UTC (Coordinated Universal Time), med en särskild enhetsbeteckning för UTC (”Z”), till exempel `1994-11-05T13:15:30Z`.
@@ -86,6 +94,7 @@ SAS-konto och tjänsten SAS-token innehåller vissa vanliga parametrar och även
 * **Signatur.** Signaturen skapas från de andra parametrarna som angetts som en del token och sedan krypteras. Signaturen används för att bevilja åtkomst till de angivna lagringsresurserna.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parametrar för en tjänst-SAS-token
+
 * **Lagringsresurs.** Storage-resurser som du kan delegera åtkomst med en tjänst SAS är:
   * Behållare och blobbar
   * Filresurser och filer
@@ -93,6 +102,7 @@ SAS-konto och tjänsten SAS-token innehåller vissa vanliga parametrar och även
   * Tabeller och intervall för tabellenheter.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parametrar för en konto-SAS-token
+
 * **Tjänsten eller tjänster.** En konto-SAS kan delegera åtkomst till en eller flera av lagringstjänsterna. Du kan till exempel skapa en konto-SAS som delegerar åtkomst till Blob- och tjänsten. Eller så kan du skapa en SAS att delegerar åtkomst till alla fyra tjänster (Blob, kö, tabell och fil).
 * **Storage-resurstyper.** Ett konto gäller SAS för en eller flera klasser av lagringsresurser i stället för en viss resurs. Du kan skapa en konto-SAS att delegera åtkomst till:
   * Tjänstnivå API: er, som kallas mot resursen för lagringskonton. Exempel är **Get/Set-tjänstegenskaper**, **få statistik för tjänsten**, och **lista behållare/köer/tabeller/resurser**.
@@ -139,6 +149,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 Tanke på att behörigheterna är begränsade till servicenivån, tillgängliga åtgärder med den här SAS är **hämta egenskaper för Blob Service** (läsa) och **ange egenskaper för Blob Service** (skriva). Men med en annan resurs URI samma SAS-token kan också användas att delegera åtkomst till **få statistik för Blob-tjänsten** (läsa).
 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Kontrollera en SAS med en lagrad åtkomstprincip
+
 En signatur för delad åtkomst kan ta ett av två sätt:
 
 * **Ad hoc-SAS:** När du skapar en ad hoc-SAS är starttid, förfallotid och behörigheter för SAS alla angivna i SAS-URI (eller underförstådda, i de fall där starttiden utelämnas). Den här typen av SAS kan skapas som en konto-SAS eller en tjänst-SAS.
@@ -158,12 +169,15 @@ Skillnaden mellan de två formulär är viktigt för ett viktiga scenario: åter
 > En signatur för delad åtkomst URI: N är associerad med den kontonyckel som används för att skapa signaturen och den associerade lagras åtkomstprincip (om sådan finns). Om ingen lagrad åtkomstprincip anges, är det enda sättet att återkalla en signatur för delad åtkomst för att ändra kontonyckeln.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autentisering från ett klientprogram med en SAS
+
 En klient som har tillgång för en SAS kan använda SAS för att auktorisera en begäran mot ett storage-konto som de inte har nycklar för kontot. En SAS kan ingår i en anslutningssträng eller användas direkt från rätt konstruktor nebo metodu.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Med hjälp av en SAS i en anslutningssträng
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Med hjälp av en SAS i konstruktorn och metoder
+
 Flera Azure Storage client library konstruktorer och metoden överlagringar erbjuder en SAS-parameter så att du kan auktorisera en begäran till tjänsten med en SAS.
 
 Till exempel används här en SAS-URI för att skapa en referens till en blockblob. SAS ger de enda autentiseringsuppgifter som krävs för begäran. Referensen för blockblobben används sedan för skrivning:
@@ -208,6 +222,7 @@ catch (StorageException e)
 ```
 
 ## <a name="best-practices-when-using-sas"></a>Metodtips för att med hjälp av SAS
+
 När du använder signaturer för delad åtkomst i dina program, måste du vara medveten om två potentiella risker:
 
 * Om en SAS har läckts kan den användas av alla som erhåller, vilket potentiellt kan påverka ditt storage-konto.
@@ -227,6 +242,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 10. **Använda Storage Analytics för att övervaka program.** Du kan använda loggning och mått för att se alla topp i autentiseringsfel på grund av ett avbrott i din SAS provider-tjänsten eller oavsiktlig borttagning av en lagrad åtkomstprincip. Se den [Azure Storage-teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) för ytterligare information.
 
 ## <a name="sas-examples"></a>SAS-exempel
+
 Nedan följer några exempel på båda typerna av signaturer för delad åtkomst, kontot med delad Åtkomstsignatur och tjänst-SAS.
 
 Om du vill köra dessa C#-exempel, måste du referera till följande NuGet-paketen i projektet:
@@ -237,6 +253,7 @@ Om du vill köra dessa C#-exempel, måste du referera till följande NuGet-paket
 Ytterligare exempel som visar hur du skapar och testar en SAS finns i [kodexempel för Azure för lagring](https://azure.microsoft.com/documentation/samples/?service=storage).
 
 ### <a name="example-create-and-use-an-account-sas"></a>Exempel: Skapa och använda en konto-SAS
+
 Följande exempel skapar ett konto SAS som är giltig för Blob- och -tjänster och ger klienten behörigheter som Läs-, Skriv- och listbehörigheter att få åtkomst till API: er för servicenivå. Kontot med delad Åtkomstsignatur begränsar protokollet till HTTPS, så att begäran måste göras med HTTPS.
 
 ```csharp
@@ -304,6 +321,7 @@ static void UseAccountSAS(string sasToken)
 ```
 
 ### <a name="example-create-a-stored-access-policy"></a>Exempel: Skapa en lagrad åtkomstprincip
+
 Följande kod skapar en lagrad åtkomstprincip för en behållare. Du kan använda åtkomstprincipen för att ange begränsningar för en tjänst-SAS på behållaren eller dess blobar.
 
 ```csharp
@@ -330,6 +348,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Exempel: Skapa en tjänst-SAS för en behållare
+
 Följande kod skapar en SAS för en behållare. Om namnet på en lagrad åtkomstprincip är principen associerad med SAS. Om ingen lagrad åtkomstprincip anges, sedan skapar koden en ad hoc-SAS för behållaren.
 
 ```csharp
@@ -373,6 +392,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Exempel: Skapa en tjänst-SAS för en blob
+
 Följande kod skapar en SAS för en blob. Om namnet på en lagrad åtkomstprincip är principen associerad med SAS. Om ingen lagrad åtkomstprincip anges, sedan skapar koden en ad hoc-SAS på blob.
 
 ```csharp
@@ -419,9 +439,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Sammanfattning
+
 Signaturer för delad åtkomst är användbara för att tillhandahålla begränsade behörigheter till ditt lagringskonto till klienter som inte ska ha kontonyckeln. Det innebär att de är en viktig del av säkerhetsmodellen för alla program som använder Azure Storage. Om du har följt de rekommenderade metoder som beskrivs här måste använda du SAS för större flexibilitet för åtkomst till resurser i ditt lagringskonto utan att kompromissa med säkerheten för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md)
 * [Delegera åtkomst med signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introduktion till tabell och kö-SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

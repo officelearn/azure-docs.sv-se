@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427483"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146722"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -35,9 +35,7 @@ Om du utvecklar dina skript lokalt, rekommenderar vi för att ha samma modulvers
 
 Här följer några saker att beakta när du använder den här processen för att uppdatera din Azure-moduler:
 
-* Denna runbook har stöd för uppdatering av endast den **Azure** och **AzureRm** moduler för närvarande. [Azure PowerShell Az-moduler](/powershell/azure/new-azureps-module-az) stöds i Automation-konton, men kan inte uppdateras med denna runbook. Det finns viktiga faktorer som du behöver ta hänsyn till när du använder den `Az` moduler i ditt Automation-konto, mer information, se [med hjälp av Az-moduler i ditt Automation-konto](az-modules.md).
-
-* Undvik att från och med denna runbook Automation-konton som innehåller Az-moduler.
+* Denna runbook har stöd för uppdatering av den **Azure** och **AzureRm** moduler som standard. Denna runbook har stöd för uppdatering av den **Az** samt moduler. Granska den [uppdatera Azure-moduler runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) för mer information om hur du uppdaterar `Az` moduler med denna runbook. Det finns ytterligare viktiga faktorer som du behöver ta hänsyn till när du använder den `Az` moduler i ditt Automation-konto, mer information, se [med hjälp av Az-moduler i ditt Automation-konto](az-modules.md).
 
 * Innan du startar den här runbooken ska du kontrollera ditt Automation-konto har en [Azure kör som-kontouppgiften](manage-runas-account.md) skapas.
 

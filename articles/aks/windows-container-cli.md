@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752385"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303560"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Förhandsgranskning – skapa en Windows Server-behållare i ett Azure Kubernetes Service (AKS)-kluster med Azure CLI
 
@@ -22,7 +22,7 @@ Den här funktionen är för närvarande en förhandsversion.
 
 ![Bild som visar Bläddra till ASP.NET-exempelprogrammet](media/windows-container/asp-net-sample-app.png)
 
-Den här artikeln förutsätter grundläggande kunskaper om vanliga Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
+Den här artikeln förutsätter grundläggande kunskaper om vanliga Kubernetes-begrepp. Mer information finns i [Kubernetes viktiga begrepp för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -42,7 +42,7 @@ När du har skapat ditt kluster som kan köra Windows Server-behållare måste d
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
     
-CLI-kommandon för att skapa och hantera flera nodpooler är tillgängliga i den *aks-förhandsversion* CLI-tillägg. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot, som visas i följande exempel:
+CLI-kommandon för att skapa och hantera flera nodpooler är tillgängliga i den *aks-förhandsversion* CLI-tillägg. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] kommandot, som visas i följande exempel:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>Registrera Windows-funktionen för förhandsgranskning
 
-Om du vill skapa ett AKS-kluster som kan använda flera nodpooler och kör Windows Server-behållare, dennes den *WindowsPreview* funktionen flaggor för din prenumeration. Den *WindowsPreview* funktionen använder också med flera noder poolen kluster och skalningsuppsättning för virtuella datorer att hantera distributionen och konfigurationen av Kubernetes-noderna. Registrera den *WindowsPreview* funktionen flaggan med hjälp av den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Om du vill skapa ett AKS-kluster som kan använda flera nodpooler och kör Windows Server-behållare, dennes den *WindowsPreview* funktionen flaggor för din prenumeration. Den *WindowsPreview* funktionen använder också med flera noder poolen kluster och skalningsuppsättning för virtuella datorer att hantera distributionen och konfigurationen av Kubernetes-noderna. Registrera den *WindowsPreview* funktionen flaggan med hjälp av den [az funktionen registrera][az-feature-register] kommandot som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Alla AKS-kluster som du skapar när du har registrerat den *WindowsPreview* funktionsflagga använda förhandsupplevelsen för klustret. Om du vill fortsätta att skapa kluster av regelbundna, fullt stöd inte aktivera förhandsversionsfunktioner för produktion-prenumerationer. Använd en separat test- eller Azure-prenumeration för att testa förhandsversionsfunktioner.
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+Det tar några minuter att slutföra registreringen. Kontrollera statusen registrering med den [az funktionslistan][az-feature-list] kommando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register] [ az-provider-register] kommando:
+När registreringstillståndet är `Registered`, tryck på Ctrl + C för att stoppa övervakningen tillståndet.  Uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -89,9 +89,13 @@ Den här funktionen är i förhandsversion, begränsningar gäller följande ytt
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där resource group metadata lagras, det är också där dina resurser kör i Azure om du inte anger en annan region under resursskapandet. Skapa en resursgrupp med hjälp av kommandot [az group create][az-group-create].
+En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där resource group metadata lagras, det är också där dina resurser kör i Azure om du inte anger en annan region under resursskapandet. Skapa en resurs med det [az gruppen skapa][az-group-create] kommando.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+
+> [!NOTE]
+> Den här artikeln använder Bash syntax för kommandon i den här självstudien.
+> Om du använder Azure Cloud Shell kan du se till att listrutan i det övre vänstra hörnet i Cloud Shell-fönstret har angetts till **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -113,12 +117,13 @@ Följande exempelutdata visar den resursgrupp som skapats:
 }
 ```
 
-## <a name="create-aks-cluster"></a>Skapa AKS-kluster
-För att köra ett AKS-kluster som har stöd för nodpooler för Windows Server-behållare, ditt kluster måste använda en princip för nätverk som använder [Azure CNI] [ azure-cni-about] (Avancerat) nätverk plugin-programmet. Mer detaljerad information för att hjälpa dig att planera in de nödvändiga undernätets adressintervall och Nätverksöverväganden finns i [konfigurerar du Azure CNI nätverk][use-advanced-networking]. Använd den [az aks skapa] [ az-aks-create] kommando för att skapa ett AKS-kluster med namnet *myAKSCluster*. Det här kommandot skapar de nödvändiga nätverksresurserna om de inte finns.
+## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
+
+För att köra ett AKS-kluster som har stöd för nodpooler för Windows Server-behållare, ditt kluster måste använda en princip för nätverk som använder [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Använd den [az aks skapa][az aks create] kommando för att skapa ett AKS-kluster med namnet *myAKSCluster*. Det här kommandot skapar de nödvändiga nätverksresurserna om de inte finns.
   * Klustret har konfigurerats med en nod
   * Den *windows adminlösenord* och *windows-administratörsanvändarnamn* parametrar ange administratörsautentiseringsuppgifter för alla Windows Server-behållare som skapats i klustret.
 
-Ange ditt eget säkra *PASSWORD_WIN*.
+Ange ditt eget säkra *PASSWORD_WIN* (Kom ihåg att kommandona i den här artikeln har angetts i ett BASH-gränssnitt):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +140,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> Om du får ett valideringsfel för lösenord kan du försöka med att skapa din resursgrupp i en annan region.
+> Försök att klustret skapas med den nya resursgruppen.
 
 Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
 
@@ -156,7 +165,7 @@ Kommandot ovan skapar en ny nodpool med namnet *npwin* och lägger till den till
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-För att hantera Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. För att installera `kubectl` lokalt använder du kommandot [az aks install-cli][az-aks-install-cli]:
+Om du vill hantera ett Kubernetes-kluster måste du använda [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt, använda den [az aks install-cli][az-aks-install-cli] kommando:
 
 ```azurecli
 az aks install-cli
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här artikeln används ett manifest för att skapa alla objekt som behövs för att köra ASP.NET-exempelprogrammet i en Windows Server-behållare. Den här manifest innehåller en [Kubernetes-distribution] [ kubernetes-deployment] för ASP.NET-exempelprogrammet och en extern [Kubernetes-tjänst] [ kubernetes-service] till åtkomst till programmet från internet.
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här artikeln används ett manifest för att skapa alla objekt som behövs för att köra ASP.NET-exempelprogrammet i en Windows Server-behållare. Den här manifest innehåller en [Kubernetes-distribution][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] komma åt programmet från internet.
 
-ASP.NET-exempelprogrammet tillhandahålls som en del av den [.NET Framework-exempel] [ dotnet-samples] och körs i en Windows Server-behållare. AKS kräver Windows Server-behållare ska väljas utifrån bilder av *Windows Server 2019* eller större. Kubernetes-manifestfil måste också definiera en [noden väljare] [ node-selector] som talar om AKS-klustret att köra din ASP.NET exempelprogrammet pod på en nod som kan köra Windows Server-behållare.
+ASP.NET-exempelprogrammet tillhandahålls som en del av den [.NET Framework-exempel][dotnet-samples] och körs i en Windows Server-behållare. AKS kräver Windows Server-behållare ska väljas utifrån bilder av *Windows Server 2019* eller större. Kubernetes-manifestfil måste också definiera en [noden väljare][node-selector] som talar om AKS-klustret att köra din ASP.NET exempelprogrammet pod på en nod som kan köra Windows Server-behållare.
 
 Skapa en fil med namnet `sample.yaml` och kopiera följande YAML-definition. Om du använder Azure Cloud Shell, kan du skapa filen med `vi` eller `nano` som om du arbetar i ett virtuellt eller fysiskt system:
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-Distribuera programmet med kommandot [kubectl apply][kubectl-apply] och ange namnet på ditt YAML-manifest:
+Distribuera programmet med den [kubectl gäller][kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -278,23 +287,23 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs kan du använda kommandot [az group delete][az-group-delete] för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
+När klustret inte längre behövs kan du använda den [az group delete][az-group-delete] att ta bort resursgruppen, behållartjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner för hur du tar bort tjänstens huvudnamn finns [AKS-tjänsten huvudnamn överväganden och borttagning av][sp-delete].
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har distribuerat ett Kubernetes-kluster och distribueras ett exempelprogram för ASP.NET i en Windows Server-behållare till den. [Öppna Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för det kluster som du nyss skapade.
+I den här artikeln har distribuerat ett Kubernetes-kluster och distribueras ett exempelprogram för ASP.NET i en Windows Server-behållare till den. [Komma åt Kubernetes-webbinstrumentpanel][kubernetes-dashboard] för klustret du nyss skapade.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs om AKS][aks-tutorial]
+> [Självstudie om AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

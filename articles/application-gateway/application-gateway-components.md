@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831846"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273226"
 ---
 # <a name="application-gateway-components"></a>Gateway-programkomponenter
 
@@ -26,7 +26,9 @@ En frontend-IP-adress är IP-adressen som är associerade med en Programgateway.
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Statiska och dynamiska offentliga IP-adress
 
-V2-SKU: N för Azure Application Gateway stöder både statiska interna och statiska offentliga IP-adresser, även om v1-SKU: N stöder endast statiska interna IP-adresser. Den virtuella IP (VIP)-adressen kan ändras om en Programgateway stoppas och startas.
+Azure Application Gateway V2-SKU kan konfigureras för att stödja antingen både statiska interna IP-adressen och statisk offentlig IP-adress eller endast statisk offentlig IP-adress. Det kan inte konfigureras för att stödja endast statiska interna IP-adressen.
+
+V1-SKU: N kan konfigureras för att stödja statiska interna IP-adress och dynamiska offentliga IP-adresser, endast statiska interna IP-adress eller endast dynamiska offentliga IP-adressen. Dynamisk IP-adressen för Application Gateway ändras inte på en gateway som körs. Den kan ändras när du stoppar eller starta gatewayen. Ändras inte på systemfel, uppdateringar, Azure-värd uppdateringar osv. 
 
 DNS-namnet som associeras med en Programgateway ändras inte under hela livscykeln för gatewayen. Därför bör du använda en CNAME-alias och gå till DNS-adressen för application gateway.
 

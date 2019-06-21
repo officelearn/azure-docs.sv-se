@@ -20,14 +20,14 @@ Azure skisser innehåller funktioner som gör en skissdefinitionen mer dynamiska
 
 Följande funktioner stöds:
 
-- [Artefakter](#artifacts)
+- [artifacts](#artifacts)
 - [concat](#concat)
 - [parameters](#parameters)
-- [ResourceGroup](#resourcegroup)
+- [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [prenumeration](#subscription)
+- [subscription](#subscription)
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -109,12 +109,12 @@ Några exempel på hämtning av data från den _myTemplateArtifact_ exempel är:
 
 | uttryck | Typ | Värde |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | ”första” |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | ”Min sträng-value” |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {”myproperty”: ”min value”, ”anotherProperty”: true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | ”Min value” |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleskt | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -126,7 +126,7 @@ Kombinerar flera strängvärden och returnerar en sammanfogad sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| sträng1 |Ja |string |Det första värdet för sammanfogning. |
+| string1 |Ja |string |Det första värdet för sammanfogning. |
 | ytterligare argument |Nej |string |Ytterligare värden i sekventiell ordning för sammanfogning |
 
 ### <a name="return-value"></a>Returvärde
@@ -200,7 +200,7 @@ Använd sedan _principalIds_ som argument för `parameters()` i en skissartefakt
 }
 ```
 
-## <a name="resourcegroup"></a>ResourceGroup
+## <a name="resourcegroup"></a>resourceGroup
 
 `resourceGroup()`
 
@@ -324,7 +324,7 @@ Använd sedan den `resourceGroups()` funktion från kontexten för alla skissart
 }
 ```
 
-## <a name="subscription"></a>prenumeration
+## <a name="subscription"></a>subscription
 
 `subscription()`
 

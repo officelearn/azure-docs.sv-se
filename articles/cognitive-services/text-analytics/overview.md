@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417288"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304021"
 ---
 # <a name="what-is-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -89,7 +89,18 @@ Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktue
 | Maximal storlek på hela begäran | 1 MB |
 | Maximalt antal dokument i en begäran | 1 000 dokument |
 
-Gräns för överföringshastigheten i är 100 förfrågningar per sekund och 1000 begäranden per minut. Du kan skicka ett stort antal dokument i ett enda anrop (upp till 1000 dokument).
+Gräns för överföringshastigheten varierar beroende på din prisnivå.
+
+| Nivå          | Begäranden per sekund | Begäranden per minut |
+|---------------|---------------------|---------------------|
+| Flera service | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Förfrågningar mäts separat för varje funktion med textanalys. Du kan exempelvis skicka det maximala antalet förfrågningar för din prisnivå till varje funktion på samma gång.      
 
 ## <a name="unicode-encoding"></a>Unicode-kodning
 

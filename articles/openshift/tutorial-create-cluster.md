@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/14/2019
-ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9094fa441ff5ffdd5f579fd072ffaa303961314d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306188"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304279"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skapa ett Azure Red Hat OpenShift-kluster
 
@@ -46,7 +46,7 @@ Se till att du har [ställa in din utvecklingsmiljö](howto-setup-environment.md
 - Skapa en säkerhetsgrupp
 - Skapa en Active Directory-användare att logga in på klustret.
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
+## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
 
 Om du använder Azure CLI lokalt kan du öppna ett Bash-kommando skal och kör `az login` att logga in på Azure.
 
@@ -106,6 +106,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Valfritt: Ansluta klustrets virtuella nätverk till ett befintligt virtuellt nätverk
 
 Om du inte behöver ansluta det virtuella nätverket (VNET) i klustret du skapar i ett befintligt VNET via peering kan du hoppa över det här steget.
+
+Om peer-kopplingen till ett nätverk utanför standard-prenumerationen i den prenumerationen, behöver du också registrera providern Microsoft.ContainerService. Gör detta genom att köra den nedanstående kommando i den prenumerationen. Om den aktuella Vnet.peering finns i samma prenumeration, kan du annars hoppa över det registrera steget. 
+
+`az provider register -n Microsoft.ContainerService --wait`
 
 Först hämta identifierare för det befintliga virtuella nätverket. Identifieraren ska vara i formatet: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 

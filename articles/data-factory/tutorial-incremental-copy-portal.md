@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60571506"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312645"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -238,7 +238,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         ![Den andra sökningsaktiviteten – ny datauppsättning](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **SourceDataset** är valt för fältet **Source Dataset** (Källdatauppsättning). 
-18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Om du inte har den här frågan hämtar datauppsättningen alla rader från tabellen som du angav för tabellnamnet (data_source_table) i datauppsättningsdefinitionen.
+18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Kontrollera att du har markerat **Fist rad endast**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -308,7 +308,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

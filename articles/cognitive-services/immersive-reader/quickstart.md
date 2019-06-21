@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 7074511d16d157d67a67a2c40383c9909a4942bd
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296718"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311798"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabbstart: Skapa en webbapp som startar uppslukande läsaren (C#)
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* En prenumerationsnyckel för uppslukande läsare. Skaffa en genom att följa [instruktionerna](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* En prenumerationsnyckel för uppslukande läsare. Skaffa en genom att följa [instruktionerna](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 ## <a name="create-a-web-app-project"></a>Skapa en webbapp-projekt
 
@@ -39,7 +39,7 @@ Skapa ett nytt projekt i Visual Studio med hjälp av mallen för ASP.NET Core-We
 
 ## <a name="acquire-an-access-token"></a>Hämta en åtkomsttoken
 
-Du behöver din prenumerationsnyckel och slutpunkt för nästa steg. Du hittar denna information på https://azure.microsoft.com/try/cognitive-services/my-apis/.
+Du behöver din prenumerationsnyckel och slutpunkt för nästa steg. Du hittar din prenumerationsnyckel på sidan nycklar i din uppslukande Reader-resurs i Azure-portalen. Du kan hitta din slutpunkt på sidan Översikt.
 
 Högerklicka på projektet i den _Solution Explorer_ och välj **hantera Användarhemligheter**. Då öppnas en fil med namnet _secrets.json_. Ersätt innehållet i filen med följande, med din prenumerationsnyckel och slutpunkt där det är lämpligt.
 
@@ -88,7 +88,7 @@ public class HomeController : Controller
         using (var client = new System.Net.Http.HttpClient())
         {
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-            using (var response = await client.PostAsync($"{Endpoint}/issueToken", null))
+            using (var response = await client.PostAsync(Endpoint, null))
             {
                 return await response.Content.ReadAsStringAsync();
             }
@@ -110,7 +110,7 @@ Nu lägger vi till exempel innehåll till webbappen. Öppna _Views\Home\Index.cs
 <div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
 
 @section scripts {
-<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js'></script>
+<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript'>
     function getImmersiveReaderTokenAsync() {
@@ -135,7 +135,7 @@ Nu lägger vi till exempel innehåll till webbappen. Öppna _Views\Home\Index.cs
         };
 
         const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, null, content, { uiZIndex: 1000000 });
+        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
     }
 </script>
 }

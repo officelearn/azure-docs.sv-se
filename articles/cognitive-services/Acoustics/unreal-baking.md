@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433475"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304297"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Projektet Akustik Unreal ändamålet självstudien
 Det här dokumentet beskriver processen för att skicka in en Akustik ändamålet med hjälp av Redigeraren för Unreal-tillägget.
@@ -208,7 +208,7 @@ När ändamålet har slutförts kan du kontrollera att voxels och avsökning pun
 Det finns fyra datafiler som skapats av det här plugin-programmet vid olika tidpunkter. Endast en av dem behövs vid körning och placeras i ditt projekts innehåll/Akustik-mappen, som läggs till automatiskt till ditt projekt paketering sökväg. De övriga tre finns i mappen Akustik Data och paketeras inte.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: Den här filen lagrar du anger i fälten i Användargränssnittet för Akustik-läge. Platsen och namnet på den här filen kan inte ändras. Det finns andra värden som lagras i den här filen som påverkar ändamålet, men de är för avancerade användare och ska inte ändras.
-* **[Projekt] / innehåll/Akustik / [%{levelname/]\_AcousticsData.ace**: Den här filen är vad skapas under ändamålet simuleringen och innehåller lookup-data som används av körningen för att återge Akustik av din scen. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+* **[Projekt] / innehåll/Akustik / [%{levelname/]\_AcousticsData.ace**: Den här filen är vad skapas under ändamålet simuleringen och innehåller lookup-data som används av körningen för att återge Akustik av din scen. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken. Om du vill byta namn på den här filen när den har skapats, ta bort UAsset från projektet Unreal, byta namn på filen utanför Unreal i Utforskaren och sedan importera filen igen till Unreal att skapa en ny UAsset. Byta namn på UAsset ensamt fungerar inte.
 * **[Projekt] / plugin-program/ProjectAcoustics/AcousticsData / [%{levelname/]\_AcousticsData.vox**: Här lagras voxelized Akustik geometri och egenskaper för material. Beräknas med hjälp av den **Calculate** knappen på den **avsökningar** fliken. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: Den här filen lagras parametrar som beräknas med hjälp av den **Calculate** knappen på den **avsökningar** fliken. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
 

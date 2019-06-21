@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 4db9e6eaf2d7f7630d3d412d5519d97f8beca3ad
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272832"
+ms.locfileid: "67304552"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Självstudier: Distribuera ett hanteringsverktyg
 
@@ -66,12 +66,16 @@ Nedan visas hur du ange parametrar för att konfigurera verktyget:
 
 När du har GitHub Azure Resource Manager mallen är klar, hittar du en resursgrupp som innehåller två apptjänster tillsammans med en app service-plan i Azure-portalen.
 
-Innan du har loggat in och Använd hanteringsverktyget behöver du ge medgivande för det nya Azure Active Directory-programmet som är associerad med verktyget management. Genom att tillhandahålla medgivande, tillåter du att hanteringsverktyg att göra virtuellt skrivbord i Windows management-anrop för den användare som är inloggad i verktyget.
+Innan du loggar in och använda hanteringsverktyget behöver du ge medgivande för det nya Azure Active Directory-programmet som är associerad med verktyget management. Genom att tillhandahålla medgivande, tillåter du att hanteringsverktyg att göra virtuellt skrivbord i Windows management-anrop för den användare som är inloggad i verktyget.
 
-För att fastställa vilken användare som du kan använda om du vill logga in till verktyget går du till din [inställningssidan för Azure Active Directory-användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och anteckna värdet för **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar**.
+![En skärmbild som visar de behörigheter som tillhandahålls när samtycker du till UI-hanteringsverktyg.](media/management-ui-delegated-permissions.png)
+
+För att avgöra vilken användare som du kan använda för att logga in på verktyget går du till din [inställningssidan för Azure Active Directory-användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och anteckna värdet för **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** .
+
+![En skärmbild som visar om användare kan ge medgivande till program för just deras användare.](media/management-ui-user-consent-allowed.png)
 
 - Om värdet anges till **Ja**, du kan logga in med ett användarkonto i Azure Active Directory och ge medgivande för den användaren. Men om du loggar in till hanteringsverktyget med en annan användare senare, måste du utföra samma medgivande igen.
-- Om värdet anges till **nr**, måste du logga in med en Global administratör i Azure Active Directory och ange administratörens godkännande för alla användare i katalogen. Du kommer inte 
+- Om värdet anges till **nr**, måste du logga in som Global administratör i Azure Active Directory och ange administratörens godkännande för alla användare i katalogen. Inga andra användare kommer att stöta på Kommandotolken medgivande.
 
 
 Följ dessa instruktioner för att ge medgivande till verktyget när du har bestämt vilken användare som du använder för att ge medgivande:
@@ -79,6 +83,8 @@ Följ dessa instruktioner för att ge medgivande till verktyget när du har best
 1. Gå till dina Azure-resurser, Välj den Azure App Services-resursen med det namn du angav i mallen (till exempel Apr3UX) och gå till den URL som är associerade med den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Logga in med rätt Azure Active Directory-konto.
 3. Om du autentiseras med en Global administratör, kan du nu välja kryssrutan för att **ge samtycke åt din organisation**. Välj **acceptera** att ge medgivande.
+   
+   ![En skärmbild som visar sidan fullständig medgivande att användaren eller administratören visas.](media/management-ui-consent-page.png)
 
 Nu då kommer du till hanteringsverktyget.
 

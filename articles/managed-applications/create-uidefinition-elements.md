@@ -47,7 +47,7 @@ Schemat för de flesta element är följande:
 | Knappbeskrivning | Nej | Texten som visas i beskrivningen av elementet. Liknar `label`, vissa element stöd för flera verktyget tips strängar. Infogade länkar kan vara inbäddad med Markdown-syntax.
 | constraints | Nej | En eller flera egenskaper som används för att anpassa valideringsbeteendet elementet. Egenskaperna som stöds för begränsningar varierar elementtyp. Vissa elementtyper gör inte stöd för anpassning av valideringsbeteendet och därför har ingen egenskap med begränsningar. |
 | options | Nej | Ytterligare egenskaper som anpassar elementet. Liknar `constraints`, egenskaper som stöds varierar beroende på typ prvku. |
-| Synlig | Nej | Anger om elementet ska visas. Om `true`, element och tillhörande underordnade element visas. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) till dynamiskt Kontrollera värdet för den här egenskapen.
+| visible | Nej | Anger om elementet ska visas. Om `true`, element och tillhörande underordnade element visas. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) till dynamiskt Kontrollera värdet för den här egenskapen.
 
 ## <a name="elements"></a>Element
 

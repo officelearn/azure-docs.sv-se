@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337247"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312348"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
@@ -147,7 +147,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    b. För **Typ** kontrollerar du att **HDInsight på begäran** är valt.
    
-   c. För **Länkad Azure Storage-tjänst** väljer du **AzureStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
+   c. För **länkad Azure Storage-tjänst**väljer **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
    
    d. För **Klustertyp** väljer du **spark**.
    
@@ -189,7 +189,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![Ange den länkade HDInsight-tjänsten](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Växla till fliken **Skript/Jar** och utför följande steg: 
 
-   a. För **Länkad jobbtjänst** väljer du **AzureStorage1**.
+   a. För **länkad Jobbtjänst**väljer **AzureBlobStorage1**.
    
    b. Välj **Bläddra i lagring**.
 
@@ -206,7 +206,7 @@ Du skapar två länkade tjänster i det här avsnittet:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
-Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu). 
+Välj **lägger du till utlösaren** i verktygsfältet och välj sedan **Utlös nu**. 
 
 ![knapparna Utlös och Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
 
    ![Status för pipelinekörning](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Du kan gå tillbaka till vyn över pipelinekörningar genom att välja länken **Pipelines**.
+   Du kan gå tillbaka till vyn över pipelinekörningar genom att välja den **alla Pipelinekörningar** länken längst upp.
 
    ![vyn Aktivitetskörningar](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

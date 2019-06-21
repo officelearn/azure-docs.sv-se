@@ -1,5 +1,5 @@
 ---
-title: C#Självstudie om sökning resulterar sidbrytning – Azure Search
+title: C#självstudie om sökning resulterar sidbrytning – Azure Search
 description: Den här självstudien bygger på ”Skapa ditt första program – Azure Search”-projektet med valet av två typer av sidindelning. Först använder olika knappar för sidnummer, samt först, sedan tidigare, och senast sidan knappar. Andra används sidindelning oändlig rullning, utlöses genom att flytta en lodrät rullningslist till dess nedre gräns.
 services: search
 ms.service: search
@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 8820794382a377cdd3907327dc9c82cc6451e2d4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fc2f358921380803e89c7a8ed5c2ef0fc8e1e467
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166836"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304357"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C#Självstudie: Sökresultat sidbrytning – Azure Search
+# <a name="c-tutorial-search-results-pagination---azure-search"></a>C#självstudie: Sökresultat sidbrytning – Azure Search
 
 Lär dig hur du implementerar två olika sidindelning system, först utifrån sidnummer och andra på oändlig rullning. Båda systemen för sidindelning används mycket och att välja rätt beror på användarens upplevelse som du vill ha med resultaten. Den här självstudien bygger sidindelning system i projektet har skapats i den [ C# självstudien: Skapa ditt första program – Azure Search](tutorial-csharp-create-first-app.md) självstudien.
 
@@ -47,7 +47,7 @@ Har den grundläggande söklösningen på sidan öppna.
 
 2. Först ska du lägga till vissa globala variabler. Globala variabler deklareras i sin egen statisk klass i MVC dvs. **ResultsPerPage** anger antalet resultat per sida. **MaxPageRange** anger antalet synliga sidnummer för vyn. **PageRangeDelta** avgör hur många sidor åt vänster eller höger de sidor som ska flyttas när vänster eller höger sidnumret väljs. Numret senare är vanligtvis runt hälften av **MaxPageRange**. Lägg till följande kod i namnområdet.
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -73,14 +73,14 @@ Har den grundläggande söklösningen på sidan öppna.
             }
         }
     }
-```
+    ```
 
->[!Tip]
->Om du kör det här projektet på en enhet med en mindre skärm, till exempel en bärbar dator, bör du ändra **ResultsPerPage** till 2.
+    >[!Tip]
+    >Om du kör det här projektet på en enhet med en mindre skärm, till exempel en bärbar dator, bör du ändra **ResultsPerPage** till 2.
 
 3. Lägga till växling egenskaper så att den **SearchData** klassen exempelvis efter den **searchText** egenskapen.
 
-```cs
+    ```cs
         // The current page being displayed.
         public int currentPage { get; set; }
 
@@ -95,15 +95,15 @@ Har den grundläggande söklösningen på sidan öppna.
 
         // Used when page numbers, or next or prev buttons, have been selected.
         public string paging { get; set; }
-```
+    ```
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Lägg till en tabell med växlingsalternativ i vyn
 
 1. Öppna filen index.cshtml och Lägg till följande kod direkt före avslutande &lt;/body&gt; tagg. Den här nya koden visar en tabell med växlingsalternativ: första, föregående, 1, 2, 3, 4, 5, sedan senaste.
 
-```cs
-@if (Model != null && Model.pageCount > 1)
-{
+    ```cs
+    @if (Model != null && Model.pageCount > 1)
+    {
     // If there is more than one page of results, show the paging buttons.
     <table>
         <tr>
@@ -177,16 +177,16 @@ Har den grundläggande söklösningen på sidan öppna.
             </td>
         </tr>
     </table>
-}
-```
+    }
+    ```
 
-Vi använder en HTML-tabell för att justera saker snyggt. Men alla åtgärder som kommer från den @Html.ActionLink instruktioner, som anropar kontrollanten med en **nya** modellen som skapats med olika poster till den **växlingsfiler** egenskapen som vi lade till tidigare.
+    Vi använder en HTML-tabell för att justera saker snyggt. Men alla åtgärder som kommer från den @Html.ActionLink instruktioner, som anropar kontrollanten med en **nya** modellen som skapats med olika poster till den **växlingsfiler** egenskapen som vi lade till tidigare.
 
-De första och sista sidan alternativ strängar, till exempel ”” och ”efternamn” Skicka inte, men i stället skicka rätt sidnummer.
+    De första och sista sidan alternativ strängar, till exempel ”” och ”efternamn” Skicka inte, men i stället skicka rätt sidnummer.
 
 2. Lägga till vissa sidindelning klasser i listan över HTML-format i filen hotels.css. Den **pageSelected** klassen finns tillgängliga för att identifiera den sida som användaren för närvarande (genom att stänga många fetstil) i listan över sidnummer.
 
-```cs
+    ```html
         .pageButton {
             border: none;
             color: darkblue;
@@ -207,13 +207,13 @@ De första och sista sidan alternativ strängar, till exempel ”” och ”efte
             font-weight: bold;
             width: 50px;
         }
-```
+    ```
 
 ### <a name="add-a-page-action-to-the-controller"></a>Lägg till en sida-åtgärd till styrenhet
 
 1. Öppna filen homecontroller.CS och Lägg till den **sidan** åtgärd. Den här åtgärden svarar på något av sidan alternativ som valts.
 
-```cs
+    ```cs
         public async Task<ActionResult> Page(SearchData model)
         {
             try
@@ -255,16 +255,16 @@ De första och sista sidan alternativ strängar, till exempel ”” och ”efte
             }
             return View("Index", model);
         }
-```
+    ```
 
-Den **RunQueryAsync** metod visas nu ett syntaxfel på grund av den tredje parametern, som vi kommer att ta i en stund.
+    Den **RunQueryAsync** metod visas nu ett syntaxfel på grund av den tredje parametern, som vi kommer att ta i en stund.
 
-> [!Note]
-> Den **TempData** anrop spara ett-värde (en **objekt**) i tillfällig lagring, men den här lagringen kvarstår efter _endast_ ett anrop. Om vi sparar något i tillfälliga data blir tillgängliga för din nästa uppmaning till en domänkontrollant, men virtuella tas bort av anropet efter det! På grund av den här korta livslängd Vi lagrar söktexten och tillbaka sidindelning egenskaper i tillfällig lagring för varje anrop till **sidan**.
+    > [!Note]
+    > Den **TempData** anrop spara ett-värde (en **objekt**) i tillfällig lagring, men den här lagringen kvarstår efter _endast_ ett anrop. Om vi sparar något i tillfälliga data blir tillgängliga för din nästa uppmaning till en domänkontrollant, men virtuella tas bort av anropet efter det! På grund av den här korta livslängd Vi lagrar söktexten och tillbaka sidindelning egenskaper i tillfällig lagring för varje anrop till **sidan**.
 
 2. Den **Index(model)** åtgärd måste uppdateras för att lagra tillfällig variablerna och lägga till parametern vänster sida för att den **RunQueryAsync** anropa.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -290,11 +290,11 @@ Den **RunQueryAsync** metod visas nu ett syntaxfel på grund av den tredje param
             }
             return View(model);
         }
-```
+    ```
 
 3. Den **RunQueryAsync** metod måste uppdateras avsevärt. Vi använder den **hoppa över**, **upp**, och **IncludeTotalResultCount** fälten i den **SearchParameters** klassen för att begära plats på endast en sida av resultat, med början vid den **hoppa över** inställningen. Vi också behöva beräkna sidindelning variabler för vår vy. Ersätt hela metoden med följande kod.
 
-```cs
+    ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
         {
             InitSearch();
@@ -349,19 +349,19 @@ Den **RunQueryAsync** metod visas nu ett syntaxfel på grund av den tredje param
 
             return View("Index", model);
         }
-```
+    ```
 
 4. Slutligen måste vi göra små ändringar i vyn. Variabeln **resultsList.Results.Count** innehåller nu antalet resultat som returneras i en sida (3 i vårt exempel), inte det totala antalet. Eftersom vi anger den **IncludeTotalResultCount** true, variabeln **resultsList.Count** innehåller nu det totala antalet resultat. Så Leta upp där antalet resultat som visas i vyn och ändra den till följande kod.
 
-```cs
+    ```cs
             // Show the result count.
             <p class="sampleText">
                 @Html.DisplayFor(m => m.resultList.Count) Results
             </p>
-```
+    ```
 
-> [!Note]
-> Det är en träff prestanda, men vanligtvis inte mycket av en, genom att ange **IncludeTotalResultCount** true, eftersom denna summa måste beräknas av Azure Search. Med komplexa datamängder som det finns en varning om att det returnerade värdet är en _uppskattning_. För våra Hotelldata är korrekt.
+    > [!Note]
+    > Det är en träff prestanda, men vanligtvis inte mycket av en, genom att ange **IncludeTotalResultCount** true, eftersom denna summa måste beräknas av Azure Search. Med komplexa datamängder som det finns en varning om att det returnerade värdet är en _uppskattning_. För våra Hotelldata är korrekt.
 
 ### <a name="compile-and-run-the-app"></a>Kompilera och kör appen
 
@@ -397,16 +397,16 @@ Om du vill implementera oändlig rullning, låt oss börja med projektet innan n
 
 1. Lägg först till en **växlingsfiler** egenskap enligt den **SearchData** klassen (i modellfilen SearchData.cs).
 
-```cs
+    ```cs
         // Record if the next page is requested.
         public string paging { get; set; }
-```
+    ```
 
-Den här variabeln är en sträng som innehåller ”nästa” om nästa sida i resultatet ska skickas, eller vara null för den första sidan i en sökning.
+    Den här variabeln är en sträng som innehåller ”nästa” om nästa sida i resultatet ska skickas, eller vara null för den första sidan i en sökning.
 
 2. Lägg till en global variabel klass med en egenskap i samma fil och i ett namnområde. Globala variabler deklareras i sin egen statisk klass i MVC dvs. **ResultsPerPage** anger antalet resultat per sida. 
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -417,15 +417,15 @@ Den här variabeln är en sträng som innehåller ”nästa” om nästa sida i 
             }
         }
     }
-```
+    ```
 
 ### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Lägg till en lodrät rullningslist till vyn
 
 1. Leta upp avsnittet av filen index.cshtml som visar resultatet (det börjar med den  **@if (modell! = null)** ).
 
-1. Ersätt avsnittet med koden nedan. Den nya **&lt;div&gt;** avsnittet är runt det område som ska vara bläddringsbara och lägger till både en **spill y** attribut och ett anrop till en **onscroll**funktion som kallas ”scrolled()”, t.ex.
+2. Ersätt avsnittet med koden nedan. Den nya **&lt;div&gt;** avsnittet är runt det område som ska vara bläddringsbara och lägger till både en **spill y** attribut och ett anrop till en **onscroll**funktion som kallas ”scrolled()”, t.ex.
 
-```cs
+    ```cs
         @if (Model != null)
         {
             // Show the result count.
@@ -444,11 +444,11 @@ Den här variabeln är en sträng som innehåller ”nästa” om nästa sida i 
                 }
             </div>
         }
-```
+    ```
 
 3. Direkt under loopen, när den &lt;/div&gt; tagga, lägga till den **rullas** funktion.
 
-```cs
+    ```javascript
         <script>
                 function scrolled() {
                     if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
@@ -464,9 +464,9 @@ Den här variabeln är en sträng som innehåller ”nästa” om nästa sida i 
                     }
                 }
         </script>
-```
+    ```
 
-Den **om** instruktionen i skriptet ovan tester för att se om användaren har försvunnit längst ned på den lodräta rullningslisten. Om de har ett anrop till den **Start** controller görs för att en åtgärd som kallas **nästa**. Ingen annan information som krävs av controller, returnerar den nästa sida i data. Dessa data formateras sedan med identiska HTML-format som den ursprungliga sidan. Om inga resultat returneras inget läggs och Förbered dig inför saker som de är.
+    Den **om** instruktionen i skriptet ovan tester för att se om användaren har försvunnit längst ned på den lodräta rullningslisten. Om de har ett anrop till den **Start** controller görs för att en åtgärd som kallas **nästa**. Ingen annan information som krävs av controller, returnerar den nästa sida i data. Dessa data formateras sedan med identiska HTML-format som den ursprungliga sidan. Om inga resultat returneras inget läggs och Förbered dig inför saker som de är.
 
 ### <a name="handle-the-next-action"></a>Hantera nästa åtgärd
 
@@ -476,7 +476,7 @@ Det finns endast tre åtgärder som ska skickas till kontrollanten: första kör
 
 2. Ersätt den **Index(model)** åtgärd med följande kod. Den hanterar nu den **växlingsfiler** när det är null eller inställd på ”Nästa” och hanterar anropet till Azure Search.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -534,13 +534,13 @@ Det finns endast tre åtgärder som ska skickas till kontrollanten: första kör
             }
             return View("Index", model);
         }
-```
+    ```
 
-Liknar metoden numrerade växling, som vi använder den **hoppa över** och **upp** sökinställningar att begära precis de data som vi behöver returneras.
+    Liknar metoden numrerade växling, som vi använder den **hoppa över** och **upp** sökinställningar att begära precis de data som vi behöver returneras.
 
 3. Lägg till den **nästa** att kontrollanten hem. Observera hur den returnerar en lista, varje hotell som lägger till två element i listan: ett hotellnamn och en beskrivning för hotell. Det här formatet är inställt på att matcha den **rullas** funktionens användning av data som returneras i vyn.
 
-```cs
+    ```cs
         public async Task<ActionResult> Next(SearchData model)
         {
             // Set the next page setting, and call the Index(model) action.
@@ -560,13 +560,13 @@ Liknar metoden numrerade växling, som vi använder den **hoppa över** och **up
             // Rather than return a view, return the list of data.
             return new JsonResult(nextHotels);
         }
-```
+    ```
 
 4. Om du får ett syntaxfel **lista&lt;sträng&gt;** , Lägg till följande **med** direktivet i sidhuvudet för styrenheten.
 
-```cs
-using System.Collections.Generic;
-```
+    ```cs
+    using System.Collections.Generic;
+    ```
 
 ### <a name="compile-and-run-your-project"></a>Kompilera och köra projektet
 
@@ -576,8 +576,8 @@ Välj nu **starta utan felsökning** (eller tryck på F5).
 
     ![Oändlig rulla igenom ”pool” resultat](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
-> [!Tip]
-> För att säkerställa att en rullningslist visas på första sidan, överskrida första sidan i resultatet något höjden på området för de som visas i. I vårt exempel **.box1** har en höjd på 30 bildpunkter **.box2** har en höjd på 100 bildpunkter _och_ en nedre marginalen på 24 bildpunkter. Så använder varje post 154 bildpunkter. Tre poster tar upp 3 x 154 = 462 bildpunkter. För att säkerställa att en lodrät rullningslist, en höjden visningsområdet måste anges som är mindre än 462 bildpunkter, även 461 fungerar. Det här problemet inträffar bara på första sidan efter en rullningslist är säker på att visas. The line to update is: **&lt;div id="myDiv" style="width: 800 bpt; Höjd: 450px; Spill y: Bläddra ”; onscroll="scrolled() ”&gt;** .
+    > [!Tip]
+    > För att säkerställa att en rullningslist visas på första sidan, överskrida första sidan i resultatet något höjden på området för de som visas i. I vårt exempel **.box1** har en höjd på 30 bildpunkter **.box2** har en höjd på 100 bildpunkter _och_ en nedre marginalen på 24 bildpunkter. Så använder varje post 154 bildpunkter. Tre poster tar upp 3 x 154 = 462 bildpunkter. För att säkerställa att en lodrät rullningslist, en höjden visningsområdet måste anges som är mindre än 462 bildpunkter, även 461 fungerar. Det här problemet inträffar bara på första sidan efter en rullningslist är säker på att visas. The line to update is: **&lt;div id="myDiv" style="width: 800 bpt; Höjd: 450px; Spill y: Bläddra ”; onscroll="scrolled() ”&gt;** .
 
 2. Rulla nedåt ända till slutet av resultaten. Observera hur all information är nu på sidan en vy. Du kan rulla ända tillbaka på sidan utan att alla serveranrop.
 

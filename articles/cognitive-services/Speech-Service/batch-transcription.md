@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137272"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311846"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -91,6 +91,7 @@ Använd de här valfria egenskaper för att konfigurera avskrift:
 | `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. |
  | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. |
  | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. |
+ | `AddDiarization` | Anger den diarization alalysis bör utföras på indata som förväntas vara mono kanal som innehåller två röster. Godkända värden är `true` vilket gör att diarization och `false` (standardvärdet) att inaktivera den. Det kräver också `AddWordLevelTimestamps` anges till true.|
 
 ### <a name="storage"></a>Storage
 
@@ -128,13 +129,8 @@ Motsvarande ljudet innehåller talare som identifieras av ett tal (för tillfäl
 
 Observera också att Diarization inte är tillgänglig i Stereo inspelningar. Dessutom alla JSON utdata innehåller API-taggen. Om diarization inte används, visas ”talare: Null ”i JSON-utdata.
 
-Nationella inställningar som stöds finns nedan.
-
-| Språk | Nationella inställningar |
-|--------|-------|
-| Svenska | en-US |
-| Kinesiska | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization är tillgängligt i alla regioner och för alla språk!
 
 ## <a name="sentiment"></a>Sentiment
 

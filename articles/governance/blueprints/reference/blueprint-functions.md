@@ -109,12 +109,12 @@ Några exempel på hämtning av data från den _myTemplateArtifact_ exempel är:
 
 | uttryck | Typ | Värde |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | ”första” |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | ”Min sträng-value” |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {”myproperty”: ”min value”, ”anotherProperty”: true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | ”Min value” |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleskt | True |
 
 ## <a name="concat"></a>concat
 

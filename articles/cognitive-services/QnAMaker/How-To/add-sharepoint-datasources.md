@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/20/2019
 ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b0e3dfb81a9934b393428a946cf1440367985c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954966"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311868"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en skyddad Sharepoint-datakälla till din kunskapsbas
 
@@ -35,6 +35,20 @@ Du kan lägga till alla QnA Maker stöd [filtyper](../Concepts/data-sources-supp
     ![Hämta URL: en för Sharepoint-filen genom att välja filens ellips-menyn Kopiera URL: en.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. QnA Maker-portalen på den **inställningar** sidan [Lägg till URL: en](edit-knowledge-base.md#add-datasource) i kunskapsbasen. 
+
+### <a name="images-with-sharepoint-files"></a>Bilder med Sharepoint-filer
+
+Om filer som innehåller bilder kan extraheras de inte. Du kan lägga till avbildningen, från QnA Maker-portalen när filen har extraherats till QnA-par.
+
+Lägg till bild med följande markdownsyntax: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+Texten inom hakparenteser och `[]`, förklarar avbildningen. URL: en i parenteserna `()`, är en direktlänk till avbildningen. 
+
+När du testar QnA-par i panelen interaktiva test i QnA Maker-portalen visas bilden, i stället för markdown-text. Detta bekräftar avbildningen offentligt kan hämtas från ditt klientprogram.
 
 ## <a name="permissions"></a>Behörigheter
 

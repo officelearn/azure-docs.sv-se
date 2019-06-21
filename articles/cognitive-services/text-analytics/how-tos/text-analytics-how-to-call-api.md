@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831426"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304208"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -42,8 +42,8 @@ För närvarande kan du skicka samma dokumenten för alla åtgärder för textan
 
 | Element | Giltiga värden | Krävs? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Datatypen är sträng, men i praktiken dokument-ID: N tenderar att vara heltal. | Obligatoriskt | Systemet använder ID: N som du anger för att strukturera utdata. Språkkoder, nyckelfraser och sentimentpoäng genereras för varje-ID i begäran.|
-|`text` | Ostrukturerade rå text, upp till 5,120 tecken. | Obligatoriskt | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |
+|`id` |Datatypen är sträng, men i praktiken dokument-ID: N tenderar att vara heltal. | Krävs | Systemet använder ID: N som du anger för att strukturera utdata. Språkkoder, nyckelfraser och sentimentpoäng genereras för varje-ID i begäran.|
+|`text` | Ostrukturerade rå text, upp till 5,120 tecken. | Krävs | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |
 |`language` | 2 tecken [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) Platskod för en [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för attitydanalys, extrahering av diskussionsämne och entitetslänkning; valfritt för språkidentifiering. Det finns inget fel om du utesluter den, men analysen lägre utan den. Språkkoden ska motsvara den `text` du anger. |
 
 Mer information om begränsningar finns i [Text Analytics översikt > databegränsningar](../overview.md#data-limits). 
@@ -87,7 +87,7 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
   + [Igenkänning av entiteter](text-analytics-how-to-entity-linking.md)  
 
 
-6. Klicka på **skicka** att skicka begäran. Du kan skicka upp till 100 begäranden per minut. 
+6. Klicka på **skicka** att skicka begäran. Se den [databegränsningar](../overview.md#data-limits) avsnittet i översikten för information om antalet begäranden som du kan skicka per minut och sekund.
 
    I Postman visas svaret i fönstret nästa ned, som ett enda JSON-dokument med ett objekt för varje dokument-ID som tillhandahölls i begäran.
 

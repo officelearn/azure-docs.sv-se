@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: bf337f8d4eac859dc39a36ba12dd9645aa23fe41
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297045"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311786"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Uppslukande läsare SDK-referens
 
@@ -22,7 +22,7 @@ Uppslukande läsare SDK är ett JavaScript-bibliotek som gör det möjligt att i
 
 ## <a name="functions"></a>Functions
 
-SDK: N Exponerar en enda funktion `ImmersiveReader.launchAsync(token, data, options)`.
+SDK: N Exponerar en enda funktion `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
 
 ### <a name="launchasync"></a>launchAsync
 

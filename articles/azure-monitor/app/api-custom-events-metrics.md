@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478415"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154766"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric är inaktuell i .NET SDK. Mått ska alltid vara preaggregeras över en tidsperiod innan de skickas. Använd någon av GetMetric(..) överlagringar för att hämta ett mått-objekt för att komma åt funktionerna för SDK-aggregering. Om du implementerar din egen logik för aggregering, kan du använda metoden spåra (ITelemetry metricTelemetry) för att skicka resulterande aggregeringar. Om ditt program måste du skicka en separat telemetriobjekt vid olika tillfällen utan aggregering över tid, har du förmodligen ett användningsfall för händelsetelemetri; Se TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric är inte den bästa metoden för att skicka mått. Mått ska alltid vara preaggregeras över en tidsperiod innan de skickas. Använd någon av GetMetric(..) överlagringar för att hämta ett mått-objekt för att komma åt funktionerna för SDK-aggregering. Om du implementerar din egen logik för aggregering, kan du använda metoden TrackMetric() för att skicka resulterande aggregeringar. Om ditt program måste du skicka en separat telemetriobjekt vid olika tillfällen utan aggregering över tid, har du förmodligen ett användningsfall för händelsetelemetri; Se TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights kan skapa diagram över mått som inte är kopplade till specifika händelser. Exempelvis kan du övervaka en Kölängd med jämna mellanrum. De enskilda mätningarna är mindre intressanta än varianter och trender med mätvärden, och så statistiska stapeldiagram är användbara.
 

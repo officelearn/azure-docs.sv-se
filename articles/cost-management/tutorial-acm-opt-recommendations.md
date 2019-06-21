@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416087"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164498"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader från rekommendationer
 
@@ -54,7 +54,7 @@ Den **inverkan** kategori, tillsammans med den **potentiella årliga besparingar
 Rekommendationer för hög påverkan är:
 - [Köp reserverade VM-instanser och spara pengar jämfört med betala per användning](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
 - [Optimera VM spendera genom att ändra storlek på eller stänga av underutnyttjade instanser](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Använd Standard Storage för att lagra Managed Disks-ögonblicksbilder ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [Använd Standard Storage för att lagra Managed Disks-ögonblicksbilder](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
 Medelstor inverkan rekommendationer ges bland annat:
 - [Ta bort Azure Data Factory-pipelines som misslyckas](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)

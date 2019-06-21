@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65406956"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-försäljningschef Remix
@@ -103,14 +103,14 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
 
     a. I den **inloggnings-URL** skriver du en URL i formatet: *https://\<Server-baserade-URL > /\<underdomän > / esales-pc*.
 
-    b. I den **identifierare** skriver du en URL i formatet: *https://\<Server-baserade-URL > /\<underdomän > /*.
+    b. I den **identifierare** skriver du en URL i formatet: *https://\<Server-baserade-URL > /\<underdomän > /* .
 
     c. Obs den **identifierare** värdet för senare användning i den här självstudien.
     
     > [!NOTE] 
     > Föregående värden är inte verkliga. Uppdatera dem med faktiska inloggning URL och identifierare. Kontakta för att få värdena [REMIXA E försäljning Manager-klienten supportteamet](mailto:esupport@softbrain.co.jp).
 
-1. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)**, och sedan spara certifikatfilen på datorn.
+1. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)** , och sedan spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -120,7 +120,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
 
     Den **redigera attributet** öppnas.
 
-1. Kopiera den **Namespace** och **namn** värden. Generera värdet i mönstret  *\<Namespace > /\<namn >*, och spara den för senare användning i den här självstudien.
+1. Kopiera den **Namespace** och **namn** värden. Generera värdet i mönstret  *\<Namespace > /\<namn >* , och spara den för senare användning i den här självstudien.
 
     ![Fönstret Redigera attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -158,7 +158,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
     
     b. I den **samarbete objekt** , i listrutan, väljer du **e-post**.
 
-    c. I den **samarbete objekt** rutan, klistra in anspråksvärdet för som du kopierade tidigare från Azure-portalen (det vill säga **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. I den **samarbete objekt** rutan, klistra in anspråksvärdet för som du kopierade tidigare från Azure-portalen (det vill säga **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
     d. I den **utfärdare (entitets-ID)** rutan, klistra in ID-värde som du kopierade tidigare från den **REMIXA E försäljning Manager-domän och URL: er** på Azure portal.
 

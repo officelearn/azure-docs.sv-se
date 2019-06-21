@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471594"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206149"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -116,7 +116,7 @@ Alla resurser som virtuella datorer, diskar och webbplatser överföring till de
 
 ### <a id="no-button"></a> Varför visas inte knappen ”överföra prenumerationen”?
 
-Prenumerationsöverföring med självbetjäning är tyvärr inte tillgängligt för ditt erbjudande. Visa en lista över erbjudanden som stöds i den [stöds erbjudanden](#supported-offers) i den här artikeln. Dessutom kan blockerar vi inte prenumerationsöverföring för alla länder. Dock stöds land överföring inte. Att överföra din prenumeration mellan land, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Självbetjäning prenumerationsöverföringen är tyvärr inte tillgängligt för ditt erbjudande. Visa en lista över erbjudanden som stöds i den [stöds erbjudanden](#supported-offers) i den här artikeln. Dessutom kan blockerar vi inte prenumerationsöverföring för alla länder. Se den [fullständig lista över länder](https://azure.microsoft.com/pricing/faq/) där Azure är kommersiellt tillgängligt. Självbetjäning prenumerationsöverföringen stöder dock inte mellan land överföring. Att överföra din prenumeration mellan land, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Kan jag överföra ägarskap till ett konto i ett annat land?

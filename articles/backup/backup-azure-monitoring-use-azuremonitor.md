@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295284"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -29,7 +29,7 @@ Den [inbyggd övervakning och avisering artikeln](backup-azure-monitoring-built-
 ## <a name="using-log-analytics-workspace"></a>Med hjälp av Log Analytics-arbetsyta
 
 > [!NOTE]
-> Är som läggs in data från Virtuella Azure-säkerhetskopieringar, MAB-agenten, System Center DPM (SC-DPM), SQL-säkerhetskopior i Azure virtuella datorer till Log Analytics-arbetsytan via diagnostikinställningar. Stöd för säkerhetskopior av Azure-filresurser, Microsoft Azure Backup Server (MABS) kommer snart.
+> Är som läggs in data från Virtuella Azure-säkerhetskopieringar, MAB-agenten, System Center DPM (SC-DPM), SQL-säkerhetskopior i Azure virtuella datorer och Azure-filresurs säkerhetskopior till Log Analytics-arbetsytan via diagnostikinställningar. Stöd för Microsoft Azure Backup Server (MABS) kommer snart.
 
 Vi använder sig av funktionerna i två Azure-tjänster – **diagnostikinställningar** (för att skicka data från flera Azure Resource Manager-resurser till en annan resurs) och **Log Analytics** (LA - för att generera anpassade aviseringar där du kan definiera andra meddelandekanaler med åtgärdsgrupper) för att övervaka i skala. Följande avsnitt visar om hur du använder LA för att övervaka Azure Backup i stor skala.
 
@@ -47,6 +47,9 @@ Du kan välja en LA-arbetsyta från en annan prenumeration som mål. *Du kan öv
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Distribuera lösningen till Log Analytics-arbetsyta
 
 När data finns i LA arbetsytan [distribuera en mall för GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) till LA att visualisera data. Kontrollera att du ger samma resursgrupp, namn på arbetsyta och arbetsytan, position för att korrekt identifiera arbetsytan och sedan installera den här mallen på den.
+
+> [!NOTE]
+> Användare som inte har några aviseringar eller jobb för säkerhetskopiering/återställning i sina LA arbetsyta kan se ett fel med koden ”BadArgumentError” på portalen. Användare kan ignorera felet och fortsätta att använda lösningen. När data av typen relevanta börjar flöda till arbetsytan, visas visualiseringar samma och användare inte ser det här felet längre.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Visa Azure Backup-data med hjälp av Log Analytics (LA)
 

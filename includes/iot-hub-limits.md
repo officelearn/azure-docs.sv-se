@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238507"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187738"
 ---
 I följande tabell visas de begränsningar som är associerade med de olika nivåerna S1, S2, S3 och F1. Information om kostnaden för var och en *enhet* i respektive nivå finns [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 

@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415490"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203404"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -151,6 +151,8 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 > [!NOTE]
 > I båda alternativen mobilitetstjänsten inte avinstalleras från de skyddade servrarna, måste du avinstallera den manuellt. Om du planerar att skydda servern igen med samma konfigurationsserver, kan du hoppa över avinstallera mobilitetstjänsten.
 
+> [!NOTE]
+> Om du redan har misslyckats under en virtuell dator och den körs i Azure, Observera att inaktivera skyddet inte ta bort / påverkar den redundansväxlade virtuella datorn.
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Inaktivera skyddet för en Azure virtuell dator (Azure till Azure)
 
 -  I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
@@ -167,8 +169,12 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
    - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Om du väljer den **ta bort** alternativet Kör sedan följande uppsättning skript för att rensa replikeringsinställningarna lokala Hyper-V-servern.
+
+> [!NOTE]
+> Om du redan har misslyckats under en virtuell dator och den körs i Azure, Observera att inaktivera skyddet inte ta bort / påverkar den redundansväxlade virtuella datorn.
+
 1. På källan Hyper-V-värdservern, ta bort replikering för den virtuella datorn. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
 
 ```powershell

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0959be545f541da2f0efd5bd1e8cc209ab5a0996
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386916"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275427"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Dokumentera format och naming convention vägledning
 
@@ -37,7 +37,7 @@ Den här tabellen innehåller alla filformat som stöds som du kan använda för
 
 ## <a name="dictionary-formats"></a>Ordlista format
 
-Ordlistor stöder anpassade Translator alla filformat som de som stöds för träningsmängden. Om du använder Excel ordlista, kontrollera att den första raden / raden i kalkylbladet ska vara språkkoder.
+Ordlistor stöder anpassade Translator alla filformat som stöds för att träna uppsättningar. Om du använder en Excel-ordlista, den första raden / raden i kalkylbladet ska vara språkkoder.
 
 ## <a name="zip-file-formats"></a>ZIP-filformat
 

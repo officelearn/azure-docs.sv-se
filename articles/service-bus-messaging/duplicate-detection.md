@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413644"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273217"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 
@@ -37,7 +37,7 @@ För en affärsprocess som flera meddelanden skickas under hantering av vissa Pr
 Den *MessageId* alltid kan vara en GUID, men det inställningen identifierare som affärsprocessen ger förutsägbar repeterbarhet som önskas för att använda funktionen dubblettidentifiering effektivt.
 
 > [!NOTE]
-> Om dubblettidentifiering är aktiverad och sesion ID eller partition nyckel har inte angetts, används det meddelande-ID som partitionsnyckel. Om det meddelande-ID inte anges även, generera bibliotek för .NET och AMQP automatiskt ett meddelande-ID för meddelandet. Mer information finns i [användning av partitionera nycklar](service-bus-partitioning.md#use-of-partition-keys).
+> Om dubblettidentifiering är aktiverad och sesion ID eller partition nyckel har inte angetts, används det meddelande-ID som partitionsnyckel. Om det meddelande-ID inte anges även, generera bibliotek för .NET och AMQP automatiskt ett meddelande-ID för meddelandet. Mer information finns i [användning av partitionsnycklar](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Aktivera dubblettidentifiering
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133419"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148467"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
@@ -29,4 +29,4 @@ Här följer användningsbegränsningarna och andra tjänstbegränsningar för A
 | Åtkomstpanel |<ul><li>Det finns ingen gräns för hur många program som kan visas på åtkomstpanelen per användare. Detta gäller för licenser som tilldelats av användare för Azure AD Premium eller Enterprise Mobility Suite.</li><li>Som mest kan 10 appaneler visas på åtkomstpanelen för varje användare. Den här gränsen gäller för användare som har tilldelats licenser för en kostnadsfri version eller Azure AD Basic-versionen av Azure Active Directory. Exempel på appaneler är Box, Salesforce och Dropbox. Den här begränsningen gäller inte för administratörskonton.</li></ul> |
 | Rapporter | Högst 1 000 rader kan visas eller hämtas i rapporter. Eventuella ytterligare data trunkeras. |
 | Administrativa enheter | Ett objekt kan ingå i högst 30 administrativa enheter. |
-| Administratörsroller och behörigheter | <ul><li>En grupp kan inte läggas till som en [ägare](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>En grupp kan inte tilldelas en [rollen](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Användarnas möjlighet att läsa kataloginformation för andra användare kan inte begränsas utanför växeln klienttäckande att inaktivera alla icke-administratörer användares åtkomst till all kataloginformation (rekommenderas inte). Mer information om standardbehörigheterna [här](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Det kan ta upp till 15 minuter eller logga ut/logga in innan admin rollen medlemskap tillägg och återkallelse av träder i kraft.</li></ul> |
+| Administratörsroller och behörigheter | <ul><li>En grupp kan inte läggas till som en [ägare](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>En grupp kan inte tilldelas en [rollen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Användarnas möjlighet att läsa kataloginformation för andra användare kan inte begränsas utanför växeln klienttäckande att inaktivera alla icke-administratörer användares åtkomst till all kataloginformation (rekommenderas inte). Mer information om standardbehörigheterna [här](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Det kan ta upp till 15 minuter eller logga ut/logga in innan admin rollen medlemskap tillägg och återkallelse av träder i kraft.</li></ul> |

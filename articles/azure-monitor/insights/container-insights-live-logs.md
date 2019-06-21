@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075293"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274237"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Visa loggar och händelser i realtid (förhandsversion)
 Azure Monitor för behållare innehåller en funktion som för närvarande är i förhandsversion, som tillhandahåller en livevy över din Azure Kubernetes Service (AKS) behållarloggarna (stdout/stderr) och händelser utan att behöva köra kubectl-kommandon. När du väljer något av alternativen, visas ett nytt fönster nedan datatabell prestanda på den **noder**, **domänkontrollanter**, och **behållare** vy. Den visar live loggning och händelser som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid.
@@ -77,6 +77,9 @@ AKS kan konfigureras för att använda Azure Active Directory (AD) för autentis
 
 >[!NOTE]
 >Konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den inledande distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.
+  
+>[!IMPORTANT]
+>Om du har konfigurerat om Azure AD för autentisering av användare med hjälp av den uppdaterade URI rensa webbläsarens cacheminne för att säkerställa att den uppdaterade autentiseringstoken hämtas och aktiveras.   
 
 ## <a name="view-live-logs-and-events"></a>Visa live loggar och händelser
 

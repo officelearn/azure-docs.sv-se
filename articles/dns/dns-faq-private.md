@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082851"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274047"
 ---
 # <a name="azure-private-dns-faq"></a>Azure privata DNS-frågor och svar
 
@@ -88,6 +88,13 @@ Följande standard begränsningar gäller när du använder privat DNS för Azur
 ## <a name="is-there-portal-support-for-private-zones"></a>Finns det portal-stöd för privata zoner?
 
 Ja, och privata zoner som redan har skapats via API: er, PowerShell, CLI och SDK: er är synliga på Azure portal.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Varför visas inte mitt befintliga privata DNS-zoner i nya portalupplevelsen?
+
+Vi skickade en ny resursmodell för privata DNS-zoner som en del av förhandsversionen uppdatera versionen. Din befintliga privata DNS-zoner måste migreras till den nya resursen modellen innan de kan visas i den nya portalupplevelsen. Nedan finns anvisningar om hur du migrerar till ny resursmodell.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Hur migrerar jag min befintliga privata DNS-zoner till den nya modellen?
+Vi rekommenderar starkt att du migrerar till den nya resurs modellen så snart som möjligt. Äldre resursmodell kommer att stödjas, men ytterligare funktioner kommer inte att utvecklas ovanpå den här modellen. I framtiden vi har för avsikt att inaktualisera inaktuell och ersatts med den nya resource Manager. Anvisningar för hur du migrerar din befintliga privata DNS nya resource Manager-zoner finns i[Migreringsguide för privata Azure DNS-zoner](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

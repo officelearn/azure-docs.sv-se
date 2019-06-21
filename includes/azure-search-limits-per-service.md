@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160517"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187723"
 ---
 Lagringen begränsas av diskutrymme eller av en hård gräns på den *maxantalet* index, dokument eller andra övergripande resurser, som inträffar först. I följande tabell beskrivs gränser. Övre gräns för det index, dokument och andra objekt, se [begränsningar av resursen](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

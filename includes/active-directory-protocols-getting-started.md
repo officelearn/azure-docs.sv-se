@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: priyamo
 ms.openlocfilehash: b6dd4cd55755ae2c92afd327ad72ffe6966b9a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121521"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187516"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
 Du måste först registrera ditt program med Azure Active Directory (Azure AD)-klienten. Det ger dig en program-ID för ditt program och låter det ta emot tokens.

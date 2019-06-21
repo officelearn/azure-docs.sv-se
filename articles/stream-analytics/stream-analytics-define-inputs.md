@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfdebacb4de205fa42fe96ceb9970d2d109536e8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455613"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296156"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -38,7 +38,7 @@ Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md), [
 
 Azure Event Hubs ger mycket skalbar publicerings-/ händelse ingestors. En händelsehubb kan samla in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. Event Hubs och Stream Analytics ger du tillsammans, en lösning för slutpunkt till slutpunkt för analys i realtid. Händelsehubbar kan du skicka händelser till Azure i realtid och Stream Analytics-jobb kan bearbeta dessa händelser i realtid. Du kan exempelvis skicka web klick, sensoravläsningar eller online händelser till Event Hubs. Du kan sedan skapa Stream Analytics-jobb för att använda Event Hubs som indata-dataströmmar i realtid filtrering, aggregering och korrelation.
 
-`EventEnqueuedUtcTime` tidsstämpeln för ankomst en händelse i en händelsehubb och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
+`EventEnqueuedUtcTime` tidsstämpeln för ankomst en händelse i en händelsehubb och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
 
 ### <a name="event-hubs-consumer-groups"></a>Konsumentgrupper för Event Hubs
 
@@ -86,7 +86,7 @@ FROM Input
 
 Azure IoT Hub är en mycket skalbar lösning för publicering-prenumeration händelse optimerade för IoT-scenarier.
 
-Standard-tidsstämpel för händelser som kommer från en IoT-hubb i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
+Standard-tidsstämpel för händelser som kommer från en IoT-hubb i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
 
 ### <a name="iot-hub-consumer-groups"></a>Konsumentgrupper för IOT Hub
 

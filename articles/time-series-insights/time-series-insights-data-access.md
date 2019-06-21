@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237038"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164627"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja åtkomst till en miljö
 
@@ -36,7 +36,7 @@ Följ dessa steg om du vill bevilja åtkomst till data för en annan användare.
 
     [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Välj **Välj användare**. Sök efter användarnamn eller e-postadress att hitta användaren som du vill lägga till. Klicka på **Välj** att bekräfta valet.
+1. Välj **Välj användare**. Sök efter användarnamn eller e-postadress att hitta användaren som du vill lägga till. Välj **Välj** att bekräfta valet.
 
     [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -76,7 +76,7 @@ Följ dessa steg om du vill bevilja åtkomst till en Time Series Insights-miljö
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Välj **Välj användare**. Sök efter e-postadress du inbjuden för att hitta användaren som du vill lägga till gästanvändare. Klicka på **Välj** att bekräfta valet.
+1. Välj **Välj användare**. Sök efter e-postadress du inbjuden för att hitta användaren som du vill lägga till gästanvändare. Sedan **Välj** att bekräfta valet.
 
     [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

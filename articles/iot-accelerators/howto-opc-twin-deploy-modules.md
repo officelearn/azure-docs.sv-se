@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693412"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203934"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC-Twin-modulen och beroenden från grunden
 
@@ -200,52 +200,6 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenh
    ```
 
    Enhetens ID-parametern är skiftlägeskänsligt. ![AZ iot hub-modul-identity utdata från lista](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
-
-## <a name="run-and-debug-locally"></a>Köra och felsöka lokalt
-
-För problem med att ta och felsökning är användbar för att köra Edge-moduler lokalt med hjälp av den [IoT Edge utveckling Simulator](https://github.com/Azure/iotedgehubdev).  Det ger en lokal utvecklingsmiljö en simulator för att skapa, utveckla, testa, kör och felsöka Azure IoT Edge-moduler och lösningar med hjälp av samma bits/kod som används i produktion.
-
-### <a name="prerequisites"></a>Nödvändiga komponenter
-
-1. Distribuera OPC-Twin [beroenden](howto-opc-twin-deploy-dependencies.md).
-
-2. Installera [Docker CE (18.02.0+)](https://www.docker.com/community-edition) på [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) eller [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
-
-3. Installera [Docker Compose (1.20.0+)](https://docs.docker.com/compose/install/#install-compose) (krävs endast för **Linux**. Compose redan har inkluderats i Windows/Mac OS Docker CE-installation)
-
-4. Installera [Python (2.7 / 3.5+) och Pip](https://www.python.org/)
-
-5. Installera iotedgehubdev genom att köra nedanstående kommando i terminalen
-
-   ```bash
-   pip install --upgrade iotedgehubdev
-   ```
-
-> [!NOTE]
-> Installera `iotedgehubdev` till **rot** i Linux/Mac OS (*Använd inte ”--användare” i ovanstående installationskommando pip-* ).
-> Kontrollera att det finns inga Azure IoT Edge-körningen körs på samma dator med iotedgehubdev eftersom de kräver samma portar.
-
-### <a name="quickstart"></a>Snabbstart
-
-1. Följ anvisningarna för att [skapa en Edge-enhet i Azure-portalen](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).  Kopiera anslutningssträngen för edge-enhet.
-
-2. Ställ in simulatorn med edge-anslutningssträng.
-
-    ```bash
-    iotedgehubdev setup -c <edge-device-connection-string>
-    ```
-
-3. Kopiera ovan manifestet i en `deployment.json` fil i samma mapp.  Starta distributionen i med simulator
-
-    ```bash
-    iotedgehubdev start -d deployment.json
-    ```
-
-4. Stoppa en simulator med hjälp av
-
-   ```bash
-   iotedgehubdev stop
-   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

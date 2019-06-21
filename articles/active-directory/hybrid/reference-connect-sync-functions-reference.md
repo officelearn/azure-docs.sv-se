@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381154"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204500"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
@@ -89,7 +89,7 @@ Funktioner med vilka **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### <a name="bitand"></a>BitAnd
 **Beskrivning:**  
 Funktionen BitAnd anger angivna bits på ett värde.
@@ -111,7 +111,7 @@ Med andra ord, returnerar 0, utom när de motsvarande delarna av båda parametra
 `BitAnd(&HF, &HF7)`  
 Returnerar 7 eftersom hexadecimala ”F” och ”F7” utvärderas till det här värdet.
 
-- - -
+---
 ### <a name="bitor"></a>BitOr
 **Beskrivning:**  
 Funktionen BITOR-anger angivna bits på ett värde.
@@ -124,7 +124,7 @@ Funktionen BITOR-anger angivna bits på ett värde.
 **Anmärkning:**  
 Den här funktionen konverterar båda parametrarna till binär representation och anger lite 1 om en eller båda motsvarande bitar i mask och flaggan är mellan 1 och 0 om båda motsvarande bits är 0. Med andra ord, returnerar 1, utom där de motsvarande delarna av båda parametrarna är 0.
 
-- - -
+---
 ### <a name="cbool"></a>CBool
 **Beskrivning:**  
 Funktionen CBool returnerar ett booleskt värde baserat på det utvärderade uttrycket
@@ -140,7 +140,7 @@ Om uttrycket utvärderas till ett annat värde och sedan CBool returnerar True, 
 
 Returnerar True om båda attribut har samma värde.
 
-- - -
+---
 ### <a name="cdate"></a>CDate
 **Beskrivning:**  
 Funktionen CDate returnerar en UTC-datum/tid från en sträng. DateTime är inte en intern Attributtyp som är synkroniserade men används av vissa funktioner.
@@ -161,7 +161,7 @@ Returnerar ett datetime-värde baserat på medarbetarens starttid
 Returnerar ett datum/tid som representerar ”2013-01-11 12:00 AM”
 
 
-- - -
+---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Beskrivning:**  
 Returnerar Oid-värden för alla kritiska tillägg av ett certifikatobjekt.
@@ -170,7 +170,7 @@ Returnerar Oid-värden för alla kritiska tillägg av ett certifikatobjekt.
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certformat"></a>CertFormat
 **Beskrivning:**  
 Returnerar namnet på formatet för den här X.509v3-certifikat.
@@ -179,7 +179,7 @@ Returnerar namnet på formatet för den här X.509v3-certifikat.
 `str CertFormat(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Beskrivning:**  
 Returnerar det associerade aliaset för ett certifikat.
@@ -188,7 +188,7 @@ Returnerar det associerade aliaset för ett certifikat.
 `str CertFriendlyName(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certhashstring"></a>CertHashString
 **Beskrivning:**  
 Returnerar SHA1-hash-värdet för X.509v3-certifikat som en hexadecimal sträng.
@@ -197,7 +197,7 @@ Returnerar SHA1-hash-värdet för X.509v3-certifikat som en hexadecimal sträng.
 `str CertHashString(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certissuer"></a>CertIssuer
 **Beskrivning:**  
 Returnerar namnet på den certifikatutfärdare som utfärdade X.509v3-certifikat.
@@ -206,7 +206,7 @@ Returnerar namnet på den certifikatutfärdare som utfärdade X.509v3-certifikat
 `str CertIssuer(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Beskrivning:**  
 Returnerar det unika namnet på certifikatutfärdaren.
@@ -215,7 +215,7 @@ Returnerar det unika namnet på certifikatutfärdaren.
 `str CertIssuerDN(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certissueroid"></a>CertIssuerOid
 **Beskrivning:**  
 Returnerar Oid för certifikatutfärdaren.
@@ -224,7 +224,7 @@ Returnerar Oid för certifikatutfärdaren.
 `str CertIssuerOid(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Beskrivning:**  
 Returnerar nyckelalgoritm-information för den här X.509v3-certifikat som en sträng.
@@ -233,7 +233,7 @@ Returnerar nyckelalgoritm-information för den här X.509v3-certifikat som en st
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Beskrivning:**  
 Returnerar nyckelalgoritm parametrarna för X.509v3-certifikat som en hexadecimal sträng.
@@ -242,7 +242,7 @@ Returnerar nyckelalgoritm parametrarna för X.509v3-certifikat som en hexadecima
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certnameinfo"></a>CertNameInfo
 **Beskrivning:**  
 Returnerar ämne och Utfärdarens namn från ett certifikat.
@@ -253,7 +253,7 @@ Returnerar ämne och Utfärdarens namn från ett certifikat.
 *   X509NameType: X509NameType värdet för ämnet.
 *   includesIssuerName: true att inkludera Utfärdarens namn; Annars, FALSKT.
 
-- - -
+---
 ### <a name="certnotafter"></a>CertNotAfter
 **Beskrivning:**  
 Returnerar datum i lokal tid efter vilken en certifikatet inte längre är giltigt.
@@ -262,7 +262,7 @@ Returnerar datum i lokal tid efter vilken en certifikatet inte längre är gilti
 `dt CertNotAfter(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certnotbefore"></a>CertNotBefore
 **Beskrivning:**  
 Returnerar datum i lokal tid som ett certifikat börjar gälla.
@@ -271,7 +271,7 @@ Returnerar datum i lokal tid som ett certifikat börjar gälla.
 `dt CertNotBefore(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Beskrivning:**  
 Returnerar Oid för den offentliga nyckeln för X.509v3-certifikat.
@@ -280,7 +280,7 @@ Returnerar Oid för den offentliga nyckeln för X.509v3-certifikat.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Beskrivning:**  
 Returnerar Oid för offentlig nyckel parametrarna för X.509v3-certifikat.
@@ -289,7 +289,7 @@ Returnerar Oid för offentlig nyckel parametrarna för X.509v3-certifikat.
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Beskrivning:**  
 Returnerar serienumret för X.509v3-certifikat.
@@ -298,7 +298,7 @@ Returnerar serienumret för X.509v3-certifikat.
 `str CertSerialNumber(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Beskrivning:**  
 Returnerar Oid av algoritmen som används för att skapa signaturen för ett certifikat.
@@ -307,7 +307,7 @@ Returnerar Oid av algoritmen som används för att skapa signaturen för ett cer
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certsubject"></a>CertSubject
 **Beskrivning:**  
 Hämtar det unika ämnesnamnet från ett certifikat.
@@ -316,7 +316,7 @@ Hämtar det unika ämnesnamnet från ett certifikat.
 `str CertSubject(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Beskrivning:**  
 Returnerar det unika ämnesnamnet från ett certifikat.
@@ -325,7 +325,7 @@ Returnerar det unika ämnesnamnet från ett certifikat.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Beskrivning:**  
 Returnerar Oid för ämnesnamnet från ett certifikat.
@@ -334,7 +334,7 @@ Returnerar Oid för ämnesnamnet från ett certifikat.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certthumbprint"></a>CertThumbprint
 **Beskrivning:**  
 Returnerar tumavtrycket för ett certifikat.
@@ -343,7 +343,7 @@ Returnerar tumavtrycket för ett certifikat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="certversion"></a>CertVersion
 **Beskrivning:**  
 Returnerar X.509-Formatversion för ett certifikat.
@@ -352,7 +352,7 @@ Returnerar X.509-Formatversion för ett certifikat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
-- - -
+---
 ### <a name="cguid"></a>CGuid
 **Beskrivning:**  
 Funktionen CGuid konverterar strängrepresentation av en GUID till dess binär representation.
@@ -362,7 +362,7 @@ Funktionen CGuid konverterar strängrepresentation av en GUID till dess binär r
 
 * En sträng formaterad i det här mönstret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx eller {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### <a name="contains"></a>innehåller
 **Beskrivning:**  
 Contains-funktionen returnerar en sträng inuti ett flervärdesattribut
@@ -386,7 +386,7 @@ Sökt sträng måste exakt matcha värdet för att anses vara en matchning för 
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Om attributet proxyAddresses har en primär e-postadress (anges med versaler ”SMTP”:), returnerar proxyAddress-attribut, annars returneras ett fel.
 
-- - -
+---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Beskrivning:**  
 Funktionen ConvertFromBase64 konverterar det angivna base64-kodad värdet till en vanlig sträng.
@@ -404,7 +404,7 @@ Funktionen ConvertFromBase64 konverterar det angivna base64-kodad värdet till e
 
 Båda exemplen ger ”*Hello world!* ”
 
-- - -
+---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Beskrivning:**  
 Funktionen ConvertFromUTF8Hex konverterar det angivna UTF8 Hex-kodade-värdet till en sträng.
@@ -422,7 +422,7 @@ Det här formatet används av Azure Active Directory som unikt namn.
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Returnerar ”*Hello world!* ”
 
-- - -
+---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Beskrivning:**  
 Funktionen ConvertToBase64 konverterar en sträng till en Unicode base64-sträng.  
@@ -435,7 +435,7 @@ Konverterar värdet för en matris av heltal till dess motsvarande strängrepres
 `ConvertToBase64("Hello world!")`  
 Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
-- - -
+---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Beskrivning:**  
 Funktionen ConvertToUTF8Hex konverterar en sträng till ett värde för UTF8 Hex-kodade.
@@ -450,15 +450,15 @@ Utdataformatet för den här funktionen används av Azure Active Directory som D
 `ConvertToUTF8Hex("Hello world!")`  
 Returns 48656C6C6F20776F726C6421
 
-- - -
-### <a name="count"></a>Count
+---
+### <a name="count"></a>Antal
 **Beskrivning:**  
 Count-funktionen returnerar antalet element i ett flervärdesattribut
 
 **Syntax:**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### <a name="cnum"></a>CNum
 **Beskrivning:**  
 Funktionen CNum tar en sträng och returnerar en numerisk datatyp.
@@ -466,7 +466,7 @@ Funktionen CNum tar en sträng och returnerar en numerisk datatyp.
 **Syntax:**  
 `num CNum(str value)`
 
-- - -
+---
 ### <a name="cref"></a>CRef
 **Beskrivning:**  
 Konverterar en sträng till ett referensattribut
@@ -477,7 +477,7 @@ Konverterar en sträng till ett referensattribut
 **Exempel:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### <a name="cstr"></a>CStr
 **Beskrivning:**  
 Funktionen CStr konverteras till datatypen string.
@@ -493,7 +493,7 @@ Funktionen CStr konverteras till datatypen string.
 `CStr([dn])`  
 Kan returnera ”cn = Joe, dc = contoso, dc = com”
 
-- - -
+---
 ### <a name="dateadd"></a>DateAdd
 **Beskrivning:**  
 Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har lagts till.
@@ -519,7 +519,7 @@ Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Lägger till tre månader och returnerar ett datetime-värde som representerar ”2001-04-01”.
 
-- - -
+---
 ### <a name="datefromnum"></a>DateFromNum
 **Beskrivning:**  
 Funktionen DateFromNum konverterar ett värde i Active Directorys datum-format till ett DateTime-typen.
@@ -532,7 +532,7 @@ Funktionen DateFromNum konverterar ett värde i Active Directorys datum-format t
 `DateFromNum(129699324000000000)`  
 Returnerar ett datetime-värde som representerar 2012-01-01 23:00:00
 
-- - -
+---
 ### <a name="dncomponent"></a>DNComponent
 **Beskrivning:**  
 DNComponent returneras värdet för en angiven DN-komponent som kommer från vänster.
@@ -547,7 +547,7 @@ DNComponent returneras värdet för en angiven DN-komponent som kommer från vä
 `DNComponent(CRef([dn]),1)`  
 Om dn är ”cn = Joe, ou =...”, returneras Joe
 
-- - -
+---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Beskrivning:**  
 DNComponentRev returneras värdet för en angiven DN-komponent som kommer från höger (slut).
@@ -566,7 +566,7 @@ If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Båda att returnera oss.
 
-- - -
+---
 ### <a name="error"></a>Fel
 **Beskrivning:**  
 Fel-funktionen används för att returnera ett anpassat fel.
@@ -578,7 +578,7 @@ Fel-funktionen används för att returnera ett anpassat fel.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Om attributet accountName inte är tillgänglig, returnerade ett fel på objektet.
 
-- - -
+---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Beskrivning:**  
 Funktionen EscapeDNComponent tar en komponent i ett unikt namn och lämnar den så att den kan visas i LDAP.
@@ -590,7 +590,7 @@ Funktionen EscapeDNComponent tar en komponent i ett unikt namn och lämnar den s
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Ser till att objektet kan skapas i en LDAP-katalog, även om attributet visningsnamn har tecken måste undantas i LDAP.
 
-- - -
+---
 ### <a name="formatdatetime"></a>formatDateTime
 **Beskrivning:**  
 Funktionen FormatDateTime används för att formatera ett datetime-värde till en sträng med ett angivet format
@@ -612,7 +612,7 @@ Resultat i ”2007-12-25”.
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 Kan leda till ”20140905081453.0Z”
 
-- - -
+---
 ### <a name="guid"></a>Guid
 **Beskrivning:**  
 Funktionen Guid genererar en ny, slumpmässig GUID
@@ -620,7 +620,7 @@ Funktionen Guid genererar en ny, slumpmässig GUID
 **Syntax:**  
 `str Guid()`
 
-- - -
+---
 ### <a name="iif"></a>IIF
 **Beskrivning:**  
 Funktionen returnerar ett av en uppsättning möjliga värden baserat på ett angivet villkor.
@@ -636,7 +636,7 @@ Funktionen returnerar ett av en uppsättning möjliga värden baserat på ett an
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Om användaren är en intern, returnerar du alias för en användare med ”t-” läggs till i början av det, annan returnerar användarens alias skick.
 
-- - -
+---
 ### <a name="instr"></a>InStr
 **Beskrivning:**  
 InStr funktionen söker efter den första förekomsten av en understräng i en sträng
@@ -662,7 +662,7 @@ Evalues till 5
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Utvärderar till 7
 
-- - -
+---
 ### <a name="instrrev"></a>InStrRev
 **Beskrivning:**  
 Funktionen InStrRev söker efter den sista förekomsten av en understräng i en sträng
@@ -684,7 +684,7 @@ Returnerar positionen där delsträngen hittades eller 0 om hittades inte.
 `InStrRev("abbcdbbbef","bb")`  
 Returnerar 7
 
-- - -
+---
 ### <a name="isbitset"></a>IsBitSet
 **Beskrivning:**  
 Funktionen IsBitSet nätverkstester om en stund har angetts eller inte
@@ -698,7 +698,7 @@ Funktionen IsBitSet nätverkstester om en stund har angetts eller inte
 `IsBitSet(&HF,4)`  
 Returnerar SANT eftersom ”4”-biten är aktiverad i det hexadecimala värdet ”F”
 
-- - -
+---
 ### <a name="isdate"></a>IsDate
 **Beskrivning:**  
 Om uttrycket kan vara utvärderar som en DateTime-typ, och sedan funktionen IsDate utvärderas till SANT.
@@ -709,7 +709,7 @@ Om uttrycket kan vara utvärderar som en DateTime-typ, och sedan funktionen IsDa
 **Anmärkning:**  
 Används för att avgöra om CDate() kan genomföras.
 
-- - -
+---
 ### <a name="iscert"></a>IsCert
 **Beskrivning:**  
 Returnerar SANT om rådata kan serialiseras i .NET X509Certificate2 certifikat-objekt.
@@ -717,7 +717,7 @@ Returnerar SANT om rådata kan serialiseras i .NET X509Certificate2 certifikat-o
 **Syntax:**  
 `bool CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
-- - -
+---
 ### <a name="isempty"></a>IsEmpty
 **Beskrivning:**  
 Om attributet finns i CS eller MV men utvärderas till en tom sträng, och sedan funktionen IsEmpty utvärderas till SANT.
@@ -725,7 +725,7 @@ Om attributet finns i CS eller MV men utvärderas till en tom sträng, och sedan
 **Syntax:**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### <a name="isguid"></a>IsGuid
 **Beskrivning:**  
 Om strängen kunde konverteras till ett GUID, utvärderas funktionen IsGuid till true.
@@ -742,7 +742,7 @@ Används för att avgöra om CGuid() kan genomföras.
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Om StrAttribute har ett GUID-format, returnerar en binär representation, annars returnerar Null.
 
-- - -
+---
 ### <a name="isnull"></a>IsNull
 **Beskrivning:**  
 Om uttrycket utvärderas till Null, returnerar funktionen IsNull true.
@@ -757,7 +757,7 @@ Ett null-värde uttrycks av att attributet för ett attribut.
 `IsNull([displayName])`  
 Returnerar True om attributet inte finns i CS eller MV.
 
-- - -
+---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Beskrivning:**  
 Om uttrycket är null eller en tom sträng, returnerar funktionen IsNullOrEmpty true.
@@ -773,7 +773,7 @@ Inversen till den här funktionen har namnet IsPresent.
 `IsNullOrEmpty([displayName])`  
 Returnerar True om attributet finns inte eller är en tom sträng i CS eller MV.
 
-- - -
+---
 ### <a name="isnumeric"></a>IsNumeric
 **Beskrivning:**  
 IsNumeric-funktionen returnerar ett booleskt värde som anger om ett uttryck kan utvärderas som en nummertypen.
@@ -784,7 +784,7 @@ IsNumeric-funktionen returnerar ett booleskt värde som anger om ett uttryck kan
 **Anmärkning:**  
 Används för att avgöra om CNum() kan vara att parsa uttrycket.
 
-- - -
+---
 ### <a name="isstring"></a>IsString
 **Beskrivning:**  
 Om det kan utvärderas till en strängtyp, utvärderar funktionen IsString till True.
@@ -795,7 +795,7 @@ Om det kan utvärderas till en strängtyp, utvärderar funktionen IsString till 
 **Anmärkning:**  
 Används för att avgöra om CStr() kan vara att parsa uttrycket.
 
-- - -
+---
 ### <a name="ispresent"></a>IsPresent
 **Beskrivning:**  
 Om uttrycket utvärderas till en sträng som inte är Null och inte är tom, returnerar funktionen IsPresent true.
@@ -809,7 +809,7 @@ Inversen till den här funktionen har namnet IsNullOrEmpty.
 **Exempel:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### <a name="item"></a>Objekt
 **Beskrivning:**  
 Funktionen Item returnerar ett objekt från en sträng/flervärdesattribut.
@@ -829,7 +829,7 @@ Genererar ett fel om indexet är utanför intervallet.
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returnerar den primära e-postadressen.
 
-- - -
+---
 ### <a name="itemornull"></a>ItemOrNull
 **Beskrivning:**  
 ItemOrNull-funktionen returnerar ett objekt från en sträng/flervärdesattribut.
@@ -845,7 +845,7 @@ ItemOrNull-funktionen är användbar tillsammans med funktionen innehåller efte
 
 Om indexet är utanför intervallet, returnerar du värdet Null.
 
-- - -
+---
 ### <a name="join"></a>Anslut
 **Beskrivning:**  
 Join-funktionen tar en sträng med flera värden och returnerar en enstaka sträng med angiven avgränsare infogas mellan varje element.
@@ -864,7 +864,7 @@ Det finns paritet mellan funktionerna koppling och dela. Join-funktionen tar en 
 `Join([proxyAddresses],",")`  
 Kan returnera ”:SMTP:john.doe@contoso.com,smtp:jd@contoso.com”
 
-- - -
+---
 ### <a name="lcase"></a>LCase
 **Beskrivning:**  
 Funktionen LCase konverterar alla tecken i en textsträng till gemener.
@@ -876,7 +876,7 @@ Funktionen LCase konverterar alla tecken i en textsträng till gemener.
 `LCase("TeSt")`  
 Returnerar ”test”.
 
-- - -
+---
 ### <a name="left"></a>Vänster
 **Beskrivning:**  
 Funktionen vänster returnerar ett angivet antal tecken från vänster i en sträng.
@@ -900,7 +900,7 @@ Om strängen innehåller färre tecken än nummer anges i numChars, returneras e
 `Left("John Doe", 3)`  
 Returnerar ”Joh”.
 
-- - -
+---
 ### <a name="len"></a>Len
 **Beskrivning:**  
 Funktionen Len returnerar antalet tecken i en sträng.
@@ -912,7 +912,7 @@ Funktionen Len returnerar antalet tecken i en sträng.
 `Len("John Doe")`  
 Returnerar 8
 
-- - -
+---
 ### <a name="ltrim"></a>LTrim
 **Beskrivning:**  
 LTrim-funktionen tar bort inledande blanksteg från en sträng.
@@ -924,7 +924,7 @@ LTrim-funktionen tar bort inledande blanksteg från en sträng.
 `LTrim(" Test ")`  
 Returnerar ”Test”
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Beskrivning:**  
 Mid-funktionen returnerar ett angivet antal tecken från en angiven position i en sträng.
@@ -955,7 +955,7 @@ Returnerar ”hn gör”.
 `Mid("John Doe", 6, 999)`  
 Returnerar ”Berg”
 
-- - -
+---
 ### <a name="now"></a>nu
 **Beskrivning:**  
 Funktionen nu returnerar ett datetime-värde som anger aktuellt datum och tid, beroende på datorns systemdatum och tid.
@@ -963,7 +963,7 @@ Funktionen nu returnerar ett datetime-värde som anger aktuellt datum och tid, b
 **Syntax:**  
 `dt Now()`
 
-- - -
+---
 ### <a name="numfromdate"></a>NumFromDate
 **Beskrivning:**  
 NumFromDate-funktionen returnerar ett datum i Active Directorys datumformat.
@@ -975,7 +975,7 @@ NumFromDate-funktionen returnerar ett datum i Active Directorys datumformat.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Returns 129699324000000000
 
-- - -
+---
 ### <a name="padleft"></a>padLeft
 **Beskrivning:**  
 De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angiven utfyllnadstecknet.
@@ -1000,7 +1000,7 @@ De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angi
 `PadLeft("User", 10, "0")`  
 Returnerar ”000000User”.
 
-- - -
+---
 ### <a name="padright"></a>PadRight
 **Beskrivning:**  
 De PadRight funktionen höger-Pad en sträng till en angiven längd med en angiven utfyllnadstecknet.
@@ -1025,7 +1025,7 @@ De PadRight funktionen höger-Pad en sträng till en angiven längd med en angiv
 `PadRight("User", 10, "0")`  
 Returnerar ”User000000”.
 
-- - -
+---
 ### <a name="pcase"></a>PCase
 **Beskrivning:**  
 Funktionen PCase konverterar det första tecknet i varje blankstegsavgränsad ord i en sträng till versal och alla andra tecken omvandlas till gemener.
@@ -1044,7 +1044,7 @@ Returnerar ”Test”.
 `PCase(LCase("TEST"))`  
 Returnerar ”Test”
 
-- - -
+---
 ### <a name="randomnum"></a>RandomNum
 **Beskrivning:**  
 RandomNum-funktionen returnerar ett slumptal mellan ett visst intervall.
@@ -1059,7 +1059,7 @@ RandomNum-funktionen returnerar ett slumptal mellan ett visst intervall.
 `Random(100,999)`  
 Returnera 734.
 
-- - -
+---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Beskrivning:**  
 Funktionen RemoveDuplicates tar en sträng med flera värden och kontrollera att alla värden är unikt.
@@ -1071,7 +1071,7 @@ Funktionen RemoveDuplicates tar en sträng med flera värden och kontrollera att
 `RemoveDuplicates([proxyAddresses])`  
 Returnerar ett språkoberoende proxyAddress-attribut där alla dubblettvärden har tagits bort.
 
-- - -
+---
 ### <a name="replace"></a>Ersätt
 **Beskrivning:**  
 Ersätt funktionen ersätter alla förekomster av en textsträng till en annan sträng.
@@ -1094,7 +1094,7 @@ Funktionen identifierar följande särskilda monikers:
 `Replace([address],"\r\n",", ")`  
 Ersätter CRLF med ett kommatecken och ett blanksteg och kan leda till ”en Microsoft sätt, Redmond, WA, USA”
 
-- - -
+---
 ### <a name="replacechars"></a>ReplaceChars
 **Beskrivning:**  
 Funktionen ReplaceChars ersätter alla förekomster av tecken i strängen ReplacePattern.
@@ -1127,7 +1127,7 @@ Returnerar Raksmorgas
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Returnerar ”ONeil”, enskild skalstreck definieras till att tas bort.
 
-- - -
+---
 ### <a name="right"></a>Höger
 **Beskrivning:**  
 Funktionen höger returnerar ett angivet antal tecken från höger (end) i en sträng.
@@ -1153,7 +1153,7 @@ Om strängen innehåller färre tecken än nummer anges i NumChars, returneras e
 `Right("John Doe", 3)`  
 Returnerar ”Berg”.
 
-- - -
+---
 ### <a name="rtrim"></a>RTrim
 **Beskrivning:**  
 RTrim-funktionen tar bort avslutande blanksteg från en sträng.
@@ -1165,7 +1165,7 @@ RTrim-funktionen tar bort avslutande blanksteg från en sträng.
 `RTrim(" Test ")`  
 Returnerar ”Test”.
 
-- - -
+---
 ### <a name="select"></a>Välj
 **Beskrivning:**  
 Processen för alla värden i en med flera värden attribut (eller resultatet av ett uttryck) baserat på funktionen som anges.
@@ -1183,7 +1183,7 @@ Processen för alla värden i en med flera värden attribut (eller resultatet av
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Returnera alla värden i flervärdesattribut Annantelefon när bindestreck (-) har tagits bort.
 
-- - -
+---
 ### <a name="split"></a>dela upp
 **Beskrivning:**  
 Funktionen Split tar en sträng som avgränsas med en avgränsare och gör den till en sträng med flera värden.
@@ -1200,7 +1200,7 @@ Funktionen Split tar en sträng som avgränsas med en avgränsare och gör den t
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Returnerar en sträng som har flera värden med 2 element användbart för proxyAddress-attribut.
 
-- - -
+---
 ### <a name="stringfromguid"></a>StringFromGuid
 **Beskrivning:**  
 Funktionen GUIDFromString tar en binär GUID och konverterar den till en sträng
@@ -1208,7 +1208,7 @@ Funktionen GUIDFromString tar en binär GUID och konverterar den till en sträng
 **Syntax:**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### <a name="stringfromsid"></a>StringFromSid
 **Beskrivning:**  
 Funktionen StringFromSid konverterar en bytematris som innehåller en säkerhetsidentifierare till en sträng.
@@ -1216,7 +1216,7 @@ Funktionen StringFromSid konverterar en bytematris som innehåller en säkerhets
 **Syntax:**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### <a name="switch"></a>Växel
 **Beskrivning:**  
 Funktionen växeln används för att returnera ett enstaka värde baserat på utvärderade villkoren.
@@ -1245,7 +1245,7 @@ Värdet kan också vara funktionen fel som returneras en anpassad sträng.
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
 
-- - -
+---
 ### <a name="trim"></a>trim
 **Beskrivning:**  
 Rensa-funktionen tar bort inledande och avslutande blanksteg från en sträng.
@@ -1260,7 +1260,7 @@ Returnerar ”Test”.
 `Trim([proxyAddresses])`  
 Tar bort inledande och avslutande blanksteg för varje värde i proxyAddress-attribut.
 
-- - -
+---
 ### <a name="ucase"></a>UCase
 **Beskrivning:**  
 Funktionen UCase konverterar alla tecken i en sträng till versaler.
@@ -1272,7 +1272,7 @@ Funktionen UCase konverterar alla tecken i en sträng till versaler.
 `UCase("TeSt")`  
 Returnerar ”TEST”.
 
-- - -
+---
 ### <a name="where"></a>Var
 
 **Beskrivning:**  
@@ -1290,7 +1290,7 @@ Returnerar en delmängd av värden från ett med flera värden attribut (eller r
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Returnera certifikatvärden i den flervärdesattribut userCertificate som inte har upphört att gälla.
 
-- - -
+---
 ### <a name="with"></a>Med
 **Beskrivning:**  
 Med funktionen är ett sätt att förenkla ett komplext uttryck med hjälp av en variabel som representerar en underuttryck som visas en eller flera gånger i ett komplext uttryck.
@@ -1308,7 +1308,7 @@ Har samma funktioner:
 Som returnerar endast läggs certifikatvärden i userCertificate-attributet.
 
 
-- - -
+---
 ### <a name="word"></a>Word
 **Beskrivning:**  
 Word-funktionen returnerar ett ord som ingår i en sträng som baseras på parametrar som beskriver avgränsarna som ska användas och word-nummer för att returnera.

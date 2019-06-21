@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247296"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144143"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
 
@@ -33,8 +33,10 @@ Den [Microsofts globala nätverk](https://azure.microsoft.com/global-infrastruct
  
 Väljer den [bästa möjliga upplevelse](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) är enkelt att när du använder Microsoft-molnet. Från det ögonblick då när kundtrafiken kommer vårt globala nätverk via vår strategiskt kantnoder, skickas dina data genom optimerad routning på nära ljus hastighet. Detta säkerställer optimala svarstider för bästa prestanda. Edge-noderna, alla samman med mer än 3500 unika Internet-partners (peer-datorer) via tusentals anslutningar på mer än 145 platser ger grunden för vår sammanlänkning strategi. 
  
-Om du ansluter från London till Tokyo, eller från Washington DC till Los Angeles, är nätverkets prestanda kvantifierade och påverkas av saker, till exempel svarstider, jitter, paketförlust och dataflöde.  På Microsoft vi föredrar och Använd direkta anslutningar till skillnad från överföring länkar kan detta håller svarstrafik symmetriska och hjälper dig att hålla hopp, peering parter och sökvägar som kort och enkelt som möjligt. Den här premium-metoden kallas ofta [kall ljus routning](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), garanterar att kunderna network trafik finns kvar i Microsoft-nätverket så länge som möjligt innan vi lämnar den.  
- 
+Om du ansluter från London till Tokyo, eller från Washington DC till Los Angeles, är nätverkets prestanda kvantifierade och påverkas av saker, till exempel svarstider, jitter, paketförlust och dataflöde.  På Microsoft vi föredrar och Använd direkta anslutningar till skillnad från överföring länkar kan detta håller svarstrafik symmetriska och hjälper dig att hålla hopp, peering parter och sökvägar som kort och enkelt som möjligt. 
+
+Till exempel om en användare i London försöker få åtkomst till en tjänst i Tokyo, och sedan Internettrafik anger ett av våra kanter i London, färdas över Microsoft WAN via Frankrike, våra gjordes Trans bedömningen sökvägar mellan Europa och Indien och sedan till Japan där tjänsten finns. Svarstrafik är symmetriska. Detta kallas ibland som [kall ljus routning](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) vilket innebär att trafiken stannar i Microsoft network så länge som möjligt innan vi lämnar den.  
+  
 Så, betyder det alla trafik när du använder Microsoft-tjänster? Ja, Datacenter trafik mellan data i Microsoft Azure eller mellan Microsoft-tjänster som virtuella datorer, Office 365, XBox, SQL-databaser, lagring och virtuella nätverk dirigeras inom vårt globala nätverk och aldrig via det offentliga Internet, att säkerställa optimal prestanda och integritet.  
  
 Stora investeringar i fiber kapacitet och mångfald mellan appar i metro, land och ubåt sökvägar är avgörande för oss att hålla konsekvent och hög servicenivå vid bränsle åt extrem tillväxten av våra cloud och online-tjänster. Senaste tillägg till vårt globala nätverk är vår [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) Undervattenskabel, branschens första öppna rad System (OLS) över subsea mellan Bilbao, Spanien och Virginia stranden, Virginia, USA, samt de [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)mellan New York, USA och Dublin, Irland och [mellan nya och Stillahavsområdet (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) mellan Tokyo, Japan och Portland, Oregon, USA. 

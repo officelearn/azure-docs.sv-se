@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357269"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303854"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -30,7 +30,7 @@ Om du har frågor om hur prissättningen fungerar för Application Insights kan 
 
 ## <a name="pricing-model"></a>Prismodell
 
-Priser för [Azure Application Insights] [ start] baserat på datavolymen som matas in. Varje Application Insights-resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
+Priser för [Azure Application Insights][start] baserat på datavolymen som matas in. Varje Application Insights-resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
 
 ### <a name="data-volume-details"></a>Datavolymer
 
@@ -38,11 +38,12 @@ Priser för [Azure Application Insights] [ start] baserat på datavolymen som ma
 * Programmets datavolymavgifter rapporteras på en ny faktureringsmätaren börjar med namnet **datainmatning** från och med April 2018. Detta ny mätare delas mellan övervakning tekniker, till exempel program Insights och Log Analytics och är för närvarande under namnet på tjänsten **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data inte räknas för prissättning.
 
-Löpande priser i din valuta och region, se [priser för Application Insights][pricing].
+> [!NOTE]
+> Alla priser som visas i skärmbilderna i den här artikeln är till exempel endast. Löpande priser i din valuta och region, se [priser för Application Insights][pricing].
 
 ### <a name="multi-step-web-tests"></a>Webbtester med flera steg
 
-[Webbtester med flera steg](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) innebära en extra avgift. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
+[Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) innebära en extra avgift. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
 
 Det finns ingen avgift för *pinga tester* på en enda sida. Telemetri från Pingtest och flera steg tester debiteras samma som andra telemetrin från din app.
 
@@ -53,7 +54,7 @@ Application Insights gör det lätt att förstå vad dina kostnader kan antas va
 ![Välj prissättning](./media/pricing/pricing-001.png)
 
 A. Granska din datavolym för månaden. Detta omfattar alla data som har tagit emot och bevaras (efter eventuella [sampling](../../azure-monitor/app/sampling.md)) från din server och klientappar och tillgänglighetstester.  
-B. En separat avgift tas ut för [webbtester med flera steg](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Detta omfattar inte enkel tillgänglighetstester som ingår i data volym kostnad.)  
+B. En separat avgift tas ut för [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md). (Detta omfattar inte enkel tillgänglighetstester som ingår i data volym kostnad.)  
 C. Visa datatrender för den senaste månaden.  
 D. Aktivera datainmatning [sampling](../../azure-monitor/app/sampling.md).   
 E. Ange den dagliga Volymgränsen för data.  

@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057421"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164805"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hur du kräver tvåstegsverifiering för en användare
 
 Du kan ta två metoder för att kräva tvåstegsverifiering, som båda kräver att du använder ett globalt administratörskonto. Det första alternativet är att varje användare för Azure Multi-Factor Authentication (MFA). När användare är aktiverade individuellt, de utför en tvåstegsverifiering varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när den _sparas enheter_ funktionen är aktiverad). Det andra alternativet är att ställa in en princip för villkorlig åtkomst som kräver tvåstegsverifiering under vissa omständigheter.
 
 > [!TIP]
-> Välj någon av följande metoder för att kräva tvåstegsverifiering, inte båda. Aktivera en användare för Azure Multi-Factor Authentication åsidosätter eventuella principer för villkorlig åtkomst.
+> Aktivera Azure Multi-Factor Authentication är med hjälp av principer för villkorlig åtkomst den rekommenderade metoden. Du bör inte längre ändra användarens tillstånd, såvida inte dina licenser inte omfattar villkorlig åtkomst som måste användare att utföra MFA varje gång de loggar in.
 
 ## <a name="choose-how-to-enable"></a>Välj hur du vill aktivera
 

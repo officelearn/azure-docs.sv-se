@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255264"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296520"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Kom igång med Azure Monitor Log Analytics
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Kom igång med Log Analytics i Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor Log Analytics i Azure-portalen för att skriva Azure Monitor log-frågor. Det får du lära dig hur du:
+I den här självstudiekursen kommer du lära dig hur du använder Log Analytics i Azure-portalen för att skriva Azure Monitor log-frågor. Det får du lära dig hur du:
 
-- Skriva enkla frågor
+- Använd Log Analytics för att skriva en enkel fråga
 - Förstå schemat för dina data
 - Filtrera, sortera och gruppera resultat
 - Tillämpa ett tidsintervall
@@ -29,13 +29,22 @@ I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor
 - Spara och läsa in frågor
 - Exportera och dela frågor
 
+En självstudiekurs om hur du skriver loggfrågor finns i [Kom igång med loggfrågor i Azure Monitor](get-started-queries.md).<br>
+Mer information om loggfrågor finns i [översikt över log frågor i Azure Monitor](log-query-overview.md).
 
 ## <a name="meet-log-analytics"></a>Uppfyll Log Analytics
 Log Analytics är ett webbverktyg som används för att skriva och köra Azure Monitor log-frågor. Öppna den genom att välja **loggar** i Azure Monitor-menyn. Det börjar med en ny tom fråga.
 
 ![Startsida](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Brandväggskrav
+Om du vill använda Log Analytics kräver åtkomst till följande adresser i din webbläsare. Om webbläsaren har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
 
+| URI: N | IP-adress | Portar |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamisk | 80,443 |
+| api.loganalytics.io | Dynamisk | 80,443 |
+| docs.loganalytics.io | Dynamisk | 80,443 |
 
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka villkoren, identifiera trender, analysera mönster och ger många andra insikter utifrån dina data. Börja med en grundläggande fråga:
@@ -44,9 +53,9 @@ Frågor kan användas för att söka villkoren, identifiera trender, analysera m
 Event | search "error"
 ```
 
-Den här frågan söker den _händelse_ tabellen för poster som innehåller termen ”error” i en egenskap.
+Den här frågan söker den _händelse_ tabellen för poster som innehåller termen _fel_ i en egenskap.
 
-Frågor kan börja med antingen ett tabellnamn eller en **search** kommando. Exemplet ovan börjar med tabellnamnet _händelse_, som definierar omfattningen av frågan. Vertikalstreck (|) separerar kommandon, så att utdata från den första som fungerar som indata för kommandot. Du kan lägga till valfritt antal kommandon till en enskild fråga.
+Frågor kan börja med antingen ett tabellnamn eller en [search](/kusto/query/searchoperator) kommando. Exemplet ovan börjar med tabellnamnet _händelse_, som hämtar alla poster från tabellen händelse. Vertikalstreck (|) separerar kommandon, så att utdata från den första som fungerar som indata för kommandot. Du kan lägga till valfritt antal kommandon till en enskild fråga.
 
 Ett annat sätt att skriva samma frågan är:
 
@@ -54,18 +63,18 @@ Ett annat sätt att skriva samma frågan är:
 search in (Event) "error"
 ```
 
-I det här exemplet **search** är begränsad till den _händelse_ tabellen och alla poster i tabellen genomsöks efter termen ”error”.
+I det här exemplet **search** är begränsad till den _händelse_ tabellen och alla poster i tabellen genomsöks efter termen _fel_.
 
 ## <a name="running-a-query"></a>En fråga som körs
 Köra en fråga genom att klicka på den **kör** knapp eller trycker på **SKIFT + RETUR**. Överväg följande information som avgör den kod som ska köras och de data som returneras:
 
-- Radbrytningar: En enda break gör din fråga tydligare. Flera radbrytningar dela upp den till separata frågor.
+- Radbrytningar: En enda break gör det lättare att läsa din fråga. Flera radbrytningar dela upp den till separata frågor.
 - Markören: Placera markören någonstans i frågan för att köra den. Den aktuella frågan anses vara koden tills en tom rad hittas.
 - Tidsintervall – ett tidsintervall för _senaste 24 timmarna_ är som standard. Om du vill använda ett annat intervall, Använd tidsväljare eller Lägg till en explicit tid filter för datumintervall i frågan.
 
 
 ## <a name="understand-the-schema"></a>Förstå schemat
-Schemat är en uppsättning tabeller visuellt grupperade under en logisk kategori. Nu kan många av kategorierna av lösningar. Den _LogManagement_ kategorin innehåller vanliga data, till exempel Windows och Syslog-händelser, prestandadata och klienten pulsslag.
+Schemat är en uppsättning tabeller visuellt grupperade under en logisk kategori. Nu kan många av kategorierna av lösningar. Den _LogManagement_ kategorin innehåller vanliga data, till exempel Windows och Syslog-händelser, prestandadata och agentens pulsslag.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -181,7 +190,7 @@ Query Explorer-ikonen visas i området längst upp till höger. Här visas alla 
 Log Analytics har stöd för flera exporterar metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
-- Power BI: Exportera resultaten till power BI. Se [importera Azure Monitor log-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.
+- Power BI: Exportera resultaten till Power BI. Se [importera Azure Monitor log-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.
 - Dela en länk: Själva frågan kan delas som en länk som sedan kan skickas och körs av andra användare som har åtkomst till samma arbetsyta.
 
 ## <a name="next-steps"></a>Nästa steg

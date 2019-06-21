@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826462"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205671"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -42,7 +42,7 @@ Nedanstående funktioner finns för närvarande inte stöd för Azure NetApp-fil
 
 Det gäller följande nätverksbegränsningar till Azure NetApp-filer:
 
-* Hur många virtuella datorer som kan ansluta till en volym (med ett virtuellt nätverk eller mellan peerkopplade virtuella nätverk) får inte överskrida 1000.
+* Antal IP-adresser som används i ett virtuellt nätverk med Azure NetApp-filer (inklusive peerkopplade virtuella nätverk) får inte överskrida 1000.
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).
 
 
@@ -103,13 +103,13 @@ Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst ti
 
 Överväg även ett scenario där VNet 1 peer-kopplas med VNet-2 och VNet 2 peer-kopplas med VNet-3 i samma region. Resurser från 1 virtuellt nätverk kan ansluta till resurser i VNet-2, men den inte kan ansluta till resurser i VNet 3, såvida inte VNet 1 och 3 för virtuellt nätverk är peer-kopplade. 
 
-I diagrammet ovan men VM 3 kan ansluta till volym 1, VM 4 kan inte ansluta till volymen 2.  Det beror på att de virtuella ekernätverken inte peer-kopplade, och _överföringsroutning stöds inte över VNet-peering_.
+I diagrammet ovan men VM 3 kan ansluta till volym 1, VM 4 kan inte ansluta till volymen 2.  Anledningen är att de virtuella ekernätverken inte peer-kopplade, och _överföringsroutning stöds inte över VNet-peering_.
 
 ## <a name="hybrid-environments"></a>Hybridmiljöer
 
 Följande diagram illustrerar en hybridmiljö: 
 
-![Hybrid nätverksmiljö](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Hybrid nätverksmiljö](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 I ett hybridscenario behöver program från lokala Datacenter åtkomst till resurser i Azure.  Detta gäller oavsett om du vill utöka ditt datacenter till Azure, eller om du vill använda interna Azure-tjänster eller för katastrofåterställning. Se [VPN Gateway planning alternativ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
 
@@ -117,10 +117,10 @@ I en hybrid hub-spoke fungerar det virtuella hubbnätverket i Azure som en centr
 
 Beroende på konfiguration. Du kan ansluta resurser från en lokal plats till resurser i hubben och ekrarna.
 
-Det lokala nätverket är anslutet till ett virtuellt nätverk i Azure-hubb i topologin som visas ovan, och det finns 2 eker virtuella nätverk som peer-kopplas med det virtuella hubbnätverket.  I det här scenariot är de anslutningsalternativ som stöds för Azure NetApp Files volymer på följande sätt:
+Det lokala nätverket är anslutet till ett virtuellt nätverk i Azure-hubb i topologin som visas ovan, och det finns 2 eker virtuella nätverk i samma region som är peerkopplat med det virtuella hubbnätverket.  I det här scenariot är de anslutningsalternativ som stöds för Azure NetApp Files volymer på följande sätt:
 
-* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volym 1 i hubben via plats-till-plats VPN eller en ExpressRoute. 
-* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volymen 2 eller 3 för volymen.
+* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volym 1 i hubben via en plats-till-plats VPN eller Express Route. 
+* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volymen 2 eller 3 för volym via en plats-till-plats-VPN och en regional Vnet-peering.
 * VM-3 i hubben virtuellt nätverk kan ansluta till volymen 2 i eker 1 virtuellt nätverk och volym 3 i eker 2 för virtuella nätverk.
 * VM 4 från eker 1 virtuellt nätverk och VM-5 från eker 2 för virtuella nätverk kan ansluta till volym 1 i det virtuella hubbnätverket.
 

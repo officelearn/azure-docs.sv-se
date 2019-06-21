@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646783"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274863"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med Azure Backup via REST-API
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Den *hämta* URI: N har de obligatoriska parametrarna. Inga ytterligare begärandetexten krävs.
 
-#### <a name="responses"></a>Responses
+##### <a name="responses-1"></a>Svar
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       Ok |
 
-##### <a name="example-responses"></a>Exempelsvar
+##### <a name="example-responses-1"></a>Exempelsvar
 
 När den *hämta* begäran har skickats, returneras ett svar med 200 (OK).
 
@@ -329,7 +329,7 @@ Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och se
 |---------|---------|---------|
 |202-accepterad     |         |     Accepterat    |
 
-#### <a name="example-responses"></a>Exempelsvar
+##### <a name="example-responses-3"></a>Exempelsvar
 
 När du skickar in den *POST* begäran för en säkerhetskopiering på begäran första svar är 202 (accepterad) med en platsrubrik eller Azure-async-rubrik.
 
@@ -439,7 +439,7 @@ Den `{containerName}` och `{protectedItemName}` som konstruerats [ovan](#respons
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses-2"></a>Svar
 
 *Ta bort* protection är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 

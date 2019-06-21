@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721083"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303816"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
-Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), och [prestandatestning](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för webbplatsen plats.
+Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för din live-webbplats.
 
 Med Live Metrics Stream kan du:
 
@@ -192,15 +192,6 @@ Om du känner igen och litar på alla anslutna servrar, kan du försöka anpassa
 >[!NOTE]
 >Vi rekommenderar starkt att du ställer in autentiserade kanalen innan potentiellt känslig information som CustomerID i filtervillkoren.
 >
-
-## <a name="generating-a-performance-test-load"></a>Generera en belastning för test av prestanda
-
-Om du vill se effekten av en ökning av belastningen använda bladet prestandatest. Den simulerar begäranden från ett antal samtidiga användare. Det kan köras antingen ”manuella tester” (ping tester) av en enskild URL eller den kan köra en [flerstegstest prestandatest](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) som du överför (på samma sätt som ett tillgänglighetstest).
-
-> [!TIP]
-> När du har skapat prestandatest öppna testet och bladet Live Stream i olika fönster. Du kan se när köade prestandatest startar och titta på live stream samtidigt.
->
-
 
 ## <a name="troubleshooting"></a>Felsökning
 

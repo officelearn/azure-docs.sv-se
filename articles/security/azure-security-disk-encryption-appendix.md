@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118339"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295045"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 
@@ -133,15 +133,15 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
   - [Inaktivera kryptering på en som kör Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer.  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Kryptera eller dekryptera VM-skalningsuppsättningar
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Kryptera eller dekryptera VM-skalningsuppsättningar
 
 - [Aktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Aktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Distribuera en virtuell dator skala ange av virtuella Linux-datorer med en jumpbox och aktiverar kryptering på Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Distribuera en VM-skalningsuppsättning med virtuella Linux-datorer med en jumpbox och aktiverar kryptering på Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Distribuera en virtuell dator skala ange av Windows virtuella datorer med en jumpbox och aktiverar kryptering på Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Distribuera en virtuell dator med Windows virtuella datorer med en jumpbox och aktiverar kryptering på Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Inaktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Krav för OS-diskkryptering
 
-* Den virtuella datorn måste använda en distributionsplats som är kompatibel med OS-diskkryptering som anges i den [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 
+* Den virtuella datorn måste använda en distributionsplats som är kompatibel med OS-diskkryptering som anges i den [Azure Disk Encryption operativsystem som stöds: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * Den virtuella datorn måste skapas från Marketplace-avbildning i Azure Resource Manager.
 * Azure virtuell dator med minst 4 GB RAM (rekommenderas är 7 GB).
 * (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux, se ”4.4.2. Inaktivera SELinux ”i den [SELinux användar- och Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.

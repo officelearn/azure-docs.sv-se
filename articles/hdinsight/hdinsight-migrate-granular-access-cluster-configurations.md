@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: HT
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203088"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304289"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -20,7 +20,7 @@ Vi introducerar några viktiga förändringar för att stödja mer detaljerad ro
 
 ## <a name="what-is-changing"></a>Vad ändras?
 
-Tidigare hemligheter kan hämtas via HDInsight-API av kluster-användare som har den ägare, deltagare eller läsare [RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), som de var tillgängliga för alla som har den `*/read` behörighet krävdes.
+Tidigare hemligheter kan hämtas via HDInsight-API av kluster-användare som har den ägare, deltagare eller läsare [RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), som de var tillgängliga för alla som har den `*/read` behörighet.
 Framöver kommer åtkomst till dessa hemligheter kräver den `Microsoft.HDInsight/clusters/configurations/*` behörighet, vilket innebär att de inte längre kan nås av användare med rollen läsare. Hemligheter är definierade som värden som kan användas för att få mer utökad åtkomst än en användarroll ska tillåta. Dessa inkluderar värden som HTTP-gateway på klusternivå, lagringskontonycklar och autentiseringsuppgifter på databasen.
 
 Lanserar vi även en ny [HDInsight-kluster operatorn](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) roll som kommer att kunna hämta hemligheter utan beviljas administratörsbehörighet för deltagare eller ägare. Sammanfattningsvis:

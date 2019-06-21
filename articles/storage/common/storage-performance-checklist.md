@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 83f202f087d51b7742a74cf5ee5db8bd5fee5385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073725"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295755"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Checklista för prestanda och skalbarhet i Microsoft Azure Storage
 
@@ -109,7 +109,7 @@ Om gränsen på storage-konton som du kan ha i en viss prenumeration/region komb
 Om ditt program närmar sig det för skalbarhetsmål för ett enda lagringskonto, bör du börja använda någon av följande metoder:  
 
 * Ändra den arbetsbelastning som gör att ditt program till närmar sig eller överskrider skalbarhetsmålen. Kan du utforma på olika sätt att använda mindre bandbredd eller kapacitet eller färre transaktioner?
-* Om ett program måste överstiger ett av målen för skalbarhet, bör du skapa flera lagringskonton och partitionera dina programdata på dessa flera lagringskonton. Om du använder det här mönstret kan vara noga med att designa programmet så att du kan lägga till fler lagringskonton i framtiden för belastningsutjämning. Varje Azure-prenumeration kan ha upp till 100 lagringskonton vid tidpunkten för skrivning.  Storage-konton har också utan kostnad än din användning när det gäller data som lagras, transaktioner som har gjorts eller data som överförs.
+* Om ett program måste överstiger ett av målen för skalbarhet, bör du skapa flera lagringskonton och partitionera dina programdata på dessa flera lagringskonton. Om du använder det här mönstret kan vara noga med att designa programmet så att du kan lägga till fler lagringskonton i framtiden för belastningsutjämning. Varje Azure-prenumeration kan ha upp till 250 storage-konton per region (när det distribueras med Azure Resource Manager-modellen) vid tidpunkten för skrivning.  Storage-konton har också utan kostnad än din användning när det gäller data som lagras, transaktioner som har gjorts eller data som överförs.
 * Om ditt program når bandbredd mål, bör du du genom att komprimera data i klienten för att minska den bandbredd som krävs för att skicka data till lagringstjänsten.  Även om det här kan spara bandbredd och förbättra nätverkets prestanda, kan den också ha några negativa konsekvenser.  Du ska utvärdera prestanda påverkas av detta på grund av ytterligare bearbetning-kraven för att komprimera och expandera data i klienten. Dessutom kan kan lagra komprimerade data göra det svårare att felsöka problem Eftersom det kan vara svårare att visa lagrade data med standardverktyg.
 * Om ditt program når det för skalbarhetsmål, ser du till att du använder en exponentiell backoff för återförsök (se [återförsök](#subheading14)).  Det är bättre att se till att du aldrig itu med det för skalbarhetsmål (med hjälp av någon av metoderna ovan), men det säkerställer att ditt program inte bara antalet tillåtna nedladdningsförsök snabbt, vilket gör den begränsning sämre resultat.  
 

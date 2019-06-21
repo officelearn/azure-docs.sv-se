@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735017"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147969"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -49,7 +49,8 @@ Om du vill veta mer om ett visst kommando kan bara innehålla namnet på kommand
 
 ![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-Innan du kan göra något beskrivande med AzCopy, måste du bestämma hur du anger autentiseringsuppgifter till storage-tjänsten.
+> [!NOTE] 
+> Ägare för Azure Storage-kontot kan behörigheter du inte automatiskt för att komma åt data. Innan du kan göra något beskrivande med AzCopy, måste du bestämma hur du anger autentiseringsuppgifter till storage-tjänsten. 
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du anger autentiseringsuppgifter
 
@@ -67,9 +68,9 @@ Använd den här tabellen som vägledning:
 
 Utbud av auktoriseringar som du behöver baseras på om du planerar att ladda upp filer eller hämta dem bara.
 
-#### <a name="authorization-to-upload-files"></a>Tillstånd att ladda upp filer
+Om du bara vill ladda ned filer, kontrollera att den [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) har tilldelats till din identitet.
 
-Kontrollera att en av dessa roller har tilldelats till din identitet:
+Om du vill ladda upp filer, kontrollerar du att någon av dessa roller har tilldelats till din identitet:
 
 - [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -87,27 +88,6 @@ Du behöver inte ha någon av dessa roller som tilldelats din identitet om din i
 
 Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authorization-to-download-files"></a>Auktorisering att hämta filer
-
-Kontrollera att en av dessa roller har tilldelats till din identitet:
-
-- [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-- [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-Dessa roller kan tilldelas till din identitet i någon av dessa scope:
-
-- Behållare (filsystem)
-- Lagringskonto
-- Resursgrupp
-- Prenumeration
-
-Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för målbehållare eller katalog. I ACL måste din identitet läsbehörighet målkatalogen och körbehörighet på behållaren och alla överordnade kataloger.
-
-Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
 #### <a name="authenticate-your-identity"></a>Verifiera din identitet
 
 När du har kontrollerat att din identitet har fått den nödvändiga säkerhetsnivån, öppna en kommandotolk, Skriv följande kommando och tryck sedan på RETUR-tangenten.
@@ -115,6 +95,14 @@ När du har kontrollerat att din identitet har fått den nödvändiga säkerhets
 ```azcopy
 azcopy login
 ```
+
+Om du tillhör mer än en organisation kan innehålla klient-ID för den organisation som lagringskontot tillhör.
+
+```azcopy
+azcopy login --tenant-id=<tenant-id>
+```
+
+Ersätt den `<tenant-id>` med klient-ID för den organisation som lagringskontot tillhör. Du hittar klient-ID, Välj **Azure Active Directory > Egenskaper > katalog-ID** i Azure-portalen.
 
 Det här kommandot returnerar en Autentiseringskod och Webbadressen till en webbplats. Öppna webbplatsen, ange koden och välj sedan den **nästa** knappen.
 
@@ -146,13 +134,32 @@ Exempel på kommandon finns i någon av följande artiklar.
 
 - [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
+## <a name="use-azcopy-in-a-script"></a>Använda AzCopy i ett skript
 
-Se [konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
+Med tiden, AzCopy [nedladdningslänk](#download-and-install-azcopy) pekar till nya versioner av AzCopy. Om ditt skript har hämtats AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar funktioner som är beroende av om ditt skript. 
+
+Undvik dessa problem, skaffar du en statisk (icke föränderliga) länk till den aktuella versionen av AzCopy. På så sätt kan dina skript hämtar exakt samma version av AzCopy varje gång det körs.
+
+Om du vill få en länk, kör du följande kommando:
+
+| Operativsystem  | Kommando |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> För Linux, `--strip-components=1` på den `tar` kommandot tar bort den översta mappen som innehåller versionsnamnet på och i stället extraherar den binära filen direkt till den aktuella mappen. På så sätt kan skriptet som ska uppdateras med en ny version av `azcopy` genom att endast uppdatera den `wget` URL: en.
+
+Webbadressen visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp av URL: en.
+
+| Operativsystem  | Kommando |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Använda AzCopy i Storage Explorer
 
-Om du vill utnyttja fördelarna med AzCopy prestanda, men du föredrar att använda Storage Explorer i stället för kommandoraden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer.
+Om du vill utnyttja fördelarna med AzCopy prestanda, men du föredrar att använda Storage Explorer i stället för kommandoraden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer. 
 
 I Storage Explorer väljer **förhandsversion**->**använda AzCopy för förbättrad Blob ladda upp och ladda ned**.
 
@@ -161,6 +168,8 @@ I Storage Explorer väljer **förhandsversion**->**använda AzCopy för förbät
 > [!NOTE]
 > Du behöver aktivera den här inställningen om du har aktiverat ett hierarkiskt namnområde på ditt lagringskonto. Det beror på att Storage Explorer automatiskt använder AzCopy på storage-konton som har ett hierarkiskt namnområde.  
 
+Lagringsutforskaren använder din kontonyckel för att utföra åtgärder, så när du loggar in i Storage Explorer inte behöver du ange ytterligare autentiseringsuppgifter.
+
 <a id="previous-version" />
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Använd den tidigare versionen av AzCopy
@@ -168,7 +177,12 @@ I Storage Explorer väljer **förhandsversion**->**använda AzCopy för förbät
 Om du vill använda den tidigare versionen av AzCopy (AzCopy v8.1) ser du något av följande länkar:
 
 - [AzCopy i Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
 - [AzCopy i Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
+
+Se [konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

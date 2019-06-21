@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acd873cd19cafb785f968fd3d8671640bcfafed8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050760"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163707"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -136,7 +136,7 @@ az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-Det här exemplet aktiverar fjärradministrerad läge. Ersätt `<APP_NAME>` med namnet på funktionsappen och `<RESOURCE_GROUP> ` med resursgruppen.
+Det här exemplet aktiverar fjärradministrerad läge. Ersätt `<APP_NAME>` med namnet på funktionsappen och `<RESOURCE_GROUP>` med resursgruppen.
 
 > [!WARNING]  
 > I den [förbrukningsplan](functions-scale.md#consumption-plan), måste du lägga till den `WEBSITE_USE_PLACEHOLDER` inställning med värdet `0`.  

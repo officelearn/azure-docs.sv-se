@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479159"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162590"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Skala ditt Stream Analytics-jobb med Azure Machine Learning Studio-funktioner
 Det är enkelt att konfigurera ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att den växer. I det här dokumentet har fokusera vi på särskilda aspekter av en Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Vad är en Azure Machine Learning-funktionen i Stream Analytics?
-En Machine Learning-funktionen i Stream Analytics kan användas som ett reguljärt funktionsanrop i Stream Analytics-frågespråket. Bakom scenen är dock funktionsanropen faktiskt Azure Machine Learning-webbtjänsten begäranden. Machine Learning-webbtjänster stöd ”batchbearbetning” flera rader kallas Mini batch i samma API webbtjänstanropet, att förbättra hela dataflödet. Mer information finns i [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).
+En Machine Learning-funktionen i Stream Analytics kan användas som ett reguljärt funktionsanrop i Stream Analytics-frågespråket. Bakom scenen är dock funktionsanropen faktiskt Azure Machine Learning Studio-webbtjänsten begäranden. Machine Learning-webbtjänster stöd ”batchbearbetning” flera rader kallas Mini batch i samma API webbtjänstanropet, att förbättra hela dataflödet. Mer information finns i [Azure Machine Learning Studio-webbtjänster](../machine-learning/studio/consume-web-services.md). Stöd för Azure Machine Learning Studio i Stream Analytics finns i förhandsversion.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Konfigurera ett Stream Analytics-jobb med Machine Learning-funktioner
 När du konfigurerar en Machine Learning-funktion för Stream Analytics-jobbet, finns det två parametrar att tänka på, batchstorlek för Machine Learning-funktionsanrop och strömningsenheter (su) som tillhandahållits för Stream Analytics-jobb. För att avgöra lämpliga värden för SUs måste först ett beslut göras mellan svarstid och dataflöde, det vill säga svarstiden för Stream Analytics-jobb, och genomströmning på varje SU. SUs kan alltid lägga till ett jobb för att öka genomflödet av en bra partitionerade Stream Analytics-fråga, men ytterligare SUs ökar kostnaden för att köra jobbet.

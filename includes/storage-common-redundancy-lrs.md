@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113774"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187419"
 ---
 Lokalt redundant lagring (LRS) innehåller minst 99,999999999% (11 nines) objektshållbarhet under ett givet år. LRS får det här objektet tillförlitlighet genom att replikera dina data till en lagringsskalningsenhet. Ett datacenter, i den region där du skapade ditt storage-konto är värd för lagringsskalningsenhet. En skrivbegäran till ett LRS-lagringskonto returnerar har bara när data skrivs till alla repliker. Varje replik finns i separata feldomäner och uppgraderingsdomäner i en lagringsskalningsenhet.
 

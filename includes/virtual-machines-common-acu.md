@@ -9,11 +9,11 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160091"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187342"
 ---
 Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämföra prestanda för databearbetning (CPU) mellan Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov.  ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest. 
 
@@ -24,7 +24,7 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 
 <br>
 
-| SKU-familj | ACU\vCPU | vCPU: Kärna |
+| SKU-familj | ACU\vCPU | vCPU: Core |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1 - A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |

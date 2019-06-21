@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510721"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272364"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -47,6 +47,12 @@ ms.locfileid: "65510721"
 * Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser. 
 * Stöd för strömmar. 
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* Tillåt skrivbegäranden återställas till en annan region om ursprungligt en misslyckas
+* Lägg till sessionen återförsöksprincipen för skrivbegäran
+* Korrigeringar för spårning av konkurrenstillstånd för frågor som gjorde att tomma sidor
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -375,6 +381,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |18 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 maj 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 februari 2019 |--- |

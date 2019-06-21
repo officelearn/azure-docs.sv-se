@@ -4,15 +4,15 @@ description: Den här artikeln introducerar koncept som lagrade procedurer, utl�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965699"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165579"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -75,7 +75,7 @@ JavaScript-funktioner är också lyder [etablerats dataflödeskapacitet](request
 
 ## <a name="triggers"></a>Utlösare
 
-Det här avsnittet beskrivs två typer av utlösare:
+Azure Cosmos DB stöder två typer av utlösare:
 
 ### <a name="pre-triggers"></a>Före utlösare
 
@@ -84,6 +84,9 @@ Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en 
 ### <a name="post-triggers"></a>Efter utlösare
 
 Liknar före utlösare, efter utlösare är också kopplad till en åtgärd på ett Azure Cosmos DB-objekt och de kräver inte någon indataparametrar. De körs *när* åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten. Exempel finns i [hur du skriver utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikeln.
+
+> [!NOTE]
+> Registrerad utlösare inte körs automatiskt när deras motsvarande åtgärder (skapa / ta bort / ersätta / uppdatera) sker. De behöver anropas uttryckligen när du kör dessa åtgärder. Mer information finns i [hur du kör utlösare](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) artikeln.
 
 ## <a id="udfs"></a>Användardefinierade funktioner
 

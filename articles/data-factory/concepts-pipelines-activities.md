@@ -98,8 +98,8 @@ Tagg | Beskrivning | Typ | Obligatoriskt
 --- | ----------- | ---- | --------
 name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | String | Ja
 description | Ange texten som beskriver vad pipeline används till. | String | Nej
-activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
-parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Nej
+activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Array | Ja
+parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | List | Nej
 
 ## <a name="activity-json"></a>Aktivitets-JSON
 Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två typer av aktiviteter: Körning och Kontrollaktiviteter.

@@ -33,7 +33,7 @@ Om du vill hämta värden från resurser, resursgrupper eller prenumerationer, s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>distribution
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Returnerar information om den aktuella Distributionsåtgärden.
@@ -257,7 +257,7 @@ Utdata från föregående exempel med standardvärdena är:
 | stringOutput | String | Alternativ 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
-| arrayOutput | Matris | [1, 2, 3] |
+| arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | Alternativ 1 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -358,7 +358,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
-| exampleOutput2 | Matris | [1, 2, 3, 4] |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 

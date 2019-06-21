@@ -68,9 +68,9 @@ Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
 name | Namnet på if-villkoret. | String | Ja
 type | Måste vara inställt på **IfCondition** | String | Ja
-uttryck | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
-ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Matris | Ja
-ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Matris | Ja
+expression | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
+ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Array | Ja
+ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Array | Ja
 
 ## <a name="example"></a>Exempel
 Pipelinen i det här exemplet kopierar data från en Indatamappen till en utdatamapp. Utdatamappen bestäms av värdet för pipeline-parameter: routeSelection. Om värdet för routeSelection är true, kopieras data till outputPath1. Och om värdet för routeSelection är FALSKT, data kopieras till outputPath2. 

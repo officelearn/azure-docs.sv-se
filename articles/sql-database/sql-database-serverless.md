@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116206"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275476"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL-databas utan server (förhandsversion)
 
@@ -253,6 +253,8 @@ Resurspoolen användare är inre de flesta resource management-gränsen för en 
 
 ### <a name="metrics"></a>Mått
 
+Mått för övervakning av resursanvändningen för programpoolen för paketet och användaren av en databas utan Server finns i följande tabell:
+
 |Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
 |App-paket|app_cpu_percent|Procentandel virtuella kärnor som används av appen i förhållande till max virtuella kärnor tillåts för appen.|Procent|
@@ -263,10 +265,6 @@ Resurspoolen användare är inre de flesta resource management-gränsen för en 
 |Användare-pool|log_IO_percent|Procent av loggen MB/s som används av arbetsbelastning för användare i förhållande till max log MB/s tillåts för arbetsbelastning per användare.|Procent|
 |Användare-pool|workers_percent|Procentandel arbetare som används av arbetsbelastning för användare i förhållande till max arbetare som tillåts för arbetsbelastning per användare.|Procent|
 |Användare-pool|sessions_percent|Procentandel sessioner som används av arbetsbelastning för användare i förhållande till maximalt antal sessioner som tillåts för arbetsbelastning per användare.|Procent|
-____
-
-> [!NOTE]
-> Mått i Azure-portalen är tillgängliga i fönstret databas för en enskild databas under **övervakning**.
 
 ### <a name="pause-and-resume-status"></a>Pausa och återuppta status
 

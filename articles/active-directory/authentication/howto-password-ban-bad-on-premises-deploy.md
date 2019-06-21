@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057282"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293023"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -145,7 +145,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
    > Det kan finnas en märkbar fördröjning innan slutförande första gången som den här cmdleten körs för en specifik Azure-klient. Om inte ett fel rapporteras, oroa dig inte om den här fördröjningen.
 
 1. Registrera skogen.
-   * Du måste initiera en lokal Active Directory-skog med autentiseringsuppgifterna som krävs för att kommunicera med Azure med hjälp av den `Register-AzureADPasswordProtectionForest` PowerShell-cmdlet. Cmdlet: en kräver autentiseringsuppgifter som global administratör för din Azure-klient. Det kräver också en lokal Active Directory domänadministratörsbehörighet i rotdomänen i skogen. Det här steget körs en gång per skog.
+   * Du måste initiera en lokal Active Directory-skog med autentiseringsuppgifterna som krävs för att kommunicera med Azure med hjälp av den `Register-AzureADPasswordProtectionForest` PowerShell-cmdlet. Cmdlet: en kräver autentiseringsuppgifter som global administratör för din Azure-klient. Det kräver också en lokal Active Directory företagsadministratörsprivilegier. Det här steget körs en gång per skog.
 
       Den `Register-AzureADPasswordProtectionForest` cmdlet har stöd för följande tre autentiseringslägen.
 
@@ -219,7 +219,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
    I båda fallen ersätter `http://yourhttpproxy.com:8080` med adressen och porten för din specifika HTTP-proxyserver.
 
-   Om HTTP-proxy har konfigurerats för oss en auktoriseringsprincip måste du ge åtkomst till Active Directory-datorkontot på den dator som är värd för proxytjänsten lösenordsskydd.
+   Om HTTP-proxy har konfigurerats för att använda en auktoriseringsprincip, måste du bevilja åtkomst till Active Directory-datorkontot för den dator som är värd för proxytjänsten lösenordsskydd.
 
    Vi rekommenderar att du stoppa och starta om proxytjänsten när du skapar eller uppdaterar den *AzureADPasswordProtectionProxy.exe.config* fil.
 

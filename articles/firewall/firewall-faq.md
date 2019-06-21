@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384679"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304586"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor om Azure-brandväggen
 
@@ -76,7 +76,6 @@ Azure brandväggstjänsten kompletterar network security group funktioner. Tills
 
 Azure-brandväggen är en hanterad tjänst med flera lager av skydd, inklusive plattform protection med NIC på NSG: er (inte ses).  På undernätsnivå behövs inte i brandväggen för Azure-undernät och har inaktiverats för att se till att inga avbrott i tjänsten.
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hur ställer jag in Azure-brandvägg med min tjänstslutpunkter?
 
 Vi rekommenderar tjänstslutpunkter för säker åtkomst till PaaS-tjänster. Du kan välja att aktivera Tjänsteslutpunkter i Azure-brandvägg undernät och inaktivera dem på anslutna virtuella ekernätverk. Det här sättet du dra nytta av funktioner – tjänsten endpoint säkerhets- och centrala loggning för all trafik.
@@ -123,6 +122,10 @@ Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera o
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk eller peerkopplade virtuella nätverk?
 
 Ja. Konfigurera udr: er för att omdirigera trafik mellan undernät i samma virtuella nätverk kräver dock ytterligare uppmärksamhet. När du använder VNET-adressintervall som ett mål-prefix för den användardefinierade vägen är tillräcklig kan dirigerar detta även all trafik från en dator till en annan dator i samma undernät genom brandväggen för Azure-instans. Undvik detta genom att inkludera en väg för undernätet i den användardefinierade vägen med ett nexthop-typ för **VNET**. Hantera dessa vägar kan vara besvärligt och felbenägna. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper som inte kräver udr: er.
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Fungerar Azure brandvägg utgående SNAT mellan privata nätverk?
+
+Azure-brandväggen inte SNAT när den IP-adressen är en privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Om din organisation använder en offentlig IP-adressintervall för privata nätverk, Azure-brandväggen SNATs trafik till en av brandväggen privata IP-adresser i AzureFirewallSubnet.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Är framtvingad tunneling/länkning till en virtuell nätverksinstallation som stöds?
 

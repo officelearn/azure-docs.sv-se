@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688644"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303953"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -33,6 +33,19 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="video-subclipping"></a>Video underklippning
+
+Du kan nu trimma eller en video på underklipp när du kodar den med hjälp av en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Den här funktionen fungerar med alla [transformera](https://docs.microsoft.com/rest/api/media/transforms) som skapats med hjälp av antingen den [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) förinställningar, eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) förinställningar. 
+
+Se exempel:
+
+* [Underklipp en video med .NET](subclip-video-dotnet-howto.md)
+* [Underklipp en video med REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Maj 2019
 

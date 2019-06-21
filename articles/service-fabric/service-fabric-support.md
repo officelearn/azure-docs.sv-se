@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545069"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304262"
 ---
 # <a name="azure-service-fabric-support-options"></a>Supportalternativ för Azure Service Fabric
 
@@ -43,7 +43,7 @@ Läs mer om:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Rapportera produktionsproblem eller begära betald support för fristående Service Fabric-kluster
 
-För att rapportera problem med Service Fabric-klustret distribuerat lokalt eller på andra moln, öppna en biljett för professionell support på [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
+För att rapportera problem med Service Fabric-klustret distribuerat lokalt eller på andra moln, öppna en biljett för professionell support på [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Läs mer om:
 
@@ -60,11 +60,11 @@ Rapportera problem som Azure Service Fabric på [Service-Fabric-problem med git-
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow och MSDN-forum
 
-Den [Service Fabric-tagg på StackOverflow] [ stackoverflow] och [Service Fabric-forum på MSDN] [ msdn-forum] är bästa används för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa aktiviteter med den.
+Den [Service Fabric-tagg på StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] är bästa används för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa aktiviteter med den.
 
 ### <a name="azure-feedback-forum"></a>Azure-Feedbackforum
 
-Den [Azure Feedback-Forum för Service Fabric] [ uservoice-forum] är den bästa platsen för att skicka stora funktionsidéer som du har för produkten när vi går igenom de mest populära förfrågningarna är en del av vår medelstora och långsiktig planering. Vi rekommenderar att du rally stöd för dina förslag inom gruppen.
+Den [Azure Feedback-Forum för Service Fabric][uservoice-forum] är den bästa platsen för att skicka stora funktionsidéer som du har för produkten när vi går igenom de mest populära förfrågningarna är en del av vår medelstora och långsiktig planering. Vi rekommenderar att du rally stöd för dina förslag inom gruppen.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Preview-versioner – stöds inte för användning i produktion
 

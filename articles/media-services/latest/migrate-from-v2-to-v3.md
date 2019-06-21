@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555882"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303522"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -80,7 +80,7 @@ V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor ä
 
 * Den [Premium-kodare](../previous/media-services-premium-workflow-encoder-formats.md) och äldre [mediebearbetare för analys](../previous/media-services-analytics-overview.md) (förhandsversion av Azure Media Services Indexer 2, Ansiktsredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 preview kan omedelbart använda AudioAnalyzer förinställda i v3-API: et.  Den nya förinställningen innehåller fler funktioner än äldre Media Indexer 1 eller 2. 
 * Många av de [avancerade funktioner för Media Encoder Standard i v2](../previous/media-services-advanced-encoding-with-mes.md) API: er är för närvarande inte tillgängliga i v3, till exempel:
-    * Avklippta (för på begäran och live-scenario)
+  
     * Gå till tillgångar
     * Överlägg
     * Beskärning

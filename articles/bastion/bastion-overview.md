@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 06/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: cfd68bbacf4cf8171efdba7878ec8c06055a4997
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191170"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303596"
 ---
 # <a name="what-is-azure-bastion-preview"></a>Vad är Azure Skyddsmiljö? (Förhandsversion)
 
@@ -48,7 +48,7 @@ Följande funktioner är tillgängliga för allmänt tillgängliga förhandsvers
 * **Fjärrsession över SSL och brandvägg edge traversal för RDP/SSH:** Azure Skyddsmiljö använder en HTML5-baserade web-klient som strömmas automatiskt till din lokala enhet så att du får RDP/SSH-sessionen via SSL på port 443 så att du kan bläddra i företags brandväggar på ett säkert sätt.
 * **Ingen offentlig IP-adress krävs för virtuella Azure-datorn:** Azure Skyddsmiljö öppnar RDP/SSH-anslutningen till din Azure-dator som använder privat IP-adress på den virtuella datorn. Du behöver inte en offentlig IP-adress på den virtuella datorn.
 * **Inget krångel med att hantera NSG: er:** Azure Skyddsmiljö är en helt hanterad plattform PaaS-tjänst från Azure som är härdade internt för att tillhandahålla du secure RDP/SSH-anslutningar. Du behöver inte tillämpa alla NSG: er i Azure Skyddsmiljö undernät. Eftersom Azure Skyddsmiljö ansluter till dina virtuella datorer över privat IP-adress måste konfigurera du dina NSG: er för att tillåta RDP/SSH från Azure Skyddsmiljö endast. Detta eliminerar krånglet med att hantera NSG: er varje gång som du behöver på ett säkert sätt ansluta dina virtuella datorer.
-* **Skyddet igen port genomsökning:** Eftersom du inte behöver att exponera dina virtuella datorer till offentliga Internet, är dina virtuella datorer skyddade mot skanna av otillåten och obehöriga användare utanför ditt virtuella nätverk.
+* **Skydd mot portskanning:** Eftersom du inte behöver att exponera dina virtuella datorer till offentliga Internet, är dina virtuella datorer skyddade mot skanna av otillåten och obehöriga användare utanför ditt virtuella nätverk.
 * **Skydda dig mot nolldagarshot. Härdning på samma plats:** Azure Skyddsmiljö är en platform totalhanterad PaaS-tjänst. Eftersom den befinner sig i perimetern till ditt virtuella nätverk, behöver du inte bekymra dig om Härdning av var och en av de virtuella datorerna i det virtuella nätverket. Azure-plattformen som skyddar mot nolldagarskryphål genom att hålla Azure Skyddsmiljö strikt skyddad och ständigt uppdaterade åt dig.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

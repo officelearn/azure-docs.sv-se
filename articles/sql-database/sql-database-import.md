@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785323"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303512"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en databas i Azure SQL Database
 
@@ -35,6 +35,9 @@ Den [Azure-portalen](https://portal.azure.com) *endast* kan du skapa en enkel da
 > [!NOTE]
 > [En hanterad instans](sql-database-managed-instance.md) stöder för närvarande inte migrera en databas till en instans-databas från en BACPAC-fil med hjälp av Azure portal. Om du vill importera till en hanterad instans, använder du SQL Server Management Studio eller SQLPackage.
 
+> [!NOTE]
+> Datorer som bearbetar import/export-begäranden som skickas via portalen eller Powershell måste lagra bacpac-fil samt temporära filer som genererats av Data-Tier Application Framework (DacFX). Diskutrymmet som krävs varierar mycket mellan olika databaser med samma storlek och kan ta upp till 3 gånger av databasens storlek. Datorer som kör import/export-begäran endast har 450GB lokalt diskutrymme. Därför ska du kan vissa begäranden misslyckas med felet ”det finns inte tillräckligt med utrymme på disken”. I det här fallet är det en lösningen för att köra sqlpackage.exe på en dator med tillräckligt med diskutrymme för lokala. När du importerar/exporterar databaser som är större än 150GB kan använda [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) att undvika det här problemet.
+ 
 1. Om du vill importera från en BACPAC-fil till en ny databas med Azure portal, öppnar sidan rätt databas och i verktygsfältet, Välj **Importera databas**.  
 
    ![Databasen import1](./media/sql-database-import/import1.png)
@@ -81,6 +84,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > [En hanterad instans](sql-database-managed-instance.md) stöder för närvarande inte migrera en databas till en instans-databas från en BACPAC-fil med hjälp av Azure PowerShell. Om du vill importera till en hanterad instans, använder du SQL Server Management Studio eller SQLPackage.
 
+> [!NOTE]
+> Datorer som bearbetar import/export-begäranden som skickas via portalen eller Powershell måste lagra bacpac-fil samt temporära filer som genererats av Data-Tier Application Framework (DacFX). Diskutrymmet som krävs varierar mycket mellan olika databaser med samma storlek och kan ta upp till 3 gånger av databasens storlek. Datorer som kör import/export-begäran endast har 450GB lokalt diskutrymme. Därför ska du kan vissa begäranden misslyckas med felet ”det finns inte tillräckligt med utrymme på disken”. I det här fallet är det en lösningen för att köra sqlpackage.exe på en dator med tillräckligt med diskutrymme för lokala. När du importerar/exporterar databaser som är större än 150GB kan använda [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) att undvika det här problemet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

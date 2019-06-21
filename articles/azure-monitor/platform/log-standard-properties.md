@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 4d7c1d9b59e802343f6d8fe258e8e4ac961bb2df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061002"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292812"
 ---
-# <a name="standard-properties-in-azure-monitor-log-records"></a>Standardegenskaper i Azure Monitor loggposter
-Loggdata i Azure Monitor är [lagras som en uppsättning poster](../log-query/log-query-overview.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Standardegenskaper i Azure Monitor-loggar
+Data i Azure Monitor-loggar är [lagras som en uppsättning poster i en Log Analytics-arbetsyta eller Application Insights-programmet](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
 
 Vissa av dessa egenskaper är fortfarande håller på att utvecklas, så du kan se dem i vissa datatyper, men har ännu inte i andra.
 
-## <a name="timegenerated"></a>TimeGenerated
-Den **TimeGenerated** egenskapen innehåller datum och tid då posten skapades. Det ger en gemensam egenskap ska användas för filtrering eller sammanfatta efter tid. När du väljer ett tidsintervall för en vy eller en instrumentpanel i Azure-portalen använder TimeGenerated för att filtrera resultaten.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated och tidsstämpel
+Den **TimeGenerated** (Log Analytics-arbetsytan) och **tidsstämpel** (Application Insights-program) egenskaper innehåller datum och tid då posten skapades. Det ger en gemensam egenskap ska användas för filtrering eller sammanfatta efter tid. När du väljer ett tidsintervall för en vy eller en instrumentpanel i Azure-portalen använder TimeGenerated eller tidsstämpel för att filtrera resultaten.
 
 ### <a name="examples"></a>Exempel
 
@@ -39,16 +39,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Typ
-Den **typ** egenskapen innehåller namnet på tabellen att posten har hämtats från vilket kan också betraktas som posttypen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, som de som använder den `search` operator för att skilja mellan poster av olika typer. **$table** kan användas i stället för **typ** på vissa platser.
+Följande fråga returnerar antalet undantag som skapas för varje dag under föregående vecka.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## <a name="type-and-itemtype"></a>Typ och itemType
+Den **typ** (Log Analytics-arbetsytan) och **itemType** (Application Insights-program) egenskaper hold namnet på tabellen att posten har också hämtas från som kan betraktas som posten Ange. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, som de som använder den `search` operator för att skilja mellan poster av olika typer. **$table** kan användas i stället för **typ** på vissa platser.
 
 ### <a name="examples"></a>Exempel
 Följande fråga returnerar antalet poster efter typ som samlas in med den senaste timmen.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## <a name="resourceid"></a>\_ResourceId

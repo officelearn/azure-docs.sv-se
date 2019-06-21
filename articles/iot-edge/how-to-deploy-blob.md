@@ -1,24 +1,27 @@
 ---
 title: Distribuera Azure Blob Storage-modulen till enheter – Azure IoT Edge | Microsoft Docs
 description: Distribuera en Azure Blob Storage-modulen till IoT Edge-enhet för att lagra data på gränsen.
-author: kgremban
-ms.author: kgremban
-ms.date: 05/21/2019
+author: arduppal
+ms.author: arduppal
+ms.date: 06/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
-manager: philmea
-ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: mchad
+ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990470"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295213"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage på IoT Edge-modul till din enhet
 
 Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fungerar för Azure Blob Storage på IoT Edge-moduler. De två enklaste metoderna är att använda Azure-portalen eller Visual Studio Code-mallar.
+
+> [!NOTE]
+> Azure Blob Storage på IoT Edge är i [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -88,35 +91,35 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
      > [!IMPORTANT]
      > Ändra inte den andra hälften av Arkivkatalog binda värde, som pekar på en specifik plats i modulen. Storage directory bind alltid ska sluta med **: / blobroot** för Linux-behållare och **: C: / BlobRoot** för Windows-behållare.
 
-    ![Uppdatera modulen behållare skapa alternativ - portalen](./media/how-to-store-data-blob/edit-module.png)
-
-1. Ange [lagringsnivåer](how-to-store-data-blob.md#tiering-properties) och [time-to-live](how-to-store-data-blob.md#time-to-live-properties) egenskaper för genom att kopiera följande JSON och klistra in den i den **önskade egenskaper för modultvilling Set** box. Konfigurera varje egenskap med ett lämpligt värde, spara den och fortsätta med distributionen.
+1. Ange [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) egenskaper för genom att kopiera följande JSON och klistra in den i den **önskade Set modultvilling Egenskaper för** box. Konfigurera varje egenskap med ett lämpligt värde, spara den och fortsätta med distributionen.
 
    ```json
    {
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading":<true,false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload":<true,false>
        }
      }
    }
 
       ```
 
-   ![ställer in egenskaperna lagringsnivåer och time to live](./media/how-to-store-data-blob/iotedge_custom_module.png)
+   ![Ange behållaren skapa alternativ, deviceAutoDeleteProperties och deviceToCloudUploadProperties egenskaper](./media/how-to-deploy-blob/iotedge-custom-module.png)
 
-   Information om hur du konfigurerar lagringsnivåer och TTL när din modul har distribuerats finns i [redigera Modultvillingen](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om önskade egenskaper finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
+   Information om hur du konfigurerar deviceToCloudUploadProperties och deviceAutoDeleteProperties när din modul har distribuerats finns i [redigera Modultvillingen](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om önskade egenskaper finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
 
 1. Välj **Spara**.
 
@@ -158,7 +161,7 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
    | Välj mapp | Välj platsen på utvecklingsdatorn för Visual Studio Code för att skapa lösningsfiler. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **modul (RETUR hela avbildningen URL)** . |
-   | Ange ett modulnamn | Ange ett namn på alla gemena för din modul som **azureblobstorage**.<br /><br />Det är viktigt att använda ett gemener namn för Azure Blob Storage på IoT Edge-modul. IoT Edge är skiftlägeskänsligt när det gäller moduler och Storage-SDK som standard till gemener. |
+   | Ange ett modulnamn | Ange ett namn på alla gemena för din modul som **azureblobstorageoniotedge**.<br /><br />Det är viktigt att använda ett gemener namn för Azure Blob Storage på IoT Edge-modul. IoT Edge är skiftlägeskänsligt när det gäller moduler och Storage-SDK som standard till gemener. |
    | Ange Docker-avbildning för modulen | Ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildning i blob storage-modulen, men du måste konfigurera alternativ för att skapa modulens.
@@ -182,7 +185,7 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
       }
       ```
 
-      ![Uppdatera modulen createOptions – Visual Studio Code](./media/how-to-store-data-blob/create-options.png)
+      ![Uppdatera modulen createOptions – Visual Studio Code](./media/how-to-deploy-blob/create-options.png)
 
 1. Ersätt `<your storage account name>` med ett namn som du kan komma ihåg. Kontonamn ska vara 3 och 24 tecken långt, med gemena bokstäver och siffror. Inga blanksteg.
 
@@ -196,32 +199,34 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
       > [!IMPORTANT]
       > Ändra inte den andra hälften av Arkivkatalog binda värde, som pekar på en specifik plats i modulen. Storage directory bind alltid ska sluta med **: / blobroot** för Linux-behållare och **: C: / BlobRoot** för Windows-behållare.
 
-1. Konfigurera [lagringsnivåer](how-to-store-data-blob.md#tiering-properties) och [time-to-live](how-to-store-data-blob.md#time-to-live-properties) egenskaper för genom att lägga till följande JSON till det *deployment.template.json* fil. Konfigurera varje egenskap med ett lämpligt värde och spara filen.
+1. Konfigurera [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för genom att lägga till följande JSON till det *deployment.template.json* fil. Konfigurera varje egenskap med ett lämpligt värde och spara filen.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading": <true, false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload": <true, false>
        }
      }
    }
    ```
 
-   ![Ange önskade egenskaper för azureblobstorageoniotedge – Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
+   ![Ange önskade egenskaper för azureblobstorageoniotedge – Visual Studio Code](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
 
-   Information om hur du konfigurerar lagringsnivåer och TTL när din modul har distribuerats finns i [redigera Modultvillingen](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om alternativ för att skapa, starta om princip och önskad status [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties).
+   Information om hur du konfigurerar deviceToCloudUploadProperties och deviceAutoDeleteProperties när din modul har distribuerats finns i [redigera Modultvillingen](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om alternativ för att skapa, starta om princip och önskad status [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. Spara filen *deployment.template.json*.
 

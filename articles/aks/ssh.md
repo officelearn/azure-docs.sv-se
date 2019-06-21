@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f2d11cf4e1fb8e03d037be221e7b18ed4c5ad0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242037"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303329"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes Service (AKS) klusternoderna för underhåll och felsökning
 
@@ -22,13 +22,13 @@ Den här artikeln visar hur du skapar en SSH-anslutning med ett AKS-noden med si
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.64 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.64 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Lägg till din offentliga SSH-nyckel
 
-Som standard är SSH-nycklar fick, eller genereras och läggs till noder när du skapar ett AKS-kluster. Om du vill ange olika SSH-nycklar än de som används när du skapade ditt AKS-kluster kan du lägga till din offentliga SSH-nyckel Linux AKS-noder. Om det behövs kan du skapa en SSH nyckeln med hjälp av [macOS eller Linux] [ ssh-nix] eller [Windows][ssh-windows]. Om du använder PuTTY Gen för att skapa nyckelparet, spara nyckelpar i en OpenSSH-format i stället för standardvärdet PuTTy format på privat nyckel (.ppk-fil).
+Som standard är SSH-nycklar fick, eller genereras och läggs till noder när du skapar ett AKS-kluster. Om du vill ange olika SSH-nycklar än de som används när du skapade ditt AKS-kluster kan du lägga till din offentliga SSH-nyckel Linux AKS-noder. Om det behövs kan du skapa en SSH nyckeln med hjälp av [macOS eller Linux][ssh-nix] or [Windows][ssh-windows]. Om du använder PuTTY Gen för att skapa nyckelparet, spara nyckelpar i en OpenSSH-format i stället för standardvärdet PuTTy format på privat nyckel (.ppk-fil).
 
 > [!NOTE]
 > SSH-nycklar kan att för närvarande endast lägga till Linux-noder med Azure CLI. Om du använder Windows Server-noder kan använda SSH-nycklarna som anges när du skapade AKS-klustret och vidare till steg på [så här hämtar du den AKS nodadressen](#get-the-aks-node-address). Eller, [ansluta till Windows Server-noder med hjälp av Fjärrskrivbordsprotokollet (RDP) anslutningar][aks-windows-rdp].
@@ -42,13 +42,13 @@ Stegen för att hämta AKS-nodernas privata IP-adressen är olika beroende på v
 
 Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande steg:
 
-1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*:
+1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*. Ersätt *myResourceGroup* med namnet på resursgruppen där du AKS-kluster finns:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list] [ az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
+1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list][az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
 
     ```azurecli-interactive
     az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -62,7 +62,7 @@ Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande
     aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
-1. Lägg till SSH-nycklar till noden genom att använda den [az vm user update] [ az-vm-user-update] kommando. Ange resursgruppens namn och sedan en av noderna i AKS som hämtades i föregående steg. Användarnamn för AKS-noder är som standard *azureuser*. Ange platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*, eller klistra in innehållet i din offentliga SSH-nyckel:
+1. Lägg till SSH-nycklar till noden genom att använda den [az vm user update][az-vm-user-update] kommando. Ange resursgruppens namn och sedan en av noderna i AKS som hämtades i föregående steg. Användarnamn för AKS-noder är som standard *azureuser*. Ange platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*, eller klistra in innehållet i din offentliga SSH-nyckel:
 
     ```azurecli-interactive
     az vm user update \
@@ -76,19 +76,19 @@ Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande
 
 Utför följande steg för att lägga till din SSH-nyckel till en Linux AKS-nod som är en del av en VM-skalningsuppsättning:
 
-1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*:
+1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*. Ersätt *myResourceGroup* med namnet på resursgruppen där du AKS-kluster finns:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Hämta sedan skalningsuppsättning för virtuell dator för AKS-kluster med den [az vmss list] [ az-vmss-list] kommando. VM scale set namnet tilldelas till variabeln med namnet *SCALE_SET_NAME*:
+1. Hämta sedan skalningsuppsättning för virtuell dator för AKS-kluster med den [az vmss list][az-vmss-list] kommando. VM scale set namnet tilldelas till variabeln med namnet *SCALE_SET_NAME*:
 
     ```azurecli-interactive
     SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
     ```
 
-1. Lägg till SSH-nycklar till noderna i en skalningsuppsättning för virtuell dator genom att använda den [az vmss-tilläggsuppsättningen] [ az-vmss-extension-set] kommando. Klusterresursgrupp och VM scale set namn tillhandahålls i föregående kommandon. Användarnamn för AKS-noder är som standard *azureuser*. Om det behövs uppdaterar du platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*:
+1. Lägg till SSH-nycklar till noderna i en skalningsuppsättning för virtuell dator genom att använda den [az vmss-tilläggsuppsättningen][az-vmss-extension-set] kommando. Klusterresursgrupp och VM scale set namn tillhandahålls i föregående kommandon. Användarnamn för AKS-noder är som standard *azureuser*. Om det behövs uppdaterar du platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*:
 
     ```azurecli-interactive
     az vmss extension set  \
@@ -100,7 +100,7 @@ Utför följande steg för att lägga till din SSH-nyckel till en Linux AKS-nod 
         --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
     ```
 
-1. Tillämpa SSH-nyckeln till noder med hjälp av den [az vmss update-instances] [ az-vmss-update-instances] kommando:
+1. Tillämpa SSH-nyckeln till noder med hjälp av den [az vmss update-instances][az-vmss-update-instances] kommando:
 
     ```azurecli-interactive
     az vmss update-instances --instance-ids '*' \
@@ -117,7 +117,7 @@ AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du a
 
 ### <a name="ssh-to-regular-aks-clusters"></a>SSH till vanliga AKS-kluster
 
-Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser] [ az-vm-list-ip-addresses] kommando. Ange din egen AKS-kluster resursgruppens namn fick i ett tidigare [az-aks-visa] [ az-aks-show] steg:
+Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] steg:
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -172,7 +172,7 @@ För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klu
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. I ett nytt terminalfönster inte är ansluten till din behållare, en lista med poddarna på AKS-kluster med den [kubectl hämta poddar] [ kubectl-get] kommando. Pod som skapades i föregående steg som startar med namnet *aks-ssh*, enligt följande exempel:
+1. I ett nytt terminalfönster inte är ansluten till din behållare, en lista med poddarna på AKS-kluster med den [kubectl hämta poddar][kubectl-get] kommando. Pod som skapades i föregående steg som startar med namnet *aks-ssh*, enligt följande exempel:
 
     ```
     $ kubectl get pods
@@ -224,7 +224,7 @@ När du är klar `exit` SSH-sessionen och sedan `exit` interaktiva container-ses
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar] [ view-kubelet-logs] eller [visa Kubernetes-huvudnod loggar][view-master-logs].
+Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

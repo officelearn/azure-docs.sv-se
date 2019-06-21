@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118715"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295075"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -191,6 +191,40 @@ Använd det storage-kontot för att kopiera filerna:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
+
+### <a name="cause"></a>Orsak
+
+Vanliga orsaker till det här problemet är:
+
+- Du använder en inkompatibel klient för Linux-distribution. Vi rekommenderar att du använder följande Linux-distributioner för att ansluta till en Azure-filresurs:
+
+    |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från både lokalt och över olika regioner) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- CIFS-verktyg (cifs-utils) har inte installerats på klienten.
+- Den lägsta SMB/CIFS-versionen 2.1, installeras inte på klienten.
+- SMB 3.0-kryptering stöds inte på klienten. SMB 3.0-kryptering är tillgänglig i Ubuntu 16,4 tum och senare versioner, tillsammans med SUSE 12,3 och senare versioner. Andra distributioner kräver kernel 4.11 och senare versioner.
+- Du försöker ansluta till ett lagringskonto via TCP-port 445, vilket inte stöds.
+- Du försöker ansluta till en Azure-filresurs från en Azure-dator och den virtuella datorn är inte i samma region som lagringskontot.
+- Om den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files tillåter endast anslutningar som använder SMB 3.0 med kryptering.
+
+### <a name="solution"></a>Lösning
+
+Lös problemet genom att använda den [felsökningsverktyget för Azure Files-monteringsfel på Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Det här verktyget:
+
+* Hjälper dig att validera klienten köra-miljö.
+* Identifierar inkompatibla klientkonfigurationen som skulle orsaka fel åtkomst för Azure Files.
+* Ger vägledning på att åtgärda själv.
+* Samlar in diagnostik-spårningar.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;”: I/o-fel
 

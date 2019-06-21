@@ -1,6 +1,6 @@
 ---
-title: Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser – Azure Storage | Microsoft Docs
-description: Azure Blob- och Queue storage har stöd för Azure Active Directory-autentisering med hanterade identiteter för Azure-resurser. Du kan använda hanterade identiteter för Azure-resurser för att autentisera åtkomst till blobbar och köer från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra.
+title: Bevilja åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure - resurser i Azure Storage
+description: Blob och kö support för Azure storage auktorisera åtkomst till resurser med Azure Active Directory och hanterade identiteter för Azure-resurser. Du kan använda hanterade identiteter för Azure-resurser för att bevilja åtkomst till blobbar och köer från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787969"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303425"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autentisera åtkomsten till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Bevilja åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
 Azure Blob- och Queue storage har stöd för Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan auktorisera åtkomst till blob och kö-data med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure-datorer (VM), funktionsappar, skalningsuppsättningar för virtuella datorer och andra tjänster. Du kan undvika lagring av autentiseringsuppgifter med dina program som körs i molnet med hjälp av hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering.  
 

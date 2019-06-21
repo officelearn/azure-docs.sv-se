@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510450"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204684"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Hantera användardata i Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510450"
 
 ## <a name="delete-user-data"></a>Ta bort användardata
 
-Användarinformationen är lagrad i Azure AD B2C-katalogen och i granskningsloggarna. Alla data för granskning sparas i 30 dagar i Azure AD B2C. Om du vill ta bort användardata i denna 30-dagarsperiod kan du använda den [ta bort en användare](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) igen. En borttagningsåtgärd måste anges för var och en av Azure AD B2C-klienter där data kan finnas. 
+Användarinformationen är lagrad i Azure AD B2C-katalogen och i granskningsloggarna. Alla användare audit bevaras i 7 dagar i Azure AD B2C. Om du vill ta bort användardata inom denna period på 7 dagar kan du använda den [ta bort en användare](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) igen. En borttagningsåtgärd måste anges för var och en av Azure AD B2C-klienter där data kan finnas. 
 
 Varje användare i Azure AD B2C tilldelas ett objekt-ID. Objekt-ID innehåller en entydiga identifierare som du kan använda för att ta bort användardata i Azure AD B2C. Beroende på din arkitektur, objekt-ID kan vara en användbar korrelationsidentifierare över andra tjänster, till exempel finansiella institutioner marknadsföring och kunddatabaser relation management. 
 

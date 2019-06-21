@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597087"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303922"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -170,10 +170,19 @@ Windows Server Failover Clustering stöds av Azure File Sync för ”filserver f
 
 ### <a name="data-deduplication"></a>Datadeduplicering
 **Agentversion 5.0.2.0**   
-Datadeduplicering stöds på volymer med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera deduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme.
+Datadeduplicering stöds på volymer med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera deduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme. Observera att dessa volym besparingar endast gäller lokala; ska inte vara deduplicerade data i Azure Files. 
 
 **Windows Server 2012 R2 eller äldre agentversionerna**  
 För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync Windows Server-Datadeduplicering håller på att aktiveras på volymen.
+
+**Anteckningar**
+- Om Datadeduplicering är installerad innan du installerar Azure File Sync-agenten, krävs en omstart för Datadeduplicering och lagringsnivåer för moln på samma volym.
+- Om Datadeduplicering är aktiverat på en volym när molnet lagringsnivåer är aktiverad, inledande dedupliceringsjobb för optimering optimerar filer på volymen som inte redan är nivåindelade och har följande inverkan på molnet lagringsnivåer:
+    - Ledigt utrymme princip fortsätter att nivån filer enligt det lediga utrymmet på volymen med hjälp av den termiska kartan.
+    - Datum principen hoppar över lagringsnivåer av filer som kan ha varit annars berättigad lagringsnivåer på grund av Deduplicering optimeringsjobbet får åtkomst till filerna.
+- För pågående dedupliceringsjobben molnlagringsnivåer med datum princip kommer försenas av Datadeduplicering [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) inställningen, om filen inte redan är nivåindelade. 
+    - Exempel: Om inställningen MinimumFileAgeDays är 7 dagar och principer för lagringsnivåer datum i molnet är 30 dagar, kommer principen datum delar filer efter 37 dagar.
+    - Obs! När en fil är nivåer av Azure File Sync, optimering dedupliceringsjobb hoppar över filen.
 
 ### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
 Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
@@ -200,9 +209,12 @@ Med hjälp av sysprep på en server som har Azure File Sync-agenten installerad 
 Om molnet lagringsnivåer är aktiverat på en serverslutpunkt, filer som är nivåindelade överhoppade och indexeras inte av Windows Search. Icke-nivåindelade filer indexeras korrekt.
 
 ### <a name="antivirus-solutions"></a>Antiviruslösningar
-Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan ett antivirusprogram orsaka återkallande av nivåindelade filer. I version 4.0 och senare av Azure File Sync-agenten har nivåindelade filer den säkra Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen. Vi rekommenderar samråd med programvaruleverantören att lära dig hur du konfigurerar sin lösning om du vill hoppa över läsa filer med den här (många ske automatiskt) attributuppsättning.
+Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan ett antivirusprogram orsaka återkallande av nivåindelade filer. I version 4.0 och senare av Azure File Sync-agenten har nivåindelade filer den säkra Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen. Vi rekommenderar samråd med programvaruleverantören att lära dig hur du konfigurerar sin lösning om du vill hoppa över läsa filer med den här (många ske automatiskt) attributuppsättning. 
 
 Microsofts interna antiviruslösningar, Windows Defender och System Center Endpoint Protection (SCEP), båda automatiskt hoppa över läsa filer som har den här replikuppsättningen. Vi har testat dem och identifierat en mindre problem: när du lägger till en server i en befintlig synkroniseringsgrupp filer mindre än 800 byte hämtas (hämtas) på den nya servern. Dessa filer finns kvar på den nya servern och kommer inte att vara nivåindelad eftersom de inte uppfyller kravet på lagringsnivåer storlek (> 64kb).
+
+> [!Note]  
+> Antivirusprogram kan kontrollera kompatibiliteten mellan deras produkter och Azure File Sync använder [Azure File Sync Antivirus kompatibilitet Test programsviten] (https://www.microsoft.com/download/details.aspx?id=58322), som är tillgänglig för hämtning på Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Lösningar för säkerhetskopiering
 Som antivirus orsaka säkerhetskopieringslösningar återkallande av nivåindelade filer. Vi rekommenderar att du använder en lösning för säkerhetskopiering av molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhetskopiering produkt.
@@ -256,18 +268,15 @@ Azure File Sync är tillgänglig i följande regioner:
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
-| USA-förvaltad region Arizona (förhandsversion) | Arizona |
-| USA Gov Texas (förhandsversion) | Texas |
-| Virginia (USA-förvaltad region) (förhandsversion) | Virginia |
+| Arizona (USA-förvaltad region) | Arizona |
+| Texas (USA-förvaltad region) | Texas |
+| Virginia (USA-förvaltad region) | Virginia |
 | Västra Europa | Nederländerna |
 | Västra centrala USA | Wyoming |
 | Västra USA | Kalifornien |
 | Västra USA 2 | Washington |
 
 Azure File Sync stöder synkronisering endast med en Azure-filresurs som finns i samma region som Storage Sync-tjänsten.
-
-> [!Note]  
-> Azure File Sync finns för närvarande endast i privat förhandsvisning för government-regioner. Se våra [viktig](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) anvisningar om hur du registrerar i programmet för förhandsversionen.
 
 ### <a name="azure-disaster-recovery"></a>Azure-haveriberedskap
 För att skydda mot förlust av en Azure-region, Azure File Sync kan integreras med den [geo-redundant lagringsredundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS)-alternativet. GRS-lagringen fungerar med hjälp av asynkrona Blockreplikering mellan lagring i den primära regionen, som du normalt interagerar, och lagring i den parade sekundära regionen. Microsoft kommer redundanslagring till den parade regionen vid katastrofåterställning vilket gör att en Azure-region till offlineläge tillfälligt eller permanent. 
@@ -302,7 +311,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | US Gov, Iowa         | Virginia (USA-förvaltad region)    |
-| USA-förvaltad region Virgini      | Texas (USA-förvaltad region)       |
+| Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | Västra Europa         | Norra Europa       |
 | Västra centrala USA     | Västra USA 2          |
 | Västra USA             | Östra USA            |

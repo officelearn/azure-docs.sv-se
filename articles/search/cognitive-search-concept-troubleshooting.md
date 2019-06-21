@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696603"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303455"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiv sökning
 
@@ -94,7 +94,10 @@ Bildanalys är beräkningsmässigt-intensiva även enkla fall, så när bilderna
 
 Maximal körtid varierar beroende på nivån: flera minuter på kostnadsfritt nivån, 24 timmars indexering på faktureringsbar nivå. Om bearbetningen kan inte slutföras inom en 24-timmarsperiod för bearbetning på begäran, växla till ett schema för att låta indexeraren fortsatte bearbetning där den avbröts. 
 
-Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: Skapa en indexerare](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) eller se [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Om en indexerare anges till ett visst schema men upprepade gånger misslyckas på samma dokument om och om igen varje gång den körs, indexeraren börjar gör som körs på ett längre intervall (upp till högst minst en gång var 24: e timme) tills den har förloppet aga i.  Om du tror att du har åtgärdat problemet som orsakade indexerare för att ha fastnat vid en viss punkt till vad du kan utföra en på begäran-körning av indexerare, och om det har blir pågår indexeraren återgår till dess uppsättning schemaintervallet igen.
 
 För portalbaserad indexering (enligt beskrivningen i snabbstarten), välja ”köras en gång”-indexeraren alternativet gränser bearbetning till 1 timme (`"maxRunTime": "PT1H"`). Du kanske vill utöka fönstret bearbetning till något längre tid.
 

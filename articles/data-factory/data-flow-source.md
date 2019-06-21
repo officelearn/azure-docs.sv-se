@@ -3,16 +3,15 @@ title: Konfigurera en källa omvandling i funktionen för mappning av dataflöde
 description: Lär dig hur du ställer in en källa omvandling i mappning dataflöde.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67117881"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190804"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformering av källa för mappning av dataflöde 
 
@@ -124,6 +123,14 @@ Om källan finns i SQL Database eller SQL Data Warehouse, har du ytterligare alt
 
 * **Fråga**: Ange en SQL-fråga för källan. Den här inställningen åsidosätter en tabell som du har valt i datauppsättningen. Observera att **Order By** satser stöds inte här, men du kan ange en fullständig SELECT FROM-instruktion. Du kan också använda användardefinierade Tabellfunktioner. **Välj * från udfGetData()** är en UDF i SQL som returnerar en tabell. Den här frågan kommer att generera en källtabellen som du kan använda i ditt dataflöde.
 * **Batchstorlek**: Ange en batchstorlek för att dela upp stora mängder data till läsningar.
+* **Isoleringsnivån**: Standardvärdet för SQL-datakällor i ADF mappning Data flödar är Läs ogenomförda. Du kan ändra isoleringsnivå här till ett av följande värden:
+* Genomförd läsning
+* Ogenomförd
+* Upprepbar läsning
+* Serialiserbara
+* Ingen (ignorera isoleringsnivå)
+
+![Isoleringsnivån](media/data-flow/isolationlevel.png "isoleringsnivå")
 
 > [!NOTE]
 > Filåtgärder körs bara när du startar dataflödet från en pipeline som körs (en pipeline debug eller körningen kör) och som använder aktiviteten kör dataflödet i en pipeline. Filåtgärder *inte* kör i felsökningsläge dataflöde.

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410276"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293207"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL – enskild Server
 PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -73,6 +73,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > | **Tillägget** | **Beskrivning** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL kan läsas in procedurmässig språk. |
+> | [plv8](https://plv8.github.io/) | Ett Javascript-språktillägg för PostgreSQL som kan användas för lagrade procedurer, utlösare, osv. |
 
 ### <a name="miscellaneous-extensions"></a>Diverse tillägg
 
@@ -124,7 +125,7 @@ TimescaleDB är en time series-databas som är packade som ett tillägg för Pos
 [Mer information om TimescaleDB](https://docs.timescale.com/latest), ett registrerat varumärke som tillhör [tidsskalan, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>Installera TimescaleDB
-Om du vill installera TimescaleDB, måste du inkludera den i serverns delade true bibliotek. En ändring Postgress delade true bibliotek kräver en **serveromstart** ska börja gälla.
+Om du vill installera TimescaleDB, måste du inkludera den i serverns delade true bibliotek. En ändring av Postgres's `shared_preload_libraries` parametern kräver ett **omstart av servern** ska börja gälla. Du kan ändra parametrarna med hjälp av den [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB kan aktiveras i Azure Database för PostgreSQL-version 9.6 och 10
@@ -137,10 +138,7 @@ Med hjälp av den [Azure-portalen](https://portal.azure.com/):
 
 3. Sök efter den `shared_preload_libraries` parametern.
 
-4. Kopiera och klistra in följande som värde för `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Välj **TimescaleDB**.
 
 5. Välj **spara** att bevara dina ändringar. Du får ett meddelande när ändringen har sparats. 
 
@@ -158,4 +156,4 @@ Nu kan du skapa en TimescaleDB hypertable [från grunden](https://docs.timescale
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte ser ett tillägg som du vill använda, berätta för oss. Rösta på befintliga begäranden eller skapa nya feedback och förfrågningar i vår [kundfeedbackforumet](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Om du inte ser ett tillägg som du vill använda, berätta för oss. Rösta på befintliga begäranden eller skapa nya feedback från intressenter i vår [Feedbackforum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

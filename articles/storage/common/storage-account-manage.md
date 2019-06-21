@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484283"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303481"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagringskonto i Azure portal
 
@@ -20,16 +20,13 @@ Det finns många olika inställningar för ditt lagringskonto i den [Azure-porta
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Azure Storage stöder autentisering med Azure Active Directory för Blob storage och Queue storage via rollbaserad åtkomstkontroll (RBAC). Mer information om autentisering med Azure AD finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
+Azure Storage stöder auktorisering med Azure Active Directory för Blob storage och Queue storage via rollbaserad åtkomstkontroll (RBAC). Mer information om auktorisering med Azure AD finns i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 
 Den **åtkomstkontroll** inställningar i Azure-portalen erbjuder ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvudnamn och hanterade identiteter. Mer information om att tilldela RBAC-roller finns i [hantera åtkomsträttigheter till blob och kö data med RBAC](storage-auth-aad-rbac.md).
 
-> [!NOTE]
-> Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. 
-
 ## <a name="tags"></a>Tags
 
-Azure Storage stöder Azure Resource Manager-taggar för att ordna dina Azure-resurser med en anpassad taxonomi. Du kan lägga till taggar till storage-konton så att du kan gruppera dem i din prenumeration på ett logiskt sätt. 
+Azure Storage stöder Azure Resource Manager-taggar för att ordna dina Azure-resurser med en anpassad taxonomi. Du kan lägga till taggar till storage-konton så att du kan gruppera dem i din prenumeration på ett logiskt sätt.
 
 En taggnamnet är begränsat till 128 tecken för storage-konton, och en Taggvärdet är begränsat till 256 tecken.
 
@@ -41,24 +38,18 @@ När du skapar ett lagringskonto genererar Azure två 512-bitars lagringskontots
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Visa och kopiera åtkomstnycklar
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Visa autentiseringsuppgifterna för lagringskontot:
+### <a name="view-account-keys-and-connection-string"></a>Visa nycklar och anslutningssträngen
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Leta rätt på ditt lagringskonto.
-3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
-4. Sök efter värdet för **Key** (Nyckel) **key1** och klicka på knappen **Kopiera** för att kopiera kontonyckeln.
-5. Alternativt kan kopiera du hela anslutningssträngen. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**.
-
-    ![Skärmbild som visar hur du visar åtkomstnycklarna i Azure portal](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
 
 Microsoft rekommenderar att du återskapar åtkomstnycklarna regelbundet för att skydda ditt lagringskonto. Två åtkomstnycklar tilldelas så att du kan rotera nycklarna. När du roterar nycklar du se till att ditt program har åtkomst till Azure Storage under hela processen. 
 
 > [!WARNING]
-> Återskapar åtkomstnycklarna kan påverka program eller Azure-tjänster som är beroende av lagringskontonyckeln. Alla klienter som använder nyckeln till att komma åt lagringskontot måste uppdateras för att använda den nya nyckeln, inklusive medietjänster, molnet, skrivbordet och mobilprogram och grafiska gränssnittet program för Azure Storage, som [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/). 
+> Återskapar åtkomstnycklarna kan påverka program eller Azure-tjänster som är beroende av lagringskontonyckeln. Alla klienter som använder nyckeln till att komma åt lagringskontot måste uppdateras för att använda den nya nyckeln, inklusive medietjänster, molnet, skrivbordet och mobilprogram och grafiska gränssnittet program för Azure Storage, som [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/).
 
 Följ den här processen för att rotera nycklar för ditt lagringskonto:
 
@@ -74,6 +65,7 @@ När du har skapat ett lagringskonto kan du ändra dess konfiguration. Du kan ti
 Ändra kontokonfigurationen lagring kan resultera i kostnaderna. Mer information finns i den [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) sidan.
 
 ## <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto
+
 Om du vill ta bort ett lagringskonto som du inte längre använder navigerar du till lagringskontot på [Azure Portal](https://portal.azure.com) och klickar på **Ta bort**. Om du tar bort ett lagringskonto tas hela kontot bort, inklusive alla data på kontot.
 
 > [!WARNING]

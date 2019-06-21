@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083527"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295449"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -89,14 +89,14 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
 * Managed Disks - hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration
 * Media Services
-* Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
+* Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
-* Recovery Services-valv – registrera dig i en [förhandsversion](#recovery-services-limitations).
+* Recovery Services-valv – Se [begränsningar](#recovery-services-limitations).
 * SAP HANA på Azure
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
@@ -104,7 +104,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
+* Storage
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Storage Sync-tjänsten
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429781"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202741"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 Den här artikeln beskrivs olika exempel datakällor och målscenarier som kan hanteras av den [Team Data Science Process (TDSP)](overview.md). TDSP erbjuder en systematisk metod för team att samarbeta med att skapa intelligenta program. De scenarier som presenteras här visar alternativ som är tillgängliga i bearbetning av arbetsflödet som beror på den dataegenskaper, datakällor och mål-databaser i Azure.
@@ -239,7 +239,7 @@ Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopie
 1. Enkelt Azure Machine Learning experiment flöde från och med överförda datamängden.
 
 ## <a name="decisiontree"></a>Beslutsträd för val av scenario
-- - -
+---
 Följande diagram sammanfattar de scenarier som beskrivs ovan och Advanced Analytics Process and Teknikval görs som tar dig till var och en av de specificerade scenarierna. Observera att databearbetning, utforskning, funktionsframställning och sampling kan ta i en eller flera metoden/miljö – vid källan, mellanliggande, och/eller målmiljöer – och kan fortsätta upprepade gånger efter behov. Diagrammet endast fungerar som en illustration av några av möjliga flöden och ger inte en uttömmande förteckning.
 
 ![Genomgång exempelscenarier DS process][8]

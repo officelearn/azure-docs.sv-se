@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024899"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303444"
 ---
 # <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
 
@@ -25,7 +25,7 @@ Indexerare baseras på typer av datakällor och plattformar, med separata indexe
 
 Du kan använda en indexerare som enda metod för datapåfyllning eller använda en kombination av tekniker som inbegriper en indexerare för att läsa in bara några av fälten i ditt index.
 
-Du kan köra indexerare på begäran eller enligt ett återkommande datauppdateringsschema som körs så ofta som var 15:e minut. Mer frekventa uppdateringar kräver en push-modell som uppdaterar data i Azure Search och i din externa datakälla samtidigt.
+Du kan köra indexerare på begäran eller enligt ett återkommande datauppdateringsschema som körs så ofta som var femte minut. Mer frekventa uppdateringar kräver en push-modell som uppdaterar data i Azure Search och i din externa datakälla samtidigt.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Metoder för att skapa och hantera indexerare
 

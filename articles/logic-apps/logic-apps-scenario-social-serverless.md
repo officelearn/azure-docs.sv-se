@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464438"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295916"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa strömmande customer insights instrumentpanel med Azure Logic Apps och Azure Functions
 
@@ -99,8 +99,8 @@ Till föregående vy i körningshistorik i Visual Studio eller Azure-portalen:
 
 * Öppna Visual Studio Cloud Explorer. Hitta din logikapp, öppna appens snabbmenyn. Välj **öppen körningshistorik**.
 
-  > [!NOTE]
-  > Ännu för Visual Studio-2019 Cloud Explorer kan öppna Logic App Designer i Azure-portalen, men kan inte öppna inbäddade Logic App Designer eller körningshistorik.
+  > [!TIP]
+  > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
 
 * Hitta din logikapp i Azure-portalen. På menyn för din logikapp, Välj **översikt**. 
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 752aca68d1a95734bcefbd0c92d4cfc1e6fade7c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694325"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303897"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -34,6 +34,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-quickstart-create-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Du stoppar och startar den här datorn så att den inte får vara en virtuell dator i produktionsmiljön.
+* Du kan behöva [uppdatera din Azure-moduler](automation-update-azure-modules.md) baserat på de cmdletar som du använder.
 
 ## <a name="create-new-runbook"></a>Skapa en ny runbook
 

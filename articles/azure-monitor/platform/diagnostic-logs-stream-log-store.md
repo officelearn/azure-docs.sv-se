@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238027"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303690"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream, Azure-diagnostikloggar till Log Analytics-arbetsyta i Azure Monitor
 
@@ -60,7 +60,7 @@ Log Analytics-arbetsytan behöver inte finnas i samma prenumeration som resursen
 
 4. Klicka på **Spara**.
 
-Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till arbetsytan när nya händelsedata genereras. Observera att det kan ta upp till 15 minuter mellan när en händelse genereras och när den visas i Log Analytics.
+Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till arbetsytan när nya händelsedata genereras. Det kan vara upp till 15 minuter mellan när en händelse genereras och när den visas i Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdletar
 
@@ -99,37 +99,81 @@ Den `--resource-group` argumentet är bara krävs om `--workspace` är inte ett 
 
 Du kan fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics i bladet loggar i Azure Monitor-portalen. Det finns även [flera övervakningslösningar för Azure-resurser](../../azure-monitor/insights/solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Azure Monitor.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Azure Diagnostics mot Resursspecifika  
+När ett mål för Log Analytics har aktiverats för Azure Diagnostics-konfiguration, finns det två olika sätt som data kommer att visas i din arbetsyta:  
+- **Azure-diagnostik** – detta är den äldre metoden som används idag av flesta Azure-tjänster. I det här läget kan alla data från alla Diagnostikinställning pekar på en viss arbetsyta kommer få i den _AzureDiagnostics_ tabell. 
+<br><br>Eftersom många resurser skickar data till samma tabell (_AzureDiagnostics_), schemat för den här tabellen är en uppsättning scheman för alla de olika datatyper som samlas in. Till exempel om du har skapat diagnostikinställningar för insamling av följande datatyper, som alla skickas till samma arbetsyta:
+    - Granska loggar på resurs-1 (med ett schema som består av kolumnerna A, B och C)  
+    - Felloggar resurs 2 (med ett schema som består av kolumnerna D, E och F)  
+    - Data flödesloggar Resource 3 (med ett schema som består av kolumnerna G, H och jag)  
+
+    Tabellen AzureDiagnostics ut enligt följande, med lite exempeldata:  
+
+    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | Felvillkoren | | | | q1 | W1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | Felvillkoren | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **Resurs-specifika** – i det här läget kan enskilda tabeller i den valda arbetsytan skapas per varje kategori som valts i konfiguration av diagnostikinställningar. Den här nyare metoden gör det enklare att hitta exakt du vill hitta via explicit inkapsling av problem: en tabell för varje kategori. Dessutom ger den förmåner till stöd för dynamisk typer. Du kan redan finns i det här läget för väljer Azure-resurstyper, till exempel [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) eller [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) loggar. Slutligen planerar vi för varje typ av post att migrera till Resursspecifika-läge. 
+
+    Detta skulle resultera i tre tabeller som skapas i exemplet ovan: 
+    - Tabellen _AuditLogs_ på följande sätt:
+
+        | ResourceProvider | Category | A | B | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - Tabellen _felvillkoren_ på följande sätt:  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | Felvillkoren | q1 | W1 | e1 |
+        | Microsoft.Resource2 | Felvillkoren | q2 | w2 | e2 |
+        | ... |
+
+    - Tabellen _DataFlowLogs_ på följande sätt:  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Andra fördelar med att använda läget Resursspecifika omfattar förbättrad prestanda för både datainmatningssvarstid och frågetider, bättre för att göra scheman och deras struktur, möjligheten att ge RBAC-behörighet på en viss tabell och mycket mer.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Att välja Azure vs Resursspecifika diagnostikläge
+För de flesta Azure-resurser behöver du inte välja om du vill använda Azure-diagnostik eller resurs-specifika läget. data flödar automatiskt via den metod som resursen har valt för att använda. Se dokumentationen från den resurs som du har aktiverat för att skicka data till Log Analytics information där läge används. 
+
+Enligt informationen i föregående avsnitt, men det är slutligen målet med Azure Monitor har alla tjänster i Azure-användning Resursspecifika-läge. Att underlätta övergången och se till att inga data förloras som en del av det, vissa Azure-tjänster när Kom igång med Log Analytics får du ett urval av läge:  
+   ![Diagnostiska inställningar läge väljare](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+Vi **starkt** rekommenderar att för att undvika potentiellt svårt migreringar ned vägen någon nyligen skapade diagnostikinställningar Använd resurs Centric läge.  
+
+För befintliga diagnostikinställningar när det väl aktiverats av en viss Azure-resurs, kommer du att kunna retroaktivt växla från Azure-diagnostik till Resursspecifika-läge. Dina tidigare inmatade data fortsätter att vara tillgängliga i den _AzureDiagnostics_ tabellen förrän den åldrarna ut som konfigurerats i din kvarhållningsinställning på arbetsytan, men nya data skickas till tabellen dedikerad. Det innebär att för alla frågor som måste omfatta både de gamla data och nya (tills gamla data åldras fullt), ett [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) operator i dina frågor som krävs för att kombinera de två datauppsättningarna.
+
+Ta en titt nyheter om nya Azure Services stödjande loggar i resurs-specifika läge på den [Azure uppdaterar](https://azure.microsoft.com/updates/) blogg!
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Känd begränsning: kolumngräns i AzureDiagnostics
-Eftersom många resurser skicka datatyper skickas till samma tabell (_AzureDiagnostics_), schemat för den här tabellen är en uppsättning scheman för alla de olika datatyper som samlas in. Till exempel om du har skapat diagnostikinställningar för insamling av följande datatyper som alla skickas till samma arbetsyta:
-- Granska loggar på resurs-1 (med ett schema som består av kolumnerna A, B och C)  
-- Felloggar resurs 2 (med ett schema som består av kolumnerna D, E och F)  
-- Data flödesloggar Resource 3 (med ett schema som består av kolumnerna G, H och jag)  
- 
-Tabellen AzureDiagnostics ut enligt följande, med lite exempeldata:  
- 
-| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | Felvillkoren | | | | q1 | W1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | Felvillkoren | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-Det finns en explicit gräns för alla angivna Azure logganalys-tabellen som inte har fler än 500 kolumner. När detta uppnåtts kommer att tas bort alla rader som innehåller data med valfri kolumn utanför de första 500 vid inmatning tidpunkt. Tabellen AzureDiagnostics är särskilt sårbara påverkas om du vill att den här gränsen. Detta sker vanligtvis antingen eftersom en stor mängd datakällor som ska skickas till samma arbetsyta, eller flera mycket utförlig datakällor som skickas till samma arbetsyta. 
- 
+Det finns en explicit gräns för alla angivna Azure logganalys-tabellen som inte har fler än 500 kolumner. När detta uppnåtts kommer att tas bort alla rader som innehåller data med valfri kolumn utanför de första 500 vid inmatning tidpunkt. Tabellen AzureDiagnostics är särskilt sårbara påverkas om du vill att den här gränsen. Detta sker vanligtvis antingen eftersom en stor mängd datakällor som ska skickas till samma arbetsyta, eller flera utförlig datakällor som skickas till samma arbetsyta. 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-Azure Data Factory, på grund av en mycket detaljerad uppsättning med loggar, är en resurs som du känner till särskilt påverkas av den här gränsen. Särskilt:  
+Azure Data Factory, är på grund av en mycket detaljerad uppsättning med loggar, en resurs som du känner till särskilt påverkas av den här gränsen. I synnerhet var läge för alla diagnostikinställningar konfigurerades innan resurs-specifika aktiverat eller uttryckligen välja att använda Resursspecifika-läge för omvänd kompatibilitet:  
 - *Användarparametrar som definierats mot alla aktiviteter i din pipeline*: det blir en ny kolumn som skapats för varje unikt med namnet user-parameter mot alla aktiviteter. 
-- *Aktivitetens indata och utdata*: dessa variera aktivitet till aktiviteten och generera en stor mängd kolumner på grund av deras utförlig natur. 
+- *Aktivitetens indata och utdata*: dessa variera aktivitet till aktiviteten och generera ett stort antal kolumner på grund av deras utförlig natur. 
  
-Som med bredare lösning förslagen nedan, rekommenderas att isolera ADF loggar i deras egen arbetsyta för att minimera risken för de här loggarna som påverkar andra loggtyper som samlas in i dina arbetsytor. Vi räknar med att du har samlat ihop loggar för Azure Data Factory tillgänglig snart.
+Som med bredare lösning förslagen nedan, rekommenderar vi att du migrerar dina loggar för att använda Resursspecifika-läge så snart som möjligt. Om det inte går att göra det direkt kan är ett mellanliggande alternativ att isolera ADF loggar i deras egen arbetsyta för att minimera risken för de här loggarna som påverkar andra loggtyper som samlas in i dina arbetsytor. 
  
 #### <a name="workarounds"></a>Lösningar
-Kort sikt, tills den 500 kolumngräns omdefinieras, rekommenderar vi att du separera utförlig datatyper i olika arbetsytor att minska risken att du nått gränsen.
+Kortsiktigt tills alla Azure-tjänster är aktiverade i Resursspecifika-läge för tjänsterna du inte ännu stöda Resursspecifika-läge, rekommenderar vi att du separera utförlig-datatyper som publicerats av dessa tjänster i separata arbetsytor att minska den möjligheten att nått gränsen.  
  
-Långsiktiga Azure Diagnostics kommer rör sig från en enhetlig, null-optimerade schemat till enskilda tabeller per varje datatypen. tillsammans med stöd för dynamisk typer ger förbättrar detta avsevärt användbarheten av data som kommer in Azure loggar via Azure Diagnostics-mekanism. Du kan redan se detta för väljer Azure-resurstyper, till exempel [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) eller [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) loggar. Håll utkik efter nyheter om nya resurstyper i Azure som stöd för dessa granskad loggar på den [Azure uppdaterar](https://azure.microsoft.com/updates/) blogg!
+Långsiktiga Azure Diagnostics blir går mot alla Azure-tjänster som stöder Resursspecifika-läge. Vi rekommenderar övergången till det här läget så snart som möjligt för att minska potentialen hos som påverkas av den här begränsningen på 500 kolumn.  
 
 
 ## <a name="next-steps"></a>Nästa steg

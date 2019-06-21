@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160192"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165157"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
 
@@ -37,7 +37,7 @@ Ett privat moln VMware-stacken distribueras med följande programvaruversion.
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi har installerats på den köpta CloudSimple noder när du skapar ett privat moln.  ESXi innehåller hypervisor-programmet för att distribuera arbetsbelastningen virtuella datorer (VM).  Noderna kommer hyper-Konvergerad infrastruktur (beräkning och lagring) i ditt privata moln.  Noderna ingår i vSphere-kluster på det privata molnet.  Varje nod har fyra fysiska nätverk gränssnitt som är anslutna till underlay nätverk.  Två fysiska nätverksgränssnitt som används för att skapa en **vSphere distribuerade växla (VDS)** på vCenter och två används för att skapa en **NSX-hanterade virtuella distribuerade växeln (N-VDS)** .  Nätverksgränssnitt har konfigurerats i aktivt-aktivt läge för hög tillgänglighet.
+VMware ESXi har installerats på den etablerade CloudSimple noder när du skapar ett privat moln.  ESXi innehåller hypervisor-programmet för att distribuera arbetsbelastningen virtuella datorer (VM).  Noderna kommer hyper-Konvergerad infrastruktur (beräkning och lagring) i ditt privata moln.  Noderna ingår i vSphere-kluster på det privata molnet.  Varje nod har fyra fysiska nätverk gränssnitt som är anslutna till underlay nätverk.  Två fysiska nätverksgränssnitt som används för att skapa en **vSphere distribuerade växla (VDS)** på vCenter och två används för att skapa en **NSX-hanterade virtuella distribuerade växeln (N-VDS)** .  Nätverksgränssnitt har konfigurerats i aktivt-aktivt läge för hög tillgänglighet.
 
 Lär dig mer om VMware ESXi
 

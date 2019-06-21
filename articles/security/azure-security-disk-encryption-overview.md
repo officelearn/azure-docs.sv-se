@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068794"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294870"
 ---
 # <a name="azure-disk-encryption-overview"></a>Översikt över Azure Disk Encryption
 
@@ -45,7 +45,7 @@ Azure Disk Encryption har stöd för följande kundscenarier:
 Det stöder också följande scenarier för virtuella datorer när de är aktiverade i Microsoft Azure:
 
 * Integrering med Azure Key Vault.
-* [Standard-nivån VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [Virtuella Linux-datorer](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) inom de här nivåerna måste uppfylla minsta minnesstorlek som krävs av 7 GB. 
+* [Standard-nivån VMs](https://azure.microsoft.com/pricing/details/virtual-machines/) som uppfyller den [minneskravet](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Aktivera kryptering på Windows och Linux-datorer, hanterad disk och skala Konfigurera virtuella datorer från stöds avbildningarna i Azure-galleriet.
 * Inaktiverat kryptering på operativsystem och enheter för virtuella Windows-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
 * Inaktivera kryptering på enheter för virtuella Linux-datorer, skala virtuella datorer och hanterade virtuella datorer med diskar.
@@ -56,7 +56,7 @@ Det stöder också följande scenarier för virtuella datorer när de är aktive
 * Aktiverar kryptering på Linux VM OS och datadiskar.
 
    > [!NOTE]
-   > OS-kryptering för vissa Linux-distributioner stöds inte. Mer information finns i den [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln.
+   > OS-kryptering för vissa Linux-distributioner stöds inte. Mer information finns i den [Azure Disk Encryption operativsystem som stöds: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Aktivera kryptering på virtuella datorer som är konfigurerade med Windows-lagringsutrymmen från och med Windows Server 2016.
 * Säkerhetskopiera och återställa krypterade virtuella datorer för både nyckelkrypteringsnyckel (KEK) och icke-KEK-scenarier.
@@ -93,8 +93,6 @@ Azure Disk Encryption för virtuella datorer för Windows och Linux innehåller:
 * [PowerShell-cmdlets kryptering av disk](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [Disk encryption-cmdletar för Azure CLI](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [Azure Resource Manager-mallar kryptering av disk](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-Azure Disk Encryption stöds på virtuella datorer som kör Windows eller Linux-operativsystem. Mer information om operativsystem som stöds finns i [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Det finns ingen ytterligare avgift för att kryptera Virtuella diskar med Azure Disk Encryption. Standard [prissättning för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) gäller för nyckelvalvet som används för att lagra krypteringsnycklarna. 

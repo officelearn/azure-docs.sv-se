@@ -1,6 +1,6 @@
 ---
 title: Skapa och dela instrumentpaneler med data från Azure Log Analytics | Microsoft Docs
-description: Den här självstudien hjälper dig att förstå hur instrumentpanelerna i Log Analytics kan visualisera alla dina sparade loggsökningar, för att visa din miljö i en enda vy.
+description: Den här kursen hjälper dig att förstå hur instrumentpanelerna i Log Analytics kan visualisera alla dina sparade loggfrågor, vilket ger dig en enskild lins och visa din miljö.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -11,67 +11,82 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ed0cfba9abaed1f1fdbacc8fcf28918403b82f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60590082"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296446"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
-Instrumentpaneler för Log Analytics visar alla dina sparade loggsökningar, så att du kan hitta, samordna och dela IT-användningsdata i organisationen.  I den här självstudien visas hur du skapar en loggsökning som kan användas för att stödja en delad instrumentpanel som supportteamet kan använda för IT-åtgärder.  Lär dig att:
+Log Analytics instrumentpaneler kan visualisera alla dina sparade loggfrågor, så att du kan hitta, samordna och dela IT-användningsdata i organisationen.  Den här självstudien visas hur du skapar en loggfråga som används för att stödja en delad instrumentpanel som ska användas av IT-supporten driftsgruppen.  Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en delad instrumentpanel i Azure Portal
-> * Visualisera en prestandaloggsökning 
-> * Lägga till en loggsökning till en delad instrumentpanel 
+> * Visualisera en prestanda loggfråga 
+> * Lägga till en loggfråga till en delad instrumentpanel 
 > * Anpassa en panel i en delad instrumentpanel
 
-Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](../../azure-monitor/learn/quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
+Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
  
-## <a name="log-in-to-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Skapa delade instrumentpaneler
+Välj **instrumentpanelen** att öppna din standard [instrumentpanelen](../../azure-portal/azure-portal-dashboards.md). Din instrumentpanel ser annorlunda än i exemplet nedan.
 
-Det första som visas när du loggar in på Microsoft Azure Portal är [instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).<br> ![Azure Portal-instrumentpanelen](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Instrumentpanelen för Azure portal](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
-Här kan du samla de driftdata som är viktigast för IT över alla dina Azure-resurser, inklusive telemetri från Azure Log Analytics.  Innan vi går vidare med hur du visualiserar en loggsökning måste vi först skapa en instrumentpanel och dela den.  Detta gör att vi kan få undan den innan vi tar våra exempelprestanda för loggsökningen (som ska återges som ett linjediagram) och lägger till detta på instrumentpanelen.  
+Här kan du samla de driftdata som är viktigast för IT över alla dina Azure-resurser, inklusive telemetri från Azure Log Analytics.  Innan vi visualiserar en loggfråga vi först skapa en instrumentpanel och dela den.  Vi kan sedan fokusera på våra exempel prestanda log frågan, vilket ska återges som ett linjediagram och lägga till den på instrumentpanelen.  
 
-Om du vill skapa en instrumentpanel väljer du knappen **Ny instrumentpanel** bredvid namnet på den aktuella instrumentpanelen.<br> ![Skapa ny instrumentpanel i Azure Portal](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
+Om du vill skapa en instrumentpanel väljer du knappen **Ny instrumentpanel** bredvid namnet på den aktuella instrumentpanelen.
 
-Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler. Redigera namnet på instrumentpanelen och skriv *Exempelinstrumentpanel* för den här självstudien och välj **Anpassningen är klar**.<br><br> ![Spara anpassade instrumentpaneler i Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+![Skapa ny instrumentpanel i Azure-portalen](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-Instrumentpaneler är privata som standard när de skapas, vilket innebär att du är den enda som kan se dem. Använd knappen **Dela** som visas tillsammans med andra kommandon i instrumentpanelen för att visa den för andra.<br> ![Dela en ny instrumentpanel i Azure Portal](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
+Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler. Redigera namnet på instrumentpanelen och ange *Exempelinstrumentpanel* för den här självstudien och välj **anpassningen är klar**.<br><br> ![Spara anpassade instrumentpaneler i Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+
+Instrumentpaneler är privata som standard när de skapas, vilket innebär att du är den enda som kan se dem. Använd knappen **Dela** som visas tillsammans med andra kommandon i instrumentpanelen för att visa den för andra.
+
+![Dela en ny instrumentpanel i Azure-portalen](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
 Du uppmanas att välja en prenumeration och resursgrupp som din instrumentpanel ska publiceras till. För att underlätta för dig guidar portalen dig genom ett mönster där du placerar dina instrumentpaneler i en resursgrupp som kallas **instrumentpaneler**.  Verifiera den valda prenumerationen och klicka på **Publicera**.  Du kontrollerar åtkomsten till den information som visas i instrumentpanelen med [Azures resursbaserade åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md).   
 
-## <a name="visualize-a-log-search"></a>Visualisera en loggsökning
+## <a name="visualize-a-log-query"></a>Visualisera en loggfråga
+[Log Analytics](../log-query/get-started-portal.md) är en dedikerad portal som används för att arbeta med loggfrågor och resultaten. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I de här självstudierna använder du Log Analytics för att skapa en prestandavy i grafisk form, spara den för framtida fråga, och fästa den på den delade instrumentpanelen du skapade tidigare.
 
-Skapa grundläggande frågor på en enda rad från loggsökningsportalen i Azure Portal. Loggsökningsportalen kan användas utan att du behöver starta externa portaler och du kan använda den för att utföra en mängd funktioner med loggsökningar, som t.ex. skapa varningsregler, datorgrupper och exportera frågeresultat. 
+Öppna Log Analytics genom att välja **loggar** i Azure Monitor-menyn. Det börjar med en ny tom fråga.
 
-[Log Analytics-portalen](../../azure-monitor/log-query/get-started-portal.md) är en dedikerad portal som tillhandahåller avancerade funktioner som inte finns tillgängliga i loggsökningsportalen. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I Advanced Analytics-portalen kan du skapa en prestandavy i grafisk form, spara den för framtida sökningar och fästa den på den delade instrumentpanelen som skapades tidigare.   
+![Startsida](media/tutorial-logs-dashboards/homepage.png)
 
-Du kan starta Advanced Analytics-portalen från en länk i loggsökningsportalen.<br> ![Starta Advanced Analytics-portalen](media/tutorial-logs-dashboards/log-analytics-advancedportal-01.png)
+Anger du följande fråga för att returnera processor processoranvändningsposter för både Windows och Linux-datorer, grupperade efter dator och TimeGenerated och visas i ett visuellt diagram. Klicka på **kör** att köra frågan och visa det resulterande diagrammet.
 
-Ange följande fråga i Analytics-portalen för att bara returnera frågor gällande processoranvändning, för både Windows och Linux-datorer, grupperade efter dator och TimeGenerated, i ett visuellt diagram:
-
+```Kusto
+Perf 
+| where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" 
+| summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1hr), Computer 
+| render timechart
 ```
-Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1m), Computer | render timechart
-```
 
-Spara frågan genom att välja knappen **Spara fråga** i det övre högra hörnet.<br> ![Spara fråga från Advanced Analytics-portalen](media/tutorial-logs-dashboards/log-analytics-advancedportal-02.png)<br><br> I kontrollpanelen **Spara fråga** anger du ett namn, som t.ex. *Virtuella datorer i Azure – processoranvändning* och klickar sedan på **Spara**.  På det här sättet kan du skapa ett bibliotek med vanliga frågor att söka med eller ändra utan att behöva skriva om helt.  Avsluta med att fästa den delade instrumentpanelen du skapade innan genom att välja knappen för att **fästa schemat på Azure-instrumentpanelen** i mitten till höger på sidan.  
+Spara frågan genom att välja den **spara** knappen högst upp på sidan.
 
-Nu när du har en fråga som är fäst på instrumentpanelen, ser du att den har en generisk rubrik och en kommentar under sig.<br> ![Exempel på instrumentpanel i Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  Du bör byta namn till ett beskrivande namn, som enkelt kan tolkas av de som tittar på den.  Högerklicka på panelen och välj **Redigera panel**.  När du har angett en rubrik och en underrubrik för panelen klickar du på **Uppdatera**.  En banderoll visas med en fråga om du vill publicera eller ta bort ändringarna.  Klicka på **Publicera ändringar** och stäng sedan kontrollpanelen **Redigera panel**.  
+![Spara fråga](media/tutorial-logs-dashboards/save-query.png)
+
+I den **Spara fråga** Kontrollpanelen, ange ett namn som *Azure virtuella datorer – processoranvändning* och en kategori som *instrumentpaneler* och klicka sedan på **spara** .  På så sätt kan du skapa ett bibliotek med vanliga frågor som du kan använda och ändra.  Slutligen att fästa den delade instrumentpanelen du skapade tidigare genom att välja den **PIN-kod** knappen från det övre högra hörnet av sidan och sedan välja instrumentpanelens namn.
+
+Nu när du har en fråga som är fäst på instrumentpanelen, ser du att den har en generisk rubrik och en kommentar under sig.
+
+![Exempel på instrumentpanel i Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+
+ Du bör byta namn till ett beskrivande namn, som enkelt kan tolkas av de som tittar på den.  Klicka på redigeringsknappen om du vill anpassa rubrik och underrubrik för panelen och klicka sedan på **uppdatering**.  En banderoll visas med en fråga om du vill publicera eller ta bort ändringarna.  Klicka på **spara en kopia**.  
 
 ![Slutförd konfiguration av exemplet för instrumentpanel](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig hur du skapar en instrumentpanel i Azure Portal och lägger till en loggsökning.  Fortsätt till nästa självstudie för att lära dig vilka olika svar du kan implementera baserat på resultaten av loggsökningen.  
+I den här självstudien lärde du dig att skapa en instrumentpanel i Azure portal och Lägg till en loggfråga.  Fortsätt till nästa självstudie och lär dig vilka olika svar som du kan implementera baserat på log frågeresultat.  
 
 > [!div class="nextstepaction"]
 > [Svara på händelser med Log Analytics-aviseringar](tutorial-response.md)

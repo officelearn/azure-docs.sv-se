@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 75ff1f7a37522c295bff10fe22bbb995fea65d52
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: 50a252ff93f7e2cc6e5c6100c6bce850e9e96baf
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276043"
+ms.locfileid: "67295623"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python-Självstudier: Anropa API: er med Cognitive Services i ett Azure Search indexering av pipeline
 
@@ -465,73 +465,7 @@ Resultatet bör likna följande exempel. Skärmbilden visar bara en del av svare
 Upprepa detta för ytterligare fält: innehåll, languageCode, keyPhrases och organisationer i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
 
 Du kan använda GET eller POST, beroende på frågesträngens komplexitet och längd. Mer information finns i [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Fråga med REST API).
-
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Åtkomst till det utökade dokumentet
-
-Med kognitiv sökning kan du se strukturen för det berikade dokumentet. Berikade dokument är tillfälliga strukturer som skapas under berikandet. De tas sedan bort när processen är klar.
-
-Om du vill ta en ögonblicksbild av det berikade dokumentet som skapades under indexeringen lägger du till ett fält som heter `enriched` i ditt index. Indexeraren placerar automatiskt en strängrepresentation i fältet för alla berikanden för det dokumentet.
-
-Fältet `enriched` innehåller en sträng som är en logisk representation av det berikade dokumentet i minnet i JSON.  Fältets värde är emellertid ett giltigt JSON-dokument. Citattecken är undantagna så du måste ersätta `\"` med `"` att visa dokumentet som JSON-formaterad.  
-
-Fältet `enriched` är avsett för felsökning, endast för att hjälpa dig att förstå innehållets logiska form som uttryck utvärderas mot. Det kan vara användbart att förstå och felsöka din kunskapsuppsättning.
-
-Upprepa föregående övning för att fånga innehållet på en avancerad och dokument, och inkluderar den `enriched` när du skapar ett index.
-
-> [!Tip]
-> Innan du upprepa dessa steg måste du ta bort datakällan, index, indexerare och kunskaper som du nyss skapade. Mer information finns i [för återställning och kör](#reset).
-
-```python
-# Create index with enriched field
-index_payload = {
-    "name": index_name,
-    "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
-}
-```
-
-<a name="reset"></a>
+den <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949826"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302234"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Indexera stora datauppsättningar i Azure Search
 
@@ -54,7 +54,7 @@ Indexeraren schemaläggning är ett viktigt mekanism för bearbetning av stora d
 
 Schemalagd indexering startar med ett visst intervall av design, med ett jobb som vanligtvis slutförs innan återupptas vid nästa schemalagda intervall. Om bearbetningen inte slutförs inom intervallet, stoppas dock indexeraren (eftersom tog slut tid). På nästa intervall spåra bearbetningen återupptar där den senast slutade, med system som av där som sker. 
 
-Du kan placera indexeraren enligt ett schema i 24-timmarsformat rent praktiskt för index belastning över flera dagar. När indexering återupptar tills nästa cykel i 24-timmarsformat, startar om senaste kända dokumentet. På så sätt kan fungerar en indexerare genom en dokumentet eftersläpning över ett antal dagar tills alla obearbetade dokument behandlas. Mer information om den här metoden finns i [indexering stora datauppsättningar i Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Läs mer om att ställa in scheman i allmänhet [skapa indexeraren REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+Du kan placera indexeraren enligt ett schema i 24-timmarsformat rent praktiskt för index belastning över flera dagar. När indexering återupptar tills nästa cykel i 24-timmarsformat, startar om senaste kända dokumentet. På så sätt kan fungerar en indexerare genom en dokumentet eftersläpning över ett antal dagar tills alla obearbetade dokument behandlas. Mer information om den här metoden finns i [indexering stora datauppsättningar i Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Läs mer om att ställa in scheman i allmänhet [skapa indexeraren REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) eller se [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa ett Spark-maskininlärningsprogram i Azure HDInsight'
-description: Stegvisa anvisningar om att skapa Apache Spark machine learning-program i HDInsight Spark-kluster med Jupyter Notebook.
+description: Självstudie – stegvisa instruktioner om hur du skapar Apache Spark machine learning-programmet i HDInsight Spark-kluster med Jupyter-anteckningsboken.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1013d16295c0348593a207b1af5e0d0d399dd116
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252886"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295332"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Självstudier: Skapa ett Apache Spark-maskininlärningsprogram i HDInsight 
 

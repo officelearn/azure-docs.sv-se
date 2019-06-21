@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052018"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295255"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -281,9 +281,9 @@ Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
-|`verbose`|boolesk|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
-|`staging`|boolesk|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
-|`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
+|`verbose`|boolean|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
+|`staging`|boolean|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
+|`log`|boolean|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
 
 ### <a name="query-published-app"></a>Fråga efter publicerade appen
 

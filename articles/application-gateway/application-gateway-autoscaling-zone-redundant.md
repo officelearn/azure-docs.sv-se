@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054740"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205000"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -24,7 +24,7 @@ Den nya v2-SKU: N innehåller följande förbättringar:
 - **Zon redundans**: En Application Gateway- eller WAF-distribution kan sträcka sig över flera Tillgänglighetszoner, ta bort behovet av att etablera separata Application Gateway-instanser i varje zon med Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway-instanser har distribuerats, vilket gör det mer robust zon uppstår fel. Serverdelspoolen för program kan distribueras på samma sätt i olika tillgänglighetszoner.
 
   Redundans är tillgänglig endast om Azure Zones är tillgängligt. Alla andra funktioner som stöds i andra regioner. Mer information finns i [vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **Statisk VIP**: Application gateway v2 SKU: N stöder statisk VIP skriver exklusivt. Detta säkerställer att VIP-Adressen som är associerade med application gateway inte ändras för livscykeln för distributionen, även efter en omstart.
+- **Statisk VIP**: Application Gateway-SKU för v2 har stöd för statisk VIP-typ exklusivt. Detta säkerställer att VIP-Adressen som är associerade med application gateway inte ändras för livscykeln för distributionen, även efter en omstart.  Det finns inte en statisk VIP i v1, så du måste använda application gateway-URL i stället för IP-adressen för Inter-Domain routing namn till App Services via application gateway.
 - **Huvud-omskrivning**: Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar med v2-SKU. Mer information finns i [skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
 - **Key Vault-integrering (förhandsversion)** : Application Gateway v2 har stöd för integrering med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
 - **Ingress-kontrollanten för Azure Kubernetes Service (förhandsversion)** : V2 Ingress-kontrollanten för Application Gateway kan Azure Application Gateway som ska användas som inkommande för ett Azure Kubernetes Service (AKS) kallas AKS-kluster. Mer information finns i den [dokumentationssidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
@@ -42,7 +42,7 @@ Standard_v2 och WAF_v2 SKU finns i följande regioner: Norra centrala USA, södr
 Med v2-SKU prismodellen drivs av förbrukning och inte längre är kopplad till antalet instanser eller storlekar. Priser för v2 SKU har två komponenter:
 
 - **Fast pris** – detta är per timme (eller del av en timme) priset för att etablera en Standard_v2 eller WAF_v2 Gateway.
-- **Kapacitet enhetspriset** – det här är förbrukningsbaserad kostnaden som debiteras utöver den fasta kostnaden. Kapacitetsenhet kostnad även beräknas per timme eller partiell per timme. Det finns tre dimensioner till Kapacitetsenhet – compute unit, beständiga anslutningar och dataflöde. Compute-enhet är ett mått på processor-kapaciteten som förbrukats. Faktorer som påverkar beräkningsenhet är TLS-anslutningar per sekund, URL-Omskrivningsregler beräkningar och WAF-Regelbearbetning. Beständig anslutning är ett mått på TCP-anslutningar till application gateway i ett givet intervall för fakturering. Dataflödet är genomsnittliga megabit per sekund som bearbetas av systemet i ett givet intervall för fakturering.
+- **Kapacitet enhetspriset** – det här är förbrukningsbaserad kostnaden som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräkningsenhet är TLS-anslutningar per sekund, URL-Omskrivningsregler beräkningar och WAF-Regelbearbetning. Beständig anslutning är ett mått på TCP-anslutningar till application gateway i ett givet intervall för fakturering. Dataflödet är genomsnittliga megabit per sekund som bearbetas av systemet i ett givet intervall för fakturering.
 
 Varje Kapacitetsenhet består av högst: 1 compute-enhet, eller 2500 beständiga anslutningar eller 2.22 Mbit/s genomströmning.
 

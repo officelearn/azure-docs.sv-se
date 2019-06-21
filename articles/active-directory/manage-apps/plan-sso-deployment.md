@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108206"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164941"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -61,9 +61,9 @@ Det finns två huvudsakliga sätt som du kan aktivera enkel inloggning för anv�
 
 Använda Azure AD för lösenordsbaserad SSO kräver distribution av ett webbläsartillägg som på ett säkert sätt hämta autentiseringsuppgifter och fylla i formulär för inloggning. Definiera en mekanism för att distribuera tillägget i stor skala med [webbläsare som stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
 
-- [En grupprincip för Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) för Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Användarstyrd nedladdning och konfiguration av Chrome, Firefox, Microsoft Edge eller Internet Explorer ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [En grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [System Center Configuration Manager (SCCM) för Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Användarstyrd nedladdning och konfiguration av Chrome, Firefox, Microsoft Edge eller Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Mer information finns i [hur du konfigurerar lösenord för enkel inloggning](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 

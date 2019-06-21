@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148626"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204837"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobbar
 Azure Storage erbjuder nu mjuk borttagning för blob-objekt så att du kan enkelt återställa dina data när den är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>Ska jag använda mjuk borttagning?
-Om det finns en risk att dina data råkar ändrats eller tagits bort av ett program eller en annan användare för storage-konto, rekommenderar vi att aktivera mjuk borttagning. Mjuk borttagning är en del av en strategi för att skydda data och kan hjälpa dig att förhindra oavsiktlig dataförlust.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Finns det ingen särskild hänsyn för att använda mjuk borttagning?
+Om det finns en risk att dina data råkar ändrats eller tagits bort av ett program eller en annan användare för storage-konto, rekommenderar vi att aktivera mjuk borttagning. Aktivera mjuk borttagning för ofta överskrivna data kan resultera i ökade lagringskostnader för kapacitet och ökad latens när blobbar. Du kan komma runt detta genom att lagra ofta skrevs över data i ett separat lagringskonto med mjuk borttagning har inaktiverats. 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-**Finns det ingen särskild hänsyn för att använda mjuk borttagning?**  
-Aktivera mjuk borttagning för ofta överskrivna data kan resultera i ökade lagringskostnader för kapacitet och ökad latens när blobbar. Du kan komma runt detta genom att lagra ofta skrevs över data i ett separat lagringskonto med mjuk borttagning har inaktiverats. 
-
 **Vilka typer av lagring kan jag använda mjuk borttagning?**  
 Mjuk borttagning är för närvarande endast tillgänglig för bloblagring (objekt).
 

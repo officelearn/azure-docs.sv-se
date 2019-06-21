@@ -1,30 +1,30 @@
 ---
-title: Självstudie – Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
-description: I den här självstudien skapar och testar du en privat DNS-zon och post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
+title: Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
+description: I den här artikeln får du skapa och testa en privat DNS-zon och DNS-post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: tutorial
-ms.date: 06/13/2019
+ms.topic: article
+ms.date: 06/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8f39c9707fef013c162e407a7e3ccaa67f2cabfc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9d79ed28bd331b723755e1c17233aa82421ad1d7
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080591"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147881"
 ---
-# <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Självstudier: Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
+# <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-Den här självstudien visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
+Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering aktiveras, Azure DNS även uppdaterar zonposter när en virtuell dator skapas, ändringar dess ”IP-adress eller tas bort.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en privat DNS-zon
@@ -32,16 +32,11 @@ I den här guiden får du lära dig att:
 > * Skapa en ytterligare DNS-post
 > * Testa den privata zonen
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill kan du slutföra den här självstudiekursen med [Azure CLI](private-dns-getstarted-cli.md).
-
-<!--- ## Get the Preview PowerShell modules
-These instructions assume you have already installed and signed in to Azure PowerShell, including ensuring you have the required modules for the Private Zone feature. -->
-
-<!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Om du vill kan du slutföra den här proceduren med [Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
@@ -204,7 +199,7 @@ Upprepa för myVM02.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 
-När resursgruppen **MyAzureResourceGroup** inte längre behövs kan du ta bort den för att ta bort de resurser som skapades i den här självstudien.
+När den inte längre behövs kan du ta bort den **MyAzureResourceGroup** resursgrupp för att ta bort de resurser som skapades i den här artikeln.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -212,8 +207,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien distribuerade du en privat DNS-zon, skapade en DNS-post och testade zonen.
+I den här artikeln distribueras en privat DNS-zon skapas en DNS-post och testas i zonen.
 Härnäst kan du läsa mer om privata DNS-zoner.
 
-> [!div class="nextstepaction"]
-> [Använda Azure DNS för privata domäner](private-dns-overview.md)
+* [Använda Azure DNS för privata domäner](private-dns-overview.md)

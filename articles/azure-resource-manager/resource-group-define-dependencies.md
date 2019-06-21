@@ -1,25 +1,17 @@
 ---
 title: Ange distributionsordning för Azure-resurser | Microsoft Docs
 description: Beskriver hur du konfigurerar en resurs som är beroende av en annan resurs under distributionen för att säkerställa att resurserna distribueras i rätt ordning.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: ''
-ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32b2b41e47fe089da70d82e6049d0139795df88a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62103830"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204219"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar
 För en viss resurs, kan det finnas andra resurser som måste finnas innan resursen är distribuerad. Till exempel måste en SQL-server finnas innan du distribuerar en SQL-databas. Du kan definiera den här relationen genom att markera en resurs som är beroende av andra resursen. Du definierar ett beroende med den **dependsOn** element, eller genom att använda den **referens** funktion. 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690560"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203470"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrofåterställning till Azure för Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -113,6 +113,15 @@ Ange valvkontexten på följande sätt:
 5. Kontrollera att Hyper-V-värd har registrerats till webbplatsen på följande sätt:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+Om du kör en server för Hyper-V-kärnor, hämta installationsfilen och följ de här stegen:
+1. Extrahera filerna från AzureSiteRecoveryProvider.exe till en lokal katalog genom att köra det här kommandot: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Kör ```.\setupdr.exe /i``` resultaten loggas i % Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Registrera servern genom att köra det här kommandot:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>Steg 6: Skapa replikeringsprincip
 

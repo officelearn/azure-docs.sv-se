@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137864"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274409"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs datauppsättningar
 
 Azure Resource Graph är utformad för att arbeta med och få information om resurser i Azure-miljön. Resursen Graph gör hämta dessa data snabbt, även vid frågor till tusentals poster. Resursdiagrammet har flera alternativ för att arbeta med dessa stora datamängder.
+
+Anvisningar om hur du arbetar med frågor med en hög frekvens finns i [vägledning för begränsade begäranden](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Datauppsättning storlek
 
@@ -84,6 +86,6 @@ Ett exempel finns i [nästa sida fråga](/rest/api/azureresourcegraph/resources/
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se språket som användes i [Starter frågor](../samples/starter.md)
-- Se avancerade använder i [avancerade frågor](../samples/advanced.md)
-- Lär dig att [utforska resurser](explore-resources.md)
+- Se språket som användes i [Starter frågor](../samples/starter.md).
+- Se avancerade använder i [avancerade frågor](../samples/advanced.md).
+- Lär dig hur du [Utforska resurser](explore-resources.md).

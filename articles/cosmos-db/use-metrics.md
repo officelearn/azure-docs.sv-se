@@ -5,24 +5,48 @@ ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/18/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b7633b75bbb6d37c68a562560a6459e35d03b810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242546"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275679"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
-Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Den [Azure-portalen](https://portal.azure.com) visar en sammansatt vy av de här måtten. För mer detaljerade mätvärden, både klient-SDK och [diagnostikloggar](./logging.md) är tillgängliga.
+Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen visar en sammansatt vy av de här måtten. Du kan också visa mått för Azure Cosmos DB från Azure Monitor-API. Läs om hur du visar mått från Azure monitor i den [hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) artikeln. 
 
 Den här artikeln beskriver vanliga användarsituationer och hur Azure Cosmos DB-mått kan användas för att analysera och felsöka problemen. Mått samlas in var femte minut och hålls i sju dagar.
 
+## <a name="view-metrics-from-azure-portal"></a>Visa mått från Azure-portalen
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/)
+
+1. Öppna den **mått** fönstret. Som standard rutan mått visar lagringen, index, begäran enheter mått för alla databaser i ditt Azure Cosmos-konto. Du kan filtrera de här måtten per databas, behållare eller en region. Du kan också filtrera mått med en viss tid precision. Mer information om dataflöde, lagring, tillgänglighet, svarstid och konsekvens mått finns på en separat flik. 
+
+   ![Prestandamått för cosmos DB i Azure-portalen](./media/use-metrics/performance-metrics.png)
+
+Följande mått är tillgängliga från den **mått** fönstret: 
+
+* **Genomflödesmått** – det här måttet visar antalet begäranden används eller inte (429-svarskod) eftersom dataflöde eller lagringskapacitet som tillhandahållits för behållaren har överskridit.
+
+* **Lagringsmått** – det här måttet visar storleken på data och index användning.
+
+* **Tillgänglighetsmått** – det här måttet visar procentandelen av lyckade begäranden över antalet förfrågningar per timme. Frekvensen definieras av Azure Cosmos DB-serviceavtal.
+
+* **Mått för datainmatningssvarstider** – det här måttet visas den svarstid för läsning och skrivning som observerats av Azure Cosmos DB i den region där ditt konto fungerar. Du kan visualisera svarstid i flera regioner för ett konto med geo-replikerade. Det här måttet representerar inte svarstid för slutpunkt till slutpunkt-begäran.
+
+* **Konsekvens mått** – det här måttet visar hur slutlig konsekvens för den konsekvensmodellen som du väljer. För konton för flera regioner visar det här måttet även replikeringsfördröjning mellan regioner som du har valt.
+
+* **Systemmått** – det här måttet visar hur många metadataförfrågningar betjänas av den överordnade partitionen. Det hjälper också till att identifiera de begränsade begärandena.
+
+I följande avsnitt beskrivs vanliga scenarier där du kan använda Azure Cosmos DB-mått. 
+
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Förstå hur många begäranden lyckas eller orsakar fel
 
-Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. På bladet hittar den **antalet begäranden överskred kapaciteten per 1 minut** diagram. Det här diagrammet visar en minut av minut förfrågningarna uppdelat efter statuskoden. Mer information om HTTP-statuskoder finns i [HTTP-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. På bladet hittar den ** antalet begäranden överskred kapaciteten per 1 minut diagram. Det här diagrammet visar en minut av minut förfrågningarna uppdelat efter statuskoden. Mer information om HTTP-statuskoder finns i [HTTP-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Den vanligaste felkoden är 429 (pris begränsar/begränsning). Detta fel innebär att begäranden till Azure Cosmos DB är mer än det etablerade dataflödet. De vanligaste lösningen på det här problemet är att [skala upp antalet enheter för programbegäran](./set-throughput.md) för den givna samlingen.
 
@@ -87,5 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Nu har du lärt dig hur du övervakar och felsöka problem med hjälp av mätvärden i Azure-portalen. Du kanske vill lära dig mer om att förbättra databasens prestanda genom att läsa följande artiklar:
 
+* Läs om hur du visar mått från Azure monitor i den [hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) artikeln. 
 * [Prestanda och skalningstester med Azure Cosmos DB](performance-testing.md)
 * [Prestandatips för Azure Cosmos DB](performance-tips.md)

@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428019"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715798"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Skicka EDI-meddelanden i batchar till handelspartner med Azure Logic Apps
 
@@ -65,14 +65,14 @@ För det här batch-mottagare, anger du batch-läge, namn, version kriterier X12
 
 4. Ställ in batchen mottagare egenskaper: 
 
-   | Egenskap  | Värde | Anteckningar | 
+   | Egenskap | Värde | Anteckningar | 
    |----------|-------|-------|
    | **Batch-läge** | Infogad |  |  
    | **Batch-namn** | TestBatch | Endast tillgängligt med **infogade** batch-läge | 
    | **Versionsvillkor** | Baserat på antal meddelanden, schema baserat | Endast tillgängligt med **infogade** batch-läge | 
    | **Antal meddelanden** | 10 | Endast tillgängligt med **meddelande baserat på antal** versionsvillkor | 
    | **Intervall** | 10 | Endast tillgängligt med **Schemabaserat** versionsvillkor | 
-   | **Frekvens** | minut | Endast tillgängligt med **Schemabaserat** versionsvillkor | 
+   | **Frekvens** | Minut | Endast tillgängligt med **Schemabaserat** versionsvillkor | 
    ||| 
 
    ![Ange information för utlösare av batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -94,7 +94,7 @@ För det här batch-mottagare, anger du batch-läge, namn, version kriterier X12
 
    4. Ange dessa egenskaper för batch-kodare åtgärden:
 
-      | Egenskap  | Beskrivning |
+      | Egenskap | Beskrivning |
       |----------|-------------|
       | **Namnet på X12 avtal** | Öppna listan och välj din befintliga avtal. <p>Om listan är tom, se till att du [länka din logikapp till integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) som har det avtal som du vill. | 
       | **BatchName** | Klicka i den här rutan och när den dynamiska innehållslistan visas, väljer du den **batchnamn** token. | 
@@ -124,7 +124,7 @@ För att säkerställa din batch mottagare fungerar som förväntat, kan du läg
 
 3. Ange egenskaper för HTTP-åtgärd:
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------|
    | **Metod** | Välj den här listan **POST**. | 
    | **Uri** | Generera en URI för din begäran bin och sedan ange denna URI i den här rutan. | 
@@ -174,7 +174,7 @@ Nu ska du skapa en eller flera logikappar som skickar meddelanden till logikappe
 
 4. Ange batch avsändarens egenskaper.
 
-   | Egenskap  | Beskrivning | 
+   | Egenskap | Beskrivning | 
    |----------|-------------| 
    | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: Batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
    | **Meddelandeinnehåll** | Innehållet för meddelandet som du vill skicka, vilket är den **brödtext** token i det här exemplet | 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120186"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187367"
 ---
 Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tjänstens loggfiler på virtuella datorer när problemen inträffar. Du kan använda den AzureLogCollector tillägg på begäran för att utföra enstaka loggsamlingar från en eller flera moln virtuella datorer (från både web-roller och worker-roller) och överföra de insamlade filerna till ett Azure storage-konto – allt utan att logga in via en fjärranslutning till någon för de virtuella datorerna.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953849"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203517"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Datamodellering i Azure Cosmos DB
 
@@ -176,9 +176,9 @@ Lager *zaza* får säljas flera hundra gånger under en enda dag och tusentals a
 
 ## <a name="referencing-data"></a>Refererar till data
 
-Därför bädda in data fungerar bra för många fall, men det är tydligt att det finns scenarier när avnormalisera data medför flera problem än vad det är värt att. Så vad vi gör nu?
+Bädda in data fungerar bra för många fall, men det finns scenarier när avnormalisera data medför flera problem än vad det är värt att. Så vad vi gör nu?
 
-Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. Du kan ha information i ett dokument som faktiskt är kopplat till data i andra dokument i en dokumentdatabas. Nu kan jag inte utvecklarrådgivning även en minut att vi bygger system som skulle vara bättre lämpade för en relationsdatabas i Azure Cosmos DB eller någon annan dokumentdatabas, men enkla relationer fungerar bra och kan vara användbart.
+Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. Du kan ha information i ett dokument som är kopplat till data i andra dokument i en dokumentdatabas. Vi rekommenderar inte att skapa system som skulle vara bättre lämpade för en relationsdatabas i Azure Cosmos DB eller någon annan dokumentdatabas, men enkla relationer fungerar bra och kan vara användbart.
 
 I JSON nedan som vi har valt att använda exemplet med en portfölj från tidigare men nu kan vi refererar till objektet lagerartiklar portfölj i stället för att bädda in den. Det här sättet när lagerartiklar objektet ändras ofta under dagen den enda dokument som måste uppdateras är det enda lagerartiklar dokumentet.
 

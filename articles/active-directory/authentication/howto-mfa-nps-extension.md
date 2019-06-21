@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113407"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204658"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -225,7 +225,7 @@ Leta efter ett självsignerat certifikat som skapas av installationsprogrammet i
 
 Självsignerat certifikat som genereras av den *AzureMfaNpsExtnConfigSetup.ps1* skript har också en giltigheten livslängd på två år. När du verifierat att certifikatet har installerats, bör du också kontrollera att certifikatet inte har gått ut.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Hur kan jag kontrollera att min klientcertifikatet är kopplade till min klient i Azure Active Directory?
 
@@ -251,13 +251,13 @@ När du har kört det här kommandot kan gå att enhet C, leta reda på filen oc
 
 Giltigt-från- och -tills tidsstämplar som är i läsbara form, som kan användas för att filtrera bort uppenbara misfits om kommandot returnerar mer än ett certifikat.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>Varför kan jag logga in?
 
 Kontrollera att lösenordet inte har gått ut. NPS-tillägget stöder inte ändring av lösenord som en del av arbetsflödet för inloggning. Kontakta din organisations IT-personal för ytterligare hjälp.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>Varför är Mina förfrågningar fungerar med ADAL-tokenfel?
 
@@ -268,19 +268,19 @@ Det här felet kan bero på något av flera skäl. Följ dessa steg för att fel
 3. Kontrollera att certifikatet är associerat med din klientorganisation i Azure AD.
 4. Kontrollera att https://login.microsoftonline.com/ kan nås från servern som kör tillägget.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Varför misslyckas autentiseringen med ett fel i HTTP-loggar som talar om att användaren inte kan hittas?
 
 Kontrollera att AD Connect körs och att användaren finns i både Windows Active Directory och Azure Active Directory.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Varför ser jag HTTP anslutningsfel i loggar med min autentiseringar misslyckas?
 
 Kontrollera att https://adnotifications.windowsazure.com kan nås från servern som kör NPS-tillägget.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Varför autentiseringen inte fungerar, trots ett giltigt certifikat vara närvarande?
 

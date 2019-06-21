@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073734"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151247"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-skalbarhets- och prestandamål för storage-konton
 
@@ -45,6 +45,9 @@ Mer information om mål för skalbarhet och prestanda för Azure Files och Azure
 
 > [!IMPORTANT]
 > Lagringskontogränser gäller för alla resurser. Skala upp till är max för storage-konton endast möjligt om det finns bara en resurs per lagringskonto.
+>
+> Standard filresurser som är större än 5 TiB är i förhandsversion och har vissa begränsningar.
+> En lista av begränsningar och kom igång med förhandsversionen av dessa större filstorlekar för resursen finns i den [Standard filresurser](../files/storage-files-planning.md#standard-file-shares) avsnitt av Azure Files planering guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

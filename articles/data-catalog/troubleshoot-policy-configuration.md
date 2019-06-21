@@ -1,23 +1,35 @@
 ---
-title: Så här konfigurerar du Azure Active Directory-principen för Azure Data Catalog
-description: Du kan stöta på en situation där du kan logga in på Azure Data Catalog-portalen, men när du försöker logga in på registreringsverktyget, du får ett felmeddelande.
+title: Så här felsöker du Azure Data Catalog
+description: Den här artikeln beskriver vanliga felsökning frågor för Azure Data Catalog-resurser.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/06/2019
-ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 06/13/2019
+ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116609"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203511"
 ---
-# <a name="azure-active-directory-policy-configuration"></a>Konfiguration av Azure Active Directory-principer
+# <a name="troubleshooting-azure-data-catalog"></a>Felsökning av Azure Data Catalog
+
+Den här artikeln beskriver vanliga felsökning frågor för Azure Data Catalog-resurser. 
+
+## <a name="functionality-limitations"></a>Funktionen begränsningar
+
+När du använder Azure Data Catalog, begränsas följande funktioner:
+
+- Konton med typen **gästrollen** stöds inte. Du kan inte lägga till gästkonton som användare av Azure Data Catalog och gästanvändare kan inte använda portalen på www.azuredatacatalog.com.
+
+- Det går inte att skapa Azure Data Catalog-resurser med hjälp av Azure Resource Manager-mallar eller Azure PowerShell-kommandon.
+
+- Azure Data Catalog-resursen kan inte flyttas mellan Azure-klienter.
+
+## <a name="azure-active-directory-policy-configuration"></a>Konfiguration av Azure Active Directory-principer
 
 Det kan uppstå en situation då du kan logga in på Azure Data Catalog-portalen, men då du får ett felmeddelande när du försöker logga in till registreringsverktyget för datakällan. Det här felet kan uppstå när du är ansluten till företagets nätverk eller när du ansluter från utanför företagets nätverk.
-
-## <a name="registration-tool"></a>Registreringsverktyget
 
 Registreringsverktyget använder *formulärautentisering* för att validera användarinloggningar mot Azure Active Directory. För att inloggningen ska lyckas måste en Azure Active Directory-administratör aktivera formulärautentisering i *den globala autentiseringsprincipen*.
 

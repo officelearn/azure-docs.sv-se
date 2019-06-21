@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df20c8b863a6abb1cdb4d53c0057b223fe9fdaf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c67eec3a17e949d630bedf920c690f9f5a36424d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110433"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204572"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -35,7 +35,7 @@ Mer information finns i:
 
 * [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
-- - -
+---
 **F: Vad är relationen mellan Azure AD, Office 365 och Azure?**
 
 **S:** Azure AD tillhandahåller gemensamma identitets- och åtkomstfunktioner för alla webbtjänster. Oavsett om du använder Office 365, Microsoft Azure, Intune eller andra tjänster använder du redan Azure AD för hjälp med inloggnings- och åtkomsthantering för alla dessa tjänster.
@@ -44,7 +44,7 @@ Alla användare som har ställts in för att använda webbtjänster definieras s
 
 Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra webbtjänster som Office 365 och Microsoft Azure med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
-- - -
+---
 
 **F:  Vilka är skillnaderna mellan ägare och Global administratör?**
 
@@ -56,27 +56,27 @@ Som standard tilldelas den person som registrerar sig för en Azure-prenumeratio
 
 Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
-- - -
+---
 **F: Finns det en rapport som visar när Mina Azure AD-användarlicenser upphör att gälla?**
 
 **S:** Nej.  Det här är inte tillgängligt för närvarande.
 
-- - -
+---
 
 ## <a name="get-started-with-hybrid-azure-ad"></a>Kom igång med en Azure AD-hybridlösning
 
 
 **F: Hur lämnar jag en klient när jag har lagts till som medarbetare?**
 
-**S:** När du har lagts till en annan organisations klient som medarbetare kan använda du ”klientväxlaren” i det övre högra hörnet för att växla mellan klienter.  För närvarande går det inte att lämna organisationen som bjuder in och Microsoft arbetar med att tillhandahålla den här funktionen.  Tills den funktionen är tillgänglig kan du be organisationen som bjuder in att ta bort dig från deras klient.
-- - -
+<a name="a-when-you-are-added-to-another-organizations-tenant-as-a-collaborator-you-can-use-the-tenant-switcher-in-the-upper-right-to-switch-between-tenants--currently-there-is-no-way-to-leave-the-inviting-organization-and-microsoft-is-working-on-providing-this-functionality--until-this-feature-is-available-you-can-ask-the-inviting-organization-to-remove-you-from-their-tenant"></a>**S:** När du har lagts till en annan organisations klient som medarbetare kan använda du ”klientväxlaren” i det övre högra hörnet för att växla mellan klienter.  För närvarande går det inte att lämna organisationen som bjuder in och Microsoft arbetar med att tillhandahålla den här funktionen.  Tills den funktionen är tillgänglig kan du be organisationen som bjuder in att ta bort dig från deras klient.
+---
 **F: Hur kan jag ansluta min lokala katalog till Azure AD?**
 
 **S:** Du kan ansluta din lokala katalog till Azure AD med hjälp av Azure AD Connect.
 
 Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
-- - -
+---
 **F: Hur konfigurerar jag enkel inloggning mellan min lokala katalog och Mina molnprogram?**
 
 **S:** Du behöver bara konfigurera enkel inloggning (SSO) mellan din lokala katalog och Azure AD. Så länge du kommer åt dina molnprogram via Azure AD ser tjänsten till att användarna autentiseras korrekt med deras lokala autentiseringsuppgifter.
@@ -85,40 +85,40 @@ Du kan enkelt implementera enkel inloggning (SSO) från det lokala systemet med 
 
 Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
-- - -
+---
 **F: Tillhandahåller Azure AD en självbetjäningsportal för användare i min organisation?**
 
 **S:** Ja, Azure AD tillhandahåller du med den [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är Office 365-kund kan du hitta många av dessa funktioner i den [Office 365-portalen](https://portal.office.com).
 
 Mer information finns i [Introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
-- - -
+---
 **F: Kan Azure AD hjälpa mig att hantera min lokala infrastruktur?**
 
 **S:** Ja. Azure AD Premium-versionen tillhandahåller Azure AD Connect Health. Azure AD Connect Health hjälper dig att övervaka och få insyn i den lokala identitetsinfrastrukturen och synkroniseringstjänsterna.  
 
 Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../hybrid/whatis-hybrid-identity-health.md).  
 
-- - -
+---
 ## <a name="password-management"></a>Lösenordshantering
 **F: Kan jag använda Azure AD tillbakaskrivningen av lösenord utan Lösenordssynkronisering? (Är det i det här scenariot möjligt att använda lösenordsåterställning via självbetjäning (SSPR) för Azure AD med tillbakaskrivning av lösenord och inte lagra lösenord i molnet?)**
 
 **S:** Du behöver inte synkronisera dina Active Directory-lösenord till Azure AD för att använda tillbakaskrivning. I en federerad miljö använder enkel inloggning (SSO) i Azure AD den lokala katalogen för att autentisera användaren. I det här scenariot måste inte det lokala lösenordet spåras i Azure AD.
 
-- - -
+---
 **F: Hur lång tid tar det för ett lösenord att skrivas tillbaka till Active Directory lokalt?**
 
 **S:** Tillbakaskrivning av lösenord fungerar i realtid.
 
 Mer information finns i [Komma igång med lösenordshantering](../authentication/quickstart-sspr.md).
 
-- - -
+---
 **F: Kan jag använda tillbakaskrivning av lösenord med lösenord som hanteras av en administratör?**
 
 **S:** Ja, om du har aktiverat tillbakaskrivning av lösenord, de lösenordsåtgärder som utförs av en administratör skrivs tillbaka till din lokala miljö.  
 
-Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](../authentication/active-directory-passwords-faq.md).
-- - -
+<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questionsauthenticationactive-directory-passwords-faqmd"></a>Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](../authentication/active-directory-passwords-faq.md).
+---
 **F:  Vad kan jag göra om jag inte kommer ihåg mitt befintliga Office 365-/ Azure AD-lösenord när du försöker ändra mitt lösenord?**
 
 **S:** Det finns ett par alternativ för den här typen av situation.  Använd självbetjäning för återställning av lösenord (SSPR) om det är tillgängligt.  Huruvida SSPR fungerar eller ej beror på hur det är konfigurerat.  Mer information finns i avsnittet som beskriver [Hur portalen för lösenordsåterställning fungerar](../authentication/howto-sspr-deployment.md).
@@ -131,7 +131,7 @@ För Azure AD-konton kan administratörer återställa lösenord med någon av f
 - [Använda PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
-- - -
+---
 ## <a name="security"></a>Säkerhet
 **F: Låses konton efter ett visst antal misslyckade försök eller finns det en mer avancerad strategi?**
 
@@ -153,7 +153,7 @@ Vi har en gateway som filtrerar begäranden och som ger ett visst skydd mot botn
 
 En fullständig lista över redan integrerade program finns på [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
-- - -
+---
 **F: Vad händer om är det program som jag behöver inte i Azure AD-marketplace?**
 
 **S:** Med Azure AD Premium kan du lägga till och konfigurera de program som du vill. Beroende på programmets funktioner och dina preferenser kan du konfigurera enkel inloggning (SSO) och automatisk etablering.  
@@ -163,7 +163,7 @@ Mer information finns i:
 * [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
-- - -
+---
 **F: Hur användare loggar in till program med hjälp av Azure AD?**
 
 **S:** Azure AD kan användarna visa och komma åt sina program, till exempel flera olika sätt:
@@ -175,7 +175,7 @@ Mer information finns i:
 
 Mer information finns i [slutanvändaren upplevelser för program](../manage-apps/end-user-experiences.md).
 
-- - -
+---
 **F: Vilka är de olika sätten Azure AD stöder autentisering och enkel inloggning till program?**
 
 **S:** Azure AD stöder många standardiserade protokoll för autentisering och auktorisering, till exempel SAML 2.0, OpenID Connect, OAuth 2.0 och WS-Federation. Azure AD stöder också lösenordsvalv och automatisk inloggning för appar som endast har stöd för formulärbaserad autentisering.  
@@ -186,28 +186,28 @@ Mer information finns i:
 * [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Enkel inloggning för program i Azure AD](../manage-apps/what-is-single-sign-on.md)
 
-- - -
+---
 **F: Kan jag lägga till program som jag kör lokalt?**
 
 **S:** Azure AD Application Proxy ger enkel och säker åtkomst till lokala webbprogram som du väljer. Du kan komma åt dessa program på samma sätt som du kommer åt programvara som en tjänst (SaaS)-appar i Azure AD. Du behöver ingen VPN-anslutning och du behöver inte ändra din nätverksinfrastruktur.  
 
 Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage-apps/application-proxy.md).
 
-- - -
+---
 **F: Hur kräver jag Multi-Factor authentication för användare som har åtkomst till ett visst program?**
 
 **S:** Du kan tilldela en unik åtkomstprincip för varje program med Azure AD villkorlig åtkomst. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
 Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-- - -
+---
 **F: Vad är automatisk användaretablering för SaaS-appar?**
 
 **S:** Använd Azure AD för att automatisera den genereringen, underhållet och borttagningen av användaridentiteter i många populära SaaS molnappar.
 
 Mer information finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-- - -
+---
 **F:  Kan jag konfigurera en säker LDAP-anslutning med Azure AD?**
 
 **S:**  Nej. Azure AD stöder inte Lightweight Directory Access Protocol (LDAP)-protokollet eller säker LDAP direkt. Det är dock möjligt att aktivera Azure AD Domain Services (Azure AD DS)-instans på Azure AD-klienten med korrekt konfigurerade nätverkssäkerhetsgrupper via Azure Networking att uppnå LDAP-anslutning. Mer information finns i https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

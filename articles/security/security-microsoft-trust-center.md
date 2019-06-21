@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445693"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64706290"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft Säkerhetscenter
 Säkerhetsinformation för Azure-plats på Azure.com ger dig den information du behöver för att planera, utforma, distribuera, konfigurera och hantera dina molnlösningar på ett säkert sätt. Med Microsoft Trust center kan ha du också information du behöver för att vara säker på att Azure-plattformen där du kör dina tjänster är säker.

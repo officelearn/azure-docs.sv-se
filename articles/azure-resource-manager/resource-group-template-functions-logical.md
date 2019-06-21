@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager-Mallfunktioner - logiska | Microsoft Docs
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att fastställa logiska värden.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405658"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205466"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
@@ -39,9 +33,9 @@ Kontrollerar om alla parametervärden är sant.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
-| arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
-| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrollera om utvärderas som true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrollera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet att kontrollera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrollera om utvärderas som true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -77,9 +71,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | Falskt |
+| andExampleOutput | Booleskt | False |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | Falskt |
+| notExampleOutput | Booleskt | False |
 
 ## <a name="bool"></a>bool
 
@@ -131,9 +125,9 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | trueString | Booleskt | True |
-| falseString | Booleskt | Falskt |
+| falseString | Booleskt | False |
 | trueInt | Booleskt | True |
-| falseInt | Booleskt | Falskt |
+| falseInt | Booleskt | False |
 
 ## <a name="if"></a>if
 
@@ -145,7 +139,7 @@ Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| condition |Ja |boolesk |Värde att kontrollera om det är SANT eller FALSKT. |
+| condition |Ja |boolean |Värde att kontrollera om det är SANT eller FALSKT. |
 | trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
 | falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
 
@@ -196,7 +190,7 @@ Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/de
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -250,7 +244,7 @@ Konverterar booleskt värde till dess motsatt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Värdet som ska konverteras. |
+| arg1 |Ja |boolean |Värdet som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -286,9 +280,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | Falskt |
+| andExampleOutput | Booleskt | False |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | Falskt |
+| notExampleOutput | Booleskt | False |
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** med [är lika med](resource-group-template-functions-comparison.md#equals).
 
@@ -322,9 +316,9 @@ Kontrollerar om ett parametervärde är sant.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
-| arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
-| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrollera om utvärderas som true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrollera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet att kontrollera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrollera om utvärderas som true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -360,9 +354,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleskt | Falskt |
+| andExampleOutput | Booleskt | False |
 | orExampleOutput | Booleskt | True |
-| notExampleOutput | Booleskt | Falskt |
+| notExampleOutput | Booleskt | False |
 
 ## <a name="next-steps"></a>Nästa steg
 

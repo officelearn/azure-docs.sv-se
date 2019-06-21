@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539763"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147346"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt av Azure App Service-diagnostik
 
@@ -103,12 +103,12 @@ Proaktiv CPU-övervakning, erbjuder proaktiv autoreparation ett enkelt, proaktiv
 
 ![Proaktiv autoreparation](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Ändra analys
+## <a name="change-analysis-only-for-windows-app"></a>Ändra analysis (endast för Windows-app)
 
-I många demonstrationer utvecklingsmiljö vara det ibland svårt att hålla reda på alla ändringar som gjorts till din app och låta enbart pinpoint på en ändring som orsakade ett feltillstånd beteende. Ändra analys kan du begränsa på ändringar som görs i din app för att underlätta felsökning upplevelse. Ändra analysis är inbäddad i diagnostikrapport som **programmet kraschar** så att du kan använda den samtidigt med andra mått.
+I en molntjänsternas utvecklingsmiljö vara det ibland svårt att hålla reda på alla ändringar som gjorts till din app och låta enbart pinpoint på en ändring som orsakas av defekta beteende. Ändra analys kan du begränsa på ändringar som görs i din app för att underlätta felsökning upplevelse. Ändra analys finns i **programändringar** och också inbäddad i en diagnostisk rapport som **programmet kraschar** så att du kan använda den samtidigt med andra mått.
+
+Ändra analysis måste vara aktiverat innan du använder funktionen. Mer information om ändringen analys finns [Vi presenterar den nya ändring analysis-upplevelsen i App Service-diagnostik](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Ändra analysis-standardsida](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Visa diff](./media/app-service-diagnostics/diff-view-12.png)
-
-Ändra analysis måste vara aktiverat innan du använder funktionen. Mer information om ändringen analys finns [Vi presenterar den nya ändring analysis-upplevelsen i App Service-diagnostik](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

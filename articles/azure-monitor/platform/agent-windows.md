@@ -1,6 +1,6 @@
 ---
-title: Ansluta Windows-datorer till Azure Log Analytics | Microsoft Docs
-description: Den här artikeln beskriver hur du ansluter Windows-datorer i andra moln eller en lokal plats till Log Analytics med Microsoft Monitoring Agent (MMA).
+title: Ansluta Windows-datorer till Azure Monitor | Microsoft Docs
+description: Den här artikeln beskriver hur du ansluter Windows-datorer i andra moln eller en lokal plats till Azure Monitor med Log Analytics-agenten för Windows.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952479"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146357"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ansluta Windows-datorer till Azure Monitor
 
@@ -110,14 +110,16 @@ Följande tabell visar de specifika parametrarna som stöds av installationsprog
 2. Om du vill utföra tyst installation av agenten och konfigurera den för att rapportera till en arbetsyta i kommersiella Azure-molnet, från mappen extraherade du filer för installationsprogrammet för att skriva: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    eller om du vill konfigurera agenten för att rapportera till Azure US Government-molnet, skriver du: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >Strängvärden för parametrarna *OPINSIGHTS_WORKSPACE_ID* och *OPINSIGHTS_WORKSPACE_KEY* måste vara inkapslade i dubbla citattecken att instruera Windows Installer till interprit som giltiga alternativ för paketet. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installera agenten med DSC i Azure Automation
 
@@ -202,4 +204,6 @@ Du bör se pulsslagsposter för den dator som du anger den är ansluten och rapp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska [hantera och underhålla Log Analytics-agenten för Windows och Linux](agent-manage.md) vill veta mer om hur du hanterar agenten under livscykeln distribution på dina datorer.  
+- Granska [hantera och underhålla Log Analytics-agenten för Windows och Linux](agent-manage.md) vill veta mer om hur du hanterar agenten under livscykeln distribution på dina datorer.  
+
+- Granska [felsöka Windows-agent](agent-windows-troubleshoot.md) om det uppstår problem när du installerar eller hantering av agenten.

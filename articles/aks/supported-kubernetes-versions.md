@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069680"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205282"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -52,9 +52,9 @@ Detta kallas för ”N-3”-(N (senaste versionen) – 3 (delversioner)).
 
 Exempel: om AKS introducerar *1.13.x* idag finns stöd för följande versioner:
 
-Ny delversion stöds versionslista
------------------        ----------------------
-1.13.x                   1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+Ny minor-version    |    Listan över versioner som stöds
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 Där ”x” och ”en” och ”.b” är representativt versioner.
 
@@ -84,11 +84,15 @@ Om överordnade Kubernetes är 1.12.3 och 1.11.6 och AKS frigör de korrigera ve
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> Kunder bör inte har fäst klustret har skapats, CI eller andra automatiserade jobb till specifika patch-versioner. 
+
 ### <a name="communications"></a>Kommunikationer
 
 * För nya **mindre** versioner av Kubernetes
-  * Alla användare får ett meddelande av den nya versionen och vilken version kommer att tas bort.
-  * Kunder som kör version **som ska tas bort** meddelas att de har **60 dagar** att uppgradera till en version som stöds (t.ex. mindre version).
+  * Alla användare får ett meddelande offentligt av den nya versionen och vilken version kommer att tas bort.
+  * När en ny Uppdateringsversion släpps, tas den äldsta patch-versionen på samma gång.
+  * Kunder har **60 dagar** från det offentliga meddelande att uppgradera till en mindre uppdatering som stöds.
 * För nya **patch** versioner av Kubernetes
   * Alla användare får ett meddelande om den nya patch-versionen släppts, och för att uppgradera till den senaste versionen för patch.
   * Användarna har **30 dagar** uppgraderas till en nyare, stöds patch-versionen. Användarna har **30 dagar** uppgraderas till en stöds patch-versionen innan den äldsta tas bort.

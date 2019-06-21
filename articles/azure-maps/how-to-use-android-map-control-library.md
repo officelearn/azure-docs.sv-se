@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df5eb9fa4493f82c6efd4a8e30eee324e4eac2a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869797"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273846"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Android SDK för Azure Maps
 
@@ -201,7 +201,7 @@ Android Studio tar några sekunder att skapa programmet. När versionen har slut
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lägga till innehåll i kartan, se:
+Lär dig hur du lägger till överlägget data på kartan:
 
 > [!div class="nextstepaction"]
 > [Lägga till ett lager för symbolen i en Android-karta](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
@@ -211,5 +211,3 @@ Om du vill lägga till innehåll i kartan, se:
 
 > [!div class="nextstepaction"]
 > [Ändra Koppla format i Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
-
-

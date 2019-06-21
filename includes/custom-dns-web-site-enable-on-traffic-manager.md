@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136313"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187920"
 ---
 När posterna för domännamnet har distribuerats, bör du kunna använda webbläsaren för att verifiera att ditt domännamn kan användas för att få åtkomst till din webbapp i Azure App Service.
 

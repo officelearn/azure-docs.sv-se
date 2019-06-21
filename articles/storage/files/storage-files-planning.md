@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237662"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150328"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -76,8 +76,23 @@ Om du använder Azure File Sync för att få åtkomst till din Azure-filresurs, 
 
 Azure Files erbjuder två prestandanivåer: standard och premium.
 
-* **Standard-filresurser** backas upp av rotational hårddiskar (HDD) som ger en pålitlig prestanda för i/o-arbetsbelastningar som är mindre känsliga för variationer i prestandan, till exempel allmänna filresurser och miljöer för utveckling/testning. Standard-filresurser är endast tillgängliga i en användningsbaserad fakturering modell.
-* **Premium-filresurser (förhandsversion)** backas upp av SSD-diskar (SSD) som ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för de i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser.
+### <a name="standard-file-shares"></a>Standard-filresurser
+
+Standard-filresurser backas upp av hårddiskar (HDD). Standard-filresurser ger tillförlitliga prestanda för i/o-arbetsbelastningar som är mindre känsliga för variationer i prestandan, till exempel allmänna filresurser och miljöer för utveckling/testning. Standard-filresurser är endast tillgängliga i en användningsbaserad fakturering modell.
+
+Standard-filresurser upp till 5 TiB i storlek är tillgängliga som en GA-erbjudande. Större filresurser som är alla resurser som är större än 5 TiB, upp till högst 100 TiB är för närvarande tillgängligt som en förhandsversion.
+
+> [!IMPORTANT]
+> - Måste du skapa ett nytt lagringskonto i generell användning (det går inte att utöka de befintliga lagringskontona).
+> - Är bara tillgängliga med LRS.
+> - Tillgänglig i tre regioner: Västra USA 2, Västeuropa och Sydostasien regioner.
+> - LRS till GRS-konto konverteringen går inte på alla nya lagringskonton som skapas efter att prenumerationen har godkänts till större filförhandsgranskning för filresurser.
+
+Om du vill publicera till förhandsversionen av dessa större filstorlekar för resursen kan lämna denna [formuläret](https://aka.ms/azurefilesatscalesurvey). 
+
+### <a name="premium-file-shares-preview"></a>Premium-filresurser (förhandsversion)
+
+Premium-filresurser (förhandsversion) backas upp av SSD-diskar (SSD). Premium-filresurser ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser.
 
 Azure Backup är tillgängligt för premium-filresurser och Azure Kubernetes Service har stöd för premium-filresurser i version 1.13 och senare.
 
@@ -180,7 +195,7 @@ Ha de här punkterna i åtanke när du bestämmer vilket replikeringsalternativ 
 
 ## <a name="data-growth-pattern"></a>Tillväxt datamönster
 
-Idag är den maximala storleken för en Azure-filresurs är 5 TiB (100 TiB för premium-filresurser som finns i offentlig förhandsversion). På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs.
+Idag är den maximala storleken för en Azure-filresurs är 5 TiB (100 TiB i förhandsversion). På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs.
 
 Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Server med Azure File Sync. På så sätt kan du se till att äldre, stora filresurser som du kan ha en lokal kan anslutas till Azure File Sync. Mer information finns i [planera för distribution av Azure File Sync](storage-files-planning.md).
 

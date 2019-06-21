@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 66051bd0f8be349f748c72218d538bba273be8f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 5c50bd921c189a7290e2850cb6c03afca39f9fb4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147257"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273850"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory
 
@@ -50,7 +50,7 @@ Om du vill lära dig mer om att tilldela en inbyggd RBAC-roll till säkerhetsobj
 - [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Bevilja åtkomst till Azure blob och kö data med RBAC med hjälp av PowerShell](storage-auth-aad-rbac-powershell.md)
 
-Mer information om hur inbyggda roller definieras för Azure Storage, se [förstå rolldefinitioner](../../role-based-access-control/role-definitions.md#management-and-data-operations-preview). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för rollbaserad åtkomstkontroll i](../../role-based-access-control/custom-roles.md).
+Mer information om hur inbyggda roller definieras för Azure Storage, se [förstå rolldefinitioner](../../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för rollbaserad åtkomstkontroll i](../../role-based-access-control/custom-roles.md).
 
 ### <a name="access-permissions-for-data-operations"></a>Åtkomstbehörighet för dataåtgärder
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 235fe1fbe7febc193826cf09202365ee4a788194
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513524"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164765"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-plattformen och OAuth 2.0-auktoriseringskodflöde
 
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id`   | Krävs    | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app.  |
 | `response_type` | Krävs    | Måste innehålla `code` för auktoriseringskodsflödet.       |
 | `redirect_uri`  | Krävs | Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
-| `scope`  | Krävs    | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna. |
+| `scope`  | Krävs    | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna.  För den `/authorize` ben för begäran, kan detta omfatta flera resurser så att din app för att få ditt medgivande för flera webb-API: er som du vill anropa. |
 | `response_mode`   | Rekommenderas | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara något av följande:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Mer information finns i [OpenID Connect-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Värdet kan också koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | `prompt`  | Valfritt    | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`.<br/><br/>- `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning.<br/>- `prompt=none` är motsatsen – det säkerställer att användaren inte visas den interaktiva prompten alls. Inte om begäran kan slutföras tyst via enkel inloggning på Microsoft identity-plattformen slutpunkten returnerar ett `interaction_required` fel.<br/>- `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | Krävs   | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | Krävs  | Programmet (klient)-ID som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som tilldelats din app. |
 | `grant_type` | Krävs   | Måste vara `authorization_code` för auktoriseringskodsflödet.   |
-| `scope`      | Krävs   | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det första ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, sedan returnerar Microsoft identity-plattformen slutpunkten en token för den resurs som angetts i det första omfånget. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
+| `scope`      | Krävs   | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det första ben. Scope måste komma från en enda resurs, tillsammans med OIDC scope (`profile`, `openid`, `email`). En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
 | `code`          | Krävs  | Authorization_code som du har köpt i den första delen i flödet. |
 | `redirect_uri`  | Krävs  | Samma redirect_uri värde som används för att hämta authorization_code. |
 | `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Du bör inte använda programhemlighet i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det är obligatoriskt för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.  Klienthemlighet måste vara URL-kodat innan de skickas.  |

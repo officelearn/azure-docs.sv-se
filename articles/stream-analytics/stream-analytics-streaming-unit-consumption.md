@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916034"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206715"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera Direktuppspelningsenheter
 
@@ -59,7 +59,7 @@ Temporala (time-orienterade) fråga element är den grundläggande uppsättninge
 
 Observera att ett jobb med komplex fråga logic kan ha hög SU % utnyttjande även när den inte tar emot inkommande händelser kontinuerligt. Detta kan inträffa efter en plötslig insamling i indata- och händelser. Jobbet kan fortsätta att upprätthålla tillståndet i minnet om frågan är komplex.
 
-SU % utnyttjande försvinner plötsligt till 0 för en kort tidsperiod innan du kommer tillbaka till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierad uppgraderingar.
+SU % utnyttjande försvinner plötsligt till 0 för en kort tidsperiod innan du kommer tillbaka till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierad uppgraderingar. Öka antalet enheter för strömning för ett jobb inte kan minska SU % utnyttjande om frågan inte är [fullständigt parallella](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänsliga frågans logik i temporala element
 En av den unika funktionen för Azure Stream Analytics-jobb är att utföra tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner. Var och en av de här operatorerna behåller statusinformation. Den maximala fönsterstorleken för de här elementen i frågan är sju dagar. 

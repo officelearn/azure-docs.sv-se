@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920237"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164729"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-kontoanslutningar i Azure Active Directory
 
@@ -44,7 +44,7 @@ Du kan aktivera LinkedIn-kontoanslutningar för de användare som du vill ha åt
 1. Under **LinkedIn-kontoanslutningar**, Tillåt användare att ansluta sina konton för att komma åt sina LinkedIn anslutningar inom vissa Microsoft-appar. Inga data delas förrän användare godkänna att ansluta sina konton.
 
     * Välj **Ja** aktiverar tjänsten för alla användare i din organisation
-    * Välj **valda** att aktivera en grupp för markerade användare i din organisation
+    * Välj **vald grupp** aktiverar tjänsten för en grupp för markerade användare i din organisation
     * Välj **nr** att ångra detta godkännande från alla användare i din organisation
 
     ![Integrera LinkedIn-kontoanslutningar i organisationen](./media/linkedin-integration/linkedin-integration.png)

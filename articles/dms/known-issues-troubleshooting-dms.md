@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002218"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190946"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsöka vanliga Azure Database Migration Service problem och fel
 
@@ -59,6 +59,16 @@ Du får följande fel när stoppar Azure Database Migration Service-instans:
 | Orsak         | Lösning |
 | ------------- | ------------- |
 | Det här felet visas när den tjänstinstans som du försöker att stoppa innehåller aktiviteter som körs fortfarande eller finns i migreringsprojekt. <br><br><br><br><br><br> | Se till att det finns inga aktiviteter som körs i instansen av Azure Database Migration Service som du försöker att stoppa. Du kan också ta bort aktiviteter eller projekt innan du försöker att stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt att rensa tjänstinstansen migreringen genom att ta bort alla aktiviteter som körs:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Fel vid försök att starta Azure Database Migration Service
+
+Du får följande fel när du startar Azure Database Migration Service-instans:
+
+* **Fel**: Det inte går att starta tjänsten. Fel: {”errorDetail”: ”tjänsten misslyckades kontakta Microsoft support om du vill starta”}
+
+| Orsak         | Lösning |
+| ------------- | ------------- |
+| Det här felet visas när den föregående instansen misslyckades internt. Det här felet inträffar sällan och det tekniska teamet är medveten om den. <br> | Ta bort instansen av tjänsten som du inte kan starta och sedan etablerar ny katalog för att ersätta den. |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Ett fel uppstod när databasen medan migrera SQL till Azure SQL DB-hanterad instans
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082630"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272760"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuera en modell med en anpassad dockeravbildning
 
@@ -43,6 +43,7 @@ Det här dokumentet är uppdelad i två delar:
 * Arbetsgrupp för en Azure Machine Learning-tjänsten. Mer information finns i den [skapa en arbetsyta](setup-create-workspace.md) artikeln.
 * Azure Machine Learning SDK. Mer information finns i avsnittet SDK för Python i den [skapa en arbetsyta](setup-create-workspace.md#sdk) artikeln.
 * Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Den [CLI-tillägg för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * En [Azure Container Registry](/azure/container-registry) eller andra Docker-register som är tillgänglig på internet.
 * I det här dokumentet förutsätter vi att du är bekant med att skapa och använda en __inferens configuration__ objektet som en del av modelldistribution. Mer information finns i avsnittet ”Förbered att distribuera” i [var du vill distribuera och hur](how-to-deploy-and-where.md#prepare-to-deploy).
 

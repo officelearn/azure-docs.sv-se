@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571415"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204535"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Ändra lösenord för Azure AD Connector-kontot
 Azure AD-anslutningskontot ska vara service kostnadsfritt. Om du behöver återställa autentiseringsuppgifterna är det här avsnittet för dig. Till exempel om en Global administratör har av misstag återställer lösenordet för kontot med hjälp av PowerShell.
@@ -39,12 +39,12 @@ Denna cmdlet återställer lösenordet för tjänstkontot och uppdatera den båd
 ## <a name="known-issues-these-steps-can-solve"></a>Kända problem som kan lösa de här stegen
 Det här avsnittet är en lista över fel som rapporterats av kunder som korrigerades med en återställning på Azure AD-anslutningskontot autentiseringsuppgifter.
 
-- - -
+---
 Händelsen 6900  
 Ett oväntat fel uppstod vid bearbetning av ett meddelande om lösenordsändring:  
 AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS50054: Det gamla lösenordet krävs för autentiseringen.
 
-- - -
+---
 Händelsen 659  
 Fel vid hämtning av lösenord principkonfigurationen synkronisering. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS50054: Det gamla lösenordet krävs för autentiseringen.

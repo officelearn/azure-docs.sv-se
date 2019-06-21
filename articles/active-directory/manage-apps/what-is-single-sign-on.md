@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824172"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190272"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 
@@ -95,7 +95,7 @@ Lösenordsbaserad enkel inloggning har stöd för alla molnbaserade program som 
 - Chrome på Windows 7 eller senare, och i Mac OS X eller senare
 - Firefox 26.0 eller senare på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
 
-För att konfigurera ett molnprogram för lösenordsbaserad enkel inloggning, se [konfigurera program för lösenord för enkel inloggning](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+För att konfigurera ett molnprogram för lösenordsbaserad enkel inloggning, se [konfigurera program för lösenord för enkel inloggning](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 För att konfigurera ett lokalt program för enkel inloggning via programproxy Se [lösenord vaulting för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 

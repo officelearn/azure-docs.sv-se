@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155800"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187380"
 ---
 #### <a name="to-cable-for-power"></a>Till power-kabel
 1. Se till att kraften växlar på varje kraften och kylning moduler (PCMs) är i OFF-läge.

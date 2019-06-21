@@ -4,19 +4,26 @@ ms.service: billing
 ms.topic: include
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: ed0a73e6a47e08b974dc9900ead2da9b9a2690a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 520a403fcfed3bb96278f4a82fcfeb41abb2ee42
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080023"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277470"
 ---
 **Offentliga DNS-zoner**
 
 | Resource | Standardgräns |
 | --- | --- |
-| Zoner per prenumeration |100 <sup>1</sup> |
-| Postuppsättningar per zon |5,000 <sup>1</sup> |
-| Poster per uppsättning av poster |20 |
+| Offentliga DNS-zoner per prenumeration |250 <sup>1</sup> |
+| Postuppsättningar per offentliga DNS-zon |10,000 <sup>1</sup> |
+| Poster per post offentliga DNS-zon |20 |
+| Privata DNS-zoner per prenumeration |1000|
+| Postuppsättningar per privat DNS-zon |25000|
+| Poster per post för privata DNS-zoner |20|
+| Virtuella nätverkslänkar per privat DNS-zon |1000|
+| Virtuella nätverk-länkar per privata DNS-zoner med automatisk registrering aktiverat |100|
+| Antal privata DNS-zoner som ett virtuellt nätverk kan få kopplas till en med automatisk registrering är aktiverat |1|
+| Antal privata DNS-zoner som ett virtuellt nätverk kan få länkad |1000|
 
 <sup>1</sup>kontakta Azure-supporten om du behöver utöka gränserna.

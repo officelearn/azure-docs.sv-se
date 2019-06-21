@@ -1,5 +1,5 @@
 ---
-title: Köpa noder för VMware-lösning genom CloudSimple - Azure
+title: Etablera noder för VMware-lösning genom CloudSimple - Azure
 description: Lär dig hur du lägger till noder i din VMWare med CloudSimple distribution
 author: dikamath
 ms.author: dikamath
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577187"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165258"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Köpa noder för VMware-lösning genom CloudSimple - Azure
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Etablera noder för VMware-lösning genom CloudSimple - Azure
 
 Etablera noder i Azure-portalen. Du kan sedan konfigurera betala-som-du gå kapacitet för miljön CloudSimple privat moln.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Lägga till en köpta nod i ditt privata moln CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Lägga till en etablerad nod i ditt privata moln CloudSimple
 
 1. Välj **Alla tjänster**.
 2. Sök efter **CloudSimple noder**.
@@ -31,7 +31,7 @@ Etablera noder i Azure-portalen. Du kan sedan konfigurera betala-som-du gå kapa
 
     ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
 
-5. Välj den prenumeration där du vill köpa CloudSimple noder.
+5. Välj den prenumeration där du vill etablera CloudSimple noder.
 6. Välj resursgrupp för noderna. Lägg till en ny resursgrupp genom att klicka på **Skapa ny**.
 7. Ange prefix för att identifiera noderna.
 8. Välj plats för nod-resurser.

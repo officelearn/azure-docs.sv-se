@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e66c625c3f30580715762d2dd3f48eeaa6e548dc
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956042"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143960"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -52,47 +52,42 @@ Det enklaste sättet att aktivera lokal Git-distribution för din app med Kudu b
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+> [!NOTE]
+> I stället för på kontonivå autentiseringsuppgifter, kan du också distribuera med appnivå autentiseringsuppgifter, som har genererats automatiskt för varje app.
+>
+
 ### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
 
 För att aktivera lokal Git-distribution för din app med Kudu build-servern kör du [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
 
 ```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 Om du vill skapa en Git-aktiverad app i stället kör du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med parametern `--deployment-local-git`.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-Kommandot `az webapp create` bör ge utdata som ser ut ungefär så här:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### <a name="deploy-your-project"></a>Distribuera projektet
 
-I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt _\<url>_ med URL:en för den fjärranslutna Git-lagringsplats som du fick från [Enable Git for your app](#enable-local-git-with-kudu) (Aktivera Git för din app).
+I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<användarnamn >_ med distributionsanvändaren från [konfigurera en distributionsanvändare](#configure-a-deployment-user) och  _\<appens namn->_ med appnamn från [Aktivera Git för din app](#enable-local-git-with-kudu).
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. Se till att du anger det lösenord som du skapade i [Konfigurera en distributionsanvändare](#configure-a-deployment-user) när du blir ombedd att ange lösenord och inte lösenordet du använde när du loggade in på Azure Portal.
+> [!NOTE]
+> Om du vill distribuera med appnivå autentiseringsuppgifter i stället, hämta autentiseringsuppgifter för specifika för din app genom att köra följande kommando i Cloud Shell:
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> Använda utdata från kommandot för att köra `git remote add azure <url>` som ovan.
+
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du tillfrågas om ett lösenord, se till att du anger det lösenord som du skapade i [konfigurera en distributionsanvändare](#configure-a-deployment-user), inte lösenordet du använde för att logga in på Azure-portalen.
 
 ```bash
 git push azure master

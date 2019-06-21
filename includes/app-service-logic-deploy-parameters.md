@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: f188f2c7bea511f1109d37ef49563e0f745a770e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167420"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187762"
 ---
 Med Azure Resource Manager kan du definiera parametrar för värdena som används när du distribuerar mallen. Mallen innehåller en `parameters` avsnitt som innehåller alla parametervärden. Varje parametervärde används av mallen för att definiera de resurser som du vill distribuera.
 

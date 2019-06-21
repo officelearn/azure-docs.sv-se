@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822782"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273697"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
-Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs användning ökar därför ofta när du börjar använda tjänsten. Denna användning kräver ökar den förinställt [genomflödesenheter](event-hubs-features.md#throughput-units) att skalas Event Hubs och hantera större överföringshastighet. Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:
+Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs användning ökar därför ofta när du börjar använda tjänsten. Denna användning kräver ökar den förinställt [genomflödesenheter](event-hubs-scalability.md#throughput-units) att skalas Event Hubs och hantera större överföringshastighet. Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:
 
 * Ingående datataxa överskrida set-dataflödesenheter.
 * Datataxa utgående begäran överskrider set-dataflödesenheter.
@@ -32,7 +32,7 @@ Händelsehubbtjänsten ökar dataflödet när belastningen ökar den minsta öve
 
 ## <a name="how-auto-inflate-works"></a>Så här fungerar automatisk ökning
 
-Trafik för Event Hubs styrs av [genomflödesenheter](event-hubs-features.md#throughput-units). En genomflödesenhet kan 1 MB per sekund för ingångshändelser och två gånger det beloppet utgående data. Standard händelsehubbar kan konfigureras med 1 – 20 dataflödesenheter. Automatisk ökning kan du börja i liten skala med de minsta nödvändiga dataflödesenheter som du väljer. Funktionen skalas sedan automatiskt till den maximala gränsen på dataflödesenheter som du behöver, beroende på ökade trafiken. Automatisk ökning ger följande fördelar:
+Trafik för Event Hubs styrs av [genomflödesenheter](event-hubs-scalability.md#throughput-units). En genomflödesenhet kan 1 MB per sekund för ingångshändelser och två gånger det beloppet utgående data. Standard händelsehubbar kan konfigureras med 1 – 20 dataflödesenheter. Automatisk ökning kan du börja i liten skala med de minsta nödvändiga dataflödesenheter som du väljer. Funktionen skalas sedan automatiskt till den maximala gränsen på dataflödesenheter som du behöver, beroende på ökade trafiken. Automatisk ökning ger följande fördelar:
 
 - En effektiv skalning mekanism för att börja i liten skala och skala upp när företaget växer.
 - Skala automatiskt till den angivna övre gränsen utan begränsning av problem.

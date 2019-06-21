@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824645"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204473"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -40,7 +40,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 ## <a name="list-of-functions"></a>Lista över funktioner
 [Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Dela](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [växel](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Lägg till
 **Funktionen:**<br> Append(Source, suffix)
 
@@ -53,7 +53,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **suffix** |Krävs |Sträng |Den sträng som du vill lägga till i slutet av värdet för datakällan. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>formatDateTime
 **Funktionen:**<br> FormatDateTime (källa, inputFormat, outputFormat)
 
@@ -67,7 +67,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 | **inputFormat** |Krävs |Sträng |Förväntade format för värdet för datakällan. Format som stöds, se [ https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Krävs |Sträng |Formatet för Utdatadatum. |
 
-- - -
+---
 ### <a name="join"></a>Slå ihop
 **Funktionen:**<br> Ansluta till (avgränsare, källa1, källa2...)
 
@@ -82,7 +82,7 @@ Om en av källvärdena är ett attribut med flera värden, och sedan varje värd
 | **avgränsare** |Krävs |Sträng |Strängen används för att avgränsa källvärdena när de sammanfogas till en sträng. Kan vara ”” om det krävs ingen avgränsare. |
 | **källa1... källan** |Krävs, variabeln antal gånger |Sträng |Sträng värden kopplas. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Funktionen:**<br> MID (källa, start, length)
 
@@ -96,7 +96,7 @@ Om en av källvärdena är ett attribut med flera värden, och sedan varje värd
 | **start** |Krävs |heltal |Index i den **källa** sträng som var delsträngen ska börja. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
 | **Längd** |Krävs |heltal |Delsträngens längd. Om längden slutar utanför den **källa** sträng, returnerar funktionen delsträngen från **starta** indexet till slutet av **källa** sträng. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Funktionen:**<br> NormalizeDiacritics(source)
 
@@ -108,7 +108,7 @@ Om en av källvärdena är ett attribut med flera värden, och sedan varje värd
 | --- | --- | --- | --- |
 | **Källa** |Krävs |String | Vanligtvis ett förnamn eller senaste name-attribut. |
 
-- - -
+---
 ### <a name="not"></a>inte
 **Funktionen:**<br> Not(Source)
 
@@ -120,7 +120,7 @@ Om en av källvärdena är ett attribut med flera värden, och sedan varje värd
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Booleska sträng |Förväntat **källa** värden är ”True” eller ”False”. |
 
-- - -
+---
 ### <a name="replace"></a>Ersätt
 **Funktionen:**<br> Ersätt (källa, oldValue, regexPattern, regexGroupName, ersättningsvärde, replacementAttributeName, mall)
 
@@ -153,7 +153,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **replacementAttributeName** |Valfri |Sträng |Namnet på attributet som ska användas för ersättning, när källan har inget värde. |
 | **mall** |Valfri |Sträng |När **mall** värde anges, vi söker efter **oldValue** i mallen och Ersätt den med värdet för datakällan. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Funktionen:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
 
@@ -171,7 +171,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **uniqueValueRule1... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |String | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funktionen:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Krävs |Sträng |**[appRoleAssignments]**  objekt. |
 
-- - -
+---
 ### <a name="split"></a>dela upp
 **Funktionen:**<br> Dela (källa, avgränsare)
 
@@ -196,7 +196,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
 | **delimiter** |Obligatoriskt |String |Anger vilket tecken som används för att dela upp strängen (exempel: ””,) |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Funktionen:**<br> StripSpaces(source)
 
@@ -208,7 +208,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
 
-- - -
+---
 ### <a name="switch"></a>Växel
 **Funktionen:**<br> Växel (källa, standardvärde, key1, value1, key2, value2,...)
 
@@ -223,7 +223,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
 | **värde** |Krävs |Sträng |Ersättningsvärdet för den **källa** matchar nyckeln. |
 
-- - -
+---
 ### <a name="tolower"></a>toLower
 **Funktionen:**<br> ToLower (källa, kultur)
 
@@ -236,7 +236,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
 | **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Funktionen:**<br> ToUpper (källa, kultur)
 

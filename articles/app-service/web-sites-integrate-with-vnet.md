@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067716"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147308"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver integreringsfunktionen för Azure App Service-virtuellt nätverk och hur du konfigurerar den med appar i den [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk.  
@@ -102,6 +102,10 @@ När din app är integrerad med ditt VNet, använder samma DNS-servern som ditt 
 Om du vill koppla från din app från det virtuella nätverket, Välj **Disconnect**. Detta startar om din webbapp. 
 
 Den nya funktionen för VNet-integrering kan du använda tjänstslutpunkter.  Använda den nya VNet-integrering för att använda Tjänsteslutpunkter med din app, att ansluta till en valda virtuella nätverket och sedan konfigurera tjänstslutpunkter på undernät som du använde för att integrationen. 
+
+#### <a name="web-app-for-containers"></a>Web App for Containers
+
+Om du använder App Service i Linux med de inbyggda avbildningarna, fungerar regional VNet-integrering funktionen utan ytterligare ändringar. Om du använder Web App for Containers kan behöva du ändra docker-avbildningen för att kunna använda VNet-integrering. I din dockeravbildning, använder du PORT miljövariabeln som lyssningsporten för den huvudsakliga webbservern, istället för att använda en hårdkodad portnummer. PORT-miljövariabeln anges automatiskt med App Service-plattformen vid starten behållare.
 
 ### <a name="how-vnet-integration-works"></a>Så här fungerar VNet-integrering
 

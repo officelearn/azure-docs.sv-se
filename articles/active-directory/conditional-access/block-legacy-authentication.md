@@ -2,37 +2,27 @@
 title: Blockera äldre autentisering till Azure Active Directory (Azure AD) med villkorlig åtkomst | Microsoft Docs
 description: Lär dig hur du kan förbättra din säkerhetsposition genom att blockera äldre autentisering med hjälp av Azure AD villkorlig åtkomst.
 services: active-directory
-keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112709"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164791"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
 Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder Azure Active Directory (Azure AD) ett stort antal autentiseringsprotokoll, inklusive äldre autentisering. Äldre protokoll stöder dock inte multifaktorautentisering (MFA). MFA är ett vanligt krav adress identitetsstöld i många miljöer. 
 
-
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klient protection, kan du göra det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
-
-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,8 +30,6 @@ Den här artikeln förutsätter att du är bekant med:
 
 - Den [grundbegreppen](overview.md) av Azure AD villkorlig åtkomst 
 - Den [bästa praxis](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure portal
-
-
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -57,12 +45,21 @@ Hur kan du förhindra att appar som använder äldre autentisering från att kom
 
 Principer för villkorlig åtkomst tillämpas efter den första-factor-autentiseringen har slutförts. Därför villkorlig åtkomst är inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som attacker för denial of service (DoS), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.
 
-
-
-
 ## <a name="implementation"></a>Implementering
 
 Det här avsnittet beskrivs hur du konfigurerar principer för villkorlig åtkomst blockera äldre autentisering. 
+
+### <a name="identify-legacy-authentication-use"></a>Identifiera äldre användning
+
+Innan du kan blockera äldre autentisering i din katalog, måste du först förstå om användarna har appar som använder äldre autentisering och hur den påverkar din övergripande katalog. Azure AD-inloggningen loggar kan användas för att förstå om du använder äldre autentisering.
+
+1. Navigera till den **Azure-portalen** > **Azure Active Directory** > **inloggningar**.
+1. Lägga till kolumnen Klientappen om den inte visas genom att klicka på **kolumner** > **Klientappen**.
+1. Filtrera efter **Klientappen** > **andra klienter** och klicka på **tillämpa**.
+
+Filtrering kommer bara visa du loggar in försök som har gjorts av äldre autentiseringsprotokoll. När du klickar på varje enskild inloggningsförsök visas ytterligare information. Den **Klientappen** fältet under den **grundläggande information** fliken visar vilket äldre autentiseringsprotokoll användes.
+
+De här loggarna visar vilka användare fortfarande är beroende av äldre och vilka program som använder äldre protokoll att autentiseringsbegäranden. Implementera en princip för villkorlig åtkomst för dessa användare endast för användare som inte finns med i loggarna och bekräftas som inte använder äldre autentisering.
 
 ### <a name="block-legacy-authentication"></a>Blockera äldre autentisering 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955264"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273271"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurera redundans över flera Azure CDN-slutpunkter med Azure Traffic Manager
 
@@ -81,7 +81,7 @@ När du ställer in din CDN- och Traffic Manager-profiler, följer du stegen ned
 
     Azure CDN använder den *cdnverify* underdomänen för att verifiera DNS-mappningen för att slutföra registreringsprocessen. Mer information finns i [skapa en CNAME DNS-post](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Det här steget aktiverar Azure CDN för att identifiera den anpassade domänen så att de kan svara på begäranden.
     
- > [!NOTE]
+    > [!NOTE]
     > Att aktivera SSL på ett **Azure CDN från Akamai** profiler, måste du direkt cname den anpassade domänen till din slutpunkt. cdnverify för att aktivera SSL stöds inte ännu. 
     >
 

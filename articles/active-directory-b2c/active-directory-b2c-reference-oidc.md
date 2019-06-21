@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509210"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271965"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webbinloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -152,7 +153,9 @@ När du har validerat ID-token kan du börja en session med användaren. Du kan 
 
 Om du behöver ditt webbprogram för att endast köra användarflöden kan du hoppa över nästa avsnitt. Dessa avsnitt gäller endast för program som behöver göra autentiserade anrop till ett webb-API och också skyddas av Azure AD B2C.
 
-Kan du lösa in den auktoriseringskod som du har köpt (med hjälp av `response_type=code+id_token`) för en token till önskad resurs genom att skicka en `POST` begäran till den `/token` slutpunkt. För närvarande är den enda resurs som du kan begära en token för ditt programs egen backend-webb-API. Konventionen för att begära en token till dig själv är att använda programmets klient-ID som omfång:
+Kan du lösa in den auktoriseringskod som du har köpt (med hjälp av `response_type=code+id_token`) för en token till önskad resurs genom att skicka en `POST` begäran till den `/token` slutpunkt. I Azure AD B2C kan du [begär åtkomsttoken för andra API: er](active-directory-b2c-access-tokens.md#request-a-token) som vanligt genom att ange sina område(n) i begäran.
+
+Du kan också begära en åtkomsttoken för din Apps egen backend-webb-API enligt konventionen för att använda appens klient-ID som det begärda omfånget (vilket resulterar i en åtkomst-token med detta Klientid som ”målgrupp”):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -162,7 +165,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Obligatoriskt | Beskrivning |
+| Parameter | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | p | Ja | Det användarflöde som användes för att hämta Auktoriseringskoden. Du kan inte använda en annan användarflödet i den här begäran. Lägg till den här parametern i frågesträngen, inte till i brödtexten för INLÄGGET. |
 | client_id | Ja | Programmet med ID som den [Azure-portalen](https://portal.azure.com/) tilldelats till ditt program. |

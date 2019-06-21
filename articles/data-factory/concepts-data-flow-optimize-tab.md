@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075088"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190649"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Mappa data flow omvandling optimera fliken
 
@@ -45,7 +45,7 @@ Dynamiskt intervall använder Spark dynamisk adressintervallen baserat på kolum
 
 ### <a name="fixed-range"></a>Fast intervall
 
-Du måste skapa ett uttryck som ger ett fast intervall för värden i dina partitionerade data-kolumner. Du bör ha en god förståelse av dina data innan du använder det här alternativet för att undvika partition skeva. Det värde som anger för uttrycket ska användas som en del av en partitionsfunktion. Du kan ange antalet fysiska partitioner.
+Du måste skapa ett uttryck som ger ett fast intervall för värden i dina partitionerade data-kolumner. Du bör ha en god förståelse av dina data innan du använder det här alternativet för att undvika partition skeva. De värden som du anger för att uttrycket ska användas som en del av en partitionsfunktion. Du kan ange antalet fysiska partitioner.
 
 ### <a name="key"></a>Nyckel
 

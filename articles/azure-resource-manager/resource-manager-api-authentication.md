@@ -1,23 +1,17 @@
 ---
 title: Azure Active Directory-autentisering och Resource Manager | Microsoft Docs
 description: Utvecklarens guide till autentisering med Azure Resource Manager API och Azure Active Directory för att integrera en app med andra Azure-prenumerationer.
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: dushyantgill
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a8f9f1975530c846008b3b3def4f4d4a22716fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063300"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205448"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 

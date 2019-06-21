@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072560"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144199"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskade tillstånd och hantera drift
 
@@ -154,7 +154,7 @@ Om du väljer att ta bort noden från tjänsten, kan du göra det med hjälp av 
 > [!NOTE]
 > Avregistrera en nod från tjänsten endast anger Local Configuration Manager-inställningar så att noden inte längre ansluta till tjänsten.
 > Detta påverkas inte den konfiguration som används till noden.
-> Ta bort den aktuella konfigurationen med den [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) eller ta bort den lokala konfigurationsfilen (detta är det enda alternativet för Linux-noder).
+> Ta bort den aktuella konfigurationen med den [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) eller ta bort den lokala konfigurationsfilen (detta är det enda alternativet för Linux-noder).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -165,7 +165,7 @@ I vyn för noden som öppnas, klickar du på **avregistrera**.
 
 ### <a name="powershell"></a>PowerShell
 
-Om du vill avregistrera en nod från Azure Automation State Configuration-tjänsten med hjälp av PowerShell, följ dokumentationen för cmdleten [avregistrera AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Om du vill avregistrera en nod från Azure Automation State Configuration-tjänsten med hjälp av PowerShell, följ dokumentationen för cmdleten [avregistrera AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Nästa steg
 

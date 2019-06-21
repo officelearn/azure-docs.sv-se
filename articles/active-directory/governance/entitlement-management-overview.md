@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474063"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204541"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsversion)
 
@@ -129,41 +129,6 @@ För att bättre förstå rättigheten hanterings- och dess dokumentation, bör 
 | resursbiblioteket | En katalog som har en eller flera resurser för att dela. |
 | tilldelade användare | En tilldelning av ett paket för åtkomst till en användare eller grupp. |
 | Aktivera | Processen att göra ett åtkomst-paket tillgängliga för användare att begära. |
-
-## <a name="roles-and-permissions"></a>Roller och behörigheter
-
-Berättigande management har olika roller baserat på arbetsfunktion.
-
-| Roll | Beskrivning |
-| --- | --- |
-| [Användaradministratör](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Hantera alla aspekter av hantering av rättigheten.<br/>Skapa användare och grupper. |
-| Katalogens skapare | Skapa och hantera kataloger. Vanligtvis en IT-administratör eller resursägaren. Katalogens första catalog ägare blir den person som skapar en katalog automatiskt. |
-| Katalogen ägare | Redigera och hantera befintliga kataloger. Vanligtvis en IT-administratör eller resursägaren. |
-| Åtkomst-Pakethanteraren | Redigera och hantera alla befintliga åtkomst-paket i en katalog. |
-| Godkännare | Godkänna förfrågningar om åtkomst till paket. |
-| Begärande | Begär åtkomst till paket. |
-
-I följande tabell visas behörigheterna för var och en av dessa roller.
-
-| Aktivitet | Användaradministration | Katalogens skapare | Katalogen ägare | Åtkomst-Pakethanteraren | Godkännare |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [Skapa ett nytt åtkomst-paket i allmän katalogen](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [Lägg till/ta bort resursroller till/från ett åtkomst-paket](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Ange vem som kan begära ett åtkomst-paket](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Tilldela en användare direkt till ett åtkomst-paket](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa vem som har en tilldelning till ett åtkomst-paket](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa ett åtkomst-paket förfrågningar](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa en förfrågan leverans fel](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Avbryt en väntande begäran](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dölj ett åtkomst-paket](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Ta bort ett paket för åtkomst](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Godkänna en åtkomstbegäran](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [Skapa en katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [Lägg till/ta bort resurser till och från den allmänna katalogen](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [Lägg till/ta bort resurser till och från en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Lägg till katalogen ägare eller få åtkomst till pakethanterare](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Redigera/ta bort en katalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 
 ## <a name="license-requirements"></a>Licenskrav
 

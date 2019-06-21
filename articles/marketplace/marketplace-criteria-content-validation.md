@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937833"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202686"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
 
@@ -39,14 +39,14 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 11 | & Hjälp om lösningssupport | Länka till minst en av följande: <br>o telefonnummer <br>o e-postsupport <br>o chatt-agenter <br>o Community-forum |<br>• Alla stöder metoderna: support via telefon och e-post. <br>• Betalsupport utan kostnad under perioden för utvärderingsversionen eller test drive | 
 | 12 | Juridisk information | Principer eller villkor som är tillgängliga via en offentlig URL |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Utvärderingsversionen krav
 
 |  | Visa en lista över Element | Grundläggande krav | Optimal krav | 
 |:--- |:--- |:--- |:--- |
 |  | Status för | Länken måste leda till ledda av kunden utvärderingsversionen | Andra CTAs (t.ex. Köp nu) också tillgänglig | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>Krav för SaaS-appar
 
 |  | Visa en lista över Element | Grundläggande krav | Optimal krav | 
@@ -63,7 +63,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 10 | Kontakter: & Hjälp om lösningssupport | <br>• Tekniker kontaktperson: Ange namnet på den tekniska kontakten för din app. Den här kontakten kommer få teknisk information från Microsoft.<br>• Tekniker kontaktpersonens e-postadress:  Ange e-postadressen till den tekniska kontakten för din app.<br>• Tekniker kontakter telefon: Ange telefonnumret till den tekniska kontakten. ISO phone nummer beteckningar stöds. Mer information finns i https://en.wikipedia.org/wiki/E.123.<br>• Stöd kontaktnamn: Ange namnet på supportkontakten för din app. Den här kontakten får support-relaterade kommunikation från Microsoft.<br>E-postadress • stöd: Ange den e-postadressen för Supportkontakt för din app. <br>• Stöd kontakta telefon: Ange telefonnummer för supportkontakten. ISO phone nummer beteckningar stöds. Mer information finns i https://en.wikipedia.org/wiki/E.123. <br>• Stöd för URL: Ange Webbadressen till din supportsida. | <br>• Alla stöder metoderna: support via telefon och e-post. <br>• Betalsupport utan kostnad under perioden för utvärderingsversionen eller test drive |
 | 11 | Juridisk information |<br>• Sekretess princip-URL: Ange Webbadressen till din Apps sekretesspolicy i fältet sekretess princip-URL i CPP. <br>• Användningsvillkor: Ange villkor för användning av din app. Kunder måste acceptera villkoren innan de kan testa din app. |  Principer eller villkor som är tillgängliga via en offentlig URL-plats |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Erbjudandet behållarkrav
 
@@ -74,7 +74,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 3 | Marketplace-artefakter | Logotyper visas korrekt |<br>• Logotyp inkluderar ”hero bild”, vilket är den stora formatbild i Azure Portal <br>• Logotyper: Liten (48 x 48) & stor (216 x 216) krävs <br>• Hero avbildningskrav: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärmbild (Max 5):  CPP kräver en .png-avbildning med lösning 1 280 x 720.|
 | 4 | Lead-hantering |<br>• Lead-hantering: Välj system där dina leads ska lagras. <br>• Veta hur du ansluter din CRM-systemet [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Consulting erbjudandet krav
 
@@ -97,6 +97,3 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om typer av olika erbjudanden i marketplace. <br>[SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containrar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Konsulttjänster](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921978"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190776"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ansluta din Barracuda-installation 
 
@@ -41,7 +41,7 @@ Barracuda Web Application Firewall kan integrera och exportloggar direkt till Az
 2. Sentinel-Azure-portalen går du till arbetsytan där du har distribuerat Azure Sentinel och väljer ellipsen (...) i slutet av raden och välj **avancerade inställningar**. 
 1. Välj **Data** och sedan **Syslog**.
 1. Kontrollera att funktionen som du anger i Barracuda finns och ange allvarlighetsgraden och klicka på **spara**.
-6. Om du vill använda relevanta schemat i Log Analytics för Barracuda-händelser, söka efter **CommonSecurityLog**.
+6. Om du vill använda relevanta schemat i Log Analytics för Barracuda-händelser, söka efter **CommonSecurityLog** och **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Verifiera anslutningen

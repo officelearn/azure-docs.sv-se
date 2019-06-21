@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057933"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203304"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -60,6 +60,9 @@ Azure Data Lake Storage Gen2 anslutningsappen stöder följande autentiseringsty
 - [Autentisering av tjänstens huvudnamn](#service-principal-authentication)
 - [Hanterade identiteter för autentisering av Azure-resurser](#managed-identity)
 
+>[!NOTE]
+>När du använder PolyBase för att läsa in data till SQL Data Warehouse, om källan Data Lake Storage Gen2 har konfigurerats med slutpunkt för virtuellt nätverk, måste du använda hanterad identitetsautentisering som krävs av PolyBase. Se den [hanterade identitetsautentisering](#managed-identity) avsnittet med mer konfigurationskraven.
+
 ### <a name="account-key-authentication"></a>Konto-nyckelautentisering
 
 Om du vill använda nyckelautentisering för storage-konto, stöds följande egenskaper:
@@ -103,10 +106,10 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn.
     - Programnyckel
     - Klient-ID:t
 
-2. Ge tjänstens huvudnamn rätt behörighet.
+2. Ge tjänstens huvudnamn rätt behörighet. Läs mer om hur behörighet fungerar i Data Lake Storage Gen2 från [åtkomstkontrollistor för filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Som källa**: I Azure Storage Explorer ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar. Eller, du kan bevilja **Läs** tillstånd att kopiera en fil. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**: I Lagringsutforskaren kan ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**: I Lagringsutforskaren kan ge minst **kör** behörighet från käll-filsystem, tillsammans med **Läs** behörighet att kopiera filerna. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
+    - **Som mottagare**: I Lagringsutforskaren kan ge minst **kör** behörighet från filsystemet mottagare, tillsammans med **skriva** behörighet för mappen mottagare. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
 >Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
@@ -157,10 +160,10 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurs-aut
 
 1. [Hämta Data Factory hanteras identitetsinformation](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för den **identitet program-ID för tjänstens** genereras tillsammans med din datafabrik.
 
-2. Ge hanterad identitet rätt behörighet.
+2. Ge hanterad identitet rätt behörighet. Läs mer om hur behörighet fungerar i Data Lake Storage Gen2 från [åtkomstkontrollistor för filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Som källa**: I Lagringsutforskaren kan ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar. Eller, du kan bevilja **Läs** tillstånd att kopiera en fil. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**: I Lagringsutforskaren kan ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**: I Lagringsutforskaren kan ge minst **kör** behörighet från käll-filsystem, tillsammans med **Läs** behörighet att kopiera filerna. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
+    - **Som mottagare**: I Lagringsutforskaren kan ge minst **kör** behörighet från filsystemet mottagare, tillsammans med **skriva** behörighet för mappen mottagare. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
 >Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
@@ -169,7 +172,7 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurs-aut
 >Om du har frågor om hur du beviljar behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet fungerar fortfarande så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
 
 >[!IMPORTANT]
->Om du använder PolyBase för att läsa in data från Data Lake Storage Gen2 till SQL Data Warehouse, när du använder Data Lake Storage Gen2 hanterad identitetsautentisering, se till att du även följa steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Följ instruktionerna för att registrera din SQL Database-server med Azure Active Directory (Azure AD). Du kan också tilldela rollen Storage Blob Data-deltagare med rollbaserad åtkomstkontroll till din SQL Database-server. Resten hanteras av Data Factory. Om dina Data Lake Storage Gen2 konfigureras med en Azure Virtual Network-slutpunkt för att använda PolyBase för att läsa in data från den, måste du använda hanterade identitetsautentisering.
+>Om du använder PolyBase för att läsa in data från Data Lake Storage Gen2 till SQL Data Warehouse, när du använder hanterade identitetsautentisering för Data Lake Storage Gen2, se till att du även följa steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) till 1) registrera din SQL Database-server med Azure Active Directory (Azure AD) och 2) deltagarrollen Storage Blob Data till SQL Database-servern; resten hanteras av Data Factory. Om dina Data Lake Storage Gen2 konfigureras med en Azure Virtual Network-slutpunkt, för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.
 
 De här egenskaperna har stöd för den länkade tjänsten:
 

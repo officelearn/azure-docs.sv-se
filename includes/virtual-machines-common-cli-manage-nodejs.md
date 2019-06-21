@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158517"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187358"
 ---
 Innan du kan använda Azure CLI med Resource Manager-kommandon och mallar för att distribuera Azure-resurser och arbetsbelastningar med resursgrupper, måste du ha ett konto hos Azure. Om du inte har något konto kan du skaffa ett [kostnadsfritt Azure-utvärderingskonto här](https://azure.microsoft.com/pricing/free-trial/).
 

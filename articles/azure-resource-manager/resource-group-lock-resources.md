@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31d77b4ea6e7594cd3ed4dba264f9ea6db4ca290
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65813392"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155211"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -152,7 +152,7 @@ Om du vill låsa en resursgrupp, ange namnet på resursgruppen.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Hämta information om ett lås [Get-AzureRmResourceLock](/powershell/module/az.resources/get-azresourcelock). Hämta alla Lås i din prenumeration med:
+Hämta information om ett lås [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Hämta alla Lås i din prenumeration med:
 
 ```azurepowershell-interactive
 Get-AzResourceLock

@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019825"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144039"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med anslutningsproblem för SQL-databas och tillfälliga fel
 
@@ -93,7 +93,7 @@ Ett sätt som du kan testa omprövningslogiken är att koppla från din klientda
 - **SqlException.Number** = 11001
 - meddelande: ”Ingen sådan värd kallas”
 
-Som en del av det första nytt försöket kan programmet korrigera att namnet är felstavat och försök sedan att ansluta.
+Som en del av den första återförsök, kan du återansluta din klientdator till nätverket och försök sedan att ansluta.
 
 Om du vill göra det här testet praktiskt att koppla bort datorn från nätverket innan du startar programmet. Sedan identifierar programmet en runtime-parameter som innebär att:
 

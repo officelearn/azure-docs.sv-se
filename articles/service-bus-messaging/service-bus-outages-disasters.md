@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589726"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274843"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
 
@@ -54,9 +54,9 @@ Om programmet inte kräver permanent avsändaren att mottagaren kommunikation ka
 ### <a name="active-replication"></a>Aktiv replikering
 Aktiv replikering använder entiteter i båda namnrymderna för varje åtgärd. Alla klienter som skickar ett meddelande skickar två kopior av samma meddelande. Den första kopian skickas till den primära entiteten (till exempel **contosoPrimary.servicebus.windows.net/sales**), och den andra kopian av meddelandet skickas till den sekundära entiteten (till exempel  **contosoSecondary.servicebus.windows.net/sales**).
 
-En klient tar emot meddelanden från köer med båda. Mottagaren kan bearbeta den första kopian av ett meddelande och den andra kopian undertrycks. Om du inte dubbletter av meddelanden, måste avsändaren tagga varje meddelande med en unik identifierare. Båda kopiorna av meddelandet måste vara taggad med samma identifierare. Du kan använda den [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] eller [BrokeredMessage.Label] [ BrokeredMessage.Label] egenskaper eller en anpassad egenskap att tagga meddelandet. Mottagaren måste ha en lista med meddelanden som redan har tagit emot.
+En klient tar emot meddelanden från köer med båda. Mottagaren kan bearbeta den första kopian av ett meddelande och den andra kopian undertrycks. Om du inte dubbletter av meddelanden, måste avsändaren tagga varje meddelande med en unik identifierare. Båda kopiorna av meddelandet måste vara taggad med samma identifierare. Du kan använda den [BrokeredMessage.MessageId][BrokeredMessage.MessageId] eller [BrokeredMessage.Label][BrokeredMessage.Label] egenskaper eller en anpassad egenskap att tagga meddelandet. Mottagaren måste ha en lista med meddelanden som redan har tagit emot.
 
-Den [Geo-replikering med Service Bus Standard-nivån] [ Geo-replication with Service Bus Standard Tier] exempel visar aktiv replikering av meddelandeentiteter.
+Den [Geo-replikering med Service Bus Standard-nivån][Geo-replication with Service Bus Standard Tier] exempel visar aktiv replikering av meddelandeentiteter.
 
 > [!NOTE]
 > Metoden som aktiv replikering fördubblar antalet åtgärder, därför den här metoden kan leda till högre kostnad.
@@ -75,10 +75,10 @@ När du använder passiva replikering, i följande scenarier kan meddelanden var
 * **Meddeladefördröjning eller förlust**: Anta att avsändaren har skickat ett meddelande m1 till den primära kön och sedan kön blir otillgänglig innan mottagaren tar emot m1. Avsändaren skickar ett statusmeddelande m2 till den sekundära kön. Om den primära kön är inte tillgänglig för tillfället, får mottagaren m1 när kön blir tillgänglig igen. Vid en katastrof får mottagaren m1.
 * **Duplicera mottagningen**: Anta att avsändaren skickar ett meddelande m till den primära kön. Service Bus har bearbetar m men misslyckas med att skicka ett svar. När åtgärden Skicka tidsgränsen skickar avsändaren en identisk kopia av m till den sekundära kön. Om mottagaren är kan ta emot den första kopian av m innan den primära kön blir otillgänglig, får mottagaren bägge m vid ungefär samma tillfälle. Om mottagaren inte kan ta emot den första kopian av m innan den primära kön blir otillgänglig, mottagaren får inledningsvis endast den andra kopian av m, men de tar emot en andra kopia av m när den primära kön blir tillgänglig.
 
-Den [Geo-replikering med Service Bus Standard-nivån] [ Geo-replication with Service Bus Standard Tier] exempel visar passiva replikering av meddelandeentiteter.
+Den [Geo-replikering med Service Bus Standard-nivån][Geo-replication with Service Bus Standard Tier] exempel visar passiva replikering av meddelandeentiteter.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Skyddar relay slutpunkter mot datacenter-avbrott och katastrofer
-GEO-replikering för relay-slutpunkter kan en tjänst som Exponerar en relay-slutpunkt för att kunna nås när det finns Service Bus-avbrott. För att uppnå geo-replikering kan måste tjänsten skapa två relay-slutpunkter i olika namnområden. Namnområden måste finnas i olika datacenter och två slutpunkter måste ha olika namn. Till exempel en primära slutpunkten kan nås **contosoPrimary.servicebus.windows.net/myPrimaryService**, medan motparten sekundära kan nås **contosoSecondary.servicebus.windows.net /mySecondaryService**.
+GEO-replikering av [Azure Relay](../service-bus-relay/relay-what-is-it.md) slutpunkter låter en tjänst som Exponerar en relay-slutpunkt för att kunna nås när det finns Service Bus-avbrott. För att uppnå geo-replikering kan måste tjänsten skapa två relay-slutpunkter i olika namnområden. Namnområden måste finnas i olika datacenter och två slutpunkter måste ha olika namn. Till exempel en primära slutpunkten kan nås **contosoPrimary.servicebus.windows.net/myPrimaryService**, medan motparten sekundära kan nås **contosoSecondary.servicebus.windows.net /mySecondaryService**.
 
 Sedan lyssnar tjänsten på båda slutpunkterna och en klient kan anropa tjänsten via antingen slutpunkt. Ett klientprogram slumpmässigt tar en av reläer som den primära slutpunkten och skickar begäran till aktiv slutpunkt. Om åtgärden misslyckas med felkoden, betyder ett misslyckande att relay slutpunkten inte är tillgänglig. Programmet öppnar en kanal till slutpunkten för säkerhetskopiering och kör begäran. Då aktivt och säkerhetskopiering slutpunkterna växla roll: klientprogrammet tar hänsyn till den gamla aktiv slutpunkten att vara den nya säkerhetskopiering slutpunkten och den gamla säkerhetskopiering slutpunkten ska vara den nya aktiva slutpunkten. Om både skicka åtgärder misslyckas rollerna för de två entiteterna förblir oförändrade och returneras ett fel.
 
@@ -87,7 +87,7 @@ Om du vill veta mer om katastrofåterställning kan du läsa följande artiklar:
 
 * [Azure Service Bus Geo-haveriberedskap](service-bus-geo-dr.md)
 * [Azure SQL Database-affärskontinuitet][Azure SQL Database Business Continuity]
-* [Designa program med återhämtningsförmåga för Azure][Azure resiliency technical guidance]
+* [Utforma återhämtningsprogram för Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

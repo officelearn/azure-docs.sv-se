@@ -1,6 +1,6 @@
 ---
-title: Fel på sidan för ett program när du har registrerat | Microsoft Docs
-description: Hur du löser problem med Azure AD-inloggningen när programmet genererar ett fel
+title: Felmeddelandet visas på appsidan när du loggar in | Microsoft Docs
+description: Hur du löser problem med Azure AD-inloggningen när programmet returnerar ett felmeddelande.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,150 +16,152 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742374"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272962"
 ---
-# <a name="error-on-an-applications-page-after-signing-in"></a>Fel på sidan för ett program efter inloggning
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>En app-sida visas ett felmeddelande när användaren loggar in
 
-Azure AD har signerats av användaren i i det här scenariot, men programmet visar ett fel som inte tillåter att användaren har avsluta flödet för inloggning. I det här scenariot medger programmet inte svar problemet av Azure AD.
+I det här scenariot loggar användaren in i Azure Active Directory (AD Azure). Men programmet visas ett felmeddelande och kan inte användaren Slutför inloggningen flödet. Problemet är att appen inte accepterar ett svar som utfärdats av Azure AD.
 
-Det finns några möjliga orsaker till varför programmet inte godkände svar från Azure AD. Om felet i programmet inte är tillräckligt tydliga veta vad som saknas i svaret, sedan:
+Det finns flera möjliga orsaker till varför appen inte godkände svar från Azure AD. Om felmeddelandet inte tydligt identifiera vad som saknas från svaret, provar du följande:
 
--   Om programmet är Azure AD-Galleriprogram, kontrollerar du att du har följt alla steg i artikeln [Felsök SAML-baserad enkel inloggning till program i Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Om appen är Azure AD-galleriet, kontrollerar du att du har följt stegen i [Felsök SAML-baserad enkel inloggning till program i Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Använd ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att avbilda SAML-begäran, SAML-svar och SAML-token.
+-   Använd ett verktyg som [Fiddler](https://www.telerik.com/fiddler) avbilda SAML-begäran, svar och token.
 
--   Dela SAML-svar med programleverantören för att vet vad som saknas.
+-   Skicka SAML-svar till appleverantören och be dem om vad som saknas.
 
-## <a name="missing-attributes-in-the-saml-response"></a>Saknade attribut i SAML-svar
+## <a name="attributes-are-missing-from-the-saml-response"></a>Attribut saknas från SAML-svar
 
 Följ dessa steg för att lägga till ett attribut i Azure AD-konfiguration som ska skickas i Azure AD-svaret:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en global administratör eller medadministratör.
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Överst i navigeringsfönstret till vänster väljer **alla tjänster** att öppna Azure AD-tillägget.
 
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
 
-5. Klicka på **alla program** att visa en lista över alla dina program.
+5. Välj **alla program** att visa en lista över dina appar.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   > [!NOTE]
+   > Om du inte ser den app som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera för enkel inloggning.
 
-7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När appen har lästs in väljer **enkel inloggning** i navigeringsfönstret.
 
-8. Klicka på **visa och redigera alla andra användarattribut under** den **användarattribut** avsnittet om du vill redigera attribut som ska skickas till programmet i SAML-token när användare loggar in.
+8. I den **användarattribut** väljer **visa och redigera alla andra användarattribut**. Här kan du ändra vilka attribut som ska skicka till appen i SAML-token när användare loggar in.
 
    Lägga till ett attribut:
 
-   * Klicka på **Lägg till attribut**. Ange den **namn** och klicka sedan på **värdet** i listrutan.
+   1. Välj **Lägg till attribut**. Ange den **namn**, och välj den **värdet** från den nedrullningsbara listan.
 
-   * Klicka på **spara.** Det nya attributet visas i tabellen.
+   1.  Välj **Spara**. Du ser det nya attributet i tabellen.
 
 9. Spara konfigurationen.
 
-Nästa gång användaren loggar in till programmet, Azure AD skickar det nya attributet i SAML-svar.
+   Nästa gång användaren loggar in till appen, skickar Azure AD det nya attributet i SAML-svar.
 
-## <a name="the-application-doesnt-identify-the-user"></a>Programmet inte kan hitta användaren
+## <a name="the-app-doesnt-identify-the-user"></a>Appen inte kan hitta användaren
 
-Inloggning till programmet misslyckas eftersom SAML-svar saknar attribut, till exempel roller eller eftersom programmet förväntar sig ett annat format eller värde för attributet EntityID.
+Det går inte att logga in på appen eftersom SAML-svaret saknar ett attribut, till exempel en roll. Eller det misslyckas eftersom appen förväntar sig ett annat format eller värde för den **NameID** (användaridentifierare) attributet.
 
-Om du använder [Azure AD-automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att skapa, underhålla och ta bort användare i programmet. Kontrollera att användaren har etablerats korrekt till SaaS-program. Mer information finns i [inga användare etableras till en Azure AD-galleriprogram](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+Om du använder [Azure AD-automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att skapa, underhålla, och ta bort användare i appen, kontrollera att användaren har etablerats till SaaS-appen. Mer information finns i [inga användare etableras till en Azure AD-galleriprogram](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Lägg till ett attribut i konfigurationen av Azure AD-program:
+## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Lägga till ett attribut i Azure AD app-konfiguration
 
 Följ dessa steg om du vill ändra värdet för användar-ID:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en global administratör eller medadministratör.
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Välj **alla tjänster** överst i navigeringsfönstret till vänster för att öppna Azure AD-tillägget.
 
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
 
-5. Klicka på **alla program** att visa en lista över alla dina program.
+5. Välj **alla program** att visa en lista över dina appar.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   > [!NOTE]
+   > Om du inte ser den app som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj den app som du vill konfigurera för enkel inloggning.
 
-7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När appen har lästs in väljer **enkel inloggning** i navigeringsfönstret.
 
-8. Under den **användarattribut**, Välj den unika identifieraren för dina användare i den **användaridentifierare** listrutan.
+8. Under **användarattribut**, Välj den unika identifieraren för användaren från den **användaridentifierare** listrutan.
 
-## <a name="change-entityid-user-identifier-format"></a>Ändra EntityID (användaridentifierare)-format
+## <a name="change-the-nameid-format"></a>Ändra NameID-format
 
-Om programmet förväntar sig ett annat format för attributet EntityID. Sedan kan du inte väljer formatet EntityID (UID) som Azure AD skickar till programmet i svaret efter autentisering av användare.
+Om programmet förväntar sig ett annat format för den **NameID** (användaridentifierare) attributet finns i [redigering nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) ändra NameID-format.
 
-Azure AD väljer du formatet för NameID-attributet (användaridentifierare) baserat på värdet valt eller formatet som begärs av programmet i SAML-AuthRequest. Mer information finns i artikeln [enkel inloggning SAML-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under avsnittet NameIDPolicy.
+Azure AD väljer formatet för den **NameID** attribut (användaridentifierare) baserat på det värde som har valts eller formatet som begärs av appen i SAML-AuthRequest. Mer information finns i avsnittet ”NameIDPolicy” i [enkel inloggning SAML-protokoll](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>Programmet förväntar sig en annan signatur-metod för SAML-svar
+## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>Appen förväntar sig en annan signatur-metod för SAML-svar
 
-Du vill ändra vilka delar av SAML-token signeras digitalt av Azure Active Directory. Följ de här stegen:
+Följ dessa steg om du vill ändra vilka delar av SAML-token signeras digitalt av Azure AD:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [Azure-portalen](https://portal.azure.com/) och logga in som en global administratör eller medadministratör.
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Välj **alla tjänster** överst i navigeringsfönstret till vänster för att öppna Azure AD-tillägget.
 
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
 
-5. Klicka på **alla program** att visa en lista över alla dina program.
+5. Välj **alla program** att visa en lista över dina appar.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   > [!NOTE]
+   > Om du inte ser det program som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera för enkel inloggning.
 
-7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in väljer **enkel inloggning** i navigeringsfönstret.
 
-8. Klicka på **visa avancerade inställningar för signering av certifikat** under den **SAML-signeringscertifikat** avsnittet.
+8. Under **SAML-signeringscertifikat**väljer **visa avancerade inställningar för signering av certifikat**.
 
-9. Välj lämplig **signering alternativet** förväntas av programmet:
+9. Välj den **signering alternativet** som appen förväntar sig bland dessa alternativ:
 
-   * Signera SAML-svar
+   * **Signera SAML-svar**
+   * **Signera SAML-svar och försäkran**
+   * **Signera SAML-försäkran**
 
-   * Signera SAML-svar och försäkran
+   Nästa gång användaren loggar in till appen, signerar Azure AD en del av SAML-svar som du har valt.
 
-   * Signera SAML-försäkran
+## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>Appen förväntas Signeringsalgoritm för SHA-1
 
-Nästa gång användaren loggar in till programmet, Azure AD logga en del av SAML-svar som valts.
-
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>För program som förväntar Signeringsalgoritm är SHA-1
-
-Som standard signerar Azure AD med hjälp av algoritmen för de flesta security SAML-token. Du bör inte ändra logga algoritmen till SHA-1 såvida inte programmet.
+Som standard signerar Azure AD SAML-token med hjälp av den mest säkra algoritmen. Vi rekommenderar att du inte ändrar Signeringsalgoritm till *SHA-1* om inte appen kräver SHA-1.
 
 Följ dessa steg om du vill ändra signeringsalgoritmen som:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [Azure-portalen](https://portal.azure.com/) och logga in som en global administratör eller medadministratör.
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Välj **alla tjänster** överst i navigeringsfönstret till vänster för att öppna Azure AD-tillägget.
 
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
 
-5. Klicka på **alla program** att visa en lista över alla dina program.
+5. Välj **alla program** att visa en lista över dina program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   > [!NOTE]
+   > Om du inte ser det program som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj den app som du vill konfigurera för enkel inloggning.
 
-7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När appen har lästs in väljer **enkel inloggning** i navigeringsfönstret till vänster i appen.
 
-8. Klicka på **visa avancerade inställningar för signering av certifikat** under den **SAML-signeringscertifikat** avsnittet.
+8. Under **SAML-signeringscertifikat**väljer **visa avancerade inställningar för signering av certifikat**.
 
-9. Välj SHA-1, i den **Signeringsalgoritm**.
+9. Välj **SHA-1** som den **Signeringsalgoritm**.
 
-Nästa gång användaren loggar in till programmet, Azure AD logga SAML-token med hjälp av algoritmen SHA-1.
+   Nästa gång användaren loggar in till appen, signerar Azure AD SAML-token med hjälp av algoritmen SHA-1.
 
 ## <a name="next-steps"></a>Nästa steg
-[Så här felsöker du SAML-baserad enkel inloggning till program i Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Så här felsöker du SAML-baserad enkel inloggning till program i Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

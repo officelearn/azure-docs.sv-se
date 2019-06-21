@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238980"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165305"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
 Om du vill dela en anpassad vy i Time Series Insights Explorer kan du skapa en parametriserad URL för den anpassade vyn programmässigt.
 
-Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i gränssnittet direkt från URL: en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare klickar på den anpassade URL:en tillhandahåller gränssnittet en länk direkt till den tillgången i Time Series Insights-portalen. Dataåtkomstprinciper tillämpas.
+Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i gränssnittet direkt från URL: en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare väljer den anpassade URL: en, tillhandahåller gränssnittet en länk direkt till den tillgången i Time Series Insights-portalen. Dataåtkomstprinciper tillämpas.
 
 > [!TIP]
 > * Visa den kostnadsfria [Time Series Insights demonstrera](https://insights.timeseries.azure.com/samples).

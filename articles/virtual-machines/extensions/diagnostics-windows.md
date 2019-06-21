@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd2bcc9284c24f9fa6a02556d7101c1b788ee71e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980762"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154998"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 
 Azure-diagnostik är funktion inom Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostics-tillägg för att samla in diagnostikdata som programloggar eller prestandaräknare från en Azure-dator (VM) som kör Windows. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Aktivera diagnostiktillägget om du använder Resource Manager-distributionsmodellen
 Du kan aktivera diagnostiktillägget när du skapar en virtuell Windows-dator via Azure Resource Manager-distributionsmodellen genom att lägga till tilläggskonfigurationen Resource Manager-mallen. Se [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av Azure Resource Manager-mallen](diagnostics-template.md).
@@ -65,16 +65,16 @@ Den [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/modu
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostiktillägget om du använder den klassiska distributionsmodellen
 Du kan använda den [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet för att aktivera en diagnostiktillägget på en virtuell dator som du skapar via den klassiska distributionsmodellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributionsmodellen med diagnostiktillägget aktiverat.
 
-    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
+    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Om du vill aktivera diagnostiktillägg i en befintlig virtuell dator som har skapats via den klassiska distributionsmodellen, använder du först den [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet för att hämta VM-konfigurationen. Uppdatera VM-konfigurationen för att inkludera diagnostics-tillägget med hjälp av den [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet. Slutligen, tillämpa den uppdaterade konfigurationen till den virtuella datorn med hjälp av [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
 
-    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>Exempelkonfiguration för diagnostik
 Följande XML-filen kan användas för diagnostik offentliga konfigurationen med ovanstående skript. Den här exempelkonfigurationen överför olika prestandaräknare till diagnostiklagringskonto tillsammans med fel från program-, säkerhets- och systemkanaler i Windows-händelseloggar och eventuella fel från diagnostikinfrastrukturloggar.

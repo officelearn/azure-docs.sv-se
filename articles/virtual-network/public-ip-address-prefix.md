@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799112"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148003"
 ---
 # <a name="public-ip-address-prefix"></a>Offentliga IP-adressprefix
 
@@ -32,7 +32,7 @@ Du skapar en offentlig IP-adressprefix i ett Azure-region och prenumeration geno
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Varför skapa en offentlig IP-adressprefix?
 
-När du skapar offentliga IP-adressresurser tilldela Azure en tillgänglig offentliga IP-adress från något av de intervall som används i en annan region. När Azure tilldelar adress, vet du vilken adressen är dock tills Azure tilldelar adress, du vet inte vilken adress kan tilldelas. Detta kan vara problematiskt när, till exempel du eller dina affärspartner konfigurera brandväggsregler som tillåter specifika IP-adresser. Varje gång som du tilldelar en ny offentlig IP-adress till en resurs har adressen som ska läggas till brandväggsregeln. När du tilldelar adresser till dina resurser från en offentlig IP-adressprefix behöver inte uppdateras varje gång som du tilldelar en av adresserna, eftersom alla kunde läggas till en regel brandväggsregler.
+När du skapar offentliga IP-adressresurser tilldelar Azure en tillgänglig offentliga IP-adress från något av de intervall som används i regionen. När Azure tilldelar adress, vet du vilken adressen är dock tills Azure tilldelar adress, du vet inte vilken adress kan tilldelas. Detta kan vara problematiskt när, till exempel du eller dina affärspartner konfigurera brandväggsregler som tillåter specifika IP-adresser. Varje gång som du tilldelar en ny offentlig IP-adress till en resurs har adressen som ska läggas till brandväggsregeln. När du tilldelar adresser till dina resurser från en offentlig IP-adressprefix behöver inte uppdateras varje gång som du tilldelar en av adresserna, eftersom alla kunde läggas till en regel brandväggsregler.
 
 ## <a name="benefits"></a>Fördelar
 

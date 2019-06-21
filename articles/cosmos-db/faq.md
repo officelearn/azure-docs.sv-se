@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954143"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137741"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -744,11 +744,11 @@ Ja, du kan använda vanliga syntax skapa sammansatta partitionsnyckel.
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>Kan jag använda stabil inläsaren för inläsning av data?
 
-Nej, förhandsversionen stabil inläsaren stöds inte.
+Nej, stabil inläsaren stöds inte.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Kan en lokal Apache Cassandra-klustret användas ihop med Azure Cosmos DB Cassandra-API?
 
-När finns Azure Cosmos DB har en optimerad upplevelse för molnmiljö utan omkostnader för åtgärder. Om du behöver länka kan skicka e-post till [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) med en beskrivning av ditt scenario.
+När finns Azure Cosmos DB har en optimerad upplevelse för molnmiljö utan omkostnader för åtgärder. Om du behöver länka kan skicka e-post till [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) med en beskrivning av ditt scenario. Vi arbetar på erbjudandet hjälp par på-plats/olika moln Cassandra-klustret till Cosomos DB Cassandra-API.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Tillhandahåller Cassandra API och fullständiga säkerhetskopieringar?
 
@@ -763,15 +763,12 @@ Du kan lägga till så många regioner som du vill använda för kontot och styr
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API indexera alla attribut för en entitet som standard?
 
-Ja, indexeras alla attribut för en entitet som standard av Azure Cosmos DB. Mer information finns i [Azure Cosmos DB: Indexeringsprinciper](index-policy.md). Du får fördelarna med garanterade prestanda med konsekvent indexering och varaktiga kvorum allokerat skriver alltid.
+Cassandra API planerar att stödja sekundär indexering för att skapa selektivt index i vissa attribut. 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Fungerar betyder det att jag inte behöver skapa fler än ett index att uppfylla frågorna?
-
-Ja, Azure Cosmos DB tillhandahåller automatisk indexering av alla attribut utan någon schemadefinition. Denna automatisering Frigör utvecklare fokusera på programmet i stället för skapande av index och hantering. Mer information finns i [Azure Cosmos DB: Indexeringsprinciper](index-policy.md).
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Kan jag använda det nya Cassandra API SDK lokalt med emulatorn?
 
-Vi planerar att stödja den här funktionen i framtiden.
+Ja stöds detta.
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Det verkar som om Azure Cosmos DB som en plattform har många funktioner, till exempel ändringsflödet och andra funktioner. Dessa funktioner läggs till Cassandra-API?
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508647"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203715"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C 
 
@@ -132,7 +132,7 @@ Om du vill hämta en token från Azure AD-slutpunkten som du behöver definiera 
 5. Anger värdet för den **METADATA** till `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, där `your-AD-tenant-name` är namnet på din Azure AD-klientorganisation. Till exempel, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Öppna webbläsaren och gå till den **METADATA** URL som du uppdaterade, leta upp den **utfärdare** objekt, kopiera och klistra in värdet i värdet för **ProviderName** i XML-filen.
 8. Ange **client_id** och **IdTokenAudience** program-ID: t från programregistrering.
-9. Under **CryptograhicKeys**, uppdatera värdet för **StorageReferenceId** till principnyckeln som du har definierat. Till exempel `ContosoAppSecret`.
+9. Under **CryptographicKeys**, uppdatera värdet för **StorageReferenceId** till principnyckeln som du har definierat. Till exempel `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen med för verifiering
 

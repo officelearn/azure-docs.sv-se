@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822387"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273688"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
 ## <a name="overview"></a>Översikt
-Azure Event Hubs använder en [partitionering modellen](event-hubs-features.md#partitions) för bättre tillgänglighet och parallellisering inom en enda händelsehubb. Till exempel det så att om en händelsehubb har fyra partitioner, och en av dessa partitioner har flyttats från en server till en annan i en belastningsutjämningsåtgärd, kan du fortfarande skicka och ta emot från tre andra partitioner. Dessutom kan med fler partitioner du ha flera samtidiga läsare bearbetning av dina data, förbättra dina aggregerat dataflöde. Förstå konsekvenserna av partitionering och ordning i ett distribuerat system är en viktig aspekt av lösningsdesign.
+Azure Event Hubs använder en [partitionering modellen](event-hubs-scalability.md#partitions) för bättre tillgänglighet och parallellisering inom en enda händelsehubb. Till exempel det så att om en händelsehubb har fyra partitioner, och en av dessa partitioner har flyttats från en server till en annan i en belastningsutjämningsåtgärd, kan du fortfarande skicka och ta emot från tre andra partitioner. Dessutom kan med fler partitioner du ha flera samtidiga läsare bearbetning av dina data, förbättra dina aggregerat dataflöde. Förstå konsekvenserna av partitionering och ordning i ett distribuerat system är en viktig aspekt av lösningsdesign.
 
 För att förklara avvägningen mellan ordning och tillgänglighet kan se den [CAP-satsen](https://en.wikipedia.org/wiki/CAP_theorem), även kallad Brewers-satsen. Den här satsen beskrivs valet mellan konsekvens, tillgänglighet och tolerans för partitionen. Det säger att för system partitioneras efter nätverk finns alltid kompromiss mellan konsekvens och tillgänglighet.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 33682727b84713b515bb68d34aa5cf8b72ce44fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ac1eb484d5e301a9090ea5a11165ba321b0aaa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65862480"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274958"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-täckning av appar i Metro 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Den här artikeln visar en lista över aktuella Metros som innehåller point of 
 | Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
 | Indien | Chennai, Indien<br />Hyderabad, Indien<br />Mumbai, India<br />New Delhi i Indien | Bengaluru (Bangalore) (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien<br /> | Indien |
-| Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippinerna<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesien<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan (Taiwan)<br />Thailand<br />Turkiet<br />Vietnam |
+| Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippinerna<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesien<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan (Taiwan)<br />Thailand<br />Turkiet<br />Vietnam |
 | Australien och Nya Zeeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 
 

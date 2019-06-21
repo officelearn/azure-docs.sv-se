@@ -8,34 +8,14 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133330"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277474"
 ---
-<a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den **klassiska** distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
-
-| Resource | Standardgräns | Övre gräns |
-| --- | --- | --- |
-| Virtuella nätverk |50 |100 |
-| Lokala nätverksplatser |20 |Kontakta supporten. |
-| DNS-servrar per virtuellt nätverk |20 |20 |
-| Privata IP-adresser per virtuellt nätverk |4,096 |4,096 |
-| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 upp till 1 000 000 för två eller flera nätverkskort. |500 000 upp till 1 000 000 för två eller flera nätverkskort. |
-| Nätverkssäkerhetsgrupper (NSG) |200 |200 |
-| NSG-regler per NSG |1,000 |1,000 |
-| Användardefinierade vägtabeller |200 |200 |
-| Användardefinierade vägar vägtabell |400 |400 |
-| Offentliga IP-adresser (dynamiska) |5 |Kontakta supporten |
-| Reserverade offentliga IP-adresser |20 |Kontakta supporten |
-| Offentlig VIP per distribution |5 |Kontakta supporten |
-| Privat VIP (intern belastningsutjämning) per distribution |1 |1 |
-| Slutpunkten åtkomstkontrollistor (ACL) |50 |50 |
-
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager
-Följande begränsningar gäller endast för nätverksresurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
+<a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager följande begränsningar gäller endast för nätverksresurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Vi har nyligen ökat alla standardgränser till deras högsta gränser. Om det finns ingen övre gräns-kolumn, har resursen inte justerbara gränser. Om du hade gränserna ökat med stöd för tidigare och inte ser uppdaterade gränser i tabellerna nedan [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
@@ -70,7 +50,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Offentliga IP-adresser – dynamisk | 1 000 för Basic. |Kontakta supporten. |
 | Offentliga IP-adresser – statiska | 1 000 för Basic. |Kontakta supporten. |
 | Offentliga IP-adresser – statiska | 200 för Standard.|Kontakta supporten. |
-| Storleken för offentliga IP-prefix | /28 | Kontakta supporten. |
+| Längd för offentlig IP-prefix | /28 | Kontakta supporten. |
 
 #### <a name="load-balancer"></a>Load balancer gränser
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
@@ -91,3 +71,21 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 
 <sup>1</sup>gränsen är upp till 150 resurser i valfri kombination av fristående virtuella datorresurser, tillgänglighetsuppsättning resurser och resurser för VM-skalningsuppsättning.
 
+#### <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den **klassiska** distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
+
+| Resource | Standardgräns | Övre gräns |
+| --- | --- | --- |
+| Virtuella nätverk |50 |100 |
+| Lokala nätverksplatser |20 |Kontakta supporten. |
+| DNS-servrar per virtuellt nätverk |20 |20 |
+| Privata IP-adresser per virtuellt nätverk |4,096 |4,096 |
+| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 upp till 1 000 000 för två eller flera nätverkskort. |500 000 upp till 1 000 000 för två eller flera nätverkskort. |
+| Nätverkssäkerhetsgrupper (NSG) |200 |200 |
+| NSG-regler per NSG |1,000 |1,000 |
+| Användardefinierade vägtabeller |200 |200 |
+| Användardefinierade vägar vägtabell |400 |400 |
+| Offentliga IP-adresser (dynamiska) |5 |Kontakta supporten |
+| Reserverade offentliga IP-adresser |20 |Kontakta supporten |
+| Offentlig VIP per distribution |5 |Kontakta supporten |
+| Privat VIP (intern belastningsutjämning) per distribution |1 |1 |
+| Slutpunkten åtkomstkontrollistor (ACL) |50 |50 |

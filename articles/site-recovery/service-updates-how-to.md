@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540933"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203440"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Uppdateringar av tjänsten i Azure Site Recovery
 Som en organisation måste du ta reda på hur du ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar. Azure Site Recovery bidrar till din BCDR-strategi genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.
@@ -33,6 +33,17 @@ Azure Site Recovery publicerar uppdateringar av tjänsten med jämna mellanrum �
 
 > [!IMPORTANT]
 > Det officiella stödet för uppgraderingar är från > N-4 till N version (N är den senaste versionen). Om du är på N-6, måste du först uppgradera till N-4 och sedan uppgraderar till N.
+
+## <a name="expiry-of-components"></a>Utgången av komponenter
+Site Recovery meddelar kunderna av komponenter som snart upphör att gälla eller redan har gått ut via e-postmeddelanden (om du har prenumererat på dem) eller på instrumentpanelen för valvet i portalen. Valvet instrumentpanelen meddelanden är inte tillgängliga om du skyddar en hYpe rV virtuell dator från och med nu. Även om du navigerar till motsvarande infrastruktur-vy för ditt scenario debiteras ”uppdatering tillgänglig' bredvid av komponenten, som kommer att omdirigera dig till länkar till hämtningsbara filer de senaste versionerna.
+
+Nedan visas hur ofta e-postmeddelanden när en komponenter snart upphör att gälla.
+- 60 dagar innan komponenten som snart upphör att gälla: varannan vecka i en gång
+- Nästa 53 dagar: varje vecka
+- Senaste 7 dagarna: Dagliga en gång
+- När du har den upphört att gälla: varannan vecka i en gång
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Uppgradera när skillnaden mellan aktuell version och senaste utgivna versionen är större än 4
 
@@ -118,15 +129,16 @@ En omstart rekommenderas efter varje uppgradering av mobilitetsagenten för att 
 
 |Samlad uppdatering  |Leverantör  |Enhetlig installation| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Samlad uppdatering 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Samlad uppdatering 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Samlad uppdatering 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Uppdatera samlad 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -snabbkorrigering     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Samlad uppdatering 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Samlad uppdatering 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Samlad uppdatering 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Samlade uppdateringar tidigare
 
+- [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Samlad uppdatering 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Samlad uppdatering 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Samlad uppdatering 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

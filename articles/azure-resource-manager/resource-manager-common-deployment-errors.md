@@ -1,26 +1,19 @@
 ---
 title: Felsök vanliga fel i Azure-distribution | Microsoft Docs
 description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: distributionsfel, azure-distribution, distribuera till azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128591"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206326"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -86,18 +79,18 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 
 ## <a name="find-error-code"></a>Hitta felkoden
 
-Det finns två typer av fel som du kan ta emot:
+Det finns två typer av fel som du kan få:
 
-* verifieringsfel
+* valideringsfel
 * distributionsfel
 
-Verifieringsfel uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna. Distributionsfel uppkommer villkor som uppstår under distributionsprocessen. De omfattar försök att få åtkomst till en resurs som distribueras parallellt.
+Valideringsfel uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna. Distributionsfel uppstår från förhållanden som inträffar under distributionsprocessen. De omfattar försök att få åtkomst till en resurs som distribueras parallellt.
 
-Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i den [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
+Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
 ### <a name="validation-errors"></a>verifieringsfel
 
-När du distribuerar via portalen kan se du ett valideringsfel efter att ha skickat dina värden.
+När du distribuerar via portalen visas ett valideringsfel när du har skickat in dina värden.
 
 ![Visa portal verifieringsfel](./media/resource-manager-common-deployment-errors/validation-error.png)
 
@@ -107,21 +100,21 @@ Välj meddelandet för mer information. I följande bild, ser du en **InvalidTem
 
 ### <a name="deployment-errors"></a>distributionsfel
 
-När åtgärden godkänns vid, men inte fungerar under distributionen, kan du få ett distributionsfel.
+När åtgärden godkänns men inte fungerar under distributionen visas ett distributionsfel.
 
-Om du vill se distribution felkoder och meddelanden med PowerShell, använder du:
+Om du vill visa felkoder och meddelanden för distribution med PowerShell kan du använda:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
-Om du vill se distribution felkoder och meddelanden med Azure CLI, använder du:
+Om du vill visa felkoder och meddelanden för distribution med Azure CLI kan du använda:
 
 ```azurecli-interactive
 az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
-Markera meddelandet i portalen.
+Markera meddelandet på portalen.
 
 ![Aviseringsfel](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -129,7 +122,7 @@ Visas mer information om hur du distribuerar. Välj alternativet för att hitta 
 
 ![distributionen misslyckades](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Du ser felmeddelandet och felkoder. Observera att det finns två felkoder. Första felkoden (**DeploymentFailed**) är ett allmänt fel som inte ger de information du behöver för att lösa felet. Andra felkoden (**StorageAccountNotFound**) tillhandahåller de information du behöver. 
+Du ser felmeddelandet och felkoderna. Observera att det finns två felkoder. Den första felkoden (**DeploymentFailed**) är ett allmänt fel som inte ger den information du behöver för att lösa felet. Den andra felkoden (**StorageAccountNotFound**) ger dig den information du behöver. 
 
 ![Felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
 

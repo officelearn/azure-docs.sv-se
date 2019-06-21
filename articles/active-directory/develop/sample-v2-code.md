@@ -1,6 +1,6 @@
 ---
 title: Kodexempel för Microsoft identity-plattformen | Microsoft Docs
-description: Innehåller ett index över tillgänglig Microsoft identity platform (V2-slutpunkt) kodexempel ordnas efter scenario.
+description: Innehåller ett index över tillgänglig Microsoft identity platform (v2.0-slutpunkt) kodexempel ordnas efter scenario.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055909"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272666"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kodexempel för Microsoft identity-plattformen (v2.0-slutpunkt)
 
@@ -34,18 +34,18 @@ Du kan använda Microsoft identity-plattformen att:
 - Lägg till autentisering och auktorisering till dina webbprogram och webb-API: er.
 - Kräv en åtkomsttoken för att få åtkomst till ett skyddat webb-API.
 
-Den här artikeln beskriver kortfattat och hittar du länkar till exempel för Microsoft identity-plattformen slutpunkten. De här exemplen visar hur man gör, tillsammans med kodfragment som du kan använda i dina program. På sidan kod exemplet hittar du detaljerade viktigt avsnitt som hjälp med krav, installation, och Ställ in. Kommentarer i koden finns det för att förstå viktiga avsnitt.
+Den här artikeln beskriver kortfattat och hittar du länkar till exempel för Microsoft identity-plattformen slutpunkten. De här exemplen visar hur det är klart och även ange kodstycken som du kan använda i dina program. På sidan kod exemplet hittar du detaljerade viktigt avsnitt som hjälp med krav, installation och inställningar. Kommentarer i koden hjälpa dig att förstå viktiga avsnitt.
 
 > [!NOTE]
-> Om du är intresserad av v1.0 exempel, se [kodexempel för Azure AD (v1.0 slutpunkt)](sample-v1-code.md).
+> Om du är intresserad av v1.0 exempel se [kodexempel för Azure AD (v1.0 slutpunkt)](sample-v1-code.md).
 
 Information om grundläggande scenario för varje typ av exemplet finns i [typer av appar för Microsoft identity-plattformen slutpunkten](v2-app-types.md).
 
 Du kan också bidra till exemplen på GitHub. Läs hur genom att läsa [Microsoft Azure Active Directory-exempel och dokumentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## <a name="single-page-applications-spa"></a>Enkelsidigt program (SPA)
+## <a name="single-page-applications"></a>Enkelsidigt program
 
-De här exemplen visar hur du skriver ett enkelsidigt program som skyddas med Microsoft identity-plattformen. De här exemplen Använd någon av varianter av MSAL.js:
+De här exemplen visar hur du skriver ett enkelsidigt program som skyddas med Microsoft identity-plattformen. De här exemplen med någon av varianter av MSAL.js.
 
 | Plattform | Beskrivning | Länk |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ Följande exempel illustrerar webbprogram som loggar in användare. Några exemp
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Stationära och mobila offentliga klientappar
 
-Följande exempel visar offentlig klient program (desktop/mobila program) som har åtkomst till Microsoft Graph API eller dina egna webb-API för namnet på en användare. Alla dessa klientprogram använder Microsoft Authentication Libraries (MSAL).
+Följande exempel visar offentlig klient program (desktop eller mobile program) som har åtkomst till Microsoft Graph API eller dina egna webb-API: namnet på en användare. Alla dessa klientprogram använder Microsoft Authentication Library (MSAL).
 
-| Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | En ASP.NET Core 2.0 webb-API-anrop |
+| Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | Anropar en ASP.NET Core 2.0 webb-API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interaktiv](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NET.png) | [Integrerad Windows-autentisering](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ Följande exempel visar ett program som ansluter till Microsoft Graph API med id
 
 ## <a name="headless-applications"></a>Fjärradministrerad program
 
-I följande exempel visas ett offentliga klientprogram som körs på en enhet utan att en webbläsare. Appen kan vara ett kommandoradsverktyg, eller köras på Linux/Mac eller ett IoT-program. Exemplet har en app som har åtkomst till Microsoft Graph API namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobiltelefon). Det här klientprogrammet använder MicroSoft Authentication Libraries (MSAL).
+I följande exempel visas ett offentliga klientprogram som körs på en enhet utan att en webbläsare. Appen kan vara ett kommandoradsverktyg, en app som körs på Linux- eller Mac- eller ett IoT-program. Exemplet har en app som har åtkomst till Microsoft Graph API, namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobiltelefon). Det här klientprogrammet använder Microsoft Authentication Library (MSAL).
 
 | Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -102,7 +102,7 @@ Följande exempel visar hur du skyddar ett webb-API med Microsoft identity-platt
 
 | Plattform | Exempel |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (tjänst) för [dotnet-intern-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core webb-API (tjänst) för [dotnet-intern-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Webb-API (tjänst) för [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>Andra Microsoft Graph-exempel

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204412"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190771"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -36,21 +36,33 @@ När du aktiverar DNS-log-anslutning kan du:
 - Visa belastning för begäranden på DNS-servrar
 - Visa dynamiska DNS-registreringsfel
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="connected-sources"></a>Anslutna källor
 
-DNS-anslutning sker genom att installera en agent på den DNS-datorn. Agenten tar emot händelser från DNS och skickar dem till Log Analytics.
+I följande tabell beskrivs de anslutna källor som stöds av den här lösningen:
+
+| **Ansluten källa** | **Support** | **Beskrivning** |
+| --- | --- | --- |
+| [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
+| [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
+| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage används inte av lösningen. |
+
+### <a name="data-collection-details"></a>Information om insamling av data
+
+Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
+
 
 ## <a name="connect-your-dns-appliance"></a>Ansluta din DNS-installation
 
 1. I Sentinel-Azure-portalen väljer **datakopplingar** och välj den **DNS** panelen.
 1. Om din DNS-datorer finns i Azure:
-    1. Klicka på **hämta och installera agenten för Windows-datorer**.
+    1. Klicka på **installera agent i Windows Azure VM**.
     1. I den **virtuella datorer** väljer du den DNS-datorn som du vill spela in Azure Sentinel. Kontrollera att det här är en virtuell Windows-dator.
     1. I fönstret som öppnas för den virtuella datorn klickar du på **Connect**.  
     1. Klicka på **aktivera** i den **DNS connector** fönster. 
 
 2. Om din DNS-dator inte är en Azure-dator:
-    1. Klicka på **hämta och installera agenten för Windows Azure-datorer**.
+    1. Klicka på **installera agent i Azure-datorer**.
     1. I den **direktagent** fönstret väljer du antingen **ladda ned Windows agent (64-bitars)** eller **ladda ned Windows agent (32-bitars)** .
     1. Installera agenten på DNS-datorn. Kopiera den **arbetsyte-ID**, **primärnyckel**, och **sekundärnyckel** och använda dem när du uppmanas till detta under installationen.
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114677"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296215"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -27,20 +27,23 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 > [!TIP]
 > För kunder som migrerar från Media Services v2 API: er, den **direktsänd händelse** entitet ersätter **kanal** i v2 och **Live utdata** ersätter **programmet**.
 
-
 ## <a name="live-events"></a>Livehändelser
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en livehändelse skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Fjärrlivekodaren skickar bidragsflödet till indataslutpunkten med hjälp av antingen protokollet [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4)-protokollet. För Smooth Streaming-inmatningsprotokollet, URL-scheman som stöds är `http://` eller `https://`. RTMP-infogningsprotokollet, URL-scheman som stöds är `rtmp://` eller `rtmps://`. 
+[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en primär och sekundär slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4) Ange protokollet. För RTMP-infogningsprotokollet, innehållet kan skickas i klartext (`rtmp://`) eller på ett säkert sätt krypterad under överföringen (`rtmps://`). För Smooth Streaming-inmatningsprotokollet, URL-scheman som stöds är `http://` eller `https://`.  
 
 ## <a name="live-event-types"></a>Live händelsetyper
 
-En [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara något av två typer: direkt och live encoding. 
+En [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara något av två typer: direkt och live encoding. Typerna anges under skapas med hjälp av [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -en lokal livekodare skickar flera bithastighet. De infogade strömmarna passerar genom Live-händelsen utan vidare bearbetning. 
+* **LiveEventEncodingType.Standard** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Om flödet bidrag är av 720p eller högre upplösning på **Default720p** förinställning kommer koda av 6 lösning/bithastighet värdepar.
+* **LiveEventEncodingType.Premium1080p** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Förinställningen Default1080p anger utdata uppsättning lösning/bithastigheter för utdata-par. 
 
 ### <a name="pass-through"></a>Direkt
 
 ![direkt](./media/live-streaming/pass-through.svg)
 
-När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. En sådan LiveEvent-genomströmning är optimerad för tidskrävande direktsändningar eller linjär 24 x 365-liveuppspelning. När du skapar den här typen av livehändelse kan du ange Ingen (LiveEventEncodingType.None).
+När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. Sådana en direkt direktsänd händelse är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. När du skapar den här typen av livehändelse kan du ange Ingen (LiveEventEncodingType.None).
 
 Du kan skicka bidragsflödet med upplösningar på upp till 4K och i en bildfrekvens på 60 bilder/sekund, med antingen videocodecen H.264/AVC eller H.265/HEVC och ljudcodecen AAC (AAC-LC, HE-AACv1 eller HE-AACv2).  Mer information finns i artikeln med en [jämförelse av livehändelser](live-event-types-comparison.md).
 
@@ -84,16 +87,18 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
 * Icke-anpassad URL
 
-    Icke-anpassade URL:er är standardläget i AMS v3. Du eventuellt hämta livehändelsen snabbt, men inmatnings-URL är endast känd när livehändelsen startas. URL:en ändras om du stoppar/startar livehändelsen. <br/>Icke-anpassad är användbart i situationer när en slutanvändare vill strömma med en app där appen vill göra en livehändelse omedelbart, och det inte är något problem att ha en dynamisk inmatnings-URL.
+    Icke-anpassad URL är standardläget i Media Services v3. Du eventuellt hämta livehändelsen snabbt, men inmatnings-URL är endast känd när livehändelsen startas. URL:en ändras om du stoppar/startar livehändelsen. <br/>Icke-anpassad är användbart i situationer när en slutanvändare vill strömma med en app där appen vill göra en livehändelse omedelbart, och det inte är något problem att ha en dynamisk inmatnings-URL.
+    
+    Om ett klientprogram inte behöver förväg Generera en inmatning URL innan Live-händelse skapas, kan bara Media Services för att automatiskt skapa åtkomst-Token för live-händelse.
 * Anpassad URL
 
     Anpassat läge föredras av stora mediesändningsföretag som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar livehändelsen. De vill ha en förutsägande infognings-URL som inte ändras med tiden.
     
-    Om du vill ange det här läget du ställer in `vanityUrl` till `true` vid tidpunkten för skapandet (standardvärdet är `false`). Du måste också skicka din egen åtkomst-token (`LiveEventInput.accessToken`) vid tidpunkten för skapandet. Du kan ange token värde för att undvika en slumpmässig token i URL: en. Åtkomst-token måste vara en giltig GUID-sträng (med eller utan streck). När läget har angetts kan inte uppdateras.
+    Om du vill ange det här läget du ställer in `vanityUrl` till `true` vid tidpunkten för skapandet (standardvärdet är `false`). Du måste också skicka din egen åtkomst-token (`LiveEventInput.accessToken`) vid tidpunkten för skapandet. Du kan ange token värde för att undvika en slumpmässig token i URL: en. Åtkomst-token måste vara en giltig GUID-sträng (med eller utan bindestrecken). När läget har angetts kan inte uppdateras.
 
     Åtkomst-token måste vara unikt i ditt datacenter. Om programmet behöver för att använda en anpassad URL, bör du alltid vill skapa en ny GUID-instans för ditt åtkomst-token (istället för att alla befintliga GUID). 
 
-    Använd följande API: er för att aktivera anpassad URL och ange åtkomst-token till ett giltigt GUID (till exempel `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    Använd följande API: er för att aktivera anpassad URL och ange åtkomst-token till ett giltigt GUID (till exempel `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Språk|Aktivera anpassad URL|Ange åtkomst-token|
     |---|---|---|
@@ -103,41 +108,41 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
     
 ### <a name="live-ingest-url-naming-rules"></a>Liveinmatning regler för namngivning av URL: en
 
-Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).<br/>
-Den *åtkomsttoken* är vad du behöver att ange för fast URL: en. Du måste ange en åtkomst-token sträng som är en giltig GUID-sträng. <br/>
-Den *Livesända* anger stream-namnet för en viss anslutning. Stream namn-värde läggs vanligtvis av livekodaren att du använder.
+* Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).
+* *din åtkomsttoken* -giltiga GUID-strängen som du anger när du använder läget för anpassad. Till exempel `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *Livesända* -anger stream-namnet för en viss anslutning. Stream namn-värde läggs vanligtvis av livekodaren som du använder. Du kan konfigurera livekodaren för att använda ett namn som beskriver anslutningen, till exempel: ”video1_audio1”, ”video2_audio1”, ”strömma”.
 
 #### <a name="non-vanity-url"></a>Icke-anpassad URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Anpassad URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Live-händelse förhandsgransknings-URL
 
-När den **direktsänd händelse** börjar ta emot bidrag feed, dess förhandsgranskningsslutpunkten kan använda för att förhandsgranska och validera att du får den direktsända dataströmmen innan du publicerar ytterligare. När du har kontrollerat att förhandsgranska dataströmmen är bra, du kan använda LiveEvent så att den direktsända dataströmmen analysleverans via en eller flera (färdiga) **Strömningsslutpunkter**. För att åstadkomma detta måste du skapa ett nytt [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs) på den **direktsänd händelse**. 
+När den **direktsänd händelse** börjar ta emot bidrag feed, dess förhandsgranskningsslutpunkten kan använda för att förhandsgranska och validera att du får den direktsända dataströmmen innan du publicerar ytterligare. När du har kontrollerat att förhandsgranska dataströmmen är bra, du kan använda Live-händelse så att den direktsända dataströmmen analysleverans via en eller flera (färdiga) **Strömningsslutpunkter**. För att åstadkomma detta måste du skapa ett nytt [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs) på den **direktsänd händelse**. 
 
 > [!IMPORTANT]
 > Kontrollera att videon flödar till förhandsgransknings-URL innan du fortsätter!

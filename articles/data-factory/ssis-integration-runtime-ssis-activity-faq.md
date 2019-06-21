@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: f17c364d258ef356a98180c9903603d92a6a9245
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078526"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190126"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Felsökning av körning av paket i SSIS-integreringskörning
 
@@ -103,6 +103,13 @@ Den här artikeln innehåller de vanligaste felen som du kan orsaka vid körning
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>Felmeddelande: ”Din integration runtime kan inte uppgraderas och ska upphöra att fungera, eftersom vi inte kan komma åt Azure Blob-behållare som du angav för anpassad installation”.
 
 * Det här felet uppstår när SSIS Integration Runtime har inte åtkomst till lagring som konfigurerats för anpassad installation. Kontrollera att SAS-Uri som du angav är giltigt och inte har gått ut.
+
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Felmeddelande: ”Microsoft OLE DB Provider för Analysis Services. 'Hresult: 0x80004005 beskrivning ”: COM-fel: COM-fel: mscorlib; Undantag har inträffat i målet för en ”
+
+* Möjlig orsak & rekommenderad åtgärd:
+  * En möjlig orsak är att användarnamn/lösenord med MFA är aktiverat har konfigurerats för Azure Analysis Services-autentisering, vilket inte stöds i SSIS-integreringskörning ännu. Försök att använda tjänstens huvudnamn för Azure Analysis Service-autentisering:
+    1. Förbereda tjänstens huvudnamn för AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
+    2. I Anslutningshanteraren, konfigurerar du ”Använd ett specifikt användarnamn och lösenord”: Ange ”AppID” som användarnamn och ”clientSecret” som lösenord
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Paketet tar oväntat lång tid att köra
 

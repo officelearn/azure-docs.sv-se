@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240551"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147901"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Leda management instruktioner för Azure Table
 
@@ -97,7 +97,7 @@ I nästa uppsättning steg, ansluter du till din Azure-tabell och konfigurera st
 
      ![Välj ett anpassat värde för Azure-tabellnamn](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filterfråga** – Klicka på fältet och **hämta tidigare tid** ikon visas i ett popup-fönster. Välj **tidigare tid** att detta tidsstämpeln ska filtrera frågan. Du kan också klistra in följande funktion i fältet: CreatedTime `gt datetime'@{body('Get_past_time')}'` 
+   - **Filterfråga** – Klicka på fältet och **hämta tidigare tid** ikon visas i ett popup-fönster. Välj **tidigare tid** att detta tidsstämpeln ska filtrera frågan. Du kan också klistra in följande funktion i fältet: CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Konfigurera filterfunktion för fråga](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

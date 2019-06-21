@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388371"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136884"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -53,7 +53,7 @@ Om Adaptiv eller fast pris sampling är i drift, har inmatningssampling inaktive
 
 Adaptiv sampling är tillgänglig för Application Insights SDK för ASP.NET v 2.0.0-beta3 och senare, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 och senare, och är aktiverad som standard.
 
-Adaptiv sampling påverkar mängden telemetri som skickas från web server-app till Application Insights-tjänstslutpunkt. Volymen justeras automatiskt om du vill behålla inom en angiven högsta mängden trafik och styrs via inställningen `MaxTelemetryItemsPerSecond`. Om programmet ger lite telemetri, t.ex. när du felsöker eller på grund av låg belastning objekt inte hämta samplas så länge volymen understiger `MaxTelemetryItemsPerSecond`. Som volym telemetri ökar justeras samplingsfrekvensen för att uppnå målvolymen.
+Adaptiv sampling påverkar mängden telemetri som skickas från web server-app till Application Insights-tjänstslutpunkt. Volymen justeras automatiskt om du vill behålla inom en angiven högsta mängden trafik och styrs via inställningen `MaxTelemetryItemsPerSecond`. Om programmet ger lite telemetri, t.ex. när du felsöker eller på grund av låg belastning objekt inte kommer att släppa av processor för sampling så länge volymen understiger `MaxTelemetryItemsPerSecond`. Som volym telemetri ökar justeras samplingsfrekvensen för att uppnå målvolymen.
 
 För att uppnå målvolymen viss telemetri som genererade ignoreras. Men precis som andra typer av sampling algoritmen behåller relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag.
 

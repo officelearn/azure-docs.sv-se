@@ -6,24 +6,24 @@ author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 06/17/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39a0ea2ec173c8e3a2f79fd19dfa35ce2806d442
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751664"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274869"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Översikt över Azure Marketplace och AppSource
 
-Det här dokumentet ger en överblick över vad som kommer härnäst för Azure Marketplace och AppSource relaterade partnerprogram. Den samlar in några av de betydande funktionerna som vi har begått, en ungefärlig tid för när du kan förvänta dig att se dem och kommer att uppdateras varje månad. Det är inte en omfattande lista över alla nya funktioner men är avsedd att ge bättre inblick i våra viktiga investeringar. Dessa uppsättningar och tidsramar för leverans kan aktuella och kan ändras.
+Det här dokumentet ger en överblick över vad som kommer härnäst för Microsofts kommersiella marketplace för utgivare, återförsäljare och kunder. Den samlar in några av de betydande funktionerna som vi har begått, en ungefärlig tid för när du kan förvänta dig att se dem och kommer att uppdateras varje månad. Det är inte en omfattande lista över alla nya funktioner men är avsedd att ge bättre inblick i våra viktiga investeringar. Dessa uppsättningar och tidsramar för leverans kan aktuella och kan ändras.
 
 Vi tar gärna emot dina förslag! Delta i konversationen den [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) att hämta de senaste uppdateringarna på nya funktioner, program och händelser.
 
 
 ## <a name="roadmap"></a>Översikt
-![](./media/marketplace-publishers-guide/roadmap.png)
+![Marketplace-översikt för juni](./media/marketplace-publishers-guide/roadmap-june19.png)
 
 
 ## <a name="recent-releases"></a>Har släppts nyligen
@@ -41,6 +41,14 @@ När en funktion är live kan tas den bort från översikten. Funktioner som har
 * [Marketplace-regioner och valutor](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Säljaren insikter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
 
+### <a name="for-may-2019"></a>För maj 2019
+
+* [Microsoft Build Marketplace-bloggen](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
+* [Marketplace maj uppdaterar blogg](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* Partner Center: [Skapa konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Hantera konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [migrering från CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
+* Partner Center: [Skapa SaaS-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publiceringsstatus](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
+) / [uppdatera befintligt erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [erbjuder Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
+* [Få stöd för marketplace i Partnercenter](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
 ## <a name="next-steps"></a>Nästa steg
 

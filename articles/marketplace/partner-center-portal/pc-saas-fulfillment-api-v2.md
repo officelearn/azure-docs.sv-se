@@ -1,28 +1,28 @@
 ---
 title: SaaS betjäna API v2 | Azure Marketplace
-description: 'Beskriver hur du skapar och hanterar ett SaaS-erbjudande på AppSource och Azure Marketplace med associerade uppfyllandet v2 API: er.'
+description: 'Den här artikeln förklarar hur du skapar och hanterar ett SaaS-erbjudande på Azure Marketplace och AppSource med associerade uppfyllandet v2 API: er.'
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: da23b90e44869dcbd21acf9b2c4e04f30153ae09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5be0b8886500bdce50b95846826e5fdc53b5df1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751773"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202665"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends-API: er version 2 
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS techtrends API: er, version 2 
 
-Den här artikeln beskriver API som ger oberoende programvaruleverantörer (ISV) att sälja sina SaaS-program i Azure Marketplace och AppSource. Detta API är ett krav för transactable SaaS erbjuder på Azure Marketplace och AppSource.
+Den här artikeln beskriver API: er som gör det möjligt för partner att sälja sina SaaS-program i AppSource-marknadsplatsen och Azure Marketplace. Dessa API: er är ett krav för transactable SaaS erbjuder på Azure Marketplace och AppSource.
 
-## <a name="managing-the-saas-subscription-lifecycle"></a>Hanterar livscykeln för SaaS-prenumeration
+## <a name="managing-the-saas-subscription-life-cycle"></a>Hantera livscykeln för SaaS-prenumeration
 
-Microsoft SaaS Service hanterar hela livscykeln för ett SaaS-prenumerationsinköpet och använder betjäna API som en mekanism för att driva den faktiska betjäna ändringar i planer och borttagning av prenumerationen med ISV: er. Kunden faktureras baserat på status för SaaS-prenumeration som Microsoft underhåller. Följande diagram visar status och vilka åtgärder som genomför ändringarna emellan.
+Azure SaaS hanterar hela livscykeln för ett SaaS-prenumerationsinköpet. Den använder uppfyllandet API: er som en mekanism för att driva faktiska uppfyllandet, ändringar i planer och borttagning av prenumerationen med partnern. Kundens faktura baseras på tillståndet för SaaS-prenumeration som Microsoft underhåller. Följande diagram visar status och vilka åtgärder som genomför ändringarna emellan.
 
-![Livscykelstadier för SaaS-prenumeration](./media/saas-subscription-lifecycle-api-v2.png)
+![SaaS prenumerationstillstånd för livscykel](./media/saas-subscription-lifecycle-api-v2.png)
 
 
 ### <a name="states-of-a-saas-subscription"></a>Tillstånd för en SaaS-prenumeration
@@ -31,39 +31,43 @@ I följande tabell visas de etablering tillstånden för ett SaaS-prenumeration,
 
 #### <a name="provisioning"></a>Etablering
 
-När en kund initierar ett köp, får ISV: er den här informationen i en Auth-kod i en kund interaktiva webbsida med en URL-parameter. Till exempel: `https://contoso.com/signup?token=..`, där startsida sidan URL: en provider i partnercenter är `https://contoso.com/signup`. Auth-kod kan verifieras och bytas ut mer information om vad som ska etableras genom att anropa API: et lösa.  När SaaS tjänsten har slutfört etablering, skickar den ett aktivera anrop för att signalera att uppfyllandet är klar och kunden kan faktureras.  I följande diagram visas de API-anrop för ett scenario med etablering.  
+När en kund initierar ett köp, får partnern som den här informationen i en auktoriseringskod på en kund-webbsida som använder en URL-parameter. Ett exempel är `https://contoso.com/signup?token=..`, medan startsida sid-URL i Partnercenter är `https://contoso.com/signup`. Auktoriseringskoden kan verifieras och bytas ut mer information om etableringstjänsten genom att anropa API: et lösa.  När en SaaS-tjänst är klar etablering, skickar den ett aktivera anrop för att signalera att uppfyllandet är klar och kunden kan faktureras. 
 
-![API-anrop för att etablera en SaaS-tjänst.](./media/saas-post-provisioning-api-v2-calls.png)
+I följande diagram visas de API-anrop för ett scenario med etablering.  
+
+![API-anrop för att etablera en SaaS-tjänst](./media/saas-post-provisioning-api-v2-calls.png)
 
 #### <a name="provisioned"></a>Etablerat
 
 Det här tillståndet är i stabilt tillstånd för en etablerad tjänst.
 
-#### <a name="provisioning-for-update"></a>Etablering för uppdatering
-(från marketplace) 
+##### <a name="provisioning-for-update"></a>Etablering för uppdatering 
 
-Det här tillståndet motsvarar en uppdatering till en befintlig service väntar. Sådan uppdatering kan initieras av kunden på marketplace eller på SaaS-tjänsten (endast för direkt till kundtransaktioner). Följande diagram visar åtgärderna när en uppdatering har initierats från marketplace.
+Det här tillståndet anger att en uppdatering av en befintlig tjänst väntande. Sådan uppdatering kan initieras av kunden, antingen från marketplace eller på SaaS-tjänsten (endast för direkt till kunden transaktioner).
 
-![API-anrop när uppdateringen har initierats från marketplace.](./media/saas-update-api-v2-calls-from-marketplace-a.png)
+##### <a name="provisioning-for-update-when-its-initiated-from-the-marketplace"></a>Etablering för uppdatering (när den har initierats från marketplace)
 
-#### <a name="provisioning-for-update"></a>Etablering för uppdatering  
-(från SaaS tjänsten) 
+Följande diagram visar sekvens med åtgärder när en uppdatering har initierats från marketplace.
 
-Följande diagram visar åtgärderna när en uppdatering initieras av SaaS-tjänsten. (Webhook-anropet ersätts av en uppdatering till den prenumeration som initieras av SaaS Service. 
+![API-anrop när uppdateringen har initierats från marketplace](./media/saas-update-api-v2-calls-from-marketplace-a.png)
 
-![API-anrop när uppdateringen har initierats av SaaS-tjänsten.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
+##### <a name="provisioning-for-update-when-its-initiated-from-the-saas-service"></a>Etablering för uppdatering (när den har initierats från SaaS tjänsten)
+
+Följande diagram visar åtgärderna när en uppdatering initieras från SaaS-tjänsten. (Webhook-anropet ersätts av en uppdatering för den prenumeration som initieras av SaaS-tjänst.) 
+
+![API-anrop när uppdateringen har initierats från SaaS-tjänst](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 #### <a name="suspended"></a>Uppehåll
 
-Det här tillståndet anger att en kund betalning inte har tagits emot. I princip, kommer vi ger kunden en respitperiod innan unfulfilling prenumerationen. När en prenumeration är i det här tillståndet: 
+Det här tillståndet anger att en kund betalning inte har tagits emot. Av Grupprincip får kunden en respitperiod innan du avbryter prenumerationen. När en prenumeration är i det här tillståndet: 
 
-- Som en ISV kan du välja att försämras eller blockera åtkomst till tjänsten. 
+- Som partner kan du välja att försämras eller blockera åtkomst till tjänsten.
 - Prenumerationen måste hållas i ett återställningsbara tillstånd som kan återställa samtliga funktioner utan att förlora data eller inställningar. 
-- Du kan förvänta dig att hämta en återställa-begäran för den här prenumerationen via uppfyllandet API eller ta bort etableringsbegäran i slutet av respitperioden. 
+- Förvänta dig att hämta en begäran om återställa för den här prenumerationen via uppfyllandet API: er eller ta bort etableringsbegäran i slutet av respitperioden. 
 
 #### <a name="unsubscribed"></a>Prenumeration avslutad 
 
-Prenumerationer nå det här tillståndet som svar på en explicit kundfråga eller som svar på utebliven betalning av avgifter. Förväntar sig från ISV: er är att kundens data bevaras för återställning på begäran för en period av minst X dagar och tas sedan bort. 
+Prenumerationer nå det här tillståndet som svar på en explicit kundbegäran eller utebliven betalning av avgifter. Från partnern väntas att kundens data bevaras för återställning på begäran för ett visst antal dagar och tas sedan bort. 
 
 
 ## <a name="api-reference"></a>API-referens
@@ -73,50 +77,50 @@ Det här avsnittet beskrivs SaaS *prenumeration API* och *Operations API*.  Vär
 
 ### <a name="parameter-and-entity-definitions"></a>Parametern-och entiteten
 
-Tabellen nedan innehåller definitioner för gemensamma parametrar och entiteter som används av Techtrends API: er.
+I följande tabell visas definitionerna för gemensamma parametrar och entiteter som används av techtrends API: er.
 
 |     Entity/Parameter     |     Definition                         |
 |     ----------------     |     ----------                         |
-| `subscriptionId`         | GUID-identifierare för en SaaS-resurs  |
-| `name`                   | Eget namn för den här resursen från kunden |
-| `publisherId`            | Unik sträng som identifierare för varje utgivare, till exempel ”contoso” |
-| `offerId`                | Unik sträng som identifierare för varje erbjudande, till exempel ”offer1”  |
-| `planId`                 | Unik sträng som identifierare för varje plan/sku, till exempel ”silver” |
-| `operationId`            | GUID-identifierare för en viss åtgärd  |
-|  `action`                | Den åtgärd som utförs på en resurs, antingen `subscribe`, `unsubscribe`, `suspend`, `reinstate`, eller `changePlan`, `changeQuantity`, `transfer`  |
+| `subscriptionId`         | GUID-identifierare för en SaaS-resurs.  |
+| `name`                   | Ett eget namn som angetts för den här resursen av kunden. |
+| `publisherId`            | En unik sträng som identifierare för varje utgivare (till exempel: ”contoso”). |
+| `offerId`                | En unik sträng som identifierare för varje erbjudande (till exempel: ”offer1”).  |
+| `planId`                 | En unik sträng som identifierare för varje plan/SKU (till exempel: ”silver”). |
+| `operationId`            | GUID-identifierare för en viss åtgärd.  |
+|  `action`                | Den åtgärd som utförs på en resurs, antingen `subscribe`, `unsubscribe`, `suspend`, `reinstate`, eller `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
-Globalt unika identifierare ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) är 128-bitars (32 hexadecimala) värden som genereras vanligtvis automatiskt. 
+Globalt unika identifierare ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) är 128-bitars (32-hexadecimalt) värden som genereras vanligtvis automatiskt. 
 
 #### <a name="resolve-a-subscription"></a>Lösa en prenumeration 
 
-Lös slutpunkten gör det möjligt för utgivare att matcha en marketplace-token med en beständig resurs-ID. Resurs-ID är den unika identifieraren för SAAS-prenumeration.  När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en token i Frågeparametrar. ISV förväntas Använd denna token och gör en begäran att lösa detta. Svaret innehåller den unika SAAS prenumerations-ID, namn, erbjudande-ID och planera för resursen. Denna token är giltig i endast en timme. 
+Lös slutpunkten gör det möjligt för utgivare att matcha en marketplace-token med en beständig resurs-ID. Resurs-ID är den unika identifieraren för en SaaS-prenumeration. När en användare omdirigeras till partnerns webbplats, innehåller URL: en en token i Frågeparametrar. Partnern förväntas använder denna token och göra en begäran att lösa detta. Svaret innehåller den unika SaaS prenumerations-ID, namn, erbjudande-ID och planera för resursen. Denna token är giltig i en timme. 
 
-**Post:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  Version av åtgärden för den här begäran  |
+|  ApiVersion        |  Versionen av åtgärden för den här begäran.  |
 
 *Rubriker i begäran:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json` |
-|  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-|  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
-|  x-ms-marketplace-token  |  Token frågeparameter i URL: en när användaren omdirigeras till SaaS-ISV-webbplats från Azure (till exempel: `https://contoso.com/signup?token=..`). *Obs:* URL: en avkodar token-värde från webbläsaren innan du använder den.  |
+|  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
+|  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  x-ms-marketplace-token  |  Token Frågeparametern i URL: en när användaren omdirigeras till SaaS-partnerns webbplats från Azure (till exempel: `https://contoso.com/signup?token=..`). *Obs:* URL: en avkodar token-värde från webbläsaren innan du använder den.  |
 
 *Svarskoder:*
 
 Kod: 200<br>
-Löser täckande token till en SaaS-prenumeration.<br>
+Löser täckande token till en SaaS-prenumeration. Svarstext:
+ 
 
 ```json
-Response body:
 {
     "subscriptionId": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
@@ -126,17 +130,17 @@ Response body:
 }
 ```
 
-Kod: 404<br>
-Det gick inte att hitta
-
 Kod: 400<br>
 Felaktig begäran. x-ms-marketplace-token är felaktigt, saknas eller har upphört att gälla.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -156,7 +160,7 @@ Prenumeration API stöder HTTPS följande åtgärder: **Hämta**, **Post**, **Pa
 
 Visar alla SaaS-prenumerationer för en utgivare.
 
-**Hämta:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
+##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Hämta<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -169,14 +173,15 @@ Visar alla SaaS-prenumerationer för en utgivare.
 |                    |                   |
 |  ---------------   |  ---------------  |
 | Content-Type       |  `application/json`  |
-| x-ms-requestid     |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-| x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-| authorization      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| x-ms-requestid     |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
+| x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+| authorization      |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Svarskoder:*
 
 Kod: 200 <br/>
-Baserat på auktoriseringstoken, hämta utgivare och motsvarande prenumerationer för erbjudanden som alla utgivare.<br> Svarsnyttolasten:<br>
+Hämtar utgivare och motsvarande prenumerationer för utgivarens alla erbjudanden, baserat på autentiseringstoken.
+Svarsnyttolasten:<br>
 
 ```json
 {
@@ -196,7 +201,7 @@ Baserat på auktoriseringstoken, hämta utgivare och motsvarande prenumerationer
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
-          ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
@@ -205,12 +210,13 @@ Baserat på auktoriseringstoken, hämta utgivare och motsvarande prenumerationer
 }
 ```
 
-Fortsättningstoken är endast tillgänglig om det finns ytterligare ”sidor” i planer för att hämta. 
+Fortsättningstoken är tillgänglig endast om det finns ytterligare ”sidor” i planer för att hämta. 
 
 Kod: 403 <br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren. 
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren. 
 
-Kod: 500 Internt serverfel
+Kod: 500<br>
+Internt serverfel.
 
 ```json
 {
@@ -225,28 +231,28 @@ Kod: 500 Internt serverfel
 
 Hämtar den angivna SaaS-prenumerationen. Använd det här anropet att hämta licensinformationen och planera information.
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| subscriptionId     |   Unik identifierare för SaaS-prenumeration som erhålls när du har löst token via lösa API   |
-|  ApiVersion        |   Version av åtgärden för den här begäran   |
+| subscriptionId     |   En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token via lösa API: et.   |
+|  ApiVersion        |   Versionen av åtgärden för den här begäran.   |
 
 *Rubriker i begäran:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      |  `application/json`  |
-|  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-|  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
+|  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
 
 *Svarskoder:*
 
 Kod: 200<br>
-Hämtar SaaS-prenumeration från identifierare<br> Svarsnyttolasten:<br>
+Hämtar SaaS-prenumerationen från identifierare. Svarsnyttolasten:<br>
 
 ```json
 Response Body:
@@ -263,20 +269,20 @@ Response Body:
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
-        "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
+        "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
         "status": "Subscribed", // Indicates the status of the operation.
 }
 ```
 
-Kod: 404<br>
-Det gick inte att hitta<br> 
-
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.<br> 
 
 Kod: 500<br>
-Internt serverfel<br>
+Internt serverfel.<br>
 
 ```json
 {
@@ -288,31 +294,29 @@ Internt serverfel<br>
 
 #### <a name="list-available-plans"></a>Lista tillgängliga planer
 
-Använd det här anropet för att ta reda på om det finns några privata/offentliga erbjudanden för aktuella utgivaren.
+Använd det här anropet för att ta reda på om det finns några gemensamma eller privata erbjudanden för aktuella utgivaren.
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |   Version av åtgärden för den här begäran  |
+|  ApiVersion        |   Versionen av åtgärden för den här begäran.  |
 
 *Rubriker i begäran:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Content-Type     |  `application/json` |
-|   x-ms-requestid   |   Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-|  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|   x-ms-requestid   |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
+|  x-ms-correlationid  | En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
 
 *Svarskoder:*
 
 Kod: 200<br>
-Hämta en lista över tillgängliga planer för en kund.<br>
-
-Svarstext:
+Hämtar en lista över tillgängliga planer för en kund. Svarstext:
 
 ```json
 {
@@ -325,13 +329,13 @@ Svarstext:
 ```
 
 Kod: 404<br>
-Det gick inte att hitta<br> 
+Kunde inte hittas.<br> 
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren. <br> 
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren. <br> 
 
 Kod: 500<br>
-Internt serverfel<br>
+Internt serverfel.<br>
 
 ```json
 { 
@@ -343,25 +347,25 @@ Internt serverfel<br>
 
 #### <a name="activate-a-subscription"></a>Aktivera en prenumeration
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  Version av åtgärden för den här begäran  |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API  |
+|  ApiVersion        |  Versionen av åtgärden för den här begäran.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 
 *Rubriker i begäran:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
-|  x-ms-requestid    | Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
-|  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här strängen kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  x-ms-requestid    | En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+|  x-ms-correlationid  | En unik sträng som värde för åtgärden på klienten. Den här strängen kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
 
-*Begäran:*
+*Nyttolasten i begäran:*
 
 ```json
 {
@@ -375,17 +379,17 @@ Internt serverfel<br>
 Kod: 200<br>
 Aktiverar prenumerationen.<br>
 
-Kod: 404<br>
-Det gick inte att hitta
-
 Kod: 400<br>
-Felaktig begäran-verifieringsfel
+Felaktig begäran: verifieringsfel.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -400,23 +404,23 @@ Internt serverfel
 
 Uppdatera planen för prenumerationen.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  Versionen av åtgärden för den här begäran.  |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 
 *Rubriker i begäran:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json` |
-|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
+|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.    |
-| authorization      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| authorization      |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Nyttolasten i begäran:*
 
@@ -431,27 +435,24 @@ Request Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Operation-Location | Länka till en resurs att hämta åtgärdens status.   |
+| Operation-Location | Länk till en resurs att hämta åtgärdens status.   |
 
 *Svarskoder:*
 
 Kod: 202<br>
-Förfrågan om att ändra plan har accepterats. ISV förväntas att avsöka åtgärden-platsen för att fastställa en lyckades/misslyckades. <br>
-
-Kod: 404<br>
-Det gick inte att hitta
+Förfrågan om att ändra plan har accepterats. Partnern förväntas att avsöka åtgärden-platsen för att fastställa en lyckad eller misslyckad. <br>
 
 Kod: 400<br>
-Felaktig begäran-verifieringsfel.
-
->[!Note]
->Endast en plan eller kvantitet kan vara uppdaterad i taget, inte båda. Redigerar på en prenumeration med **uppdatering** finns inte i `allowedCustomerOperations`.
+Felaktig begäran: verifieringsfel.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -462,27 +463,30 @@ Internt serverfel
 }
 ```
 
+>[!Note]
+>Endast en plan eller kvantitet kan vara uppdaterad i taget, inte båda. Redigerar på en prenumeration med **uppdatering** finns inte i `allowedCustomerOperations`.
+
 #### <a name="change-the-quantity-on-the-subscription"></a>Ändra antalet i prenumerationen
 
 Uppdatera kvantitet för prenumerationen.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  Versionen av åtgärden för den här begäran.  |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 
 *Rubriker i begäran:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json` |
-|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
+|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.    |
-| authorization      |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| authorization      |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Nyttolasten i begäran:*
 
@@ -502,22 +506,20 @@ Request Body:
 *Svarskoder:*
 
 Kod: 202<br>
-Accepteras. Begäran att ändra antalet har accepterats. ISV förväntas att avsöka åtgärden-platsen för att fastställa en lyckades/misslyckades. <br>
-
-Kod: 404<br>
-Det gick inte att hitta
+Begäran att ändra antalet har accepterats. Partnern förväntas att avsöka åtgärden-platsen för att fastställa en lyckad eller misslyckad. <br>
 
 Kod: 400<br>
-Felaktig begäran-verifieringsfel.
+Felaktig begäran: verifieringsfel.
 
->[!Note]
->Endast en plan eller kvantitet kan vara uppdaterad i taget, inte båda. Redigerar på en prenumeration med **uppdatering** finns inte i `allowedCustomerOperations`.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -528,18 +530,21 @@ Internt serverfel
 }
 ```
 
+>[!Note]
+>Endast en plan eller kvantitet kan vara uppdaterad i taget, inte båda. Redigerar på en prenumeration med **uppdatering** finns inte i `allowedCustomerOperations`.
+
 #### <a name="delete-a-subscription"></a>Tar bort en prenumeration
 
 Avbryta prenumerationen och ta bort den angivna prenumerationen.
 
-**Ta bort:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Ta bort<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  Versionen av åtgärden för den här begäran.  |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 
 *Rubriker i begäran:*
  
@@ -548,24 +553,24 @@ Avbryta prenumerationen och ta bort den angivna prenumerationen.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Svarskoder:*
 
 Kod: 202<br>
-ISV initierade anrop till indikerar avbryta prenumerationen på en SaaS-prenumeration.<br>
-
-Kod: 404<br>
-Det gick inte att hitta
+Partnern skickar ett anrop för att avbryta prenumerationen en SaaS-prenumeration.<br>
 
 Kod: 400<br>
 Ta bort en prenumeration med **ta bort** inte i `allowedCustomerOperations`.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -585,28 +590,27 @@ Operations-API: et stöder följande korrigerings- och Get-åtgärder.
 
 Visar en lista över väntande åtgärder för den aktuella utgivaren. 
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |             |        |
 |  ---------------   |  ---------------  |
 |    ApiVersion                |   Versionen av åtgärden för den här begäran.                |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 
 *Rubriker i begäran:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Content-Type     |  `application/json` |
-|  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
+|  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Svarskoder:*
 
-Kod: 200<br> Hämtar listan över väntande åtgärder på en prenumeration.<br>
-Svarsnyttolasten:
+Kod: 200<br> Hämtar listan över väntande åtgärder på en prenumeration. Svarsnyttolasten:
 
 ```json
 [{
@@ -623,17 +627,18 @@ Svarsnyttolasten:
 }]
 ```
 
-Kod: 404<br>
-Det gick inte att hitta
 
 Kod: 400<br>
-Felaktig begäran-verifieringsfel
+Felaktig begäran: verifieringsfel.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 500<br>
-Internt serverfel
+Internt serverfel.
 
 ```json
 {
@@ -647,9 +652,9 @@ Internt serverfel
 
 #### <a name="get-operation-status"></a>Hämta Åtgärdsstatus
 
-Gör att utgivaren för att spåra statusen för den angivna utlösta asynkron åtgärden (prenumerera / Avbryt prenumeration / ändra planera / ändra kvantitet).
+Gör att utgivaren för att spåra statusen för den angivna utlösta asynkron åtgärden (till exempel `subscribe`, `unsubscribe`, `changePlan`, eller `changeQuantity`).
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -662,12 +667,13 @@ Gör att utgivaren för att spåra statusen för den angivna utlösta asynkron �
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Content-Type      |  `application/json`   |
-|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
+|  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
-|  authorization     |[Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
-*Svarskoder:* Kod: 200<br> Hämtar den angivna väntande åtgärd för SaaS<br>
-Svarsnyttolasten:
+*Svarskoder:*<br>
+
+Kod: 200<br> Hämtar den angivna väntande SaaS-åtgärd. Svarsnyttolasten:
 
 ```json
 Response body:
@@ -686,16 +692,16 @@ Response body:
 
 ```
 
-Kod: 404<br>
-Det gick inte att hitta
-
 Kod: 400<br>
-Felaktig begäran-verifieringsfel
+Felaktig begäran: verifieringsfel.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
  
-Kod: 500<br> Internt serverfel
+Kod: 404<br>
+Kunde inte hittas.
+
+Kod: 500<br> Internt serverfel.
 
 ```json
 {
@@ -708,16 +714,16 @@ Kod: 500<br> Internt serverfel
 ```
 #### <a name="update-the-status-of-an-operation"></a>Uppdatera status för en åtgärd
 
-Uppdatera status för en åtgärd för att indikera lyckades/misslyckades med angivna värden.
+Uppdatera status för en åtgärd för att ange lyckad eller misslyckad med angivna värden.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   ApiVersion       |  Versionen av åtgärden för den här begäran.  |
-| subscriptionId     | Unik identifierare för SaaS-prenumeration som erhålls när du har löst token med hjälp av lösa API.  |
+| subscriptionId     | En unik identifierare för SaaS-prenumerationen som erhålls när du har löst token med hjälp av lösa API.  |
 |  operationId       | Åtgärden som utförs. |
 
 *Rubriker i begäran:*
@@ -725,9 +731,9 @@ Uppdatera status för en åtgärd för att indikera lyckades/misslyckades med an
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Content-Type     | `application/json`   |
-|   x-ms-requestid   |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
+|   x-ms-requestid   |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
-|  authorization     |  [Hämta JSON web token (JWT) ägar-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  authorization     |  [Hämta JSON web token (JWT) ägarautentisering token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
 
 *Nyttolasten i begäran:*
 
@@ -742,21 +748,21 @@ Uppdatera status för en åtgärd för att indikera lyckades/misslyckades med an
 
 *Svarskoder:*
 
-Kod: 200<br> Anropa för att informera av slutförandet av en åtgärd på ISV-sida. Svaret kan till exempel skulle kunna signalera ändringar av platser/planer.
-
-Kod: 404<br>
-Det gick inte att hitta
+Kod: 200<br> Ett anrop till informera av slutförandet av en åtgärd på partner-sida. Svaret kan till exempel skulle kunna signalera platser eller planer ändras.
 
 Kod: 400<br>
-Felaktig begäran-verifieringsfel
+Felaktig begäran: verifieringsfel.
 
 Kod: 403<br>
-Obehörig. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+Obehörig. Autentiseringstoken har inte angetts eller är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella utgivaren.
+
+Kod: 404<br>
+Kunde inte hittas.
 
 Kod: 409<br>
-En konflikt uppstod. Till exempel har en nyare transaktion redan uppfyllts
+En konflikt uppstod. Till exempel uppfyllde en nyare transaktion redan.
 
-Kod: 500<br> Internt serverfel
+Kod: 500<br> Internt serverfel.
 
 ```json
 {
@@ -768,13 +774,13 @@ Kod: 500<br> Internt serverfel
 
 ```
 
-## <a name="webhook-on-the-saas-service"></a>Webhook på SaaS-tjänst
+## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementera en webhook i SaaS-tjänst
 
-Utgivare måste implementera en webhook i den här SaaS tjänsten för att proaktivt meddela användare om ändringar i sin tjänst. API: et förväntas vara icke-autentiserade och kommer att anropas av Microsoft SaaS-tjänsten. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan du vidtar en åtgärd på webhook-meddelandet.
+Utgivare måste implementera en webhook i den här SaaS tjänsten för att proaktivt meddela användare om ändringar i sin tjänst. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan du vidtar en åtgärd på webhook-meddelandet.
 
 ```json
 {
-  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
   "publisherId": "<this is the publisher’s name>",
@@ -788,35 +794,34 @@ Utgivare måste implementera en webhook i den här SaaS tjänsten för att proak
 }
 ```
 Där åtgärden kan vara något av följande: 
-- `Subscribe`, (När resursen har aktiverats)
-- `Unsubscribe`, (När resursen har tagits bort)
-- `ChangePlan`, (När ändringen plan åtgärden har slutförts)
-- `ChangeQuantity`, (När åtgärd för lösenordsbyte kvantitet är klar)
-- `Suspend`, (När resursen har pausats)
-- `Reinstate`, (När resursen har tagits giltigt först när inaktivering)
+- `subscribe` (när resursen har aktiverats)
+- `unsubscribe` (när resursen har tagits bort)
+- `changePlan` (när ändringen plan åtgärden har slutförts)
+- `changeQuantity` (när ändringen kvantitet åtgärden har slutförts)
+- `suspend` (när resursen har pausats)
+- `reinstate` (när resursen har tagits giltigt först när inaktivering)
 
-Där status kan vara något av följande: <br>
-        -Ej startad, <br>
-        -InProgress, <br>
-        -Lyckades, <br>
-        -Misslyckades <br>
-        -Konflikt <br>
+Där status kan vara något av följande: 
+- **NotStarted** <br>
+ - **Pågår** <br>
+- **Lyckades** <br>
+- **Misslyckades** <br>
+- **Konflikt** <br>
 
-Användbara statusar är lyckades och misslyckades i ett webhook-meddelande. Livscykeln för en åtgärd är från NotStarted till ett avslutat tillstånd som lyckades/misslyckades/konflikt. Om du får inte startats eller pågår, Fortsätt att begära status för via åtgärd för hämtning av API: et tills åtgärden har nått avslutat tillstånd innan du vidtar åtgärder. 
+I ett webhook-meddelande, användbara statusen är antingen **lyckades** och **misslyckades**. Livscykel för en åtgärd är från **NotStarted** till ett avslutat tillstånd som **lyckades**, **misslyckades**, eller **konflikt**. Om du får **NotStarted** eller **InProgress**, fortsätter att begära status för via få API tills åtgärden har nått avslutat tillstånd innan åtgärd vidtas. 
 
-## <a name="mock-api"></a>Fingera API
+## <a name="mock-apis"></a>Fingera API: er
 
-Du kan använda våra fingerad API: er för att komma igång med utveckling, särskilt prototyper och testa projekt. 
+Du kan använda våra fingerad API: er för att komma igång med utveckling, särskilt prototyper samt som testar projekt. 
 
-Värd-slutpunkt: `https://marketplaceapi.microsoft.com/api` <br/>
-API-Version: `2018-09-15` <br/>
-Ingen autentisering krävs <br/>
-Exempel-Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+Vara värd för slutpunkten: `https://marketplaceapi.microsoft.com/api` (ingen autentisering krävs)<br/>
+API-version: `2018-09-15`<br/>
+URI-exempel: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Sökvägar för API-slutpunkten är gemensamma för både utkast och verkliga API: er, men API-versioner är olika. Versionen är 2018-09-15 för utkast och 2018-08-31 för programmets produktionsversion. 
+Sökvägar för API-slutpunkten är gemensamma för både fingerad och verkliga API: er, men API-versioner är olika. Versionen är `2018-09-15` för fingerad versionen och `2018-08-31` för programmets produktionsversion. 
 
-API-anrop i den här artikeln kan göras till fingerad värd-slutpunkten. Du kan förvänta dig att få fingerade data tillbaka som svar. I allmänhet kan du förväntar dig att få fingerade data tillbaka som svar. Anrop till uppdateringsmetoder för prenumerationen på fingerad API: et returnerar alltid 500. 
+API-anrop i den här artikeln kan göras till fingerad värd-slutpunkten. I allmänhet förväntar sig att få fingerade data tillbaka som svar. Anrop till uppdateringsmetoder för prenumerationen på fingerad API: et returnerar alltid 500. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utvecklare kan även kan hämta och ändra arbetsbelastningar, erbjudanden och utgivare profiler med hjälp av den [Cloud Partner Portal REST API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Utvecklare kan även programmässigt hämta och ändra arbetsbelastningar, erbjudanden och utgivare profiler med hjälp av den [Cloud Partner Portal REST API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

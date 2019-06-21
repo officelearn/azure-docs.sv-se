@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416439"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165855"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
 
@@ -73,6 +73,7 @@ Här är en lista över betrodda tjänster som får åtkomst till key vault om d
 |Azure Storage|[Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
 |Azure databricks|[Snabba, enkla och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten](../azure-databricks/what-is-azure-databricks.md)|
+|Azure API Management|[Distribuera certifikat för anpassad domän från Key Vault med MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

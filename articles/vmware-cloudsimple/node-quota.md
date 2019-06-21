@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160177"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164869"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Kvotgränser för CloudSimple nod
 
-Fyra noder är antalet standard köpas, när prenumerationen har aktiverats för CloudSimple-tjänsten.  Du kan köpa någon [nodtyp](cloudsimple-node.md) från Azure-portalen.  Minst tre noder i samma SKU krävs för att skapa ett privat moln.  Om du har köpt noderna, kan du se ett fel vid försök att köpa ytterligare noder.
+Fyra noder är antalet standard för att etablera, när prenumerationen har aktiverats för CloudSimple-tjänsten.  Du kan etablera någon [nodtyp](cloudsimple-node.md) från Azure-portalen.  Minst tre noder i samma SKU krävs för att skapa ett privat moln.  Om du har etablerat noderna kan se du ett fel vid försök att etablera ytterligare noder.
 
 ## <a name="quota-increase"></a>Öka kvoten
 
@@ -40,5 +40,5 @@ Du kan även kontakta din Microsoft-kontorepresentant på [ azurevmwaresales@mic
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Köpa noder](create-nodes.md)
+* [Etablera noder](create-nodes.md)
 * [Översikt över CloudSimple-noder](cloudsimple-node.md)

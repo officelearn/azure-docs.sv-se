@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735247"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137214"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure Seriekonsol för Linux
 
-Seriekonsol i Azure portal ger åtkomst till en textbaserad konsol för Linux-datorer (VM) och VM-skaluppsättningsinstanser. Den här seriell anslutning ansluter till den seriella porten COM1 för den virtuella datorn eller scale set instansen för virtuella datorer, att ge åtkomst till den oberoende av tillståndet nätverk eller operativsystem. Seriell konsol kan bara användas med hjälp av Azure-portalen och är tillåts endast för de användare som har en roll för åtkomst av deltagare eller högre till skalningsuppsättningen för virtuell dator eller virtuell dator.
+Seriekonsol i Azure portal ger åtkomst till en textbaserad konsol för Linux-datorer (VM) och VM-skaluppsättningsinstanser. Den här seriell anslutning ansluter till den seriella porten ttys0 av den virtuella datorn eller scale set instansen för virtuella datorer, att ge åtkomst till den oberoende av operativsystemet eller nätverket tillstånd. Seriell konsol kan bara användas med hjälp av Azure-portalen och är tillåts endast för de användare som har en roll för åtkomst av deltagare eller högre till skalningsuppsättningen för virtuell dator eller virtuell dator.
 
 Seriell konsol fungerar på samma sätt för virtuella datorer och VM-skaluppsättningsinstanser. I det här dokumentet innehåller alla omnämnanden till virtuella datorer implicit VM-skalningsuppsättningsinstanser om inte annat anges.
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b405c643f642a8b3f950848fe8cba65207cb5cb3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271421"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331809"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -47,12 +47,13 @@ När formuläret Igenkännande resursen har distribution, hitta och välja den f
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”.
+Först behöver du en uppsättning träningsdata i en Azure Storage blob-behållare. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”.
 
 För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra python-kod som följer. Innan du kör koden gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkts-URL för formuläret Igenkännande resursen i Azure-region där du har fått din prenumerationsnycklar.
-1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata.  
+1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Klicka på nästa dialogruta och kopiera värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
 1. Ersätt `<Subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
     ```python
     ########### Python Form Recognizer Train #############
@@ -63,7 +64,7 @@ För att träna en modell för formuläret Igenkännande med hjälp av dokument 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 
@@ -83,59 +84,40 @@ Du får en `200 (Success)` svar med den här JSON-utdata:
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -148,7 +130,7 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
 1. Ersätt `<path to your form>` med sökvägen till ditt formulär (exempelvis C:\temp\file.pdf).
 1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
-1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
+1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
     ```python
@@ -161,7 +143,7 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 

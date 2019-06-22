@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479549"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329367"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
@@ -120,6 +120,8 @@ Object | Spela in
 Matris | Matris
 Null, odefinierad | NULL
 Annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körningsfel)
+
+JavaScript-språket är skiftlägeskänsligt och versaler och gemener i fälten objekt i JavaScript-kod måste matcha versaler och gemener i fälten i den inkommande data. Observera att jobb med kompatibilitetsnivå 1.0 konverterar fält från SQL SELECT-instruktionen är gemener. Under kompatibilitetsnivå 1.1 och högre har fält från SELECT-instruktion samma gemener och versaler som anges i SQL-frågan.
 
 ## <a name="troubleshooting"></a>Felsökning
 JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.

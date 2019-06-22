@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162870"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330545"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudier: Del 2 – Visa routade meddelanden
 
@@ -126,7 +126,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    **Slutpunkt**: Välj **Meddelanden**. (Om du väljer Åtgärdsövervakning får du telemetridata om IoT-hubben istället för de data du skickar.) 
 
-   **Namn på princip för delad åtkomst**: Välj **iothubowner**. Portalen fyller i Nyckel för princip för delad åtkomst åt dig.
+   **Namn på princip för delad åtkomst**: Välj **service**. Portalen fyller i Nyckel för princip för delad åtkomst åt dig.
 
    **Konsumentgrupp**: Välj konsumentgruppen ställa in i steg 1 i den här självstudien. I den här självstudien används **contosoconsumers**.
    

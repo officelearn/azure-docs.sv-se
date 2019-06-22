@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b5f3b77e3af719d0e3b37ac196b1691ce659e5e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271449"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331837"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -52,7 +52,7 @@ Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bö
 För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<SAS URL>` med en Azure Blob storage-behållare som delad åtkomst (signatur) URL: en för platsen för träningsdata. (Hämta din SAS-URL genom att klicka på ”signatur för delad åtkomst” under inställningsmenyn i storage-konto och 'generera SAS och anslutningssträng'. Det här alternativet visas Blob service SAS-URL. Justera URL: en genom att lägga till containername efter .net / och innan? SA = i URL: en, t.ex.:.blob.core.windows.net/ < name_of_your_container > /? SA =... Det här är SAS-URL som ska användas.)
+1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Klicka på nästa dialogruta och kopiera värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Ersätt `<subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
 
 ```bash
@@ -63,59 +63,40 @@ Du får en `200 (Success)` svar med följande JSON-utdata:
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -128,12 +109,12 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
 1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
 1. Ersätt `<path to your form>` med sökvägen till ditt formulär (exempelvis C:\temp\file.pdf).
-1. Ersätt `<file type>` med filtypen. Typer som stöds: pdf, bild/jpeg, bild/png.
+1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Granska svaret

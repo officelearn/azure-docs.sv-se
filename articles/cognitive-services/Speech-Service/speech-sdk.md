@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
-ms.openlocfilehash: 2bfe111cbe1e352c16c9cbdd6d2ecc999bbe444f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4092cfb11fc37b9a4d145c3a2994138e5ae6dbf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003017"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331911"
 ---
 # <a name="about-the-speech-sdk"></a>Om tal SDK
 
-Tal Software Development Kit (SDK) får dina program över Speech-tjänsterna, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till text**, **text till tal**, **talöversättning**, och **avsiktsigenkänning**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](https://aka.ms/csspeech).
+Tal Software Development Kit (SDK) får dina program över Speech-tjänsterna, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till text**, **text till tal**, **talöversättning**, **avsiktsigenkänning**, och **Bot Framework Direct Line tal kanal**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

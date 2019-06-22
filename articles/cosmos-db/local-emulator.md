@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953951"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331765"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -413,6 +413,57 @@ Om du stänger det interaktiva gränssnittet när emulatorn har startats stängs
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Som körs på Mac- eller Linux<a id="mac"></a>
+
+Cosmos-emulatorn kan för närvarande endast ska köras på Windows. Användare som kör Mac eller Linux kan köra emulatorn på en Windows-dator som värd ett hypervisor-program, till exempel Parallels eller VirtualBox. Nedan visas stegen för att aktivera det här alternativet.
+
+I den virtuella Windows-datorn kör du kommandot nedan och anteckna IPv4-adress.
+
+```cmd
+ipconfig.exe
+```
+
+I ditt program måste du ändra URI för DocumentClient-objektet för att använda IPv4-adressen som returneras av `ipconfig.exe`. Nästa steg är att arbeta runt CA-verifieringen när DocumentClient-objektet. För detta behöver du tillhandahålla en HttpClientHandler till DocumentClient-konstruktorn som har egen implementering för ServerCertificateCustomValidationCallback.
+
+Nedan visas ett exempel på hur koden ska se ut.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+Slutligen från den i den virtuella datorn i Windows, starta Cosmos-emulatorn från kommandoraden med hjälp av följande alternativ.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -450,7 +501,7 @@ För att samla in felsökningsspårningar kör du följande kommandon från en a
 ### <a id="uninstall"></a>Avinstallera den lokala emulatorn
 
 1. Avsluta alla öppna instanser av den lokala emulatorn genom att högerklicka på Azure Cosmos-emulatorn-ikonen i systemfältet och sedan klicka på Avsluta. Det kan ta någon minut för alla instanser att avslutas.
-2. I Windows-sökrutan skriver du **Appar och funktioner** och klickar på resultatet för **Appar och funktioner (systeminställningar)**.
+2. I Windows-sökrutan skriver du **Appar och funktioner** och klickar på resultatet för **Appar och funktioner (systeminställningar)** .
 3. I listan över appar bläddrar du till **Azure Cosmos DB-emulatorn**, väljer den, klickar på **Avinstallera** och bekräftar sedan och klickar på **Avinstallera** igen.
 4. När appen är avinstallerad navigerar du till `%LOCALAPPDATA%\CosmosDBEmulator` och tar bort mappen.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269211"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331829"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -31,20 +31,20 @@ Version 3 av Translator Text API innehåller ett moderna JSON-baserade webb-API.
 
 ## <a name="base-urls"></a>Grundläggande URL: er
 
-Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 6 [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 6 [geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** USA, västra 2 och USA, västra centrala 
 * **Asien/Stillahavsområdet:** Asien, sydöstra och Korea, södra
 * **Europa:** Norra Europa och västra Europa
 
-Förfrågningar till Microsoft Translator Text API är oftast hanteras av datacentret som är närmast som begäran kom från. Om ett fel uppstår i datacenter, kan begäran skickas utanför regionen.
+Förfrågningar till Microsoft Translator Text API är oftast hanteras av datacentret som är närmast som begäran kom från. Om ett fel uppstår i datacenter, kan begäran skickas utanför Azure geografiska plats.
 
-Om du vill tvinga begäran som ska hanteras av en specifik datacenter, ändrar du Global slutpunkt i API-begäran till den önskade regionala slutpunkten:
+Om du vill tvinga begäran som ska hanteras av ett visst Azure geografiskt område, ändrar du Global slutpunkt i API-begäran till den önskade regionala slutpunkten:
 
-|Beskrivning|Region|Bas-URL|
+|Beskrivning|Azure geografi|Bas-URL|
 |:--|:--|:--|
-|Azure|Global|  api.cognitive.microsofttranslator.com|
-|Azure|Nordamerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (icke-regionalt)|   api.cognitive.microsofttranslator.com|
+|Azure|USA|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asien och stillahavsområdet|    api-apc.cognitive.microsofttranslator.com|
 

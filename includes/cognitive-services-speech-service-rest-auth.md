@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187630"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333393"
 ---
 ## <a name="authentication"></a>Autentisering
 
@@ -26,8 +26,7 @@ När du använder den `Ocp-Apim-Subscription-Key` rubrik, måste du bara ange di
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-När du använder den `Authorization: Bearer` rubrik, är du behöver göra en begäran om att den `issueToken` slutpunkt. I den här begäran, kan du byta din prenumerationsnyckel för en åtkomsttoken som är giltig i 10 minuter. I kommande avsnitt lär du dig att hämta en token, använda en token och uppdatera en token.
-
+När du använder den `Authorization: Bearer` rubrik, är du behöver göra en begäran om att den `issueToken` slutpunkt. I den här begäran, kan du byta din prenumerationsnyckel för en åtkomsttoken som är giltig i 10 minuter. I kommande avsnitt lär du dig att hämta en token och använda en token.
 
 ### <a name="how-to-get-an-access-token"></a>Så här hämtar du en åtkomsttoken
 

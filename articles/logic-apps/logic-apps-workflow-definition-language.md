@@ -80,7 +80,7 @@ Här är den allmänna strukturen för en utdata-definition:
 |-----------|----------|------|-------------|
 | <*key-name*> | Ja | String | Nyckelnamn för utdata returvärde |
 | <*key-type*> | Ja | int, float, string, securestring, bool, array, JSON-objekt | Typen för det returnera värdet för utdata |
-| <*key-value*> | Ja | Samma som <*key-type*> | Det returnera värdet för utdata |
+| <*key-value*> | Ja | Samma som <*nyckel-typ*> | Det returnera värdet för utdata |
 |||||
 
 Om du vill hämta utdata från ett arbetsflöde som kör granska din logikapps körningshistorik och information i Azure portal eller Använd den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan även skicka utdata till externa system, till exempel Power BI så att du kan skapa instrumentpaneler.

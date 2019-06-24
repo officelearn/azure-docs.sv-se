@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148203"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341863"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -65,7 +65,7 @@ Du kan skapa en ny app med redigering API: er på ett par olika sätt:
 
 Möjliga fel är: 
 
-* Det finns redan en app med det namnet. Importera appen och ange den **valfritt namn** till ett nytt namn. 
+* Det finns redan en app med det namnet. Lös problemet genom att importera appen och ange den **valfritt namn** till ett nytt namn. 
 
 ## <a name="export-app-for-backup"></a>Exportera app för säkerhetskopiering
 

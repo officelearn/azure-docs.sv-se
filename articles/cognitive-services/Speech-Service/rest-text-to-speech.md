@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072456"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342195"
 ---
 # <a name="text-to-speech-rest-api"></a>Text till tal REST-API
 
@@ -70,7 +70,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -161,10 +161,10 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
 | `X-Microsoft-OutputFormat` | Anger formatet för ljuduppspelning. En fullständig lista över godkända värden, se [ljud utdata](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Obligatoriskt |
+| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Krävs |
 
 ### <a name="audio-outputs"></a>Ljud utdata
 
@@ -225,6 +225,7 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 | 400 | Felaktig begäran | En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång. |
 | 401 | Behörighet saknas | Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region. |
 | 413 | Begäran om entiteten är för stor | SSML-indata är längre än 1024 tecken. |
+| 415 | Medietypen stöds inte | Det är möjligt som fel `Content-Type` angavs. `Content-Type` ska vara inställd på `application/ssml+xml`. | 
 | 429 | För många begäranden | Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration. |
 | 502 | Felaktig gateway | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden. |
 

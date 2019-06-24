@@ -79,7 +79,7 @@ Varje Utlösartyp av har ett annat gränssnitt och indata som definierar utlösa
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Kontrollerar eller *enkäter* valfri slutpunkt. Den här slutpunkten måste följa en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller genom att returnera en matris. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp men anropar den angivna URL: en för att registrera eller avregistrera. |
-| [**Recurrence**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
+| [**Upprepning**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
 | [**Request**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
@@ -149,7 +149,7 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
 | <*max-runs*> | Integer | Som standard arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). |
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). |
 ||||
 
 *Utdata*
@@ -239,7 +239,7 @@ Den här utlösaren skickar begäran om en prenumeration till en slutpunkt med h
 | <*max-runs*> | Integer | Som standard arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Exempel*
@@ -322,7 +322,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
  <*query-parameters*> | JSON-objekt | Alla frågeparametrar ska ingå i begäran <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` på begäran. | 
 | <*max-runs*> | Integer | Som standard arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Utdata*
@@ -417,7 +417,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 | <*retry-behavior*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | Som standard alla arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Utdata* 
@@ -511,7 +511,7 @@ Den här utlösaren körs baserat på angivna upprepningsschemat och ger ett enk
 | weekDays | Sträng eller strängmatris | Om du anger ”Week” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”Måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”Sunday” | 
 | <*max-runs*> | Integer | Som standard alla arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Exempel 1*
@@ -615,10 +615,10 @@ För att anropa den här utlösaren, måste du använda den `listCallbackUrl` AP
 |-------|------|-------------| 
 | <*metodtyp*> | String | Den metod som inkommande begäranden måste använda för att anropa logikappen: ”HÄMTA”, ”PLACERA”, ”EFTER”, ”UPPDATERA”, ”TA BORT” |
 | <*relative-path-for-accepted-parameter*> | String | Den relativa sökvägen för den parameter som kan acceptera din slutpunkts-URL | 
-| <*required-properties*> | Matris | En eller flera egenskaper som kräver värden | 
+| <*required-properties*> | Array | En eller flera egenskaper som kräver värden | 
 | <*max-runs*> | Integer | Som standard alla arbetsflödesinstanser körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | När arbetsflödet körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Exempel*
@@ -791,7 +791,7 @@ Azure Logic Apps ger olika åtgärdstyper – var och en med olika indata som de
 |-------|------|-------------|
 | <*retry-behavior*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i principer för återförsök. | 
 | <*runtime-config-options*> | JSON-objekt | För vissa åtgärder, kan du ändra åtgärdens beteende under körning med `runtimeConfiguration` egenskaper. Mer information finns i [Runtime konfigurationsinställningar](#runtime-config-options). | 
-| <*åtgärden-alternativet*> | String | För vissa åtgärder, kan du ändra standardbeteendet genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | För vissa åtgärder, kan du ändra standardbeteendet genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Listan över typer
@@ -1274,7 +1274,7 @@ Den här åtgärden skapar en sträng från alla objekt i en matris och delar up
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. | 
+| <*Matris*> | Array | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. | 
 | <*delimiter*> | Enkel teckensträng | Tecknet som åtskiljer varje objekt i strängen | 
 |||| 
 
@@ -1420,7 +1420,7 @@ Den här åtgärden skapar en matris från objekten i en annan matris baserat p�
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. |
+| <*Matris*> | Array | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. |
 | <*condition-or-filter*> | String | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs!** Om inga värden uppfyller villkoret, skapar en tom matris med åtgärden. |
 |||| 
 
@@ -1536,7 +1536,7 @@ Den här åtgärden skapar en matris med JSON-objekt genom att transformera obje
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Kontrollera att du skriva ett uttryck med dubbla citattecken. <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom matris. | 
+| <*Matris*> | Array | Den matris eller ett uttryck som ger källobjekt. Kontrollera att du skriva ett uttryck med dubbla citattecken. <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom matris. | 
 | <*key-name*> | String | Egenskapsnamnet som tilldelats resultatet från <*uttryck*> <p>Om du vill lägga till en ny egenskap för alla objekt i matrisen utdata, ger en <*nyckelnamn*> för den egenskapen och en <*uttryck*> för egenskapens värde. <p>Ta bort en egenskap från alla objekt i matrisen genom att utelämna den <*nyckelnamn*> för den egenskapen. | 
 | <*uttryck*> | String | Det uttryck som omvandlar objekt i matrisen källa och tilldelar resultat som ska < *-nyckelnamn*> | 
 |||| 
@@ -1635,7 +1635,7 @@ Den här åtgärden skapar en CSV- eller HTML-tabell från en matris. För matri
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | < CSV *eller* HTML >| String | Formatet för den tabell som du vill skapa | 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom tabell. | 
+| <*Matris*> | Array | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom tabell. | 
 |||| 
 
 *Valfritt*
@@ -1977,7 +1977,7 @@ Den här slingan åtgärden upprepas en matris och utför åtgärder på varje o
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*Antal*> | Integer | Som standard ”för var och en” loop som iterationer körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra ”för var och en” loop samtidighet](#change-for-each-concurrency). | 
-| <*åtgärden-alternativet*> | String | Om du vill köra en ”för var och en” loop sekventiellt i stället parallellt, ange antingen <*åtgärdsalternativ*> till `Sequential` eller <*antal*> till `1`, men inte båda. Mer information finns i [kör ”för var och en” loopar sekventiellt](#sequential-for-each). | 
+| <*operation-option*> | String | Om du vill köra en ”för var och en” loop sekventiellt i stället parallellt, ange antingen <*åtgärdsalternativ*> till `Sequential` eller <*antal*> till `1`, men inte båda. Mer information finns i [kör ”för var och en” loopar sekventiellt](#sequential-for-each). | 
 |||| 
 
 *Exempel*

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123892"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341840"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Förhandsversion: Migrera till API-version 3.x för LUIS-appar
 
@@ -54,11 +54,14 @@ V3 svar objektet förändringarna innefattar [förskapade entiteter](luis-refere
 
 V3-API: et har olika parametrar för frågesträngen.
 
-|Parameternamn|Typ|Version|Syfte|
-|--|--|--|--|
-|`query`|string|Endast v3|**I V2**, uttryck till att förutse finns i den `q` parametern. <br><br>**I V3**, funktionen skickas den `query` parametern.|
-|`show-all-intents`|boolesk|Endast v3|Returnera alla avsikter med motsvarande poängen på den **prediction.intents** objekt. Avsikter returneras som objekt i en överordnad `intents` objekt. På så sätt kan programmässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I V2 kan returnerade dessa i en matris. |
-|`verbose`|boolesk|V2 & V3|**I V2**när inställd på true, alla förväntade avsikter returnerades. Om du behöver alla förväntade avsikter använder V3-param av `show-all-intents`.<br><br>**I V3**, den här parametern innehåller entiteten metadata information om entiteten förutsägelse.  |
+|Parameternamn|Typ|Version|Standard|Syfte|
+|--|--|--|--|--|
+|`log`|boolean|V2 & V3|false|Store-frågan i loggfilen.| 
+|`query`|string|Endast v3|Ingen standard – det är obligatoriskt i GET-begäran|**I V2**, uttryck till att förutse finns i den `q` parametern. <br><br>**I V3**, funktionen skickas den `query` parametern.|
+|`show-all-intents`|boolean|Endast v3|false|Returnera alla avsikter med motsvarande poängen på den **prediction.intents** objekt. Avsikter returneras som objekt i en överordnad `intents` objekt. På så sätt kan programmässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I V2 kan returnerade dessa i en matris. |
+|`verbose`|boolean|V2 & V3|false|**I V2**när inställd på true, alla förväntade avsikter returnerades. Om du behöver alla förväntade avsikter använder V3-param av `show-all-intents`.<br><br>**I V3**, den här parametern innehåller entiteten metadata information om entiteten förutsägelse.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -71,12 +74,23 @@ V3-API: et har olika parametrar för frågesträngen.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|Egenskap|Typ|Version|Standard|Syfte|
+|--|--|--|--|--|
+|`dynamicLists`|array|Endast v3|Krävs inte.|[Dynamisk listor](#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig lista över tränade och publicerade entitet redan i LUIS-app.|
+|`externalEntities`|array|Endast v3|Krävs inte.|[Externa enheter](#external-entities-passed-in-at-prediction-time) ge LUIS-appen möjlighet att identifiera och märka entiteter under körning, som kan användas som funktioner för befintliga entiteter. |
+|`options.datetimeReference`|string|Endast v3|Inget standardvärde|Används för att fastställa [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.overridePredictions`|boolean|Endast v3|false|Anger om användarens [externa entitet (med samma namn som befintlig entitet)](#override-existing-model-predictions) används eller befintlig entitet i modellen används för förutsägelse. |
+|`query`|string|Endast v3|Krävs.|**I V2**, uttryck till att förutse finns i den `q` parametern. <br><br>**I V3**, funktionen skickas den `query` parametern.|
+
+
 
 ## <a name="response-changes"></a>Svaret ändringar
 
@@ -275,6 +289,67 @@ I den föregående uttryck i uttryck använder `him` som en referens till `Hazem
 
 Förutsägelse svaret innehåller den externa entiteten, med alla andra förväntade entiteter, eftersom det har definierats i begäran.  
 
+### <a name="override-existing-model-predictions"></a>Åsidosätta befintliga modellens förutsägelser
+
+Den `overridePredictions` alternativ egenskap anger att om användaren skickar en extern entitet som överlappar med en förväntad entitet med samma namn, LUIS väljer den entitet som skickats in eller entiteten finns i modellen. 
+
+Anta exempelvis att frågan `today I'm free`. LUIS identifierar `today` som en datetimeV2 med följande svar:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Om användaren skickar externa entiteten:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+Om den `overridePredictions` är inställd på `false`, LUIS returnerar ett svar som om den externa entiteten inte har skickats. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Om den `overridePredictions` är inställd på `true`, LUIS returnerar ett svar, inklusive:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### <a name="resolution"></a>Lösning
 
 Den _valfritt_ `resolution` egenskapen returnerar förutsägelser svar, så att du kan skicka in metadata som associeras med den externa entitet och sedan tar emot det tillbaka i svaret. 
@@ -287,6 +362,7 @@ Den `resolution` egenskapen kan vara ett tal, en sträng, ett objekt eller en ma
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Dynamisk listor som skickas när förutsägelse

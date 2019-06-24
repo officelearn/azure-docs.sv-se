@@ -79,8 +79,8 @@ Här är den allmänna strukturen för en utdata-definition:
 | Attribut | Obligatoriskt | Typ | Beskrivning |
 |-----------|----------|------|-------------|
 | <*key-name*> | Ja | String | Nyckelnamn för utdata returvärde |
-| <*typ av nyckel*> | Ja | int, float, string, securestring, bool, matris, JSON-objekt | Typen för det returnera värdet för utdata |
-| <*key-value*> | Ja | Samma som <*nyckel-typ*> | Det returnera värdet för utdata |
+| <*key-type*> | Ja | int, float, string, securestring, bool, array, JSON-objekt | Typen för det returnera värdet för utdata |
+| <*key-value*> | Ja | Samma som <*key-type*> | Det returnera värdet för utdata |
 |||||
 
 Om du vill hämta utdata från ett arbetsflöde som kör granska din logikapps körningshistorik och information i Azure portal eller Använd den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan även skicka utdata till externa system, till exempel Power BI så att du kan skapa instrumentpaneler.
@@ -110,9 +110,9 @@ Här är den allmänna strukturen för en parameterdefinition:
 
 | Attribut | Obligatoriskt | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*Parametern-typ*> | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
+| <*parameter-type*> | Ja | int, float, string, securestring, bool, array, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
 | <*default-parameter-values*> | Ja | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
-| <*array-with-permitted-parameter-values*> | Nej | Matris | En matris med värden som parametern kan acceptera |
+| <*array-with-permitted-parameter-values*> | Nej | Array | En matris med värden som parametern kan acceptera |
 | `metadata` | Nej | JSON-objekt | Övriga parametern detaljer, till exempel namnet eller en läsbar beskrivning för logikappen eller flödet designfasen data som används av Visual Studio eller andra verktyg |
 ||||
 
@@ -147,8 +147,8 @@ I den `staticResults` attributet, definiera en åtgärd utkast `outputs` och `st
 |-----------|----------|------|-------------|
 | <*static-result-definition-name*> | Ja | String | Namnet på en definition av statiska resultatet som en åtgärdsdefinition kan hänvisa till via en `runtimeConfiguration.staticResult` objekt. Mer information finns i [Runtime konfigurationsinställningar](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda ett unikt namn som du vill. Som standard läggs den här unika namnet med ett tal, ökas vid behov. |
 | <*output-attributes-and-values-returned*> | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Till exempel när den `status` är `Succeeded`, `outputs` attribut innehåller attribut och värden returneras som fingerad utdata för åtgärden. Om den `status` är `Failed`, `outputs` attribut innehåller den `errors` attribut, som är en matris med en eller flera fel `message` objekt som har information om felet. |
-| <*huvud-värden*> | Nej | JSON | Alla värden i huvudet som returneras av instruktionen |
-| <*status för kod returnerat*> | Ja | String | Statuskoden för åtgärden |
+| <*header-values*> | Nej | JSON | Alla värden i huvudet som returneras av instruktionen |
+| <*status-code-returned*> | Ja | String | Statuskoden för åtgärden |
 | <*action-status*> | Ja | String | Åtgärdens status, till exempel `Succeeded` eller `Failed` |
 |||||
 

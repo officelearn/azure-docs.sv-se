@@ -53,8 +53,8 @@ Utlösare har de här översta elementen, även om vissa är valfria:
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | Namnet på utlösaren | 
-| <*typ av utlösare*> | String | Typ av utlösare, till exempel ”Http” eller ”ApiConnection” | 
-| <*Utlösarens indata*> | JSON-objekt | Indata som definierar utlösarens beteende | 
+| <*trigger-type*> | String | Typ av utlösare, till exempel ”Http” eller ”ApiConnection” | 
+| <*trigger-inputs*> | JSON-objekt | Indata som definierar utlösarens beteende | 
 | <*time-unit*> | String | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
@@ -63,10 +63,10 @@ Utlösare har de här översta elementen, även om vissa är valfria:
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*matris med villkor*> | Matris | En matris som innehåller en eller flera [villkor](#trigger-conditions) som avgör om du vill köra arbetsflödet. Endast tillgängligt för utlösare. | 
+| <*array-with-conditions*> | Array | En matris som innehåller en eller flera [villkor](#trigger-conditions) som avgör om du vill köra arbetsflödet. Endast tillgängligt för utlösare. | 
 | <*runtime-config-options*> | JSON-objekt | Du kan ändra utlösaren runtime beteendet genom att ange `runtimeConfiguration` egenskaper. Mer information finns i [Runtime konfigurationsinställningar](#runtime-config-options). | 
 | <*splitOn-expression*> | String | Du kan ange ett uttryck för utlösare som returnerar en matris, som [delar upp eller *debatches* ](#split-on-debatch) matrisen objekt till flera arbetsflödesinstanser för bearbetning. | 
-| <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+| <*operation-option*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 ## <a name="trigger-types-list"></a>Lista över typer av utlösare
@@ -79,7 +79,7 @@ Varje Utlösartyp av har ett annat gränssnitt och indata som definierar utlösa
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Kontrollerar eller *enkäter* valfri slutpunkt. Den här slutpunkten måste följa en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller genom att returnera en matris. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp men anropar den angivna URL: en för att registrera eller avregistrera. |
-| [**Upprepning**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
+| [**Recurrence**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
 | [**Request**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 

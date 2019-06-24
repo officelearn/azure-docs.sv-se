@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1696a20094357d084ba54739767509b8d50c4ad5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124532"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341300"
 ---
 # <a name="example-identify-faces-in-images"></a>Exempel: Identifiera ansikten i bilder
 
@@ -41,10 +41,10 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Alternativt kan du ange prenumerationsnyckeln i HTTP-frågehuvudet **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;**.
+Alternativt kan du ange prenumerationsnyckeln i HTTP-frågehuvudet **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;** .
 När du använder ett klientbibliotek skickas prenumerationsnyckeln i konstruktorn för klassen FaceServiceClient. Exempel:
  
-```CSharp 
+```csharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
@@ -63,7 +63,7 @@ Börja med att skapa en ny PersonGroup med hjälp av den [PersonGroup - skapa](h
 
 När en grupp har definierats kan du definiera personer i den med hjälp av den [PersonGroup Person - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. Klientbibliotekmetoden är CreatePersonAsync. Du kan lägga till ett ansikte till varje person när de skapas.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
@@ -84,7 +84,8 @@ Identifiering görs genom att skicka en ”POST” webb-begäran till den [Ansik
 För varje ansikte som upptäcks, anropa [PersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) att lägga till den till rätt person.
 
 Visar processen för att känna igen ett ansikte från en bild och lägga till det till en person:
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -105,13 +106,13 @@ Om avbildningen innehåller fler än en ansikte, läggs endast de största står
 
 PersonGroup måste utbildas innan en identifiering kan utföras med hjälp av den. Vara måste modellkomponenten i PersonGroup när du lägger till eller ta bort en person eller om du redigerar en persons registrerade ansikte. Utbildningen sker genom API:et [PersonGroup – Utbilda](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249). När du använder klientbiblioteket, är det ett anrop till metoden TrainPersonGroupAsync:
  
-```CSharp 
+```csharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
 Utbildning är en asynkron process. Det kan inte slutföras även efter att metoden TrainPersonGroupAsync returnerar. Du kan behöva fråga status för utbildning. Använd den [PersonGroup - hämta Status för utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API eller GetPersonGroupTrainingStatusAsync-metoden för klientbiblioteket. Följande kod visar en enkel logiken för att vänta tills PersonGroup utbildning för att slutföra:
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
@@ -134,7 +135,7 @@ Testa ansiktet måste identifieras med hjälp av de föregående stegen. Ansikts
 
 Följande kod visar identifieringsprocessen:
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))

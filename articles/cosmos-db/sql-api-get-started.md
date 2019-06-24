@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596103"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342126"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Skapa en .NET-konsolapp för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -78,7 +78,7 @@ Följ dessa instruktioner för att skapa ett Azure Cosmos DB-konto i Azure-porta
 
 1. I Visual Studio 2017, Välj **filen** > **New** > **projekt**.
    
-1. I den **nytt projekt** dialogrutan **Visual C#**   >  **Konsolapp (.NET Framework)**, namnge projektet *AzureCosmosDBApp* , och välj sedan **OK**.
+1. I den **nytt projekt** dialogrutan **Visual C#**   >  **Konsolapp (.NET Framework)** , namnge projektet *AzureCosmosDBApp* , och välj sedan **OK**.
    
    ![Skärmdump som visar fönstret Nytt projekt](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -450,7 +450,7 @@ Följande diagram illustrerar hur Azure Cosmos DB SQL-frågesyntaxen anropas mot
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-Den [FROM](how-to-sql-query.md#FromClause) nyckelord i SQL-frågan är valfritt, eftersom Azure Cosmos DB-frågor redan är begränsade till en enda samling. Du kan växla `FROM Families f` med `FROM root r`, eller andra variabelnamnet som du väljer. Azure Cosmos DB kommer härleda som `Families`, `root`, eller variabelnamnet som du väljer refererar till den aktuella samlingen.
+Den [FROM](sql-query-from.md) nyckelord i SQL-frågan är valfritt, eftersom Azure Cosmos DB-frågor redan är begränsade till en enda samling. Du kan växla `FROM Families f` med `FROM root r`, eller andra variabelnamnet som du väljer. Azure Cosmos DB kommer härleda som `Families`, `root`, eller variabelnamnet som du väljer refererar till den aktuella samlingen.
 
 ## <a id="ReplaceDocument"></a>Uppdatera ett JSON-dokument
 
@@ -543,7 +543,7 @@ Press any key to continue ...
 End of demo, press any key to exit.
 ```
 
-Gratulerar! Du har slutfört självstudiekursen och har en fungerande C# konsolapp som skapar frågor, uppdaterar och tar bort Azure Cosmos DB-resurser.  
+Grattis! Du har slutfört självstudiekursen och har en fungerande C# konsolapp som skapar frågor, uppdaterar och tar bort Azure Cosmos DB-resurser.  
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Cosmos DB i [Välkommen till Azure Cosmos DB](introduction.md).

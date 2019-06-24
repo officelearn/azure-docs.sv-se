@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426887"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340752"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs
 
@@ -29,7 +29,7 @@ ms.locfileid: "60426887"
 I den här självstudiekursen kommer du att skapa en meddelandehubb för att skicka push-meddelanden till en Windows Universal Platform-app (UWP). Du skapar en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). Sedan kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör din app.
 
 > [!NOTE]
-> Du hittar den färdiga koden för den här självstudiekursen på [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> Du hittar den färdiga koden för den här självstudiekursen på [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
 Du kan utföra följande steg:
 
@@ -66,7 +66,7 @@ Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Win
 3. Expandera **Apphantering**. Välj **WNS/MPNS** och sedan **Live Services-webbplats**. Logga in på ditt Microsoft-konto. **Programregistreringsportalen** öppnas på en ny flik. Du kan också navigera direkt till [programregistreringsportalen](https://apps.dev.microsoft.com) och gå till den här sidan genom att välja ditt programnamn.
 
     ![WNS MPNS-sida](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Anteckna lösenordet för **Application Secret** (programhemlighet) och **Package security identifier (SID)**.
+4. Anteckna lösenordet för **Application Secret** (programhemlighet) och **Package security identifier (SID)** .
 
     >[!WARNING]
     >Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app.
@@ -77,7 +77,7 @@ Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Win
 
 ### <a name="configure-wns-settings-for-the-hub"></a>Konfigurera WNS-inställningar för hubben
 
-1. I kategorin **MEDDELANDEINSTÄLLNINGAR** väljer du **Windows (WNS)**.
+1. I kategorin **MEDDELANDEINSTÄLLNINGAR** väljer du **Windows (WNS)** .
 2. Ange de värden för **Package SID** och **Security Key** som du antecknade i föregående avsnitt.
 3. Klicka på **Spara** i verktygsfältet.
 
@@ -90,9 +90,9 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS. Du har anslutn
 1. I Visual Studio öppnar du menyn **Arkiv**. Välj **Nytt** och sedan **Projekt**.
 2. I dialogrutan **Nytt projekt** utför du följande steg:
 
-    1. Utöka **Visual C#**.
+    1. Utöka **Visual C#** .
     2. Välj **Windows Universal**.
-    3. Välj **Tom app (Universal Windows)**.
+    3. Välj **Tom app (Universal Windows)** .
     4. Ange ett **namn** för projektet.
     5. Välj **OK**.
 

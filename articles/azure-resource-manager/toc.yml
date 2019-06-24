@@ -212,7 +212,7 @@
 - name: Referens
   items:
     - name: Mallreferens
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Mallfunktioner
       items:
         - name: Alla funktioner

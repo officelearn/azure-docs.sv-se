@@ -17,6 +17,15 @@ metadata:
 ms.custom: seodec18
 abstract:
   description: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: ../media/index/form-recognizer-landing-page-video.png
+      width: 250
+    title: 'AI-driven processautomatisering med Formigenkänning (2:15)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
+    width: 250
 sections:
   - items:
       - type: list

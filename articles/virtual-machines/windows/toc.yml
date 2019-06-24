@@ -118,8 +118,8 @@
           href: ephemeral-os-disks.md
     - name: Nätverk
       href: network-overview.md
-    - name: Skala program automatiskt
-      href: autoscale.md
+    - name: Skalningsuppsättningar
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Infrastruktur för automatisering
       href: infrastructure-automation.md
     - name: Säkerhet och principer

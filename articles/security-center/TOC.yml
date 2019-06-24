@@ -45,7 +45,7 @@
       href: security-center-onboarding.md
     - name: Serverskydd med Windows Defender ATP
       href: security-center-wdatp.md
-    - name: Avancerad datasäkerhet för IaaS
+    - name: Avancerad datasäkerhet för SQL på virtuella Azure-datorer (allmänt tillgänglig förhandsversion)
       href: security-center-iaas-advanced-data.md
     - name: Skydda App Service
       href: security-center-app-services.md
@@ -83,7 +83,7 @@
           href: security-center-virtual-machine-protection.md
         - name: Skydda nätverksresurser
           href: security-center-network-recommendations.md
-        - name: Skydda SQL-tjänsten och data
+        - name: Skydda data och lagringstjänster
           href: security-center-sql-service-recommendations.md
         - name: Skydda identitet och åtkomst
           href: security-center-identity-access.md

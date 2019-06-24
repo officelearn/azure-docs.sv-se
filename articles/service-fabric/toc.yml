@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 – Ta bort ett kluster
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Skapa ett fristående kluster på AWS
+    - name: Skapa ett fristående kluster
       items:
-        - name: 1 – Skapa infrastrukturen på AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 – Skapa infrastrukturen
+          items:
+            - name: Använda AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Använda Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2 – Konfigurera Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3 – Distribuera ett program till klustret
@@ -695,6 +699,8 @@
       items:
         - name: Diagnosticera vanliga scenarier
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Diagnostisera fel i kodpaket
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Övervakning av program
           items:
             - name: Lägg till loggning i programmet

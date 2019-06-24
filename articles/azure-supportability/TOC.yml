@@ -11,6 +11,8 @@
       href: per-vm-quota-requests.md
     - name: Utökad gräns för totalt antal regionala vCPU
       href: regional-quota-requests.md
+    - name: Höjning av nätverksgräns
+      href: networking-quota-requests.md
 - name: Felsökningsregion eller problem med SKU-prenumeration
   href: sku-series-unavailable.md
 - name: Referens

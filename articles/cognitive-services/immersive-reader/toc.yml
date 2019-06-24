@@ -1,0 +1,27 @@
+- name: Dokumentation om Avancerad läsare
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Avancerad läsare?
+      href: Overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: 'Använd C#'
+      href: Quickstart.md
+- name: Självstudier
+  items:
+    - name: Starta Avancerad läsare (Node.js)
+      href: tutorial.md
+- name: Referens
+  items:
+    - name: SDK-referens
+      href: reference.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Stöd för språk
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

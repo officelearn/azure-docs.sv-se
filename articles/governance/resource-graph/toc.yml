@@ -33,6 +33,9 @@
     - name: Arbeta med stora datamängder
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: Vägledning för begränsade begäranden
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: Instruktionsguider
   items:
     - name: Hämta resursändringar

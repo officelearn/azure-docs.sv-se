@@ -119,8 +119,8 @@
           href: ephemeral-os-disks.md
     - name: Nätverk
       href: network-overview.md
-    - name: Skala program automatiskt
-      href: autoscale.md
+    - name: Skalningsuppsättningar
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Infrastruktur för automatisering
       href: infrastructure-automation.md
     - name: Säkerhet och principer
@@ -411,8 +411,6 @@
           href: freebsd-pf-nat.md
         - name: Databaser
           items:
-            - name: MySQL
-              href: mysql-install.md
             - name: MySQL på SUSE
               href: mysql-on-opensuse.md
             - name: MongoDB

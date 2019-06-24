@@ -43,6 +43,10 @@
       href: deploy-cli.md
     - name: Distribuera med hjälp av en mall
       href: deploy-template.md
+    - name: Distribuera med flera offentliga IP-adresser
+      href: deploy-multi-public-ip-powershell.md
+    - name: Distribuera med Tillgänglighetszoner
+      href: deploy-availability-zone-powershell.md
     - name: Integrera med lastbalanserare
       href: integrate-lb.md
 - name: Referens

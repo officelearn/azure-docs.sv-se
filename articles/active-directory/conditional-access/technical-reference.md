@@ -120,7 +120,7 @@ Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
 | iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Chrome, Microsoft Edge Intunes hanterade webbläsare |
+| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
 | Windows Phone          | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Chrome                                        |
@@ -141,8 +141,8 @@ För att automatiskt distribuera det här tillägget till Chrome webbläsare, sk
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Namn | 1 |
-| Typ | REG_SZ (String) |
+| Name | 1 |
+| Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
@@ -150,8 +150,8 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Namn | 1 |
-| Typ | REG_SZ (String) |
+| Name | 1 |
+| Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Dessa webbläsare har stöd för autentisering, vilket gör att enheten har identifierats och verifieras mot en princip. Enhet-kontrollen misslyckas om webbläsaren körs i privat läge.

@@ -142,7 +142,7 @@ Villkor för återförsök kan använda en variabel med namnet $RetryData som ge
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | NumberOfAttempts |Antal gånger som aktiviteten har körts. |
-| Resultat |Utdata från den senaste körningen av aktiviteten. |
+| Output |Utdata från den senaste körningen av aktiviteten. |
 | TotalDuration |Tidsgränsen har förflutit sedan aktiviteten startades första gången. |
 | StartedAt |Tid i UTC-format som aktiviteten startades först. |
 
@@ -324,11 +324,11 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Namn |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
-| Beskrivning |En valfri beskrivning av Indataparametern. |
-| Typ |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
-| Obligatorisk |Anger om ett värde måste anges för parametern. Runbook kan inte startas om du inte anger ett värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
-| Standardvärde |Anger vilket värde som ska användas för parametern om inget anges. Detta kan antingen vara Null eller ett specifikt värde. |
+| Name |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
+| Description |En valfri beskrivning av Indataparametern. |
+| Type |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
+| Mandatory |Anger om ett värde måste anges för parametern. Runbook kan inte startas om du inte anger ett värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
+| Default Value |Anger vilket värde som ska användas för parametern om inget anges. Detta kan antingen vara Null eller ett specifikt värde. |
 
 ### <a name="runbook-output"></a>Utdata från Runbooks
 

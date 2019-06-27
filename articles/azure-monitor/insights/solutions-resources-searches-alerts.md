@@ -79,7 +79,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
-| displayname (visningsnamn) | Namn som ska visas på den sparade sökningen i portalen. |
+| displayName | Namn som ska visas på den sparade sökningen i portalen. |
 | query | Frågan ska köras. |
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Egenskaper för schema resurser beskrivs i följande tabell.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| aktiverad       | Ja | Anger om aviseringen är aktiverad när den skapas. |
+| enabled       | Ja | Anger om aviseringen är aktiverad när den skapas. |
 | interval      | Ja | Hur ofta frågan körs på bara några minuter. |
 | queryTimeSpan | Ja | Lång tid i minuter under som du vill beräkna resultat. |
 
@@ -176,10 +176,10 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Typ | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
-| Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
-| Beskrivning | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
+| name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
+| description | Nej | Valfri beskrivning av aviseringen. |
+| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde

@@ -72,7 +72,7 @@ I följande tabell beskrivs attributen för en parameter.
 |:--- |:--- |
 | type |Datatypen för parametern. Den indatakontroll som visas för användaren är beroende av datatypen.<br><br>bool - listrutan<br>sträng - textrutan<br>int - textrutan<br>SecureString - lösenordsfältet<br> |
 | category |Valfri kategori för parametern.  Parametrarna i samma kategori grupperas tillsammans. |
-| Kontroll |Ytterligare funktioner för strängparametrar.<br><br>datetime - Datetime kontroll visas.<br>GUID – Guid-värde genereras automatiskt och parametern visas inte. |
+| control |Ytterligare funktioner för strängparametrar.<br><br>datetime - Datetime kontroll visas.<br>GUID – Guid-värde genereras automatiskt och parametern visas inte. |
 | description |Valfri beskrivning för parametern.  Visas i en information pratbubblor bredvid parametern. |
 
 ### <a name="standard-parameters"></a>Standardparametrar
@@ -226,7 +226,7 @@ Den **plan** entitet av lösningen resursen har egenskaperna i följande tabell.
 |:--- |:--- |
 | name |Namnet på lösningen. |
 | version |Version av lösningen systemets författaren. |
-| Produkten |Unik sträng att identifiera lösningen. |
+| product |Unik sträng att identifiera lösningen. |
 | publisher |Utgivare av lösningen. |
 
 

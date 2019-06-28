@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164455"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329982"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Vissa typer av stöd för utdata [partitionering](#partitioning). [Utdata batch 
 
 Stream Analytics stöder [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage är en företagsomfattande, lagringsplats i hyperskala för stordataanalysarbetsbelastningar. Du kan använda Data Lake Storage för att lagra data i alla storlekar, typer och inmatning hastighet för driftsanalyser och undersökande analyser. Stream Analytics måste ha behörighet att komma åt Data Lake Storage.
 
-Azure Data Lake Storage-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina (21Vianet).
+Azure Data Lake Storage-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina 21Vianet.
 
 I följande tabell visas egenskapsnamn och deras beskrivningar för att konfigurera din Data Lake Storage Gen 1-utdata.   
 
@@ -50,7 +50,7 @@ I följande tabell visas egenskapsnamn och deras beskrivningar för att konfigur
 
 ## <a name="sql-database"></a>SQL Database
 
-Du kan använda [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i SQL-databas. Tabellschemat måste exakt matcha fälten och deras typer i jobbets utdata. Du kan också ange [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) utdataalternativet som utdata via SQL-databasen. Läs mer om sätt att förbättra genomströmning för skrivning, i den [Stream Analytics med Azure SQL Database som utdata](stream-analytics-sql-output-perf.md) artikeln. 
+Du kan använda [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i SQL-databas. Tabellschemat måste exakt matcha fälten och deras typer i jobbets utdata. Du kan också ange [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) utdataalternativet som utdata via SQL-databasen. Läs mer om sätt att förbättra genomströmning för skrivning, i den [Stream Analytics med Azure SQL Database som utdata](stream-analytics-sql-output-perf.md) artikeln.
 
 I följande tabell visas egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
 
@@ -63,10 +63,10 @@ I följande tabell visas egenskapsnamn och deras beskrivning för att skapa en S
 | Lösenord | Lösenordet för att ansluta till databasen. |
 | Tabell | Tabellnamnet där skrivs utdata. Tabellnamnet är skiftlägeskänsligt. Schemat för den här tabellen måste exakt matcha antalet fält och deras typer som din jobbutdata genererar. |
 |Ärv partitionsschema| Ett alternativ för arv partitioneringsschemat av din föregående fråga steg att aktivera fullständigt parallella topologi med flera skrivare i tabellen. Mer information finns i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
-|Matcha batchantal| Rekommenderade gränsen för antalet poster som skickas med varje bulk insert transaktion.|
+|Max batchantal| Den rekommendera övre gränsen för antalet poster som skickas med varje bulk insert transaktion.|
 
 > [!NOTE]
-> Azure SQL Database erbjuder stöds för ett jobb som utdata i Stream Analytics, men en Azure virtuell dator som kör SQL Server med en-databas ansluten inte stöds.
+> Azure SQL Database erbjuder stöds för en jobbutdata i Stream Analytics, men en Azure virtuell dator som kör SQL Server med en-databas ansluten eller i en SQL Azure-hanterad instans inte stöds ännu. Detta kan ändras i framtida versioner.
 
 ## <a name="blob-storage"></a>Blob Storage
 
@@ -108,7 +108,7 @@ Du behöver några parametrar för att konfigurera dataströmmar från event hub
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera utdata till den här händelsehubben. |
-| Namnområde för händelsehubb |En behållare för en uppsättning meddelandeentiteter. När du har skapat en ny händelsehubb, skapade du även ett händelsehubbnamnområde. |
+| Namnområde för händelsehubb | En behållare för en uppsättning meddelandeentiteter. När du har skapat en ny händelsehubb, skapade du även ett händelsehubbnamnområde. |
 | Namn på händelsehubb | Namnet på din event hub-utdata. |
 | Principnamn för Event hub | Princip för delad åtkomst som du kan skapa i event hub **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | Principnyckel för Event hub | Den delade åtkomstnyckeln som används för att autentisera åtkomsten till händelsehubbens namnområde. |
@@ -123,7 +123,7 @@ Du behöver några parametrar för att konfigurera dataströmmar från event hub
 
 Du kan använda [Power BI](https://powerbi.microsoft.com/) som utdata för ett Stream Analytics-jobb att tillhandahålla för en omfattande visualiseringsupplevelsen av analysresultat. Du kan använda den här funktionen för driftsinstrumentpaneler, rapportgenerering och mått-drivna rapportering.
 
-Power BI-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina (21Vianet).
+Power BI-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina 21Vianet.
 
 I följande tabell visas egenskapsnamn och deras beskrivningar för att konfigurera din Power BI-utdata.
 
@@ -209,17 +209,17 @@ I följande tabell visas egenskapsnamn och deras beskrivningar för att skapa en
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
-## <a name="service-bus-topics"></a>Service Bus-ämnen
+## <a name="service-bus-topics"></a>Avsnitt om Service Bus
 Service Bus-köer ger en 1: 1-kommunikationsmetod från sändare till mottagare. [Service Bus-ämnen](https://msdn.microsoft.com/library/azure/hh367516.aspx) en en-till-många-formen av kommunikation.
 
-I följande tabell visas egenskapsnamn och deras beskrivningar för att skapa ett ämne på utdata.
+I följande tabell visas egenskapsnamn och deras beskrivningar för att skapa utdata en Service Bus-ämne.
 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet visas på det här Service Bus-ämnet. |
 | Service Bus-namnområde |En behållare för en uppsättning meddelandeentiteter. När du har skapat en ny händelsehubb, skapade du även en Service Bus-namnrymd. |
 | Ämnesnamn |Ämnen är meddelandeentiteter, liknande event hubs och köer. De har skapats för att samla in händelseströmmar från enheter och tjänster. När ett ämne har skapats, har nu fått ett visst namn. Meddelanden som skickats till ett ämne är inte tillgängliga om inte en prenumeration skapas, så se till att det finns en eller flera prenumerationer under avsnittet. |
-| Ämnesprincipnamn |När du skapar ett ämne kan du också skapa principer för delad åtkomst på avsnittet **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
+| Ämnesprincipnamn |När du skapar ett Service Bus-ämne kan du också skapa principer för delad åtkomst på i avsnittet **konfigurera** fliken. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | Ämnesprincipnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomsten till Service Bus-namnområdet. |
 | Händelseserialiseringsformat |Serialiseringsformat för utdata. JSON-, CSV- och Avro stöds. |
 | Kodning |Om du använder CSV eller JSON-format, måste en kodning anges. UTF-8 är det enda kodformat som stöds för närvarande. |
@@ -231,7 +231,7 @@ Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-b
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) är en globalt distribuerad databastjänst som erbjuder obegränsad elastisk skalning runt hela världen, frågekörning och den automatiska indexeringen över schemaoberoende datamodeller. Mer information om alternativ för Azure Cosmos DB-samling för Stream Analytics, finns det [Stream Analytics med Azure Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikeln.
 
-Azure Cosmos DB-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina (21Vianet).
+Azure Cosmos DB-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina 21Vianet.
 
 > [!Note]
 > För närvarande stöder Azure Stream Analytics endast anslutning till Azure Cosmos DB med hjälp av SQL-API.
@@ -253,7 +253,7 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure Cosmos DB-utda
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions är en serverlös beräkningstjänst som du kan använda för att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Du kan implementera kod som utlöses av händelser i Azure eller partner services. Azure Functions kapacitet att reagera på utlösare gör det ett naturligt utdatamål för Azure Stream Analytics. Den här utdataadapter kan användarna ansluta Stream Analytics till Azure Functions och köra ett skript eller kod som svar på en rad olika händelser.
 
-Azure Functions-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina (21Vianet).
+Azure Functions-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina 21Vianet.
 
 Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Utdataadaptern för Azure är tillgängligt med konfigurerbara egenskaper som är följande:
 
@@ -295,7 +295,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Utdatatyp | Partitionering | Partitionsnyckeln  | Antalet utdata-skrivare |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Använd {date} och {time}-token i prefixmönster för sögväg. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tidsformatet. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
-| Azure SQL Database | Ja | Baserat på PARTITION BY-sats i frågan. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). Läs mer om att uppnå bättre skrivprestanda dataflöde när du läser in data till Azure SQL Database i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md). |
+| Azure SQL Database | Ja, måste aktiveras. | Baserat på PARTITION BY-sats i frågan. | När ärver partitionering alternativet är aktiverat, följer du inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). Läs mer om att uppnå bättre skrivprestanda dataflöde när du läser in data till Azure SQL Database i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob Storage | Ja | Använd {date} och {time}-token från dina event fält i mönstret för sökvägen. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tidsformatet. BLOB-utdata kan partitioneras av en enda anpassad händelseattribut {fieldname} eller {datetime:\<specificerare >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Ja | Ja | Varierar beroende på partitionen justering.<br /> När Partitionsnyckeln för event hub utdata justeras lika med den överordnade (föregående) frågesteg, är antalet skrivare samma som antalet partitioner i event hub-utdata. Varje skrivare använder den [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. <br /> När Partitionsnyckeln för event hub utdata inte är justerad med den överordnade (föregående) frågesteg, är antalet skrivare samma som antalet partitioner i det föregående steget. Varje skrivare använder den [SendBatchAsync klass](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) i **EventHubClient** att skicka händelser till utdata-partitionerna. |
 | Power BI | Nej | Ingen | Ej tillämpligt. |
@@ -315,14 +315,14 @@ I följande tabell beskrivs några av överväganden för batchbearbetning av ut
 | Utdatatyp | Maxstorlek på meddelande | Optimering av batch-storlek |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Se [Data Lake Storage begränsar](../azure-subscription-service-limits.md#data-lake-store-limits). | Använd upp till 4 MB per skrivning. |
-| Azure SQL Database | 10 000 maximalt antal rader per enskild massinfogning.<br />100 minsta rader per enskild massinfogning. <br />Se [Azure SQL begränsar](../sql-database/sql-database-resource-limits.md). |  Varje batch är inledningsvis bulk infogas med Maximal batchstorlek. Du kan dela batch i hälften (tills du når den minsta batchstorleken) baserat på återförsökbart fel från SQL. |
+| Azure SQL Database | Konfigureras med hjälp av Max batchantal. 10 000 högsta och 100 minsta rader per enskild bulk insert som standard.<br />Se [Azure SQL begränsar](../sql-database/sql-database-resource-limits.md). |  Varje batch är inledningsvis bulk infogas med Maximal batchstorlek antal. Batch är uppdelad i två (fram till minsta batchantal) baserat på återförsökbart fel från SQL. |
 | Azure Blob Storage | Se [Azure Storage begränsar](../azure-subscription-service-limits.md#storage-limits). | Maximal blob blockstorleken är 4 MB.<br />Maximal blob bock antalet är 50 000. |
-| Azure Event Hubs  | 256 KB per meddelande. <br />Se [Event Hubs begränsar](../event-hubs/event-hubs-quotas.md). |  När indata/utdata partitionering inte är justerad varje händelse är späckad individuellt i **EventData** och skickas i en batch med upp till den maximala meddelandestorleken (1 MB för Premium-SKU). <br /><br />  När indata/utdata partitionering justeras flera händelser är förpackade i en enda **EventData** instans, upp till den maximala meddelandestorleken och skickas.  |
+| Azure Event Hubs  | 256 KB eller 1 MB per meddelande. <br />Se [Event Hubs begränsar](../event-hubs/event-hubs-quotas.md). |  När indata/utdata partitionering inte är justerad varje händelse är späckad individuellt i `EventData` och skickas i en batch med upp till den maximala meddelandestorleken. Detta händer även om [anpassade metadataegenskaper](#custom-metadata-properties-for-output) används. <br /><br />  När indata/utdata partitionering justeras flera händelser är förpackade i en enda `EventData` instans, upp till den maximala meddelandestorleken och skickas. |
 | Power BI | Se [Power BI Rest API begränsar](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table Storage | Se [Azure Storage begränsar](../azure-subscription-service-limits.md#storage-limits). | Standardvärdet är 100 entiteter per enskild transaktion. Du kan konfigurera det till ett mindre värde efter behov. |
-| Azure Service Bus-kö   | 256 KB per meddelande.<br /> Se [Service Bus begränsar](../service-bus-messaging/service-bus-quotas.md). | Använda en enda händelse per meddelande. |
-| Azure Service Bus-ämne | 256 KB per meddelande.<br /> Se [Service Bus begränsar](../service-bus-messaging/service-bus-quotas.md). | Använda en enda händelse per meddelande. |
-| Azure Cosmos DB   | Se [Azure Cosmos DB begränsar](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batchstorlek och skriva frekvens justeras dynamiskt baserat Azure Cosmos DB-svar. <br /> Det finns inga förinställt begränsningar från Stream Analytics. |
+| Azure Service Bus-kö   | 256 KB per meddelande för Standard-nivån, 1MB för Premium-nivån.<br /> Se [Service Bus begränsar](../service-bus-messaging/service-bus-quotas.md). | Använda en enda händelse per meddelande. |
+| Azure Service Bus-ämne | 256 KB per meddelande för Standard-nivån, 1MB för Premium-nivån.<br /> Se [Service Bus begränsar](../service-bus-messaging/service-bus-quotas.md). | Använda en enda händelse per meddelande. |
+| Azure Cosmos DB   | Se [Azure Cosmos DB begränsar](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batchstorlek och skriva frekvens justeras dynamiskt utifrån Azure Cosmos DB-svar. <br /> Det finns inga förinställt begränsningar från Stream Analytics. |
 | Azure Functions   | | Standardstorleken för batch är 262 144 byte (256 KB). <br /> Standardvärdet för händelseantal per batch är 100. <br /> Batchstorlek är konfigurerbar och kan ökas eller minskas i Stream Analytics [Utdataalternativ](#azure-functions).
 
 ## <a name="next-steps"></a>Nästa steg

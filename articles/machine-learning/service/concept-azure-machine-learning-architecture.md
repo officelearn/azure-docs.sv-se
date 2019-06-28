@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 294b376665ba6b62f79f826520bc933543b38bda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059281"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331725"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -97,7 +97,10 @@ Modeller identifieras av namn och version. Varje gång som du registrerar en mod
 
 När du registrerar modellen kan du ange ytterligare metadatataggar och sedan använda taggar när du söker efter modeller.
 
-Du kan inte ta bort modeller som används av en aktiv distribution.
+> [!TIP]
+> Registrerade modellen är en logisk behållare för en eller flera filer som utgör din modell. Exempelvis om du har en modell som lagras i flera filer kan registrera du dem som en enda modell i Azure Machine Learning-arbetsyta. Efter registreringen, kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som registrerades.
+
+Du kan inte ta bort en registrerad modell som används av en aktiv distribution.
 
 Ett exempel med att registrera en modell finns i [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md).
 

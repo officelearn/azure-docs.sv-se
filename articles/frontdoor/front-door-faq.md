@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736674"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330872"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar för Azure ytterdörren Service
 
@@ -75,11 +75,11 @@ Azure ytterdörren-tjänsten har samma lista över närvaropunkter (Point of Pre
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Är Azure ytterdörren Service en dedikerad distribution för mitt program eller delas mellan kunder?
 
-Azure ytterdörren Service är en globalt distribuerad tjänst för flera innehavare. Därför delas infrastrukturen för ytterdörren mellan alla sina kunder. Men genom att skapa en ytterdörren du definierar den specifika konfiguration som krävs för ditt program och 
+Azure ytterdörren Service är en globalt distribuerad tjänst för flera innehavare. Därför delas infrastrukturen för ytterdörren mellan alla sina kunder. Men genom att skapa en ytterdörren-profil kan du definiera specifika konfigurationen som krävs för ditt program och inga ändringar till dörren påverka andra ytterdörren konfigurationer.
 
 ### <a name="is-http-https-redirection-supported"></a>Är HTTP -> HTTPS-omdirigering stöds?
 
-Ytterdörren stöder för närvarande inte URL-omdirigering.
+Ja. I själva verket Azure ytterdörren Service har stöd för värden, sökväg och fråga sträng omdirigering som en del av URL-omdirigering. Läs mer om [URL-omdirigering](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>I vilken ordning bearbetas routningsregler?
 
@@ -141,6 +141,11 @@ Dörren har stöd för TLS 1.0, 1.1 och 1.2. TLS 1.3 stöds inte ännu.
 
 Om du vill aktivera HTTPS-protokollet för att säkert leverera innehåll på en anpassad domän ytterdörren, kan du använda ett certifikat som hanteras av Azure ytterdörren Service eller använda ditt eget certifikat.
 Åtkomsten hanteras alternativet tillhandahåller ett standard SSL-certifikat via Digicert och lagras framför dörrens Key Vault. Om du väljer att använda ditt eget certifikat så du kan registrera ett certifikat från en Certifikatutfärdare som stöds och kan vara ett standard SSL, utökad validering certifikat eller även ett jokerteckencertifikat. Självsignerade certifikat stöds inte. Lär dig [aktivera HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Stöder ytterdörren automatisk rotation av certifikat?
+
+För dina egna anpassade SSL-certifikat stöds inte automatisk rotation. Liknande hur den är installationen första gången för en viss anpassade domän, du behöver till punkt åtkomsten till rätt certifikat-versionen i Key Vault och kontrollera att tjänstens huvudnamn för ytterdörren fortfarande har åtkomst till Key Vault. Den här uppdaterade certifikatåtgärden distributionen genom att åtkomsten är helt atomiska och inte orsakar några angivna ämnesnamnet att produktionen påverkas eller SAN-nätverk för certifikatet ändras inte.
+</br>För alternativet ytterdörren hanteras certifikat är certifikat roterats automatiskt av ytterdörren.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Vilka är de aktuella krypteringssviter som stöds av Azure ytterdörren Service?
 

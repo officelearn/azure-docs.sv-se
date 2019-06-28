@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/26/2019
-ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/21/2019
+ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832220"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330513"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub (Python)
 
@@ -102,12 +102,13 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     ```azurecli-interactive
     az iot hub show-connection-string \
       --name YourIoTHubName \
+      --policy-name service \
       --output table
     ```
 
     Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Du kommer att använda det här värdet senare i snabbstarten. Tjänstanslutningssträngen skiljer sig från enhetsanslutningssträngen.
 

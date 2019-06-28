@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139723"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329638"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service-App kloning med hjälp av PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139723"
 
 Med denna version av Microsoft Azure PowerShell version 1.1.0 är ett nytt alternativ har lagts till `New-AzWebApp` som hjälper dig att klona en befintlig App Service-app till en nyligen skapad app i en annan region eller i samma region. Det här alternativet gör att kunderna kan distribuera ett antal appar över olika regioner snabbt och enkelt.
 
-Appkloning är för närvarande endast stöd för premium-nivån app service-planer. Den nya funktionen använder samma begränsningar som säkerhetskopieringsfunktionen i App Service, se [säkerhetskopiera en app i Azure App Service](manage-backup.md).
+Appkloning stöds för Standard, Premium, Premium V2 och isolerad app service-planer. Den nya funktionen använder samma begränsningar som säkerhetskopieringsfunktionen i App Service, se [säkerhetskopiera en app i Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Klona en befintlig app
 Scenario: En befintlig app i regionen södra centrala USA och du vill klona innehållet till en ny app i norra centrala USA. Detta kan inträffa med Azure Resource Manager-versionen av PowerShell-cmdleten för att skapa en ny app med den `-SourceWebApp` alternativet.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344571"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295163"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure CLI
 
@@ -192,7 +192,7 @@ Om du vill visa rolltilldelningar för en viss användare, Använd [az-rolltilld
 az role assignment list --assignee <assignee>
 ```
 
-Som standard visas endast de tilldelningar som är begränsade till prenumerationen. Du kan visa tilldelningar som omfattar resurs eller grupp `--all`.
+Som standard visas endast direkt tilldelningar för prenumerationen. Du kan visa tilldelningar som omfattar resurs eller grupp `--all` och du kan visa ärvda asisgnments `--include-inherited`.
 
 I följande exempel visar rolltilldelningar som tilldelas direkt till den *patlong\@contoso.com* användare:
 

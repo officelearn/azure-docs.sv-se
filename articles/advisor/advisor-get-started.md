@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468308"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332060"
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -94,9 +94,9 @@ Du kan ha resursgrupper eller prenumerationer för vilket du inte vill få Advis
 
 Den här proceduren konfigurerar att regeln för användning av Genomsnittlig CPU för rekommendationen för virtuella datorer med låg användning.
 
-Advisor övervakar din användning av virtuella datorer under 14 dagar och identifierar virtuella datorer med låg användning. Virtuella datorer vars genomsnittliga CPU-användningen är 5% eller mindre och nätverksanvändning är 7 MB eller mindre för fyra eller flera dagar betraktas som låg användning virtuella datorer.
+Advisor övervakar din användning av virtuella datorer i 7 dagar och identifierar virtuella datorer med låg användning. Virtuella datorer betraktas som låg användning om deras CPU-belastning är 5% eller mindre och sin nätverksanvändning är mindre än 2% eller om den nuvarande arbetsbelastningen kan utföras av en mindre storlek på den virtuella datorn.
 
-Om du vill vara mer aggressivt för att fastställa VM med låg användning kan justera du Genomsnittlig CPU användning regeln på basis av per prenumeration.  Regeln för Genomsnittlig CPU-användning kan ställas in till % 5, 10%, 15% eller 20%.
+Om du vill vara mer aggressivt för att fastställa VM med låg användning kan justera du Genomsnittlig CPU användning regeln på basis av per prenumeration.  Regel för CPU-användning kan ställas in till % 5, 10%, 15% eller 20%.
 
 > [!NOTE]
 > Om du vill justera Genomsnittlig CPU användning regeln för att identifiera virtuella datorer med låg användning, måste du vara en prenumeration *ägare*.  Om du inte har behörigheterna som krävs för en prenumeration eller resursgrupp inaktiveras kan inkludera eller exkludera den i användargränssnittet. 

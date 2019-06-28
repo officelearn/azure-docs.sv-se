@@ -100,45 +100,45 @@ I följande tabell visas schemaolikheter mellan Log Analytics och Application In
 |------------|------------| 
 | AnonUserId | user_id|
 | ApplicationId | appId|
-| ApplicationName | Programnamn|
+| ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | Varaktighet |
+| AvailabilityDuration | duration |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
-| Webbläsare | client_browser |
-| Stad | client_city |
+| Browser | client_browser |
+| City | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Land | client_CountryOrRegion | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
 | DeviceModel | client_Model | 
-| Enhetstyp | client_Type | 
+| DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
 | ExceptionType | type |
-| Åtgärds-ID | operation_id |
+| OperationID | operation_id |
 | OperationName | operation_Name | 
-| Operativsystem | client_OS | 
+| OS | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | Varaktighet | 
+| PageViewDuration | duration | 
 | PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | Varaktighet | 
-| Begärande-ID | id | 
+| RequestDuration | duration | 
+| RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | lyckades | 
+| RequestSuccess | success | 
 | ResponseCode | resultCode | 
-| Roll | cloud_RoleName |
-| Rollinstans | cloud_RoleInstance |
-| sessions-ID | session_Id | 
+| Role | cloud_RoleName |
+| RoleInstance | cloud_RoleInstance |
+| SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
 | URL | _url |

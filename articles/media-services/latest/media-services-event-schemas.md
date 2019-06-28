@@ -618,8 +618,8 @@ Dataobjektet har följande egenskaper:
 | lastTimestamp | string | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
 | timescale | string | Tidsskalan där tidsstämplar uttrycks. |
 | overlapCount | integer | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
-| discontinuityCount | integer | Antal avbrott som observerats under de senaste 20 sekunder. |
-| nonIncreasingCount | integer | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
+| DiscontinuityCount | integer | Antal avbrott som observerats under de senaste 20 sekunder. |
+| NonIncreasingCount | integer | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
 | unexpectedBitrate | bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
 | state | string | Status för live-händelse. |
 | healthy | bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
@@ -669,7 +669,7 @@ En händelse har följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | EventGrid-avsnittet. Den här egenskapen har resurs-ID för Media Services-kontot. |
+| subject | string | EventGrid-avsnittet. Den här egenskapen har resurs-ID för Media Services-kontot. |
 | subject | string | Resursens sökväg för Media Services-kanalen i Media Services-kontot. Sammanfoga det avsnittet och ämne ger du resursen med ID för jobbet. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. Till exempel ”Microsoft.Media.JobStateChange”. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |

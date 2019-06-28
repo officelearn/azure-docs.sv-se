@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493268"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329902"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -21,7 +21,7 @@ Tillgängliga i både i molnet och Azure IoT Edge, Azure Stream Analytics erbjud
 
 Machine learning-modeller förutsätter en enhetligt provade tidsserie. Om tidsserien inte uniform, kan du infoga ett aggregering steg med ett rullande fönster innan du anropar avvikelseidentifiering.
 
-Machine learning-åtgärder stöder inte säsongsberoende trender eller flera variate samband.
+Machine learning-åtgärder stöder inte säsongsberoende trender eller flera variate korrelationer just nu.
 
 ## <a name="model-accuracy-and-performance"></a>Modeller Precision och prestanda
 
@@ -29,9 +29,9 @@ I allmänhet förbättrar modellens Precision med mer data i Hoppande fönster. 
 
 Funktionerna fungerar genom att upprätta en vissa normal baserat på vad de har sett hittills. Extremvärden identifieras genom att jämföra mot den etablerade standarden inom konfidensnivån. Fönstrets storlek ska baseras på de lägsta händelser som krävs för att träna modellen för normala beteende så att när ett fel inträffar får det skulle kunna identifiera den.
 
-Tänk på att modellens svarstiden ökar med historikstorlek eftersom den måste jämföra med ett högre antal senaste händelser. Vi rekommenderar att bara inkludera nödvändigt antal händelser för bättre prestanda.
+Modellens svarstiden ökar med historikstorlek eftersom den måste jämföra med ett högre antal senaste händelser. Vi rekommenderar att bara inkludera nödvändigt antal händelser för bättre prestanda.
 
-Luckor i tidsserien kan vara ett resultat av modellen inte ta emot händelser vid vissa tidpunkter i tid. Den här situationen hanteras av Stream Analytics med hjälp av uppräkning. Historikstorlek, samt en varaktighet för samma skjutfönster används för att beräkna Genomsnittshastigheten då förväntas händelser tas emot.
+Luckor i tidsserien kan vara ett resultat av modellen inte ta emot händelser vid vissa tidpunkter i tid. Den här situationen hanteras av Stream Analytics med hjälp av uppräkning logik. Historikstorlek, samt en varaktighet för samma skjutfönster används för att beräkna Genomsnittshastigheten då förväntas händelser tas emot.
 
 ## <a name="spike-and-dip"></a>Topp- och dip
 
@@ -40,7 +40,7 @@ Tillfällig avvikelser i en time series händelseströmmen är känt som toppar 
 
 ![Exempel på topp- och dip-avvikelseidentifiering](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-I samma skjutfönster, om en andra topp är mindre än den första som är den beräknade poängen för mindre topp förmodligen inte betydande tillräckligt jämfört med poäng för den första topp inom konfidensnivån har angetts. Du kan försök minska modellens förtroende på inställningen för att fånga upp sådana avvikelser. Om du börjar få för många aviseringar, kan du använda ett högre konfidensintervall.
+I samma skjutfönster, om en andra topp är mindre än den första som är den beräknade poängen för mindre topp förmodligen inte betydande tillräckligt jämfört med poäng för den första topp inom konfidensnivån har angetts. Du kan försök minska modellens konfidensnivån för att identifiera sådana avvikelser. Om du börjar få för många aviseringar, kan du använda ett högre konfidensintervall.
 
 Följande exempelfråga förutsätter en enhetlig inkommande sats för en händelse per sekund i en glidande femminutersperiod i 2 med en historik över händelser på 120. Sista SELECT-instruktionen extraherar och visar blobens poäng och avvikelseidentifiering status med en konfidensnivå på 95%.
 

@@ -44,7 +44,7 @@ Du kan använda kontrollerna längst ned på arbetsytan för att zooma in och ut
 
 Bibliotekskontrollen är här du väljer [aktiviteter](#activities) att lägga till i din runbook. Du lägga till dem till arbetsytan där du ansluter dem till andra aktiviteter. Det innehåller fyra delar som beskrivs i följande tabell:
 
-| Section | Beskrivning |
+| Section | Description |
 |:--- |:--- |
 | Cmdlet: ar |Innehåller alla cmdletar som kan användas i din runbook. Cmdlet: ar är ordnade efter modulen. Alla moduler som du har installerat i ditt automation-konto är tillgängliga. |
 | Runbooks |Innehåller runbooks i ditt automation-konto. Dessa runbooks kan läggas till arbetsytan som ska användas som underordnade runbooks. Endast runbook-flöden av typen samma kärnor som den runbook som redigeras visas; för grafiska visas runbooks endast PowerShell-baserade runbooks, medan för grafiska PowerShell Workflow-runbooks endast PowerShell-arbetsflöde-baserade runbooks visas. |
@@ -109,7 +109,7 @@ I följande exempel visas har cmdleten Get-AzureRmVM tre parameteruppsättningar
 
 När du anger ett värde för en parameter kan välja du en datakälla för att avgöra hur värdet har angetts. De datakällor som är tillgängliga för en viss parameter är beroende av de giltiga värdena för den parametern. Till exempel är Null inte ett tillgängligt alternativ för en parameter som inte tillåter null-värden.
 
-| Datakälla | Beskrivning |
+| Datakälla | Description |
 |:--- |:--- |
 | Konstant värde |Ange ett värde för parametern. Detta är endast tillgängligt för följande datatyper: Int32, Int64, sträng, booleskt värde, DateTime, växla. |
 | Aktivitetsutdata |Utdata från en aktivitet som föregår den aktuella aktiviteten i arbetsflödet. Alla giltiga aktiviteter visas. Välj bara aktiviteten att använda dess utdata för parametervärdet. Om aktiviteten matar ut ett objekt med flera egenskaper, kan du ange namnet på egenskapen när du har valt aktiviteten. |
@@ -139,7 +139,7 @@ Villkor för återförsök är ett PowerShell-uttryck som utvärderas efter varj
 
 Villkor för återförsök kan använda en variabel med namnet $RetryData som ger åtkomst till information om återförsök för aktiviteten. Den här variabeln har egenskaper i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 |:--- |:--- |
 | NumberOfAttempts |Antal gånger som aktiviteten har körts. |
 | Output |Utdata från den senaste körningen av aktiviteten. |
@@ -191,7 +191,7 @@ Skapa en länk mellan två aktiviteter genom att välja källaktiviteten och kli
 
 Välj länken för att konfigurera dess egenskaper i bladet. Detta omfattar länktyp som beskrivs i följande tabell:
 
-| Länktyp | Beskrivning |
+| Länktyp | Description |
 |:--- |:--- |
 | Pipeline |Målaktiviteten körs en gång för varje objektutdata från källaktiviteten. Målaktiviteten fungerar inte om källaktiviteten leder till att inga utdata. Utdata från källaktiviteten är tillgängligt som ett objekt. |
 | Sekvens |Målaktiviteten körs bara en gång. Den tar emot en matris med objekt från källaktiviteten. Utdata från källaktiviteten är tillgänglig som en matris med objekt. |
@@ -322,7 +322,7 @@ Då öppnas det **indata och utdata** kontroll där du kan redigera en befintlig
 
 Varje indataparameter definieras av egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 |:--- |:--- |
 | Name |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
 | Description |En valfri beskrivning av Indataparametern. |

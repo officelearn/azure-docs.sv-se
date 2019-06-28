@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989899"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312804"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa och utforska automatiserade machine learning-experiment i Azure portal (förhandsversion)
 
@@ -96,16 +96,16 @@ Välj knappen Skapa Experiment att fylla i följande format.
 
 1. För prognostisering:
     1. Välj time-kolumn: Den här kolumnen innehåller tidsdata som ska användas.
-    1. Välj prognoser horizon: Ange hur många tidsenheter (minuter/timmar/dagar/vecka/månad/år) modellen att kunna förutsäga i framtiden. Modellen är ju längre krävs för att förutsäga i framtiden, desto mindre exakta blir det. [Mer information om prognoser och prognos horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Välj prognoser horizon: Ange hur många tidsenheter (minuter/timmar/dagar/vecka/månad/år) modellen att kunna förutsäga i framtiden. Modellen är ju längre krävs för att förutsäga i framtiden, desto mindre exakta blir det. [Mer information om prognoser och prognos horizon](how-to-auto-train-forecast.md).
 
 1. (Valfritt) Avancerade inställningar: ytterligare inställningar som du kan använda för att få bättre kontroll över utbildningsjobbet.
 
     Avancerade inställningar|Beskrivning
     ------|------
-    Primär mått| Viktigaste mått som används för bedömning av din modell. [Mer information om modellen mått](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Primär mått| Viktigaste mått som används för bedömning av din modell. [Mer information om modellen mått](how-to-configure-auto-train.md#explore-model-metrics).
     Avsluta-villkor| När något av dessa villkor uppfylls, slutar utbildningsjobbet innan fullständig slutförande. <br> *Utbildning jobbtid (minuter)* : Hur lång tid att tillåta att utbildningsjobbet ska köras.  <br> *Maxantal upprepningar*: Högsta antalet tillåtna pipelines (iterationer) att testa i utbildningsjobbet. Jobbet körs inte mer än det angivna antalet iterationer. <br> *Mått poäng tröskelvärdet*:  Minsta mått poäng för alla pipelines. Detta säkerställer att om du har ett definierat mål-mått som du vill nå kan du inte lägga mer tid på utbildningsjobbet än nödvändigt.
     Förbearbeta| Välj det här alternativet om du vill aktivera eller inaktivera Förbearbeta som görs av automatiserade maskininlärning. Förbearbeta innehåller automatisk datarensning, förbereda och omvandling för att generera syntetiska funktioner. [Mer information om Förbearbeta](#preprocess).
-    Validering| Välj något av alternativen mellan verifiering ska användas i utbildningsjobbet. [Läs mer om hur du mellan verifiering](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Validering| Välj något av alternativen mellan verifiering ska användas i utbildningsjobbet. [Läs mer om hur du mellan verifiering](how-to-configure-auto-train.md).
     Samtidighet| Markera flera kärnor-gränser som du vill använda när du använder flera kärnor beräkning.
     Blockerade algoritmen| Välja algoritmer som du vill undanta från utbildningsjobbet.
 
@@ -180,7 +180,7 @@ Utbildning jobb kan ta en stund för varje pipeline som ska slutföras.
 
 ### <a name="view-training-run-details"></a>Visa utbildningar körningsinformation
 
-Öka detaljnivån på någon av utdata-modeller för att se utbildning körningsinformation som prestandadiagram för mått och distribution. [Mer information om diagram](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Öka detaljnivån på någon av utdata-modeller för att se utbildning körningsinformation som prestandadiagram för mått och distribution. [Mer information om diagram](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Iteration information](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
 
 1. Välj den **Bläddra** bredvid rutan ”Conda-fil” för att överföra filen för miljön (condaEnv.yml) som du har hämtat tidigare.
 
-    Du kan använda dina egna bedömningsskript och conda-filen, samt överföra ytterligare filer. [Mer information om bedömning skriptet](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+    Du kan använda dina egna bedömningsskript och conda-filen, samt överföra ytterligare filer. [Mer information om bedömning skriptet](how-to-deploy-and-where.md#script).
 
       >[!Important]
       > Filnamn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Kan innehålla bindestreck, understreck, punkter och alfanumeriska tecken mellan. Blanksteg är inte tillåtna.
@@ -228,7 +228,7 @@ Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
     ![Skapa avbildning](media/how-to-create-portal-experiments/create-image.png)
 
 1. Välj knappen ”Skapa” för att börja skapa avbildningar. Detta tar några minuter att slutföra när klar, visas ett meddelande i det översta fältet.
-1. Gå till fliken ”avbildningar”, markera kryssrutan bredvid den avbildning du vill distribuera och välj ”Skapa distribution”. [Mer information om distributioner](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. Gå till fliken ”avbildningar”, markera kryssrutan bredvid den avbildning du vill distribuera och välj ”Skapa distribution”. [Mer information om distributioner](how-to-deploy-and-where.md).
 
     Det finns 2 alternativ för distribution.
      + Azure Container Instance (ACI) – det här används mer för att testa syfte i stället för operativa distribution i stor skala. Se till att fylla i värdena för minst en core för _CPU-reserverad kapacitet_, och minst en gigabyte (GB) för _reserverad minneskapacitet_

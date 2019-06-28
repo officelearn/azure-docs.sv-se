@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101447"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295122"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 Observera hur entiteten förväntar att det här exemplet hämtas för att vara av typen **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Hämtar flera entiteter med hjälp av LINQ
-Du kan hämta flera entiteter med hjälp av LINQ med Storage-klientbiblioteket och ange en fråga med en **där** satsen. Om du vill undvika en tabellgenomsökning, bör du alltid skriva den **PartitionKey** värdet i where-satsen, och om möjligt den **RowKey** värde att undvika tabell och partition genomsökningar. Table service har stöd för en begränsad uppsättning jämförelseoperatorer (större än, större än eller lika med, mindre, mindre än eller lika med, lika med och inte lika med) att använda i where-satsen. I följande C#-kodavsnitt som söker efter alla anställda vars efternamn börjar med ”B” (förutsatt att den **RowKey** lagrar efternamn) på försäljningsavdelningen (förutsatt att den **PartitionKey** lagrar den avdelningsnamn):  
+Du kan använda LINQ för att hämta flera entiteter från tabelltjänsten när du arbetar med standardbibliotek för Microsoft Azure Cosmos-tabell. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Att göra det under exempel arbete måste du inkludera namnområden:
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+EmployeeTable är ett CloudTable-objekt som implementerar en CreateQuery<ITableEntity>()-metod som returnerar en TableQuery<ITableEntity>. Objekt av den här typen implementera en IQueryable och Tillåt med både LINQ-frågeuttryck och punkt notation-syntax.
+
+Hämta flera entiteter och uppnås genom att ange en fråga med en **där** satsen. Om du vill undvika en tabellgenomsökning, bör du alltid skriva den **PartitionKey** värdet i where-satsen, och om möjligt den **RowKey** värde att undvika tabell och partition genomsökningar. Table service har stöd för en begränsad uppsättning jämförelseoperatorer (större än, större än eller lika med, mindre, mindre än eller lika med, lika med och inte lika med) att använda i where-satsen. 
+
+I följande C#-kodavsnitt som söker efter alla anställda vars efternamn börjar med ”B” (förutsatt att den **RowKey** lagrar efternamn) på försäljningsavdelningen (förutsatt att den **PartitionKey** lagrar den avdelningsnamn):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498956"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338498"
 ---
 # <a name="app-service-networking-features"></a>Funktioner för App Service
 
@@ -112,7 +112,7 @@ Tjänstslutpunkter kan du låsa **inkommande** åtkomst till din app så att kä
 ![Tjänsteslutpunkter](media/networking-features/service-endpoints.png)
 
 * Konfigurera en Programgateway med din app för att låsa inkommande trafik till din app
-* Testricting åtkomst till din app till resurser i ditt virtuella nätverk. Detta kan omfatta virtuella datorer, ase-miljöer eller med andra appar som använder VNet-integrering 
+* Begränsa åtkomsten till din app till resurser i ditt virtuella nätverk. Detta kan omfatta virtuella datorer, ase-miljöer eller med andra appar som använder VNet-integrering 
 
 ![Tjänsteslutpunkter med application gateway](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Den här funktionen används ofta för att:
 
 Eftersom funktionen ger åtkomst till lokala resurser utan att en brandvägg för inkommande trafik hål, används det ofta av utvecklare. De andra utgående Apptjänst nätverksfunktionerna är mycket Azure virtuellt nätverk relaterade. Hybridanslutningar har inte ett beroende på gå via ett virtuellt nätverk och kan användas för en mängd olika nätverksbehov. Det är viktigt att Observera att funktionen App Service-Hybridanslutningar inte hand eller vet vad du gör ovanpå den. Det är att säga att du kan använda för åtkomst till en databas, en webbtjänst eller en godtycklig TCP-socket på en stordatorprogram. Funktionen tunnlar i stort sett TCP-paket. 
 
-Den används också i ett flertal produktionsprogram samt Hybrid Connections är populärt för utveckling. Det är bra för att komma åt en webbtjänst eller en databas, men är inte lämplig för situationer med en bra många anslutningar som håller på att skapas. 
+Den används också i ett flertal produktionsprogram samt Hybrid Connections är populärt för utveckling. Det är bra för att komma åt en webbtjänst eller en databas, men är inte lämplig för situationer med skapa många anslutningar. 
 
 ### <a name="gateway-required-vnet-integration"></a>Gateway krävs för VNet-integrering 
 

@@ -3,17 +3,17 @@ title: Konfigurera övervakning av aviseringar för Azure Stream Analytics-jobb
 description: Den här artikeln beskriver hur du använder Azure-portalen för att konfigurera övervakning och aviseringar för Azure Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077674"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329864"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
 
@@ -22,6 +22,7 @@ Det är viktigt att övervaka dina Azure Stream Analytics-jobb för att säkerst
 Du kan definiera regler för mått från Åtgärdsloggar data via portalen, samt [programmässigt](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Konfigurera aviseringar i Azure portal
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Få avisering när ett jobb avslutas oväntat
 
 I följande exempel visar hur du ställer in aviseringar för när dina jobb försätts i ett felaktigt tillstånd. Den här aviseringen rekommenderas för alla jobb.
 

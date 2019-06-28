@@ -3,8 +3,8 @@ title: Förstå din Azure externa tjänstavgifter | Microsoft Docs
 description: Läs mer om fakturering av externa tjänster, tidigare känd som Marketplace, kostnader på Azure.
 services: ''
 documentationcenter: ''
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -13,78 +13,109 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 06/19/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90753c6046425b60fda04fa99b2952e706d9c0e5
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370618"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311974"
 ---
-# <a name="understand-your-azure-billing-for-external-service-charges"></a>Förstå din Azure-fakturering för externa tjänstavgifter
-Externa tjänster publiceras av tredje part programvaruleverantörer på Azure marketplace. SendGrid är till exempel en externa tjänster som du kan köpa i Azure, men inte har publicerats av Microsoft.
-
-När du etablerar en ny extern tjänst eller en resurs, visas en varning:
-
-![Marketplace-köp varning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
-
-> [!NOTE]
-> Externa tjänster som publiceras av företag som inte är Microsoft, men ibland även Microsoft-produkter kategoriseras som externa tjänster.
-> 
-> 
+# <a name="understand-your-azure-external-services-charges"></a>Förstå Azure externa tjänster-avgifter
+Externa tjänster publiceras av programvara från tredje part-leverantörer på Azure marketplace. SendGrid är till exempel en extern tjänst som du kan köpa i Azure, men inte har publicerats av Microsoft. Vissa Microsoftprodukter som säljs via Azure marketplace för.
 
 ## <a name="how-external-services-are-billed"></a>Hur debiteras externa tjänster
-- Externa tjänster faktureras separat. De behandlas som enskilda order i Azure-prenumerationen. Faktureringsperioden för varje tjänst har angetts när du har köpt tjänsten. Ska inte förväxlas med faktureringsperiod för prenumerationen som du har köpt prenumerationen. Du får också separat fakturor och ditt kreditkort debiteras separat.
-- Alla externa tjänster har en annan faktureringsmodell. Vissa tjänster faktureras på ett sätt som betalar per användning, medan andra använder en månatlig baserat betalning-modell. Du behöver ett kreditkort för Azure externa tjänster kan du köpa inte externa tjänster med betala med faktura.
-- Du kan inte använda månatliga, kostnadsfria krediter för externa tjänster. Om du använder en Azure-prenumeration som omfattar [kostnadsfria krediter](https://azure.microsoft.com/pricing/spending-limits/), de kan inte användas för extern tjänst fakturor. Använda ett kreditkort för att köpa externa tjänster.
 
-## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Visa extern tjänsteutgifter och historik i Azure portal
-Du kan visa en lista över externa tjänster som finns på varje prenumeration inom de [Azure-portalen](https://portal.azure.com/): 
+- Om du har en [Microsoft kundavtal](#check-access-to-a-microsoft-customer-agreement), dina tjänster från tredje part faktureras med resten av dina Azure-tjänster.
+- Om du inte har ett Microsoft-kundavtal, dina externa tjänster faktureras separat från dina Azure-tjänster.
+- Alla externa tjänster har en annan faktureringsmodell. Medan andra har åtgärdat månatliga avgifter debiteras vissa tjänster på ett sätt som betalar per användning.
+- Du kan inte använda månatliga, kostnadsfria krediter för externa tjänster. Om du använder en Azure-prenumeration som omfattar [kostnadsfria krediter](https://azure.microsoft.com/pricing/spending-limits/), de kan inte användas för kostnader från externa tjänster. När du etablerar en ny extern tjänst eller en resurs, visas en varning:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som kontoadministratör.
-2. I navmenyn väljer **prenumerationer**.
+    ![Marketplace-köp varning](./media/billing-understand-your-azure-marketplace-charges/credit-warning.png)
+
+<!-- ## View external service spending and history in the Azure portal
+You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the account administrator.
+2. In the Hub menu, select **Subscriptions**.
    
-    ![Välj prenumerationer i navmenyn](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
-3. I den **prenumerationer** bladet, väljer du den prenumeration som du vill visa och välj sedan **externa tjänster**.
+    ![Select Subscriptions in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
+3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **External services**.
    
-    ![Välj en prenumeration på bladet fakturering](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
-4. Du bör se var och en av dina extern tjänst order, Utgivarnamn, tjänstnivå som du har köpt, namn du gav resursen och aktuell beställningsstatus. Välj en extern tjänst om du vill se tidigare fakturor.
+    ![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
+4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. To see past bills, select an external service.
    
-    ![Välj en extern tjänst](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
-5. Härifrån kan visa du tidigare faktura belopp som inkluderar en skatt analys på detaljnivå.
+    ![Select an external service](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
+5. From here, you can view past bill amounts including the tax breakdown.
    
-    ![Visa externa tjänster faktureringshistorik](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
+    ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
+
+## <a name="view-and-download-azure-marketplace-invoices"></a>Visa och hämta fakturor för Azure marketplace
+
+Om du har en [Microsoft kundavtal](#check-access-to-a-microsoft-customer-agreement), dina debiteringar från tredje part är på samma faktura som dina Azure-avgifter. Lär dig hur du [visa och hämta fakturan Azure](billing-download-azure-invoice.md) från Azure portal för att se en tredje parts-avgifter.
+
+Om du inte har ett Microsoft-kundavtal kan ha separata fakturor för debitering från tredje part. Du kan visa och hämta dina Azure Marketplace-fakturor från Azure portal genom att följa dessa steg:
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Sök på **Cost Management + fakturering**.
+1. I den vänstra menyn väljer du **fakturor**.
+1. Klicka på den **Azure Marketplace och -reservationer** fliken.  ![Bild av fliken för Azure marketplace och -reservationer](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
+1. Välj den prenumeration som innehåller de externa tjänster som du vill visa fakturor för i prenumerationen listrutan.
 
 ## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>Visa extern tjänst utgifter för kunder med Enterprise Agreement (EA)
+
 EA-kunder kan se extern tjänsteutgifter och hämta rapporter i EA-portalen. Se [Azure Marketplace för EA-kunder](https://ea.azure.com/helpdocs/azureMarketplace) att komma igång.
 
 ## <a name="manage-payment-methods-for-external-service-orders"></a>Hantera betalningsmetoder för extern tjänst order
-Uppdatera betalningsmetoder för extern tjänst order från den [Kontocenter](https://account.windowsazure.com/).
+
+När du köper en extern tjänst måste välja du en Azure-prenumeration för resursen. Betalningsmetod för den valda Azure-prenumerationen blir betalningssätt för den externa tjänsten. Om du vill ändra betalningsmetod för en extern tjänst måste du [ändra betalningsmetod för Azure-prenumerationen](billing-how-to-change-credit-card.md) knutna till den externa tjänsten. Du kan ta reda på vilken prenumeration som beställningen extern tjänst som är kopplad till genom att följa dessa steg:
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Klicka på **alla resurser** i den vänstra navigeringsmenyn.
+     ![Skärmbild av menyobjektet för alla resurser](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Sök efter din extern tjänst.
+1. Leta efter namnet på prenumerationen i den **prenumeration** kolumn.
+    ![Skärmbild av prenumerationens namn för resursen](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
+1. Klicka på prenumerationens namn och [uppdatera aktiva betalningsmetoden](billing-how-to-change-credit-card.md).
+ 
+<!-- Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 
 > [!NOTE]
-> Om du har köpt din prenumeration med ett konto för arbetet eller skolan, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att göra ändringar i din betalningsmetod.
-> 
-> 
+> If you purchased your subscription with a Work or School account, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
 
-1. Logga in på den [Kontocenter](https://account.windowsazure.com/) och [navigerar du till den **marketplace** fliken](https://account.windowsazure.com/Store)
+1. Sign in to the [Account Center](https://account.windowsazure.com/) and [navigate to the **marketplace** tab](https://account.windowsazure.com/Store)
    
-    ![Välj marketplace i kontocenter](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
-2. Välj den externa tjänsten som du vill hantera
+    ![Select marketplace in the account center](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
+2. Select the external service you want to manage
    
-    ![Välj den externa tjänsten som du vill hantera](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
-3. Klicka på **ändra betalningsmetod** till höger på sidan. Den här länken tar dig till en annan portal för att hantera din betalningsmetod.
+    ![Select the external service you want to manage](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
+3. Click **Change payment method** on the right side of the page. This link brings you to a different portal to manage your payment method.
    
-    ![Ordersammanfattning](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
-4. Klicka på **redigera info** och följ instruktionerna för att uppdatera din betalningsinformation.
+    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
+4. Click **Edit info** and follow instructions to update your payment information.
    
-    ![Välj Redigera information](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
+    ![Select edit info](./media/billing-understand-your-azure-marketplace-charges/edit-info.png) -->
 
 ## <a name="cancel-an-external-service-order"></a>Avbryt en extern tjänst-order
 Om du vill avbryta beställningen extern tjänst tar du bort resurs i den [Azure-portalen](https://portal.azure.com).
 
-![Ta bort resurs](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Klicka på **alla resurser** i den vänstra navigeringsmenyn.
+    ![Skärmbild av menyobjektet för alla resurser](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Sök efter din extern tjänst.
+1. Markera kryssrutan bredvid den resurs du vill ta bort.
+1. Välj **ta bort** i kommandofältet.
+    ![Skärmbild av knappen Ta bort](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
+1. Typ *”Ja”* bekräftelsebladet.
+    ![Ta bort resurs](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
+1. Klicka på **Ta bort**.
+
+
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

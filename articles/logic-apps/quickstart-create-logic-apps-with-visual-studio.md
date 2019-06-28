@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: afa539bc3369e4f9d9ecf27340436e0be70a03ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190612"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295811"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -105,6 +105,9 @@ När du har din Azure-resursgrupp projekt, skapa din logikapp med den **tom Logi
 
    ![Öppna filen LogicApp.json med Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
+
    Visual Studio ber om det för din Azure-prenumeration och en Azure-resursgrupp för att skapa och distribuera resurser för din logikapp och dina anslutningar.
 
 1. För **prenumeration**, Välj din Azure-prenumeration. För **resursgrupp**väljer **Skapa ny** att skapa en ny Azure resursgrupp.
@@ -116,7 +119,7 @@ När du har din Azure-resursgrupp projekt, skapa din logikapp med den **tom Logi
    | Lista med användarprofiler | Contoso <br> jamalhartnett@contoso.com | Som standard det konto som du använde för att logga in |
    | **Prenumeration** | Betala per användning <br> (jamalhartnett@contoso.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (Västra USA) | Azure-resursgrupp och plats för att lagra och distribuera resurser som din logikapp |
-   | **Plats** | MyLogicApp-RG2 <br> (Västra USA) | En annan plats om du inte vill använda resursgruppens plats |
+   | **Location** | MyLogicApp-RG2 <br> (Västra USA) | En annan plats om du inte vill använda resursgruppens plats |
    ||||
 
 1. Logic Apps Designer öppnas en sida som visar en introduktion video och vanliga utlösare. Rulla ned förbi videon och utlösarna till **mallar**, och välj **tom Logikapp**.

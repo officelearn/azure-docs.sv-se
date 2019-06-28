@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476147"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312840"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Hantera lagringskontonycklar med Azure Key Vault och Azure CLI 
 
@@ -94,7 +94,7 @@ Det finns fyra grundläggande stegen för att använda Key Vault för att hanter
 1. Tilldela rollen RBAC ”Storage-konto nyckeln Tjänstroll som operatör” till Key Vault. Den här rollen begränsar omfattningen för åtkomst till ditt lagringskonto. Använda rollen ”klassiska Storage-konto nyckeln Tjänstroll som operatör” för ett klassiskt lagringskonto.
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` är objekt-ID för Key Vault i det offentliga Azure-molnet. För att hämta objekt-ID för Key Vault i Azure Government-molnet, se [principal program-ID för tjänstens](#service-principal-application-id).

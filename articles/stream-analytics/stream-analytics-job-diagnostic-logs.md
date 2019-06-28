@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515919"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330005"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
 Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt för att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
+
+Vi rekommenderar starkt att aktivera diagnostikloggar för alla produktionsjobb.
 
 ## <a name="log-types"></a>Loggtyper
 
@@ -62,7 +64,7 @@ Aktivera diagnostikloggar och skicka dem till Azure Monitor-loggar rekommenderas
 
     ![Bladnavigering till diagnostikloggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Skapa en **namn** i **diagnostikinställningar** och markera kryssrutan bredvid **skicka till Log Analytics**. Lägg till en befintlig eller skapa en ny **Log analytics-arbetsytan**. Markera kryssrutorna för **körning** och **redigering** under **LOG**, och **AllMetrics** under **mått** . Klicka på **Spara**.
+2.  Skapa en **namn** i **diagnostikinställningar** och markera kryssrutan bredvid **skicka till Log Analytics**. Lägg till en befintlig eller skapa en ny **Log analytics-arbetsytan**. Markera kryssrutorna för **körning** och **redigering** under **LOG**, och **AllMetrics** under **mått** . Klicka på **Spara**. Det rekommenderas att använda en Log Analytics-arbetsyta i samma Azure-region som ditt Stream Analytics-jobb för att förhindra ytterligare kostnader.
 
     ![Inställningarna för diagnostikloggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -113,7 +115,7 @@ Loggarna för jobbkörning har information om händelser som inträffade under j
 
 ### <a name="data-errors"></a>Datafel
 
-Alla fel som uppstår medan jobbet bearbetar data är i den här kategorin loggar. De här loggarna skapas under data läses, serialisering, oftast och skrivåtgärder. Dessa loggar med inte anslutningsfel. Anslutningsfel behandlas som allmänna händelser.
+Alla fel som uppstår medan jobbet bearbetar data är i den här kategorin loggar. De här loggarna skapas under data läses, serialisering, oftast och skrivåtgärder. Dessa loggar med inte anslutningsfel. Anslutningsfel behandlas som allmänna händelser. Du kan läsa mer om orsaken till olika olika [inkommande och utgående datafel](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Namn | Beskrivning
 ------- | -------
@@ -149,4 +151,4 @@ Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Datafel för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)

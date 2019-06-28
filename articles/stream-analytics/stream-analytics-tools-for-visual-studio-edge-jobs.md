@@ -1,6 +1,6 @@
 ---
-title: Stream Analytics Data Box Edge-jobb i Azure Stream Analytics-verktyg för Visual Studio
-description: Den här artikeln beskriver hur du skapar, felsöka och skapa ditt Stream Analytics Data Box Edge-jobb med hjälp av Stream Analytics-verktyg för Visual Studio.
+title: Stream Analytics Edge-jobb i Azure Stream Analytics-verktyg för Visual Studio
+description: Den här artikeln beskriver hur du skapar, felsöka och skapa din Stream Analytics på IoT Edge-jobb med Stream Analytics-verktyg för Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 242fb2daebfe9eb6e5a0c73c2c4c0e91a3131032
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1601bf6c73d9f3450959773c85385bc8ef907a66
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304167"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329966"
 ---
-# <a name="develop-stream-analytics-data-box-edge-jobs-using-visual-studio-tools"></a>Utveckla Stream Analytics Data Box Edge-jobb med hjälp av Visual Studio-verktyg
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Utveckla Stream Analytics Edge-jobb med hjälp av Visual Studio-verktyg
 
-I den här självstudien får du lära dig hur du använder Stream Analytics-verktyg för Visual Studio. Du lär dig att skapa, felsöka och skapa Stream Analytics Data Box Edge-jobb. När du skapar och testar jobbet går du till Azure portal för att distribuera den till dina enheter. 
+I den här självstudien får du lära dig hur du använder Stream Analytics-verktyg för Visual Studio. Du lär dig att skapa, felsöka och skapa Stream Analytics Edge-jobb. När du skapar och testar jobbet går du till Azure portal för att distribuera den till dina enheter. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -28,15 +28,15 @@ Följande förutsättningar för att kunna slutföra den här kursen behöver du
 
 * Följ den [Installationsinstruktioner](stream-analytics-tools-for-visual-studio-edge-jobs.md) installera Stream Analytics-verktyg för Visual Studio.
  
-## <a name="create-a-stream-analytics-data-box-edge-project"></a>Skapa ett Stream Analytics Data Box Edge-projekt 
+## <a name="create-a-stream-analytics-edge-project"></a>Skapa ett Stream Analytics Edge-projekt 
 
 Från Visual Studio, Välj **filen** > **New** > **projekt**. Navigera till den **mallar** listan till vänster > Expandera **Azure Stream Analytics** > **Stream Analytics Edge**  >   **Azure Stream Analytics Edge-programmet**. Ange ett namn, plats och lösningen namn för projektet och välj **OK**.
 
-![Nytt Stream Analytics Data Box Edge-projekt i Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
+![Nytt Stream Analytics Edge-projekt i Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 När projektet skapades, går du till den **Solution Explorer** att visa mapphierarkin.
 
-![Solution explorer-vy av Stream Analytics Data Box Edge-jobb](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![Solution explorer-vy av Stream Analytics Edge-jobb](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
 ## <a name="choose-the-correct-subscription"></a>Välj rätt prenumeration
@@ -63,15 +63,14 @@ När projektet skapades, går du till den **Solution Explorer** att visa mapphie
  
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
-Stream Analytics-jobb som används i Stream Analytics Data Box Edge-system stöder de flesta av [frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). Dock stöds följande åtgärder ännu inte för Stream Analytics Data Box Edge-jobb: 
+Stream Analytics-jobb som används i Stream Analytics IoT Edge-system stöder de flesta av [frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). Dock stöds följande åtgärder ännu inte för Stream Analytics Edge-jobb: 
 
 
 |**Kategori**  | **Kommando**  |
 |---------|---------|
-|Geospatiala operatorer |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Andra operatorer | <ul><li>PARTITION BY</li><li>TIDSSTÄMPEL AV OVER</li><li>DISTINKTA</li><li>Uttrycksparametern i operatorn antal</li><li>Databehandlingsnoder i datum- och tidsfunktioner</li><li>JavaScript UDA (den här funktionen är fortfarande i förhandsversion för jobb som distribuerats i molnet)</li></ul>   |
+|Andra operatorer | <ul><li>PARTITION BY</li><li>TIDSSTÄMPEL AV OVER</li><li>JavaScript UDF</li><li>Användardefinierade aggregeringar (UDA)</li><li>GetMetadataPropertyValue</li><li>Med hjälp av mer än 14 aggregat i ett enda steg</li></ul>   |
 
-När du skapar ett Stream Analytics Data Box Edge-jobb i portalen varnar kompilatorn automatiskt dig om du inte använder en operator som stöds.
+När du skapar ett Stream Analytics Edge-jobb i portalen varnar kompilatorn automatiskt dig om du inte använder en operator som stöds.
 
 Från din Visual Studio, kan du definiera följande transformationsfrågan i frågeredigeraren (**script.asaql filen**)
 
@@ -105,15 +104,15 @@ Om du vill testa frågan lokalt, bör du ladda upp exempeldata. Du kan hämta ex
 
 2. För att skicka jobbet till Azure, gå till frågeredigeraren > Välj **skicka till Azure**.  
 
-3. Ett popup-fönster öppnas. Välja att uppdatera ett befintligt Stream Analytics Data Box Edge-jobb eller skapa en ny. När du uppdaterar ett befintligt jobb, ersätts alla jobbkonfigurationen i det här scenariot, ska du publicera ett nytt jobb. Välj **skapa ett nytt Azure Stream Analytics-jobb** > Ange ett namn för ditt jobb liknande **MyASAEdgeJob** > Välj de nödvändiga **prenumeration**, **Resursgrupp**, och **plats** > Välj **skicka**.
+3. Ett popup-fönster öppnas. Välja att uppdatera ett befintligt Stream Analytics Edge-jobb eller skapa en ny. När du uppdaterar ett befintligt jobb, ersätts alla jobbkonfigurationen i det här scenariot, ska du publicera ett nytt jobb. Välj **skapa ett nytt Azure Stream Analytics-jobb** > Ange ett namn för ditt jobb liknande **MyASAEdgeJob** > Välj de nödvändiga **prenumeration**, **Resursgrupp**, och **plats** > Välj **skicka**.
 
    ![Skicka Stream Analytics-jobb till Azure från Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
-   Ditt Stream Analytics Data Box Edge-jobb har skapats. Du kan referera till den [köra jobb på IoT Edge-självstudie](stream-analytics-edge.md) att lära dig hur du distribuerar den till dina enheter. 
+   Ditt Stream Analytics Edge-jobb har skapats. Du kan referera till den [köra jobb på IoT Edge-självstudie](stream-analytics-edge.md) att lära dig hur du distribuerar den till dina enheter. 
 
 ## <a name="manage-the-job"></a>Hantera jobbet 
 
-Du kan visa status för jobbet och jobbdiagrammet från Server Explorer. Från **Stream Analytics** i **Server Explorer**, expandera prenumerationen och resursgrupp där du har distribuerat Stream Analytics Data Box Edge-jobb. Du kan visa MyASAEdgejob med status **Skapad**. Expandera jobbnoden och dubbelklicka på det för att öppna jobbvyn.
+Du kan visa status för jobbet och jobbdiagrammet från Server Explorer. Från **Stream Analytics** i **Server Explorer**, expandera prenumerationen och resursgrupp där du har distribuerat Stream Analytics Edge-jobb. Du kan visa MyASAEdgejob med status **Skapad**. Expandera jobbnoden och dubbelklicka på det för att öppna jobbvyn.
 
 ![Hantering av alternativ för Server explorer](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  

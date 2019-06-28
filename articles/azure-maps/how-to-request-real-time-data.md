@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb99a3c063f69aa5aeb00efdb51319a53d05b2d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067605"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329660"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Begär data i realtid med hjälp av Azure Maps Mobilitetstjänsten
 
@@ -113,22 +113,23 @@ Nu ska vi använda ”522” som våra appar i metro-ID som är metro ID för �
             }
         ]
     }
+    ```
 
 
-## Real-time data for bike docking station
+## <a name="real-time-data-for-bike-docking-station"></a>Data i realtid för cykel dockningsstation
 
-The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information such as availability and vacancy information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes.
+Den [hämta överföring docka Info API](https://aka.ms/AzureMapsMobilityTransitDock) mobilitetstjänsten för Azure Maps tillåter för att begära statiskt och i realtid information, till exempel tillgänglighet och lediga platsen för en viss cykel eller scooter dockningsstation. Vi gör en begäran att hämta data i realtid för en dockningsstation för cyklar.
 
-In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
+Om du vill göra en begäran kom överföring docka Info API, behöver de **dockId** för den stationen. Du kan hämta docka-ID genom att göra en sökbegäran till den [hämta i närheten överföring API](https://aka.ms/AzureMapsMobilityNearbyTransit) och inställningen för den **objectType** parameter ”bikeDock”. Följ stegen nedan för att hämta data i realtid med en dockningsstation för cyklar.
 
 
-### Get dock ID
+### <a name="get-dock-id"></a>Hämta docka-ID
 
-To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
+Att hämta **dockID**, Följ stegen nedan för att göra en begäran att hämta i närheten överföring API: et:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
+1. I Postman, klickar du på **ny begäran** | **GET-begäran** och ge den namnet **Get docka ID**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+2.  På fliken Builder väljer den **hämta** HTTP-metoden, ange följande URL för begäran och klickar på **skicka**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock

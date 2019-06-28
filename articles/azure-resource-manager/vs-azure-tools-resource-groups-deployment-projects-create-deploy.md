@@ -1,227 +1,289 @@
 ---
 title: Skapa och distribuera grupprojekt i Visual Studio Azure-resurs
 description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: multiple
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2019
+ms.topic: quickstart
+ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b54a1c234eb2211884fede1c059e4c20cda137e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053286"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311325"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
-Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
+Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel distribuera Webbvärden, webbplatsen och koden för webbplatsen. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln får distribuera du en webbapp.  
 
-Den här artikeln visar hur du använder [Visual Studio 2017 eller senare med Azure-utveckling och ASP.NET-arbetsbelastningarna](/dotnet/azure/dotnet-tools). Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Den här artikeln visar hur du använder [Visual Studio 2019 eller senare med Azure utvecklings- och ASP.NET-arbetsbelastningarna](/visualstudio/install/install-visual-studio?view=vs-2019). Om du använder Visual Studio 2017, dina åsikter är i stort sett desamma.
 
 ## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
 
-I det här avsnittet ska du skapa ett projekt för en Azure-resursgrupp med en mall av typen **Webbapp + SQL**.
+I det här avsnittet ska du skapa ett Azure-resursgrupp-projekt med en **webbapp** mall.
 
-1. I Visual Studio väljer du **Arkiv**, **Nytt projekt** och antingen **C#** eller **Visual Basic** (vilket språk du väljer påverkar inte senare stadier eftersom projekten endast har JSON- och PowerShell-innehåll). Välj sedan **Moln** och projektet **Azure-resursgrupp**.
-   
-    ![Projekt för molndistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Välj den mall som du vill distribuera till Azure Resource Manager. Observera att det finns många olika alternativ beroende på vilken typ av projekt som du vill distribuera. För den här artikeln väljer du mallen **Webbapp + SQL**.
-   
+1. I Visual Studio väljer **filen**, **New**, och **projekt**. Välj den **Azure-resursgrupp** projektmall och **nästa**.
+
+    ![Skapa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
+
+1. Ge projektet ett namn. Andra standard inställningar är troligtvis inte skadad, men granska dem att göra de arbetar för din miljö. Välj **Skapa** när du är klar.
+
+    ![Skapa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-project.png)
+
+1. Välj den mall som du vill distribuera till Azure Resource Manager. Observera att det finns många olika alternativ beroende på vilken typ av projekt som du vill distribuera. I den här artikeln väljer du den **webbapp** mall och **OK**.
+
     ![Välja en mall](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
-   
+
     Mallen som du väljer är bara en startpunkt. Du kan lägga till och ta bort resurser som passar ditt scenario.
-   
-   > [!NOTE]
-   > Visual Studio hämtar en lista över tillgängliga mallar online. Listan kan ändras.
-   > 
-   > 
-   
-    Visual Studio skapar ett distributionsprojekt för resursgrupper för webbappen och SQL Database.
-3. Titta på noden i distributionsprojektet för att se vad du har skapat.
-   
-    ![visa noder](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
-   
-    Eftersom du valde mallen Webbapp + SQL för det här exemplet visas följande filer: 
-   
+
+1. Visual Studio skapar ett distributionsprojekt för resurs för webbappen. Titta på noden i distributionsprojektet för att se filerna för ditt projekt.
+
+    ![Visa noder](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
+
+    Eftersom du har valt mallen för Webbappar kan se du följande filer:
+
    | Filnamn | Beskrivning |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager.<br />**Obs!** Visual Studio använder PowerShell-skript för att distribuera mallen. De ändringar du gör i det här skriptet påverkar distributionen i Visual Studio, så var försiktig. |
-   | WebSiteSQLDatabase.json |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
-   | WebSiteSQLDatabase.parameters.json |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
-   
+   | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager. Visual Studio använder PowerShell-skript för att distribuera mallen. |
+   | WebSite.json |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
+   | WebSite.parameters.json |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
+
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
-## <a name="customize-the-resource-manager-template"></a>Anpassa Resource Manager-mallen
-Du kan anpassa ett distributionsprojekt genom att ändra JSON-mallarna som beskriver de resurser som du vill distribuera. JSON står för JavaScript Object Notation och är ett format för serialiserade data som är lätt att arbeta med. JSON-filerna använder ett schema som du refererar till längst upp i varje fil. Om du vill granska schemat kan du hämta och analysera det. Schemat definierar vilka element som är giltiga, typer och format för fält samt möjliga värden en egenskap. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+## <a name="customize-resource-manager-template"></a>Anpassa Resource Manager-mall
 
-Du kan arbeta med din mall genom att öppna **WebSiteSQLDatabase.json**.
+Du kan anpassa ett distributionsprojekt genom att ändra Resource Manager-mallen som beskriver de resurser som du vill distribuera. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
-Visual Studio-redigeraren innehåller verktyg som hjälper dig att redigera Resource Manager-mallen. Fönstret **JSON-disposition** gör det enkelt att se elementen som definierats i mallen.
+1. Om du vill arbeta med din mall, öppna **WebSite.json**.
 
-![visa JSON-disposition](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
+1. Visual Studio-redigeraren innehåller verktyg som hjälper dig att redigera Resource Manager-mallen. Fönstret **JSON-disposition** gör det enkelt att se elementen som definierats i mallen.
 
-När du väljer ett element i dispositionen kommer du till den delen av mallen och motsvarande JSON markeras.
+   ![Visa JSON-disposition](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-![navigera i JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
+1. Markera ett element i dispositionen att gå till den delen av mallen.
 
-Du kan lägga till en resurs genom att antingen välja knappen **Lägg till resurs** längst upp i fönstret JSON-disposition eller genom att högerklicka på **resurser** och välja **Lägg till ny resurs**.
+   ![Navigera i JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-![lägga till en resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
+1. Du kan lägga till en resurs genom att antingen välja knappen **Lägg till resurs** längst upp i fönstret JSON-disposition eller genom att högerklicka på **resurser** och välja **Lägg till ny resurs**.
 
-I den här självstudiekursen väljer du **Lagringskonto** och ger det ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
+   ![Lägg till resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-![lägga till lagringsutrymme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+1. Välj **Lagringskonto** och ge den ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
 
-Observera att inte bara resursen lades till, utan även en parameter för typen av lagringskonto och en variabel för namnet på lagringskontot.
+   ![Lägg till lagringsutrymme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
-![visa disposition](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
+1. Observera att inte bara resursen lades till, utan även en parameter för typen av lagringskonto och en variabel för namnet på lagringskontot.
 
-Parametern **storageType** är fördefinierad med tillåtna typer och en standardtyp. Du kan lämna dessa värden eller redigera dem för ditt scenario. Om du inte vill att någon ska distribuera ett **Premium_LRS**-lagringskonto med den här mallen tar du bort det från de tillåtna typerna. 
+   ![Visa disposition](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-```json
-"storageType": {
-  "type": "string",
-  "defaultValue": "Standard_LRS",
-  "allowedValues": [
-    "Standard_LRS",
-    "Standard_ZRS",
-    "Standard_GRS",
-    "Standard_RAGRS"
-  ]
-}
+1. Parametern för typ av storage-konto är fördefinierad med tillåtna typer och en standardtyp. Du kan lämna dessa värden eller redigera dem för ditt scenario. Om du inte vill att någon ska distribuera ett **Premium_LRS**-lagringskonto med den här mallen tar du bort det från de tillåtna typerna.
+
+   ```json
+   "demoaccountType": {
+     "type": "string",
+     "defaultValue": "Standard_LRS",
+     "allowedValues": [
+       "Standard_LRS",
+       "Standard_ZRS",
+       "Standard_GRS",
+       "Standard_RAGRS"
+     ]
+   }
+   ```
+
+1. Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
+
+   ![Visa intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
+
+   Du kan ange **numberOfWorkers** till 1 och spara filen.
+
+   ```json
+   "properties": {
+     "name": "[parameters('hostingPlanName')]",
+     "numberOfWorkers": 1
+   }
+   ```
+
+1. Öppna den **WebSite.parameters.json** fil. Du kan använda parameterfilen för att skicka in värden under distributionen som anpassa resursen som ska distribueras. Namnge värdplanen och spara filen.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-project-to-azure"></a>Distribuera projektet till Azure
+
+Du är nu redo att distribuera projektet till en resursgrupp.
+
+Som standard använder AzureRM-modulen i PowerShell-skript (distribuera AzureResourceGroup.ps1) i projektet. Om du fortfarande har installerat AzureRM-modulen och vill fortsätta använda det, kan du använda det här standardskriptet. Med det här skriptet kan använda du Visual Studio-gränssnittet för att distribuera din lösning.
+
+Men om du har migrerat till den nya [Az modulen](/powershell/azure/new-azureps-module-az), du måste lägga till ett nytt skript i projektet. Om du vill lägga till ett skript som använder Az-modulen, kopiera den [distribuera AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) skript och lägga till den i projektet. Om du vill använda det här skriptet för distribution, måste du köra den från en PowerShell-konsolen i stället för Visual Studio-gränssnittet för distribution.
+
+Båda metoderna som visas i den här artikeln. Den här artikeln refererar till standardskriptet som skriptet som AzureRM-modulen och det nya skriptet som skriptet som Az-modulen.
+
+### <a name="az-module-script"></a>AZ-modulen skript
+
+Öppna en PowerShell-konsol för skriptet Az-modulen och kör:
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory . -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
 ```
 
-Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
+### <a name="azurerm-module-script"></a>AzureRM-modulen skript
 
-![visa IntelliSense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
-
-Du kan ställa in **numberOfWorkers** till 1.
-
-```json
-"properties": {
-  "name": "[parameters('hostingPlanName')]",
-  "numberOfWorkers": 1
-}
-```
-
-## <a name="deploy-the-resource-group-project-to-azure"></a>Distribuera resursgruppsprojektet till Azure
-Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resursgruppsprojekt distribuerar du det till en Azure-resursgrupp. Resursgruppen är en logisk gruppering av resurser som har en gemensam livscykel.
+För skriptet AzureRM-modulen använder du Visual Studio:
 
 1. På snabbmenyn för distributionsprojektets nod väljer du **Distribuera** > **Ny**.
-   
-    ![Menyalternativet Distribuera, Ny distribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
-   
-    Dialogrutan **Distribuera till resursgrupp**.
-   
-    ![Dialogrutan Distribuera till resursgrupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. I listrutan **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. Du skapar en resursgrupp genom att öppna listrutan **Resursgrupp** och välja **Skapa nytt**.
-   
-    ![Dialogrutan Distribuera till resursgrupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
-   
-    Dialogrutan **Skapa resursgrupp** visas. Ge gruppen ett namn och en plats och välj knappen **Skapa**.
-   
-    ![Dialogrutan Skapa resursgrupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. Redigera parametrarna för distributionen genom att välja knappen **Redigera parametrar**.
-   
-    ![Redigera parametrar](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Ange värden för de tomma parametrarna och välj knappen **Spara**. De tomma parametrarna är **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, och **databaseName**.
-   
-    **hostingPlanName** anger ett namn för [App Service plan](../app-service/overview-hosting-plans.md) att skapa. 
-   
-    **administratorLogin** anger SQL Server-administratörens användarnamn. Använd inte vanliga admin-namn som **sa** eller **admin**. 
-   
-    **administratorLoginPassword** anger SQL Server-administratörens lösenord. Alternativet **Spara lösenord i klartext i parameterfilen** är inte säkert. Välj därför inte detta alternativ. Eftersom lösenordet inte sparas som oformaterad text behöver du ange detta lösenord igen vid distributionen. 
-   
-    **databaseName** anger ett namn för databasen att skapa. 
-   
-    ![Dialogrutan Redigera parametrar](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Distribuera projektet till Azure genom att välja knappen **Distribuera**. En PowerShell-konsol öppnas utanför Visual Studio-instansen. Ange SQL Server-administratörens lösenord i PowerShell-konsolen när du uppmanas att göra detta. **Din PowerShell-konsol kan vara dold bakom andra objekt eller minimerad i Aktivitetsfältet.** Leta reda på konsolen och välj den för att ange lösenordet.
-   
-   > [!NOTE]
-   > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Installera dem om du uppmanas att göra det. Du behöver Azure PowerShell-moduler för att distribuera resursgrupper. PowerShell-skriptet i projektet fungerar inte med den nya [Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az). 
-   >
-   > Mer information finns i [Install and configure Azure PowerShell modules](/powershell/azure/install-Az-ps) (Installera och konfigurera Azure PowerShell-moduler).
-   > 
-   > 
-6. Distributionen kan ta några minuter. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:
-   
-        ... 
-        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
-7. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
-   
-    ![välja grupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte stämmer exakt med namnet du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att ge ett unikt namn. 
-   
-    ![visa resurser](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
-9. Om du gör ändringar och vill distribuera om ditt projekt väljer du den befintliga resursgruppen på snabbmenyn för Azure-resursgruppsprojektet. Välj **Distribuera** på snabbmenyn och välj sedan den resursgrupp som du har distribuerat.
-   
-    ![Azure-resursgrupp som har distribuerats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-## <a name="deploy-code-with-your-infrastructure"></a>Distribuera kod med din infrastruktur
-Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk kod som distribueras med projektet. Den här artikeln beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
+    ![Menyalternativet för ny distribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
+
+1. Dialogrutan **Distribuera till resursgrupp**. I listrutan **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. Välj **Distribuera**.
+
+    ![Distribuera till dialogrutan för resurs-grupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
+
+1. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:
+
+   ```output
+   18:00:58 - Successfully deployed template 'website.json' to resource group 'ExampleAppDeploy'.
+   ```
+
+## <a name="view-deployed-resources"></a>Visa distribuerade resurser
+
+Nu ska vi kontrollera resultaten.
+
+1. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
+
+1. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte stämmer exakt med namnet du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att skapa ett unikt namn.
+
+    ![Visa resurser](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
+
+## <a name="add-code-to-project"></a>Lägg till kod i projektet
+
+Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk kod som distribueras med projektet.
 
 1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
-   
-    ![lägga till projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
-2. Lägga till en **ASP.NET webbapp**. 
-   
-    ![lägga till webbapp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Välj **MVC**.
-   
-    ![välja MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. Efter att Visual Studio skapat din webbapp visas båda projekten i lösningen.
-   
-    ![visa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. Nu måste du kontrollera att ditt resursgrupp-projekt är medvetet om det nya projektet. Gå tillbaka till ditt resursgrupp-projekt (AzureResourceGroup1). Högerklicka på **Referenser** och välj **Lägg till referens**.
-   
-    ![lägga till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Välj det webbapp-projekt som du har skapat.
-   
-    ![lägga till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
-   
-    Genom att lägga till en referens länkar du webbappsprojektet till resursgruppsprojektet och definierar automatiskt tre nyckelegenskaper. Du ser dessa egenskaper i fönstret **Egenskaper** för referensen.
-   
-      ![se referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
-   
-    Egenskaperna är:
-   
-   * **Ytterligare egenskaper** innehåller distributionspaketets mellanlagringsplats som skickas till Azure Storage. Observera mappen (ExampleApp) och filen (package.zip). Du behöver dessa värden eftersom du anger dem som parametrar när du distribuerar appen. 
-   * **Ta med filsökväg** innehåller sökvägen där paketet skapas. **Ta med mål** innehåller det kommando som distributionen kör. 
-   * Med standardvärdet **Build;Package** kan distributionen bygga och skapa ett webbdistributionspaket (package.zip).  
-     
-     Du behöver ingen publiceringsprofil eftersom distributionen hämtar nödvändig information från egenskaperna för att skapa paketet.
-7. Gå tillbaka till WebSiteSQLDatabase.json och lägg till en resurs i mallen.
-   
-    ![lägga till en resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
-8. Denna gång väljer du **Webbdistribution för Web Apps**. 
-   
-    ![lägga till webbdistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Distribuera resursgruppsprojektet till resursgruppen igen. Den här gången finns det några nya parametrar. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom Visual Studio genererar dessa värden automatiskt. Du kan dock att ställa in mapp- och filnamn på den sökväg som innehåller distributionspaketet (visas som **ExampleAppPackageFolder** och **ExampleAppPackageFileName** i följande bild). Ange de värden som du såg tidigare i referensegenskaperna (**ExampleApp** och **package.zip**).
-   
-    ![lägga till webbdistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
-   
-    Som **Artefaktlagringskonto** kan du välja det som distribuerades med den här resursgruppen.
-10. När distributionen är klar väljer du din webbapp i portalen. Välj webbadress för att gå till webbplatsen.
-    
-     ![bläddra på webbplats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Nu ser du att du har distribuerat standard-ASP.NET-appen.
-    
-     ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## <a name="add-an-operations-dashboard-to-your-deployment"></a>Lägga till en instrumentpanel för åtgärder i din distribution
+    ![lägga till projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Lägg till en **ASP.NET Core-Webbapp**.
+
+    ![lägga till webbapp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
+
+1. Namnge din webbapp och välj **skapa**.
+
+    ![Namn på webbapp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-web-app.png)
+
+1. Välj **webbprogram** och **skapa**.
+
+    ![Välj webbprogram](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project-type.png)
+
+1. Efter att Visual Studio skapat din webbapp visas båda projekten i lösningen.
+
+    ![Visa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Nu måste du kontrollera att ditt resursgrupp-projekt är medvetet om det nya projektet. Gå tillbaka till ditt resursgrupp-projekt (ExampleAppDeploy). Högerklicka på **Referenser** och välj **Lägg till referens**.
+
+    ![Lägg till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Välj det webbapp-projekt som du har skapat.
+
+   ![Lägg till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
+
+   Genom att lägga till en referens, länkar du webbappsprojektet till resursgruppsprojektet och ställer automatiskt in vissa egenskaper. Du ser dessa egenskaper i fönstret **Egenskaper** för referensen. **Ta med filsökväg** innehåller sökvägen där paketet skapas. Observera mappen (ExampleApp) och filen (package.zip). Du behöver dessa värden eftersom du anger dem som parametrar när du distribuerar appen.
+
+   ![Se referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
+
+1. Gå tillbaka till din mall (WebSite.json) och Lägg till en resurs i mallen.
+
+    ![Lägg till resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Denna gång väljer du **Webbdistribution för Web Apps**. 
+
+    ![Lägg till web distribuera](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
+
+   Spara mallen.
+
+1. Det finns några nya parametrar i mallen. De har lagts till i föregående steg. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom dessa värden har genererats automatiskt. Du måste dock ange mappen och filnamnet till sökvägen som innehåller distributionspaketet. Namnen på de här parametrarna sluta med **PackageFolder** och **PackageFileName**. Den första delen av namnet är namnet på den Web Deploy-resurs som du har lagt till. I den här artikeln de namnges **ExampleAppPackageFolder** och **ExampleAppPackageFileName**. 
+
+   Öppna **Website.parameters.json** och ange dessa parametrar de värden som du såg i referensegenskaperna. Ange **ExampleAppPackageFolder** till namnet på mappen. Ange **ExampleAppPackageFileName** till namnet på zip-filen.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       },
+       "ExampleAppPackageFolder": {
+         "value": "ExampleApp"
+       },
+       "ExampleAppPackageFileName": {
+         "value": "package.zip"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-code-with-infrastructure"></a>Distribuera kod med infrastruktur
+
+Eftersom du har lagt till kod i projektet, är din distribution är lite annorlunda nu. Under distributionen av mellanlagra artefakter för ditt projekt till en plats som har åtkomst till Resource Manager. Artefakter mellanlagras till ett lagringskonto.
+
+### <a name="az-module-script"></a>AZ-modulen skript
+
+Det finns en liten ändring som du behöver göra i mallen om du använder skriptet Az-modulen. Det här skriptet lägger till ett snedstreck till artefakter platsen men mallen förväntar dig inte att snedstreck. Öppna WebSite.json och Sök efter egenskaperna för MSDeploy-tillägget. Den har en egenskap med namnet **packageUri**. Ta bort snedstreck mellan platsen i artefakter och paketmappen.
+
+Det bör se ut:
+
+```json
+"packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+```
+
+Observera i föregående exempel finns inga `'/',` mellan **parameters('_artifactsLocation')** och **parameters('ExampleAppPackageFolder')** .
+
+Återskapa projektet. Att skapa projektet ser till att filer som du behöver distribuera läggs till den tillfälliga mappen.
+
+Öppna en PowerShell-konsol och kör:
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory .\bin\Debug\staging\ExampleAppDeploy -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json -UploadArtifacts -StorageAccountName <storage-account-name>
+```
+
+### <a name="azurerm-module-script"></a>AzureRM-modulen skript
+
+För skriptet AzureRM-modulen använder du Visual Studio:
+
+1. Om du vill distribuera om, Välj **distribuera**, och resursgruppen som du distribuerade tidigare.
+
+    ![Omdistribuera projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
+
+1. Välj det lagringskonto som du har distribuerat med den här resursgruppen för den **artefaktlagringskonto**.
+
+   ![Distribuera om web distribuera](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
+
+## <a name="view-web-app"></a>Visa webbapp
+
+1. När distributionen är klar väljer du din webbapp i portalen. Välj webbadress för att gå till webbplatsen.
+
+   ![Bläddra på webbplats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Nu ser du att du har distribuerat standard-ASP.NET-appen.
+
+   ![Visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+
+## <a name="add-operations-dashboard"></a>Lägg till åtgärder instrumentpanel
+
 Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-gränssnittet. Du kan anpassa din distribution genom att lägga till en anpassad resurs i mallen. Du kan lägga till en instrumentpanel för att hantera den resurs du har distribuerat.
 
-1. Öppna filen WebsiteSqlDeploy.json och lägg till följande JSON efter lagringskontot, men före den avslutande `]`, i resursavsnittet.
+1. Öppna filen WebSite.json och Lägg till följande JSON efter resursen för lagringskonton men före avslutande `]` av resurserna.
 
    ```json
     ,{
@@ -300,15 +362,27 @@ Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-
     }
    ```
 
-2. Distribuera om din resursgrupp. Titta på instrumentpanelen i Azure Portal så ser du att den delade instrumentpanelen har lagts till i listan med alternativ.
+1. Distribuera om ditt projekt.
+
+1. När distributionen är klar kan du visa instrumentpanelen i portalen. Välj **instrumentpanelen** och välj den som du har distribuerat.
 
    ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
-3. Välj instrumentpanelen.
+1. Du ser den anpassade instrumentpanelen.
 
    ![Anpassad instrumentpanel](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 Du kan hantera åtkomsten till instrumentpanelen med hjälp av RBAC-grupper. Du kan också anpassa instrumentpanelens utseende när den har distribuerats. Om du däremot distribuerar om resursgruppen återställs instrumentpanelen till sitt ursprungsläge i mallen. Mer information om hur du skapar instrumentpaneler finns i [Skapa Azure-instrumentpaneler programmässigt](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
+
+1. Azure-portalen väljer du **resursgrupper** menyn till vänster.
+
+1. Välj resursgruppens namn.
+
+1. Välj **Ta bort resursgrupp** från menyn längst upp.
 
 ## <a name="next-steps"></a>Nästa steg
 

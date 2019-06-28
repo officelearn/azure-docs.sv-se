@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1453f5282d9e3a48e5ca5d734258d70e44424a5a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296233"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -46,6 +46,7 @@ Du kan använda två metoder för att installera och konfigurera en Windows Hybr
 
 Granska den [information planerar nätverket](#network-planning) innan du börjar distribuera en Hybrid Runbook Worker. När du har distribuerat arbetaren kan granska [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln.
 
+Datorn kan läggas till en Hybrid Runbook Worker-grupp i ditt Automation-konto för Automation-runbooks så länge du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 ## <a name="remove-a-hybrid-runbook-worker"></a>Ta bort en Hybrid Runbook Worker
 
 Du kan ta bort en eller flera Hybrid Runbook Worker från en grupp eller du kan ta bort gruppen, beroende på dina krav. Ta bort en Hybrid Runbook Worker från en lokal dator med följande steg:

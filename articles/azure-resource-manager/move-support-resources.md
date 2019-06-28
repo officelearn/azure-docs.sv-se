@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752348"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331990"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 Den här artikeln visar om en Azure-resurstypen stöder flyttåtgärden. Även om en resurstyp stöder flyttåtgärden, kan det finnas villkor som hindrar resursen flyttas. Mer information om villkor som påverkar flyttåtgärder finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
@@ -564,8 +564,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | expressroutecrossconnections | Nej | Nej |
 | expressroutegateways | Nej | Nej |
 | expressrouteports | Nej | Nej |
-| frontdoors | Ja | Ja |
-| frontdoorwebapplicationfirewallpolicies | Ja | Ja |
+| frontdoors | Nej | Nej |
+| frontdoorwebapplicationfirewallpolicies | Nej | Nej |
 | loadbalancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | natgateways | Ja | Ja |

@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: b5979f8523aad95152378a2e7fabbe9fd8571e09
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 87e260c97a748807929a0e7021e3efb2ae8f8e7b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154090"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329293"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
 Azure Stream Analytics-jobb att ansluta till en eller flera inmatningar av referensdata. Varje indata definierar en anslutning till en befintlig datakälla. Stream Analytics tar emot inkommande data från flera olika typer av händelsekällor inklusive Event Hubs, IoT Hub och Blob storage. Namn i den strömmande SQL-fråga som du skriver för varje jobb refererar till indata. I frågan, kan du ansluta till flera inmatningar för att blanda data eller jämföra strömmande data med en sökning till referensdata och skicka resultaten till utdata. 
 
-Stream Analytics har förstaklassintegrering från tre typer av resurser som indata:
+Stream Analytics har förstklassig integrering med tre typer av resurser som indata:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
@@ -37,7 +37,7 @@ En dataström är en obundna sekvens av händelser över tid. Stream Analytics-j
 Läs mer om inmatningar av strömmande data [Stream data som indata till Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Referensindata
-Stream Analytics har även stöd för indata som kallas *referensdata*. Referensdata är antingen helt statisk eller ändras långsamt. Det är vanligt att utföra korrelation och sökningar. Du kan till exempel att ansluta till data i strömindata data till data i referensdata, mycket som du utför en SQL-koppling för att leta upp statiska värden. Azure Blob storage och Azure SQL Database stöds för närvarande som källa för referensdata. Källa för referensdatablobar har en gräns på upp till 300 MB i storlek, beroende på frågekomplexiteten och tilldelas enheter för strömning.
+Stream Analytics har även stöd för indata som kallas *referensdata*. Referensdata är antingen helt statisk eller ändras långsamt. Det är vanligt att utföra korrelation och sökningar. Du kan till exempel att ansluta till data i strömindata data till data i referensdata, mycket som du utför en SQL-koppling för att leta upp statiska värden. Azure Blob storage och Azure SQL Database stöds för närvarande som indatakällor för referensdata. Källa för referensdatablobar har en gräns på upp till 300 MB i storlek, beroende på frågekomplexiteten och är allokerad enheter för strömning (se den [storlek begränsning](stream-analytics-use-reference-data.md#size-limitation) avsnittet referensdokument för data för mer information).
 
 Läs mer om inmatningar av referensdata, [använda referensdata för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)
 

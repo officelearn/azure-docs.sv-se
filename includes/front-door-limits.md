@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187716"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333394"
 ---
 | Resource | Standard-/ maxgräns |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "67187716"
 | Sökvägsmönster att matcha för en regel för vidarebefordran | 25 |
 | Brandväggsregler för anpassade webb program per princip | 10 |
 | Web application brandväggsprincipen per resurs | 100 |
+| Web application firewall matchningsvillkor per anpassad regel | 10 |
+| Web application firewall IP-adressintervall per matchningsvillkor | 600 |
+| Web application firewall matchning strängvärden per matchningsvillkor | 10 |
+| Web application firewall sträng matchning värdets längd | 256 |
+| Brandvägg för webbaserade program efter brödtext parametern namnlängd | 256 |
+| Brandvägg för webbaserade program namnlängd för HTTP-huvud | 256 |
+| Namnlängd för Web application firewall cookie | 256 |
+| Web application firewall HTTP begäran textstorleken kontrolleras | 128 KB |
+| Web application firewall anpassade brödtext svarslängd | 2 KB |
 
 ### <a name="timeout-values"></a>Timeout-värden
 #### <a name="client-to-front-door"></a>Klient till ytterdörren
@@ -42,3 +51,6 @@ ms.locfileid: "67187716"
 | ---- | ------- | ------- |
 | **Ladda ned** | Det finns ingen gräns för storleken. | Det finns ingen gräns för storleken. |
 | **Ladda upp** |  Det finns ingen gräns så länge varje CTE-överföring är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
+
+### <a name="other-limits"></a>Andra gränser
+- Maxstorleken till URL - 8 192 byte - anger maxlängden för raw-URL (schema + värdnamn + port + sökväg + frågesträng URL) - maximal frågesträng storlek – 4 096 byte - anger den maximala längden för frågesträngen, i byte.

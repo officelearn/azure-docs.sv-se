@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234291"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294886"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -28,26 +28,61 @@ Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Operativsystem som stöds
-Azure Disk Encryption stöds på följande operativsystem:
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- Windows Server-versionerna: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016.
-  - Du måste ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure för Windows Server 2008 R2. Installera den från Windows Update med valfri uppdatering Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+### <a name="windows"></a>Windows
+
+- Windows Server-versionerna: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core och Windows Server 2016 Server core.
+Du måste ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure för Windows Server 2008 R2. Installera den från Windows Update med valfri uppdatering Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system (KB2901983).
+- Windows Server 2012 R2 Core och Windows Server 2016 Core stöds av Azure Disk Encryption när komponenten bdehdcfg är installerad på den virtuella datorn.
 - Windows-klientversioner: Klienten för Windows 8 och Windows 10-klient.
-- Azure Disk Encryption är bara stöds på specifika Azure-galleriet bygger Linux server-distributioner och versioner. Listan över versioner som stöds för närvarande finns det [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+
+### <a name="linux"></a>Linux 
+
+Azure Disk Encryption stöds för en delmängd av den [Azure-godkända Linux-distributioner](../virtual-machines/linux/endorsed-distros.md), vilket är en delmängd av alla Linux-servern möjliga distributioner till sig själv.
+
+![Venn-Diagram Linux server-distributioner som har stöd för Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Linux-server-distributioner som inte godkänts av Azure stöder inte Azure Disk Encryption och endast följande distributioner och versioner av dessa som godkänts, stöd för Azure Disk Encryption:
+
+| Linux-distribution | Version | Volymtyp som stöds för kryptering|
+| --- | --- |--- |
+| Ubuntu | 18.04| OS- och disk |
+| Ubuntu | 16.04| OS- och disk |
+| Ubuntu | 14.04.5</br>[med Azure justerade kernel uppdateras till 4.15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
+| RHEL | 7.6 | OS- och disk (Se kommentaren nedan) |
+| RHEL | 7.5 | OS- och disk (Se kommentaren nedan) |
+| RHEL | 7.4 | OS- och disk (Se kommentaren nedan) |
+| RHEL | 7.3 | OS- och disk (Se kommentaren nedan) |
+| RHEL | 7.2 | OS- och disk (Se kommentaren nedan) |
+| RHEL | 6.8 | Datadisk (Se kommentaren nedan) |
+| RHEL | 6.7 | Datadisk (Se kommentaren nedan) |
+| CentOS | 7.6 | OS- och disk |
+| CentOS | 7.5 | OS- och disk |
+| CentOS | 7.4 | OS- och disk |
+| CentOS | 7.3 | OS- och disk |
+| CentOS | 7.2n | OS- och disk |
+| CentOS | 6.8 | Datadisk |
+| openSUSE | 42.3 | Datadisk |
+| SLES | 12-SP4 | Datadisk |
+| SLES | 12-SP3 | Datadisk |
+
+> [!NOTE]
+> Ny ADE implementeringen har stöd för RHEL-OS- och datadisk för RHEL7 betala per användning-avbildningar. ADE stöds för närvarande inte för RHEL Bring-Your-Own-prenumeration (BYOS)-avbildningar. Se [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) för mer information.
+
 - Azure Disk Encryption kräver att dina nyckelvalv och virtuella datorer finns i samma Azure-region och prenumeration. Konfigurera resurserna i olika områden orsakar ett fel i Azure Disk Encryption-funktionen aktiveras.
 
-## <a name="bkmk_LinuxPrereq"></a> Ytterligare krav för Linux IaaS-datorer 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Ytterligare krav för Linux IaaS-datorer 
 
-- Azure Disk Encryption för Linux kräver 7 GB RAM-minne på den virtuella datorn att aktivera OS-diskkryptering på [bilderna som stöds i](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). När OS-disk krypteringsprocessen är klar, kan den virtuella datorn konfigureras för att köra med mindre minne.
+- Azure Disk Encryption kräver dm-crypt och vfat moduler är finns på systemet. Ta bort eller inaktivera vfat från standardavbildningen förhindrar att systemet från att läsa den viktiga volymen och hämta den nyckel som behövs för att låsa upp diskarna på efterföljande omstarter. System-härdningssteg som tar bort modulen vfat från systemet är inte kompatibla med Azure Disk Encryption. 
 - Innan du aktiverar kryptering måste på diskar som ska krypteras anges korrekt på/etc/fstab. Använd ett beständigt block enhetsnamn för den här posten som enhetens namn i formatet ”/ dev/sdX” det går inte att förlita sig på som ska associeras med samma disk mellan omstarter, särskilt när kryptering används. Mer information om detta finns här: [Felsöka ändringar av enhetsnamn Linux VM](../virtual-machines/linux/troubleshoot-device-names-problems.md)
-- Kontrollera att/etc/fstab-inställningarna har konfigurerats korrekt för montering. Kör mount - ett kommando för att konfigurera de här inställningarna, eller starta om den virtuella datorn och utlösa återmontering på så sätt. När detta är slutfört kan du kontrollera resultatet av kommandot lsblk att verifiera att den önskade enheten fortfarande är ansluten. 
-  - Om filen/etc/fstab inte montera enheten korrekt innan du aktiverar krypteringen, Azure Disk Encryption inte montera den korrekt.
+- Kontrollera att/etc/fstab-inställningarna har konfigurerats korrekt för montering. Kör mount - ett kommando för att konfigurera de här inställningarna, eller starta om den virtuella datorn och utlösa återmontering på så sätt. När detta är slutfört kan du kontrollera resultatet av kommandot lsblk att verifiera att enheten fortfarande är ansluten. 
+  - Om filen/etc/fstab inte montera enheten korrekt innan du aktiverar kryptering, Azure Disk Encryption inte montera den korrekt.
   - Azure Disk Encryption-processen flyttar mount-information från/etc/fstab och i sin egen konfigurationsfilen som en del av krypteringsprocessen. Inte vara alarmed att se posten saknas i/etc/fstab när data diskkryptering har slutförts.
-  -  Efter omstart tar det tid för Azure Disk Encryption-processen för att montera de nyligen krypterade diskarna. De kommer inte omedelbart vara tillgängliga efter en omstart. Processen behöver tid att börja låsa upp och sedan montera de krypterade enheterna innan deras som är tillgängliga för andra processer att få åtkomst till. Den här processen kan ta mer än en minut efter omstart beroende på system-egenskaper.
+  - Innan du börjar kryptering, måste du stoppa alla tjänster och processer som kan skriva till monterad datadiskar och inaktivera dem, så att de inte startar om automatiskt efter en omstart. Dessa kan filerna är öppna på de här partitionerna förhindrar metoden kryptering för att montera om dem, orsakar fel för krypteringen. 
+  - Efter omstart tar det tid för Azure Disk Encryption-processen för att montera de nyligen krypterade diskarna. De kommer inte blir tillgängliga omedelbart efter en omstart. Processen behöver tid att börja låsa upp och sedan montera de krypterade enheterna innan är tillgängliga för andra processer att få åtkomst till. Den här processen kan ta mer än en minut efter omstart beroende på system-egenskaper.
 
-Ett exempel på kommandon som kan användas för att montera datadiskarna och skapa de nödvändiga/etc/fstab poster finns i [linjer 197-205 av den här skriptfilen](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
-
+Ett exempel på kommandon som kan användas för att montera datadiskarna och skapa de nödvändiga/etc/fstab poster finns i [linjer 244-248 i den här skriptfilen](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 ## <a name="bkmk_GPO"></a> Nätverk och en Grupprincip
 

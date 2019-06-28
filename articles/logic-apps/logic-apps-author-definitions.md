@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427061"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296127"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logic app-definitioner i Azure Logic Apps
 
@@ -50,6 +50,9 @@ I Visual Studio kan du öppna logikappar som har skapats och distribuerats antin
 3. Öppna snabbmenyn för din logikapp-definitioner och mall. Välj **Öppna med Logic App Designer**.
 
    ![Öppna logikappen i en Visual Studio-lösning](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
 
 4. Längst ned i designern väljer **kodvy**. 
 

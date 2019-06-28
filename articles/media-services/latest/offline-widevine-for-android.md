@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937226"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341019"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine för direktuppspelning för Android
 
@@ -38,6 +38,9 @@ För att skapa appar för Android player beskriver vi tre alternativ:
 > * Skapa en spelare med tillägget EME (Encrypted Media) och Media käll-tillägget (MSE) i Chrome mobila webbläsare v62 eller senare
 
 I artikeln får även svar på vanliga frågor rör offline strömning av Widevine-skyddat innehåll.
+
+> [!NOTE]
+> Offline DRM debiteras endast för att göra en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter 
 

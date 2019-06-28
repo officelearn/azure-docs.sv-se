@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478886"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329819"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågeparallellisering i Azure Stream Analytics
 Den här artikeln visar hur du drar nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -60,7 +60,7 @@ En *embarrassingly parallel* jobbet är det mest skalbara scenariot som vi har i
 
 1. Om din frågelogiken är beroende av samma nyckel som bearbetas av samma fråga instans, måste du se till att händelserna går till samma partition som dina indata. Det innebär att informationen om händelsen måste ha för Event Hubs eller IoT Hub, den **PartitionKey** set-värde. Du kan också använda partitionerade avsändare. För blob-lagring innebär detta att händelser skickas till samma partition mapp. Du kan ignorera det här kravet om frågans logik inte kräver samma nyckel som ska bearbetas av samma fråga-instans. Ett exempel på den här logiken är en enkel select-projekt-filter-fråga.  
 
-2. När data är placerade på inkommande sida, måste du kontrollera att frågan är partitionerad. Detta måste du använda **PARTITION BY** i alla steg. Flera steg tillåts, men de måste vara partitionerad med samma nyckel. För närvarande partitionsnyckel som måste vara inställt på **PartitionId** i ordning tills jobbet helt parallell.  
+2. När data är placerade på inkommande sida, måste du kontrollera att frågan är partitionerad. Detta måste du använda **PARTITION BY** i alla steg. Flera steg tillåts, men de måste vara partitionerad med samma nyckel. Under kompatibilitetsnivå 1.0 och 1.1, partitionsnyckel som måste vara inställt på **PartitionId** i ordning tills jobbet helt parallell. Anpassad kolumn kan anges som partitionsnyckel i inställningarna för indata och jobbet kommer att paralellized automoatically även om du inte PARTITION BY-satsen för jobb med compatility nivå 1.2 och högre.
 
 3. De flesta av våra utdata kan dra nytta av partitionering, men om du använder en Utdatatyp som inte stöder partitionering jobbet inte fullständigt parallella. Referera till den [utdata avsnittet](#outputs) för mer information.
 
@@ -87,7 +87,7 @@ Fråga:
     WHERE TollBoothId > 100
 ```
 
-Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om att partitionera indata som skickas till händelsehubben. Observera att frågan innehåller **PARTITION av PartitionId**, så att den uppfyller krav #2 från tidigare. För utdata, vi måste konfigurera event hub-utdata i jobbet har partition nyckeluppsättning till **PartitionId**. En senaste kontrollen är att se till att antalet inkommande partitioner är lika med antalet partitioner som utdata.
+Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om att partitionera indata som skickas till händelsehubben. Observera att jobb med kompatibilitetsnivå innan 1.2 måste innehålla **PARTITION av PartitionId** -satsen, så att den uppfyller krav #2 från tidigare. För utdata, vi måste konfigurera event hub-utdata i jobbet har partition nyckeluppsättning till **PartitionId**. En senaste kontrollen är att se till att antalet inkommande partitioner är lika med antalet partitioner som utdata.
 
 ### <a name="query-with-a-grouping-key"></a>Fråga med en grupperingsnyckel
 
@@ -141,6 +141,26 @@ Fråga:
 Som du kan se det andra steget använder **TollBoothId** som partitionsnyckel. Det här steget är inte detsamma som det första steget och därför måste vi ska utföra en shuffle. 
 
 I föregående exempel visas några Stream Analytics-jobb som överensstämmer med (inte eller) en embarrassingly parallel topologi. Om de uppfyller har risken för maximal skala. Uppdaterar för jobb som inte passar in en av de här profilerna skalning vägledning kommer att vara tillgängliga i framtiden. Använd den allmänna riktlinjen i följande avsnitt.
+
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Kompatibilitetsnivån 1.2 - flerstegstest fråga med olika PARTITION BY-värden 
+* Indata: Event hub med 8 partitioner
+* Utdata: Event hub med 8 partitioner
+
+Fråga:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Kompatibilitetsnivån 1.2 aktiverar parallell frågekörning som standard. Frågan från föregående avsnitt kommer exempelvis att parttioned så länge ”TollBoothId” kolumn anges som indata partitionsnyckel. PARTITIONEN av ParttionId-satsen är inte obligatoriskt.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Beräkna max strömningsenheter för ett jobb
 Det totala antalet enheter för strömning som kan användas av ett Stream Analytics-jobb beror på hur många av stegen i frågan som definierats för jobbet och antalet partitioner för varje steg.

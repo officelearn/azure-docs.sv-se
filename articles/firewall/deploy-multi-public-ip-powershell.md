@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/15/2019
+ms.date: 06/21/2019
 ms.author: victorh
-ms.openlocfilehash: a7dd35212a573fc3e94dadea4365f150122e1b5a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9ec37197376c815c4fb9072164520a707b02be2b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276748"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312727"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuera en Azure-brandvägg med flera offentliga IP-adresser med hjälp av Azure PowerShell
 
@@ -31,7 +31,7 @@ Den här funktionen gör det möjligt för följande scenarier:
 I följande Azure PowerShell-exempel visas hur du kan lägga till, ta bort och konfigurera offentliga IP-adresser för Azure-brandväggen.
 
 > [!NOTE]
-> Om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg fungerar inte befintliga inkommande anslutningar med hjälp av DNAT regler i 40-120 sekunder. Det här är en begränsning i den offentliga förhandsversionen för den här funktionen.
+> Den offentliga förhandsversionen, om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg kanske befintliga inkommande anslutningar med hjälp av DNAT regler inte fungerar i 40-120 sekunder. Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.
 
 ## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Lägga till en offentlig IP-adress till en befintlig brandvägg
 

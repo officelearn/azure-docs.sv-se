@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475218"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310149"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -147,7 +147,7 @@ Du kan också se den valda värdnamnen i den **anpassade domäner** sidan den **
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> En **Obs Secure** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat och alla HTTPS-begäran från en webbläsare till din anpassade domän får och felet eller varningen, beroende på webbläsaren. För att konfigurera SSL-bindning, se [köp och konfigurera ett SSL-certifikat för Azure App Service](web-sites-purchase-ssl-web-site.md).
+> En **inte skyddar** etikett för din anpassade domän innebär att den har ännu inte är bunden till ett SSL-certifikat, och varje HTTPS-begäran från en webbläsare till din egna domäns får ett fel eller varning, beroende på webbläsaren. För att konfigurera SSL-bindning, se [köp och konfigurera ett SSL-certifikat för Azure App Service](web-sites-purchase-ssl-web-site.md).
 >
 
 Om du vill testa värdnamnen, navigerar du till listan värdnamn i webbläsaren. I exemplet i föregående skärmbild, försök att gå till _kontoso.net_ och _www\.kontoso.net_.

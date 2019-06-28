@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275216"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312147"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -168,7 +168,7 @@ Tillägg | Stöds inte | Tillägg replikeras inte till den virtuella datorn vid 
 **Åtgärd** | **Detaljer**
 -- | ---
 Ändra storlek på disk på den replikerade virtuella datorn | Stöds
-Lägg till en disk till en replikerad virtuell dator | Stöds ej.<br/><br/> Du måste inaktivera replikering för den virtuella datorn, Lägg till disk och aktiverar sedan replikeringen igen.
+Lägg till en disk till en replikerad virtuell dator | Stöds
 
 ## <a name="replicated-machines---storage"></a>Replikerade datorer - lagring
 

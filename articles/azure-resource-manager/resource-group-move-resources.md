@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295449"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332020"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -79,7 +79,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * DNS
 * Event Grid
 * Event Hubs
-* Ytterdörren
 * HDInsight-kluster – Se [HDInsight begränsningar](#hdinsight-limitations)
 * IoT Central
 * IoT-hubbar
@@ -138,6 +137,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Dev blanksteg
 * Dynamics LCS
 * ExpressRoute
+* Ytterdörren
 * Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Managed Applications
 * Hanterad identitet - användartilldelade

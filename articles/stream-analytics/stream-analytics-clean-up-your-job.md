@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159418"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330040"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Rensa upp din Azure Stream Analytics-jobb
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Stoppa eller ta bort Azure Stream Analytics-jobb
 
-Azure Stream Analytics-jobb kan enkelt tas bort via Azure portal, Azure PowerShell, Azure SDK för .net eller REST API. Ett Stream Analytics-jobb kan inte återställas när det har tagits bort.
+Azure Stream Analytics-jobb kan enkelt stoppas eller tas bort via Azure portal, Azure PowerShell, Azure SDK för .net eller REST API. Ett Stream Analytics-jobb kan inte återställas när det har tagits bort.
 
 >[!NOTE] 
 >När du avbryter ditt Stream Analytics-jobb, kvarstår data endast i den inkommande och utgående lagringen, till exempel Event Hubs eller Azure SQL Database. Om du behöver ta bort data från Azure ska du följa den borttagning av processen för inkommande och utgående resurser på ditt Stream Analytics-jobb.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Stoppa ett jobb i Azure-portalen
+
+När du avbryter ett jobb resurserna är deprovisionned och slutar den att bearbeta händelser. Tillägg som hör till det här jobbet också har stoppats. Men all konfiguration sparas och du kan starta om jobbet senare 
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
@@ -35,6 +37,9 @@ Azure Stream Analytics-jobb kan enkelt tas bort via Azure portal, Azure PowerShe
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Ta bort ett jobb i Azure-portalen
+
+>[!WARNING] 
+>Ett Stream Analytics-jobb kan inte återställas när det har tagits bort.
 
 1. Logga in på Azure Portal. 
 

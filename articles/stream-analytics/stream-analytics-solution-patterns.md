@@ -6,27 +6,27 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761982"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329564"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
 Liksom många andra tjänster i Azure passar Stream Analytics bäst med andra tjänster för att skapa en större slutpunkt till slutpunkt-lösning. Den här artikeln beskrivs enkla Azure Stream Analytics-lösningar och olika arkitektoniska mönstren. Du kan skapa på dessa mönster för att utveckla mer komplexa lösningar. De mönster som beskrivs i den här artikeln kan användas i en mängd olika scenarier. Exempel på scenariospecifika mönster är tillgängliga på [Azures lösningsarkitekturer](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## <a name="create-a-stream-analytics-job-with-a-real-time-dashboard"></a>Skapa ett Stream Analytics-jobb med en realtidsinstrumentpanel
+## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Skapa ett Stream Analytics-jobb power i realtid dashboarding upplevelse
 
-Med Azure Stream Analytics användarvänlighet, kan du snabbt använda realtidsinstrumentpaneler och aviseringar. En enkel lösning matar in händelser från Event Hubs eller IoT-hubb och [feeds Power BI-instrumentpanel med en strömmande datauppsättning](/power-bi/service-real-time-streaming). Mer information finns i den detaljerade självstudien [analysera telefonsamtalsdata med Stream Analytics och visualisera resultat i Power BI-instrumentpanel](stream-analytics-manage-job.md).
+Med Azure Stream Analytics kan kan du snabbt använda realtidsinstrumentpaneler och aviseringar. En enkel lösning matar in händelser från Event Hubs eller IoT-hubb och [feeds Power BI-instrumentpanel med en strömmande datauppsättning](/power-bi/service-real-time-streaming). Mer information finns i den detaljerade självstudien [analysera telefonsamtalsdata med Stream Analytics och visualisera resultat i Power BI-instrumentpanel](stream-analytics-manage-job.md).
 
 ![ASA Power BI-instrumentpanel](media/stream-analytics-solution-patterns/pbidashboard.png)
 
 Den här lösningen kan byggas på bara några minuter från Azure-portalen. Det finns ingen omfattande kodning inblandade och SQL-språket som används för att uttrycka affärslogik.
 
-Det här mönstret för realtidsinstrumentpanel-lösningen ger kortast svarstid från händelsekällan till Power BI-instrumentpanel i en webbläsare. Azure Stream Analytics är bara Azure-tjänsten med den här inbyggda funktionen.
+Det här mönstret för lösningen ger kortast svarstid från händelsekällan till Power BI-instrumentpanel i en webbläsare. Azure Stream Analytics är bara Azure-tjänsten med den här inbyggda funktionen.
 
 ## <a name="use-sql-for-dashboard"></a>Använda SQL för instrumentpanelen
 
@@ -34,19 +34,19 @@ Power BI-instrumentpanelen erbjuder låg fördröjning, men den kan inte använd
 
 ![ASA SQL-instrumentpanel](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Med hjälp av SQL får database du mer flexibilitet på bekostnad av ökad latens. Den här lösningen är optimalt för jobb med svarstidskrav som är större än en sekund. Du kan använda den här metoden för att maximera Power BI-verktyg för att ytterligare segment och segmentera data för rapporter. Du får även flexibilitet för att använda andra instrumentpanel-lösningar, bland annat Tableau.
+Med hjälp av SQL database får du mer flexibilitet, men på bekostnad av en något högre latens. Den här lösningen är optimalt för jobb med svarstidskrav som är större än en sekund. Med den här metoden kan du maximera Power BI-funktionerna till ytterligare segment och segmentera data för rapporter och mycket mer visualisering alternativ. Du får även flexibilitet för att använda andra instrumentpanel-lösningar, bland annat Tableau.
 
-SQL är inte ett datalager med högt dataflöde och maximalt dataflöde till en SQL-databas från Azure Stream Analytics är 24 MB/s. Om händelsekällorna i din lösning ger data till en högre kostnad kan behöva du använda standardbearbetningslogiken i Stream Analytics för att minska frekvensen av utgående till SQL. Tekniker som filtrering, fönsteraggregeringar, mönstret matchar med temporala kopplingar och analysfunktioner kan användas. Frekvens av utgående till SQL kan optimeras ytterligare med hjälp av tekniker som beskrivs i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL är inte ett datalager för stora dataflöden. Maximalt dataflöde till en SQL-databas från Azure Stream Analytics är för närvarande cirka 24 MB/s. Om händelsekällorna i din lösning ger data till en högre kostnad kan behöva du använda standardbearbetningslogiken i Stream Analytics för att minska frekvensen av utgående till SQL. Tekniker som filtrering, fönsteraggregeringar, mönstret matchar med temporala kopplingar och analysfunktioner kan användas. Frekvens av utgående till SQL kan optimeras ytterligare med hjälp av tekniker som beskrivs i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Införliva realtidsinsikter i ditt program med event-meddelanden
 
 Andra populäraste användning av Stream Analytics är att generera aviseringar i realtid. I den här lösningen mönstret affärslogik i Stream Analytics kan användas för att identifiera [temporal och spatial mönster](stream-analytics-geospatial-functions.md) eller [avvikelser](stream-analytics-machine-learning-anomaly-detection.md), och sedan skapa aviseringar signaler. Till skillnad från instrumentpanelen för lösningen där Stream Analytics använder Power BI som en önskad slutpunkt, men användas ett antal mellanliggande datamottagare. Dessa mottagare är Event Hubs, Service Bus och Azure Functions. Som program-builder måste du bestämma vilka datamellanlagringsplats fungerar bäst för ditt scenario.
 
-Underordnade händelse konsument logic måste implementeras för att generera aviseringar i din befintliga business-arbetsflöde. Eftersom du kan implementera anpassade logiken i Azure Functions, Functions är det snabbaste sättet som du kan utföra den här integreringen. En självstudiekurs för att använda Azure Function som utdata för ett Stream Analytics-jobb kan hittas i [köra Azure Functions från Azure Stream Analytics-jobb](stream-analytics-with-azure-functions.md). Azure Functions har också stöd för olika typer av meddelanden, inklusive text- och e-post. Logikappen kan också användas för sådana integrering med Event Hubs mellan Stream Analytics och Logic App.
+Underordnade händelse konsument logic måste implementeras för att generera aviseringar i din befintliga business-arbetsflöde. Eftersom du kan implementera anpassade logiken i Azure Functions, är Azure Functions det snabbaste sättet som du kan utföra den här integreringen. En självstudiekurs för att använda Azure Function som utdata för ett Stream Analytics-jobb kan hittas i [köra Azure Functions från Azure Stream Analytics-jobb](stream-analytics-with-azure-functions.md). Azure Functions har också stöd för olika typer av meddelanden, inklusive text- och e-post. Logikappen kan också användas för sådana integrering med Event Hubs mellan Stream Analytics och Logic App.
 
 ![ASA händelse meddelanden-app](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Event Hubs, å andra sidan, erbjuder den mest flexibla integration punkten. Många andra tjänster som Azure Data Explorer och Time Series Insight kan förbruka händelser från Event Hubs. Tjänster kan anslutas direkt till Event Hubs-mottagare från Azure Stream Analytics för att slutföra lösningen. Händelsehubbar är också det högsta dataflöde asynkron meddelandetjänst tillgängliga på Azure för sådana integrationsscenarier.
+Event Hubs, å andra sidan, erbjuder den mest flexibla integration punkten. Många andra tjänster som Azure Data Explorer och Time Series Insights kan förbruka händelser från Event Hubs. Tjänster kan anslutas direkt till Event Hubs-mottagare från Azure Stream Analytics för att slutföra lösningen. Händelsehubbar är också det högsta dataflöde asynkron meddelandetjänst tillgängliga på Azure för sådana integrationsscenarier.
 
 ## <a name="dynamic-applications-and-websites"></a>Dynamiska program och webbplatser
 

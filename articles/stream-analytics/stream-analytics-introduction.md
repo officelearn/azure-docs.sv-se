@@ -7,34 +7,34 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/16/2019
-ms.openlocfilehash: f45247e652220bdf9f35a15e2059f5f6c06e96d5
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/21/2019
+ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294812"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329323"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Vad är Azure Stream Analytics?
 
-Azure Stream Analytics är en händelsebearbetningsmotor som har utformats för att undersöka stora mängder strömmande data. Mönster och relationer kan identifieras på information som hämtas från ett antal indatakällor, inklusive enheter, sensorer, webbplatser, sociala medier och program. Dessa mönster kan användas för att utlösa andra åtgärder nedströms, som att skapa aviseringar, skicka information till ett Rapporteringsverktyg eller lagra omvandlade data för senare användning.
+Azure Stream Analytics är en analys i realtid och komplex händelsebearbetningsmotor som utformats för att analysera och bearbetar stora mängder snabb strömmande data från flera källor samtidigt. Mönster och relationer kan identifieras på information som hämtas från ett antal indatakällor, inklusive enheter, sensorer, klickströmmar, sociala medier och program. Dessa mönster kan användas för att utlösa åtgärder och starta arbetsflöden sådana skapa aviseringar, skicka information till ett Rapporteringsverktyg eller lagra transformerade data för senare användning. Dessutom Stream Analytics är tillgängligt på Azure IoT Edge-körningen och har stöd för samma exakta språk eller syntax till molnet. 
 
 Följande är exempel på när du kan använda Azure Stream Analytics:
 
-* Sakernas Internet (IoT) sensor fusion och analys i realtid på enhetstelemetri
+* Analysera dataströmmar i realtid telemetri från IoT-enheter
 * Webbloggar/klickströmsanalys
 * Geospatial analys för hantering av vagnpark och förarlösa fordon
-* Fjärrövervakning och förutsägande underhåll av högt värderade tillgångar
+* Fjärrövervakning och förutsägande underhåll av resurser med högt värde
 * Realtidsanalys av kassadata för lagerkontroll och avvikelseidentifiering
 
 ## <a name="how-does-stream-analytics-work"></a>Hur fungerar Stream Analytics?
 
-Azure Stream Analytics-jobb består av en inmatning, en transformationsfråga och produktion. När händelser från din programvara eller enheter är matas in i Azure Event Hubs, Azure IoT Hub eller Azure Blob Storage, kan du ange en eller flera av dessa tjänster som Indatakällan för jobbet. Transformationsfrågan, som är baserad på SQL-frågespråket, används för att enkelt filtrera, sortera, aggregera och ansluta strömmande data under en viss tidsperiod. Du kan justera Händelseordning alternativ och varaktigheten för tidsperioder när preforming aggregeringsåtgärder.
+Azure Stream Analytics-jobb består av en indata-, fråge- och utdata. Stream Analytics matar in data från Azure Event Hubs, Azure IoT Hub eller Azure Blob Storage. Frågan, vilket baseras på SQL-frågespråket kan användas för att enkelt filtrera, sortera, aggregering och koppla strömmande data under en viss tidsperiod. Du kan också utöka den här SQL-språket med JavaScript och C# användardefinierade funktioner (UDF). Du kan enkelt ändra Händelseordning alternativ och varaktigheten för tidsperioder när preforming aggregeringsåtgärder via enkla språkkonstruktioner och/eller konfigurationer.
 
 Varje jobb har utdata för transformerade data och du kan styra vad som händer i svar på den information som du har analyserat. Du kan till exempel:
 
-* Skicka data till en övervakad kö för att utlösa aviseringar eller anpassade arbetsflöden nedströms.
-* Skicka data till en Power BI-instrumentpanel för visualisering i realtid.
+* Skicka data till tjänster som Azure Functions, Service Bus-ämnen eller köer för att utlösa kommunikation eller anpassade arbetsflöden nedströms.
+* Skicka data till en Power BI-instrumentpanel för dashboarding i realtid.
 * Store data i andra Azure-lagringstjänster att träna en maskininlärningsmodell baserat på historiska data eller utföra batchanalyser.
 
 Följande bild visar hur data skickas till Stream Analytics, analyseras och skickas för andra åtgärder som lagring eller presentation:
@@ -51,7 +51,7 @@ Azure Stream Analytics är avsett att vara enkelt att använda samt flexibelt, t
 
 Azure Stream Analytics är enkelt att börja. Det tar bara några klick för att ansluta till flera källor och mottagare, hur du skapar en pipeline för slutpunkt till slutpunkt. Stream Analytics kan ansluta till [Azure Event Hubs](/azure/event-hubs/) och [Azure IoT Hub](/azure/iot-hub/) för inmatning av strömmande data, samt [Azure Blob storage](/azure/storage/storage-introduction) att mata in historiska data. Jobbindata kan även innehålla statiska eller långsamt föränderliga referensdata från Azure Blob storage eller [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) att du kan ansluta till strömmande data för att utföra sökåtgärder.
 
-Stream Analytics kan dirigera jobbutdata till många lagringssystem som [Azure Blob storage](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/), och [Azure Cosmos DB](/azure/cosmos-db/introduction). Du kan köra batch-analyser på lagrade utdata med Azure HDInsight eller du kan skicka utdata till en annan tjänst, till exempel Händelsehubbar för förbrukning eller [Power BI](https://docs.microsoft.com/power-bi/) för visualisering i realtid.
+Stream Analytics kan dirigera jobbutdata till många lagringssystem som [Azure Blob storage](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/), och [Azure CosmosDB](/azure/cosmos-db/introduction). Du kan köra batch-analyser på lagrade utdata med Azure HDInsight eller du kan skicka utdata till en annan tjänst, till exempel Händelsehubbar för förbrukning eller [Power BI](https://docs.microsoft.com/power-bi/) för visualisering i realtid.
 
 Läs hela listan med Stream Analytics-utdata, [förstå utdata från Azure Stream Analytics](stream-analytics-define-outputs.md).
 
@@ -69,7 +69,7 @@ Azure Stream Analytics är ett fullständigt hanterat serverlöst erbjudande (Pa
 
 ## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Köras i molnet eller på en intelligent gräns
 
-Azure Stream Analytics kan köras i molnet, för storskaliga analys, eller köras på IoT Edge för extremt låg latens analys. Azure Stream Analytics använder samma frågespråk på både i molnet och gränsen, så att utvecklare kan skapa äkta hybridarkitekturer för bearbetning av dataströmmen.
+Azure Stream Analytics kan köras i molnet, för storskaliga analys, eller köras på IoT Edge för extremt låg latens analys. Azure Stream Analytics använder samma frågespråk på både i molnet och gränsen, så att utvecklare kan skapa äkta hybridarkitekturer för bearbetning av dataströmmen. 
 
 ## <a name="low-total-cost-of-ownership"></a>Låg total ägandekostnad
 
@@ -85,7 +85,7 @@ Azure Stream Analytics garanterar händelsebearbetning exakt en gång och levera
 
 Azure Stream Analytics har inbyggda återställningsfunktioner om det inte går att leverera en händelse. Stream Analytics kan du också tillhandahåller inbyggd kontrollpunkter för att upprätthålla jobbets tillstånd och ger upprepningsbara resultat.
 
-Som hanterad tjänst garanterar Stream Analytics händelsebearbetning med 99,9 % tillgänglighet på minutnivå. Mer information finns i den [SLA för Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) sidan. 
+Som en hanterad tjänst garanterar Stream Analytics händelsebearbetning med 99,9% tillgänglighet på en minut granularitet. Mer information finns i den [SLA för Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) sidan. 
 
 ### <a name="security"></a>Säkerhet
 
@@ -97,7 +97,7 @@ Azure Stream Analytics följer flera efterlevnadscertifieringar enligt beskrivni
 
 ## <a name="performance"></a>Prestanda
 
-Stream Analytics kan bearbeta miljontals händelser per sekund och leverera resultat med kort svarstid. Det ger dig möjlighet att skala upp och skala ut för att hantera stora program för bearbetning av händelser i realtid och komplexa händelser. Stream Analytics stöder prestanda genom partitionering, vilket gör att komplexa frågor till parallelliseras och köras på flera strömmande noder. Azure Stream Analytics är byggt på [Trill](https://github.com/Microsoft/Trill), en högpresterande minnesintern analysmotor för direktuppspelning som har utvecklats i samarbete med Microsoft Research.
+Stream Analytics kan bearbeta flera miljoner händelser varje sekund och leverera resultat med mycket låg fördröjning. Det ger dig möjlighet att skala upp och skala ut för att hantera stora program för bearbetning av händelser i realtid och komplexa händelser. Stream Analytics stöder högre prestanda genom partitionering, vilket gör att komplexa frågor till parallelliseras och köras på flera strömmande noder. Azure Stream Analytics är byggt på [Trill](https://github.com/Microsoft/Trill), en högpresterande minnesintern analysmotor för direktuppspelning som har utvecklats i samarbete med Microsoft Research.
 
 ## <a name="next-steps"></a>Nästa steg
 

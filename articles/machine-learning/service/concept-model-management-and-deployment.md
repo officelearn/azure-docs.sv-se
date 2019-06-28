@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692835"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331711"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -54,11 +54,14 @@ Mer information om ONNX med Azure Machine Learning-tjänsten finns i den [skapa 
 Modellen kan du lagra och version dina modeller i Azure-molnet, på din arbetsyta. Modellen registret gör det enkelt att ordna och Håll koll på dina tränade modeller.
 
 > [!TIP]
-> Du kan också registrera modeller tränas utanför Azure Machine Learning-tjänsten.
+> Registrerade modellen är en logisk behållare för en eller flera filer som utgör din modell. Exempelvis om du har en modell som lagras i flera filer kan registrera du dem som en enda modell i Azure Machine Learning-arbetsyta. Efter registreringen, kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som registrerades.
  
 Registrerade modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning-tjänsten har stöd för alla modeller som kan vara inlästa med hjälp av Python 3.5.2 eller högre.
 
-Du kan inte ta bort modeller som används i en aktiv distribution.
+> [!TIP]
+> Du kan också registrera modeller tränas utanför Azure Machine Learning-tjänsten.
+
+Du kan inte ta bort en registrerade modellen som används i en aktiv distribution.
 
 Mer information finns i avsnittet registrera modellen i [distribuera modeller](how-to-deploy-and-where.md#registermodel).
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515728"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296140"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 
@@ -27,7 +27,7 @@ När du skapar ett Media Services-konto, en **standard** slutpunkt för direktup
 > [!NOTE]
 > Om du vill starta direktuppspelning av videor, måste du starta den **Strömningsslutpunkt** som du vill att strömma videon. 
 >  
-> Du debiteras endast när din slutpunkt för direktuppspelning som är i körningstillstånd.
+> Du debiteras endast när din slutpunkt för direktuppspelning som är i körläge.
 
 ## <a name="naming-convention"></a>Namngivningskonventioner
 
@@ -143,7 +143,7 @@ Du måste också tänka på hur anpassningsbar direktuppspelning fungerar. Varje
 
 När en slutpunkt för direktuppspelning har etablerats med är CDN aktiverat det en definierad väntetid på Media Services innan DNS har uppdaterats för att mappa slutpunkt för direktuppspelning till CDN-slutpunkten.
 
-Om du senare vill aktivera/inaktivera CDN slutpunkten för direktuppspelning måste finnas i den **stoppats** tillstånd. Det kan ta upp till två timmar för Azure CDN-integreringen ska aktiveras och för att ändringarna ska vara aktiva för alla innehållsleveransnätverk. Dock kan starta din strömmande slutpunkt och stream utan avbrott från slutpunkten för direktuppspelning och när integrationen är slutförd, dataströmmen levereras från CDN. Under etablering blir slutpunkten för direktuppspelning i **startar** tillstånd och du kan se försämrade prestanda.
+Om du senare vill aktivera/inaktivera CDN slutpunkten för direktuppspelning måste finnas i den **stoppats** tillstånd. Det kan ta upp till två timmar för Azure CDN-integreringen ska aktiveras och för att ändringarna ska vara aktiva för alla innehållsleveransnätverk. Dock kan starta din strömmande slutpunkt och stream utan avbrott från slutpunkten för direktuppspelning och när integrationen är slutförd, dataströmmen levereras från CDN. Under etablering blir slutpunkten för direktuppspelning i den **startar** tillstånd och du kan se försämrade prestanda.
 
 När strömningsslutpunkt som Standard skapas är den konfigurerad som standard med Standard Verizon. Du kan konfigurera Verizon Premium eller Standard Akamai providers med hjälp av REST API: er. 
 

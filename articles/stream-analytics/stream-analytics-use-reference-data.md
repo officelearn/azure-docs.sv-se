@@ -7,17 +7,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066772"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329311"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär användas för att utföra en sökning eller utöka din dataströmmar. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
 
 Stream Analytics stöder Azure Blob storage och Azure SQL Database som storage-skiktet för referensdata. Du kan också transformera och/eller kopiera referensdata till Blob storage från Azure Data Factory för att använda [alla många molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md).
 

@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720672"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330309"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Skapa och hantera handelspartneravtal med hjälp av Azure Logic Apps och Enterprise-Integrationspaket
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Skapa och hantera handelspartneravtal i Azure Logic Apps
 
 En [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *avtal* hjälper organisationer och företag sömlöst kommunicera med varandra genom att definiera det specifika standardiserade protokollet som ska användas när du skickar Business-to-business (B2B) meddelanden. Avtal ange vanliga fördelar, till exempel:
@@ -27,6 +26,8 @@ En [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * Det är enkelt att skapa, hantera och använda för att skapa enterprise integrationslösningar.
 
 Den här artikeln visar hur du skapar en AS2, EDIFACT eller X12 avtal som du kan använda när du skapar enterprise integrationslösningar för B2B-scenarier med hjälp av den [Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-overview.md). När du skapar ett avtal kan du sedan kan använda AS2, EDIFACT eller X12 kopplingar för utbyte av B2B-meddelanden.
+
+För att skapa avtal för utbyte av RosettaNet meddelanden, se [Exchange RosettaNet meddelanden](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -65,8 +66,8 @@ Välj på Azure-huvudmenyn **alla tjänster**. I sökrutan anger du ”-integrat
    | **Värd-identitet** | Ja | <*host-partner-identifier*> | Värd-partnerns ID |
    | **Gästpartner** | Ja | <*guest-partner-name*> | Gästpartner representerar den organisation som gör affärer med värdpartner |
    | **Gästidentitet** | Ja | <*guest-partner-identifier*> | Gäst-partnerns ID |
-   | **Ta emot inställningarna** | Varierar | Varierar | Dessa egenskaper anger hur du hanterar alla inkommande meddelanden som tas emot av avtalet. Mer information finns i respektive avtalstyp: <p>- [Inställningar för AS2-meddelande](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT-Meddelandeinställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
-   | **Skicka inställningar** | Varierar | Varierar | Dessa egenskaper anger hur du hanterar alla utgående meddelanden som skickas av avtalet. Mer information finns i respektive avtalstyp: <p>- [Inställningar för AS2-meddelande](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT-Meddelandeinställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
+   | **Ta emot inställningarna** | Varierar | Varierar | Dessa egenskaper anger hur värdpartnern tar emot alla inkommande meddelanden från gästpartner i avtalet. Mer information finns i respektive avtalstyp: <p>- [Inställningar för AS2-meddelande](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT-Meddelandeinställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
+   | **Skicka inställningar** | Varierar | Varierar | Dessa egenskaper anger hur den mottagande partnern skickar alla utgående meddelanden till gästpartner i avtalet. Mer information finns i respektive avtalstyp: <p>- [Inställningar för AS2-meddelande](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT-Meddelandeinställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. När du är klar skapar ditt avtal på den **Lägg till** väljer **OK**, och gå tillbaka till ditt integrationskonto.

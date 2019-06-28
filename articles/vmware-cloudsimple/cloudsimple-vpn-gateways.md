@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083405"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332040"
 ---
 # <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
@@ -26,7 +26,7 @@ CloudSimple innehåller två typer av VPN-gatewayer:
 
 ## <a name="site-to-site-vpn-gateway"></a>Plats-till-plats VPN-gateway
 
-En plats-till-plats VPN-gateway används för att skicka krypterad trafik mellan ett CloudSimple region nätverk och ett lokalt datacenter. Använd den här anslutningen för att definiera undernät/CIDR-intervall för nätverkstrafik mellan ditt lokala nätverk och CloudSimple region nätverk.
+En plats-till-plats VPN-gateway används för att skicka krypterad trafik mellan ett CloudSimple region nätverk och ett lokalt datacenter. Använd den här anslutningen för att definiera undernät/CIDR-intervall för kommunikation mellan ditt lokala nätverk och CloudSimple region nätverket.
 
 VPN-gatewayen kan du använda tjänster från en lokal plats i ditt privata moln och tjänster i ditt privata moln, från det lokala nätverket.  CloudSimple ger en principbaserad VPN-server för att upprätta anslutning från ditt lokala nätverk.
 
@@ -38,6 +38,9 @@ Användningsområden för plats-till-plats-VPN är:
 * Tillgängligheten för arbetsbelastningar som körs i ditt privata moln från ditt lokala nätverk.
 
 ![Topologi för plats-till-plats VPN-anslutning](media/cloudsimple-site-to-site-vpn-connection.png)
+
+> [!IMPORTANT]
+> Du måste foga ihop TCP MSS vid 1078 byte eller lägre. Eller om dina VPN-enheter inte stöder MSS-ihopfogning kan du även ange MTU i tunnelgränssnittet till 1118 byte i stället. 
 
 ### <a name="cryptographic-parameters"></a>Kryptografiska parametrarna
 

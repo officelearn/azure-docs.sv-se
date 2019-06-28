@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 06/20/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25be0629b2ef877d8757f515cb6ccd5942e58d5f
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248045"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312801"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT Edge-enhet
 
@@ -35,7 +35,7 @@ Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer inf
 
 Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Du kan komma åt modulen från Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), eller med du bildens URI, **mcr.microsoft.com/azureiotedge/modbus:1.0**.
 
-Om du vill skapa en egen modul och anpassa den för din miljö, det finns en öppen källkod [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) projekt på GitHub. Följ vägledningarna i projektet för att skapa en egen containeravbildning. Om du har skapat en egen behållaravbildning Se [utveckla C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md) eller [utveckla moduler i Visual Studio Code](how-to-vs-code-develop-module.md). Dessa artiklar innehåller anvisningar om att skapa nya moduler och publicera behållaravbildningar till ett register.
+Om du vill skapa en egen modul och anpassa den för din miljö, det finns en öppen källkod [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) projekt på GitHub. Följ vägledningarna i projektet för att skapa en egen containeravbildning. Om du vill skapa en behållaravbildning som avser [utveckla C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md) eller [utveckla moduler i Visual Studio Code](how-to-vs-code-develop-module.md). Dessa artiklar innehåller anvisningar om att skapa nya moduler och publicera behållaravbildningar till ett register.
 
 ## <a name="try-the-solution"></a>Prova lösningen
 
@@ -85,12 +85,13 @@ Det här avsnittet beskriver distribuera Microsofts exempel Modbus-modulen till 
 
 5. I steget **Lägg till moduler** väljer du **Nästa**.
 
-7. I steget för att **ange vägar** kopierar du följande JSON till textrutan. Den här vägen skickar alla meddelanden som samlats in av Modbus-modulen till IoT Hub. I den här vägen är ”'modbusOutput” slutpunkten som Modbus-modulen använder för att mata ut data och ”upstream” är en specialdestination som uppmanar IoT Edge hub att skicka meddelanden till IoT Hub.
+7. I steget för att **ange vägar** kopierar du följande JSON till textrutan. Den här vägen skickar alla meddelanden som samlats in av Modbus-modulen till IoT Hub. I den här vägen **modbusOutput** är slutpunkten som Modbus modulen använder för att mata ut data och **$uppströms** är en specialdestination som uppmanar IoT Edge hub att skicka meddelanden till IoT Hub.
+
    ```JSON
    {
-    "routes": {
-      "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-    }
+     "routes": {
+       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
+     }
    }
    ```
 

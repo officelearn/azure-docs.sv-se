@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939575"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341985"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka måttdiagram
 
@@ -73,7 +73,7 @@ Insamling av **gäst-OS** mått kräver att konfigurera Azure Diagnostics-tillä
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Meddelandet ”fel vid hämtning av data” på instrumentpanelen
 
-Det här problemet är vanlig när instrumentpanelen har skapats med ett mått som senare inaktuell och tas bort från Azure. Kontrollera att det är fallet, öppna den **mått** fliken av din resurs och markera tillgängliga mått i väljaren för mått. Om måttet inte visas, har måttet tagits bort från Azure. Vanligtvis när en mätvärdet är inaktuellt, finns det ett bättre nya mått som ger resurshälsan liknande perspektiv.
+Det här problemet kan inträffa när instrumentpanelen har skapats med ett mått som senare inaktuell och tas bort från Azure. Kontrollera att det är fallet, öppna den **mått** fliken av din resurs och markera tillgängliga mått i väljaren för mått. Om måttet inte visas, har måttet tagits bort från Azure. Vanligtvis när en mätvärdet är inaktuellt, finns det ett bättre nya mått som ger resurshälsan liknande perspektiv.
 
 **Lösning:** Uppdatera panelen misslyckas genom att välja ett annat mått i diagrammet på instrumentpanelen. Du kan [granska en lista över tillgängliga mått för Azure-tjänster](metrics-supported.md).
 

@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560831"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295564"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Sökfrågor i Azure Monitor-loggar
-
-> [!NOTE]
-> Bör du genomföra [Kom igång med Azure Monitor log-frågor](get-started-queries.md) innan du slutför den här lektionen.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure Monitor log-frågor kan börja med ett tabellnamn eller ett sökkommando. Den här självstudien tar upp search-baserade frågor. Det finns fördelar med att varje metod.
 
 Tabell-baserade frågor starta genom att ange omfång frågan och därmed tenderar att vara effektivare än sökfrågor. Sökfrågor är mindre strukturerade vilket gör dem ett bättre val när du söker efter ett specifikt värde över kolumner eller tabeller. **Sök** söka igenom alla kolumner i en viss tabell eller i alla tabeller för det angivna värdet. Mängden data som bearbetas kan vara enorma, vilket är anledningen till de här frågorna kan ta längre tid att slutföra och kan returnera mycket stora resultatmängder.

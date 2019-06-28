@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c4ab5fe4625bce1ed66258a5b9aab597dae17a1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304005"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331659"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -39,7 +39,9 @@ Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribu
 
 ## <a id="registermodel"></a> Registrera din modell
 
-Registrera dina maskininlärningsmodeller i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från en annan plats. Följande exempel visar hur du registrerar en modell från filen:
+En logisk behållare registrerade modellen för en eller flera filer som utgör din modell. Om du har en modell som lagras i flera filer, kan du exempelvis registrera dem som en enda modell på arbetsytan. Efter registreringen, kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som registrerades.
+
+Machine learning-modeller är registrerade i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från en annan plats. Följande exempel visar hur du registrerar en modell från filen:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registrera en modell från ett Experiment som kör
 
@@ -48,11 +50,18 @@ Registrera dina maskininlärningsmodeller i din Azure Machine Learning-arbetsyta
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > Om du vill ta med flera filer i modellen registreringen, ange `model_path` till den katalog som innehåller filerna.
+
 + **Med hjälp av CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > Om du vill ta med flera filer i modellen registreringen, ange `--asset-path` till den katalog som innehåller filerna.
 
 + **Använder VS Code**
 
@@ -77,10 +86,16 @@ Du kan registrera ett externt skapade modellen genom att tillhandahålla en **lo
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > Om du vill ta med flera filer i modellen registreringen, ange `model_path` till den katalog som innehåller filerna.
+
 + **Med hjälp av CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > Om du vill ta med flera filer i modellen registreringen, ange `-p` till den katalog som innehåller filerna.
 
 **Uppskattad tidsåtgång**: Cirka 10 sekunder.
 
@@ -110,12 +125,14 @@ Skriptet innehåller två funktioner som att läsa in och kör modellen:
 * `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten.
 
 #### <a name="what-is-getmodelpath"></a>Vad är get_model_path?
-När du registrerar en modell kan ange du ett modellnamn som används för att hantera modellen i registret. Du använder det här namnet i get_model_path API som returnerar sökvägen till filen modellen på det lokala filsystemet. Den här API returnerar sökvägen till den katalog som innehåller filerna om du registrerar en mapp eller en uppsättning filer.
+
+När du registrerar en modell kan ange du ett modellnamn som används för att hantera modellen i registret. Du använder det här namnet med den [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) att hämta sökvägen till filen modellen på det lokala filsystemet. Den här API returnerar sökvägen till den katalog som innehåller de filerna om du registrerar en mapp eller en uppsättning filer.
 
 När du registrerar en modell kan ge du den ett namn som motsvarar där modellen är placerad, antingen lokalt eller under distributionen av tjänster.
 
-I exemplet nedan returnerar en sökväg till en enskild fil som heter ”sklearn_mnist_model.pkl” (som har registrerats med namnet ”sklearn_mnist”)
-```
+I exemplet nedan returnerar en sökväg till en enskild fil kallad `sklearn_mnist_model.pkl` (som har registrerats med namnet `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -293,7 +310,8 @@ I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan a
 
 ### <a name="optional-profile-your-model"></a>Valfritt: Profilera din modell
 Innan du distribuerar modellen som en tjänst, kanske du vill profilera den för att fastställa optimal processor och minne.
-Du kan göra detta via SDK eller CLI.
+
+Du kan göra profil din modell med hjälp av SDK eller CLI.
 
 Mer information kan du ta en titt här vår SDK-dokumentation: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -386,7 +404,7 @@ Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om
 Läs mer om AKS-distributionen och skala automatiskt i den [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) referens.
 
 #### Skapa ett nytt AKS-kluster<a id="create-attach-aks"></a>
-**Uppskattad tidsåtgång:** Cirka 5 minuter.
+**Uppskattad tidsåtgång**: Ungefär 20 minuter.
 
 Skapa eller koppla ett AKS-kluster är en gång bearbetar för din arbetsyta. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera. Du kan ha flera AKS-kluster som är kopplat till din arbetsyta.
 
@@ -425,10 +443,11 @@ Mer information om den `cluster_purpose` parameter, finns i den [AksCompute.Clus
 
 > [!IMPORTANT]
 > För [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer Anpassad värden för agent_count och vm_size, måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Till exempel om du använder en vm_size av ”Standard_D3_v2” som har 4 virtuella processorer, bör sedan du välja en agent_count 3 eller högre.
-
-**Uppskattad tidsåtgång**: Ungefär 20 minuter.
+>
+> SDK: N för Azure Machine Learning ger inte stöd för skalning ett AKS-kluster. Om du vill skala noderna i klustret, använder du Användargränssnittet för AKS-kluster i Azure-portalen. Du kan bara ändra antalet noder, inte VM-storleken för klustret.
 
 #### <a name="attach-an-existing-aks-cluster"></a>Koppla ett befintligt AKS-kluster
+**Uppskattad tidsåtgång:** Cirka 5 minuter.
 
 Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.12. ##, du kan använda den för att distribuera din avbildning.
 

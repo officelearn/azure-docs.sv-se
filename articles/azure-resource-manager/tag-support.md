@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056881"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339846"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md). Kolumnen **stöder taggar** anger om resurstypen har en egenskap för taggen. Kolumnen **tagg i rapporten cost** anger om den resurstypen skickar taggen till i rapporten cost.
@@ -864,8 +864,8 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | dnszones/TXT | Nej |  Nej |
 | expressRouteCircuits | Ja  | Nej |
 | expressRouteServiceProviders | Nej |  Nej |
-| frontdoors | Ja | Ja |
-| frontdoorWebApplicationFirewallPolicies | Ja | Ja |
+| frontdoors | Ja, men begränsat (se [kommentaren nedan](#frontdoor)) | Ja |
+| frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [kommentaren nedan](#frontdoor)) | Ja |
 | getDnsResourceReference | Nej |  Nej |
 | interfaceEndpoints | Ja | Ja |
 | internalNotify | Nej |  Nej |
@@ -898,6 +898,10 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | vpnGateways | Ja | Nej |
 | vpnSites | Ja | Ja |
 | webApplicationFirewallPolicies | Ja | Ja |
+
+<a id="frontdoor" />
+
+Du kan lägga till taggar när du skapar resursen för Azure ytterdörren Service, men uppdatera eller lägga till taggar stöds inte för närvarande.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resurstyp | Har stöd för taggar | Tagga i rapporten cost |

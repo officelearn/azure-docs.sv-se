@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8fd9f56c262ce3a7110aa71bf72d01fe875212c0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275759"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341456"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -69,9 +69,9 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Datorns arbetsbelastning | Site Recovery har stöd för replikering av alla arbetsbelastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
 Windows | – Windows Server 2019 (stöds från [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 av mobilitetstjänsten) och senare.<br/> – Windows Server 2016 (64-bitars Server Core, Server med Skrivbordsmiljö)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> – Windows Server 2008 R2 med på minst SP1.<br/> -Windows Server 2008, 64- och 32-bitars med minst SP2]. Stöd för migrering endast. [Läs mer](migrate-tutorial-windows-server-2008.md).<br/> -Windows 10, Windows 8.1, Windows 8, Windows 7 64-bitars (stöds från [Update Rollup 36](https://support.microsoft.com/help/4503156) (version 9.22 av mobilitetstjänsten och senare). Windows 7 RTM stöds inte. 
-Linux | Endast 64-bitars system stöds. 32-bitars systemfiler stöds inte.<br/><br/> Site Recovery dirigerar redundans för att köra Linux-servrar i Azure. Linux-leverantörer kan dock begränsa stöd för att endast distribution-versioner som inte har nått slutet på sin livscykel.<br/><br/> På Linux-distributioner stöds endast lagerartiklar kernlar som är en del av distributionen delversion versionen/uppdatera.<br/><br/> Uppgradera skyddade datorer i större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktiverar du replikering, uppgradera operativsystemet och aktiverar sedan replikeringen igen.<br/><br/> [Läs mer](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om stöd för Linux och öppen källkod-teknik i Azure.
-Linux Red Hat Enterprise | 5.2 5.11</b><br/> 6.1 6.10</b><br/> 7.0 7.6<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2 5.11 ska ha den [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) installerat att starta i Azure virtuella datorer.
-Linux: CentOS | 5.2 5.11</b><br/> 6.1 6.10</b><br/> 7.0 7.6<br/> <br/> Servrar som kör CentOS 5.2 5.11 ska ha den [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) installerat att starta i Azure virtuella datorer.
+Linux | Endast 64-bitars system stöds. 32-bitars systemfiler stöds inte.<br/><br/>Alla Linux-servrar bör ha [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) installerad. Det krävs för att starta servern i Azure efter redundans/redundanstest. Om LIS komponenter saknas, kontrollerar du om du vill installera den [komponenter](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för virtuella datorer att starta i Azure. <br/><br/> Site Recovery dirigerar redundans för att köra Linux-servrar i Azure. Linux-leverantörer kan dock begränsa stöd för att endast distribution-versioner som inte har nått slutet på sin livscykel.<br/><br/> På Linux-distributioner stöds endast lagerartiklar kernlar som är en del av distributionen delversion versionen/uppdatera.<br/><br/> Uppgradera skyddade datorer i större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktiverar du replikering, uppgradera operativsystemet och aktiverar sedan replikeringen igen.<br/><br/> [Läs mer](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om stöd för Linux och öppen källkod-teknik i Azure.
+Linux Red Hat Enterprise | 5.2 5.11</b><br/> 6.1 6.10</b><br/> 7.0 7.6<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2 5.11 & 6.1 6.10 har inte [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) förinstallerat. Se till att installera den [komponenter](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för virtuella datorer att starta i Azure.
+Linux: CentOS | 5.2 5.11</b><br/> 6.1 6.10</b><br/> 7.0 7.6<br/> <br/> Servrar som kör CentOS 5.2 5.11 & 6.1 6.10 har inte [Linux Integration Services (LIS) komponenter](https://www.microsoft.com/download/details.aspx?id=55106) förinstallerat. Se till att installera den [komponenter](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för virtuella datorer att starta i Azure.
 Ubuntu | Ubuntu 14.04 LTS server [(granska stöd kernel-versioner)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(granska stöd kernel-versioner)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(granska stöd kernel-versioner)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(granska stöd kernel-versioner)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och återaktivera efter uppgraderingen.
@@ -194,7 +194,7 @@ Gäst/server frekvent Lägg till/ta bort disk | Nej
 Gäst/server - Uteslut disk | Ja
 Gäst/server multipath (MPIO) | Nej
 Gäst/server GPT-partitioner | Fem partitioner som stöds från [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitetstjänsten) och senare. Tidigare stöddes fyra.
-Gäst/server EFI/UEFI-Startmetod | -Stöd när du kör mobilitetstjänstversionen 9.13 eller senare.<br/> -Stöd när du migrerar virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare till Azure.<br/> -Du kan bara replikera datorer för migrering. Växla tillbaka till den lokala stöds inte.<br/> – Endast NTFS stöds. <br/> -Sektor diskstorleken ska vara 512 byte per fysisk sektor.
+Gäst/server EFI/UEFI-Startmetod | -Stöd när du kör mobilitetstjänstversionen 9.13 eller senare.<br/> -Stöd när du migrerar virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare till Azure.<br/> -Du kan bara replikera datorer för migrering. Växla tillbaka till den lokala stöds inte.<br/> – Endast NTFS stöds & säkra UEFI boot stöds inte. <br/> -Sektor diskstorleken ska vara 512 byte per fysisk sektor.
 
 ## <a name="replication-channels"></a>Replikering kanaler
 

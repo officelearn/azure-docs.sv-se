@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734942"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310367"
 ---
 # <a name="action-rules-preview"></a>Åtgärdsregler (förhandsversion)
 
@@ -30,6 +30,8 @@ Det finns ofta många scenarier där det kan vara användbart att utelämna de m
 
 Även om aviseringsregler kan du definiera åtgärdsgruppen som utlöser när aviseringen genereras, brukar kunder ofta ha en gemensam åtgärdsgrupp över deras omfång av åtgärder. Till exempel definiera en grupp som ansvarar för resursgruppen ”ContosoRG' förmodligen samma åtgärdsgruppen för alla Varningsregler som definierats i” ContosoRG ”. Åtgärdsregler kan du förenkla den här processen genom att du kan definiera åtgärder i skala, så att en åtgärdsgrupp kan aktiveras för en avisering genereras på det konfigurerade omfånget. Gå tillbaka till föregående exempel, kan teamet nu definiera en åtgärdsregel på 'ContosoRG ”som ska utlösa samma åtgärdsgruppen för alla varningar som genererats i den.
 
+> [!NOTE]
+> Åtgärdsregler gäller för närvarande inte för Service Health-aviseringar.
 
 ## <a name="configuring-an-action-rule"></a>Konfigurera en åtgärdsregel för
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecf7f11074b447e9f093e4fd6677a3d09d213b1d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467408"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295837"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logic apps i Visual Studio
 
@@ -36,7 +36,8 @@ ms.locfileid: "65467408"
   I denna snabbstart används Visual Studio Community 2017 som är tillgängligt utan kostnad.
 
     > [!IMPORTANT]
-    > När du installerar Visual Studio 2019 eller 2017, kontrollera att du väljer den **Azure development** arbetsbelastning. För Visual Studio-2019 Cloud Explorer öppnas Logic App Designer i Azure-portalen, men ännu inte kan öppna den inbäddade Logic App Designer. Mer information finns i [hantera resurser som är associerade med dina Azure-konton i Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > När du installerar Visual Studio 2019 eller 2017, kontrollera att du väljer den **Azure development** arbetsbelastning.
+    > Mer information finns i [hantera resurser som är associerade med dina Azure-konton i Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Så här installerar du Cloud Explorer för Visual Studio 2015 [hämta Cloud Explorer från Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Mer information finns i [hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -90,6 +91,9 @@ I Visual Studio kan du öppna logikappar tidigare skapas och distribueras direkt
 
 1. På den logikapp snabbmenyn väljer **öppna med Logic App Editor**.
 
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
+
    Det här exemplet visar logikappar efter resurstyp, så att dina logikappar visas under den **Logic Apps** avsnittet.
 
    ![Öppna distribuerade logikapp från Azure-portalen](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
@@ -105,10 +109,10 @@ Du kan hämta logikappar från den [Azure-portalen](https://portal.azure.com) oc
 
 1. Öppna Cloud Explorer i Visual Studio och sedan söka efter och välj logikappen som du vill ladda ned från Azure.
 
-   > [!NOTE]
-   > För Visual Studio-2019 Cloud Explorer öppnas Logic App Designer i Azure-portalen, men ännu inte kan öppna den inbäddade Logic App Designer för att ladda ned din logikapp.
-
 2. På appens snabbmenyn väljer **öppna med Logic App Editor**.
+
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
 
    Logic App Designer öppnas och visar logikappen. 
    Om du vill granska underliggande definitionen och struktur, längst ned i designern för logic app väljer **kodvy**. 

@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550503"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296267"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure PowerShell
 
@@ -122,10 +119,12 @@ Du kan lägga till taggar till resursgrupper och resurser och organisera dem log
 
 ## <a name="export-resource-groups-to-templates"></a>Exportera resursgrupper till mallar
 
-När du har skapat en resursgrupp kan du visa Resource Manager-mallen för resursgruppen. Exportera mallen erbjuder två fördelar:
+När du skapat en resursgrupp kan visa du en Resource Manager-mall för resursgruppen. Exportera mallen erbjuder två fördelar:
 
-- Automatisera framtida distributioner av lösningen eftersom mallen innehåller alla hela infrastrukturen.
+- Automatisera framtida distributioner av lösningen eftersom mallen innehåller hela infrastrukturen.
 - Lär dig mer om mallsyntaxen genom att titta på den JavaScript Object Notation (JSON) som representerar din lösning.
+
+Om du vill exportera alla resurser i en resursgrupp, använda den [Export AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdleten och ange resursgruppens namn.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -133,7 +132,87 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-Mer information finns i [Export resursgrupp](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+Den sparas som en lokal fil.
+
+Istället för att exportera alla resurser i resursgruppen, kan du välja vilka resurser som ska exporteras.
+
+Om du vill exportera en resurs, skicka resurs-ID.
+
+```azurepowershell-interactive
+$resource = Get-AzResource `
+  -ResourceGroupName <resource-group-name> `
+  -ResourceName <resource-name> `
+  -ResourceType <resource-type>
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource $resource.ResourceId
+```
+
+Om du vill exportera fler än en resurs, skickar du resurs-ID i en matris.
+
+```azurepowershell-interactive
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource @($resource1.ResourceId, $resource2.ResourceId)
+```
+
+När du exporterar mallen kan ange du om parametrar används i mallen. Parametrar för resursnamn ingår som standard, men de har inte ett standardvärde. Du måste skicka detta parametervärde under distributionen.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": null,
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": null,
+    "type": "String"
+  }
+}
+```
+
+I den här resursen används parametern för namnet.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Om du använder den `-IncludeParameterDefaultValue` parametern när du exporterar mallen, mallparametern innehåller ett standardvärde har angetts till det aktuella värdet. Du kan använda det standardvärdet, eller så kan du skriva över standardvärdet genom att skicka in ett annat värde.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Om du använder den `-SkipResourceNameParameterization` parameter när du exporterar mallen, parametrar för resursnamn som inte ingår i mallen. Resursnamnet ange i stället direkt på resursen för att dess aktuella värde. Du kan anpassa namn under distributionen.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
+
+Mer information finns i [enstaka och flera resurs export till mallen i Azure-portalen](./export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resursgrupper
 

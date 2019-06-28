@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 674d055c40ff594f0e4e05ec512b9124b1d7ab77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113092"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341337"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -34,7 +34,7 @@ Om du vill distribuera Application Proxy har du behöver minst en koppling, men 
 ### <a name="windows-server"></a>Windows server
 Du behöver en server som kör Windows Server 2012 R2 eller senare som du kan installera anslutningsappen för programproxyn. Servern måste ansluta till Application Proxy-tjänsterna i Azure och lokala program som du publicerar.
 
-Windows server måste ha aktiverats innan du installerar Application Proxy connector som TLS 1.2. Befintliga anslutningar med versioner under 1.5.612.0 fortsätter att fungera i tidigare versioner av TLS tills vidare. Aktivera TLS 1.2:
+Windows server måste ha aktiverats innan du installerar Application Proxy connector som TLS 1.2. Aktivera TLS 1.2 på servern:
 
 1. Ange följande registernycklar:
     

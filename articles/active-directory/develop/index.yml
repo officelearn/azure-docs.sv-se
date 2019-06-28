@@ -1,6 +1,13 @@
 ### YamlMime:Landing
 title: Microsofts identitetsplattform (tidigare Azure Active Directory för utvecklare)
 summary: 'Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt. Det här är en plattform med fullständiga funktioner som består av en autentiseringstjänst som följer standarderna OAuth 2.0 och OpenID Connect, bibliotek med öppen källkod, programregistrering och konfiguration, robust koncept- och referensdokumentation, exempel på snabbstarter, kodexempel, självstudier och instruktionsguider.'
+metadata:
+  ms.topic: landing-page
+  ms.date: 06/22/2019
+  author: CelesteDG
+  ms.service: active-directory
+  ms.subservice: develop
+  ms.workload: identity
 landingContent:
   - title: Om Microsoft Identity-plattformen
     linkLists:

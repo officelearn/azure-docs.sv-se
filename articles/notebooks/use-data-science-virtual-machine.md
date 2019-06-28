@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137760"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357591"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använda Azure virtuella datorer för datavetenskap
 
@@ -51,9 +51,9 @@ Du hämtar dessa värden från sidan DSVM i Azure-portalen.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Komma åt Azure anteckningsböcker filer från DSVM
 
-Att bevara paritet av sökvägar med den **kostnadsfria Compute** nivå, du kan bara öppna ett projekt i taget på en DSVM. Om du vill öppna ett nytt projekt, måste du stänga av projektet är öppet först.
+Filsystemåtkomst är stöds för DSVM-versioner 19.06.15 eller senare. Om du vill kontrollera vilken version du först ansluta till din DSVM via SSH (IP-adressen är tillgänglig i Azure portal). Kör sedan följande kommando med din `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Versionsnumret visas i utdata för ”version”.
 
-![Avsluta-knappen i Azure-anteckningsböcker](media/shutdown.png)
+Att bevara paritet av sökvägar med den **kostnadsfria Compute** nivå, du kan bara öppna ett projekt i taget på en DSVM. Om du vill öppna ett nytt projekt, måste du stänga av projektet är öppet först.
 
 När ett projekt körs på en virtuell dator, filerna är monterade på rotkatalogen för Jupyter-server (den katalog som visas i JupyterHub), ersätter standardfiler för Azure-anteckningsböcker. När du stänger en virtuell dator med hjälp av den **avstängning** knappen i anteckningsboken Användargränssnittet för Azure-anteckningsböcker återställer standardfiler som.
 

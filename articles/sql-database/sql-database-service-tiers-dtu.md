@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546457"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357227"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i DTU-baserad inköpsmodell
 
-Tjänstnivåer i DTU-baserad inköpsmodell särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer i DTU-baserad inköpsmodell ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
+Tjänstnivåer i DTU-baserad inköpsmodell särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer i DTU-baserad inköpsmodell ger flexibilitet för att ändra storlekar med minimal [stilleståndstid](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/), men det finns en växel under period där anslutningen bryts till databasen under en kort tidsperiod, som kan du minimera med hjälp av logik för omprövning. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
 > SQL Database-hanterad instans stöder inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

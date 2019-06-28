@@ -3,19 +3,19 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: Referensdokumentation för V2.0 Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
-ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 88503c73e2ca9cf04e64ca3a47793e9b10ca325a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389835"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357822"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -27,7 +27,7 @@ Translator Text API V2 kan integreras smidigt i dina program, webbplatser, verkt
 ## <a name="getting-started"></a>Komma igång
 Åtkomst till Translator Text API behöver du [registrera dig för Microsoft Azure](../translator-text-how-to-signup.md).
 
-## <a name="authorization"></a>Auktorisering
+## <a name="authorization"></a>Authorization
 Alla anrop till Translator Text API krävs en prenumerationsnyckel för att autentisera. API: et stöder tre lägen för autentisering:
 
 - En åtkomsttoken. Använd prenumerationsnyckel som refereras i **steg** 9 för att generera en åtkomsttoken genom att göra en POST-begäran till Auktoriseringstjänsten. Se token service-dokumentationen för mer information. Skicka åtkomsttoken till Translator-tjänsten med hjälp av auktoriseringsrubriken eller `access_token` frågeparameter. Åtkomsttoken är giltig i 10 minuter. Skaffa en ny åtkomsttoken var tionde minut och fortsätt att använda samma åtkomst-token för upprepade begäranden under dessa 10 minuter.
@@ -83,7 +83,7 @@ Innehållstyp för svar: application/xml
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning    |Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning    |Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid  |(tom)    |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB|string|
 |text|(tom)   |Krävs. En sträng som representerar text för översättning. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|string|
@@ -91,7 +91,7 @@ Innehållstyp för svar: application/xml
 |till|(tom) |Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|string|
 |contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är text/plain (standard) och text/html. All HTML-kod måste vara en korrekt strukturerad, fullständig element.|DocumentDB|string|
 |category|(tom)   |Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är ”Allmänt”.|DocumentDB|string|
-|Auktorisering|(tom)  |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
+|Authorization|(tom)  |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|string|
 
 
@@ -188,9 +188,9 @@ Innehållstyp för svar: application/xml
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)) |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
+|Authorization|(tom)) |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -229,11 +229,11 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
 |Nationella inställningar|(tom) |Krävs. En sträng som representerar en kombination av en ISO 639 gemener kultur för två bokstäver kod som är associerad med ett språk och en ISO 3166 två bokstäver versaler subkultur kod för att hitta Språknamnen eller en ISO 639 gemener Kulturkod ensamt.|DocumentDB|string|
-|Auktorisering|(tom)  |Krävs om fältet appid eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)  |Krävs om fältet appid eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om fältet appid eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -263,10 +263,10 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
-|Auktorisering|(tom)  |Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)  |Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -296,10 +296,10 @@ Innehållstyp för svar: application/xml
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
-|Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
  
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -328,14 +328,14 @@ Innehållstyp för svar: application/xml
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
 |text|(tom)   |Krävs. En sträng som innehåller en mening eller meningar för angivna språket som ska läsas för wave-dataström. Storleken på texten som ska tala får inte överskrida 2 000 tecken.|DocumentDB|string|
 |language|(tom)   |Krävs. En sträng som representerar den språkkod som stöds för att tala texten i. Koden måste finnas i listan över koder som returneras från metoden `GetLanguagesForSpeak`.|DocumentDB|string|
 |format|(tom)|Valfri. En sträng som anger innehållstypen-ID. För närvarande `audio/wav` och `audio/mp3` är tillgängliga. Standardvärdet är `audio/wav`.|DocumentDB|string|
 |options|(tom)    |<ul><li>Valfri. En sträng som anger egenskaperna för syntetiskt tal:<li>`MaxQuality` och `MinSize` är tillgängliga för att ange ljud signaler kvalitet. Med `MaxQuality`, du kan hämta röster med högsta kvalitet och `MinSize`, du kan hämta röster med den minsta storleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` är tillgängliga för att ange den önskade kön för röst. Standardvärdet är `female`. Använder vertikalstreck <code>\|</code> till innehåller flera alternativ. Till exempel `MaxQuality|Male`.</li></li></ul> |DocumentDB|string|
-|Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -364,11 +364,11 @@ Innehållstyp för svar: application/xml
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)  |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
 |text|(tom)|Krävs. En sträng som innehåller text vars språk ska identifieras. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB| string|
-|Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key  |(tom)    |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -419,10 +419,10 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
-|Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller auktoriseringsrubrik har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -453,19 +453,19 @@ Innehållstyp för svar: program: xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp   |
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp   |
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
 |originalText|(tom)|Krävs. En sträng som innehåller texten att översätta från. Strängen har en maximal längd på 1000 tecken.|DocumentDB|string|
 |translatedText|(tom) |Krävs. En sträng som innehåller översatt text på språket som mål. Strängen har en maximal längd på 2 000 tecken.|DocumentDB|string|
 |from|(tom)   |Krävs. En sträng som representerar språkkoden för Översättningstext. en = engelska, de = tyska osv...|DocumentDB|string|
 |till|(tom)|Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|string|
-|rating|(tom) |Valfri. Ett heltal som representerar den kvalitet klassificeringen för den här strängen. Värde mellan -10 och 10. Standardvärdet är 1.|DocumentDB|heltal|
+|rating|(tom) |Valfri. Ett heltal som representerar den kvalitet klassificeringen för den här strängen. Värde mellan -10 och 10. Standardvärdet är 1.|DocumentDB|integer|
 |contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är ”text/plain” och ”text/html”. All HTML-kod måste vara en korrekt strukturerad, fullständig element.   |DocumentDB|string|
 |category|(tom)|Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är ”Allmänt”.|DocumentDB|string|
 |Användare|(tom)|Krävs. En sträng som används för att spåra avsändaren av överföringen.|DocumentDB|string|
 |URI: N|(tom)|Valfri. En sträng som innehåller innehållsplats av denna översättning.|DocumentDB|string|
-|Auktorisering|(tom)|Krävs om fältet appid eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.    |sidhuvud|string|
+|Authorization|(tom)|Krävs om fältet appid eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.    |sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -530,9 +530,9 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
+|Authorization|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -557,18 +557,18 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/BreakSente
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 En matris med heltal som representerar längden på meningarna. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
 
-heltal
+integer
 
 Innehållstyp för svar: application/xml 
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)  |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB| string|
 |text|(tom)   |Krävs. En sträng som representerar texten som ska delas upp i meningar. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|string|
 |language   |(tom)    |Krävs. En sträng som representerar språkkoden för indatatext.|DocumentDB|string|
-|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.    |sidhuvud|string|
+|Authorization|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.    |sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -657,14 +657,14 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
 |appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|string|
 |text|(tom)|Krävs. En sträng som representerar text för översättning. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|string|
 |from|(tom)|Krävs. En sträng som representerar språkkoden för Översättningstext.|DocumentDB|string|
 |till |(tom)    |Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|string|
-|maxTranslations|(tom)|Krävs. Ett heltal som representerar det maximala antalet översättningar ska returneras.|DocumentDB|heltal|
-|Auktorisering| (tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|string| sidhuvud|
+|maxTranslations|(tom)|Krävs. Ett heltal som representerar det maximala antalet översättningar ska returneras.|DocumentDB|integer|
+|Authorization| (tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|string| sidhuvud|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -777,9 +777,9 @@ Innehållstyp för svar: application/xml
  
 ### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering  |(tom)    |Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
+|Authorization  |(tom)    |Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden

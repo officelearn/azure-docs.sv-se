@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: 45ac1eb484d5e301a9090ea5a11165ba321b0aaa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 63f6156e6e1a94c49b2147f7c25da35c247c701d
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274958"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331879"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-täckning av appar i Metro 
 > [!div class="op_single_selector"]
@@ -38,9 +38,9 @@ Den här artikeln visar en lista över aktuella Metros som innehåller point of 
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Nordamerika | Toronto, Kanada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Phoenix, AZ, USA<br />San Antonio, TX, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico City, Mexico<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Philadelphia, PA, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
+| Nordamerika | Toronto, Kanada<br />Vancouver, Kanada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, OR, USA<br />San Antonio, TX, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico City, Mexico<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Philadelphia, PA, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
 | Sydamerika | Campinas, Brazil<br />Rio de Janeiro, Brasilien<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
-| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsinki, Finland<br />Marseille, France<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Barcelona, Spanien<br />Madrid, Spain<br />Stockholm, Sverige<br />Zürich, Schweiz<br />London, Storbritannien<br />Manchester, UK | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spain<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
+| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Sofia, Bulgarien<br />Zagreb, Kroatien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsinki, Finland<br />Marseille, France<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Lisbon, Portugal<br />Bukarest, Rumänien<br />Barcelona, Spanien<br />Madrid, Spain<br />Stockholm, Sverige<br />Zürich, Schweiz<br />London, Storbritannien<br />Manchester, UK | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spain<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
 | Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
 | Indien | Chennai, Indien<br />Hyderabad, Indien<br />Mumbai, India<br />New Delhi i Indien | Bengaluru (Bangalore) (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien<br /> | Indien |

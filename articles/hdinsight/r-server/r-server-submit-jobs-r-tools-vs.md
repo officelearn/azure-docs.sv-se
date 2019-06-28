@@ -2,22 +2,22 @@
 title: Skicka jobb från R Tools för Visual Studio - Azure HDInsight
 description: Skicka R-jobb från din lokala Visual Studio-dator till ett HDInsight-kluster.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d977d5a25db0cbe641179bce860e9f67c60f29ab
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702280"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340807"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
-[R Tools för Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) är en kostnadsfri, open source-tillägg för Community (kostnadsfritt), Professional och Enterprise-versionerna av båda [Visual Studio 2017](https://www.visualstudio.com/downloads/), och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)eller högre.
+[R Tools för Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) är en kostnadsfri, open source-tillägg för Community (kostnadsfritt), Professional och Enterprise-versionerna av båda [Visual Studio 2017](https://www.visualstudio.com/downloads/), och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)eller högre. RTVS är inte tillgänglig för [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiva fönstret](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (kodifyllning), [Rita visualisering](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) via R-bibliotek, till exempel ggplot2 och ggviz, [Felsökning av R-kod](https://docs.microsoft.com/visualstudio/rtvs/debugging), med mera.
 
@@ -48,7 +48,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiv
 
 ## <a name="execute-local-r-methods"></a>Köra lokala R-metoder
 
-1. Skapa din [ML-tjänster för HDInsight-kluster](r-server-get-started.md).
+1. Skapa ML-tjänster för HDInsight-kluster.
 2. Installera den [RTVS tillägget](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Ladda ned den [exempel zip-fil](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Öppna `examples/Examples.sln` att starta lösningen i Visual Studio.
@@ -65,15 +65,9 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiv
 
 Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY kan du skapa en beräkningskontext som ska köra distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` att skapa beräkningskontext, ange ditt användarnamn, Apache Hadoop-klustrets kantnod, SSH växlar och så vidare.
 
-1. För att hitta värdnamnet för din edge-nod, öppna fönstret kluster HDInsight ML-tjänster på Azure och välj sedan **Secure Shell (SSH)** på menyn överst i fönstret Översikt.
+1. Gränsnodsadressen ML-tjänster på HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net` där `CLUSTERNAME` är namnet på klustret ML-tjänster.
 
-    ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
-
-2. Kopiera den **värddatornamn för Gränsnod** värde.
-
-    ![Värddatornamn för gränsnod](./media/r-server-submit-jobs-r-tools-vs/edge-node.png)
-
-3. Klistra in följande kod i det interaktiva R fönstret i Visual Studio, ändra värdena för variablerna installationen så att den matchar din miljö.
+1. Klistra in följande kod i det interaktiva R fönstret i Visual Studio, ändra värdena för variablerna installationen så att den matchar din miljö.
 
     ```R
     # Setup variables that connect the compute context to your HDInsight cluster
@@ -103,7 +97,7 @@ Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY k
     
     ![Ange Spark-kontexten](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
 
-4. Kör följande kommandon i R interaktiva fönstret:
+1. Kör följande kommandon i R interaktiva fönstret:
 
     ```R
     rxHadoopCommand("version") # should return version information
@@ -115,7 +109,7 @@ Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY k
 
     ![Lyckad rx Kommandokörning](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
 
-5. Kontrollera att den `rxHadoopCopy` kunde kopieras den `people.json` filen från mappen exempel data till den nyligen skapade `/user/RevoShare/newUser` mapp:
+1. Kontrollera att den `rxHadoopCopy` kunde kopieras den `people.json` filen från mappen exempel data till den nyligen skapade `/user/RevoShare/newUser` mapp:
 
     1. Från fönstret din ML-tjänster för HDInsight-kluster i Azure, väljer **lagringskonton** på den vänstra menyn.
 
@@ -131,7 +125,7 @@ Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY k
 
         ![Kopierade filen](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. Du måste stoppa när du är klar med den aktuella Apache Spark-kontexten. Du kan inte köra flera sammanhang på samma gång.
+1. Du måste stoppa när du är klar med den aktuella Apache Spark-kontexten. Du kan inte köra flera sammanhang på samma gång.
 
     ```R
     rxStopEngine(mySparkCluster)
@@ -141,4 +135,4 @@ Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY k
 
 * [Alternativ för beräkningskontexter för ML-tjänster på HDInsight](r-server-compute-contexts.md)
 * [Kombinera ScaleR och SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) innehåller ett exempel på flygbolag flyg.
-<!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->
+

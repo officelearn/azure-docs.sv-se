@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2019
+ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a58d2b235757faf760539f514ea349e33e12b41
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963978"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310004"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -190,46 +190,7 @@ Etablering jobbet tas bort från karantänen när alla felaktiga fel korrigeras 
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Hur lång tid tar det för att etablera användare?
 
-Prestanda beror på om din Etableringsjobbet körs en inledande synkronisering eller en inkrementell synkronisering.
-
-För **inledande synkroniseringar**, jobbtiden beror på många faktorer, bland annat hur många användare och grupper i omfånget för etablering, och det totala antalet användare och grupper i källsystemet. En omfattande lista över faktorer som påverkar prestanda för den inledande synkroniseringen sammanfattas senare i det här avsnittet.
-
-För **inkrementella synkroniseringar**, jobbtiden beror på antalet ändringar som har identifierats i den synkroniseringscykel. Om det finns färre än 5 000 användare eller ändringar i gruppmedlemskap, kan jobbet slutförs inom en enda inkrementell synkroniseringscykel. 
-
-I följande tabell sammanfattas synkroniseringstider för vanliga scenarier för etablering. I dessa scenarier källsystemet är Azure AD och målsystemet är ett SaaS-program. Synkroniseringstiderna härleds från en statistiska analyser av Synkroniseringsjobb för SaaS-program, ServiceNow, arbetsplats, Salesforce och G Suite.
-
-
-| Omfattningskonfigurationen | Användare, grupper och medlemmar i omfånget | Den inledande synkroniseringstiden | Inkrementell synkronisering |
-| -------- | -------- | -------- | -------- |
-| Synkronisera tilldelade användare och grupper bara |  < 1,000 |  < 30 minuter | < 30 minuter |
-| Synkronisera tilldelade användare och grupper bara |  1 000 – 10 000 | 142 - 708 minuter | < 30 minuter |
-| Synkronisera tilldelade användare och grupper bara |   10,000 - 100,000 | 1,170 - 2,340 minuter | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  < 1,000 | < 30 minuter  | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  1 000 – 10 000 | < 30-120 minuter | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  10,000 - 100,000  | 713 - 1,425 minuter | < 30 minuter |
-| Synkronisera alla användare i Azure AD|  < 1,000  | < 30 minuter | < 30 minuter |
-| Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 - 86 minuter | < 30 minuter |
-
-
-För konfigurationen **synkronisering tilldelade användare och grupper bara**, du kan använda följande formler för att fastställa ungefärlig minimum och maximum som förväntat **inledande synkronisering** gånger:
-
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
-Sammanfattning av faktorer som påverkar den tid det tar för att slutföra en **inledande synkronisering**:
-
-- Det totala antalet användare och grupper i omfånget för etablering.
-
-- Det totala antalet användare, grupper och medlemmar i gruppen finns i källsystemet (Azure AD).
-
-- Om användare inom omfånget för etablering matchas mot befintliga användare i målprogrammet eller måste skapas för första gången. Synkroniseringsjobb som alla användare skapas för första gången tar ungefär *dubbelt så länge* som Synkronisera jobb som alla användare matchas mot befintliga användare.
-
-- Antal fel i den [granskningsloggar](check-status-user-account-provisioning.md). Prestanda är långsammare om det finns många fel och etableringstjänsten är i ett tillstånd i karantän.    
-
-- Begära hastighetsbegränsningar och begränsning implementeras av målsystemet. Vissa målsystem implementerar begäran hastighetsbegränsningar och begränsningar, vilket kan påverka prestanda under stora synkroniseringsåtgärder. Under dessa förhållanden kan en app som tar emot för många begäranden för snabbt långsam dess konverteringsfrekvensen eller stänga anslutningen. Anslutningen måste justera genom att inte skicka appförfrågningar snabbare än appen kan bearbeta dem för att förbättra prestanda. Etablering anslutningsverktyg som bygger Microsoft göra den här justering. 
-
-- Antalet och storleken på tilldelade grupper. Det tar längre tid än synkronisera användare att synkronisera tilldelade grupper. Prestanda kan påverkas av både antalet och storleken på de tilldelade grupperna. Om ett program har [mappningar som aktiverats för gruppen objektsynkronisering](customize-application-attributes.md#editing-group-attribute-mappings), egenskaper som gruppnamn och medlemskap har synkroniserats och användare. Dessa ytterligare synkroniseringar tar längre tid än att bara synkronisera användarobjekt.
-
+Prestanda beror på om din Etableringsjobbet körs en inledande etablering cykel eller en inkrementell cykel. Information om hur länge etablering tar och hur du övervakar statusen för etableringstjänsten finns i [Kontrollera status för användaretablering](application-provisioning-when-will-provisioning-finish-specific-user.md). 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hur vet jag om användare har etablerats korrekt?
 
@@ -255,7 +216,7 @@ Ett exempel stegvisa distributionsplan för utgående användaretablering för e
 
 Ja, det är möjligt att använda Azure AD-användare etablera tjänsten för att etablera B2B (eller gäst) användare i Azure AD SaaS-program.
 
-SaaS-program måste dock för B2B-användare att logga in på SaaS-program med hjälp av Azure AD kan ha sin SAML-baserad enkel inloggning förmåga konfigurerats i ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare, se [konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+SaaS-program måste dock för B2B-användare att logga in på SaaS-program med hjälp av Azure AD kan ha sin SAML-baserad enkel inloggning förmåga konfigurerats i ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med dynamiska grupper i Azure AD?
 

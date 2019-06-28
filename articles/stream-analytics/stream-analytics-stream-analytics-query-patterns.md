@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761973"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329618"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -437,7 +437,12 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -655,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Indata**:  
 
-| DeviceId | Tid | Attribut | Värde |
+| DeviceId | Tid | Attribut | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |
@@ -695,6 +700,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Förklaring**: [Antal (DISTINKTA tid)](/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen tid inom ett tidsintervall. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
+
+## <a name="geofencing-and-geospatial-queries"></a>Geofencing och geospatiala frågor
+Azure Stream Analytics har inbyggda geospatiala funktioner som kan användas för att implementera scenarier, t.ex hantering av vagnpark, trampa delning, anslutna bilar och spårning av tillgångar. Geospatiala data samlas in i GeoJSON eller WELL-KNOWN format som en del av händelseström eller refererar till data. Mer information finns i den [Geofencing och geospatiala aggregering scenarier med Azure Stream Analytics](geospatial-scenarios.md) artikeln.
+
+## <a name="language-extensibility-through-javascript-and-c"></a>Språk-utökningsbarhet via JavaScript ochC#
+Azure Stream Ananlytics fråga langugae kan utökas med anpassade funktioner som är skrivna i JavaScript eller C# språk. Mer information finns i foolowing artiklar:
+* [Azure Stream Analytics JavaScript-användardefinierade funktioner](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics JavaScript-användardefinierade aggregeringar](stream-analytics-javascript-user-defined-aggregates.md)
+* [Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Få hjälp
 

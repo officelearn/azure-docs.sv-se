@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723615"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340685"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Reliable Collection-objekt-serialisering i Azure Service Fabric
 Tillförlitliga samlingar replikera och bevara sina objekt att kontrollera att de är beständig mellan datorn fel och strömavbrott.
@@ -55,7 +55,7 @@ Reliable State Manager har inbyggda serialisering för följande typer:
 
 Anpassade serializers används ofta för att öka prestanda eller för att kryptera data i rörelse och på disk. En av anledningarna är anpassade serializers ofta mer effektiva än allmänna serialiserare eftersom de inte behöver att serialisera information om vilken typ. 
 
-[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialisering för den angivna typen T. Denna registrering ska inträffa i konstruktion StatefulServiceBase så att alla Reliable Collections innan återställningen påbörjas har åtkomst till relevanta serialiserare att läsa deras beständiga data.
+[IReliableStateManager.TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialisering för den angivna typen T. Denna registrering ska inträffa i konstruktion StatefulServiceBase så att alla Reliable Collections innan återställningen påbörjas har åtkomst till relevanta serialiserare att läsa deras beständiga data.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +73,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Så här implementerar du en anpassad serialiserare
 
-En anpassad serialiserare måste implementera de [IStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) gränssnitt.
+En anpassad serialiserare måste implementera de [IStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) gränssnitt.
 
 > [!NOTE]
-> IStateSerializer<T> innehåller en överlagring för Skriv- och läsåtgärder som tar en ytterligare ton kallas basvärdet. Detta API är för differentiell serialisering. Differentiell serialisering funktionen exponeras för närvarande inte. Dessa två överlagringar kallas därför inte förrän differentiell serialisering är tillgängliga och aktiverade.
+> IStateSerializer\<T > innehåller en överlagring för Skriv- och läsåtgärder som tar en ytterligare ton kallas basvärdet. Detta API är för differentiell serialisering. Differentiell serialisering funktionen exponeras för närvarande inte. Dessa två överlagringar kallas därför inte förrän differentiell serialisering är tillgängliga och aktiverade.
 
 Följande är ett exempel anpassade typer kallas OrderKey som innehåller fyra egenskaper
 

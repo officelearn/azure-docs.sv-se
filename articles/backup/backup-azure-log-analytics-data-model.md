@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234982"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342017"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
 
@@ -50,7 +50,7 @@ Den här tabellen innehåller information om aviseringen relaterade fält.
 | OperationName |Text |Namnet på den aktuella åtgärden, till exempel avisering |
 | Category |Text |Kategori för diagnostikdata som skickas till Azure Monitor-loggar. Alltid AzureBackupReport |
 | Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
-| ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med aviseringen |
+| ProtectedContainerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med aviseringen (var ProtectedServerUniqueId_s i V1)|
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet som är associerade med aviseringen |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
 | ResourceId |Text |Unik identifierare för resursen om vilka data som samlas in. Till exempel ett Recovery Services-valv resurs-id |
@@ -67,10 +67,12 @@ Den här tabellen innehåller information om säkerhetskopiering objekt-relatera
 | --- | --- | --- |
 | EventName_s |Text |Händelsens namn. Alltid AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Unik identifierare för det säkerhetskopierade objektet |
-| BackupItemId_s |Text |Identifierare för säkerhetskopieringsobjekt |
+| BackupItemId_s |Text |Identifierare för säkerhetskopieringsobjekt (det här fältet är endast för v1-schemat) |
 | BackupItemName_s |Text |Namnet på säkerhetskopieringsobjektet |
 | BackupItemFriendlyName_s |Text |Eget namn på säkerhetskopieringsobjekt |
 | BackupItemType_s |Text |Typ av säkerhetskopieringsobjekt, till exempel VM FileFolder |
+| BackupItemProtectionState_s |Text |Skyddsstatus för det säkerhetskopierade objektet |
+| BackupItemAppVersion_s |Text |Programversion för säkerhetskopieringsobjektet |
 | ProtectionState_s |Text |Aktuell status för skydd av säkerhetskopieringsobjekt, till exempel skyddade, ProtectionStopped |
 | ProtectionGroupName_s |Text | Namnet på Skyddsgruppen Säkerhetskopieringsobjekt är skyddad, för SC DPM och MABS, om tillämpligt|
 | SecondaryBackupProtectionState_s |Text |Om sekundärt skydd är aktiverat för säkerhetskopieringsobjektet|
@@ -103,8 +105,7 @@ Den här tabellen innehåller information om säkerhetskopieringsobjekt associat
 | Category |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - BackupItemAssociation |
 | Resource |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
-| PolicyUniqueId_g |Text |Unikt ID för principen som är associerade med säkerhetskopieringsobjektet |
-| ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med säkerhetskopieringsobjektet |
+| ProtectedContainerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med säkerhetskopieringsobjekt (var ProtectedServerUniqueId_s i V1) |
 | VaultUniqueId_s |Text |Unik identifierare för det valv som innehåller säkerhetskopieringsobjektet |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
 | ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
@@ -249,13 +250,14 @@ Den här tabellen innehåller standardfält om skyddade behållare. (Var Protect
 | ProtectedContainerOSType_s |Text |OS-typ för behållaren skyddade |
 | ProtectedContainerOSVersion_s |Text |OS-versionen av skyddade behållaren |
 | AgentVersion_s |Text |Versionsnumret för agenten säkerhetskopiering eller Skyddsagenten (när det gäller SC DPM och MABS) |
-| BackupManagementType_s |Text |Typ av provider för att utföra säkerhetskopieringen exempelvis IaaSVM FileFolder |
-| EntityState_s |Text |Aktuell status för skyddade server-objekt till exempel aktiv, har tagits bort |
+| BackupManagementType_s |Text |Providertyp för att utföra säkerhetskopieringen. Till exempel IaaSVM FileFolder |
+| EntityState_s |Text |Skyddad server objektets aktuella tillstånd. Till exempel aktiv, har tagits bort |
 | ProtectedContainerFriendlyName_s |Text |Eget namn på skyddad server |
 | ProtectedContainerName_s |Text |Namnet på den skyddade behållaren |
-| ProtectedContainerWorkloadType_s |Text |Typ av behållaren skyddade säkerhetskopieras till exempel IaaSVMContainer |
+| ProtectedContainerWorkloadType_s |Text |Typ av behållaren skyddade säkerhetskopieras. Till exempel IaaSVMContainer |
 | ProtectedContainerLocation_s |Text |Oavsett om behållaren skyddade finnas lokalt eller i Azure |
 | ProtectedContainerType_s |Text |Om den skyddade behållare är en server eller en behållare |
+| ProtectedContainerProtectionState_s’  |Text |Skyddsstatus för den skyddade behållaren |
 
 ### <a name="storage"></a>Storage
 
@@ -263,7 +265,7 @@ Den här tabellen innehåller information om storage-relaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Decimaltal |Säkerhetskopiering molnlagring som används av säkerhetskopieringar, beräknas baserat på senaste värde |
+| CloudStorageInBytes_s |Decimaltal |Säkerhetskopiering molnlagring som används av säkerhetskopieringar, beräknas baserat på senaste värdet (det här fältet är endast för v1-schemat)|
 | ProtectedInstances_s |Decimaltal |Antalet skyddade instanser som används för att beräkna frontend-lagring i fakturering, beräknad baserat på senaste värdet |
 | EventName_s |Text |Det här fältet representerar namnet på den här händelsen, är det alltid AzureBackupCentralReport |
 | SchemaVersion_s |Text |Det här fältet anger aktuella versionen av schemat, är det **V2** |
@@ -280,6 +282,10 @@ Den här tabellen innehåller information om storage-relaterade fält.
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
 | ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
+| StorageUniqueId_s |Text |Unikt Id som används för att identifiera entiteten lagring |
+| StorageType_s |Text |Typ av lagring, till exempel molnet, volym, Disk |
+| StorageName_s |Text |Namnet på entiteten för lagring, till exempel E:\ |
+| StorageTotalSizeInGBs_s |Text |Total storlek på lagring i GB som används av storage-entitet|
 
 ### <a name="storageassociation"></a>StorageAssociation
 
@@ -342,7 +348,7 @@ Den här tabellen anger workload(s) en volym som är associerad med.
 
 ### <a name="protectedinstance"></a>ProtectedInstance
 
-Den här tabellen innehåller grundläggande skyddade instanser relaterade fält.
+Den här tabellen innehåller grundläggande skyddade instanser-relaterade fält.
 
 | Fält | Datatyp |Versioner som är tillämpliga | Beskrivning |
 | --- | --- | --- | --- |

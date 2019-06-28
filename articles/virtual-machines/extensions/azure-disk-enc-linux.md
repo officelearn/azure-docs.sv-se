@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051709"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295338"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -34,7 +34,7 @@ En fullständig lista över krav, se [krävs för Azure Disk Encryption](
 
 ### <a name="operating-system"></a>Operativsystem
 
-Azure Disk Encryption stöds för närvarande på väljer distributioner och versioner.  Se den [Azure Disk Encryption vanliga frågor och svar](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) lista över Linux-distributioner som stöds.
+Azure Disk Encryption stöds för närvarande på väljer distributioner och versioner.  Se den [Azure Disk Encryption operativsystem som stöds: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) lista över Linux-distributioner som stöds.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -154,7 +154,7 @@ Med hjälp av `AADClientCertificate`:
 | (valfritt) KeyVaultURL | url | string |
 | Lösenfras | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS-, Data, alla | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Malldistribution
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068770"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294920"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -29,43 +29,6 @@ Azure Disk Encryption GA stöder Azure Resource Manager-mallar, Azure PowerShell
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Hur mycket kostar Azure Disk Encryption?
 
 Det är kostnadsfritt för att kryptera Virtuella diskar med Azure Disk Encryption men det kostar som är associerade med hjälp av Azure Key Vault. Mer information om kostnader för Azure Key Vault finns i den [prissättning för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) sidan.
-
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Vilka nivåer för virtual Machines har stöd för Azure Disk Encryption?
-
-Azure Disk Encryption är tillgängliga på standard-nivån virtuella datorer, inklusive [A, D, DS, E, G, GS och F](https://azure.microsoft.com/pricing/details/virtual-machines/) serien virtuella IaaS-datorer. Det är också tillgänglig för virtuella datorer med premium storage. Det är inte tillgängligt i basic-nivån virtuella datorer.
-
-## <a name="bkmk_LinuxOSSupport"></a> Vilka Linux-distributioner har stöd för Azure Disk Encryption?
-
-Azure Disk Encryption stöds för en delmängd av den [Azure-godkända Linux-distributioner](../virtual-machines/linux/endorsed-distros.md), vilket är en delmängd av alla Linux-servern möjliga distributioner till sig själv.
-
- ![Venn-Diagram Linux server-distributioner som har stöd för Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Linux-server-distributioner som inte godkänts av Azure stöder inte Azure Disk Encryption och endast följande distributioner och versioner av dessa som godkänts, stöd för Azure Disk Encryption:
-
-| Linux-distribution | Version | Volymtyp som stöds för kryptering|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS- och disk |
-| Ubuntu | 16.04| OS- och disk |
-| Ubuntu | 14.04.5</br>[med Azure justerade kernel uppdateras till 4.15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
-| RHEL | 7.6 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.5 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.4 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.3 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.2 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 6.8 | Datadisk (Se kommentaren nedan) |
-| RHEL | 6.7 | Datadisk (Se kommentaren nedan) |
-| CentOS | 7.5 | OS- och disk |
-| CentOS | 7.4 | OS- och disk |
-| CentOS | 7.3 | OS- och disk |
-| CentOS | 7.2n | OS- och disk |
-| CentOS | 6.8 | Datadisk |
-| openSUSE | 42.3 | Datadisk |
-| SLES | 12-SP4 | Datadisk |
-| SLES | 12-SP3 | Datadisk |
-
-> [!NOTE]
-> Ny ADE implementeringen har stöd för RHEL-OS- och datadisk för RHEL7 betala per användning-avbildningar. ADE stöds för närvarande inte för RHEL Bring-Your-Own-prenumeration (BYOS)-avbildningar. Se [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) för mer information.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hur kan jag börja använda Azure Disk Encryption?
 

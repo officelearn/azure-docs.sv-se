@@ -1,18 +1,18 @@
 ---
 title: API-servern behörighet IP-intervall i Azure Kubernetes Service (AKS)
-description: Lär dig hur du säkra kluster med en IP-adressintervall för åtkomst till API-server i Azure Kubernetes Service (AKS)
+description: Lär dig att skydda ditt kluster med ett IP-adressintervall för åtkomst till API-server i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ec48c8ed924293a5ffea903fe03a9830dcd1184
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475151"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329424"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Förhandsgranskning – säker API-servern med behörighet till IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -30,34 +30,38 @@ Den här artikeln visar hur du använder API-servern behörighet IP-adressinterv
 
 API-servern auktoriserade IP-intervall endast arbete för nya AKS-kluster som du skapar. Den här artikeln visar hur du skapar ett AKS-kluster med Azure CLI.
 
-Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
 
-CLI-kommandon för att konfigurera IP-intervall för API-servern behörighet är tillgängliga i den *aks-förhandsversion* CLI-tillägg. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot, som visas i följande exempel:
+Om du vill konfigurera IP-intervall för API-servern behörighet, måste den *aks-förhandsversion* CLI tilläggsversion 0.4.1 eller högre. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] kommando:
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Om du tidigare har installerat den *förhandsversionen av aks* tillägg, installera alla tillgängliga uppdateringar med hjälp av den `az extension update --name aks-preview` kommando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-feature-flag-for-your-subscription"></a>Registrera funktionsflagga för din prenumeration
 
-Om du vill använda API: et server behörighet IP-intervall måste du först aktivera en funktionsflagga i prenumerationen. Att registrera den *APIServerSecurityPreview* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Om du vill använda API: et server behörighet IP-intervall måste du först aktivera en funktionsflagga i prenumerationen. Att registrera den *APIServerSecurityPreview* funktion flaggan, använda den [az funktionen registrera][az-feature-register] kommandot som visas i följande exempel:
+
+> [!CAUTION]
+> När du registrerar en funktion i en prenumeration kan du inte för närvarande avregistrera den funktionen. När du aktiverar vissa funktioner i förhandsversion, kan standardinställningar användas för alla AKS-kluster som skapas i prenumerationen. Inte aktivera förhandsversionsfunktioner för produktion-prenumerationer. Använd en separat prenumeration för att testa funktioner och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan][az-feature-list] kommando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register] [ az-provider-register] kommando:
+När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -81,7 +85,7 @@ Läs mer om API-servern och andra klusterkomponenter [Kubernetes viktiga begrepp
 
 API-servern behörighet IP-intervall fungerar bara för nya AKS-kluster. Du kan inte aktivera auktoriserade IP-adressintervall som en del av klustret för att skapa. Om du försöker aktivera skapandeprocessen av auktoriserade IP-adressintervall som en del av klustret, noderna i klustret kan inte komma åt API-servern under distributionen eftersom den utgående IP-adressen har inte definierats i det här läget.
 
-Börja med att skapa ett kluster som använder den [az aks skapa] [ az-aks-create] kommando. I följande exempel skapas ett enkelnods-kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*.
+Börja med att skapa ett kluster som använder den [az aks skapa][az-aks-create] kommando. I följande exempel skapas ett enkelnods-kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*.
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -105,7 +109,7 @@ Skapa en Azure-brandväggen för användning som en utgående gateway för att s
 > [!WARNING]
 > Användning av Azure-brandväggen kan medföra betydande kostnader via en månatlig faktureringsperiod. Kravet på att använda Azure-brandväggen bör endast vara nödvändigt i den här inledande förhandsversionsperioden. Mer information och planera för kostnaden, finns i [priser för Azure-brandvägg][azure-firewall-costs].
 
-Hämta först det *MC_* resursgruppens namn för AKS-klustret och det virtuella nätverket. Skapa sedan ett undernät med hjälp av den [az network vnet-undernät skapa] [ az-network-vnet-subnet-create] kommando. I följande exempel skapas ett undernät med namnet *AzureFirewallSubnet* med CIDR-intervall för *10.200.0.0/16*:
+Hämta först det *MC_* resursgruppens namn för AKS-klustret och det virtuella nätverket. Skapa sedan ett undernät med hjälp av den [az network vnet-undernät skapa][az-network-vnet-subnet-create] kommando. I följande exempel skapas ett undernät med namnet *AzureFirewallSubnet* med CIDR-intervall för *10.200.0.0/16*:
 
 ```azurecli-interactive
 # Get the name of the MC_ cluster resource group
@@ -127,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-Om du vill skapa en Azure-brandvägg, installera den *azure-brandväggen* CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommando. Skapa sedan en brandvägg med hjälp av den [az nätverksbrandvägg skapa] [ az-network-firewall-create] kommando. I följande exempel skapas en Azure-brandvägg med namnet *myAzureFirewall*:
+Om du vill skapa en Azure-brandvägg, installera den *azure-brandväggen* CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create] kommando. I följande exempel skapas en Azure-brandvägg med namnet *myAzureFirewall*:
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -139,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-En Azure-brandväggen har tilldelats en offentlig IP-adress som utgående trafik flödar genom. Skapa en offentlig adress med hjälp av den [az nätverket offentliga ip-skapa] [ az-network-public-ip-create] kommandot och sedan skapa en IP-konfiguration på brandväggen med hjälp av den [az nätverket brandväggen ip-config skapa] [ az-network-firewall-ip-config-create] som gäller den offentliga IP:
+En Azure-brandväggen har tilldelats en offentlig IP-adress som utgående trafik flödar genom. Skapa en offentlig adress med hjälp av den [az nätverket offentliga ip-skapa][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] som gäller den offentliga IP:
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -158,7 +162,7 @@ az network firewall ip-config create \
     --public-ip-address myAzureFirewallPublicIP
 ```
 
-Nu har skapat Azure brandväggsregeln nätverk till *Tillåt* alla *TCP* trafik med hjälp av den [az nätverket nätverk-brandväggsregel skapa] [ az-network-firewall-network-rule-create] kommandot. I följande exempel skapas en regel med namnet *AllowTCPOutbound* för trafik med en käll- eller målservrar adress:
+Nu har skapat Azure brandväggsregeln nätverk till *Tillåt* alla *TCP* trafik med hjälp av den [az nätverket nätverk-brandväggsregel skapa][az-network-firewall-network-rule-create] kommandot. I följande exempel skapas en regel med namnet *AllowTCPOutbound* för trafik med en käll- eller målservrar adress:
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -192,7 +196,7 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
 K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
-Skapa slutligen en väg i befintliga AKS nätverk vägen tabellen med den [az network route-table route skapa] [ az-network-route-table-route-create] kommando som tillåter trafik att använda Azure brandväggsinstallation för API-servern kommunikation.
+Skapa slutligen en väg i befintliga AKS nätverk vägen tabellen med den [az network route-table route skapa][az-network-route-table-route-create] kommando som tillåter trafik att använda Azure brandväggsinstallation för kommunikation mellan API-server.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -212,7 +216,7 @@ Anteckna offentliga IP-adressen för din Azure-brandväggsinstallation. Den här
 
 Om du vill aktivera IP-intervall för API-servern behörighet, kan du ange en lista över godkända IP-adressintervall. När du anger en CIDR-intervall kan du börja med den första IP-adressen i intervallet. Till exempel *137.117.106.90/29* är ett giltigt intervall, men se till att du anger den första IP-adressen i intervallet, till exempel *137.117.106.88/29*.
 
-Använd [az aks uppdatera] [ az-aks-update] kommandot och ange den *--api-server-behörighet-ip-adressintervall* att tillåta. Dessa IP-adressintervall är vanligtvis adressintervall som används av dina lokala nätverk. Lägg till offentliga IP-adressen för din egen Azure-brandväggen hämtades i föregående steg, till exempel *20.42.25.196/32*.
+Använd [az aks uppdatera][az-aks-update] kommandot och ange den *--api-server-behörighet-ip-adressintervall* att tillåta. Dessa IP-adressintervall är vanligtvis adressintervall som används av dina lokala nätverk. Lägg till offentliga IP-adressen för din egen Azure-brandväggen hämtades i föregående steg, till exempel *20.42.25.196/32*.
 
 I följande exempel aktiveras API-servern behörighet IP-intervall på klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. IP-adressintervall att auktorisera är *20.42.25.196/32* (Azure-brandväggen offentliga IP-adress), sedan *172.0.0.10/16* och *168.10.0.10/18*:
 
@@ -225,7 +229,7 @@ az aks update \
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Uppdatera eller inaktivera auktoriserade IP-adressintervall
 
-Om du vill uppdatera eller inaktivera auktoriserade IP-adressintervall, du återigen att använda [az aks uppdatera] [ az-aks-update] kommando. Ange den uppdaterade CIDR-intervall som du vill tillåta eller ange ett tomt intervall att inaktivera API-servern behörighet IP-adressintervall som du ser i följande exempel:
+Om du vill uppdatera eller inaktivera auktoriserade IP-adressintervall, du återigen att använda [az aks uppdatera][az-aks-update] kommando. Ange den uppdaterade CIDR-intervall som du vill tillåta eller ange ett tomt intervall att inaktivera API-servern behörighet IP-adressintervall som du ser i följande exempel:
 
 ```azurecli-interactive
 az aks update \
@@ -238,7 +242,7 @@ az aks update \
 
 Du har aktiverat API-servern behörighet IP-intervall i den här artikeln. Den här metoden är en del av hur du kan köra ett säkert kluster i AKS.
 
-Mer information finns i [säkerhetsbegrepp för program och -kluster i AKS] [ concepts-security] och [bästa praxis för Klustersäkerhet och uppgraderingar i AKS] [ operator-best-practices-cluster-security].
+Mer information finns i [säkerhetsbegrepp för program och -kluster i AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
@@ -265,3 +269,5 @@ Mer information finns i [säkerhetsbegrepp för program och -kluster i AKS] [ co
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-update]: /cli/azure/extension#az-extension-update

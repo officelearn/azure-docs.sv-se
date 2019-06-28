@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205671"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331982"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -81,7 +81,7 @@ Om det virtuella nätverket är peerkopplat med ett annat virtuellt nätverk, ka
 
 ### <a name="udrs-and-nsgs"></a>Udr och NSG: er
 
-Nätverkssäkerhetsgrupper (NSG) med ett nexthop kan inte användas som delegerad undernät för Azure NetApp-filer. På samma sätt stöds användardefinierade vägar (Udr) inte också. 
+Användardefinierade vägar (Udr) och nätverkssäkerhetsgrupper (NSG) stöds inte i delegerade undernät för Azure NetApp-filer.
 
 Du kan använda NSG: er för andra undernät som antingen tillåter eller nekar trafik till och från Azure NetApp Files delegerad undernätet som en lösning.  
 

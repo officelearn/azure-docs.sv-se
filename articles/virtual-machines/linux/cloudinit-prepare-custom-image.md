@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a64fb40c905fbe98dc594ab3626666723d1628d0
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627945"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357273"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med cloud-init
 Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den för att vara omdistribuerade och redo att använda cloud-init. Bilden kan användas för att distribuera en ny virtuell dator eller VM-skalningsuppsättningar – vilket kan sedan anpassas ytterligare genom cloud-init vid tidpunkten för distribution.  Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure. Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)
@@ -65,19 +65,14 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
-sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
-systemctl daemon-reload
 cloud-init clean
 ```
-Tillåt endast Azure som en datakälla för Azure Linux Agent genom att skapa en ny fil `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` med hjälp av ett redigeringsprogram med följande rader:
+
+Tillåt endast Azure som en datakälla för Azure Linux Agent genom att skapa en ny fil `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` med hjälp av ett redigeringsprogram med följande rad:
 
 ```bash
 # Azure Data Source config
 datasource_list: [ Azure ]
-datasource:
-   Azure:
-     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
 Om din befintliga Azure avbildningen har en växlingsfil som konfigurerats och du vill ändra konfigurationen för swap-fil för nya avbildningar med cloud-init, måste du ta bort befintliga växlingsfilen.

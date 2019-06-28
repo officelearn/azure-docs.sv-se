@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507228"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296290"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure-portalen
 
@@ -109,14 +106,6 @@ Du kan lägga till taggar till resursgrupper och resurser och organisera dem log
 ## <a name="export-resource-groups-to-templates"></a>Exportera resursgrupper till mallar
 
 Information om hur du exporterar mallar finns i [enstaka och flera resurs export till mall - Portal](export-template-portal.md).
-
-### <a name="fix-export-issues"></a>Åtgärda exportproblem
-
-Alla resurstyper stöder inte funktionen för mallexport. Du kan bara se exportera problem när du exporterar från en resursgrupp i stället för från distributionshistoriken. Om din senaste distribution korrekt representerar resursgruppens aktuella tillstånd exporterar du mallen från distributionshistoriken i stället för från resursgruppen. Exportera bara från en resursgrupp när du har gjort ändringar i resursgruppen som inte har definierats i en enda mall.
-
-Om du vill åtgärda exportproblem genom att manuellt lägga till resurserna som saknas i mallen. Felmeddelandet innehåller de resurstyper som inte kan exporteras. Leta reda på resurstypen i [mallreferensen](/azure/templates/). Om du till exempel vill lägga till en virtuell nätverksgateway manuellt kan du läsa [mallreferensen Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). Mallreferensen ger dig JSON som att lägga till resursen i mallen.
-
-När du har fått JSON-format för resursen som du behöver hämta resurs-värden. Du kan se värdena för resursen med hjälp av GET-åtgärden i REST API för resurstypen. Till exempel om du vill hämta värdena för din virtuella nätverksgateway, se [virtuella Nätverksgatewayer - hämta](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resursgrupper
 

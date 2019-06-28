@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d6fa30fc781ffe2a9f387f7c9eb4c27eaacc77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344097"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338242"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure-dokumentation
 
@@ -34,10 +34,9 @@ Följ anvisningarna som ges i [Installera innehållsredigeringsverktyg](https://
 
 ## <a name="license"></a>Licens
 
-All licensinformation finns i [LICENS](.github/LICENSE), [LICENSKOD](.github/LICENSE-CODE) och [ThirdPartyNotices](.github/ThirdPartyNotices.md).
+All licensinformation finns i [LICENS](LICENSE), [LICENSKOD](LICENSE-CODE) och [ThirdPartyNotices](ThirdPartyNotices.md).
 
 ## <a name="code-of-conduct"></a>Uppförandekod
 
 Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/).
 Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [opencode@microsoft.com](mailto:opencode@microsoft.com) om du har några andra frågor eller kommentarer.
-

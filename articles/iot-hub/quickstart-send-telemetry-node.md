@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: b99ed85495e00282c6a27f42b5817e46f4736720
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/21/2019
+ms.openlocfilehash: d254eaa6a2de680fccb03b82de8510af9d0e5fd4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597513"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330485"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läsa den med ett serverdelsprogram (Node.js)
 
@@ -86,12 +86,12 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name YourIoTHubName --output table
+    az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
     ```
 
     Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Du kommer att använda det här värdet senare i snabbstarten. Tjänstanslutningssträngen skiljer sig från enhetsanslutningssträngen.
 

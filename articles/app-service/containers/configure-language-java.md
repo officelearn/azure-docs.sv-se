@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063857"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341375"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -60,6 +60,43 @@ Om programmet använder [Logback](https://logback.qos.ch/) eller [Log4j](https:/
 ### <a name="troubleshooting-tools"></a>Verktyg för felsökning
 
 De inbyggda Java-avbildningarna är baserade på den [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operativsystem. Använd den `apk` package manager för att installera alla felsökning verktyg eller kommandon.
+
+### <a name="flight-recorder"></a>Svart låda
+
+Alla Linux Java-avbildningar på App Service har Zulu svart låda installerad så kan du enkelt ansluta till JVM och starta en profiler spela in eller generera en heap dump.
+
+#### <a name="timed-recording"></a>Tidsinställda inspelning
+
+Komma igång, SSH till din App Service och kör den `jcmd` kommando för att se en lista över alla Java-processer som körs. Du bör se ditt Java-program som körs med ett process-ID (pid) utöver jcmd själva.
+
+```shell
+078990bbcd11:/home# jcmd
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+147 sun.tools.jcmd.JCmd
+116 /home/site/wwwroot/app.jar
+```
+
+Kör kommandot nedan för att starta en 30 sekunder inspelning av JVM. Det här JVM-profilen och skapa en JFR-fil med namnet `jfr_example.jfr` i arbetskatalogen. (Ersätt 116 med process-ID för din Java-app).
+
+```shell
+jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
+```
+
+Du kan verifiera inspelningen under 30 andra intervallet, sker genom att köra `jcmd 116 JFR.check`. Det här alternativet visas alla inspelningar för den angivna Java-processen.
+
+#### <a name="continuous-recording"></a>Kontinuerlig registrering
+
+Du kan använda Zulu svart låda du kontinuerligt Profilera ditt Java-program med minimal påverkan på runtime-prestanda ([källa](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Du gör detta genom att köra följande Azure CLI-kommando för att skapa en App-inställning med namnet JAVA_OPTS med den nödvändiga konfigurationen. Innehållet i JAVA_OPTS Appinställningen skickas till den `java` kommandot när appen startas.
+
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Mer information finns i den [Jcmd kommandoreferens](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+### <a name="analyzing-recordings"></a>Analysera inspelningar
+
+Använd [FTPS](../deploy-ftp.md) hämtningen JFR till den lokala datorn. Om du vill analysera filen JFR, ladda ned och installera [Zulu Sambandscentral](https://www.azul.com/products/zulu-mission-control/). Anvisningar för Zulu Sambandscentral finns i den [Azul dokumentation](https://docs.azul.com/zmc/) och [Installationsinstruktioner](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Anpassning och justering
 

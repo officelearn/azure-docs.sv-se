@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058551"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331311"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -414,3 +414,12 @@ För närvarande är Azure Dev blanksteg avsedd att köras på Linux-poddar och 
 
 ### <a name="try"></a>Testa
 [Lägg till en färg](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) till AKS-klustret för att se till att Linux poddar inte är schemalagda att köras på en Windows-nod.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Fel som ”finns inga untainted Linux-noder i tillståndet klar på klustret. Det måste finnas minst en untainted Linux-noden redo att distribuera poddar i namnrymden 'azds ””.
+
+### <a name="reason"></a>Reason
+
+Azure Dev blanksteg kunde inte skapa en domänkontrollant på AKS-klustret eftersom det inte gick att hitta en untainted nod i ett *redo* tillstånd för att schemalägga poddar på. Azure Dev blanksteg kräver minst en Linux-nod i ett *redo* tillstånd som tillåter för att schemalägga poddar utan att ange tolerations.
+
+### <a name="try"></a>Testa
+[Uppdatera din färg konfiguration](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) på AKS-kluster för att se till att minst en Linux noden kan schemaläggas poddar utan att ange tolerations. Kontrollera också att minst en Linux-nod som tillåter schemaläggning av poddar utan att ange tolerations finns i den *redo* tillstånd. Om noden tar lång tid att nå den *redo* tillstånd, kan du starta om noden.

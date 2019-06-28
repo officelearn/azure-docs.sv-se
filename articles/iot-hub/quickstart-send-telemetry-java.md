@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 52e221088a7b12551636ecdc81532448f38eb26c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59004791"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330453"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs den med ett serverdelsprogram (Java)
 
@@ -87,7 +87,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabbstarten.
 
-3. Du behöver också den _Event Hubs-kompatibla slutpunkten_, den _Event Hubs-kompatibla sökvägen_ och _iothubowner-primärnyckeln_ från din IoT-hubb för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
+3. Du måste också den _Event Hubs-kompatibla slutpunkten_, _Event Hubs-kompatibla sökväg_, och _primär nyckel för tjänstens_ från IoT hub att ge backend-programmet Anslut till din IoT-hubb och hämta meddelanden. Följande kommandon hämtar dessa värden för din IoT-hubb:
 
      **YourIoTHubName: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
@@ -96,7 +96,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Anteckna dessa tre värden, vilka du komer att använda senare i snabbstarten.
@@ -135,12 +135,11 @@ Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på 
 
 2. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** i en textredigerare som du väljer. Uppdatera följande variabler och spara ändringarna i filen.
 
-    | Variabel | Värde |
+    | Variabel | Value |
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Ersätt värdet för variabeln med den Event Hubs-kompatibla slutpunkt du antecknade tidigare. |
     | `eventHubsCompatiblePath`     | Ersätt värdet för variabeln med den Event Hubs-kompatibla sökväg du antecknade tidigare. |
-    | `iotHubSasKey`                | Ersätt värdet för variabeln med den iothubowner-primärnyckel du antecknade tidigare. |
-
+    | `iotHubSasKey`                | Ersätt värdet för variabeln med den primära nyckeln för tjänsten du antecknade tidigare. |
 
 3. I det lokala terminalfönstret kör du följande kommandon för att installera de bibliotek som krävs och skapa serverdelsprogrammet:
 

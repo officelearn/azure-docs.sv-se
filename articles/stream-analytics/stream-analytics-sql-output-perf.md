@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771659"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341760"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-utdata till Azure SQL Database
 
@@ -39,7 +39,7 @@ Här följer några konfigurationer inom varje tjänst som bidrar till att förb
 
 - **Partitionerade tabeller och index** – med hjälp av en [partitionerade](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) kan avsevärt minska contentions mellan SQL-tabell och partitionerade index för tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionId) partitioner under skrivåtgärder. För en partitionerad tabell måste du skapa en [partitionsfunktioner](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och en [partitionsschema](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära filgruppen. Detta ökar också tillgängligheten för befintliga data medan nya data läses. Logg-i/o-begränsning kan träffa baserat på antalet partitioner som kan utökas genom att uppgradera SKU: N.
 
-- **Undvika unika nyckelfel** – om du får [flera felet varningsmeddelanden](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) i aktivitetsloggen för Azure Stream Analytics, se till att jobbet inte påverkas av unik begränsning överträdelser som kan inträffa under återställning fall. Detta kan undvikas genom att ange den [IGNORERA\_Duplicera\_nyckel](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) alternativet på ditt index.
+- **Undvika unika nyckelfel** – om du får [flera felet varningsmeddelanden](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i aktivitetsloggen för Azure Stream Analytics, se till att jobbet inte påverkas av unik begränsning överträdelser som kan inträffa under återställning fall. Detta kan undvikas genom att ange den [IGNORERA\_Duplicera\_nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) alternativet på ditt index.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
 

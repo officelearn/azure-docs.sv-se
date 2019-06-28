@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951306"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357086"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -212,6 +212,33 @@ I följande tabell visar ett exempel på vad som händer när du uppdaterar info
 I det här exemplet antar vi att klienten växlar till läsning från den sekundära regionen på T5. Det kan läsa den **administratörsroll** entiteten just nu, men entitet som innehåller ett värde för antalet administratörer som inte stämmer överens med antalet **medarbetare** entiteter som är markerad som administratörer i den sekundära regionen just nu. Klienten kan bara visa det här värdet med risk att den är inkonsekvent information. Du kan också klienten kan försöka fastställa som den **administratörsroll** är i ett eventuellt inkonsekvent tillstånd eftersom uppdateringarna vara har fel ordning och informera användaren om detta.
 
 Att identifiera att den har potentiellt inkonsekventa data kan klienten använda värdet för den *senaste synkroniseringstid* att du kan få när som helst genom att fråga en lagringstjänst. Anger det tiden när data i den sekundära regionen senast konsekvent och när tjänsten har tillämpat alla transaktioner före den punkten i tiden. I exemplet som visas ovan, när tjänsten infogar den **medarbetare** entitet i den sekundära regionen, den senaste synkronisering är inställd på *T1*. Den ligger kvar på *T1* tills tjänstuppdateringar den **medarbetare** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den senaste synkronisering när det läser entiteten vid *T5*, det kan jämföra den med tidsstämpeln på entiteten. Om tidsstämpeln på entiteten är senare än den senaste synkronisering, sedan entiteten är i ett eventuellt inkonsekvent tillstånd du kan vidta för det som är lämplig åtgärd för ditt program. Använda det här fältet krävs att du vet när den senaste uppdateringen av primärt slutfördes.
+
+## <a name="getting-the-last-sync-time"></a>Hämta den senaste synkroniseringstid
+
+Du kan använda PowerShell eller Azure CLI för att hämta den senaste synkronisering för att avgöra när data skrevs senast till sekundärt.
+
+### <a name="powershell"></a>PowerShell
+
+Kontrollera storage-konto för att hämta den senaste synkronisering för storage-konto med hjälp av PowerShell, **GeoReplicationStats.LastSyncTime** egenskapen. Kom ihåg att ersätta platshållarvärdena med dina egna värden:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+Kontrollera storage-konto för att hämta den senaste synkronisering för storage-konto med hjälp av Azure CLI, **geoReplicationStats.lastSyncTime** egenskapen. Använd den `--expand` parametern för att returnera värden för egenskaperna kapslat under **geoReplicationStats**. Kom ihåg att ersätta platshållarvärdena med dina egna värden:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Testning
 

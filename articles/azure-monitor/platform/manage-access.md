@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782810"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295506"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -278,7 +278,7 @@ Se [definiera per tabell åtkomstkontroll](#table-level-rbac) nedan om du vill s
 ## <a name="table-level-rbac"></a>Tabellen nivå RBAC
 **Tabellen nivå RBAC** kan du tillhandahålla mer detaljerad kontroll till data i Log Analytics-arbetsytan utöver behörigheterna som helst. Den här kontrollen kan du definiera specifika datatyper som är bara tillgängliga för en specifik uppsättning användare.
 
-Du implementerar tabell åtkomstkontroll med [Azure anpassade roller](../../role-based-access-control/custom-roles.md) antingen bevilja eller neka åtkomst till specifika [tabeller](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) på arbetsytan. Dessa roller tillämpas på arbetsytor med antingen arbetsytan-centric eller resurs-centric [åtkomst kontroll lägen](#access-control-mode) oavsett användarens [åtkomstläge](#access-modes).
+Du implementerar tabell åtkomstkontroll med [Azure anpassade roller](../../role-based-access-control/custom-roles.md) antingen bevilja eller neka åtkomst till specifika [tabeller](../log-query/logs-structure.md) på arbetsytan. Dessa roller tillämpas på arbetsytor med antingen arbetsytan-centric eller resurs-centric [åtkomst kontroll lägen](#access-control-mode) oavsett användarens [åtkomstläge](#access-modes).
 
 Skapa en [anpassad roll](../../role-based-access-control/custom-roles.md) med följande åtgärder för att definiera åtkomst till tabellen åtkomstkontroll.
 

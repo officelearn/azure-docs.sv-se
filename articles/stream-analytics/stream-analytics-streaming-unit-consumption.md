@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206715"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329342"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera Direktuppspelningsenheter
 
-Strömningsenheter (su) representerar de beräkningsresurser som allokeras för att köra ett jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Den här kapaciteten kan du fokusera på där frågans logik och sammanfattningar att behöva hantera maskinvara för att köra din Stream Analytics-jobb inom rimlig.
+Strömningsenheter (su) representerar de beräkningsresurser som allokeras för att köra ett Stream Analytics-jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Den här kapaciteten kan du fokusera på där frågans logik och sammanfattningar att behöva hantera maskinvara för att köra din Stream Analytics-jobb inom rimlig.
 
 För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. Det direktuppspelade jobbet misslyckas när slut på minne. Därför för ett produktionsjobb är det viktigt att övervaka Resursanvändning för en strömningsuppgift och kontrollera att det finns tillräckligt med resurser allokeras så att de jobb som körs 24/7.
 
@@ -85,7 +85,7 @@ Till exempel i följande fråga, hur många som är associerade med `clusterid` 
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-För att åtgärda problem som orsakas av hög kardinalitet i den föregående frågan kan du skicka händelser till Event Hub partitioneras efter `clusterid`, och skala ut frågan genom att låta systemet för att bearbeta varje indatapartitionen separat enligt våra **PARTITION GENOM att** som visas i exemplet nedan:
+För att undvika eventuella problem som orsakas av hög kardinalitet i den föregående frågan kan du skicka händelser till Event Hub partitioneras efter `clusterid`, och skala ut frågan genom att låta systemet för att bearbeta varje indatapartitionen separat enligt våra **PARTITION GENOM att** som visas i exemplet nedan:
 
    ```sql
    SELECT count(*) 

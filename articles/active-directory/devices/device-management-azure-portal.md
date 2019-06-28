@@ -2,29 +2,23 @@
 title: Så här hanterar du enheter med hjälp av Azure-portalen | Microsoft Docs
 description: Lär dig hur du använder Azure-portalen för att hantera enheter.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730445"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341414"
 ---
-# <a name="manage-device-identity-using-the-azure-portal"></a>Hantera enhetsidentitet med Azure portal
+# <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med Azure portal
 
 Med identity enhetshantering i Azure Active Directory (AD Azure), kan du se till att dina användare kommer åt dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad.
 
@@ -65,19 +59,19 @@ Inställningssidan för enheten kan du konfigurera:
 
 - **Användare kan ansluta enheter till Azure AD** – den här inställningen kan du välja vilka användare som kan registrera sina enheter som [Azure AD join enheter](overview.md#azure-ad-joined-devices). Standardvärdet är **alla**.
 
->[!NOTE]
+> [!NOTE]
 > **Användare kan ansluta enheter till Azure AD** inställningen gäller endast för Azure AD join i Windows 10.
 
 - **Ytterligare lokala administratörer på Azure AD-anslutna enheter** – du kan välja de användare som har beviljats behörighet som lokal administratör på en enhet. Användare som läggs till här läggs till i *Enhetsadministratörer* roll i Azure AD. Globala administratörer i Azure AD och enhetsägare beviljas lokal administratörsbehörighet som standard. Det här alternativet är en premium edition funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS).
-- **Användare kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen för att tillåta Windows 10 personal-, iOS-, Android- och macOs-enheter ska vara [registrerad](overview.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera med Azure AD. Registrering med Microsoft Intune eller Mobile Device Management (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** har valts och **NONE** är inte tillgänglig.
-- **Kräver Multi-Factor Authentication att ansluta enheter** – du kan välja om användare måste ange en andra autentiseringsfaktor till [join](overview.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering när du registrerar en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du se till att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns i [komma igång med Azure Multi-Factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Användare kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen för att tillåta Windows 10 personal-, iOS-, Android- och macOs-enheter ska vara [registrerad](overview.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera med Azure AD. Registrering med Microsoft Intune eller Mobile Device Management (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** har valts och **NONE** är inte tillgänglig. Om du har aktiverat den här inställningen från Intune och sedan alternativ här nedtonade.
+- **Kräver Multi-Factor Authentication att ansluta enheter** – du kan välja om användare måste ange en andra autentiseringsfaktor till [join](overview.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering när du registrerar en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att Azure Multi-Factor Authentication har konfigurerats för de användare som registrerar sina enheter. Mer information finns i artikeln [distribution av Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md). 
 
->[!NOTE]
+> [!NOTE]
 > **Kräver Multi-Factor Authentication att ansluta enheter** inställningen gäller inte för hybrid Azure AD-anslutna enheter.
 
 - **Högsta antalet enheter** – den här inställningen kan du välja det maximala antalet enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de att inte lägga till ytterligare enheter förrän en eller flera av de befintliga enheterna har tagits bort. Kvoten för enheter räknas för alla enheter som är ansluten till Azure AD eller Azure AD-registrerade idag. Standardvärdet är **20**.
 
->[!NOTE]
+> [!NOTE]
 > **Högsta antalet enheter** inställningen gäller inte för hybrid Azure AD-anslutna enheter.
 
 - **Användarna kan synkronisera inställningar och AppData på enheter** -som standard är inställningen **NONE**. Välja specifika användare eller grupper eller alla kan användarens inställningar och AppData att synkronisera via sina Windows 10-enheter. Läs mer om hur synkroniseringen fungerar i Windows 10.

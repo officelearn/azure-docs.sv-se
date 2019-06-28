@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275629"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310775"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -114,7 +114,7 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 1. I valvets instrumentpanel klickar du på **infrastruktur för säkerhetskopiering**.
 2. Klicka på **Säkerhetskopieringshanteringsservrar** att visa servrar.
 
-    ![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![Välj valvet för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Högerklicka på objektet > **ta bort**.
 4. På den **ta bort** menyn skriver du namnet på servern och på **ta bort**.
@@ -124,7 +124,7 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 
 > [!NOTE]
 > Om du vill ta bort objekt i hanteringskonsolen för servern eller i MARS-konsolen på en skyddad server, stoppa skyddet och ta bort säkerhetskopior. Om säkerhetskopieringsobjekt kvar, visas följande felmeddelande när du försöker ta bort och avregistrera servern:
-> 
+>
 >![Borttagningen misslyckades](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. Om du vill kontrollera att ta bort jobbet har slutförts, kontrollera den Azure-meddelanden ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png).
@@ -159,8 +159,8 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 
 > [!NOTE]
 > Säkerhetskopiera objekt som är associerade med en hanteringsserver för säkerhetskopiering eller Azure Backup Agent-server måste tas bort innan de server-registreringar tas bort. Navigera till SC DPM, MABS eller MARS-hanteringskonsolen på servern som är tillämpligt för att ta bort säkerhetskopieringsobjekt och välja relevant att stoppa skyddet och ta bort säkerhetskopior. Om några objekt att säkerhetskopiera är fortfarande associerade, visas följande fel:
-> 
-> 
+>
+>
 >![Borttagningen misslyckades](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. Om du vill kontrollera att ta bort jobbet har slutförts, kontrollera den Azure-meddelanden ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png).

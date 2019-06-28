@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
-ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: e51a3f9971006a0b50cec1abdc5e955d06c23466
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467416"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295854"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Skapa ditt första serverlösa program med Azure Logic Apps och Azure Functions – Visual Studio
 
@@ -34,7 +34,6 @@ Om du vill skapa en app utan server i Visual Studio, behöver du följande objek
 
     > [!IMPORTANT]
     > När du installerar Visual Studio 2019 eller 2017, kontrollera att du väljer den **Azure development** arbetsbelastning.
-    > För Visual Studio-2019 Cloud Explorer öppnas Logic App Designer i Azure-portalen, men ännu inte kan öppna den inbäddade Logic App Designer.
 
   * [Microsoft Azure SDK för .NET (2.9.1 eller senare)](https://azure.microsoft.com/downloads/). 
   Läs mer om [Azure SDK för .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
@@ -128,6 +127,9 @@ Nu när lösningen har distribuerats i resursgruppen, måste du öppna din logik
 
    ![Öppna ”azuredeploy.json” i Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
+
 1. Efter den **egenskaper för Logikapp** visas rutan och om det inte redan är valt under **prenumeration**, Välj din Azure-prenumeration. Under **resursgrupp**, Välj den resursgrupp och plats där du har distribuerat din lösning och välj sedan **OK**.
 
    ![Egenskaper för logikapp](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
@@ -153,6 +155,9 @@ För logic apps som redan har distribuerats i Azure kan du fortfarande redigera,
 1. Under **alla prenumerationer**, ange den prenumeration som är associerade med logikappar som du vill hantera och välj **tillämpa**.
 
 1. Under **Logikappar**, Välj din logikapp. Appens snabbmenyn och välj **öppna med Logic App Editor**.
+
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kan du kontrollera att du har de senaste uppdateringarna för Visual Studio.
 
 Du kan nu hämta redan publicerat logikappen till ditt resursgrupp-projekt. Så även om du kanske har startat en logikapp i Azure-portalen kan kan du fortfarande importera och hantera appen i Visual Studio. Mer information finns i [hantera logic apps i Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 

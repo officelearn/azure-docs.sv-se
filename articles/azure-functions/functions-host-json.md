@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521398"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310472"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
@@ -147,7 +147,7 @@ En lista över funktioner som värd för jobb körs. En tom matris innebär att 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mellan 1 sekund till 10 minuter i en serverlös förbrukningsplan och standardvärdet är 5 minuter. Det finns ingen övergripande gräns i en App Service-plan och standard beroende av runtime-versionen. I version 2.x, standardvärdet för en App Service-planen är 30 minuter. I version 1.x, är det *null*, vilket anger att ingen tidsgräns.
+Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mellan 1 sekund till 10 minuter i en serverlös förbrukningsplan och standardvärdet är 5 minuter. Det finns ingen övergripande gräns i en dedikerad App Service-plan och standardvärdet är 30 minuter. Värdet `-1` anger obundna körning.
 
 ```json
 {

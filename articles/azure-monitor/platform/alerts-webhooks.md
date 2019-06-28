@@ -72,24 +72,24 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 | Fält | Obligatorisk | Fast uppsättning värden | Anteckningar |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktiverat, löst |Status för aviseringen baserat på villkor du anger. |
-| Kontext |Y | |I aviseringssammanhanget. |
+| context |Y | |I aviseringssammanhanget. |
 | timestamp |Y | |Den tid då aviseringen utlöstes. |
 | id |Y | |Varje varningsregeln har ett unikt ID. |
 | name |Y | |Aviseringens namn. |
 | description |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått- och. Måttaviseringar baseras på en måttvillkor. Aviseringar baseras på en händelse i aktivitetsloggen. Använd det här värdet om du vill kontrollera om aviseringen är baserad på ett mått eller på en händelse. |
 | condition |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
-| MetricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
+| metricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
 | metricUnit |För aviseringar för mått |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För aviseringar för mått | |Det faktiska värdet för det mått som orsakade aviseringen. |
-| Tröskelvärde |För aviseringar för mått | |Tröskelvärdet då aviseringen har aktiverats. |
-| Fönsterstorlek |För aviseringar för mått | |Tidsperioden som används för att övervaka Aviseringsaktivitet baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i ISO 8601-format för varaktighet. |
+| threshold |För aviseringar för mått | |Tröskelvärdet då aviseringen har aktiverats. |
+| windowSize |För aviseringar för mått | |Tidsperioden som används för att övervaka Aviseringsaktivitet baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i ISO 8601-format för varaktighet. |
 | timeAggregation |För aviseringar för mått |Genomsnittlig, senaste, högsta, Minimum, None, totalt |Hur ska de data som samlas in kombineras med tiden. Standardvärdet är medelvärde. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| Operator |För aviseringar för mått | |Den operator som används för att jämföra den aktuella måttdata till det angivna tröskelvärdet. |
+| operator |För aviseringar för mått | |Den operator som används för att jämföra den aktuella måttdata till det angivna tröskelvärdet. |
 | subscriptionId |Y | |Azure-prenumerations-ID. |
 | resourceGroupName |Y | |Namnet på resursgruppen för resursen som påverkas. |
 | resourceName |Y | |Resursnamnet för resursen som påverkas. |
-| ResourceType |Y | |Resurstypen för resurser som påverkas. |
+| resourceType |Y | |Resurstypen för resurser som påverkas. |
 | resourceId |Y | |Resurs-ID för resursen som påverkas. |
 | resourceRegion |Y | |Den region eller plats för resurser som påverkas. |
 | portalLink |Y | |En direktlänk till sammanfattningssidan portal resurs. |

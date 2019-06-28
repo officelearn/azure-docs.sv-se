@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2cf65f9ee920b50af6242cee6b53cd07e53f0bc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072538"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467023"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Snabbstart: Skapa en röst-första virtuella assistenter med Speech-SDK för Java
 
@@ -23,21 +23,18 @@ Snabbstarter kan också användas för [tal till text](quickstart-java-jre.md) o
 
 I den här artikeln skapar du ett Java-konsolprogram med hjälp av den [Cognitive Services tal SDK](speech-sdk.md). Programmet ansluter till en tidigare skapade robot som konfigurerats för att använda tal för Direct Line-kanal, skicka en förfrågan om röst och returnera en röst svar aktivitet (om konfigurerad). Programmet har byggts med tal SDK Maven-paketet och Java Eclipse IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
 * Operativsystem: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bitars) och macOS 10.13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* En Azure-prenumeration-nyckel för Taltjänster i den **westus2** region. Skapa den här prenumerationen på den [Azure-portalen](https://portal.azure.com).
+* En Azure-prenumeration-nyckel för Speech Services. [Skaffa ett kostnadsfritt](get-started.md) eller skapa den på den [Azure-portalen](https://portal.azure.com).
 * En förkonfigurerad robot som skapats med Bot Framework version 4.2 eller senare. Roboten måste prenumerera på den nya ”Direct Line tal”-kanalen för att ta emot röst indata.
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande endast tillgängliga i den **westus2** region.
-
-    > [!NOTE]
-    > En 30-dagars utvärderingsversion för standardprisnivån som beskrivs i [testa Speech Services kostnadsfritt](get-started.md) är begränsad till **westus** (inte **westus2**) och är därför inte kompatibel med direktanslutning Rad tal. Nivåerna kostnadsfri och standard **westus2** prenumerationer är kompatibla.
+    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#Voice-first virtual assistants) och se till att resurserna distribueras i någon av dessa regioner.
 
 Om du kör Ubuntu 16.04/18.04, kontrollera att dessa beroenden är installerade innan du startar Eclipse:
 
@@ -82,8 +79,8 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -142,62 +139,59 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
     }
     ```
 
-1. I den **huvudsakliga** metod, ska du först konfigurera din `BotConnectorConfig` och använda den för att skapa en `SpeechBotConnector` instans. Detta kommer att ansluta till den direktlinje tal kanalen för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljudinspelning. I det här exemplet används standard-mikrofon med `AudioConfig.fromDefaultMicrophoneInput()`.
+1. I den **huvudsakliga** metod, ska du först konfigurera din `DialogServiceConfig` och använda den för att skapa en `DialogServiceConnector` instans. Detta kommer att ansluta till den direktlinje tal kanalen för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljudinspelning. I det här exemplet används standard-mikrofon med `AudioConfig.fromDefaultMicrophoneInput()`.
 
     * Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel som du kan hämta från [här](get-started.md).
     * Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med prenumerationen.
     * Ersätt strängen `YourChannelSecret` med din direktlinje tal kanal hemlighet.
 
     > [!NOTE]
-    > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
-
-    > [!NOTE]
-    > En 30-dagars utvärderingsversion för standardprisnivån som beskrivs i [testa Speech Services kostnadsfritt](get-started.md) är begränsad till **westus** (inte **westus2**) och är därför inte kompatibel med direktanslutning Rad tal. Nivåerna kostnadsfri och standard **westus2** prenumerationer är kompatibla.
+    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a SpeechjBotConnector instance
-    final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
+    // Create a DialogServiceConnector instance
+    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägga till dessa event lyssnare härnäst.
+1. `DialogServiceConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägga till dessa event lyssnare härnäst.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.canceled.addEventListener((o, canceledEventArgs) -> {
+    connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        botConnector.disconnectAsync();
+        connector.disconnectAsync();
     });
 
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-    botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
+    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
             if (activityEventArgs.hasAudio()) {
@@ -206,15 +200,15 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
         });
     ```
 
-1. Anslut den `SpeechBotConnector` till Direct Line tal genom att aktivera den `connectAsync()` metoden. Om du vill testa din robot, kan du anropa den `listenOnceAsync` metod för att skicka in ljud från mikrofonen. Dessutom kan du kan också använda den `sendActivityAsync` metod för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot ska använda i konversationen.
+1. Anslut den `DialogServiceConnector` till Direct Line tal genom att aktivera den `connectAsync()` metoden. Om du vill testa din robot, kan du anropa den `listenOnceAsync` metod för att skicka in ljud från mikrofonen. Dessutom kan du kan också använda den `sendActivityAsync` metod för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot ska använda i konversationen.
 
     ```java
-    botConnector.connectAsync();
+    connector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
-    botConnector.listenOnceAsync();
+    connector.listenOnceAsync();
 
-    // botConnector.sendActivityAsync(...)
+    // connector.sendActivityAsync(...)
     ```
 
 1. Vill du spara ändringarna i `Main` fil.
@@ -476,13 +470,15 @@ Konsolen visar ett meddelande ”säger något” nu, kan du talar ett engelska 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitHub.
+Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
-> [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Skapa och distribuera en grundläggande bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Se också
 
-- [Snabbstart: Översätta tal, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Om röst första virtuella assistenter](voice-first-virtual-assistants.md)
+- [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
+- [Anpassad aktivering ord](speech-devices-sdk-create-kws.md)
+- [Anslut direkt rad tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)

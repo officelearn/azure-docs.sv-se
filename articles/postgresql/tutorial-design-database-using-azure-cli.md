@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 5/6/2019
-ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/25/2019
+ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073073"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447227"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
@@ -121,15 +121,21 @@ Resultatet är i JSON-format. Anteckna **administratorLogin** och **fullyQualifi
 Om din klientdator har PostgreSQL installerat kan du använda en lokal instans av [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) eller Azure Cloud Console för att ansluta till en Azure PostgreSQL-server. Nu använder vi psql-kommandoradsverktyget för att ansluta till Azure Database för PostgreSQL-servern.
 
 1. Kör följande psql-kommando för att ansluta till en Azure Database for PostgreSQL-databas:
-   ```azurecli-interactive
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
    Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
   
-   ```azurecli-interactive
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > Om du vill använda en URL-sökväg för att ansluta till Postgres URL koda den @-tecknet användarnamn med `%40`. Exempel är anslutningssträngen för psql,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
 2. När du är ansluten till servern skapar du en tom databas:
    ```sql

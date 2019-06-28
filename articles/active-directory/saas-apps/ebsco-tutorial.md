@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fd0ecf67e3e6492fa3e6d9e12379e06ee3f814d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103767"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Självstudier: Azure Active Directory-integrering med EBSCO
 
@@ -34,7 +34,7 @@ Integrera EBSCO med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med EBSCO, behöver du följande objekt:
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
 
     ![image](common/both-preintegrated-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EBSCO klienten supportteamet](mailto:sso@ebsco.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815517"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441609"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudier: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
@@ -35,7 +35,7 @@ Den fullständiga koden finns på [Cognitive Services Face Android](https://gith
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare (krävs av klientbiblioteket för ansiktsigenkänning).
@@ -78,7 +78,7 @@ Kommentera ut anropet till **detectAndFrame** i metoden **onActivityResult**. Tr
 
 ### <a name="add-the-gradle-dependency"></a>Lägga till Gradle-beroende
 
-I fönsterrutan **Project** (Projekt) använder du listrutan för att välja **Android**. Expandera **Gradle Scripts** (Gradle-skript) och öppna sedan *build.gradle (Module: app)*. Lägg till ett beroende för klientbiblioteket för Ansiktsigenkänning, `com.microsoft.projectoxford:face:1.4.3`, enligt skärmbilden nedan, och klicka sedan på **Sync Now** (Synkronisera nu).
+I fönsterrutan **Project** (Projekt) använder du listrutan för att välja **Android**. Expandera **Gradle Scripts** (Gradle-skript) och öppna sedan *build.gradle (Module: app)* . Lägg till ett beroende för klientbiblioteket för Ansiktsigenkänning, `com.microsoft.projectoxford:face:1.4.3`, enligt skärmbilden nedan, och klicka sedan på **Sync Now** (Synkronisera nu).
 
 ![Android Studio-skärmbild på appens build.gradle-fil](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ I fönsterrutan **Project** (Projekt) expanderar du **app** och sedan **manifest
 
 ## <a name="upload-image-and-detect-faces"></a>Ladda upp bilden och identifiera ansikten
 
-Appen identifierar ansikten genom att anropa metoden **FaceServiceClient.detect**, som omsluter REST API för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) och returnerar en lista över **ansiktsförekomster**.
+Din app identifierar ansikten genom att anropa den **faceClient.Face.DetectWithStreamAsync** metod som omsluter den [identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API och returnerar en lista över **ansikte** instanser.
 
 Varje returnerat **ansikte** innehåller en rektangel för att ange dess plats samt en serie med valfria ansiktsattribut. I det här exemplet begärs bara ansiktsrektanglarna.
 

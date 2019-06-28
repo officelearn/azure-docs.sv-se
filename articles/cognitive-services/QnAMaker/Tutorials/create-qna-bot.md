@@ -3,20 +3,20 @@ title: QnA-roboten – Azure Bot Service – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Skapa en chattrobot för frågor och svar från sidan Publicera för en befintlig kunskapsbasen. Den här bot använder Bot Framework SDK-v4. Du inte behöver skriva någon kod för att skapa roboten tillhandahålls all kod åt dig.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/11/2019
-ms.author: tulasim
-ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: tutorial
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053237"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446640"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v4
 
@@ -29,7 +29,7 @@ Skapa en chattrobot för frågor och svar från den **publicera** för en befint
 > * Skapa en Azure Bot Service från en befintlig kunskapsbas
 > * Chatta med roboten att kontrollera koden fungerar 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en publicerad kunskapsbas för den här självstudiekursen. Om du inte har någon, följer du stegen i [skapa och svaret från KB](create-publish-query-in-portal.md) självstudie om du vill skapa en QnA Maker kunskapsbas med frågor och svar.
 
@@ -84,12 +84,6 @@ Skapa en robot som ett klientprogram för kunskapsbasen.
 
     Läs mer om Azure robotar [Använd QnA Maker att besvara frågor](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## <a name="related-to-qna-maker-bots"></a>QnA Maker robotar som rör
-
-* QnA Maker hjälp bot används i QnA Maker-portalen är tillgänglig som en [bot exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
-    ![QnA Maker hjälpikonen bot är röda robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
-* [Hälsovård robotar](https://docs.microsoft.com/HealthBot/qna_model_howto) Använd QnA Maker som en av sina [språkmodeller](https://docs.microsoft.com/HealthBot/qna_model_howto).
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med den här självstudien bot kan du ta bort roboten i Azure-portalen. 
@@ -103,6 +97,16 @@ Om du inte har skapat en ny resursgrupp måste att hitta de resurser som är ass
 * Cognitive service
 * App service
 * Du kan också kan även innehålla application insights-tjänsten och lagring för application insights-data
+
+
+## <a name="related-to-qna-maker-bots"></a>QnA Maker robotar som rör
+
+* QnA Maker hjälp bot används i QnA Maker-portalen är tillgänglig som en [bot exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker hjälpikonen bot är röda robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Hälsovård robotar](https://docs.microsoft.com/HealthBot/qna_model_howto) Använd QnA Maker som en av sina [språkmodeller](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
+
+[!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

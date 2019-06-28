@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897050513449c099ce75c248eef00a38aac98ad9
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534816"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462325"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Strömma data med Azure Event Hubs.
 > * Analysera med Time Series Insights.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du har [konfigurerat](tutorial-facilities-setup.md) och [etablerat](tutorial-facilities-udf.md) Azure Digital Twins-konfigurationen. Innan du fortsätter bör du kontrollera att du har:
 
@@ -52,7 +52,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Ange ett **namn** för Event Hubs-namnområdet. Välj **Standard** som **Prisnivå**, din **prenumeration**, **resursgruppen** du använde för din Digital Twins-instans och **platsen**. Välj **Skapa**.
 
-1. I Event Hubs-namnområdets distribution väljer du namnområdena under **RESOURCE**.
+1. I Event Hubs-namnområde distributionen, väljer du den **översikt** fönstret, välj sedan **gå till resurs**.
 
     ![Event Hubs-namnområde efter distributionen](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -132,17 +132,19 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Sök efter och välj en ny **Time Series Insights**-resurs. Välj **Skapa**.
 
-1. Ange en **namn** på Time Series Insights-instansen och välj sedan din **prenumeration**. Välj **resursgruppen** du använde för din Digital Twins-instans och din **plats**. Välj **Skapa**.
+1. Ange en **namn** på Time Series Insights-instansen och välj sedan din **prenumeration**. Välj **resursgruppen** du använde för din Digital Twins-instans och din **plats**. Välj **Nästa: Händelsekälla** knappen eller **händelsekälla** fliken.
 
     ![Val för att skapa en Time Series Insights-instans](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. När instansen har distribuerats öppnar du Time Series Insights-miljön och öppnar fönstret **Händelsekällor**. Välj knappen **Lägg till** längst upp för att lägga till en konsumentgrupp.
-
-1. I fönstret **Ny händelsekälla** anger du ett **namn** och kontrollerar att de andra värdena är markerade på rätt sätt. Välj **ManageSend** som **Namn på händelsehubbsprincip** och välj sedan den konsumentgrupp du skapade i föregående avsnitt som **händelsehubbkonsumentgrupp**. Välj **Skapa**.
+1. I den **händelsekälla** ange en **namn**väljer **Event Hub** som den **källtyp**, och se till att de andra värdena har valts korrekt. Välj **ManageSend** för **Principnamn för Event Hub åtkomst**, och välj sedan konsumentgrupp som du skapade i föregående avsnitt för **Händelsehubbens konsumentgrupp**. Välj **Granska + skapa**.
 
     ![Val för att skapa en händelsekälla](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Öppna **översiktsfönstret** för din Time Series Insights-miljö och välj knappen för att **gå till miljön** längst upp. Om du får en dataåtkomstvarning öppnar du fönstret **Dataåtkomstprinciper** för din Time Series Insights-instans, väljer **Lägg till**, väljer **Deltagare** som roll och väljer den aktuella användaren.
+1. I den **granska + skapa** , granskar du den information som du har angett och väljer **skapa**.
+
+1. Välj Time Series Insights-resurs som du skapade i fönstret distribution. Den öppnas i **översikt** för din Time Series Insights-miljö.
+
+1. Välj den **går du till miljön** längst upp. Om du får en dataåtkomstvarning öppnar du fönstret **Dataåtkomstprinciper** för din Time Series Insights-instans, väljer **Lägg till**, väljer **Deltagare** som roll och väljer den aktuella användaren.
 
 1. Med knappen för att **gå till miljön** öppnar du [Time Series Insights-utforskaren](../time-series-insights/time-series-insights-explorer.md). Om det inte visas några händelser kan du simulera enhetshändelser genom att bläddra till projektet **device-connectivity** för Digital Twins-exemplet och köra `dotnet run`.
 

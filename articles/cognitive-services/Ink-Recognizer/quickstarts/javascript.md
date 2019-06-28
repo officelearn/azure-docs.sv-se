@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 0dc672f0efc420ab73fd923191c2bd52fb571a4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1785faf718b940794aebc045a3491be45eea03f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056848"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435218"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och JavaScript
 
@@ -28,7 +28,7 @@ Vanligtvis skulle du anropa API från en digital digital penna app. Den här sna
 
 Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
 - Exempel ink linje data för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
@@ -154,19 +154,20 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
         xhttp.setRequestHeader("content-type", "application/json");
         xhttp.send(JSON.stringify(sampleJson));
         };
+        ```
 
-## Run the application and view the response
+## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
 
-This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
+Det här programmet kan köras i webbläsaren. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API-referens](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C# and Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Javascript web-browser app](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java and Android mobile app](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift and iOS mobile app](https://go.microsoft.com/fwlink/?linkid=2089805)
+Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
+* [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java- och Android-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift- och iOS-mobilapp](https://go.microsoft.com/fwlink/?linkid=2089805)

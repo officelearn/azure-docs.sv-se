@@ -3,25 +3,25 @@ title: 'Snabbstart: Hämta lista över språk som stöds- Java – Translator Te
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ba93082d0fc98d18499b5e3154e782d3ffce26ec
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 1c6db84acc2bca8e649f5f7acb1dcbdfd6d1269d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514808"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445130"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Java
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
@@ -103,6 +103,8 @@ Lägg till följande rader i klassen `GetLanguages`:
 ```java
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 

@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: dd8e760e658715b89bf45718ac571ccaeb5ade96
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465572"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
+
+Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,7 +31,7 @@ Om du inte är bekant med Unity rekommenderar vi att du läser [användarhandbok
 > Speech SDK för Unity är för närvarande i betaversion.
 > Den stöder Windows-skrivbordet (x86 och x64) eller Universal Windows Platform (x86, x64, ARM/ARM64) och Android (x86 ARM32/64).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 

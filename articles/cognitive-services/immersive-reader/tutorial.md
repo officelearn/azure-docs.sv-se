@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Starta uppslukande läsaren (Node.js)'
+title: 'Självstudier: Starta Avancerad läsare (Node.js)'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du ett Node.js-program som startar uppslukande läsaren.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 98b46636be321bfe87c08687600894d0c8ab54db
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311710"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444069"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta uppslukande läsaren (Node.js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta Avancerad läsare (Node.js)
 
 I den [översikt](./overview.md), lär du dig om vad uppslukande läsaren är och hur den implementerar beprövade metoder för att förbättra läsbarheten för språk-inlärning, kommande läsare och studenter för att lära dig skillnaderna. Den här självstudien beskriver hur du skapar ett Node.js-webbprogram som startar uppslukande läsaren. I den här guiden får du lära dig att:
 
@@ -30,7 +30,7 @@ I den [översikt](./overview.md), lär du dig om vad uppslukande läsaren är oc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En prenumerationsnyckel för uppslukande läsare. Skaffa en genom att följa [instruktionerna](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 * [Node.js](https://nodejs.org/) och [Yarn](https://yarnpkg.com)
@@ -186,7 +186,7 @@ Du kan inkludera matematiska innehåll i uppslukande läsaren genom att använda
 1. Ändra _views\index.pug_ att inkludera följande kod över anropet till `ImmersiveReader.launchAsync`:
 
     ```javascript
-    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+    const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
       <munderover> \
         <mo>∫</mo> \
         <mn>0</mn> \

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Träna en modell och extrahera formulärdata med hjälp av cURL - formuläret Igenkännande'
+title: 'Snabbstart: Träna en modell och extrahera formulärdata med cURL - formuläret Igenkännande'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du använda formatet Igenkännande REST-API med cURL tränar en modell och extrahera data från formulär.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 144cd0380cfe2a49d5827f9ecc34ed197f4ad1cd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331837"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441816"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -22,11 +22,11 @@ I den här snabbstarten ska du använda Azure formuläret Igenkännande REST-API
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här snabbstarten måste du ha:
 - Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
 - [cURL](https://curl.haxx.se/windows/) installerad.
-- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
+- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [provdatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en resurs för formuläret Igenkännande
 

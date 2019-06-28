@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4d6832346fb25ee09d97575c755cb2d85eb73cbe
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206610"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442586"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Hälsokontrollen för användning i Azure Deployment Manager (förhandsversion)
 
@@ -57,7 +57,7 @@ I produktion använder du vanligtvis en eller flera övervakning providers. Micr
 Följande två filer används för att distribuera Azure-funktion. Du behöver inte ladda ned filerna för att gå igenom självstudien.
 
 * Resource Manager-mall finns i [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Du distribuerar den här mallen om du vill skapa en Azure-funktion.
-* En zip-fil på Azure Function-källkod [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Den här zip kallas anropas av Resource Manager-mallen.
+* En zip-fil på Azure Function-källkod [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Den här zip kallas anropas av Resource Manager-mallen.
 
 För att distribuera Azure-funktion, Välj **prova** att öppna Azure Cloud shell och klistra in följande skript i fönstret shell.  Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**.
 

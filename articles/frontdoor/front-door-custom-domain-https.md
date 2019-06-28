@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520495"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450183"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudie: Lägg till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
@@ -77,12 +77,11 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
 1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som den Front Door där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
- 
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med.
 
 > [!WARNING]
-> </br> – Azure Front Door Service stöder för närvarande endast Key Vault-konton i samma prenumeration som Front Door-konfiguration. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
-> </br> – Azure Front Door Service stöder för närvarande bara certifikat som laddats upp med en PFX **utan** ett lösenord.
+> Azure ytterdörren-tjänsten stöder för närvarande endast Key Vault-konton i samma prenumeration som ytterdörren-konfiguration. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
+
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med.
 
 #### <a name="register-azure-front-door-service"></a>Registrera Azure Front Door Service
 
@@ -141,13 +140,13 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade domännamn och *Värde* är din Front Doors .azurefd.net-standardvärdnamn:
 
-| Namn            | Typ  | Value                 |
+| Namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
 Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
+Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och kommer att malltillägg innan den upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
 Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett supportärende om domänen inte har verifierats inom en timme.
 
@@ -170,7 +169,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter lägger du till admin@digicert.com i listan med tillåtna adresser. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter kan du lägga till admin@digicert.com till sin lista över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
 
 När du klickar på godkännandelänken dirigeras du till ett formulär för godkännande online. Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
@@ -178,7 +177,7 @@ När du klickar på godkännandelänken dirigeras du till ett formulär för god
 
 - Du kan bara godkänna det specifika värdnamn som används i den här begäran. Ytterligare godkännande krävs för efterföljande begäranden.
 
-Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör.
+Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och kommer att malltillägg innan det upphör.
 
 ## <a name="wait-for-propagation"></a>Vänta på spridning
 
@@ -200,7 +199,7 @@ I följande tabell visas åtgärdsförloppet när du aktiverar HTTPS. När du ha
 | 3 Etablering av certifikat | Certifikatutfärdaren håller på att utfärda det certifikat som krävs för att aktivera HTTPS på din domän. |
 | | Certifikatet har utfärdats och håller på att distribueras till din Front Door. Den här processen kan ta upp till 1 timme. |
 | | Certifikatet har distribuerats för din Front Door. |
-| 4 Slutfört | HTTPS har aktiverats på domänen. |
+| 4 Slutfört | HTTPS har aktiverats på din domän. |
 
 \* Det här meddelandet visas bara om ett fel har uppstått. 
 

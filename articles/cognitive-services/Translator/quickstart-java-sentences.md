@@ -3,19 +3,19 @@ title: 'Snabbstart: Hämta meningslängder, Java – Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att fastställa meningslängd med hjälp av Java och Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 748f8cfa1e105b5c6d7b9b3fc073eac9f38a63dd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 252be03bfb0f24f0de5868d64d5add0e635cef34
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514858"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445114"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängden med hjälp av Java
 
@@ -108,6 +108,7 @@ Lägg till följande rader i klassen `LengthSentence`. Observera att du utöver 
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
 ```
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 

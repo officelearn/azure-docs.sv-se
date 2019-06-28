@@ -3,19 +3,19 @@ title: 'Snabbstart: Hämta meningslängder, C# – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att fastställa meningslängd med hjälp av .NET Core och Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 00fe7ce5558672812be7949b8474a403499de94f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 27f515c775d4b1a77563ac10338fc2255e42731c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123385"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448170"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av C#
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du fastställa mening längder med .NET Core C# 7.1
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * C#7.1 eller senare
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
@@ -163,6 +163,8 @@ foreach (BreakSentenceResult o in deserializedOutput)
     Console.WriteLine("The first sentence length is: {0}", o.SentLen[0]);
 }
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 

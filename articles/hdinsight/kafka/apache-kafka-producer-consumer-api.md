@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724149"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446404"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producent- och konsument-API:er
 
@@ -24,14 +24,14 @@ Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-kl
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Förstå koden
 > * Skapa och distribuera programmet
 > * Köra programmet på klustret
 
 Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https://kafka.apache.org/documentation/#producerapi) och [Konsument-API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Apache Kafka på HDInsight 3.6. Läs hur du skapar en Kafka på HDInsight-kluster i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 
@@ -65,8 +65,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
+    `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
 
 * Plugin-program: Maven-plugin-program tillhandahåller flera olika funktioner. I det här projektet används följande plugin-program:
 
@@ -220,10 +219,19 @@ Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. I
 
 Poster som lagras i Kafka lagras i den ordning som de tas emot inom en partition. För att uppnå sorterad leverans av poster *inom en partition* skapar du en konsumentgrupp där antalet konsumentinstanser matchar antalet partitioner. För att uppnå sorterad leverans av poster *i ämnet* skapar du en konsumentgrupp med bara en konsumentinstans.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade HDInsight-klustret och eventuella andra resurser som är associerade med resursgruppen.
+
+Ta bort en resursgrupp med Azure Portal:
+
+1. I Azure Portal expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer sedan __Resursgrupper__ för att visa listan med dina resursgrupper.
+2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen __Mer__ (...) till höger om listan.
+3. Välj __Ta bort resursgrupp__ och bekräfta.
+
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig att använda Apache Kafka-producent- och konsument-API:et med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
 
-* [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
-* [Replikera data mellan Apache Kafka-kluster](apache-kafka-mirroring.md)
-* [Apache Kafka Streams-API med HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)

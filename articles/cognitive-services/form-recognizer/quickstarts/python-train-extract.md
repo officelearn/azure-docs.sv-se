@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b01b42af99575f512ccc76b0a56e4d18106c319f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331809"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441800"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -22,11 +22,11 @@ I den här snabbstarten ska du använda Azure formuläret Igenkännande REST-API
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här snabbstarten måste du ha:
 - Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
+- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [provdatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en resurs för formuläret Igenkännande
 
@@ -53,7 +53,6 @@ För att träna en modell för formuläret Igenkännande med hjälp av dokument 
 
 1. Ersätt `<Endpoint>` med slutpunkts-URL för formuläret Igenkännande resursen i Azure-region där du har fått din prenumerationsnycklar.
 1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Klicka på nästa dialogruta och kopiera värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
 1. Ersätt `<Subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
     ```python
     ########### Python Form Recognizer Train #############
@@ -64,7 +63,7 @@ För att träna en modell för formuläret Igenkännande med hjälp av dokument 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 

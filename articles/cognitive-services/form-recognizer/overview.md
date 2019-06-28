@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fb382227c71fce7ebe062057adf5edfb90a1a92
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 82ee2aa5627ac5fa4584f5af6b6b80cc2813c667
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601619"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441842"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
-Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen genom att använda ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt arbetsflöde eller program. För att komma igång behöver du bara fem formuläret dokument eller ett tomt formulär av samma typ som ditt material som indata. Du kan snabbt få korrekta resultat som är skräddarsydda för din specifikt innehåll utan tunga manuella åtgärder eller omfattande data science-expertis.
+Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen genom att använda ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt arbetsflöde eller program. För att komma igång behöver du bara fem ifyllt formulär dokument eller två ifyllda formulär plus en tom form av samma typ som ditt material som indata. Du kan snabbt få korrekta resultat som är skräddarsydda för din specifikt innehåll utan tunga manuella åtgärder eller omfattande data science-expertis.
 
 ## <a name="request-access"></a>Begär åtkomst
 Formuläret Igenkännande är tillgänglig i en förhandsversion med begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. Formuläret begär information om dig, ditt företag och Användarscenario som du använder formuläret Igenkännande. Om din begäran har godkänts av Azure Cognitive Services-teamet, får du ett e-postmeddelande med instruktioner för att komma åt tjänsten.
@@ -35,22 +35,7 @@ Formuläret Igenkännande är tillgängligt som ett REST-API. Du kan skapa, trä
 
 ## <a name="input-requirements"></a>Krav för indata
 
-Formuläret Igenkännande fungerar på inkommande dokument som uppfyller dessa krav:
-
-* Formatet måste vara JPG, PNG- eller PDF (text eller skannade). Text som är inbäddad PDF-filer är bästa eftersom det finns ingen risk för fel i teckenextrahering och plats.
-* Filstorleken måste vara mindre än 4 MB (megabyte).
-* Storleken måste vara mellan 50 x 50 bildpunkter och 4200 x 4200 bildpunkter för avbildningar.
-* Om genomsökts från pappersdokument vara formulär genomsökningar av hög kvalitet.
-* Text måste använda det latinska alfabetet (engelska tecken).
-* Data måste skrivas (handskriven inte).
-* Data måste innehålla nycklar och värden.
-* Nycklar kan visas ovanför eller till vänster av värden, men inte mindre än eller till höger.
-
-Formuläret Igenkännande stöder inte för närvarande dessa typer av indata:
-
-* Komplexa tabeller (kapslade tabeller, sammanfogade rubriker eller celler och så vidare).
-* Kryssrutorna eller radio knappar.
-* PDF-dokument är längre än 50 sidor.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="where-do-i-start"></a>Vad ska jag börja med?
 
@@ -66,9 +51,9 @@ Vi rekommenderar att du använder den kostnadsfria tjänsten när du håller på
 
 Använd följande API: er för att träna och extrahera strukturerade data från formulär.
 
-| REST API | Beskrivning |
+| REST-API | Beskrivning |
 |-----|-------------|
-| Träna | Skapa en ny modell för att analysera dina formulär med hjälp av fem formulär från samma typ eller ett tomt formulär.  |
+| Träna | Skapa en ny modell för att analysera dina formulär med hjälp av fem typer av samma typ. Eller öva med ett tomt formulär och två fyllts i formulär.  |
 | Analysera  |Analysera ett enskilt dokument som skickats in som en dataström för att extrahera nyckel / värde-par och tabeller i formuläret med din anpassade modell.  |
 
 Utforska den [REST API-referensdokumentet](https://aka.ms/form-recognizer/api). 

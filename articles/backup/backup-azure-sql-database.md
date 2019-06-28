@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: cb8b188f8d5313852ce57481031faafc28e247b3
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204326"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443016"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -59,7 +59,7 @@ Azure Backup har nyligen tillkännagett support för [EOS SQL-servrar](https://d
 2. .NET framework 4.5.2 eller senare måste vara installerad på den virtuella datorn
 3. Säkerhetskopiering för FCI och speglade databaser stöds inte
 
-Alla andra [överväganden och begränsningar](#feature-consideration-and-limitations) gäller även dessa versioner. Kunden debiteras inte för den här funktionen till den tid som är allmänt tillgänglig.
+Användare debiteras inte för den här funktionen till den tid som är allmänt tillgänglig. Alla andra [överväganden och begränsningar](#feature-consideration-and-limitations) gäller även dessa versioner. Referera till den [krav](backup-sql-server-database-azure-vms.md#prerequisites) innan du konfigurerar skydd på SQL-servrar 2008 och 2008 R2 som ingår är att den [registernyckeln](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (det här steget skulle krävs inte när funktionen är allmänt tillgängligt).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Funktionen överväganden och begränsningar
@@ -199,7 +199,7 @@ Alternativt kan du automatisera ge behörigheterna genom att köra följande Pow
 
 ```powershell
 param(
-    [Parameter(Mandatory=$false)] 
+    [Parameter(Mandatory=$false)]
     [string] $InstanceName = "MSSQLSERVER"
 )
 if ($InstanceName -eq "MSSQLSERVER")
@@ -211,7 +211,7 @@ else
     $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch
@@ -220,7 +220,7 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch

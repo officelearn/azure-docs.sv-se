@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/28/2019
-ms.openlocfilehash: cf1ada88cda77091e303e67b9652b9c6a372e2d1
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: d057aa162c5554ed6c568fb765ddb2b84ac92fd6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295379"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448910"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -25,37 +25,37 @@ I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.
 * Generera en jar-fil som kan skickas till HDInsight Spark-kluster.
 * Kör programmet på ett Spark-kluster med Livy.
 
-> [!NOTE]  
-> HDInsight tillhandahåller även ett plugin-verktyg i IntelliJ IDEA som underlättar processen med att skapa och skicka program till ett HDInsight Spark-kluster i Linux. Mer information finns i [Använda HDInsight-verktygsplugin för IntelliJ IDEA till att skapa och skicka Apache Spark-program](apache-spark-intellij-tool-plugin.md).
-
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
+> * Installera plugin-programmet Scala för IntelliJ IDEA
 > * Använda IntelliJ till att utveckla ett Scala Maven-program
+> * Skapa ett fristående Scala-projekt
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+
 * [Oracle Java Development Kit](https://www.azul.com/downloads/azure-only/zulu/).  Den här kursen använder Java version 8.0.202.
+
 * En Java IDE. Den här artikeln använder [IntelliJ IDEA communityversion  2018.3.4](https://www.jetbrains.com/idea/download/).
+
 * Azure Toolkit for IntelliJ.  Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installera plugin-programmet Scala för IntelliJ IDEA
+
 Installera Scala-plugin-programmet via följande steg:
 
 1. Öppna IntelliJ IDEA.
 
 2. På välkomstskärmen går du till **Konfigurera** > **Plugin-program** för att öppna fönstret **Plugin-program**.
-   
+
     ![Aktivera plugin-programmet Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
 
 3. Välj **Installera** för det Scala-plugin-program som visas i det nya fönstret.  
- 
+
     ![Installera plugin-programmet Scala](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
 
 4. Du måste starta om IDE när plugin-programmet har installerats.
-
 
 ## <a name="use-intellij-to-create-application"></a>Använda IntelliJ till att skapa program
 
@@ -124,9 +124,9 @@ Installera Scala-plugin-programmet via följande steg:
 15. Markera kryssrutan **Import Maven projects automatically** (Importera Maven-projekt automatiskt).
 
 16. Tryck på **Tillämpa** och välj sedan **OK**.  Du kommer sedan tillbaka till projektfönstret.
-   
+
     ![Konfigurera Maven för automatisk nedladdning](./media/apache-spark-create-standalone-application/configure-maven.png)
-   
+
 
 17. I den vänstra rutan går du till **src** > **main** > **scala** > **com.microsoft.spark.example** och dubbelklickar på **App** för att öppna App.scala.
 
@@ -154,57 +154,74 @@ Installera Scala-plugin-programmet via följande steg:
           }
         }
 19. I den vänstra rutan dubbelklickar du på **pom.xml**.  
-   
+
 20. I `<project>\<properties>` lägger du till följande segment:
-      
+
           <scala.version>2.11.8</scala.version>
           <scala.compat.version>2.11.8</scala.compat.version>
           <scala.binary.version>2.11</scala.binary.version>
 
 21. I `<project>\<dependencies>` lägger du till följande segment:
-      
+
            <dependency>
              <groupId>org.apache.spark</groupId>
              <artifactId>spark-core_${scala.binary.version}</artifactId>
              <version>2.3.0</version>
            </dependency>
-      
+
     Spara ändringarna i pom.xml.
 
 22. Skapa .jar-filen. Med IntelliJ IDEA går det att skapa JAR-filen som en artefakt av ett projekt. Utför följande steg.
-    
+
     1. På **Arkiv-menyn** väljer du **Projektstruktur...** .
 
     2. I fönstret **Projektstruktur** går du till **Artefakter** > **plustecknet +**  > **JAR** > **From modules with dependencies...** (Från moduler med beroenden...).
-       
+
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. I fönstret **Skapa JAR från moduler** väljer du mappikonen i textrutan **Main Class** (Main-klass).
 
     4. I fönstret **Select Main Class** (Välj Main-klass) väljer du den klass som visas som standard och sedan **OK**.
-       
+
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. I fönstret **Create JAR from Modules** (Skapa JAR-fil från moduler) kontrollerar du att alternativet **Extract to the target JAR** (Extrahera till mål-JAR) är markerat. Välj sedan **OK**.  Den här inställningen skapar en enda JAR-fil med alla beroenden.
-       
+
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. Fliken **Output Layout** (Utdatalayout) visar alla jar-filer som ingår i Maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. För programmet som du skapar här kan du ta bort alla utom den sista (**SparkSimpleApp compile output**). Välj de jar-filer som ska tas bort och välj sedan minustecknet **-** .
-       
+
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/delete-output-jars.png)
-       
+
         Kontrollera att kryssrutan **Include in project build** (Inkludera i projektversionen) är markerad, vilket säkerställer att jar-filen skapas varje gång projektet skapas eller uppdateras. Välj **Applicera** och sedan **OK**.
 
     7. Skapa jar-filen genom att gå till **Skapa** > **Build Artifacts (Skapa artefakter)**  > **Skapa**. Projektet kompileras inom cirka 30 sekunder.  Utdatans jar-fil skapas under **\out\artifacts**.
-       
+
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/output.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Köra programmet på Apache Spark-klustret
+
 Om du vill köra programmet på klustret, kan du använda följande metoder:
 
 * **Kopiera programmets jar-fil till den Azure Storage Blob** som är associerad med klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns även andra klienter som du kan använda för att ladda upp data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
 * **Använd Apache Livy till att skicka ett programjobb via fjärranslutning** till Spark-klustret. Spark-kluster i HDInsight innehåller Livy som gör REST-slutpunkter tillgängliga, så att man kan skicka Spark-jobb via en fjärranslutning. Mer information finns i [Skicka Apache Spark-jobb via fjärranslutning med hjälp av Apache Livy med Spark-kluster i HDInsight](apache-spark-livy-rest-interface.md).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte planerar att fortsätta använda det här programmet, tar du bort klustret som du skapade med följande steg:
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+
+1. I rutan **Sök** längst upp skriver du **HDInsight**.
+
+1. Välj **HDInsight-kluster** under **Tjänster**.
+
+1. I listan över HDInsight-kluster som visas, väljer du den **...**  bredvid det kluster som du skapade för den här kursen.
+
+1. Välj **Ta bort**. Välj **Ja**.
+
+![Ta bort ett HDInsight-kluster](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
 ## <a name="next-step"></a>Nästa steg
 

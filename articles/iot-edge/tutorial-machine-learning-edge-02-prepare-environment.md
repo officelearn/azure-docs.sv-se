@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155704"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432832"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudier: Konfigurera en miljö för machine learning på IoT Edge
 
@@ -190,7 +190,7 @@ Skriptet tar ungefär två minuter för att köra. När du är klar skriptet mat
 
 Som en del av IoT-hubb skapas, det skript som vi körde i föregående avsnitt också skapat en anpassad slutpunkt och en väg. IoT Hub vägar består av ett frågeuttryck och en slutpunkt. Om ett meddelande matchar uttrycket, skickas data längs vägen till den associerade slutpunkten. Slutpunkter kan vara Event Hubs, Service Bus-köer och ämnen. I det här fallet är slutpunkten en Blob-behållare i ett lagringskonto. Vi använder Azure-portalen för att granska den väg som skapats av våra skript.
 
-1. Öppna [Azure-portalen](http://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
 1. Välj alla tjänster från den vänstra navigeringen skriver IoT i sökrutan och väljer **IoT Hub**.
 

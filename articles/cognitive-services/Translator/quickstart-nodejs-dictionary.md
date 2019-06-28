@@ -3,19 +3,19 @@ title: 'Snabbstart: Slå upp ord med en tvåspråkig ordlista, Node.js – Trans
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Node.js och Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 9c1fa5435e8700072a26b1f9b2f00a8db12c20ba
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 3fa8d57f3f94a08bc7a7530dde3ae1080f233533
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514840"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445026"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Node.js
 
@@ -92,9 +92,11 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autentisering
+Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. 
 
-Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i begärandehuvudena. 
+
+Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
 

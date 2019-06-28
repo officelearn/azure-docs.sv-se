@@ -7,24 +7,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: d76ac8cc1673f1df8981a543321d34aa57cd0896
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295485"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446384"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Självstudier: Apache Kafka Streams-API
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Självstudier: Använda Apache Kafka streams-API i Azure HDInsight
 
-Lär dig hur du skapar ett program som använder Apache Kafka Streams-API:et och kör det med Kafka i HDInsight. 
+Lär dig hur du skapar ett program som använder Apache Kafka Streams-API:et och kör det med Kafka i HDInsight.
 
 Programmet som används i den här självstudien är en strömmande ordräkning. Den läser textdata från ett Kafka-ämne, extraherar enskilda ord och lagrar sedan ordet och antalet till ett annat Kafka-ämne.
 
-> [!NOTE]  
-> Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 1.1.0 (i HDInsight 3.5 och 3.6) införde Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning. 
->
-> Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
+Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 1.1.0 (i HDInsight 3.5 och 3.6) införde Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning.
+
+Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
 I den här guiden får du lära dig att:
 
@@ -34,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Kafka-ämnen
 > * Kör koden
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
@@ -68,8 +67,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
+    `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
 
 * Plugin-program: Maven-plugin-program tillhandahåller flera olika funktioner. I det här projektet används följande plugin-program:
 
@@ -206,8 +204,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
    * `RekeyedIntermediateTopic`: Det här ämnet används för att partitionera om data när antalet uppdateras av operatorn `countByKey`.
    * `wordcount-example-Counts-changelog`: Det är ämnet är ett tillståndslager som används av åtgärden `countByKey`
 
-     > [!IMPORTANT]  
-     > Kafka på HDInsight kan också konfigureras för att automatiskt skapa ämnen. Mer information finns i dokumentet [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Konfigurera automatiskt skapande av ämne).
+    Kafka på HDInsight kan också konfigureras för att automatiskt skapa ämnen. Mer information finns i dokumentet [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Konfigurera automatiskt skapande av ämne).
 
 ## <a name="run-the-code"></a>Kör koden
 
@@ -217,8 +214,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > Du får kanske en varning om Apache log4j. Du kan ignorera den.
+    Du får kanske en varning om Apache log4j. Du kan ignorera den.
 
 2. För att skicka poster till ämnet `test` använder du följande kommando för att starta producentprogrammet:
 
@@ -232,8 +228,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > Parametrarna `--property` uppmanar konsolkonsumenten att skriva ut nyckeln (ordet) tillsammans med antalet (värdet). Den här parametern konfigurerar även funktionen för avserialisering som ska användas vid läsning av dessa värden från Kafka.
+    Parametrarna `--property` uppmanar konsolkonsumenten att skriva ut nyckeln (ordet) tillsammans med antalet (värdet). Den här parametern konfigurerar även funktionen för avserialisering som ska användas vid läsning av dessa värden från Kafka.
 
     De utdata som genereras liknar följande text:
    
@@ -250,8 +245,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > Parametern `--from-beginning` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
+    Parametern `--from-beginning` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
 
 4. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.
 
@@ -264,9 +258,19 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade HDInsight-klustret och eventuella andra resurser som är associerade med resursgruppen.
+
+Ta bort en resursgrupp med Azure Portal:
+
+1. I Azure Portal expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer sedan __Resursgrupper__ för att visa listan med dina resursgrupper.
+2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen __Mer__ (...) till höger om listan.
+3. Välj __Ta bort resursgrupp__ och bekräfta.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig använda Apache Kafka Streams-API med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
+I det här dokumentet har du lärt dig använda Apache Kafka Streams-API med Kafka i HDInsight. Använd följande för att lära dig mer om hur du arbetar med Kafka.
 
-* [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
-* [Replikera data mellan Apache Kafka-kluster](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: fb02e569cb764405abc1e69f3ca0c8c3710860ed
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "67134921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435298"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabbstart: Söka efter videor med REST API för videosökning i Bing och PHP
 
@@ -24,7 +24,7 @@ Exempelkoden skrevs för att fungera med PHP 5.6.
 
 Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * PHP 5.6 eller senare
 

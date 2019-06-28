@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061372"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447733"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
@@ -237,7 +237,7 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
 
     ![Hämta information om Azure SQL-server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Hämta information om Azure SQL-server")
 
-    Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följande steg använder [FreeTDS](http://www.freetds.org/) från HDInsight-klustret.
+    Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följande steg använder [FreeTDS](https://www.freetds.org/) från HDInsight-klustret.
 
 5. För att installera FreeTDS använder du följande kommando från en SSH-anslutning till klustret:
 

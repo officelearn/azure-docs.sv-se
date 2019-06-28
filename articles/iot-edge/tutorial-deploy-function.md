@@ -4,23 +4,24 @@ description: I den här självstudien utvecklar du en Azure-funktion som en IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239644"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433067"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure Functions som IoT Edge-moduler
 
-Du kan använda Azure Functions till att distribuera kod som implementerar din affärslogik direkt till dina Azure IoT Edge-enheter. I den här självstudien får du hjälp att skapa och distribuera en Azure-funktion som filtrerar sensordata för den simulerade IoT Edge-enheten. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarten Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här guiden får du lära dig att:     
+Du kan använda Azure Functions till att distribuera kod som implementerar din affärslogik direkt till dina Azure IoT Edge-enheter. I den här självstudien får du hjälp att skapa och distribuera en Azure-funktion som filtrerar sensordata för den simulerade IoT Edge-enheten. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarten Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+>
 > * använda Visual Studio Code till att skapa en Azure-funktion
 > * använda VS Code och Docker till att skapa en Docker-avbildning och publicera den till ett containerregister
 > * distribuera modulen från containerregistret till din IoT Edge-enhet
@@ -38,7 +39,7 @@ Den Azure-funktion du skapar i den här självstudien filtrerar temperaturdata s
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidigare självstudiekursen för att ställa in din utvecklingsmiljö för utveckling av Linux-behållare: [Utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört självstudien bör du har följande krav på plats: 
 
@@ -136,14 +137,14 @@ Vi lägger till ytterligare kod så att meddelanden vid gränsen bearbetar i mod
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ Vi lägger till ytterligare kod så att meddelanden vid gränsen bearbetar i mod
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ Vi lägger till ytterligare kod så att meddelanden vid gränsen bearbetar i mod
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpFunction** som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-I det här avsnittet anger du autentiseringsuppgifterna för ditt containerregister två gånger. Den första gången är för att logga in lokalt från utvecklingsdatorn så att Visual Studio Code kan överföra avbildningar till ditt register. Den andra gången gör du det i **.env**-filen för IoT Edge-lösningen, vilket ger IoT-Edge enheten behörighet att hämta avbildningar från ditt register. 
+I det här avsnittet ska du ange autentiseringsuppgifterna för ditt behållarregister för den andra gången (först som fanns i den **.env** -filen för din IoT Edge-lösning) genom att logga in lokalt från utvecklingsdatorn så att Visual Studio Code kan Överför avbildningar till registret.
 
 1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**. 
 
 2. Logga in i ditt containerregister genom att ange följande kommando i den integrerade terminalen. Använd det användarnamn och den inloggningsserver som du kopierade från Azure-containerregistret när du kopierade den.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    När du uppmanas att ange lösenordet klistra du in lösenordet för containerregistret och trycker på **Retur**.
+    När du uppmanas att ange lösenordet du klistra in lösenordet (den inte är synlig i terminalfönstret) för behållarregister och tryck på **RETUR**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

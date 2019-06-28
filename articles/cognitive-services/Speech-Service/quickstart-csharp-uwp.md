@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 674bb3f22f7b8c7c7ea3b52c2f27d862a9961fcb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 5a42f9196bc7803a794f031819948d50934009f8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466255"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466791"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 
-Snabbstarter kan också användas för [talöversättning](quickstart-translate-speech-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
+Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-csharp-uwp.md), [talöversättning](quickstart-translate-speech-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
 
 Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -30,7 +30,7 @@ I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Window
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

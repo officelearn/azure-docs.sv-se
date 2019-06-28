@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415690"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461539"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 
@@ -24,6 +24,7 @@ Du kan använda Azure Database Migration Service för att migrera databaserna fr
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
+>
 > * Migrera exempel schemat med pg_dump-verktyget.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
@@ -65,11 +66,11 @@ För att slutföra den här kursen behöver du:
 * Skapa en servernivå [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) för Azure Database for PostgreSQL så att Azure Database Migration Service att få åtkomst till måldatabaserna. Ange undernätsintervallet för det virtuella nätverket som används för Azure Database Migration Service.
 * Det finns två metoder för att anropa CLI:
 
-    * Välj knappen Cloud Shell längst upp till höger i Azure Portal:
+  * Välj knappen Cloud Shell längst upp till höger i Azure Portal:
 
        ![Cloud Shell-knappen i Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * Installera och kör CLI lokalt. CLI 2.0 är kommandoradsverktyget för att hantera Azure-resurser.
+  * Installera och kör CLI lokalt. CLI 2.0 är kommandoradsverktyget för att hantera Azure-resurser.
 
        Hämta CLI enligt instruktionerna i artikeln [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Artikeln visas även de plattformar som har stöd för CLI 2.0.
 
@@ -77,9 +78,9 @@ För att slutföra den här kursen behöver du:
 
 * Aktivera logisk replikering i filen postgresql.config och ange följande parametrar:
 
-    * wal_level = **logical**
-    * max_replication_slots = [antal platser], rekommenderad inställning **5 platser**
-    * max_wal_senders = [antalet samtidiga uppgifter] – parametern max_wal_senders anger antal samtidiga aktiviteter som kan köras, rekommenderad inställning är **10 uppgifter**
+  * wal_level = **logical**
+  * max_replication_slots = [antal platser], rekommenderad inställning **5 platser**
+  * max_wal_senders = [antalet samtidiga uppgifter] – parametern max_wal_senders anger antal samtidiga aktiviteter som kan köras, rekommenderad inställning är **10 uppgifter**
 
 ## <a name="migrate-the-sample-schema"></a>Migrera exempelschemat
 
@@ -115,8 +116,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     ```
 
 4. Om du har sekundärnycklar i ditt schema misslyckas den första inläsningen och den kontinuerliga synkroniseringen av migreringen. Kör följande skript i PgAdmin eller i psql för att extrahera skriptet för att släppa sekundärnycklar och skriptet för att lägga till sekundärnycklar vid målet (Azure Database for PostgreSQL).
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
@@ -260,7 +260,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Till exempel skapar följande kommando ett projekt med dessa parametrar:
 
-   * Plats: USA, västra centrala 
+   * Plats: Västra centrala USA
    * Namn på resursgrupp: PostgresDemo
    * Tjänstnamn: PostgresCLI
    * Projektnamn: PGMigration

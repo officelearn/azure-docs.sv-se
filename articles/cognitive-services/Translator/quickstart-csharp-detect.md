@@ -3,19 +3,19 @@ title: 'Snabbstart: Identifiera textspråk, C# – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av .NET Core och Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 76e97a5241c1e39d02d8f33bf1894743d32e6244
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: eaf9fa86437d2c69a9a1a68fba797f69c1339dd1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123405"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448244"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med hjälp av C#
 
@@ -23,7 +23,7 @@ I den här snabbstarten du lär dig hur du identifiera språket för den angivna
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * C#7.1 eller senare
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
@@ -178,6 +178,8 @@ foreach (DetectResult o in deserializedOutput)
 }
 ```
 
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
 Det sista steget är att anropa `DetectTextRequest()` i funktionen `Main`. Leta upp `static void Main(string[] args)` och Ersätt den med den här koden:
@@ -195,7 +197,6 @@ static async Task Main(string[] args)
     await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
 }
 ```
-
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
 Det var allt. Nu är du redo att köra exempelappen. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:

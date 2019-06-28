@@ -7,17 +7,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 64f016ac0fa572cb8cf8504902108cffae267cec
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e9773c2e8f6f8de3a44e45989aa577a5d8c2dcee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293286"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433844"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I den här artikeln får du lära dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
+I den här självstudien får du lära dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
 
 Den här självstudien omfattar följande uppgifter: 
 
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * PowerShell [Az modulen](https://docs.microsoft.com/powershell/azure/overview) installerad.
 
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="create-preliminary-azure-objects"></a>Skapa preliminär Azure objekt
 
-I det här avsnittet ska skapa du olika objekt som ska användas för HDInsight-klustret som du skapar på begäran. Det skapade lagringskontot kommer att innehålla exemplet [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skript (`hivescript.hql`) att du använder för att simulera ett exempel [Apache Hive](https://hive.apache.org/) jobb som körs på klustret.
+I det här avsnittet ska skapa du olika objekt som ska användas för HDInsight-klustret som du skapar på begäran. Det skapade lagringskontot kommer att innehålla exemplet [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skript (`partitionweblogs.hql`) att du använder för att simulera ett exempel [Apache Hive](https://hive.apache.org/) jobb som körs på klustret.
 
 Det här avsnittet använder en Azure PowerShell-skript för att skapa storage-konto och kopiera över filerna som krävs i lagringskontot. Azure PowerShell-exempelskriptet i det här avsnittet utför följande uppgifter:
 
@@ -49,7 +49,7 @@ Det här avsnittet använder en Azure PowerShell-skript för att skapa storage-k
 2. Skapar en Azure-resursgrupp.
 3. Konfigurerar ett Azure Storage-konto.
 4. Skapar en blobbehållare i lagringskontot
-5. Kopierar HiveQL exempelskriptet (**hivescript.hql**) Blob-behållaren. Skriptet finns på [ https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql ](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). Exempelskriptet finns redan i en annan offentlig Blob-behållare. PowerShell-skriptet nedan skapar en kopia av dessa filer till Azure Storage-kontot skapas.
+5. Kopierar HiveQL exempelskriptet (**partitionweblogs.hql**) Blob-behållaren. Skriptet finns på [ https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql ](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). Exempelskriptet finns redan i en annan offentlig Blob-behållare. PowerShell-skriptet nedan skapar en kopia av dessa filer till Azure Storage-kontot skapas.
 
 > [!WARNING]  
 > Storage-kontotyp `BlobStorage` kan inte användas för HDInsight-kluster.
@@ -155,7 +155,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 4. På den **resurser** sida vid sida, visas en resurs i listan om du inte delar resursgruppen med andra projekt. Den här resursen är lagringskontot med det namn du angav tidigare. Välj namnet på lagringskontot.
 5. Välj den **Blobar** paneler.
 6. Välj den **adfgetstarted** behållare. Du ser en mapp med namnet **hivescripts**.
-7. Öppna mappen och kontrollera att den innehåller skript-exempelfilen **hivescript.hql**.
+7. Öppna mappen och kontrollera att den innehåller skript-exempelfilen **partitionweblogs.hql**.
 
 ## <a name="understand-the-azure-data-factory-activity"></a>Förstå Azure Data Factory-aktivitet
 
@@ -290,11 +290,11 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
     1. För **skriptet länkade tjänsten**väljer **HDIStorageLinkedService** från den nedrullningsbara listan. Det här värdet är den länkade storage-tjänst som du skapade tidigare.
 
-    1. För **filsökväg**väljer **Bläddra i lagring** och navigera till den plats där exempel Hive-skriptet är tillgänglig. Om du har kört PowerShell-skriptet tidigare den här platsen måste vara `adfgetstarted/hivescripts/hivescript.hql`.
+    1. För **filsökväg**väljer **Bläddra i lagring** och navigera till den plats där exempel Hive-skriptet är tillgänglig. Om du har kört PowerShell-skriptet tidigare den här platsen måste vara `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Ange information för Hive-skript för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "ange Hive skriptinformation för pipelinen")
 
-    1. Under **Avancerat** > **parametrar**väljer **Autofyll från skript**. Det här alternativet söker efter alla parametrar i Hive-skriptet som du kräver värden vid körning. Skriptet som du använder (**hivescript.hql**) har en **utdata** parametern. Ange den **värdet** i formatet `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` så att den pekar till en befintlig mapp i Azure Storage. Sökvägen är skiftlägeskänslig. Det här är den sökväg där utdata från skriptet kommer att lagras.
+    1. Under **Avancerat** > **parametrar**väljer **Autofyll från skript**. Det här alternativet söker efter alla parametrar i Hive-skriptet som du kräver värden vid körning. Skriptet som du använder (**partitionweblogs.hql**) har en **utdata** parametern. Ange den **värdet** i formatet `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` så att den pekar till en befintlig mapp i Azure Storage. Sökvägen är skiftlägeskänslig. Det här är den sökväg där utdata från skriptet kommer att lagras.
     
         ![Ange parametrar för Hive-skriptet](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "ange parametrar för Hive-skript")
 
@@ -338,7 +338,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
         ![Verifiera utdata för Azure Data Factory-pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "verifiera utdata för Azure Data Factory-pipeline")
 
-## <a name="clean-up-the-tutorial"></a>Rensa vägledningen
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Skapa på begäran HDInsight-kluster behöver du inte uttryckligen tar bort HDInsight-klustret. Klustret tas bort baserat på konfigurationen som du angav när du skapar pipelinen. Även när klustret tas bort, fortsätter de lagringskonton som är kopplat till klustret finns. Det här beteendet är avsiktligt så att du kan hålla dina data intakta. Om du inte vill spara data kan du dock ta bort det lagringskonto du skapade.
 
@@ -356,11 +356,8 @@ Du kan också ta bort hela resursgruppen som du skapade för den här självstud
 
 1. Ange resursgruppens namn att bekräfta borttagning och välj sedan **ta bort**.
 
-
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder Azure Data Factory för att skapa på begäran HDInsight-kluster och kör [Apache Hive](https://hive.apache.org/) jobb. Gå vidare till nästa artikel om du vill lära dig hur du skapar HDInsight-kluster med anpassad konfiguration.
 
 > [!div class="nextstepaction"]
 >[Skapa Azure HDInsight-kluster med anpassad konfiguration](hdinsight-hadoop-provision-linux-clusters.md)
-
-

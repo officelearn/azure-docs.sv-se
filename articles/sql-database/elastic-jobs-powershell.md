@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476076"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445379"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
 [Elastiska jobb](sql-database-job-automation-overview.md#elastic-database-jobs) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
 
-I den här självstudien lär du dig de steg som krävs för att köra en fråga över flera databaser:
+I den här självstudien får du lära dig de steg som krävs för att köra en fråga över flera databaser:
 
 > [!div class="checklist"]
 > * Skapa en elastiskt jobbagent
@@ -35,7 +35,7 @@ I den här självstudien lär du dig de steg som krävs för att köra en fråga
 > * Starta körningen av ett jobb
 > * Övervaka ett jobb
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Uppgradering av Elastic Database-jobb har en ny uppsättning PowerShell-cmdletar för användning under migreringen. Dessa nya cmdletarna överför alla dina befintliga jobbautentiseringsuppgifter mål (inklusive databaser, servrar, anpassade samlingar), jobb-utlösare, scheman för datalagerjobb, jobbet innehållet och jobb över till en ny elastisk jobbagent.
 
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database). 
 
-*Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar även en andra server med 2 tomma databaser att köra jobb mot.*
+*Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar även en andra server med två tomma databaser för att köra jobb mot.*
 
 Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Status för körning av jobb
+
+I följande tabell visas möjliga jobbet körning tillstånd:
+
+|Status|Beskrivning|
+|:---|:---|
+|**Skapat** | Jobbkörningen precis har skapats och är inte ännu pågår.|
+|**Pågår** | Jobbkörningen pågår just nu.|
+|**WaitingForRetry** | Jobbkörningen det gick inte att slutföra åtgärden och väntar på att försöka igen.|
+|**Lyckades** | Jobbkörningen har slutförts.|
+|**SucceededWithSkipped** | Jobbkörningen har slutförts, men några av dess underordnade hoppades över.|
+|**Misslyckades** | Jobbkörningen har misslyckades och Förbrukat dess återförsök.|
+|**TimedOut** | Tidsgränsen har nåtts för jobbkörningen.|
+|**Avbrutet** | Jobbkörningen avbröts.|
+|**Överhoppad** | Jobbkörningen hoppades över eftersom en annan körningen av samma jobbsteget redan körs på samma mål.|
+|**WaitingForChildJobExecutions** | Jobbkörningen väntar dess underordnade körningar att slutföra.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Schemalägga jobb som ska köras senare
 

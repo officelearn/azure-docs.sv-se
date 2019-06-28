@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298f25e151d4c52749d646a9457f0962c68bf4d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106147"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
@@ -35,7 +35,7 @@ Integrera Bonusly med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Bonusly, behöver du följande objekt:
 
@@ -148,7 +148,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Bonusly
 
     c. I den **IDP: N utfärdar** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
     
-    d. Klistra in den **tumavtryck** värdet som har kopierats från Azure-portalen till den **Cert fingeravtryck** textrutan.
+    d. Klistra in den **tumavtryck** värdet som har kopierats från Azure-portalen till den **Cert fingeravtryck** textrutan.
     
     e. Klicka på **Spara**.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443154"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudier: Kopiera data till Azure Data Box via NFS
 
@@ -22,11 +22,11 @@ Den här självstudien beskriver hur du ansluter till och kopierar data från v�
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -88,6 +88,12 @@ När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Gr
 - Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 - Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
 - **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+- Om mata in skiftlägeskänsliga katalogen och filnamnen från en NFS-resurs till NFS på Data Box: 
+    - Fallet bevaras i namnet.
+    - Filerna är skiftlägeskänsliga.
+    
+    Exempel: Om du kopierar `SampleFile.txt` och `Samplefile.Txt`, fallet bevaras i namnet när de kopieras till Data Box men den andra filen skrivs förstnämnda eftersom de anses vara samma fil.
+
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -142,7 +148,7 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

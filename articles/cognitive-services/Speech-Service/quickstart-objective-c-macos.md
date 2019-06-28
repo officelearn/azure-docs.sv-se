@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 3eb65b5d41317a4cfc31917a4b08d931ba9c7aa6
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002341"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466614"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Objective-C på macOS med hjälp av tal-SDK
 
@@ -23,7 +23,7 @@ ms.locfileid: "66002341"
 
 I den här artikeln lär du dig att skapa en macOS-app i Objective-C med hjälp av Cognitive Services tal SDK för att transkribera tal som registrerats från en mikrofon till text.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -67,13 +67,7 @@ I dialogrutorna som följer gör du följande val:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK: N som en CocoaPod
 
 1. Installera Beroendehanteraren CocoaPod enligt beskrivningen i dess [Installationsinstruktioner](https://guides.cocoapods.org/using/getting-started.html).
-1. Gå till katalogen för din exempelapp (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
-    end
-    ```
+1. Gå till katalogen för din exempelapp (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Navigera till den `helloworld` katalogen i en terminal och kör kommandot `pod install`. Detta genererar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempelappen och SDK tal som ett beroende. Den här arbetsytan kommer att användas i följande.
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
@@ -87,7 +81,7 @@ I dialogrutorna som följer gör du följande val:
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
 1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
-1. Skapa och kör exempelkoden genom att välja **produkten** -> **kör** från menyn eller klicka på den **spela upp** knappen.
+1. Skapa och kör exempelkoden genom att välja **produkten** > **kör** från menyn eller klicka på den **spela upp** knappen.
 1. När du klickar du på knappen och säg några ord, bör du se den text som du har talat på den nedre delen av skärmen. När du kör appen för första gången ska du uppmanas att ge appen åtkomst till datorns mikrofon.
 
 ## <a name="next-steps"></a>Nästa steg

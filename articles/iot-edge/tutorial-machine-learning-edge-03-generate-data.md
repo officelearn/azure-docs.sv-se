@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3cf23f491aad1766f2d4087c440cc080dbe345e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057654"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432857"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudier: Generera simulerade enhetsdata
 
@@ -153,7 +153,7 @@ Informationen som vi just skickade till din IoT-hubb har dirigeras till behålla
 
 1. Klicka på någon av dessa mappar och hitta filer med etiketten **00** och **01** för partitionen.
 
-1. Filerna som är skrivna i [Avro](http://avro.apache.org/) formatet, men Dubbelklicka på någon av dessa filer öppnas en annan flik i webbläsaren och delvis återge data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS-kod och det renderas korrekt.
+1. Filerna som är skrivna i [Avro](https://avro.apache.org/) formatet, men Dubbelklicka på någon av dessa filer öppnas en annan flik i webbläsaren och delvis återge data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS-kod och det renderas korrekt.
 
 1. Det finns inget behov av att försök att läsa och tolka data just nu. Vi gör det i nästa artikel.
 

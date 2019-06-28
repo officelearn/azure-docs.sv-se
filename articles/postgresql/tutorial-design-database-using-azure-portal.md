@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 5/16/2019
-ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.date: 06/25/2019
+ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515710"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443104"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure portal
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Skapa en Azure Database för PostgreSQL
@@ -88,7 +88,7 @@ Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå.
 
 2. På serversidan väljer du **Anslutningssäkerhet**. 
 
-3. Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. Ange IP-adressintervall. Klicka på **Spara**.
+3. Klicka i textrutan under **Regelnamn** och Lägg till en ny brandväggsregel för att ange IP-adressintervallet för anslutningen. Ange IP-adressintervall. Klicka på **Spara**.
 
    ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
@@ -113,38 +113,36 @@ När du skapade Azure Database for PostgreSQL-servern, skapades även standardda
    ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Anslut till PostgreSQL-databasen med psql i Cloud Shell
+## <a name="connect-to-postgresql-database-using-psql"></a>Anslut till PostgreSQL-databasen med psql
+Om din klientdator har PostgreSQL installerat kan du använda en lokal instans av [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) eller Azure Cloud Console för att ansluta till en Azure PostgreSQL-server. Nu använder vi psql-kommandoradsverktyget för att ansluta till Azure Database för PostgreSQL-servern.
 
-Nu använder vi [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-kommandoradsverktyget för att ansluta till Azure Database for PostgreSQL-servern. 
-1. Starta Azure Cloud Shell via terminalikonen överst i navigeringsfönstret.
-
-   ![Azure Database för PostgreSQL – Azure Cloud Shell-terminalikonen](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
-
-2. Azure Cloud Shell öppnas i din webbläsare så att du kan skriva bash-kommandon.
-
-   ![Azure Database för PostgreSQL – Azure Shell Bash-prompten](./media/tutorial-design-database-using-azure-portal/8-bash.png)
-
-3. I Cloud Shell-prompten ansluter du till din Azure Database för PostgreSQL-server med psql-kommandona. Följande format används för att ansluta till en Azure Database för PostgreSQL-server med [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget:
-   ```bash
-   psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
+1. Kör följande psql-kommando för att ansluta till en Azure Database for PostgreSQL-databas:
+   ```
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange ditt lösenord för serveradministratören när du uppmanas till detta.
-
-   ```bash
+   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
+  
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-## <a name="create-a-new-database"></a>Skapa en ny databas
-När du är ansluten till servern, skapar du en blank databas i prompten.
-```bash
-CREATE DATABASE mypgsqldb;
-```
+   > [!TIP]
+   > Om du vill använda en URL-sökväg för att ansluta till Postgres URL koda den @-tecknet användarnamn med `%40`. Exempel är anslutningssträngen för psql,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-I prompten kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**.
-```bash
-\c mypgsqldb
-```
+2. När du är ansluten till servern skapar du en tom databas:
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
+
+3. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**:
+   ```sql
+   \c mypgsqldb
+   ```
+
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
 Nu när du vet hur du ansluter till Azure Database for PostgreSQL-databasen, kan du utföra några grundläggande uppgifter:
 

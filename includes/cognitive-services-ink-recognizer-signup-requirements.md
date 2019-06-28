@@ -4,11 +4,11 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2019
-ms.openlocfilehash: 71f6c5790ac98e819a7f251432b7cb0a731adc58
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8ba1f0fdae5e971bae1400f058bfd8ebf40e2590
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187665"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435207"
 ---
-Du måste ha en [Cognitive Services API-konto](../articles/cognitive-services/cognitive-services-apis-create-account.md) med åtkomst till Ink Igenkännande API. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/) kostnadsfritt. Du kan hämta din prenumerationsnyckel från den [Azure-portalen](../articles/cognitive-services/cognitive-services-apis-create-account.md#access-your-resource) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
+Du måste ha en [Cognitive Services API-konto](../articles/cognitive-services/cognitive-services-apis-create-account.md) med åtkomst till Ink Igenkännande API. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/) kostnadsfritt. Du kan hämta din prenumerationsnyckel från den [Azure-portalen](../articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.

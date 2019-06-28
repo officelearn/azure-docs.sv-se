@@ -3,25 +3,25 @@ title: 'Snabbstart: Hämta en lista över språk som stöds, Node.js – Transla
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med Node.js.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 1341307ef3868e5398f8ee6583c8bec9759832f5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cb01269d21d3b036dfff84faef1903dc082dc6f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515163"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445047"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Snabbstart: Använda Translator Text API för att hämta en lista över språk som stöds med Node.js
 
 I den här snabbstarten lär du dig hur du gör en GET-begäran som returnerar en lista över språk som stöds med hjälp av Node.js och Translator Text REST API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -63,6 +63,8 @@ let options = {
     json: true,
 };
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
 

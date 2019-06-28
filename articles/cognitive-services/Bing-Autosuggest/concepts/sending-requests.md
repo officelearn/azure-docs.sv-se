@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449079"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skicka förfrågningar till automatiska förslag i Bing.
 
@@ -95,11 +95,11 @@ I följande exempel visas en begäran som returnerar de föreslagna frågesträn
 
 Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klientens ID-huvud om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
-Följande visar svaret på den föregående begäran. Svaret innehåller en webbförslagsgrupp som innehåller en lista över sökfrågeförslag. Varje förslag innehåller fälten `displayText`, `query` och `url`.
+Följande web förslag grupp är ett svar på begäran. Gruppen innehåller en lista över sökförslag frågan med varje förslag, inklusive en `displayText`, `query`, och `url` fält.
 
 Fältet `displayText` innehåller den föreslagna frågan som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.  
 
-Om användaren väljer en fråga från den nedrullningsbara listan, kan du använda den för att anropa en av de [API: er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultaten själv, eller skicka användaren till Bing resultatsidan med hjälp av den returnerade `url` fält. I följande exempel används Bing Web Search API.
+Om användaren väljer en fråga från den nedrullningsbara listan, kan du använda den för att anropa en av de [API: er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultaten själv, eller skicka användaren till Bing resultatsidan med hjälp av den returnerade `url` fält.
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

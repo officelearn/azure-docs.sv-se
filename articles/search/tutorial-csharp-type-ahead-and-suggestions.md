@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 48dde6ebe19f5a6c14008fd4e5e27a9fb0151928
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304145"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434689"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C#självstudie: Lägg till kommandofönstret Slutför automatiskt och förslag – Azure Search
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Lägg till kommandofönstret Slutför automatiskt
 > * Kombinera kommandofönstret Slutför automatiskt och förslag
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -69,11 +69,11 @@ Funktionen Komplettera automatiskt i skriptet ovan är inte något vi behöver s
     ```cs
     <head>
         <meta charset="utf-8">
-        <title>Autocomplete demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+        <title>Typeahead</title>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"
               rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
@@ -461,9 +461,9 @@ Det finns bibliotek som erbjuder den här funktionen - kallas ofta ”infogade k
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett problem med kommandofönstret Slutför automatiskt och förslag är att de inkluderar upprepade anrop till servern (en på varje tangenttryckning när det minsta antalet tecken har angett har nåtts). Om dessa upprepas anrop resulterar i långsammare än förväntat svar minskar användarupplevelsen. Med hjälp av fasetterna är ett intressant alternativ för att undvika dessa upprepade anrop som vi ska titta på Nästa.
+I nästa självstudie har vi en titt på ett annat sätt att förbättra användarupplevelsen, med hjälp av fasetterna för att begränsa sökningar med ett enda klick.
 
 > [!div class="nextstepaction"]
-> [C#Självstudie: Använd fasetterna för navigering och nätverket effektivitet – Azure Search](tutorial-csharp-facets.md)
+> [C#Självstudie: Använda fasetterna för att underlätta navigering – Azure Search](tutorial-csharp-facets.md)
 
 

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: bc038c863e1afb9313964a6b11365d766e0e8691
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 4e28da9ab9502e2dac4fc08452a46841c4e50b66
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310626"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466795"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -41,9 +41,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 > [!Note]
 > Den här självstudien inte kan utföras med hjälp av **Azure kostnadsfria Testprenumerationen**.
-> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+> Om du har ett kostnadsfritt konto, gå till din profil och ändra prenumerationen på **användningsbaserad**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Sedan [ta bort utgiftsgränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), och [öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för vcpu: er i din region. När du skapar Azure Databricks-arbetsytan kan du välja den **utvärderingsversion (Premium - 14 dagars kostnadsfri Dbu)** standardprisnivån för att ge arbetsyteåtkomst till kostnadsfria Premium Azure Databricks Dbu i 14 dagar.
      
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför de här uppgifterna innan du startar självstudien:
 

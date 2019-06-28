@@ -3,20 +3,20 @@ title: 'Snabbstart: Translator Speech API Node.js'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Translator Speech API.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b79ca4ed259b561fadc4b7fa644b5c136192bb7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16b4ca0375376829c7617b488d16151363dc816
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534090"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442138"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Snabbstart: Translator Speech API med Node.js
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "60534090"
 
 Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Node.js 6](https://nodejs.org/en/download/) för att kunna köra den här koden.
 

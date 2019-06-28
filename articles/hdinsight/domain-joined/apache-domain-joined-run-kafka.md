@@ -6,17 +6,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/24/2019
+ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274345"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441374"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
-Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales*`- och `marketingspend`-ämnen.
+Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales`- och `marketingspend`-ämnen.
 
 I den här guiden får du lära dig att:
 
@@ -26,20 +26,13 @@ I den här guiden får du lära dig att:
 > * Skapa ämnen i ett Kafka-kluster
 > * Testa Ranger-principer
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisite"></a>Krav
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-
-* Logga in på [Azure Portal](https://portal.azure.com/).
-
-* Skapa ett [HDInsight Kafka-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
+En [HDInsight Kafka-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 
-1. Anslut till Ranger-administratörsanvändargränssnittet från en webbläsare med hjälp av URL:en `https://<ClusterName>.azurehdinsight.net/Ranger/`. Kom ihåg att ändra `<ClusterName>` till namnet på ditt Kafka-kluster.
-
-    > [!NOTE]  
-    > Ranger-autentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter använder du ett nytt InPrivate-webbläsarfönster för att ansluta till Ranger-administratörsgränssnittet.
+1. Anslut till Ranger-administratörsanvändargränssnittet från en webbläsare med hjälp av URL:en `https://ClusterName.azurehdinsight.net/Ranger/`. Kom ihåg att ändra `ClusterName` till namnet på ditt Kafka-kluster. Ranger-autentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter använder du ett nytt InPrivate-webbläsarfönster för att ansluta till Ranger-administratörsgränssnittet.
 
 2. Logga in med dina administratörsautentiseringsuppgifter för Azure Active Directory (AD). Azure AD-administratörsautentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för HDInsight-kluster eller SSH-autentiseringsuppgifterna för Linux HDInsight-noder.
 
@@ -47,7 +40,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
 
-Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) för att se hur du skapar domänanvändarna **sales_user** och **marketing_user**. I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
+Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) för att se hur du skapar domänanvändarna **sales_user** och **marketing_user**. I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
 
 ## <a name="create-ranger-policy"></a>Skapa en Ranger-princip
 
@@ -55,11 +48,11 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**.
 
-2. Klicka på **\<ClusterName>_kafka** under **Kafka**. En förkonfigurerad princip kan visas.
+2. Välj  **\<klusternamn > _kafka** under **Kafka**. En förkonfigurerad princip kan visas.
 
-3. Klicka på **Lägg till ny princip** och ange följande värden:
+3. Välj **Lägg till ny princip** och ange följande värden:
 
-   |**Inställning**  |**Föreslaget värde**  |
+   |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
    |Ämne   |  sales* |
@@ -71,16 +64,15 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    * ’*’ anger inga eller flera förekomster av tecken.
    * ’?’ anger ett enskilt tecken.
 
-   ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
+   ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
-   >[!NOTE]
-   >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
+   Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
 
-4. Klicka på **Lägg till** för att spara principen.
+4. Välj **Lägg till** att spara principen.
 
-5. Klicka på **Lägg till ny princip** och ange sedan följande värden:
+5. Välj **Lägg till ny princip** och ange sedan följande värden:
 
-   |**Inställning**  |**Föreslaget värde**  |
+   |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
    |Ämne   |  marketingspend |
@@ -89,7 +81,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
    ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Klicka på **Lägg till** för att spara principen.
+6. Välj **Lägg till** att spara principen.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Skapa ämnen i ett Kafka-kluster med ESP
 
@@ -97,11 +89,11 @@ Så här skapar du de två avsnitten `salesevents` och `marketingspend`:
 
 1. Använd följande kommando för att öppna en SSH-anslutning till klustret:
 
-   ```bash
+   ```cmd
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Ersätt `DOMAINADMIN` med administratörsanvändaren för ditt kluster som konfigurerats under [skapa kluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp), och ersätt `CLUSTERNAME` med namnet på klustret. Ange lösenordet för administratörsanvändarkontot om du uppmanas till det. Mer information om hur du använder `SSH` med HDInsight finns i [Använda SSH med HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix).
+   Ersätt `DOMAINADMIN` med administratörsanvändaren för ditt kluster som konfigurerats under [skapa kluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), och ersätt `CLUSTERNAME` med namnet på klustret. Ange lösenordet för administratörsanvändarkontot om du uppmanas till det. Mer information om hur du använder `SSH` med HDInsight finns i [Använda SSH med HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Använd följande kommandon för att spara klustrets namn som en variabel och installera ett JSON-parsningsverktyg, `jq`. Ange Kafka-klustrets namn när du uppmanas till detta.
 
@@ -116,12 +108,11 @@ Så här skapar du de två avsnitten `salesevents` och `marketingspend`:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   > [!Note]  
-   > Innan du fortsätter kan du behöva konfigurera din distributionsmiljö, om du inte redan har gjort det. Du behöver komponenter som Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i [Installationsinstruktioner](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
-   
+   Du kan behöva ställa in din utvecklingsmiljö om du inte redan har gjort det innan du fortsätter. Du måste komponenter, till exempel Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i [Installationsinstruktioner](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+
 1. Ladda ned [exemplen på Apache Kafka-domänansluten producent/konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Följ steg 2 och 3 under **Skapa och distribuera exemplet** i [Självstudie: Använda Apache Kafka-producenten och konsument-API:er](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Följ steg 2 och 3 under **Skapa och distribuera exemplet** i [Självstudie: Använda Apache Kafka-producenten och konsument-API:er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
 
 1. Kör följande kommandon:
 
@@ -154,7 +145,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
    Exempel: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Följ steg 3 under **Skapa och distribuera exemplet** i [Självstudie: Använd producent- och konsument-API:er för Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) så att `kafka-producer-consumer.jar` också är tillgänglig för **sales_user**.
+4. Följ steg 3 under **Skapa och distribuera exemplet** i [Självstudie: Använd producent- och konsument-API:er för Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) så att `kafka-producer-consumer.jar` också är tillgänglig för **sales_user**.
 
 5. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 
@@ -194,7 +185,17 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
    ![Principgranskning i Ranger-användargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte planerar att fortsätta använda det här programmet, tar du bort Kafka-klustret som du skapade med följande steg:
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. I rutan **Sök** längst upp skriver du **HDInsight**.
+1. Välj **HDInsight-kluster** under **Tjänster**.
+1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 
+1. Klicka på **Ta bort**. Klicka på **Ja**.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ta med din egen nyckel till Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+> [!div class="nextstepaction"]
+> [Ta med din egen nyckel till Apache Kafka](../kafka/apache-kafka-byok.md)

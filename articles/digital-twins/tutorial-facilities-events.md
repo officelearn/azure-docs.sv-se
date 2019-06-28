@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a2364068a1fcba46509408672e5be7440fcfba5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533747"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462246"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Integrera händelser med Azure Event Grid.
 > * Meddela händelser med Logic App.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du har [konfigurerat](tutorial-facilities-setup.md) och [etablerat](tutorial-facilities-udf.md) Azure Digital Twins-konfigurationen. Innan du fortsätter bör du kontrollera att du har:
 
@@ -76,16 +76,16 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Ersätt platshållaren `Primary_connection_string_for_your_Event_Grid` med värdet för **YOUR_KEY_1**.
+1. Ersätt platshållaren `<Primary connection string for your Event Grid>` med värdet för **YOUR_KEY_1**.
 
-1. Ersätt platshållaren `Secondary_connection_string_for_your_Event_Grid` med värdet för **YOUR_KEY_2**.
+1. Ersätt platshållaren `<Secondary connection string for your Event Grid>` med värdet för **YOUR_KEY_2**.
 
-1. Ersätt platshållaren `Event_Grid_Topic_Path` med sökvägen till Event Grid-ämnet. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Ersätt platshållaren för **sökväg** med sökvägen till event grid-ämne. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Ange alla värden utan citattecken. Se till att det finns minst ett blanksteg efter kolonen i YAML-filen. Du kan även verifiera YAML-filinnehållet med hjälp av en YAML-onlineverifierare, till exempel [det här verktyget](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 1. Öppna logikappresursen när den har distribuerats och öppna sedan fönsterrutan **Logic App Designer**. 
 
-1. Välj utlösaren **When an Event Grid event occurs** (När en Event Grid-händelse inträffar). Logga in till din klientorganisation med Azure-kontot när du tillfrågas. Välj **Tillåt åtkomst** för Event Grid när du tillfrågas. Välj **Fortsätt**.
+1. Välj den **när en Event Grid-resurshändelse inträffar** utlösaren. Logga in till din klientorganisation med Azure-kontot när du tillfrågas. Välj **Tillåt åtkomst** för Event Grid om du tillfrågas. Välj **Fortsätt**.
 
 1. I fönstret **When a resource event occurs (Preview)** (När en resurshändelse inträffar (förhandsversion)): 
    
@@ -134,7 +134,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    b. I fältet **Innehåll** markerar du **Brödtext** på listan **Dynamiskt innehåll**.
 
-   c. Markera **Use sample to payload to generate schema** (Använd exempelnyttolast för att generera schema). Klistra in följande JSON-nyttolast och välj sedan **Klar**.
+   c. Välj **Generera schemat genom att använda en exempelnyttolast**. Klistra in följande JSON-nyttolast och välj sedan **Klar**.
 
     ```JSON
     {
@@ -174,7 +174,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    a. Markera **Lägg till en åtgärd** och väljer **Office 365 Outlook**.
 
-   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** när du tillfrågas.
+   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** om du tillfrågas.
 
    c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 
@@ -190,7 +190,7 @@ Om några minuter bör du börja få e-postmeddelanden från den här Logic Apps
 
    ![E-postavisering](./media/tutorial-facilities-events/logic-app-notification.png)
 
-Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i portalen och väljer fönsterrutan **Översikt**. Välj **Inaktivera**.
+Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i portalen och väljer fönsterrutan **Översikt**. Välj **inaktivera**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

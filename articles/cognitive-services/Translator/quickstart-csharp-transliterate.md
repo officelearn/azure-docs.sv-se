@@ -3,19 +3,19 @@ title: 'Snabbstart: Omvandla textskript, C# – Translator Text'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig hur du translittererar (konverterar) text från ett skript till ett annat med hjälp av .NET Core och Translator Text REST API. I det här exemplet translittereras japanska till det latinska alfabetet.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 8e08372e591c9d600b42ae8e66baf7addf7806c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: f09f9081dd535762afd2e26e5e86476eb06f5133
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123376"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445243"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Snabbstart: Använda Translator Text API för att transkribera text med hjälp av C#
 
@@ -23,7 +23,7 @@ I den här snabbstarten du lär dig hur att transkribera (konvertera) text från
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * C#7.1 eller senare
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
@@ -157,6 +157,8 @@ foreach (TransliterationResult o in deserializedOutput)
     Console.WriteLine("Transliterated to {0} script: {1}", o.Script, o.Text);
 }
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 

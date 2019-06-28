@@ -3,19 +3,19 @@ title: 'Självstudier: Skapa en Flask-app för att översätta syntetisera och a
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en Flask-baserad webbapp som använder Azure Cognitive Services för att översätta text, analysera sentiment och syntetisera översatt text till tal. Vår fokus ligger på Python-kod och Flask-vägar som gör att våra program. Vi kommer inte lägger mycket tid på att Javascript som styr appen, men ger alla filer som du kan granska.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 4df2de7f0428ffe35712a29bfef645b6feb66813
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cef747e82e7d039952bec73e822f28eab2adaa97
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515011"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434899"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudier: Skapa en Flask-app med Azure Cognitive Services
 
@@ -44,7 +44,7 @@ Här följer några användbara länkar för dig som vill djupdykning efter den 
 * [Flask-dokumentation](http://flask.pocoo.org/)
 * [Flask för provdockor som placerats – en Nybörjarguide till Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Nu ska vi se tangenterna programvara och prenumeration som du behöver för den här självstudien.
 

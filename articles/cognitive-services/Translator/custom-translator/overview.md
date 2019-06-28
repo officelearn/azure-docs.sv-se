@@ -2,19 +2,19 @@
 title: Vad är Custom Translator?
 titleSuffix: Azure Cognitive Services
 description: Custom Translator har liknande funktioner som Microsoft Translator Hub utför för statistisk maskinöversättning, men exklusivt för NMT-system (Neural Machine Translation – neural maskinöversättning).
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 5ce73e28d25f0e517da08895764adc5a31740a7e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a137c3ff5805a41924cdef609bc072eb029e25ef
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449461"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 

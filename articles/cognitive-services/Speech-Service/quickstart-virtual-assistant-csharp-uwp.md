@@ -11,35 +11,32 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 9d29fdbfc82f221dac3b304dcf9de8c230b4d5e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056791"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467061"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
 
-Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md) och [talöversättning](quickstart-translate-speech-uwp.md).
+Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [talöversättning](quickstart-translate-speech-uwp.md).
 
 I den här artikeln ska du utveckla en C# Universal Windows Platform (UWP)-program med hjälp av den [tal SDK](speech-sdk.md). Programmet ansluter till en tidigare skapade och konfigurerade robot att aktivera en röst-första virtuella assistenter upplevelse från klientprogrammet. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* En Azure-prenumeration-nyckel för Taltjänster i den **westus2** region. Skapa den här prenumerationen på den [Azure-portalen](https://portal.azure.com).
+* En Azure-prenumeration-nyckel för Speech Services. [Skaffa ett kostnadsfritt](get-started.md) eller skapa den på den [Azure-portalen](https://portal.azure.com).
 * En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande endast tillgängliga i den **westus2** region.
-
-    > [!NOTE]
-    > En 30-dagars utvärderingsversion för standardprisnivån som beskrivs i [testa Speech Services kostnadsfritt](get-started.md) är begränsad till **westus** (inte **westus2**) och är därför inte kompatibel med direktanslutning Rad tal. Nivåerna kostnadsfri och standard **westus2** prenumerationer är kompatibla.
+    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
 
 ## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
@@ -63,7 +60,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -111,7 +108,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +227,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +240,31 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     }
     ```
 
-1. Därefter skapar du den `SpeechBotConnector` med din prenumerationsinformation. Lägg till följande metodbrödtexten i `InitializeBotConnector`, ersätta strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`, och `YourServiceRegion` med dina egna värden för din robot, tal-prenumeration och [region](regions.md).
+1. Därefter skapar du den `DialogServiceConnector` med din prenumerationsinformation. Lägg till följande metodbrödtexten i `InitializeDialogServiceConnector`, ersätta strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`, och `YourServiceRegion` med dina egna värden för din robot, tal-prenumeration och [region](regions.md).
 
     > [!NOTE]
-    > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
+    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
 
     > [!NOTE]
     > Information om hur du konfigurerar din robot och hämta en hemlighet channel finns i Bot Framework-dokumentationen för [Direct Line tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret"; // Your channel secret
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägg till hanterare för dessa händelser, lägga till följande i slutet av metodbrödtexten i `InitializeBotConnector`.
+1. `DialogServiceConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägg till hanterare för dessa händelser, lägga till följande i slutet av metodbrödtexten i `InitializeDialogServiceConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +274,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +283,47 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. Med den konfiguration som upprättats och händelsehanterare registrerad, den `SpeechBotConnector` nu bara måste lyssna. Lägg till följande till i brödtexten för den `ListenButton_ButtonClicked` -metod i den `MainPage` klass.
+1. Med den konfiguration som upprättats och händelsehanterare registrerad, den `DialogServiceConnector` nu bara måste lyssna. Lägg till följande till i brödtexten för den `ListenButton_ButtonClicked` -metod i den `MainPage` klass.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -359,10 +356,12 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Skapa och distribuera en grundläggande bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Se också
 
-- [Översätta tal](how-to-translate-speech-csharp.md)
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Om röst första virtuella assistenter](voice-first-virtual-assistants.md)
+- [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
+- [Anpassad aktivering ord](speech-devices-sdk-create-kws.md)
+- [Anslut direkt rad tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003152"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466630"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
@@ -23,7 +23,7 @@ ms.locfileid: "66003152"
 
 I den här artikeln lär du dig att skapa en iOS-app i Objective-C med hjälp av Cognitive Services tal SDK för att transkribera tal till text från mikrofon eller från en fil med ljud.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -67,7 +67,7 @@ I dialogrutorna som följer gör du följande val:
 
 Exempelappen har ett mycket enkelt användargränssnitt: Två knappar för att starta taligenkänning från en fil eller från mikrofonindata och en textetikett för att visa resultatet.
 Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet.
-Öppna XML-vyn av storyboarden genom att klicka på posten `Main.storyboard` i projektträdet och välja **Open As...** > **Source Code** (Öppna som... > Källkod).
+Öppna XML-vyn av storyboarden genom att klicka på posten `Main.storyboard` i projektträdet och välja **Open As...**  > **Source Code** (Öppna som... > Källkod).
 Ersätt den automatiskt genererade XML:en med följande kod:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
@@ -81,7 +81,7 @@ Ersätt den automatiskt genererade XML:en med följande kod:
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
-1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på posten `Info.plist` i projektträdet och välj **Öppna som...** > **Källkod**. Lägg till följande rader i avsnittet `<dict>` och spara sedan filen.
+1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på posten `Info.plist` i projektträdet och välj **Öppna som...**  > **Källkod**. Lägg till följande rader i avsnittet `<dict>` och spara sedan filen.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -90,9 +90,8 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 ## <a name="building-and-running-the-sample"></a>Skapa och köra exemplet
 
 1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
-1. Välj den iOS-simulatorn eller en iOS-enhet är ansluten till din utvecklingsdator som mål för appen från listan i den **produkten** -> **mål** menyn.
-1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Product** -> **Run** (Produkt > Kör) på menyn eller genom att klicka på **uppspelningsknappen**.
-   För närvarande stöder Speech SDK bara 64-bitars iOS-plattformar.
+1. Välj den iOS-simulatorn eller en iOS-enhet är ansluten till din utvecklingsdator som mål för appen från listan i den **produkten** > **mål** menyn.
+1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Product** > **Run** (Produkt > Kör) på menyn eller genom att klicka på **uppspelningsknappen**.
 1. När du har klickat på knappen ”Recognize (File)” (Identifiera (fil)) i appen bör du se innehållet i ljudfilen ”What's the weather like?” (Vad är det för väder?) på den nedre delen av skärmen.
 
    ![Simulerad iOS-app](media/sdk/qs-objectivec-simulated-app.png)

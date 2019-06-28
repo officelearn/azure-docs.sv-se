@@ -3,19 +3,19 @@ title: 'Snabbstart: Konvertera textskript, Go – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du få konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 748754bdeec34d864efd05297664b935a06f1a06
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 65a873744a55539be220560d8d8d062a4d5adaa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515213"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445181"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Snabbstart: Använda Translator Text API till att transkribera text med hjälp av Go
 
@@ -139,6 +139,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
 

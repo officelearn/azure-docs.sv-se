@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: d1d2dcfda401325c9faa1577e08292d7959369f6
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 019e1d382ca3fed4789d7b8c1498b795e1e3e92d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357918"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444938"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Python
 
@@ -94,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Skapa en begäran om att hitta alternativa översättningar
 

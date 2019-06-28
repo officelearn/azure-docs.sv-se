@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239692"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433943"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
-Azure IoT Edge kan göra din IoT-lösning effektivare genom att flytta arbetsbelastningar från molnet till gränsen. Den här funktionen lämpar sig väl för tjänster som bearbetar stora mängder data, till exempel modeller för visuellt innehåll. Med [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) kan du skapa anpassade bildklassificerare och distribuera dem till enheter såsom containrar. Tillsammans gör de här två tjänsterna att du kan få insikter från bilder eller videoströmmar utan att först behöva överföra alla data till annan plats. Custom Vision tillhandahåller en klassificerare som jämför en bild mot en tränad modell att generera insikter. 
+Azure IoT Edge kan göra din IoT-lösning effektivare genom att flytta arbetsbelastningar från molnet till gränsen. Den här funktionen lämpar sig väl för tjänster som bearbetar stora mängder data, till exempel modeller för visuellt innehåll. Med [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) kan du skapa anpassade bildklassificerare och distribuera dem till enheter såsom containrar. Tillsammans gör de här två tjänsterna att du kan få insikter från bilder eller videoströmmar utan att först behöva överföra alla data till annan plats. Custom Vision tillhandahåller en klassificerare som jämför en bild mot en tränad modell att generera insikter.
 
-Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer mer eller mindre trafik än normalt på en motorväg eller huruvida det finns lediga platser på en viss sträcka i ett parkeringshus. Dessa insikter kan delas med en annan tjänst i åtgärdssyfte. 
+Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer mer eller mindre trafik än normalt på en motorväg eller huruvida det finns lediga platser på en viss sträcka i ett parkeringshus. Dessa insikter kan delas med en annan tjänst i åtgärdssyfte.
 
-I den här guiden får du lära dig att: 
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+>
 > * Skapa en bildklassificerare med Custom Vision.
 > * Utveckla en IoT Edge-modul som kör frågor mot Custom Vision-webbservern på din enhet.
 > * Skicka resultaten från bildklassificeraren till IoT Hub.
@@ -36,7 +37,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidigare självstudiekursen för att ställa in din utvecklingsmiljö för utveckling av Linux-behållare: [Utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört självstudien bör du har följande krav på plats: 
 
@@ -72,10 +73,11 @@ När din bildklassificerare har skapats och tränats kan du exportera den som en
    | ----- | ----- |
    | Namn | Ange ett namn för projektet, till exempel **EdgeTreeClassifier**. |
    | Beskrivning | Valfri projektbeskrivning. |
-   | Resursgrupp | Acceptera standardvärdet för **begränsad utvärderingsversion**. |
+   | Resursgrupp | Välj en av dina Azure-resursgrupper som innehåller en Custom Vision Service resurs eller **skapa en ny** om du ännu inte har lagt till en. |
    | Projekttyper | **Klassificering** |
-   | Klassificeringstyper | **Multiklass (enskild tagg per bild)** | 
+   | Klassificeringstyper | **Multiklass (enskild tagg per bild)** |
    | Domäner | **Allmän (kompakt)** |
+   | Exportera funktioner | **Grundläggande plattformar (Tensorflow, CoreML, ONNX,...)** |
 
 5. Välj **Skapa projekt**.
 

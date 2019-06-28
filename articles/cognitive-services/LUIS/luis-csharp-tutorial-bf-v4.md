@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: f74becc24e5d04cefdd05066b8431946578cc35e
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438442"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudier: Använd en Web App-robot som aktiverats med Language Understanding iC#
 
@@ -30,7 +30,7 @@ Använd C# att skapa en chattrobot som är integrerad med språkförståelse (LU
 > * Starta roboten och emulatorn lokalt på datorn
 > * Visa uttrycksresultat i roboten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -358,14 +358,7 @@ Starta roboten i Visual Studio. Ett webbläsarfönster öppnas med webbappsrobot
 
     [![Svar från grundläggande robot i emulatorn](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-## <a name="learn-more-about-the-web-app-bot-and-framework"></a>Läs mer om Web App-robot och ramverk
-
-Azure Bot Service använder Bot Framework SDK. Lär dig mer om SDK och Bot Framework:
-
-* Dokumentation om [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
-* [Bot Builder-exempel](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder C# SDK](https://github.com/Microsoft/botbuilder-dotnet)
-* [Bot Builder-verktyg](https://github.com/Microsoft/botbuilder-tools):
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

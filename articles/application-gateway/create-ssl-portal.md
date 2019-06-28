@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed4230969e81eee0d77b7e4b69eac3a264068388
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66134410"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449169"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Självstudier: Konfigurera en Programgateway med SSL-avslutning med Azure portal
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
 
@@ -54,9 +54,9 @@ PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
-
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
 ```
+
+Använd [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades för att exportera en pfx-fil från certifikatet:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -81,7 +81,7 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.
 
-     ![Skapa virtuellt nätverk](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Skapa det virtuella nätverket](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Välj **OK** att skapa virtuellt nätverk och undernät.
 7. Välj **välja en offentlig IP-adress**väljer **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.

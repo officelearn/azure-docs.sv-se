@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117593"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435439"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudier: Skapa en anpassad avbildning och kör i App Service från ett privat register
 
-[App Service](app-service-linux-intro.md) tillhandahåller fördefinierade Docker-avbildningar i Linux med stöd för specifika versioner, till exempel PHP 7.0 och Node.js 4.5. App Service använder teknik för Docker-behållare för att vara värd för inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör det i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
+[App Service](app-service-linux-intro.md) tillhandahåller fördefinierade Docker-avbildningar i Linux med stöd för specifika versioner, till exempel PHP 7.3 och Node.js 10.14. App Service använder teknik för Docker-behållare för att vara värd för inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör det i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
 I den här guiden får du lära dig att:
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -211,7 +211,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Konfigurera autentiseringsuppgifter för registret i webbapp
 
-För App Service för att hämta privat avbildning, måste den information om ditt register och bild. I Cloud Shell tillhandahåller dem med den [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) kommando. Ersätt  *\<appens namn->*,  *\<azure-container-registret-name >*,  _\<registry-username >_, och  _\<lösenord >_.
+För App Service för att hämta privat avbildning, måste den information om ditt register och bild. I Cloud Shell tillhandahåller dem med den [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) kommando. Ersätt  *\<appens namn->* ,  *\<azure-container-registret-name >* ,  _\<registry-username >_ , och  _\<lösenord >_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

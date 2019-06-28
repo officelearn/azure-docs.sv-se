@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 837a47b0eb1eff37eeafc1cdaad6370b8abc595f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2abab9db46c9ca5bf52ed613b28d698550adaf6a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60824835"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447021"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Ruby
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Ruby-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Ruby-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ruby 2.4 eller senare
 

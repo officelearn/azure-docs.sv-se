@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 27aa0012023f99702cd435f309e44b3330681aee
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5fb6b2b349712a04b79564f9b748538a5cc32d73
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "67134986"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446992"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Snabbstart: Utför en videosökning med SDK:t Videosökning i Bing för Python
 
-Använd den här snabbstarten till att börja söka efter nyheter med SDK:t Videosökning i Bing för Python. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Den innehåller fler kommentarer och funktioner.
+Använd den här snabbstarten till att börja söka efter nyheter med SDK:t Videosökning i Bing för Python. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) med ytterligare kommentarer och funktioner.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python](https://www.python.org/) 2.x eller 3.x
 - SDK:t Videosökning i Bing för Python

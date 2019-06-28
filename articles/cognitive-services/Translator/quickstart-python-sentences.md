@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 2aede18f3b093f52a205e053c72cac5a2e6e6b1b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: eddad0efae0a6de691cc55020c0e01742960cb18
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357885"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444887"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Python
 
@@ -94,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-determine-sentence-length"></a>Skapa en begäran för att fastställa meningslängd
 

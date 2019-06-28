@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 738e78ce06d98960c87414948e045cc4abe37d6b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533544"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462190"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudier: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudier: Etablera dina att skapa och arbeta villkor med digitala Twins förhandsversionen av Azure monitor
 
-Den här kursen visar hur du använder Azure Digital Twins för att övervaka dina utrymmen för önskad temperatur och komfort. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
+Den här självstudien visar hur du använder Azure Digital Twins förhandsversion för att övervaka dina adressutrymmen för önskad temperatur och komfort. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
 I den här guiden får du lära dig att:
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Simulera sensordata.
 > * Hämta resultat från en användardefinierad funktion.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-konfigurationen](tutorial-facilities-setup.md). Innan du fortsätter bör du kontrollera att du har:
 
@@ -43,14 +43,14 @@ Du kan definiera en uppsättning specifika villkor för att övervaka i enheten 
 
 Från exempelprojektet **occupancy-quickstart** öppnar du filen **src\actions\provisionSample.yaml** i Visual Studio Code. Tänk på att avsnittet börjar med typen **matchare**. Varje post under den här typen som skapar en matchare med det angivna **namnet**. Matcharen övervakar en sensor av typen **dataTypeValue**. Observera hur den relaterar till området med namnet *Focus Room A1*, som har en **enhetsnod** som innehåller några sensorer. Om du vill etablera en matchare som spårar en av dessa sensorer ser du till att dess **dataTypeValue** matchar sensorns **dataType**. 
 
-Lägg till följande matchare under de befintliga matcharna. Kontrollera att nycklarna är justerade och att blankstegen inte ersätts av tabbar.
+Lägg till följande matchare under de befintliga matcharna. Kontrollera att nycklarna är justerade och att blankstegen inte ersätts av tabbar. Dessa rader finns också i filen *provisionSample.yaml* som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Matcharen spårar sensorn SAMPLE_SENSOR_TEMPERATURE som du lade till i [den första självstudien](tutorial-facilities-setup.md). Dessa rader finns också i filen *provisionSample.yaml* som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad.
+Matcharen spårar sensorn SAMPLE_SENSOR_TEMPERATURE som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 

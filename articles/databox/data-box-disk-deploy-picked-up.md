@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147511"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448217"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
 
@@ -25,7 +25,7 @@ Detta är den sista självstudien i serien: Distribuera Azure Data Box Disk. I d
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box-disk
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md).
 
@@ -88,7 +88,7 @@ Gör följande om enheten och returnerar Europa.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Hämta i Asien / Stillahavsområdet
 
-Den här regionen innehåller anvisningar för hämtning i Japan, Sydkorea och Australien.
+Den här regionen innehåller anvisningar för hämtning i Japan, Sydkorea, Australien och Singapore.
 
 #### <a name="pick-up-in-australia"></a>Hämta i Australien
 
@@ -103,43 +103,64 @@ Azure-datacenter i Australien har ett meddelande om ytterligare säkerhet. Alla 
 
 #### <a name="pick-up-in-japan"></a>Hämta i Japan
 
-1. Se till att inkludera returnerade connote av Japan Post Chakubarai.
-2. Skriv ditt företag namn och adress information på connote som denna information.
-3. Ring Japan Post upphämtningsförfrågan nummer 0800 0800 111 (kostnadsfri begäran). Ring 7 siffror postnummer för upphämtning adress och sedan vidarebefordra till närmaste post kontoret.
-    - Tillgängliga tider för förfrågan om upphämtning beror på respektive post kontor.
-    - Informera att leveransen finns för Japan Post Chakubarai Yu-paket.
-    - Använd Chakubarai betyder som har inkluderats.
-4. Om Japan Post Chakubarai betyder var inte ingår, e- *Quantium lösningar* på `Customerservice.JP@quantiumsolutions.com`. *Quantium lösningar* begär Japan inlägg att hämta och be dem att ta med connote vid hämtning.
-    - Ange referens nummer på Chakubarai betyder kommentar kolumnen som Japan Post kommer att få.
-    - Ange leveransadressen som visas nedan:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Skriv ditt företag namn och adress information på sändningen kommentaren som denna information.
+2. E-Quantium lösning med hjälp av följande e-postmallen.
 
-Om Chakubarai betyder saknas, kan du begära hämtning via e-post. Du kan använda följande e-postmallen för att begära hämtning.
+    - Om Japan Post Chakubarai sändningen kommentar inkluderades eller saknas, Tänk på att i det här e-post. Quantium lösningar Japan begär Japan Post att sändningen Obs vid hämtning.
+    - Om du har flera order, e-postmeddelande för att säkerställa att enskilda hämtning.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Få en e-postbekräftelse från Quantium lösningar när du har bokade hämtning. E-postbekräftelse innehåller också information om Chakubarai sändningen anteckningen.
+
+Om det behövs kan du kontakta Quantium lösningssupport (japanska) på följande information: 
+
+- E-postadress:Customerservice.JP@quantiumsolutions.com 
+- Telefon: 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Hämta i Sydkorea
 
-1. Se till att inkludera returnerade connote.
-2. Att begära hämtning:
-    1. Anropa *Quantium lösningar International* ditt lokala 070 8231 1418 under kontorstid (10 AM till 17: 00, måndag till fredag). Citera *Microsoft upphämtning* och connote talet att ordna för en samling.  
-    2. Om i ditt lokala är upptagen, e- `microsoft@rocketparcel.com`, med e-postämnet *Microsoft Pickup* och connote många som referens.
+1. Se till att inkludera returnerade sändningen anteckningen.
+2. Att begära hämtning vid sändning Observera finns:
+    1. Anropa *Quantium lösningar International* ditt lokala 070 8231 1418 under kontorstid (10 AM till 17: 00, måndag till fredag). Citera *Microsoft Azure upphämtning* och begäran numret på Ordna för en samling.  
+    2. Om i ditt lokala är upptagen, e- `microsoft@rocketparcel.com`, med e-postämnet *Microsoft Azure upphämtning* och numret för service-begäran som referens.
     3. Om bud inte har kommit för samlingen, anropa *Quantium lösningar International* ditt lokala alternativa regler. 
+    4. Du får en e-postbekräftelse för upphämtning schemat.
+3. Utför det här steget endast om sändningen kommentaren inte finns. Att begära hämtning:
+    1. Anropa *Quantium lösningar International* ditt lokala 070 8231 1418 under kontorstid (10 AM till 17: 00, måndag till fredag). Citera *Microsoft Azure upphämtning* och begäran numret på Ordna för en samling. Ange att du behöver en ny anteckning sändningen ordna för en samling. Ange avsändaren (kund), mottagare information (Azure-datacenter) och referensnummer (service begäran nummer). 
+    2. Om i ditt lokala är upptagen, e- `microsoft@rocketparcel.com`, med e-postämnet *Microsoft Azure upphämtning* och numret för service-begäran som referens.
+    3. Om bud inte har kommit för samlingen, anropa *Quantium lösningar International* ditt lokala alternativa regler. 
+    4. Ett bekräftelsemeddelande fullvärdig om begäran görs via telefon.
+
+### <a name="pick-up-in-singapore"></a>Hämta i Singapore
+
+1. Skriva ut adressetikett och Anslut till box. Om etiketten är skadad eller tappas bort:
+    - Öppna **Översikt > Ladda ned adressetikett**.
+
+        ![Ladda ned adressetikett](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Den här åtgärden laddar ned en adressetikett. Se nedan.
+
+        ![Exempel på fraktsedel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Fästa etikett på enheten. Kontrollera att etiketten är synligt.
+
+2. Att begära hämtning:
+    - Anropa **SingPost** ditt lokala **6845 6485** under kontorstid (9: 00 till 17: 00, måndag till fredag).  
+    - Citera *Microsoft Azure upphämtning* och tjänsten begära antal (spårningsnummer på returetiketten) för att ordna för en samling. 
+    - Du får en fullvärdig bekräftelse för upphämtning schemat. 
+    - Om bud inte har kommit för samlingen, anropa **SingPost** på **6845 6485** för alternativa åtgärder. 
+3. Överlämna till bud. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure
 

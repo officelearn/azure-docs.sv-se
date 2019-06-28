@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 126bb05109e624fb1198ea16b07cd7836103f9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100866"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudier: Azure Active Directory-integrering med HR2day av Merces
 
@@ -34,7 +34,7 @@ Integrera HR2day av Merces med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med HR2day av Merces, behöver du följande objekt:
 
@@ -112,7 +112,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med HR2day 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Din HR2day av Merces program förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. Din HR2day av Merces program förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-hr2day-by-merces-test-user"></a>Skapa HR2day av Merces testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i HR2day av Merces. Arbeta med [HR2day av Merces supportteam](mailto:servicedesk@merces.nl) att lägga till användare i HR2day av Merces-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i HR2day av Merces. Arbeta med [HR2day av Merces supportteam](mailto:servicedesk@merces.nl) att lägga till användare i HR2day av Merces-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
 > Om du vill skapa en användare manuellt kan du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl).

@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa, läsa in och fråga ett index i Azure portal – Azure Search'
-description: Skapa och avfråga ditt första index i Azure Search med hjälp av inbyggda exempeldata och guiden Importera Data i Azure-portalen.
+title: 'Snabbstart: Skapa, läsa in och fråga ett index med hjälp av Azure portal – Azure Search'
+description: Använd guiden Importera Data i Azure-portalen för att skapa, läsa in och fråga din första Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 90857ec2fabb1b807d3e3001f99ea3897d7d628a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606457"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443856"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -38,7 +38,7 @@ Om verktygen är för begränsade kan du prova en [kodbaserad introduktion till 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
 
@@ -200,7 +200,7 @@ Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för at
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Exempel (fasetterat med områdesreducering): `search=*&facet=city&$top=2`
 
-* **search=*** är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Om du exempelvis vill att en fasetterande navigeringsstruktur ska bestå av alla städer i indexet.
+* **search=** * är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Om du exempelvis vill att en fasetterande navigeringsstruktur ska bestå av alla städer i indexet.
 
 * **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorier på antalet städer. Det finns ingen aggregering i Azure Search, men du kan uppskatta aggregering via `facet`, som ger en uppräkning av dokument i varje kategori.
 

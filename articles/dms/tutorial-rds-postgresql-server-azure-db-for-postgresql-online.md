@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 1ee4d546ce823f48a597331276813b42d91e01e4
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 17fb83bc845de61f7ec0e674f09c0dc73537f2fd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461586"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera Fjärrskrivbordstjänster PostgreSQL till Azure Database för PostgreSQL online med DMS
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 
 Den här artikeln beskriver hur du utför en online-migrering från en lokal instans av PostgreSQL till Azure Database för PostgreSQL.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -54,7 +54,7 @@ För att slutföra den här kursen behöver du:
 
 * Skapa en instans av [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Se detta [avsnittet](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) i dokumentet för information om hur du ansluter till PostgreSQL-servern med hjälp av pgAdmin.
 * Skapa ett Azure-nätverk (VNet) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen, som tillhandahåller plats-till-plats-anslutning till dina lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i den [dokumentation om virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/), och särskilt artiklarna i snabbstarten med stegvis information.
-* Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445 och 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Kontrollera att dina VNET-regler för nätverkssäkerhetsgruppen inte blockerar följande portar för inkommande kommunikation: 443, 53, 9354, 445 och 12000. Mer information om Azure VNet NSG-trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Öppna din Windows-brandväggen så att Azure Database Migration Service åtkomst till källservern PostgreSQL, vilket som standard är TCP-port 5432.
 * När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
@@ -103,23 +103,31 @@ För att slutföra den här kursen behöver du:
     ```
 
 4. Om du har sekundärnycklar i ditt schema misslyckas den första inläsningen och den kontinuerliga synkroniseringen av migreringen. Kör följande skript för att extrahera skriptet släpp främmande nycklar och Lägg till främmande nycklar skript vid målet (Azure Database för PostgreSQL), i PgAdmin eller i psql:
-
+  
     ```
-    SET group_concat_max_len = 8192;
-        SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
+    SELECT Queries.tablename
+           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
+                ,concat('alter table ', Queries.tablename, ' ',
+                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
         FROM
         (SELECT
-        KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-        KCU.TABLE_NAME,
-        KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-        WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = 'sakila') Queries
-      GROUP BY SchemaName;
+        tc.table_schema,
+        tc.constraint_name as foreignkey,
+        tc.table_name as tableName,
+        kcu.column_name,
+        ccu.table_schema AS foreign_table_schema,
+        ccu.table_name AS foreign_table_name,
+        ccu.column_name AS foreign_column_name
+    FROM
+        information_schema.table_constraints AS tc
+        JOIN information_schema.key_column_usage AS kcu
+          ON tc.constraint_name = kcu.constraint_name
+          AND tc.table_schema = kcu.table_schema
+        JOIN information_schema.constraint_column_usage AS ccu
+          ON ccu.constraint_name = tc.constraint_name
+          AND ccu.table_schema = tc.table_schema
+    WHERE constraint_type = 'FOREIGN KEY') Queries
+      GROUP BY Queries.tablename;
     ```
 
 5. Kör drop-sekundärnyckeln (vilket är den andra kolumnen) i frågeresultatet att släppa den externa nyckeln.

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 123a05012db1494799bf523bda2972a18c8f2ff4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3b8f0c93e596185f4446d4058641b2efc45ce4a5
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465614"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467075"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Snabbstart: Översätt tal med Speech-SDK för C# (UWP)
 
-Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
+Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
 
 I den här snabbstarten skapar du ett enkelt Universal Windows Platform-program (UWP) som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är gjort att köras på 64-bitars Windows och är skapat med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
 
@@ -28,7 +28,7 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 > [!NOTE]
 > Med UWP kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

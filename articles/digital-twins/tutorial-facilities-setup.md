@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f826c6652937caab8b140b489626eef97612baea
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534648"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462211"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera digitala Twins förhandsversion av Azure och konfigurera ett spatial diagram
 
-Du kan använda Azure Digital Twins-tjänsten till att samla personer, platser och enheter i ett sammanhängande rumsligt system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
+Du kan använda Azure Digital Twins förhandsversionen av tjänsten samla personer, platser och enheter i ett sammanhängande spatial system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
 Dessa självstudier går igenom ett .NET-konsolprogram för att skapa ett scenario för en kontorsbyggnad. Den här byggnaden har flera våningar och rum på varje våning. Rummen innehåller enheter med kopplade sensorer som identifierar rörelse, omgivningstemperatur och luftkvalitet. 
 
@@ -35,7 +35,7 @@ I seriens första kurs lär du dig följande:
 
 I de här kurserna används och ändras samma exempel som i [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md), för en mer detaljerad och djupgående täckning av de här begreppen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett Azure-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -103,7 +103,7 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
 1. I Visual Studio Code öppnar du filen [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) i projektet **occupancy-quickstart**. Uppdatera följande värden:
    * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#permissions).
    * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#permissions).
-   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/**.
+   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/** .
 
 1. Se en lista över Digital Twins-funktioner som du kan utforska med hjälp av exemplet. Kör följande kommando:
 

@@ -159,7 +159,7 @@ Om det finns redan en loggprofil, måste du först ta bort den befintliga log-pr
     | locations |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
     | days |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 365. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
     |enabled | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
-    | kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
+    | categories |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
 
 
 
@@ -236,7 +236,7 @@ Elementen i den här JSON beskrivs i följande tabell.
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
 | identity |JSON-blob som beskriver auktorisering och anspråk. |
 | authorization |BLOB för RBAC egenskaper för händelsen. Vanligtvis inkluderar egenskaper för ”action”, ”roll” och ”omfång”. |
-| nivå |Nivån på händelsen. En av följande värden: _Kritiska_, _fel_, _varning_, _endast i informationssyfte_, och _utförlig_ |
+| level |Nivån på händelsen. En av följande värden: _Kritiska_, _fel_, _varning_, _endast i informationssyfte_, och _utförlig_ |
 | location |Region i platsen uppstod (eller global). |
 | properties |Uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver informationen om händelsen. |
 
